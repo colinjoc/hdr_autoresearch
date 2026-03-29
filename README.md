@@ -115,13 +115,3 @@ Point an AI coding agent at `program.md` and it will:
 3. **Knowledge accumulation**: Build up `knowledge_base.md` so no finding is lost and no dead idea is retested
 
 The agent modifies only `strategy.py` during experiments. Everything else is either infrastructure (fixed after setup) or documentation (append-only knowledge).
-
-## Origin
-
-This framework was extracted from a research project on tokamak plasma disruption prediction using the [DisruptionBench](https://github.com/MIT-PSFC/disruption-bench) benchmark (MIT PSFC, 2025). Over 8 HDR cycles, the methodology achieved:
-
-- Mean AUC: 0.84 -> 0.93 (+11%)
-- Mean F2: 0.69 -> 0.87 (+26%)
-- Beat all published baselines (Random Forest, GPT-2, HDL, CCNN)
-
-The domain-specific content was removed and the methodology generalized for any scientific prediction problem.
