@@ -47,17 +47,17 @@ The literature review should specifically identify **derived features worth comp
 
 **High-value features (almost always help):**
 - Non-dimensional groups from domain theory (Reynolds number, Damkohler number, etc.)
-- Condition/regime indicators (features that encode WHICH configuration the data comes from -- e.g., equivalence ratio, filter size)
-- Physically meaningful ratios/products that encode domain knowledge (e.g., P/(T*RHO) encodes gas composition via the ideal gas law)
+- Condition/regime indicators (features that encode WHICH configuration or operating regime the data comes from)
+- Physically meaningful ratios/products that encode domain knowledge not obvious from raw inputs alone
 - Alignment/angle features (cosine of angle between two vector fields)
 
 **Low-value features (network can learn these itself):**
-- Simple products of existing inputs (rho * gradient -- the network learns this interaction)
+- Simple products of existing inputs (the network learns these interactions on its own)
 - Magnitude of a vector whose components are already inputs
 - Monotonic transforms of existing features (log(x) when x is already an input)
 
 **Features that often hurt:**
-- Raw component features when a derived scalar already captures the information (adding C_grad_X/Y/Z when C_grad magnitude + alignment are already features)
+- Raw component features when a derived scalar already captures the information (e.g., adding vector components when magnitude + alignment are already features)
 - High-cardinality features that fragment the data
 - Features that vary across configs in ways that break generalization (per-config statistics)
 
@@ -97,7 +97,7 @@ Before running any experiments, **audit the baseline code and understand the sco
 ### 1. Verify the Baseline Code
 
 Read every line of the starter code / evaluation harness. Look for:
-- **Bugs**: off-by-one errors, missing dimensions, wrong indices. In the CYPHER project, the baseline loss function trained on only 2 of 3 flux components -- fixing this was experiment 1 (free improvement).
+- **Bugs**: off-by-one errors, missing dimensions, wrong indices, mismatched slicing between training loss and evaluation metric. Fixing bugs is always the highest-ROI experiment.
 - **Suboptimal defaults**: data subsampling that throws away most of the data, fixed seeds, commented-out features, hardcoded paths.
 - **Missing features**: the baseline typically uses a minimal feature set. Note all available inputs that aren't used.
 
@@ -111,7 +111,7 @@ If the scoring metric is composite (e.g., `score = w1 * accuracy + w2 * speed`),
 Score = Component_A (X% of total) + Component_B (Y% of total) + ...
 ```
 
-This determines the priority order for the entire project. In the CYPHER project, MSE was 91% of the score and inference time was 9% -- but we didn't decompose until experiment 8. Earlier decomposition would have saved us from premature speed optimization.
+This determines the priority order for the entire project. **Decompose the score BEFORE running any experiments.** Without this, you risk spending experiments optimizing a component that contributes <10% of the total score.
 
 Record the decomposition in `knowledge_base.md`.
 
@@ -131,7 +131,7 @@ Audit how much data is actually used:
 - Are some configs/classes/domains underrepresented?
 - Could using more data (or better-balanced data) improve results?
 
-In the CYPHER project, the baseline subsampled to 150k points per config (900k total) from 7.8M available. Using 500k/config (2.5M total) with balanced sampling gave the single biggest improvement after feature engineering.
+Baselines often aggressively subsample data for simplicity. Using more data (with balanced sampling across configs/classes) is frequently one of the biggest single improvements after feature engineering.
 
 ### 5. Deployment Constraints
 
@@ -158,7 +158,7 @@ If training locally with GPU but deploying on CPU, implement **adaptive inferenc
 
 ### Why This Matters
 
-In the CYPHER turbulence closure project, we spent 50 experiments optimizing an MLP and only tried XGBoost once (quickly reverted due to one metric). We never gave alternative approaches equal optimization effort. This is a common failure mode: the first approach that works captures all subsequent attention.
+The greedy commit/revert mechanism causes a common failure mode: the first approach that works captures all subsequent attention, and alternative model families never get equal optimization effort. The tournament prevents this.
 
 ### The Tournament Protocol
 
@@ -263,7 +263,7 @@ Each experiment follows an 8-step hypothesis cycle. The agent never hill-climbs 
 Not all experiment types have equal expected value. Based on empirical results from multiple autoresearch projects, the priority order is:
 
 1. **Fix bugs in baseline** (highest ROI -- free improvements)
-2. **Physics-informed derived features** (biggest MSE improvements; features the network can't learn on its own like R_spec = P/(T*RHO) for encoding equivalence ratio)
+2. **Domain-informed derived features** (biggest metric improvements; features that encode non-obvious domain knowledge the model can't learn from raw inputs alone)
 3. **Data utilization** (use more data, better sampling, balanced configs)
 4. **Training improvements** (more epochs, learning rate schedule, weight decay)
 5. **Output transform tuning** (log scaling factor, target normalization)
@@ -271,7 +271,7 @@ Not all experiment types have equal expected value. Based on empirical results f
 7. **Speed optimization** (only after MSE is near its floor; fast inference, fast data loading)
 8. **Ensemble methods** (diminishing returns, inference penalty)
 
-**Key insight**: derived features that encode domain knowledge are almost always more valuable than architecture changes. The network CAN learn `x*y` from inputs `x` and `y`, but providing `x*y` directly as a feature saves capacity and improves generalization. However, features that are simple products of existing inputs (like `rho * C_grad`) typically DON'T help because the network learns these interactions easily. The valuable features are those that encode **non-obvious domain knowledge** (physical invariants, non-dimensional groups, regime indicators).
+**Key insight**: derived features that encode domain knowledge are almost always more valuable than architecture changes. The model CAN learn `x*y` from inputs `x` and `y`, but providing `x*y` directly as a feature saves capacity and improves generalization. However, features that are simple products of existing inputs typically DON'T help because the model learns these interactions easily. The valuable features are those that encode **non-obvious domain knowledge** (physical invariants, non-dimensional groups, regime indicators, condition encodings).
 
 ### Principles
 
