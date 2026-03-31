@@ -70,7 +70,70 @@ The literature review feeds directly into the HDR loop:
 
 ---
 
-## The HDR Loop
+## Phase 1: Model Selection Tournament
+
+**CRITICAL: Do NOT skip this phase.** The commit/revert mechanism in the HDR loop creates greedy lock-in -- once an approach works, you hill-climb within it and never explore alternatives seriously. This phase prevents that by forcing a fair comparison across fundamentally different model families BEFORE committing to one.
+
+### Why This Matters
+
+In the CYPHER turbulence closure project, we spent 50 experiments optimizing an MLP and only tried XGBoost once (quickly reverted due to one metric). We never gave alternative approaches equal optimization effort. This is a common failure mode: the first approach that works captures all subsequent attention.
+
+### The Tournament Protocol
+
+1. **Select 3-5 fundamentally different model families.** "Fundamentally different" means different inductive biases, not hyperparameter variations. Examples:
+   - Neural network (MLP, CNN, etc.)
+   - Gradient boosted trees (XGBoost, LightGBM)
+   - Kernel methods (SVR, Gaussian Process)
+   - Linear models with nonlinear features (polynomial, RBF)
+   - Random Forest
+   - Domain-specific model (physics-informed, analytical closure, etc.)
+
+2. **For each family, run a minimal but fair baseline** (~5 experiments each):
+   - Use the SAME feature set for all families
+   - Tune each family's most important 2-3 hyperparameters
+   - Use the same train/validation split
+   - Record: primary metric, inference time, training time, number of parameters
+
+3. **Compare on equal footing.** Create a tournament table:
+   ```
+   | Model Family | Best Metric | Inference | Training | Params | Experiments |
+   |-------------|-------------|-----------|----------|--------|-------------|
+   | MLP         | ...         | ...       | ...      | ...    | 5           |
+   | XGBoost     | ...         | ...       | ...      | ...    | 5           |
+   | SVR         | ...         | ...       | ...      | ...    | 5           |
+   ```
+
+4. **Select 1-2 winners** for the main HDR loop. The winner is the family with the best metric that meets all constraints (inference time, training time, etc.). If two families are close, keep both and run parallel tracks.
+
+5. **Record the tournament results** in `knowledge_base.md` with reasons. This prevents revisiting rejected families later without new evidence.
+
+### What Counts as "Fundamentally Different"
+
+| Same family (don't count) | Different family (do count) |
+|---|---|
+| MLP 128x5 vs MLP 256x3 | MLP vs XGBoost |
+| XGBoost 100 trees vs 500 trees | XGBoost vs Random Forest |
+| Adam vs AdamW | Neural net vs kernel method |
+| ReLU vs SiLU | Parametric model vs non-parametric |
+| Batch size 32k vs 64k | Discriminative vs generative |
+
+### When to Re-Run the Tournament
+
+If the HDR loop plateaus (5+ consecutive reverts with no improvement), return to the tournament:
+- The plateau may indicate the chosen family has hit its representation limit
+- Try the 2nd-place family from the original tournament with the feature engineering learned so far
+- Or try a NEW family not in the original tournament
+
+### Tournament Output
+
+The tournament produces:
+- `tournament_results.md` -- comparison table, analysis, decision rationale
+- Updated `knowledge_base.md` -- what each family is good/bad at for this problem
+- Updated `research_queue.md` -- hypotheses specific to the winning family
+
+---
+
+## Phase 2: The HDR Loop
 
 Each experiment follows an 8-step hypothesis cycle. The agent never hill-climbs blindly -- every change is grounded in a mechanism.
 
@@ -122,6 +185,23 @@ Each experiment follows an 8-step hypothesis cycle. The agent never hill-climbs 
 - **Cumulative knowledge**: Every cycle produces knowledge, even failures. The knowledge base prevents re-testing dead ideas.
 - **Cross-task awareness**: Always evaluate on ALL benchmark tasks. A feature that helps one subset but hurts another is suspect.
 - **Autonomous operation**: Every decision is logged and reversible.
+- **No premature commitment**: The Model Selection Tournament (Phase 1) MUST be completed before deep optimization. Do not spend >10 experiments on a single model family without having compared at least 3 families.
+- **Plateau = explore**: If 5+ consecutive experiments revert with no improvement, the current approach has hit its representation limit. Stop tuning hyperparameters and either (a) try a different model family, (b) add fundamentally new features, or (c) change the problem formulation (loss function, target variable, data sampling). Log the plateau in `observations.md`.
+
+### Recognizing Plateaus
+
+A plateau is NOT just "the last experiment reverted." It is:
+- **5+ consecutive reverts** where the best score doesn't improve, AND
+- **The changes span different categories** (architecture, features, training, loss)
+
+When you detect a plateau:
+1. Stop the current HDR loop
+2. Diagnose: is this a data limit, feature limit, or model capacity limit?
+   - If train loss >> val loss: overfitting → more regularization or less capacity
+   - If train loss ≈ val loss and both plateau: feature/data limit → new features or more data
+   - If train loss still declining but val plateaus: generalization limit → regularization or simpler model
+3. Return to the Model Selection Tournament or add a fundamentally new feature
+4. Resume the HDR loop with the new approach
 
 ---
 
@@ -133,6 +213,7 @@ literature_review.md    # Comprehensive literature review (Phase 0 output)
 feature_candidates.md   # Domain quantities -> computable proxies
 papers.csv              # Paper/book tracking spreadsheet
 observations.md         # Signal ideas and data gaps
+tournament_results.md   # Model Selection Tournament comparison (Phase 1 output)
 research_queue.md       # Prioritised questions (OPEN / RESOLVED / RETIRED)
 knowledge_base.md       # Cumulative findings (what works, what doesn't, why)
 results.tsv             # One row per evaluation -- all metrics
