@@ -274,9 +274,74 @@ Describe the evaluation protocol:
 ## Setup
 
 ```bash
-pip install numpy scikit-learn pandas xgboost
+pip install numpy scikit-learn pandas xgboost torch
 # Add any domain-specific packages
 ```
+
+---
+
+## GPU Acceleration
+
+**ALWAYS use GPU if available.** Training speedup is typically 10-40x, which directly multiplies the number of experiments per hour. This is critical for autoresearch -- more iterations = better results.
+
+### Detection and Setup
+
+At model initialization, detect and use GPU:
+
+```python
+import torch
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model.to(device)
+```
+
+### Training on GPU
+
+- Move data to GPU before the training loop (or move batches if data doesn't fit)
+- For large datasets (>1M points), use mini-batch training with data on CPU and batches moved to GPU
+- Use `torch.no_grad()` for validation loss computation during training
+
+### Inference: Adaptive CPU/GPU
+
+If the model will be deployed on a machine without GPU (e.g., competition servers), implement **adaptive inference** that uses GPU when available and falls back to a fast CPU path:
+
+```python
+def predict(self, X):
+    if self.device.type == 'cuda':
+        # GPU inference with torch
+        X_t = torch.tensor(X, dtype=torch.float32).to(self.device)
+        with torch.no_grad():
+            Y_pred = self.forward(X_t)
+        return Y_pred.cpu().numpy()
+    else:
+        # CPU inference with numpy (avoids torch CPU overhead for small models)
+        h = X.astype(np.float32)
+        for i in range(len(self._weights) - 1):
+            h = h @ self._weights[i].T + self._biases[i]
+            np.maximum(h, 0, out=h)  # ReLU in-place
+        h = h @ self._weights[-1].T + self._biases[-1]
+        return h
+```
+
+The numpy path avoids torch's CPU dispatch overhead and is often faster for small models (<100k parameters) on CPU. Extract weights after training:
+
+```python
+self._weights = [l.weight.detach().cpu().numpy() for l in self.layers]
+self._biases = [l.bias.detach().cpu().numpy() for l in self.layers]
+```
+
+### Additional Speed Optimizations
+
+- **Raw file I/O**: Use `np.fromfile()` instead of library-specific loaders when possible
+- **Cache scaler parameters**: Extract sklearn scaler min/range as numpy arrays; apply manually during inference
+- **Avoid sklearn at inference**: Sklearn's transform() has Python overhead; a manual `(X - min) / range` is faster
+- **Profile before optimizing**: Measure where inference time is actually spent (data loading vs scaling vs forward pass) before optimizing
+
+### GPU Memory Management
+
+For datasets that don't fit in GPU memory:
+- Keep training data on CPU, move mini-batches to GPU
+- Use `batch_size` that fills ~50-70% of GPU memory
+- Delete intermediate tensors and call `torch.cuda.empty_cache()` if needed
 
 ---
 
@@ -286,5 +351,6 @@ pip install numpy scikit-learn pandas xgboost
 - ALWAYS commit before running evaluation
 - ALWAYS record results in results.tsv
 - ALWAYS evaluate on ALL benchmark tasks (not just best-case)
+- ALWAYS use GPU for training if available
 - Ground every hypothesis in domain science or ML theory
 - NEVER stop -- keep iterating until the human stops you
