@@ -46,7 +46,7 @@ Structure the review around themes relevant to your scientific domain. Example t
 The literature review should specifically identify **derived features worth computing**. Based on empirical results, features fall into three categories:
 
 **High-value features (almost always help):**
-- Non-dimensional groups from domain theory (Reynolds number, Damkohler number, etc.)
+- Non-dimensional groups from domain theory (ratios of competing scales, characteristic numbers)
 - Condition/regime indicators (features that encode WHICH configuration or operating regime the data comes from)
 - Physically meaningful ratios/products that encode domain knowledge not obvious from raw inputs alone
 - Alignment/angle features (cosine of angle between two vector fields)
@@ -133,7 +133,26 @@ Audit how much data is actually used:
 
 Baselines often aggressively subsample data for simplicity. Using more data (with balanced sampling across configs/classes) is frequently one of the biggest single improvements after feature engineering.
 
-### 5. Deployment Constraints
+### 5. Missing Data Audit
+
+Identify data that **would help the model but isn't available** (or isn't being used). This is critical for two reasons: (a) it flags what to request if you can get more data, and (b) it reveals what the model fundamentally cannot learn from the available inputs.
+
+For each candidate missing data source, document in `observations.md`:
+- **What it is**: the variable, signal, or data source
+- **Why it would help**: the mechanism by which it would improve predictions
+- **Is it obtainable?**: could it be derived from existing data, requested from data providers, or computed from external sources?
+- **Workaround**: if unavailable, what proxy can be computed from existing features?
+
+Examples of commonly missing data:
+- **Spatial context** (neighboring values) -- often unavailable in pointwise prediction tasks
+- **Temporal history** (prior timesteps) -- unavailable in single-snapshot tasks
+- **Metadata** (experimental conditions, instrument IDs, configuration labels) -- sometimes available but not provided as features
+- **Higher-fidelity reference data** (DNS, experimental measurements) -- may exist but not in the training set
+- **External data sources** (weather, market data, material databases) -- may be freely available but not included
+
+Revisit this audit whenever the model plateaus. A plateau often means the model has extracted all learnable information from the current feature set, and progress requires new information sources.
+
+### 6. Deployment Constraints
 
 Document any constraints on the deployment environment:
 - **Compute**: GPU available? CPU-only? Time limits?
@@ -147,6 +166,7 @@ If training locally with GPU but deploying on CPU, implement **adaptive inferenc
 
 - Updated `observations.md` with bugs, data issues, deployment constraints
 - Score decomposition in `knowledge_base.md`
+- Missing data audit in `observations.md` (what data would help + workarounds)
 - Validation strategy decision documented
 - First entry in `results.tsv`: the unmodified baseline score
 
@@ -297,8 +317,9 @@ When you detect a plateau:
    - If train loss >> val loss: overfitting → more regularization or less capacity
    - If train loss ≈ val loss and both plateau: feature/data limit → new features or more data
    - If train loss still declining but val plateaus: generalization limit → regularization or simpler model
-3. Return to the Model Selection Tournament or add a fundamentally new feature
-4. Resume the HDR loop with the new approach
+3. **Revisit the Missing Data Audit** -- the plateau often means the model has extracted all learnable information from the current features. What additional data or features would break through?
+4. Return to the Model Selection Tournament or add a fundamentally new feature
+5. Resume the HDR loop with the new approach
 
 ---
 
