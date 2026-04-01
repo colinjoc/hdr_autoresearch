@@ -34,6 +34,12 @@ def featurize(df):
     features["magtype_ord"] = df["MAGTYPE"].map(magtype_order).fillna(0)
     features["area_x_magtype"] = df["AREA"] * features["magtype_ord"]
 
+    # AR age (consecutive days observed)
+    df_tmp0 = df.copy()
+    df_tmp0["_date"] = pd.to_datetime(df_tmp0["AR issue_date"])
+    df_tmp0 = df_tmp0.sort_values(["noaa_ar", "_date"])
+    features["ar_age"] = df_tmp0.groupby("noaa_ar").cumcount().reindex(df.index)
+
     # AR area change rate (delta AREA from previous day for same AR)
     df_tmp = df.copy()
     df_tmp["_date"] = pd.to_datetime(df_tmp["AR issue_date"])
