@@ -34,6 +34,9 @@ def featurize(df):
     features["magtype_ord"] = df["MAGTYPE"].map(magtype_order).fillna(0)
     features["area_x_magtype"] = df["AREA"] * features["magtype_ord"]
 
+    # Position features
+    features["abs_longitude"] = df["Longitude"].abs()
+
     # AR age (consecutive days observed)
     df_tmp0 = df.copy()
     df_tmp0["_date"] = pd.to_datetime(df_tmp0["AR issue_date"])
