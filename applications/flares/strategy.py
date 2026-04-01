@@ -33,7 +33,6 @@ def featurize(df):
     }
     features["magtype_ord"] = df["MAGTYPE"].map(magtype_order).fillna(0)
     features["area_x_magtype"] = df["AREA"] * features["magtype_ord"]
-    features["sunspots_x_magtype"] = df["No_sunspots"] * features["magtype_ord"]
 
     # Position features
     features["abs_longitude"] = df["Longitude"].abs()
