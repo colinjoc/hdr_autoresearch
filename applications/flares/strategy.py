@@ -50,29 +50,32 @@ def featurize(df):
     df_tmp["area_change"] = df_tmp.groupby("noaa_ar")["AREA"].diff().fillna(0)
     features["area_change"] = df_tmp["area_change"].reindex(df.index)
 
-    # Flare history: cumulative decayed flare count per AR at two timescales
+    # Flare history: cumulative decayed flare count per AR
+    # Cdec = sum of exp(-dt/tau) for prior C+ flares from this AR
     df_sorted = df.sort_values("date") if "date" in df.columns else df
-    flare_hist_3 = []
-    flare_hist_1 = []
-    ar_history = {}
+    tau = 3.0  # decay constant in days
+    flare_hist = []
+    ar_history = {}  # noaa_ar -> list of (date, flare_count)
     for _, row in df_sorted.iterrows():
         ar = row["noaa_ar"]
         date = pd.Timestamp(row["AR issue_date"])
         c_plus = row["C+"]
+        # Compute decayed sum from prior observations of this AR
         if ar in ar_history:
-            decay_3 = sum(c * np.exp(-(date - d).days / 3.0) for d, c in ar_history[ar])
-            decay_1 = sum(c * np.exp(-(date - d).days / 1.0) for d, c in ar_history[ar])
+            decay_sum = sum(
+                count * np.exp(-(date - prev_date).days / tau)
+                for prev_date, count in ar_history[ar]
+            )
         else:
-            decay_3 = 0.0
-            decay_1 = 0.0
-        flare_hist_3.append(decay_3)
-        flare_hist_1.append(decay_1)
+            decay_sum = 0.0
+        flare_hist.append(decay_sum)
+        # Update history
         if ar not in ar_history:
             ar_history[ar] = []
         if c_plus > 0:
             ar_history[ar].append((date, c_plus))
-    features["flare_hist_decay3"] = pd.Series(flare_hist_3, index=df_sorted.index).reindex(df.index)
-    features["flare_hist_decay1"] = pd.Series(flare_hist_1, index=df_sorted.index).reindex(df.index)
+    # Reindex to match original df
+    features["flare_hist_decay"] = pd.Series(flare_hist, index=df_sorted.index).reindex(df.index)
 
     # McIntosh sub-components
     mcintosh = df["McIntosh"].fillna("AXX")
