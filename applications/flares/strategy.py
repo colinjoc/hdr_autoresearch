@@ -34,6 +34,13 @@ def featurize(df):
     features["magtype_ord"] = df["MAGTYPE"].map(magtype_order).fillna(0)
     features["area_x_magtype"] = df["AREA"] * features["magtype_ord"]
 
+    # AR area change rate (delta AREA from previous day for same AR)
+    df_tmp = df.copy()
+    df_tmp["_date"] = pd.to_datetime(df_tmp["AR issue_date"])
+    df_tmp = df_tmp.sort_values(["noaa_ar", "_date"])
+    df_tmp["area_change"] = df_tmp.groupby("noaa_ar")["AREA"].diff().fillna(0)
+    features["area_change"] = df_tmp["area_change"].reindex(df.index)
+
     # Flare history: cumulative decayed flare count per AR
     # Cdec = sum of exp(-dt/tau) for prior C+ flares from this AR
     df_sorted = df.sort_values("date") if "date" in df.columns else df
