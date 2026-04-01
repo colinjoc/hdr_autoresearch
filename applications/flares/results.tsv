@@ -1,1 +1,26 @@
 commit	description	tss	bss	auc	threshold	status
+89ea464	Q1: log(AREA) + log(No_sunspots)	0.4700	0.2689	0.8106	0.15	revert
+f0b4dca	Q6: Area x MAGTYPE interaction	0.4731	0.2666	0.8102	0.21	keep
+a604086	Q15: Flare-history decay (tau=3)	0.5016	0.3010	0.8238	0.18	keep
+daa65f2	Q17: AR area change rate	0.5171	0.3086	0.8309	0.19	keep
+b0829fd	Q16: AR age (cumcount per AR)	0.5318	0.3191	0.8422	0.18	keep
+d8333f2	Q5: |Longitude| central meridian distance	0.5373	0.3224	0.8428	0.18	keep
+eeb13a5	Q13/14/23: Domain-informed McIntosh ordinals	0.5350	0.3210	0.8426	0.15	revert
+bb6bd1d	n_estimators 100->200	0.5344	0.3188	0.8414	0.17	revert
+3d67250	Q3: McIntosh full one-hot (63 classes)	-	-	-	-	revert (feature mismatch)
+dcbf89e	lr 0.1->0.05	0.5382	0.3229	0.8436	0.18	keep
+f9f616a	max_depth 4->5	0.5315	0.3235	0.8438	0.20	revert
+2d03f3c	Q25: Sunspots x MAGTYPE interaction	0.5297	0.3210	0.8426	0.17	revert
+143a321	Q2: MAGTYPE one-hot (7 classes)	0.5334	0.3229	0.8435	0.16	revert
+7c7c6db	Sunspot count change rate	0.5338	0.3245	0.8434	0.20	revert
+46eec8c	Q4: |Latitude|	0.5350	0.3220	0.8439	0.15	revert
+5588320	McIntosh evolution flag	0.5345	0.3225	0.8432	0.18	revert
+ce39282	Previous-day AREA	0.5336	0.3228	0.8435	0.20	revert
+f782884	Q19: LightGBM	0.5355	0.3219	0.8434	0.20	revert
+4e3b81e	Flare history tau 3->1	0.5358	0.3334	0.8453	0.16	revert
+e892e6f	Dual flare-history (tau=3 + tau=1)	0.5370	0.3326	0.8457	0.22	revert
+364e6f0	MAGTYPE change direction	0.5311	0.3221	0.8427	0.18	revert
+3c68bd3	Remove 3 lowest-importance features	0.5328	0.3199	0.8419	0.17	revert
+4ba577f	Cumulative prior flare count per AR	0.5320	0.3222	0.8437	0.15	revert
+96a7350	min_child_weight=5	0.5336	0.3227	0.8436	0.18	revert
+46c789f	200 trees + lr=0.03	0.5374	0.3236	0.8440	0.16	revert
