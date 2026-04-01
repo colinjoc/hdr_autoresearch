@@ -34,6 +34,33 @@ def featurize(df):
     features["magtype_ord"] = df["MAGTYPE"].map(magtype_order).fillna(0)
     features["area_x_magtype"] = df["AREA"] * features["magtype_ord"]
 
+    # Flare history: cumulative decayed flare count per AR
+    # Cdec = sum of exp(-dt/tau) for prior C+ flares from this AR
+    df_sorted = df.sort_values("date") if "date" in df.columns else df
+    tau = 3.0  # decay constant in days
+    flare_hist = []
+    ar_history = {}  # noaa_ar -> list of (date, flare_count)
+    for _, row in df_sorted.iterrows():
+        ar = row["noaa_ar"]
+        date = pd.Timestamp(row["AR issue_date"])
+        c_plus = row["C+"]
+        # Compute decayed sum from prior observations of this AR
+        if ar in ar_history:
+            decay_sum = sum(
+                count * np.exp(-(date - prev_date).days / tau)
+                for prev_date, count in ar_history[ar]
+            )
+        else:
+            decay_sum = 0.0
+        flare_hist.append(decay_sum)
+        # Update history
+        if ar not in ar_history:
+            ar_history[ar] = []
+        if c_plus > 0:
+            ar_history[ar].append((date, c_plus))
+    # Reindex to match original df
+    features["flare_hist_decay"] = pd.Series(flare_hist, index=df_sorted.index).reindex(df.index)
+
     # McIntosh sub-components
     mcintosh = df["McIntosh"].fillna("AXX")
     features["zurich"] = mcintosh.str[0].astype("category").cat.codes
