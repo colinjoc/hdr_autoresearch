@@ -77,11 +77,14 @@ def featurize(df):
     # Reindex to match original df
     features["flare_hist_decay"] = pd.Series(flare_hist, index=df_sorted.index).reindex(df.index)
 
-    # McIntosh sub-components
+    # McIntosh sub-components (domain-informed ordinal encoding)
     mcintosh = df["McIntosh"].fillna("AXX")
-    features["zurich"] = mcintosh.str[0].astype("category").cat.codes
-    features["penumbral"] = mcintosh.str[1].astype("category").cat.codes
-    features["compact"] = mcintosh.str[2].astype("category").cat.codes
+    zurich_order = {"A": 0, "B": 1, "H": 1, "C": 2, "D": 3, "E": 4, "F": 5}
+    penumbral_order = {"X": 0, "R": 1, "S": 2, "A": 3, "H": 4, "K": 5}
+    compact_order = {"X": 0, "O": 1, "I": 2, "C": 3}
+    features["zurich"] = mcintosh.str[0].map(zurich_order).fillna(0)
+    features["penumbral"] = mcintosh.str[1].map(penumbral_order).fillna(0)
+    features["compact"] = mcintosh.str[2].map(compact_order).fillna(0)
 
     return features.values
 
