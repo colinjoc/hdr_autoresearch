@@ -22,6 +22,7 @@ def featurize(df):
 
     # Numerical features
     features["area"] = df["AREA"]
+    features["longitude_extent"] = df["Longitude_extent"]
     features["n_sunspots"] = df["No_sunspots"]
 
     # Encode MAGTYPE as ordinal (complexity order)
@@ -32,6 +33,9 @@ def featurize(df):
     }
     features["magtype_ord"] = df["MAGTYPE"].map(magtype_order).fillna(0)
     features["area_x_magtype"] = df["AREA"] * features["magtype_ord"]
+
+    # Position features
+    features["abs_longitude"] = df["Longitude"].abs()
 
     # AR age (consecutive days observed)
     df_tmp0 = df.copy()
@@ -75,6 +79,7 @@ def featurize(df):
 
     # McIntosh sub-components
     mcintosh = df["McIntosh"].fillna("AXX")
+    features["zurich"] = mcintosh.str[0].astype("category").cat.codes
     features["penumbral"] = mcintosh.str[1].astype("category").cat.codes
     features["compact"] = mcintosh.str[2].astype("category").cat.codes
 
