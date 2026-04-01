@@ -270,12 +270,17 @@ Each experiment follows an 8-step hypothesis cycle. The agent never hill-climbs 
 - **If metric degraded or unchanged**: `git revert HEAD --no-edit`.
 - **If hypothesis refuted**: that's valuable knowledge. Log it. Don't retry.
 
-**8. Update Knowledge Base**:
-- Add findings to `knowledge_base.md` (what works, what doesn't, why).
-- Re-rate impact of remaining queue items.
-- Generate new questions spawned by results.
-- Update `research_queue.md` -- mark resolved, add new.
-- Log observations in `observations.md`.
+**8. Update ALL Documentation** (every 5-10 experiments, or after any major finding):
+- `results.tsv` -- append EVERY experiment result (keep AND revert), EVERY time.
+- `knowledge_base.md` -- update "What Works" and "What Doesn't Work" with experimental evidence. Update current best scores. Update featurizer timing table.
+- `research_queue.md` -- mark tested hypotheses as RESOLVED. Add new hypotheses spawned by results. Re-rate impact of remaining items.
+- `observations.md` -- add new observations. Update existing ones with experimental confirmation or refutation.
+- `feature_candidates.md` -- move features between tiers based on experimental results. Update "Currently Used" section. Add newly discovered candidates.
+- `literature_review.md` -- append experimental validation of literature predictions (confirmed/refuted).
+- `papers.csv` -- add new references found during experiments.
+
+**These files are the project's memory.** If they fall out of date, the HDR loop loses context and may re-test dead hypotheses or miss established findings. Treat documentation updates as part of the experiment, not an afterthought.
+
 - Repeat -- never stop.
 
 ### Priority Order for Experiments
