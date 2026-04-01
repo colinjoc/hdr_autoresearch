@@ -91,7 +91,7 @@ def get_model():
     return xgb.XGBClassifier(
         n_estimators=100,
         max_depth=4,
-        learning_rate=0.1,
+        learning_rate=0.05,
         subsample=0.8,
         colsample_bytree=0.7,
         eval_metric="logloss",
