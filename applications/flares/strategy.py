@@ -92,6 +92,7 @@ def get_model():
         n_estimators=100,
         max_depth=4,
         learning_rate=0.05,
+        min_child_weight=5,
         subsample=0.8,
         colsample_bytree=0.7,
         eval_metric="logloss",
