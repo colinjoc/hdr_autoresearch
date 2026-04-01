@@ -22,8 +22,10 @@ def featurize(df):
 
     # Numerical features
     features["area"] = df["AREA"]
+    features["log_area"] = np.log1p(df["AREA"])
     features["longitude_extent"] = df["Longitude_extent"]
     features["n_sunspots"] = df["No_sunspots"]
+    features["log_sunspots"] = np.log1p(df["No_sunspots"])
 
     # Encode MAGTYPE as ordinal (complexity order)
     magtype_order = {
