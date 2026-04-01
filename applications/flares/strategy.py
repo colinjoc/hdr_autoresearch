@@ -36,7 +36,6 @@ def featurize(df):
 
     # Position features
     features["abs_longitude"] = df["Longitude"].abs()
-    features["abs_latitude"] = df["Latitude"].abs()
 
     # AR age (consecutive days observed)
     df_tmp0 = df.copy()
