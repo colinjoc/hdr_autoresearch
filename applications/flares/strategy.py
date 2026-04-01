@@ -77,14 +77,11 @@ def featurize(df):
     # Reindex to match original df
     features["flare_hist_decay"] = pd.Series(flare_hist, index=df_sorted.index).reindex(df.index)
 
-    # McIntosh: sub-components + full one-hot
+    # McIntosh sub-components
     mcintosh = df["McIntosh"].fillna("AXX")
     features["zurich"] = mcintosh.str[0].astype("category").cat.codes
     features["penumbral"] = mcintosh.str[1].astype("category").cat.codes
     features["compact"] = mcintosh.str[2].astype("category").cat.codes
-    mcintosh_dummies = pd.get_dummies(mcintosh, prefix="mc", dtype=float)
-    for col in mcintosh_dummies.columns:
-        features[col] = mcintosh_dummies[col].values
 
     return features.values
 
