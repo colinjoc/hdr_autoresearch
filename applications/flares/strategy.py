@@ -53,7 +53,7 @@ def featurize(df):
     # Flare history: cumulative decayed flare count per AR
     # Cdec = sum of exp(-dt/tau) for prior C+ flares from this AR
     df_sorted = df.sort_values("date") if "date" in df.columns else df
-    tau = 1.0  # decay constant in days
+    tau = 3.0  # decay constant in days
     flare_hist = []
     ar_history = {}  # noaa_ar -> list of (date, flare_count)
     for _, row in df_sorted.iterrows():
