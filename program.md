@@ -323,6 +323,80 @@ When you detect a plateau:
 
 ---
 
+## Test-Driven Development
+
+**ALL infrastructure code must be tested in isolation before integration.** Never assume a library call is fast or correct -- always verify on small data first. Untested components in a pipeline will waste hours when they fail or hang at scale.
+
+### The TDD Protocol
+
+**1. Test every new component on a tiny sample BEFORE adding it to the pipeline.**
+
+When adding a new featurizer, data loader, model, or preprocessing step:
+```python
+# Time it on 50 samples first
+import time
+t0 = time.time()
+result = new_component.process(tiny_data)  # 50 rows
+elapsed = time.time() - t0
+print(f"{component_name} on {len(tiny_data)} samples: {elapsed:.1f}s")
+# Extrapolate: if 50 samples takes 5s, 5000 samples takes ~500s = 8 min
+```
+
+If a component takes >5s on 50 samples, it is too slow for the full pipeline. Either find an alternative or acknowledge the cost explicitly.
+
+**2. Smoke test before full runs.**
+
+Before running the full benchmark (all tasks, all folds), run a single fold of the smallest task:
+```python
+# Smoke test: 1 task, 1 fold
+python prepare.py --tasks smallest_task  # Should complete in <2 min
+```
+
+Only proceed to the full benchmark after the smoke test passes.
+
+**3. Write `test_strategy.py`.**
+
+This file validates the strategy without running the full benchmark:
+```python
+# test_strategy.py -- run before every experiment
+import strategy
+import time
+
+# Test featurization on small sample
+tiny_inputs = train_inputs[:50]
+t0 = time.time()
+X = strategy.featurize(tiny_inputs, task_name)
+print(f"Featurize 50 samples: {time.time()-t0:.1f}s, shape: {X.shape}")
+assert X.shape[0] == 50
+assert not np.any(np.isnan(X))
+
+# Test model fits and predicts
+model = strategy.get_model(task_name, is_classification=False)
+model.fit(X, tiny_targets)
+preds = model.predict(X)
+assert preds.shape[0] == 50
+print("PASS")
+```
+
+**4. Time every component explicitly.**
+
+Maintain a timing table in `knowledge_base.md`:
+```
+| Component | 50 samples | 500 samples | 5000 samples | Status |
+|-----------|-----------|-------------|--------------|--------|
+| Magpie    | 0.2s      | 2s          | 20s          | OK     |
+| WenAlloys | 8s        | 80s         | 800s (13 min)| TOO SLOW |
+```
+
+### When to Test
+
+- **Before adding any new featurizer**: time it on 50 samples
+- **Before changing the evaluation pipeline**: verify old results still reproduce
+- **Before running any experiment**: smoke test on 1 fold of smallest task
+- **After any infrastructure change** (prepare.py, data loading, caching): full smoke test
+
+---
+
 ## File Structure
 
 ```
@@ -336,6 +410,7 @@ research_queue.md       # Prioritised questions (OPEN / RESOLVED / RETIRED)
 knowledge_base.md       # Cumulative findings (what works, what doesn't, why)
 results.tsv             # One row per evaluation -- all metrics
 strategy.py             # ONLY file modified during HDR (features + hyperparams)
+test_strategy.py        # Smoke tests for strategy.py (run before every experiment)
 evaluate.py             # Evaluation harness (fixed after setup)
 prepare.py              # Data preparation (fixed after setup)
 literature/
@@ -466,9 +541,12 @@ For datasets that don't fit in GPU memory:
 ## Constraints
 
 - ONE change per experiment (isolation principle)
+- ALWAYS test new components on small data before full runs (TDD protocol)
+- ALWAYS run smoke test (1 fold, smallest task) before full benchmark
 - ALWAYS commit before running evaluation
 - ALWAYS record results in results.tsv
 - ALWAYS evaluate on ALL benchmark tasks (not just best-case)
 - ALWAYS use GPU for training if available
+- NEVER add a library component without timing it on 50 samples first
 - Ground every hypothesis in domain science or ML theory
 - NEVER stop -- keep iterating until the human stops you
