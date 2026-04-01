@@ -6,7 +6,7 @@ THIS IS THE ONLY FILE THE AUTORESEARCH AGENT MODIFIES.
 
 import numpy as np
 import pandas as pd
-import lightgbm as lgb
+import xgboost as xgb
 
 
 def featurize(df):
@@ -88,12 +88,13 @@ def featurize(df):
 
 def get_model():
     """Return a fresh model instance."""
-    return lgb.LGBMClassifier(
+    return xgb.XGBClassifier(
         n_estimators=100,
-        num_leaves=31,
+        max_depth=4,
         learning_rate=0.05,
         subsample=0.8,
         colsample_bytree=0.7,
-        verbose=-1,
+        eval_metric="logloss",
+        verbosity=0,
         random_state=42,
     )
