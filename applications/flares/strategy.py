@@ -77,6 +77,13 @@ def featurize(df):
     # Reindex to match original df
     features["flare_hist_decay"] = pd.Series(flare_hist, index=df_sorted.index).reindex(df.index)
 
+    # Total cumulative prior flare count for this AR (no decay)
+    df_cum = df.copy()
+    df_cum["_date"] = pd.to_datetime(df_cum["AR issue_date"])
+    df_cum = df_cum.sort_values(["noaa_ar", "_date"])
+    df_cum["cum_flares"] = df_cum.groupby("noaa_ar")["C+"].cumsum().shift(1).fillna(0)
+    features["cum_flares"] = df_cum["cum_flares"].reindex(df.index)
+
     # McIntosh sub-components
     mcintosh = df["McIntosh"].fillna("AXX")
     features["zurich"] = mcintosh.str[0].astype("category").cat.codes
