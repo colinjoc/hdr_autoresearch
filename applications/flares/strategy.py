@@ -43,6 +43,13 @@ def featurize(df):
     df_tmp0 = df_tmp0.sort_values(["noaa_ar", "_date"])
     features["ar_age"] = df_tmp0.groupby("noaa_ar").cumcount().reindex(df.index)
 
+    # McIntosh evolution: did the classification change from yesterday?
+    df_mc = df.copy()
+    df_mc["_date"] = pd.to_datetime(df_mc["AR issue_date"])
+    df_mc = df_mc.sort_values(["noaa_ar", "_date"])
+    prev_mc = df_mc.groupby("noaa_ar")["McIntosh"].shift(1)
+    features["mcintosh_changed"] = (df_mc["McIntosh"] != prev_mc).astype(float).reindex(df.index).fillna(0)
+
     # AR area change rate (delta AREA from previous day for same AR)
     df_tmp = df.copy()
     df_tmp["_date"] = pd.to_datetime(df_tmp["AR issue_date"])
