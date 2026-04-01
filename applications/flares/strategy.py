@@ -89,9 +89,9 @@ def featurize(df):
 def get_model():
     """Return a fresh model instance."""
     return xgb.XGBClassifier(
-        n_estimators=200,
+        n_estimators=100,
         max_depth=4,
-        learning_rate=0.03,
+        learning_rate=0.05,
         subsample=0.8,
         colsample_bytree=0.7,
         eval_metric="logloss",
