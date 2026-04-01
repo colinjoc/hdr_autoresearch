@@ -43,16 +43,6 @@ def featurize(df):
     df_tmp0 = df_tmp0.sort_values(["noaa_ar", "_date"])
     features["ar_age"] = df_tmp0.groupby("noaa_ar").cumcount().reindex(df.index)
 
-    # MAGTYPE change: did the magnetic classification change from yesterday?
-    df_mag = df.copy()
-    df_mag["_date"] = pd.to_datetime(df_mag["AR issue_date"])
-    df_mag = df_mag.sort_values(["noaa_ar", "_date"])
-    prev_mag = df_mag.groupby("noaa_ar")["MAGTYPE"].shift(1)
-    # +1 if complexity increased, -1 if decreased, 0 if same
-    prev_mag_ord = prev_mag.map(magtype_order).fillna(0)
-    curr_mag_ord = df_mag["MAGTYPE"].map(magtype_order).fillna(0)
-    features["magtype_change"] = (curr_mag_ord - prev_mag_ord).reindex(df.index).fillna(0)
-
     # AR area change rate (delta AREA from previous day for same AR)
     df_tmp = df.copy()
     df_tmp["_date"] = pd.to_datetime(df_tmp["AR issue_date"])
