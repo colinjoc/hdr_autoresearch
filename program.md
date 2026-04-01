@@ -21,25 +21,65 @@ Maximise **[PRIMARY METRIC]** and **[SECONDARY METRIC]** on [YOUR BENCHMARK / DA
 
 ## Phase 0: Literature Review
 
-Before any experiments, conduct a comprehensive literature review to seed the research queue with domain-informed hypotheses. This phase produces:
+**THIS IS THE MOST IMPORTANT PHASE. DO NOT RUSH IT.**
 
-1. **`literature_review.md`** -- Structured review organized by theme
-2. **`papers.csv`** -- Tracking spreadsheet for all reviewed papers and books
+Before any experiments, conduct a **deep, comprehensive literature review**. This is NOT a surface-level web search. This is a genuine academic review that should take hours, produce **100+ citations** in papers.csv, include **multiple textbooks**, and provide enough domain knowledge to guide every subsequent experiment. If you cannot explain the domain physics in depth without referencing the review, it is not thorough enough.
+
+**DO NOT proceed to Phase 0.5 or any experiments until this review is genuinely comprehensive.**
+
+### Deliverables
+
+1. **`literature_review.md`** -- Structured review organized by theme (target: 2000+ words per theme)
+2. **`papers.csv`** -- Tracking spreadsheet with **100+ entries** including textbooks, papers, reviews, and theses
 3. **`feature_candidates.md`** -- Domain quantities mapped to computable proxies from available features
-4. **`research_queue.md`** -- Initial hypotheses seeded from literature findings
-5. **`knowledge_base.md`** -- Pre-populated with established results
+4. **`research_queue.md`** -- Initial hypotheses seeded from literature findings (target: 20+ hypotheses)
+5. **`knowledge_base.md`** -- Pre-populated with established results from the literature
+
+### Citation Targets
+
+| Source Type | Minimum Count | What to Extract |
+|-------------|---------------|-----------------|
+| **Textbooks** | 3-5 | Core theory, governing equations, standard derivations. These are the foundation -- not optional. |
+| **Seminal papers** | 10-20 | The papers that defined the field. Every researcher in this domain would know these. |
+| **Recent papers (last 3 years)** | 30-50 | Current state of the art, latest methods, recent benchmarks, new features/models. |
+| **ML/method papers** | 20-30 | Specific models, architectures, feature engineering techniques applied to this domain. |
+| **Review/survey papers** | 5-10 | These are the most efficient sources -- a single review paper can point to 50+ relevant works. Start here. |
+| **Dataset/benchmark papers** | 5-10 | Papers describing the specific dataset, its provenance, known issues, and prior results. |
+| **Total** | **100+** | Each entry must include: what was learned, how it applies to our task, and what hypothesis it generates. |
 
 ### Literature Review Themes
 
-Structure the review around themes relevant to your scientific domain. Example themes:
+Structure the review around these themes. Each theme should be a substantial section (2000+ words) with multiple citations:
 
-1. **Domain Fundamentals** -- Core theory, governing equations, established physical/biological/chemical laws. Key textbooks and seminal papers.
-2. **Phenomena of Interest** -- The specific process you are predicting/classifying. Known mechanisms, pathways, timescales, observable precursors.
-3. **Derived/Candidate Features from Theory** -- Quantities suggested by domain theory but not directly in your raw features. The bridge from theory to computable proxies is the most valuable output of the literature review.
-4. **ML for This Problem** -- Existing models, features used, results. What has been tried and what gaps remain.
-5. **Feature Engineering Techniques** -- Domain-specific transformations, time-series features (if applicable), interaction terms, normalization strategies.
-6. **Transfer / Generalization** -- If your problem involves multiple domains, sites, or conditions: what enables or prevents generalization across them.
-7. **Tree/Tabular Methods on Similar Problems** -- XGBoost/GBM/tabular-ML applied to analogous scientific domains.
+1. **Domain Fundamentals** -- Core theory, governing equations, established physical/biological/chemical laws. Cite the **standard textbooks** (every field has 2-3 that everyone reads). Derive the key relationships from first principles where possible. This is not optional -- you cannot do meaningful feature engineering without understanding the physics.
+
+2. **Phenomena of Interest** -- The specific process you are predicting/classifying. Known mechanisms, pathways, timescales, observable precursors. What are the **known functional relationships** between inputs and outputs? What are the **known failure modes** of existing models?
+
+3. **Derived/Candidate Features from Theory** -- Quantities suggested by domain theory but not directly in your raw features. The bridge from theory to computable proxies is **the most valuable output of the literature review**. For each candidate feature, cite the paper that motivates it and explain the physical mechanism.
+
+4. **ML for This Problem** -- Existing models, features used, results. What has been tried and what gaps remain. For EVERY model on the leaderboard, find and read their paper or submission code. Understand **exactly** what they do differently. Don't guess -- read the source.
+
+5. **Feature Engineering Techniques** -- Domain-specific transformations, interaction terms, normalization strategies. What features do the top performers use? What features do they discard? What feature selection methods work in this domain?
+
+6. **Transfer / Generalization** -- If your problem involves multiple domains, sites, or conditions: what enables or prevents generalization across them. What normalization or encoding strategies help?
+
+7. **Related Problems** -- What can we learn from adjacent domains? If predicting material properties, what do drug discovery, weather prediction, or finance researchers do with similar data structures?
+
+### How to Conduct the Review
+
+1. **Start with review/survey papers** -- these are the most efficient entry point. A single review paper cites 50-200 references and synthesizes the field. Find 3-5 recent reviews.
+
+2. **Read the standard textbooks** -- identify them from the review papers' references. Read (or skim) the relevant chapters. Cite specific chapters, equations, and page numbers.
+
+3. **Read every leaderboard submission** -- for benchmark/competition tasks, find and read the paper or source code for every model on the leaderboard. Understand their exact approach.
+
+4. **Follow citation chains** -- when a paper cites another as foundational, read that paper too. Work backwards from recent papers to find the seminal works.
+
+5. **Search systematically** -- use multiple search queries per theme. Don't stop at the first 5 results. Search Google Scholar, arXiv, Semantic Scholar, and domain-specific databases.
+
+6. **Read actual content** -- abstracts are not enough. Read the methods section (what did they do), results section (what did they find), and discussion (why does it work). Extract specific numbers, equations, and feature lists.
+
+7. **Generate hypotheses** -- every paper should generate at least one testable hypothesis for research_queue.md. "This paper found X works; we should try X" is the minimum.
 
 ### Feature Engineering Guidance
 
@@ -79,6 +119,22 @@ Columns: `id, title, authors, year, type, domain, subcategory, method, features_
 - **type**: book / paper / thesis / review
 - **domain**: [your domain categories]
 - **relevance**: 1-5 (5 = directly applicable to your task)
+- **Target: 100+ entries.** If you have fewer than 100, the review is not thorough enough. Go back and search more.
+
+### Quality Gate: Is the Review Done?
+
+Before proceeding to Phase 0.5, verify ALL of the following:
+
+- [ ] papers.csv has 100+ entries
+- [ ] At least 3 textbooks are cited with specific chapters/equations
+- [ ] At least 5 review papers are cited
+- [ ] Every model on the leaderboard/benchmark has been researched (not just named -- their actual method understood)
+- [ ] feature_candidates.md has 15+ candidate features with physics justification and literature citation
+- [ ] research_queue.md has 20+ hypotheses, each traced to a specific paper
+- [ ] literature_review.md has 7 theme sections, each with multiple citations
+- [ ] You can explain the domain physics in a 5-minute verbal explanation without looking at notes
+
+If ANY of these fail, the review is incomplete. Do not proceed.
 
 ### Review -> HDR Pipeline
 
