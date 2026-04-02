@@ -24,7 +24,6 @@ def featurize(df):
     features["area"] = df["AREA"]
     features["longitude_extent"] = df["Longitude_extent"]
     features["n_sunspots"] = df["No_sunspots"]
-    features["avg_spot_size"] = df["AREA"] / (df["No_sunspots"] + 1)
 
     # Encode MAGTYPE as ordinal (complexity order)
     magtype_order = {
