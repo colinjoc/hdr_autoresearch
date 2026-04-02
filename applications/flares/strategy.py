@@ -77,8 +77,25 @@ def featurize(df):
             ar_history[ar] = []
         if c_plus > 0:
             ar_history[ar].append((date, c_plus))
-    # Reindex to match original df
+    # Also track M+ flare history separately
+    m_hist = []
+    ar_m_history = {}
+    for _, row in df_sorted.iterrows():
+        ar = row["noaa_ar"]
+        date = pd.Timestamp(row["AR issue_date"])
+        m_plus = row["M+"] if "M+" in row.index else 0
+        if ar in ar_m_history:
+            m_decay = sum(c * np.exp(-(date - d).days / tau) for d, c in ar_m_history[ar])
+        else:
+            m_decay = 0.0
+        m_hist.append(m_decay)
+        if ar not in ar_m_history:
+            ar_m_history[ar] = []
+        if m_plus > 0:
+            ar_m_history[ar].append((date, m_plus))
+
     features["flare_hist_decay"] = pd.Series(flare_hist, index=df_sorted.index).reindex(df.index)
+    features["m_flare_hist_decay"] = pd.Series(m_hist, index=df_sorted.index).reindex(df.index)
 
     # McIntosh sub-components
     mcintosh = df["McIntosh"].fillna("AXX")
