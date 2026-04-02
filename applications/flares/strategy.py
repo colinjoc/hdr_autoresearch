@@ -51,10 +51,7 @@ def featurize(df):
     df_tmp["_date"] = pd.to_datetime(df_tmp["AR issue_date"])
     df_tmp = df_tmp.sort_values(["noaa_ar", "_date"])
     df_tmp["area_change"] = df_tmp.groupby("noaa_ar")["AREA"].diff().fillna(0)
-    df_tmp["area_cummax"] = df_tmp.groupby("noaa_ar")["AREA"].cummax()
-    df_tmp["area_frac_peak"] = df_tmp["AREA"] / df_tmp["area_cummax"].replace(0, 1)
     features["area_change"] = df_tmp["area_change"].reindex(df.index)
-    features["area_frac_peak"] = df_tmp["area_frac_peak"].reindex(df.index).fillna(1)
 
     # Flare history: cumulative decayed flare count per AR
     # Cdec = sum of exp(-dt/tau) for prior C+ flares from this AR
