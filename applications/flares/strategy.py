@@ -92,16 +92,11 @@ def featurize(df):
 class EnsembleModel:
     """Average predictions from 3 XGBoost models with different seeds."""
     def __init__(self):
-        configs = [
-            (200, 3, 42),
-            (100, 4, 123),
-            (200, 3, 777),
-        ]
         self.models = [
-            xgb.XGBClassifier(n_estimators=n, max_depth=d, learning_rate=0.05,
+            xgb.XGBClassifier(n_estimators=200, max_depth=3, learning_rate=0.05,
                               subsample=0.8, colsample_bytree=0.7,
                               eval_metric="logloss", verbosity=0, random_state=s)
-            for n, d, s in configs
+            for s in [42, 123, 777]
         ]
 
     def fit(self, X, y):
