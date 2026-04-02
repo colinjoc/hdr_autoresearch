@@ -80,6 +80,13 @@ def featurize(df):
     # Reindex to match original df
     features["flare_hist_decay"] = pd.Series(flare_hist, index=df_sorted.index).reindex(df.index)
 
+    # Binary: did this AR flare yesterday?
+    df_fy = df.copy()
+    df_fy["_date"] = pd.to_datetime(df_fy["AR issue_date"])
+    df_fy = df_fy.sort_values(["noaa_ar", "_date"])
+    df_fy["flared_yesterday"] = (df_fy.groupby("noaa_ar")["C+"].shift(1).fillna(0) > 0).astype(float)
+    features["flared_yesterday"] = df_fy["flared_yesterday"].reindex(df.index)
+
     # McIntosh sub-components
     mcintosh = df["McIntosh"].fillna("AXX")
     features["zurich"] = mcintosh.str[0].astype("category").cat.codes
