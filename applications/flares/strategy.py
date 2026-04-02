@@ -43,12 +43,29 @@ def featurize(df):
     df_tmp0 = df_tmp0.sort_values(["noaa_ar", "_date"])
     features["ar_age"] = df_tmp0.groupby("noaa_ar").cumcount().reindex(df.index)
 
-    # AR area change rate (delta AREA from previous day for same AR)
+    # Multi-day lagged AR properties and change rates
     df_tmp = df.copy()
     df_tmp["_date"] = pd.to_datetime(df_tmp["AR issue_date"])
     df_tmp = df_tmp.sort_values(["noaa_ar", "_date"])
+    # 1-day area change (already proven)
     df_tmp["area_change"] = df_tmp.groupby("noaa_ar")["AREA"].diff().fillna(0)
     features["area_change"] = df_tmp["area_change"].reindex(df.index)
+    # Multi-day lagged area (t-1, t-2, t-3)
+    for lag in [1, 2, 3]:
+        col = f"area_lag{lag}"
+        df_tmp[col] = df_tmp.groupby("noaa_ar")["AREA"].shift(lag)
+        features[col] = df_tmp[col].reindex(df.index).fillna(0)
+    # Multi-day lagged sunspot count
+    for lag in [1, 2, 3]:
+        col = f"sunspots_lag{lag}"
+        df_tmp[col] = df_tmp.groupby("noaa_ar")["No_sunspots"].shift(lag)
+        features[col] = df_tmp[col].reindex(df.index).fillna(0)
+    # Multi-day lagged MAGTYPE ordinal
+    df_tmp["_magtype_ord"] = df_tmp["MAGTYPE"].map(magtype_order).fillna(0)
+    for lag in [1, 2, 3]:
+        col = f"magtype_lag{lag}"
+        df_tmp[col] = df_tmp.groupby("noaa_ar")["_magtype_ord"].shift(lag)
+        features[col] = df_tmp[col].reindex(df.index).fillna(0)
 
     # Flare history: cumulative decayed flare count per AR
     # Cdec = sum of exp(-dt/tau) for prior C+ flares from this AR
