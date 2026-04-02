@@ -64,3 +64,8 @@ d1eafb3	Binary flared_yesterday flag	0.5526	0.3362	0.8469	0.23	keep
 349714b	4-seed ensemble	0.5523	0.3361	0.8469	0.24	revert
 63c089d	Area x flared_yesterday	0.5501	0.3365	0.8471	0.20	revert
 d678c79	lr 0.05->0.04	0.5513	0.3366	0.8471	0.23	revert
+1cd61ab	Hemisphere indicator (N/S)	0.5511	0.3359	0.8470	0.23	revert
+34f5064	gamma 1.0->0.5	0.5513	0.3364	0.8469	0.23	revert
+d7ad509	flare_hist x magtype interaction	0.5512	0.3353	0.8473	0.22	revert
+ae9b3a8	subsample 0.8->0.6	0.5520	0.3383	0.8481	0.20	revert
+4887b2b	Remove area_x_magtype	0.5478	0.3361	0.8475	0.20	revert
