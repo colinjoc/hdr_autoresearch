@@ -91,12 +91,16 @@ def featurize(df):
 
 def get_model():
     """Return a fresh model instance."""
+    # Feature order: area, longitude_extent, n_sunspots, magtype_ord, area_x_magtype,
+    #   abs_longitude, year, ar_age, area_change, flare_hist_decay, zurich, penumbral, compact
+    # Monotonic constraint on magtype_ord (index 3): higher = more flares
     return xgb.XGBClassifier(
         n_estimators=100,
         max_depth=4,
         learning_rate=0.05,
         subsample=0.8,
         colsample_bytree=0.7,
+        monotone_constraints="(0,0,0,1,0,0,0,0,0,0,0,0,0)",
         eval_metric="logloss",
         verbosity=0,
         random_state=42,
