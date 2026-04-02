@@ -40,6 +40,10 @@ def featurize(df):
     # Solar cycle phase (year as proxy)
     features["year"] = pd.to_datetime(df["AR issue_date"]).dt.year
 
+    # Number of ARs on disk today (global activity proxy)
+    ar_counts = df.groupby("AR issue_date")["noaa_ar"].transform("count")
+    features["n_ars_today"] = ar_counts.values
+
     # AR age (consecutive days observed)
     df_tmp0 = df.copy()
     df_tmp0["_date"] = pd.to_datetime(df_tmp0["AR issue_date"])
