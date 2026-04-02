@@ -93,7 +93,7 @@ class EnsembleModel:
     """Average predictions from 3 XGBoost models with different seeds."""
     def __init__(self):
         self.models = [
-            xgb.XGBClassifier(n_estimators=200, max_depth=6, max_leaves=8, learning_rate=0.05, grow_policy="lossguide",
+            xgb.XGBClassifier(n_estimators=200, max_depth=3, learning_rate=0.05,
                               subsample=0.8, colsample_bytree=0.7,
                               eval_metric="logloss", verbosity=0, random_state=s)
             for s in [42, 123, 777]
