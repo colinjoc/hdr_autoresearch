@@ -96,7 +96,7 @@ class EnsembleModel:
             xgb.XGBClassifier(n_estimators=100, max_depth=4, learning_rate=0.05,
                               subsample=0.8, colsample_bytree=0.7,
                               eval_metric="logloss", verbosity=0, random_state=s)
-            for s in [42, 123, 777, 2024, 31415]
+            for s in [42, 123, 777]
         ]
 
     def fit(self, X, y):
