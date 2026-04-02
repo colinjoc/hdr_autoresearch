@@ -33,6 +33,7 @@ def featurize(df):
     }
     features["magtype_ord"] = df["MAGTYPE"].map(magtype_order).fillna(0)
     features["area_x_magtype"] = df["AREA"] * features["magtype_ord"]
+    features["is_bgd"] = (df["MAGTYPE"] == "BETA-GAMMA-DELTA").astype(float)
 
     # Position features
     features["abs_longitude"] = df["Longitude"].abs()
