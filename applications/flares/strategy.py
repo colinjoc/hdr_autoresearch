@@ -32,7 +32,6 @@ def featurize(df):
         "GAMMA-DELTA": 5, "BETA-GAMMA-DELTA": 6,
     }
     features["magtype_ord"] = df["MAGTYPE"].map(magtype_order).fillna(0)
-    features["area_x_magtype"] = df["AREA"] * features["magtype_ord"]
 
     # Position features
     features["abs_longitude"] = df["Longitude"].abs()
