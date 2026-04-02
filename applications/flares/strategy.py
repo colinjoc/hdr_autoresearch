@@ -38,7 +38,12 @@ def featurize(df):
     features["abs_longitude"] = df["Longitude"].abs()
 
     # Solar cycle phase (year as proxy)
-    features["year"] = pd.to_datetime(df["AR issue_date"]).dt.year
+    dates = pd.to_datetime(df["AR issue_date"])
+    features["year"] = dates.dt.year
+    # Day of year cyclical (captures ~27-day solar rotation)
+    doy = dates.dt.dayofyear
+    features["doy_sin"] = np.sin(2 * np.pi * doy / 365.25)
+    features["doy_cos"] = np.cos(2 * np.pi * doy / 365.25)
 
     # AR age (consecutive days observed)
     df_tmp0 = df.copy()
