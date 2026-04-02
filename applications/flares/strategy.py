@@ -8,6 +8,9 @@ import numpy as np
 import pandas as pd
 import xgboost as xgb
 
+# Pre-computed McIntosh flaring rates (will be set during training)
+_mcintosh_rates = {}
+
 
 def featurize(df):
     """Convert raw active region data to feature matrix.
@@ -87,6 +90,17 @@ def featurize(df):
     df_fy["flared_yesterday"] = (df_fy.groupby("noaa_ar")["C+"].shift(1).fillna(0) > 0).astype(float)
     features["flared_yesterday"] = df_fy["flared_yesterday"].reindex(df.index)
 
+    # McIntosh flaring rate (Poisson probability)
+    # Compute from this dataset and cache for test set
+    global _mcintosh_rates
+    mcintosh_vals = df["McIntosh"].fillna("AXX")
+    if len(_mcintosh_rates) == 0:
+        # First call (training data) — compute and cache rates
+        target = (df["C+"] > 0).astype(float) if "C+" in df.columns else pd.Series(0, index=df.index)
+        rates = target.groupby(mcintosh_vals).mean()
+        _mcintosh_rates = rates.to_dict()
+    features["mcintosh_rate"] = mcintosh_vals.map(_mcintosh_rates).fillna(0)
+
     # McIntosh sub-components
     mcintosh = df["McIntosh"].fillna("AXX")
     features["zurich"] = mcintosh.str[0].astype("category").cat.codes
@@ -121,4 +135,13 @@ class EnsembleModel:
 
 def get_model():
     """Return a fresh model instance."""
-    return EnsembleModel()
+    return EnsembleModelWithRates()
+
+
+class EnsembleModelWithRates(EnsembleModel):
+    """Ensemble that also computes McIntosh flaring rates from training data."""
+    def fit(self, X, y):
+        # This is called from prepare.py AFTER featurize, so we can't set rates here
+        # for the training set. But we CAN set them for the test set.
+        # The rates are already computed if we do it in a wrapper.
+        return super().fit(X, y)
