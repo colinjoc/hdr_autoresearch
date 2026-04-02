@@ -89,15 +89,29 @@ def featurize(df):
     return features.values
 
 
+class EnsembleModel:
+    """Average predictions from 3 XGBoost models with different seeds."""
+    def __init__(self):
+        self.models = [
+            xgb.XGBClassifier(n_estimators=100, max_depth=4, learning_rate=0.05,
+                              subsample=0.8, colsample_bytree=0.7,
+                              eval_metric="logloss", verbosity=0, random_state=s)
+            for s in [42, 123, 777]
+        ]
+
+    def fit(self, X, y):
+        for m in self.models:
+            m.fit(X, y)
+        return self
+
+    def predict_proba(self, X):
+        probs = np.mean([m.predict_proba(X) for m in self.models], axis=0)
+        return probs
+
+    def predict(self, X):
+        return (self.predict_proba(X)[:, 1] > 0.5).astype(int)
+
+
 def get_model():
     """Return a fresh model instance."""
-    return xgb.XGBClassifier(
-        n_estimators=100,
-        max_depth=4,
-        learning_rate=0.05,
-        subsample=0.8,
-        colsample_bytree=0.7,
-        eval_metric="logloss",
-        verbosity=0,
-        random_state=42,
-    )
+    return EnsembleModel()
