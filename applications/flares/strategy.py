@@ -89,15 +89,29 @@ def featurize(df):
     return features.values
 
 
+class RegressionWrapper:
+    """Train regressor on C+ count, output probabilities via sigmoid."""
+    def __init__(self):
+        self.model = xgb.XGBRegressor(
+            n_estimators=100, max_depth=4, learning_rate=0.05,
+            subsample=0.8, colsample_bytree=0.7,
+            eval_metric="rmse", verbosity=0, random_state=42,
+        )
+
+    def fit(self, X, y):
+        self.model.fit(X, y)
+        return self
+
+    def predict_proba(self, X):
+        raw = self.model.predict(X)
+        # Sigmoid to convert to [0,1] probability
+        prob = 1 / (1 + np.exp(-raw))
+        return np.column_stack([1 - prob, prob])
+
+    def predict(self, X):
+        return (self.predict_proba(X)[:, 1] > 0.5).astype(int)
+
+
 def get_model():
     """Return a fresh model instance."""
-    return xgb.XGBClassifier(
-        n_estimators=100,
-        max_depth=4,
-        learning_rate=0.05,
-        subsample=0.8,
-        colsample_bytree=0.7,
-        eval_metric="logloss",
-        verbosity=0,
-        random_state=42,
-    )
+    return RegressionWrapper()
