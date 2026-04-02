@@ -86,6 +86,7 @@ def featurize(df):
     df_fy = df_fy.sort_values(["noaa_ar", "_date"])
     df_fy["flared_yesterday"] = (df_fy.groupby("noaa_ar")["C+"].shift(1).fillna(0) > 0).astype(float)
     features["flared_yesterday"] = df_fy["flared_yesterday"].reindex(df.index)
+    features["hist_x_magtype"] = features["flare_hist_decay"] * features["magtype_ord"]
 
     # McIntosh sub-components
     mcintosh = df["McIntosh"].fillna("AXX")
