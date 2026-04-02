@@ -40,10 +40,6 @@ def featurize(df):
     # Solar cycle phase (year as proxy)
     features["year"] = pd.to_datetime(df["AR issue_date"]).dt.year
 
-    # Total sunspot area on disk today (global activity index)
-    total_area = df.groupby("AR issue_date")["AREA"].transform("sum")
-    features["total_disk_area"] = total_area.values
-
     # AR age (consecutive days observed)
     df_tmp0 = df.copy()
     df_tmp0["_date"] = pd.to_datetime(df_tmp0["AR issue_date"])
