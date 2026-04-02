@@ -97,7 +97,6 @@ def get_model():
         learning_rate=0.05,
         subsample=0.8,
         colsample_bytree=0.7,
-        scale_pos_weight=2,
         eval_metric="logloss",
         verbosity=0,
         random_state=42,
