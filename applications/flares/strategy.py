@@ -94,7 +94,7 @@ class EnsembleModel:
     def __init__(self):
         self.models = [
             xgb.XGBClassifier(n_estimators=200, max_depth=3, learning_rate=0.05,
-                              subsample=0.8, colsample_bytree=0.7, gamma=1.0,
+                              subsample=0.8, colsample_bytree=0.7, gamma=1.0, reg_lambda=3,
                               eval_metric="logloss", verbosity=0, random_state=s)
             for s in [42, 123, 777]
         ]
