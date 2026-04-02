@@ -87,6 +87,14 @@ def featurize(df):
     df_fy["flared_yesterday"] = (df_fy.groupby("noaa_ar")["C+"].shift(1).fillna(0) > 0).astype(float)
     features["flared_yesterday"] = df_fy["flared_yesterday"].reindex(df.index)
 
+    # MAGTYPE flaring rate (from this dataset)
+    if "C+" in df.columns:
+        target_tmp = (df["C+"] > 0).astype(float)
+        magtype_rates = target_tmp.groupby(df["MAGTYPE"]).transform("mean")
+        features["magtype_rate"] = magtype_rates.values
+    else:
+        features["magtype_rate"] = 0.0
+
     # McIntosh sub-components
     mcintosh = df["McIntosh"].fillna("AXX")
     features["zurich"] = mcintosh.str[0].astype("category").cat.codes
