@@ -36,7 +36,6 @@ def featurize(df):
 
     # Position features
     features["abs_longitude"] = df["Longitude"].abs()
-    features["hemisphere"] = (df["Latitude"] >= 0).astype(float)
 
     # Solar cycle phase (year as proxy)
     features["year"] = pd.to_datetime(df["AR issue_date"]).dt.year
