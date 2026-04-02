@@ -40,6 +40,9 @@ def featurize(df):
     # Solar cycle phase (year as proxy)
     features["year"] = pd.to_datetime(df["AR issue_date"]).dt.year
 
+    # AR area rank on disk (1 = largest AR today)
+    features["area_rank"] = df.groupby("AR issue_date")["AREA"].rank(ascending=False, method="min")
+
     # AR age (consecutive days observed)
     df_tmp0 = df.copy()
     df_tmp0["_date"] = pd.to_datetime(df_tmp0["AR issue_date"])
