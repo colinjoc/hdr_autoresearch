@@ -152,6 +152,21 @@ For simulation-based problems, the equivalent of "feature engineering" is **desi
 - Piecewise-constant parameterisation when smoothness is physically required
 - Ignoring hardware/manufacturing constraints during optimisation (designs that can't be built)
 
+### Simulation Realism Requirement (Simulation-Based ONLY)
+
+**CRITICAL: The simulation must be as realistic as possible so that optimised designs are applicable to reality.** A design that scores perfectly in an idealised simulation but fails on real hardware is worthless. The simulation IS the evaluation function — if it's unrealistic, the entire HDR loop optimises for the wrong thing.
+
+**Mandatory realism checklist** — verify BEFORE starting the HDR loop:
+
+- [ ] **All dominant physics included**: Every physical effect that contributes >0.1% to the objective must be modeled. E.g., for quantum gates: decoherence (T1/T2), not just coherent dynamics. For CFD: turbulence model, not just laminar flow. For structural: nonlinear material response if stresses are high.
+- [ ] **Hardware/manufacturing constraints enforced**: The optimiser must know what is physically buildable. E.g., max drive amplitude (AWG limits), bandwidth limits, minimum feature size, material availability. Constraints can be hard (clipping, projection) or soft (penalty terms), but they MUST be present.
+- [ ] **Sufficient resolution**: Enough levels/modes/mesh elements to capture the relevant physics. E.g., 4+ levels for transmon qubits (not just 2), fine enough mesh to resolve boundary layers, enough Fourier modes to capture dynamics.
+- [ ] **Validated against known results**: Before optimising, verify the simulation reproduces published results for a known case. If a textbook says a Gaussian pulse on a transmon gives ~99% fidelity at 20ns, your simulation should agree.
+- [ ] **Decoherence/dissipation/noise included**: Real systems are open, not closed. Include energy loss, dephasing, thermal noise, sensor noise, friction — whatever the dominant dissipation mechanisms are.
+- [ ] **Constraint violations reported**: The evaluation function must flag when a design violates hardware constraints, not silently ignore them. Report feasibility alongside performance.
+
+**Why this matters**: Optimisers are adversarial — they will exploit any gap between simulation and reality. An idealised simulation produces designs that are "optimal" only in the simulated world. Adding realism BEFORE optimising is far more valuable than adding it after. Lesson from quantum gates: a pulse with 99.99996% coherent fidelity is actually 99.88% when you add T1/T2 decoherence — the decoherence floor, not the pulse design, is the bottleneck.
+
 ### Literature Storage
 
 All papers and books are stored locally for future reference:
