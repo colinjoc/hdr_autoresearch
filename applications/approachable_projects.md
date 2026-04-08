@@ -6,50 +6,134 @@
 
 ---
 
-## Summary Table: Top 40 Candidates Ranked by (Novelty x Approachability x Feasibility)
+## Summary Table: All 120 Candidates Ranked by HDR Novelty Potential
 
-| Rank | # | Problem | Domain | Novelty | Approachability | Feasibility | Score |
-|------|---|---------|--------|---------|-----------------|-------------|-------|
-| 1 | 11 | Concrete Mix Design Optimisation | Materials | HIGH | 5 | 5 | 25 |
-| 2 | 3 | Traffic Signal Timing Optimisation | Transportation | HIGH | 5 | 5 | 25 |
-| 3 | 56 | 3D Printing Parameter Optimisation | Manufacturing | HIGH | 5 | 5 | 25 |
-| 4 | 1 | Building Energy Consumption Prediction | Energy | HIGH | 5 | 5 | 25 |
-| 5 | 39 | Wine Quality Prediction & Optimisation | Food | HIGH | 5 | 5 | 25 |
-| 6 | 80 | Bike-Sharing Demand Rebalancing | Transportation | HIGH | 5 | 5 | 25 |
-| 7 | 27 | Wildfire Risk Prediction | Environment | HIGH | 5 | 5 | 25 |
-| 8 | 63 | Solar Panel Tilt Angle Optimisation | Energy | MEDIUM | 5 | 5 | 20 |
-| 9 | 30 | Crop Yield Prediction | Agriculture | HIGH | 5 | 4 | 20 |
-| 10 | 19 | Customer Churn Prediction | Business | MEDIUM | 5 | 5 | 20 |
-| 11 | 20 | Credit Card Fraud Detection | Business | MEDIUM | 5 | 5 | 20 |
-| 12 | 35 | Flight Delay Prediction | Transportation | MEDIUM | 5 | 5 | 20 |
-| 13 | 37 | Student Performance Prediction | Education | MEDIUM | 5 | 5 | 20 |
-| 14 | 47 | Waste Sorting Image Classification | Environment | HIGH | 5 | 4 | 20 |
-| 15 | 24 | House Price Prediction | Business | MEDIUM | 5 | 5 | 20 |
-| 16 | 42 | Soil Quality Prediction | Agriculture | HIGH | 5 | 4 | 20 |
-| 17 | 67 | F1 Race Strategy Optimisation | Sports | HIGH | 5 | 4 | 20 |
-| 18 | 68 | Football Player Valuation | Sports | MEDIUM | 5 | 5 | 20 |
-| 19 | 60 | Battery State-of-Health Prediction | Energy | HIGH | 4 | 5 | 20 |
-| 20 | 51 | Renewable Energy Output Forecasting | Energy | HIGH | 4 | 5 | 20 |
-| 21 | 85 | Inventory Demand Forecasting | Business | MEDIUM | 5 | 5 | 20 |
-| 22 | 73 | Dynamic Pricing Optimisation | Business | HIGH | 4 | 5 | 20 |
-| 23 | 44 | Pest & Disease Detection in Plants | Agriculture | HIGH | 5 | 4 | 20 |
-| 24 | 76 | Startup Success Prediction | Business | MEDIUM | 5 | 5 | 20 |
-| 25 | 12 | Welding Parameter Optimisation | Manufacturing | HIGH | 4 | 5 | 20 |
-| 26 | 50 | Urban Noise Pollution Mapping | Social/Urban | MEDIUM | 5 | 4 | 16 |
-| 27 | 82 | Parking Availability Prediction | Social/Urban | MEDIUM | 5 | 4 | 16 |
-| 28 | 14 | Sleep Quality Prediction | Health | MEDIUM | 5 | 4 | 16 |
-| 29 | 36 | Air Quality Prediction | Environment | MEDIUM | 5 | 4 | 16 |
-| 30 | 59 | Smart Grid Load Forecasting | Energy | MEDIUM | 4 | 5 | 16 |
-| 31 | 28 | Flood Prediction | Environment | MEDIUM | 5 | 4 | 16 |
-| 32 | 21 | Credit Scoring | Business | MEDIUM | 5 | 4 | 16 |
-| 33 | 53 | Recipe Nutrition Optimisation | Food | MEDIUM | 5 | 4 | 16 |
-| 34 | 46 | Deforestation Detection | Environment | MEDIUM | 4 | 4 | 12 |
-| 35 | 16 | Skin Lesion Classification | Health | MEDIUM | 4 | 5 | 16 |
-| 36 | 9 | Antenna Design Optimisation | Engineering | HIGH | 3 | 4 | 12 |
-| 37 | 64 | Crime Hotspot Prediction | Social/Urban | MEDIUM | 4 | 4 | 12 |
-| 38 | 2 | Vehicle Aerodynamics Surrogate | Engineering | HIGH | 3 | 3 | 9 |
-| 39 | 5 | Wind Turbine Blade Optimisation | Engineering | HIGH | 3 | 3 | 9 |
-| 40 | 15 | Protein Function Prediction | Biology | HIGH | 2 | 4 | 8 |
+Scoring axis: **potential for novel solution or insight using HDR methodology** (1-10).
+High scores = rich underexplored design space, cheap evaluation, discovery-oriented, clear benchmark, SOTA far from limit.
+Low scores = saturated, scale-dependent, small design space, compute-heavy, pure model-fitting.
+
+| Score | # | Problem | Domain | Why |
+|-------|---|---------|--------|-----|
+| 10 | 11 | Concrete Mix Design Optimisation | Materials | Multi-objective inverse design, UCI benchmark, huge composition space |
+| 10 | 56 | 3D Printing Parameter Optimisation | Manufacturing | Rich param space, cheap eval, multi-objective, clear benchmarks |
+| 10 | 12 | Welding Parameter Optimisation | Manufacturing | Small-data inverse design, physics-informed features, clear metrics |
+| 10 | 58 | Paint/Coating Formulation Optimisation | Materials | High-dimensional formulation space, Bayesian HDR natural fit |
+| 9 | 42 | Wine Quality Prediction & Optimisation | Food | Inverse design angle novel, UCI benchmark, cheap tabular eval |
+| 9 | 57 | Alloy Composition Optimisation | Materials | Inverse design of compositions, small data, physics priors help |
+| 9 | 48 | Recipe Nutrition Optimisation | Food | Multi-objective design, huge ingredient space, cheap eval |
+| 9 | 3 | Traffic Signal Timing Optimisation | Transportation | SUMO-RL cheap sim, 19 benchmarks, large config space |
+| 9 | 9 | Antenna Design Optimisation | Engineering | GPU sim enables rapid iteration, large geometry space |
+| 9 | 113 | Solar Cell Efficiency Optimisation | Photovoltaics | Differentiable sim, layer thickness design space, clear efficiency metric |
+| 9 | 60 | Battery State-of-Health Prediction | Energy | Rich feature engineering from charge curves, transfer across chemistries |
+| 9 | 65 | Energy Storage Scheduling | Energy | RL design space, cheap price-sim eval, clear profit metric |
+| 8 | 78 | Soft Robot Locomotion Optimisation | Robotics | Co-design of shape+control, differentiable sim, novel design space |
+| 8 | 80 | Elastic Object Shape Optimisation | Mechanical Eng | Differentiable elastic sim, rich shape parameterisation |
+| 8 | 79 | Fluid Mixing Optimisation | Chemical Eng | Differentiable CFD, geometry+speed design space, novel |
+| 8 | 40 | Drone Delivery Path Planning | Transportation | Physics-aware trajectory design, cheap sim, multi-objective |
+| 8 | 37 | EV Charging Station Placement | Urban Planning | Geospatial design space, multi-objective, clear utilisation metric |
+| 8 | 22 | Dynamic Pricing Optimisation | Business | Large policy space, cheap sim eval, clear revenue benchmark |
+| 8 | 1 | Building Energy Consumption Prediction | Energy | Rich feature engineering, multiple datasets, R2 gap exploitable |
+| 8 | 30 | Crop Yield Prediction | Agriculture | Multi-modal fusion, satellite+weather feature space, clear benchmarks |
+| 8 | 51 | F1 Race Strategy Optimisation | Sports | Rich strategy space, cheap sim, explainable RL frontier |
+| 8 | 91 | Airfoil Shape Optimisation | Aerospace | Large shape parameterisation, XFOIL cheap eval, 1600+ benchmark |
+| 8 | 73 | Learning Path Personalisation | Education | Huge curriculum sequence space, cheap eval, knowledge tracing |
+| 8 | 43 | Soil Quality Prediction | Agriculture | Satellite feature engineering, spatial priors, clear nutrient targets |
+| 8 | 10 | Packaging Strength-to-Weight Optimisation | Engineering | Geometry design space, FEA eval feasible, multi-objective |
+| 7 | 27 | Wildfire Risk Prediction | Environment | Multimodal feature space, clear benchmarks, but prediction not design |
+| 7 | 5 | Wind Turbine Blade Shape Optimisation | Engineering | Rich aerostructural space, but sim cost is moderate |
+| 7 | 4 | HVAC System Energy Optimisation | Energy | Schedule design space, EnergyPlus sim, 21% gap to exploit |
+| 7 | 34 | Renewable Energy Output Forecasting | Energy | Image-based features novel, multi-source fusion, clear benchmarks |
+| 7 | 61 | Solar Irradiance Forecasting | Energy | Sky image features, multi-modal fusion, clear error benchmarks |
+| 7 | 38 | Bike-Sharing Demand & Rebalancing | Transportation | Spatio-temporal features, rebalancing is design problem, good data |
+| 7 | 6 | Solar Panel Tilt Angle Optimisation | Energy | Tilt/azimuth is design variable, cheap eval, but small design space |
+| 7 | 45 | Pest & Disease Detection in Plants | Agriculture | Lab-to-field gap exploitable, augmentation design space |
+| 7 | 55 | Waste Sorting Image Classification | Environment | Hierarchical classification design, but mostly model-fitting |
+| 7 | 47 | Precision Fertiliser Application | Agriculture | Spatial application map is design output, sensor feature space |
+| 7 | 8 | Speaker/Acoustic Design Optimisation | Acoustics | Enclosure geometry space, but sim cost moderate |
+| 7 | 39 | Route Optimisation (Vehicle Routing) | Logistics | ML-enhanced heuristic design, Solomon benchmarks, cheap eval |
+| 7 | 7 | Heat Exchanger Design Optimisation | Thermal Eng | Geometry design space rich, but CFD generation costly |
+| 7 | 2 | Vehicle Aerodynamics Surrogate | Engineering | Rich shape space, but CFD data generation is expensive |
+| 7 | 110 | Bike Frame Structural Optimisation | Product Design | Tube dimension design, FEM eval, underexplored domain |
+| 7 | 82 | Water Distribution Network Design | Civil Eng | Pipe sizing design, EPANET cheap sim, benchmark networks |
+| 7 | 92 | Acoustic Room Design | Acoustics | Shape+material design space, Pyroomacoustics cheap eval |
+| 7 | 81 | Bridge Topology Optimisation | Structural Eng | Rich topology space, FEM eval, but well-studied |
+| 7 | 46 | Crop Rotation Planning | Agriculture | Multi-year sequence design, soil feedback, novel HDR angle |
+| 7 | 120 | Public Transit Scheduling Optimisation | Transportation | Schedule design space, MATSim sim, multi-objective |
+| 7 | 59 | Textile Fabric Property Prediction | Textile Eng | Yarn/weave param design, inverse design angle novel |
+| 6 | 100 | Earthquake Damage Prediction | Civil Eng | Feature engineering from building params, ordinal regression |
+| 6 | 70 | Emergency Response Optimisation | Public Safety | Dispatch policy design, but data access limits iteration |
+| 6 | 28 | Flood Prediction | Hydrology | Spatio-temporal features, but primarily prediction not design |
+| 6 | 23 | Supply Chain Demand Forecasting | Logistics | Graph features novel, but prediction-focused, limited design |
+| 6 | 35 | Urban Heat Island Prediction | Urban Climate | Feature engineering from land use, MAE gap, but prediction only |
+| 6 | 18 | Disease Outbreak Prediction | Epidemiology | Multi-source feature fusion, but prediction not design |
+| 6 | 13 | Drug Dosage Personalisation (Warfarin) | Pharmacology | Dose is design variable, genetics+demo features, but well-studied |
+| 6 | 29 | Air Quality Index Prediction | Environment | Multi-sensor feature space, but standard regression problem |
+| 6 | 31 | Water Quality Prediction | Environment | Feature engineering possible, but small design space |
+| 6 | 36 | Flight Delay Prediction | Aviation | Weather integration features, but mainly prediction task |
+| 6 | 41 | Shipping Container Loading | Logistics | Packing config is design, RL benchmark, but constrained space |
+| 6 | 62 | Wind Speed Prediction | Energy | Spatial interpolation features, but prediction-only |
+| 6 | 63 | Smart Grid Load Forecasting | Energy | Hybrid model design, but mostly forecasting, limited design |
+| 6 | 64 | Solar Panel Placement Optimisation | Energy | Placement is design, but shadow analysis well-understood |
+| 6 | 99 | Electric Vehicle Range Prediction | Automotive | Route-aware features novel, but mainly prediction task |
+| 6 | 101 | Steel Plate Defect Classification | Manufacturing QC | Feature engineering on sensor data, multi-label, imbalanced |
+| 6 | 94 | Spring/Damper System Optimisation | Mechanical Eng | Param design, differentiable ODE, but small design space |
+| 6 | 93 | PCB Thermal Management | Electronics | Component placement design, but sim cost moderate |
+| 6 | 33 | Bird Species Identification (Audio) | Ecology | Audio feature engineering, noisy-data gap, but classification |
+| 6 | 117 | Carbon Footprint Estimation | Sustainability | Process param features, but mainly estimation not design |
+| 6 | 106 | Aquaculture Fish Growth Prediction | Aquaculture | Feed/environment features, transfer learning, but prediction |
+| 6 | 107 | Optical Network Design | Telecom | Topology design space, but GNN well-explored, data limited |
+| 6 | 44 | Food Shelf Life Prediction | Food Tech | Sensor feature engineering, but mainly prediction task |
+| 5 | 14 | Sleep Quality Prediction | Digital Health | Wearable feature engineering, but prediction-only, no design |
+| 5 | 32 | Deforestation Detection from Satellite | Environment | Driver attribution novel, but mainly classification task |
+| 5 | 66 | Crime Hotspot Prediction | Public Safety | Spatio-temporal features, but prediction-only, ethical issues |
+| 5 | 68 | Urban Noise Pollution Mapping | Urban Planning | Remote sensing features, but mapping not design |
+| 5 | 67 | Parking Availability Prediction | Smart Cities | Multi-source features, but standard time series prediction |
+| 5 | 69 | Housing Demand Forecasting | Urban Planning | Satellite features novel, but forecasting not design |
+| 5 | 71 | Student Performance Prediction | Education | Feature engineering, interpretability, but small dataset, no design |
+| 5 | 72 | Question Difficulty Estimation | Education | Text features, but LLM-dominated, limited HDR advantage |
+| 5 | 16 | Skin Lesion Classification | Medical Imaging | Augmentation design, but saturating, model-fitting focus |
+| 5 | 17 | Chest X-Ray Pneumonia Detection | Medical Imaging | Data augmentation space, but near-saturated benchmarks |
+| 5 | 15 | Protein Function Prediction | Biology | Sequence feature engineering, but LLM-dominated, compute-heavy |
+| 5 | 52 | Fantasy Sports Portfolio Optimisation | Sports | Combinatorial design, but noisy signal, hard to benchmark |
+| 5 | 112 | Rainfall Prediction | Meteorology | Multi-source fusion, but standard forecasting task |
+| 5 | 108 | Hotel Booking Cancellation Prediction | Hospitality | Interaction features, but saturated tabular benchmark |
+| 5 | 109 | Kickstarter Success Prediction | Crowdfunding | NLP+temporal features, but prediction-only, no design |
+| 5 | 111 | Restaurant Health Inspection Prediction | Public Health | NLP proxy features novel, but weak signal, no design |
+| 5 | 104 | Used Car Price Prediction | Automotive Retail | Depreciation features, but standard regression, no design |
+| 5 | 105 | Spotify Song Popularity Prediction | Music Analytics | Audio features, but noisy target, no clear design output |
+| 4 | 19 | Customer Churn Prediction | Business | Feature engineering possible, but saturated, no design |
+| 4 | 20 | Credit Card Fraud Detection | Business | Temporal features, but scale-dependent, no design output |
+| 4 | 21 | Credit Scoring | Finance | Fairness features, but well-studied, mainly model-fitting |
+| 4 | 24 | House Price Prediction | Real Estate | Spatial features, but classic benchmark, near-saturated |
+| 4 | 25 | Startup Success Prediction | Business | Temporal features, but noisy signal, small data |
+| 4 | 26 | Inventory Demand Forecasting | Retail | Hierarchical features, but standard forecasting task |
+| 4 | 49 | Football Match Outcome Prediction | Sports | Team features, but inherently noisy, 80% ceiling |
+| 4 | 50 | Football Player Market Valuation | Sports | Trajectory features, but prediction-only, no design |
+| 4 | 53 | Basketball Player Performance Prediction | Sports | Fatigue features, but prediction-only, no design output |
+| 4 | 54 | Esports Match Prediction | Gaming | Draft features, but noisy, no clear design output |
+| 4 | 74 | Music Recommendation | Entertainment | Feature engineering, but LLM-disrupted, no design |
+| 4 | 84 | Movie Box Office Prediction | Entertainment | Social features, but inherently noisy, no design |
+| 4 | 85 | Taxi Trip Duration Prediction | Transportation | Spatial features, but saturated Kaggle benchmark |
+| 4 | 86 | Customer Lifetime Value Prediction | Marketing | RFM features, but mainly model-fitting, no design |
+| 4 | 87 | Job Resume Matching | HR Tech | Fairness features, but NLP-dominated, no design output |
+| 4 | 88 | Ad Click-Through Rate Prediction | Advertising | Interaction features, but scale-dependent, industrial problem |
+| 4 | 89 | Hospital Length-of-Stay Prediction | Healthcare | Temporal features, but mainly prediction, no design |
+| 4 | 90 | Sentiment Analysis for Product Reviews | NLP | Aspect features, but LLM-dominated, no discovery |
+| 4 | 114 | Insurance Claim Prediction | Insurance | Zero-inflated features, but standard regression task |
+| 4 | 116 | Taxi Demand Hotspot Prediction | Urban Mobility | Spatio-temporal features, but standard forecasting |
+| 4 | 83 | Concrete Crack Detection from Images | Infrastructure | Augmentation space, but classification, limited design |
+| 3 | 75 | Image Style Transfer | Computer Vision | Architecture design, but subjective eval, no clear metric |
+| 3 | 76 | Color Palette Generation | Design | Aesthetic space, but no objective benchmark, subjective |
+| 3 | 77 | Text Summarisation | NLP | LLM-dominated, no feature design advantage for HDR |
+| 3 | 103 | Taxi Fare Prediction | Transportation | Scale problem, no design space, near-saturated |
+| 3 | 102 | Forest Cover Type Prediction | Ecology | Classic benchmark, near-saturated, no design output |
+| 3 | 118 | Employee Attrition Prediction | HR | Tiny dataset, saturated, no design output |
+| 2 | 95 | Diabetes Prediction | Healthcare | Classic saturated benchmark, no design space |
+| 2 | 96 | Heart Disease Prediction | Healthcare | Classic saturated benchmark, no design space |
+| 2 | 115 | Power Plant Energy Output Prediction | Energy | 4 features, tiny design space, well-studied |
+| 2 | 119 | Calorie Burn Prediction | Fitness | Saturated, small feature space, no design output |
+| 1 | 97 | Titanic Survival Prediction | Meta-Learning | Toy dataset, completely saturated, no discovery possible |
+| 1 | 98 | Mushroom Edibility Classification | Biology | Near-perfect accuracy, no design space, saturated |
 
 ---
 
