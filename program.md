@@ -56,9 +56,24 @@ HDR is a systematic methodology for pushing beyond what has been published. The 
 
 ### What "novel" means in practice
 
-**For dataset problems**: Beat the published state of the art on a recognised benchmark. If the leaderboard says 0.92 AUC, your target is 0.93+. If no leaderboard exists, establish one and demonstrate that your approach outperforms the methods described in the literature. Novel features derived from domain theory, novel model architectures, or novel training procedures all count — but only if they produce measurably better results.
+**WARNING: Fitting a model to a dataset is NOT the goal. The model is a TOOL, not the output.**
+
+The most common failure mode is spending the entire HDR loop improving a regression score on a benchmark dataset and calling it done. An R² of 0.95 on a known dataset is not a novel result — it's infrastructure. The novel result is what you DO with the model: discover new materials, find new designs, identify non-obvious patterns, generate candidates that nobody has tested.
+
+**For dataset problems**: The model exists to make predictions on NEW, UNSEEN cases that advance the field. Examples:
+- A superconductor Tc predictor is infrastructure. Novel superconducting materials it identifies are the result.
+- A solar flare classifier is infrastructure. New precursor signatures it discovers are the result.
+- A drug activity predictor is infrastructure. Novel molecules it proposes are the result.
+
+Beat the published SOTA on recognised benchmarks to validate the model — but then USE the model for discovery. If the HDR loop never gets past model improvement, it has failed.
 
 **For simulation problems**: Find designs, configurations, or control strategies that outperform published solutions on realistic simulations. "Outperform" means: better objective value, OR equal objective with better robustness/feasibility/generality, OR solving a problem variant that hasn't been addressed. Reproducing a known GRAPE result with a different framework is engineering, not research. Finding a pulse that beats GRAPE under realistic hardware constraints is research.
+
+**The two-phase structure**: Every HDR project should have:
+- **Phase A (Infrastructure)**: Build and validate the predictor/simulator. Measure accuracy on known cases. This is necessary but not sufficient.
+- **Phase B (Discovery)**: Use the validated tool to explore the unknown. Generate candidates, screen them, identify the most promising. THIS is where novelty lives.
+
+If you find yourself spending more than 30% of HDR iterations on Phase A, step back and ask: is the model good enough to start discovery? A model with 10K MAE that can correctly rank the top 1% is more useful than a model with 2K MAE that never gets used for screening.
 
 ### How HDR enables novelty
 
