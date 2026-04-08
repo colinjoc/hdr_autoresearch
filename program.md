@@ -48,6 +48,40 @@ Optimise **[DESIGN OBJECTIVE]** by iteratively modifying **[DESIGN VARIABLES]** 
 
 ---
 
+## The Purpose of HDR: Finding Novel Solutions
+
+**The goal is NOT to reproduce known results. The goal is to discover solutions that advance the state of the art.**
+
+HDR is a systematic methodology for pushing beyond what has been published. The literature review, baseline audit, and tournament phases exist to establish WHERE the frontier is. The HDR loop itself exists to push PAST it.
+
+### What "novel" means in practice
+
+**For dataset problems**: Beat the published state of the art on a recognised benchmark. If the leaderboard says 0.92 AUC, your target is 0.93+. If no leaderboard exists, establish one and demonstrate that your approach outperforms the methods described in the literature. Novel features derived from domain theory, novel model architectures, or novel training procedures all count — but only if they produce measurably better results.
+
+**For simulation problems**: Find designs, configurations, or control strategies that outperform published solutions on realistic simulations. "Outperform" means: better objective value, OR equal objective with better robustness/feasibility/generality, OR solving a problem variant that hasn't been addressed. Reproducing a known GRAPE result with a different framework is engineering, not research. Finding a pulse that beats GRAPE under realistic hardware constraints is research.
+
+### How HDR enables novelty
+
+The power of HDR is exhaustive, disciplined exploration of the design space. Humans and even automated optimisers tend to exploit one approach and miss alternatives. HDR's commit/revert cycle with mandatory hypothesis articulation forces exploration of non-obvious combinations:
+
+- The literature review seeds 20+ hypotheses from different subfields — cross-pollination that no single researcher would attempt
+- The knowledge base accumulates negative results that prune dead ends — something the literature rarely publishes
+- The Bayesian belief tracking prevents both premature convergence and endless repetition
+- The isolation principle (one change per experiment) identifies which ideas actually contribute, rather than bundling changes and attributing success to the wrong one
+
+### Novelty checklist
+
+Before declaring a project "done," verify:
+
+- [ ] Results exceed published SOTA on the same benchmark/problem (or are within measurement uncertainty of SOTA with a simpler/faster/more robust method)
+- [ ] At least one finding was surprising — something the literature didn't predict or contradicts conventional wisdom
+- [ ] The knowledge base contains insights that would be valuable to other researchers (not just hyperparameter settings)
+- [ ] The approach could be written up as a short paper: clear problem, clear method, clear improvement over prior work
+
+If none of these hold, the HDR loop hasn't gone far enough. Return to the research queue, generate new hypotheses from the gaps in the knowledge base, or pivot to a harder variant of the problem.
+
+---
+
 ## Phase 0: Literature Review
 
 **THIS IS THE MOST IMPORTANT PHASE. DO NOT RUSH IT.**
