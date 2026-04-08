@@ -5,6 +5,10 @@
 
 ## Objective
 
+HDR applies to two problem types:
+
+### Option A: Dataset-Based (Prediction/Classification/Regression)
+
 Maximise **[PRIMARY METRIC]** and **[SECONDARY METRIC]** on [YOUR BENCHMARK / DATASET] by [PREDICTION/CLASSIFICATION/REGRESSION TASK] using Hypothesis-Driven Research (HDR).
 
 **Primary metric: [METRIC]** (e.g., AUC, RMSE, F1)
@@ -16,6 +20,31 @@ Maximise **[PRIMARY METRIC]** and **[SECONDARY METRIC]** on [YOUR BENCHMARK / DA
 - [Number of input features per sample]
 - [Number of evaluation tasks / splits]
 - Current best published result: [MODEL (METRIC VALUE)]
+
+### Option B: Simulation-Based (Optimization/Design/Inverse Problems)
+
+Optimise **[DESIGN OBJECTIVE]** by iteratively modifying **[DESIGN VARIABLES]** and evaluating via **[SIMULATION]** using Hypothesis-Driven Research (HDR).
+
+**Primary metric: [METRIC]** (e.g., gate fidelity, drag coefficient, strain energy, folding accuracy)
+**Secondary metric: [METRIC]** (e.g., leakage, robustness, manufacturability)
+**Stretch target**: [OPERATIONAL REQUIREMENT] (e.g., 99.99% fidelity, 50% drag reduction)
+
+**Simulation**: [SIMULATOR AND FRAMEWORK]
+- Evaluation time per candidate: [seconds / minutes]
+- Differentiable: [yes/no — if yes, gradients flow through the simulation]
+- GPU-accelerated: [yes/no — framework and expected speedup]
+- Design variable dimensionality: [number of parameters being optimised]
+- Known constraints: [physical limits, manufacturing constraints, bandwidth limits]
+
+**Key difference from dataset-based HDR**: There is no pre-existing labelled dataset to fit. The simulation IS the evaluation function — it computes the objective for any candidate design. Hypotheses modify the design parameterisation, objective function, constraints, or optimisation strategy rather than features/model architecture.
+
+**Examples of simulation-based HDR**:
+- Quantum gate pulse design (simulate Hamiltonian evolution → gate fidelity)
+- Structural topology optimisation (FEM solve → compliance)
+- Photonic device inverse design (FDTD solve → transmission)
+- Aerodynamic shape optimisation (CFD solve → lift/drag)
+- RNA sequence design (differentiable folding → structure match)
+- Robot locomotion (physics engine → task reward)
 
 ---
 
@@ -31,7 +60,7 @@ Before any experiments, conduct a **deep, comprehensive literature review**. Thi
 
 1. **`literature_review.md`** -- Structured review organized by theme (target: 2000+ words per theme)
 2. **`papers.csv`** -- Tracking spreadsheet with **100+ entries** including textbooks, papers, reviews, and theses
-3. **`feature_candidates.md`** -- Domain quantities mapped to computable proxies from available features
+3. **`feature_candidates.md`** (dataset-based) / **`design_variables.md`** (simulation-based) -- For dataset problems: domain quantities mapped to computable proxies from available features. For simulation problems: design variables, their parameterisations, physical constraints, and expected effects on the objective
 4. **`research_queue.md`** -- Initial hypotheses seeded from literature findings (target: 20+ hypotheses)
 5. **`knowledge_base.md`** -- Pre-populated with established results from the literature
 
@@ -55,15 +84,15 @@ Structure the review around these themes. Each theme should be a substantial sec
 
 2. **Phenomena of Interest** -- The specific process you are predicting/classifying. Known mechanisms, pathways, timescales, observable precursors. What are the **known functional relationships** between inputs and outputs? What are the **known failure modes** of existing models?
 
-3. **Derived/Candidate Features from Theory** -- Quantities suggested by domain theory but not directly in your raw features. The bridge from theory to computable proxies is **the most valuable output of the literature review**. For each candidate feature, cite the paper that motivates it and explain the physical mechanism.
+3. **Derived/Candidate Features from Theory** (dataset-based) / **Design Variables and Parameterisations** (simulation-based) -- For dataset problems: quantities suggested by domain theory but not directly in your raw features. The bridge from theory to computable proxies is **the most valuable output of the literature review**. For simulation problems: the design variables, their parameterisations, and the tradeoffs between them. What parameterisation choices exist (piecewise constant, B-spline, Fourier, neural)? What constraints must be satisfied? What are the known tradeoffs (e.g., speed vs fidelity, robustness vs optimality)?
 
-4. **ML for This Problem** -- Existing models, features used, results. What has been tried and what gaps remain. For EVERY model on the leaderboard, find and read their paper or submission code. Understand **exactly** what they do differently. Don't guess -- read the source.
+4. **ML / Optimisation for This Problem** -- For dataset problems: existing models, features used, results. For simulation problems: optimisation algorithms used (gradient-based, gradient-free, Bayesian, evolutionary), differentiable vs non-differentiable approaches, surrogate models, ML-accelerated simulation. What has been tried and what gaps remain. Understand **exactly** what top groups do differently.
 
-5. **Feature Engineering Techniques** -- Domain-specific transformations, interaction terms, normalization strategies. What features do the top performers use? What features do they discard? What feature selection methods work in this domain?
+5. **Feature Engineering Techniques** (dataset-based) / **Objective Function Design** (simulation-based) -- For dataset problems: domain-specific transformations, interaction terms, normalization strategies. For simulation problems: how the objective function is formulated — penalty terms, constraint handling, multi-objective weighting, regularisation for physical realisability. What objective formulations lead to better designs?
 
-6. **Transfer / Generalization** -- If your problem involves multiple domains, sites, or conditions: what enables or prevents generalization across them. What normalization or encoding strategies help?
+6. **Transfer / Generalization** -- If your problem involves multiple domains, sites, or conditions: what enables or prevents generalization across them. For simulation problems: does an optimal design for one set of parameters (e.g., one qubit frequency) transfer to another? What makes designs robust vs brittle?
 
-7. **Related Problems** -- What can we learn from adjacent domains? If predicting material properties, what do drug discovery, weather prediction, or finance researchers do with similar data structures?
+7. **Related Problems** -- What can we learn from adjacent domains? Simulation-based HDR shares methodology across very different physics — optimal control in NMR informs quantum gates, structural topology optimisation informs photonic design, etc.
 
 ### How to Conduct the Review
 
@@ -81,7 +110,7 @@ Structure the review around these themes. Each theme should be a substantial sec
 
 7. **Generate hypotheses** -- every paper should generate at least one testable hypothesis for research_queue.md. "This paper found X works; we should try X" is the minimum.
 
-### Feature Engineering Guidance
+### Feature Engineering Guidance (Dataset-Based)
 
 The literature review should specifically identify **derived features worth computing**. Based on empirical results, features fall into three categories:
 
@@ -100,6 +129,28 @@ The literature review should specifically identify **derived features worth comp
 - Raw component features when a derived scalar already captures the information (e.g., adding vector components when magnitude + alignment are already features)
 - High-cardinality features that fragment the data
 - Features that vary across configs in ways that break generalization (per-config statistics)
+
+### Design Variable Guidance (Simulation-Based)
+
+For simulation-based problems, the equivalent of "feature engineering" is **design parameterisation** — how you represent the space of candidate solutions. This choice profoundly affects optimisation landscape smoothness, convergence speed, and solution quality.
+
+**High-value parameterisation choices:**
+- Smooth basis functions (B-splines, Fourier series, Chebyshev polynomials) — reduce dimensionality while maintaining expressiveness
+- Physics-informed constraints baked into the parameterisation (symmetry, periodicity, causality)
+- Hierarchical parameterisations (coarse-to-fine, multi-resolution) — avoid local minima
+- Differentiable relaxations of discrete choices (Gumbel-softmax for material selection, density methods for topology)
+
+**Choices that often help:**
+- Penalty terms that encode physical realisability (bandwidth limits, manufacturing constraints, smoothness)
+- Multi-objective formulations that prevent degenerate solutions
+- Normalisation of design variables to similar scales
+- Warm-starting from known good solutions or analytical approximations
+
+**Choices that often hurt:**
+- Over-parameterisation (too many control points → noisy gradients, overfitting to simulation artifacts)
+- Under-constrained optimisation (no regularisation → physically unrealisable designs)
+- Piecewise-constant parameterisation when smoothness is physically required
+- Ignoring hardware/manufacturing constraints during optimisation (designs that can't be built)
 
 ### Literature Storage
 
@@ -152,10 +203,10 @@ Before running any experiments, **audit the baseline code and understand the sco
 
 ### 1. Verify the Baseline Code
 
-Read every line of the starter code / evaluation harness. Look for:
+Read every line of the starter code / evaluation harness / simulation setup. Look for:
 - **Bugs**: off-by-one errors, missing dimensions, wrong indices, mismatched slicing between training loss and evaluation metric. Fixing bugs is always the highest-ROI experiment.
-- **Suboptimal defaults**: data subsampling that throws away most of the data, fixed seeds, commented-out features, hardcoded paths.
-- **Missing features**: the baseline typically uses a minimal feature set. Note all available inputs that aren't used.
+- **Suboptimal defaults**: data subsampling that throws away most of the data, fixed seeds, commented-out features, hardcoded paths. For simulation problems: default solver tolerances, time step sizes, truncation of Hilbert space, boundary conditions.
+- **Missing features** (dataset) / **Unused design freedom** (simulation): the baseline typically uses a minimal feature set or simplistic parameterisation. Note all available inputs, control channels, or degrees of freedom that aren't used.
 
 Record all findings in `observations.md`.
 
@@ -180,14 +231,22 @@ Record the decomposition in `knowledge_base.md`.
 
 If the provided validation set is weak, create a better internal validation scheme and note this in `observations.md`.
 
-### 4. Data Utilization Check
+### 4. Data Utilization Check (Dataset-Based) / Simulation Fidelity Check (Simulation-Based)
 
-Audit how much data is actually used:
+**Dataset-based**: Audit how much data is actually used:
 - Is training data subsampled? By how much?
 - Are some configs/classes/domains underrepresented?
 - Could using more data (or better-balanced data) improve results?
 
 Baselines often aggressively subsample data for simplicity. Using more data (with balanced sampling across configs/classes) is frequently one of the biggest single improvements after feature engineering.
+
+**Simulation-based**: Audit the fidelity of the simulation:
+- Is the Hilbert space / mesh / grid sufficiently resolved? What happens if you double resolution?
+- Are physical effects being neglected (decoherence, nonlinearity, coupling to environment)?
+- Is the solver converged (ODE tolerances, time step, iteration count)?
+- What approximations are made and how do they affect the objective?
+
+Low-fidelity simulation may produce designs that don't transfer to reality. Increasing fidelity is often the simulation equivalent of "using more data."
 
 ### 5. Missing Data Audit
 
@@ -228,23 +287,33 @@ If training locally with GPU but deploying on CPU, implement **adaptive inferenc
 
 ---
 
-## Phase 1: Model Selection Tournament
+## Phase 1: Model Selection Tournament / Optimisation Strategy Tournament
 
-**CRITICAL: Do NOT skip this phase.** The commit/revert mechanism in the HDR loop creates greedy lock-in -- once an approach works, you hill-climb within it and never explore alternatives seriously. This phase prevents that by forcing a fair comparison across fundamentally different model families BEFORE committing to one.
+**CRITICAL: Do NOT skip this phase.** The commit/revert mechanism in the HDR loop creates greedy lock-in -- once an approach works, you hill-climb within it and never explore alternatives seriously. This phase prevents that by forcing a fair comparison across fundamentally different approaches BEFORE committing to one.
 
 ### Why This Matters
 
-The greedy commit/revert mechanism causes a common failure mode: the first approach that works captures all subsequent attention, and alternative model families never get equal optimization effort. The tournament prevents this.
+The greedy commit/revert mechanism causes a common failure mode: the first approach that works captures all subsequent attention, and alternatives never get equal optimization effort. The tournament prevents this.
 
 ### The Tournament Protocol
 
-1. **Select 3-5 fundamentally different model families.** "Fundamentally different" means different inductive biases, not hyperparameter variations. Examples:
+1. **Select 3-5 fundamentally different approaches.** "Fundamentally different" means different inductive biases or optimisation strategies, not hyperparameter variations.
+
+   **Dataset-based examples** (model families):
    - Neural network (MLP, CNN, etc.)
    - Gradient boosted trees (XGBoost, LightGBM)
    - Kernel methods (SVR, Gaussian Process)
    - Linear models with nonlinear features (polynomial, RBF)
    - Random Forest
    - Domain-specific model (physics-informed, analytical closure, etc.)
+
+   **Simulation-based examples** (optimisation strategies):
+   - Gradient-based optimisation (GRAPE/adjoint method with the differentiable simulator)
+   - Gradient-free optimisation (Nelder-Mead, CMA-ES, differential evolution)
+   - Bayesian optimisation (Gaussian process surrogate + acquisition function)
+   - Reinforcement learning (policy gradient, PPO)
+   - Hybrid (gradient-based with stochastic restarts, neural parameterisation + gradient descent)
+   - Domain-specific method (DRAG for quantum gates, adjoint CFD, level-set for topology)
 
 2. **For each family, run a minimal but fair baseline** (~5 experiments each):
    - Use the SAME feature set for all families
