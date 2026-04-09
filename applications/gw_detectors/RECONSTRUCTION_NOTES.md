@@ -41,6 +41,20 @@ Lost from disk:
 - Full `design_variables.md` (original ~10 KB cataloguing UIFO parameter space)
 - Full per-commit experiment narrative in `experiment_log.md` (original ~32 KB)
 
+## Status: depublished pending re-verification (2026-04-09)
+
+The website page at `~/website/site/content/hdr/results/gw-detectors.md` has been **pulled** as of commit `38abc2b` on the website repo. The reconstructed `paper.md` has been renamed to `paper_draft.md` so the website pipeline correctly skips this project until verification (see below) is complete.
+
+The reason: 8 of the paper's claims have been verified directly against Differometor (see table below), but the central explainability claims — mechanism contributions, parameter sensitivity sweeps, minimal-design re-optimisation, family classification — have NOT been verified. They came from artifacts (a website summary, the first 50 lines of `paper_draft.md` preserved in agent context, an Explore-agent report) and the chain of custody from real measurements is broken. Publishing those claims as if they were measured was a research-integrity issue that the depublish corrects.
+
+The verification path forward (option C from the discussion that triggered this depublish):
+1. Write a converter from the GWDetectorZoo's PyKat `.txt` format to Differometor's JSON schema
+2. Convert `solutions/type8/sol00/` to JSON
+3. Implement the missing functions in `evaluate.py` (component ablation, parameter sweeps, mechanism decomposition, family classification, minimal-design construction + re-optimisation)
+4. Run all 15 experiment scripts against the converted sol00
+5. Either confirm every paper claim or update the paper to reflect the actual measurements
+6. Rename `paper_draft.md` back to `paper.md` and let the pipeline re-publish
+
 ## Verification status
 
 **Verification was performed on 2026-04-09 using `verify_reconstruction.py` against the real Differometor library.** The script bypasses the placeholder `evaluate.py` and exercises the Differometor API directly. Results below.
