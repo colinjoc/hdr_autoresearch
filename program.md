@@ -30,13 +30,13 @@ Reverse-engineer an existing AI-discovered or black-box solution. Identify which
 
 ## Phase 0: Literature Review
 
-**Do not skip. 100+ citations minimum.**
+**Do not skip. 200+ citations is the new minimum; aim for 300–500 if the field is large; 1000+ for truly cross-disciplinary projects.** A shallow Phase 0 is the most expensive shortcut to take in HDR — almost every project that has needed major mid-loop pivots traces the failure to incomplete lit review.
 
 ### Deliverables
-1. `literature_review.md` — 7 themes, 2000+ words each
-2. `papers.csv` — 100+ entries (3-5 textbooks, 5-10 reviews, 30-50 recent, 20-30 methods)
+1. `literature_review.md` — 7 themes, 3000+ words each (was 2000)
+2. `papers.csv` — 200+ entries minimum (was 100). Composition: 5–10 textbooks, 10–20 reviews, 60–100 recent results, 30–60 methods, 20–40 cross-disciplinary references
 3. `feature_candidates.md` / `design_variables.md` — domain quantities → computable proxies
-4. `research_queue.md` — 20+ hypotheses, each traced to a paper
+4. `research_queue.md` — **100+ hypotheses minimum** (was 20). Each one specifies its design variable, expected outcome, evaluation metric, baseline, and a Bayesian prior. The lit review's job is to surface the long tail of possible experiments, not just the obvious ones.
 5. `knowledge_base.md` — established results, what works, what doesn't
 
 ### Themes
@@ -49,10 +49,25 @@ Reverse-engineer an existing AI-discovered or black-box solution. Identify which
 7. Related problems (cross-domain insights)
 
 ### Quality Gate
-- [ ] 100+ papers.csv entries with 3+ textbooks, 5+ reviews
+- [ ] 200+ papers.csv entries with 5+ textbooks, 10+ reviews
 - [ ] 15+ candidate features/variables with physics justification
-- [ ] 20+ hypotheses in research_queue.md
+- [ ] **100+ hypotheses** in research_queue.md
 - [ ] Can explain the domain physics without notes
+- [ ] **The "enough citations" heuristic below has been satisfied**
+
+### How many citations is "enough"? — the saturation heuristic
+
+The 200-citation floor is a minimum, not a target. The right question is "have we covered the field well enough that the next paper we read is unlikely to change our priors?" Use these three independent saturation checks; the lit review is "enough" when all three are satisfied:
+
+1. **Marginal information gain.** Track every new citation against the running `knowledge_base.md`. A new paper "contributes" if reading it adds at least one new fact, hypothesis, mechanism, or correction to the knowledge base. Maintain a rolling count of "contributing fetches per 10 fetches". When the rolling count drops to ≤ 1 in 10 (90 percent of new fetches add nothing), the citation graph is saturating. **Stop when 20 consecutive new fetches add zero new facts to `knowledge_base.md`.**
+
+2. **Citation-graph closure.** As you add papers to `papers.csv`, also track which references each cited paper itself cites. The lit review is approaching closure when 90 percent of any new paper's references are already in `papers.csv` — the citation graph has been mostly traversed. Compute this ratio for the 10 most-recently-added papers and stop when the rolling average exceeds 0.9.
+
+3. **Standard textbook coverage.** Identify the canonical textbook of the field (the book a graduate student in this discipline reads in their first year). For every chapter heading in that textbook, `papers.csv` should contain at least 3 references to current research that builds on that chapter. If any chapter has fewer than 3 representative papers, the lit review is missing a sub-area.
+
+When all three are satisfied, the lit review is "enough". Most projects will hit this between 200 and 500 citations. A few cross-disciplinary projects (e.g. AI-for-physics, where the literature spans computer science AND a physics subfield AND multi-objective optimisation AND a specific dataset) may need 800+ citations before all three saturate.
+
+**One more rule: do not stop early just because the count crossed a threshold.** A 250-citation lit review where 80 percent of fetches still add new facts is INCOMPLETE. A 180-citation lit review where 19 of the last 20 fetches added nothing is COMPLETE. The signal is the saturation, not the count.
 
 ---
 
@@ -146,6 +161,8 @@ For materials, designs, and any domain with a "physically realisable?" constrain
 
 ## Phase 2: The HDR Loop
 
+**Run hundreds of experiments. The 20-experiment-loop pattern from the early HDR projects was too short.** A real HDR project should run **100 experiments minimum** in Phase 2 before declaring convergence, and projects with rich research queues should run **300–1000+** experiments. Each experiment is cheap if the evaluation harness is fast; the cost is in the per-experiment thinking (prior, mechanism, single change), not in the compute.
+
 ```
 1. Pick Question        ← highest-impact OPEN from research_queue.md
 2. State Prior          ← probability (0-100%) BEFORE testing
@@ -164,6 +181,15 @@ For materials, designs, and any domain with a "physically realisable?" constrain
 4. Training improvements
 5. Architecture changes
 6. Speed optimisation
+
+### How many experiments is "enough"? — the saturation heuristic for Phase 2
+
+Mirroring the Phase 0 saturation rule: stop the HDR loop when both signals fire.
+
+1. **Sustained revert streak.** When 20 consecutive experiments are reverted (no improvement above the noise floor), the local search is exhausted. Re-run Phase 1 (tournament) to look for a fundamentally different approach, or stop and write the paper.
+2. **Research-queue exhaustion.** When fewer than 5 hypotheses remain OPEN in `research_queue.md` AND each has a Bayesian prior below 20 percent, the productive ideas are gone. Add 20+ new hypotheses from a fresh pass over the lit review, or stop.
+
+Stopping at 100 experiments because you "hit the count" is wrong if either signal still says "keep going". Stopping at 50 experiments because the research queue is exhausted AND the last 20 experiments were all reverts is correct.
 
 ### Principles
 - **Domain-first**: every hypothesis grounded in domain science
@@ -241,6 +267,22 @@ A publication-quality academic paper. Structure:
 - Match the conventions of the target venue (Phys. Rev. Letters, Nature Communications, or domain-specific journal)
 - Standard academic tone — not breathless, not understated
 - Write the paper LAST so it reflects the full HDR journey, not the original hypotheses
+
+**Writing rules** (apply to both `paper.md` and any derived public summary):
+
+- **Always expand abbreviations on first use.** Every acronym, shorthand, Greek letter or symbol must be spelled out the first time it appears, with the abbreviated form in parentheses, before it is used standalone. This applies even to "well-known" abbreviations — the audience may not know them. Subsequent mentions in the same document can use the short form.
+
+- **Every paper.md and every derived public summary must contain a Detailed Baseline section and a Detailed Solution section as standalone sections.** These are in addition to the methodology section, not replacements for it.
+
+  The **Detailed Baseline section** describes what the baseline algorithm / dataset / design actually is, in enough depth that an unfamiliar reader can understand it without external references. It must include: the name of the baseline, its mathematical formulation (formulas, equations) if applicable, its historical and theoretical origin, what it actually computes or produces step by step, its assumptions and known failure modes, the specific parameter values used in this study, and a justification for why it is the right comparison target. Examples of what counts as "the baseline" depend on the project type — it might be an analytical formula, a published algorithm, a published reference design, or a standard dataset preprocessing pipeline.
+
+  The **Detailed Solution section** describes the final discovered solution in equivalent depth. It must include: the name of the solution, the mathematical formulation, the actual final code block for code-based solutions, a step-by-step explanation of how it works, the causal mechanism for why it works, the concrete differences from the baseline, the assumptions and limits, and how to reproduce it starting from the baseline. The reader should be able to read the code (or equations) and understand what changed.
+
+  The reader should be able to reach the end of these two sections and understand both (a) the prior state of the art well enough to reproduce it, and (b) the new contribution well enough to reproduce it, without needing any external context.
+
+- **The methodology section answers two questions only**: (a) what was the baseline and how was it calculated, with enough detail for reproduction, and (b) how did the project iterate on the baseline to reach the final result, including what classes of hypothesis were tested and what the keep-vs-revert criterion was. The methodology section MUST NOT include literature citation counts, hypothesis counts, or any other Phase 0 / Phase 0.5 work-effort metric. Those numbers are administrative trivia and live in `experiment_log.md`, not in the published methodology.
+
+- **Section ordering for paper.md and summaries**: Abstract → Introduction → **Detailed Baseline** → **Detailed Solution** → Methods (the iteration process) → Results → Discussion → Conclusion → References. The two new sections sit between the introduction and the methods because they establish what is being compared *before* the reader sees how the comparison was done.
 
 ### Public summary (auto-generated, do not maintain by hand)
 
