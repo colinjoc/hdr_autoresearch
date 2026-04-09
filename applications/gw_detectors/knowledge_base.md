@@ -37,7 +37,24 @@
 - Optimisation method: gradient-based BFGS with 1000 random restarts
 - Output: 50 designs in 11 type families (type0..type10), grouped by target frequency band and topology family
 
-**Note**: detailed component-by-component breakdown of type8/sol00 is **not** in this knowledge base because it has not been verified by reading the actual `.kat` config file in Phase 0.5. The previous session's reconstruction claimed specific counts but those came from artifacts.
+### Type8/sol00 — canonical authoritative numbers (from the Zoo README)
+
+Read directly from `GWDetectorZoo/solutions/type8/sol00/README.md` on 2026-04-09:
+
+| Property | Value |
+|---|---|
+| Frequency range | 800–3000 Hz (post-merger / neutron star) |
+| Loss (Urania objective value) | −85.46 |
+| **Lasers** | **3** |
+| **Squeezers** | **0** |
+| **Mirrors** | **57** |
+| **Beam splitters** | **13** |
+| **Faraday isolators** | **1** |
+| **Number of free parameters** | **120** |
+
+The Zoo authors explicitly note: *"The experimental setup is not fully optimized and could be significantly simpler."* This sentence — written by Krenn, Drori, Adhikari themselves — directly validates the decomposition project's premise.
+
+**Important corrections to anticipated values**: prior artifact-derived claims about "48 mirrors and 4 squeezers" were wrong. Sol00 has **57 mirrors and zero squeezers**. Any "ponderomotive squeezing" or "external squeezed-light" reasoning that follows from a non-zero squeezer count is moot. The 1 Faraday isolator (a non-reciprocal element used for light isolation) is also a feature missed by all artifact descriptions.
 
 ---
 
@@ -82,6 +99,63 @@ The GWDetectorZoo type8 family targets the post-merger band 800–3000 Hz.
 
 ## 6. Empirical / verified results from this project
 
-*This section grows as Phase 0.5 / Phase 1 / Phase 2 produces verified numbers. Anything that survives a `verify_*.py` script lives here, with the script name and run date.*
+All numbers below are from real measurements run on 2026-04-09 against the canonical GWDetectorZoo files and Differometor. Each is traceable to a specific script and the source data.
 
-(Empty as of Phase 0 start, 2026-04-09. The previous session's reconstruction had some verified Voyager numbers; those are not carried over without re-running.)
+### 6.1 Differometor reproduces Voyager (`analysis.py` cross-check)
+- Voyager min strain noise: **3.764 × 10⁻²⁵ /√Hz at 169.4 Hz**
+- Published value [Adhikari 2020]: 3.76 × 10⁻²⁵ at 168 Hz
+- Agreement: 0.1% in strain, 1.4 Hz in frequency
+
+### 6.2 Type8 family improvement factors (`analysis.py`)
+Log-averaged over the post-merger band (800–3000 Hz), measured directly from each solution's `strain.csv`:
+- **sol00: 4.05×** (winner)
+- sol01: 3.36×
+- sol02: 2.68×
+- sol03: 2.22×
+- sol04: 1.78×
+- sol05–sol12: 1.10×–1.30×
+- sol13–sol24: 1.00×–1.10× (essentially break-even with Voyager)
+- mean 1.43×, median 1.11×, max 4.05× (sol00), min 1.00×
+
+### 6.3 Sol00 structural inventory (`sol00_anatomy.py`)
+- 108 parameters (Zoo README claims 120; the .kat file has 108 const param lines)
+- 57 mirrors, 13 beamsplitters, 3 lasers, 0 squeezers, 1 directional beamsplitter (matches Zoo README)
+- 78 free spaces; 6 at 4-km-class arm-cavity length (3 at 3847 m, 3 at 3670 m)
+
+### 6.4 Sol00 mirror reflectivity distribution
+- R < 0.001 (effectively transparent): **20** mirrors (35%)
+- R > 0.999 (effectively perfect reflectors): **9** mirrors (16%)
+- Total at extremes: **29 of 57 (51%)**
+- Interior R values: 28 of 57
+
+### 6.5 Sol00 beamsplitter inventory
+- 2 of 13 are doing real beam splitting (B1_3 at R=0.81, B3_1 at R=0.30)
+- 2 are pinned to R=1.0 (functioning as perfect mirrors)
+- 1 is pinned to R=0.0 (effectively transparent)
+- 8 are at R=0.006–0.10 (highly asymmetric, near-transparent)
+- **Only 2 of 13 declared beamsplitters perform meaningful beam splitting**
+
+### 6.6 Sol00 mass distribution
+- All 57 mirrors carry explicit mass attributes
+- Range 0.01–200.00 kg, **median 88.64 kg** (less than half Voyager's 200 kg)
+- 18 mirrors below 50 kg (light test masses)
+- 4 mirrors at exactly 200 kg (Voyager nominal)
+
+### 6.7 Cross-family correlations (`analysis.py` Pearson r vs improvement)
+- **n_squeezers vs improvement: r = −0.497** (more squeezers → worse, counterintuitive)
+- **mirrors_R_near_zero vs improvement: r = +0.509** (more aggressive pruning → better)
+- n_directional_bs: r = −0.385
+- n_mirrors: r = +0.316
+- n_parameters: r = +0.236
+
+### 6.8 Falsified prior claims
+The lost reconstruction made these claims (now archived). They are wrong:
+
+| Reconstruction claim | Verified ground truth |
+|---|---|
+| sol00 has 48 mirrors | sol00 has **57 mirrors** |
+| sol00 has 4 squeezers | sol00 has **0 squeezers** |
+| sol00 improvement is 3.12× | sol00 improvement is **4.05×** |
+| 2 essential arm cavities | sol00 has **6 arm cavities** at 4-km-class length |
+| "All 4 squeezers carry <0.5 dB" | There are no squeezers to carry anything |
+| Type8 family uses noise-suppression vs signal-amplification mechanisms | Type8 family is dominated by sol00; family pattern is "fewer squeezers → better" |

@@ -77,23 +77,39 @@ These are starting hypotheses, not facts. They will be tested in Phase 1.
 
 ---
 
-## Counts in the bundled Differometor UIFO
+## The kat (Finesse) language used by the GWDetectorZoo
 
-Inventory (taken from `Differometor/examples/data/uifo_800_3000.json`):
+Each Zoo solution is stored as a PyKat-generated `.kat` file. The format is a small domain-specific language with these statement types (verified from `solutions/type8/sol00/CFGS_8_-85.46_120_*.txt`):
+
+| Statement | Meaning | Example |
+|---|---|---|
+| `const paramXXXX <value>` | Define a named scalar parameter at top-of-file | `const param0133 131.498` |
+| `m1 <name> <R> <loss> <tuning> <node1> <node2>` | Mirror with reflectivity / loss / tuning, two ports | `m1 ML_5_4 $param0016 5e-06 $param0017 nA nB` |
+| `bs1 <name> <R> <loss> <tuning> <angle> <n1> <n2> <n3> <n4>` | Beamsplitter with four ports | `bs1 B1_1 $param0022 5e-06 0.0 -45.0 nB1_1d nB1_1l nB1_1u nB1_1r` |
+| `dbs <name> <n1> <n2> <n3> <n4>` | Directional (Faraday-isolator-like) beamsplitter | `dbs B4_4 nB4_4d nB4_4l nB4_4u nB4_4r` |
+| `l <name> <power> <freq> <phase> <node>` | Laser source | `l L_5_4 $param0015 0.0 0.0 nL_5_4` |
+| `s <name> <length> <node1> <node2>` | Free space (edge) connecting two nodes | `s SL_5_4 1.0 nL_5_4 nML_5_4_laser` |
+| `attr <name> mass <value>` | Set a property (typically `mass`) on a previously-defined component | `attr ML_5_3 mass $param0014` |
+| `pd0 <name> <node>` | DC photodetector (carrier power) | `pd0 poutdc1 AtPD1` |
+| `pd1 <name> <freq> <node>` | AC photodetector at a frequency | `pd1 poutf1 $fs AtPD1` |
+| `qnoised <name> <order> <freq> <node>` | Quantum noise detector | `qnoised nodeFinalDet1 1 $fs AtPD1` |
+| `qhd <name> <homodyne_angle> <node1> <node2>` | Quantum balanced-homodyne detector | `qhd nodeFinalDet 180.0 AtPD1 AtPD2` |
+| `fsig <name> <target_component> <type> <amp> <phase> <freq>` | Signal injection on a free space (used to model gravitational-wave strain perturbation) | `fsig mUD_1_0sig mUD_1_0 phase 1.0 180.0 1.0` |
+| `phase <int>` | Set carrier phase mode | `phase 2` |
+| `maxtem off` | Higher-order mode tracking off | `maxtem off` |
+| `yaxis lin re:im` / `xaxis ...` | Output formatting | `xaxis mUD_1_0sig f log` |
+
+Parameter references are introduced with `$paramXXXX` and substituted at parse time.
+
+## Component counts in type8/sol00 (canonical, from the Zoo README)
 
 | Component type | Count |
 |---|---|
-| Mirror | 48 |
-| Beamsplitter (regular) | 6 |
-| Directional beamsplitter | 3 |
-| Laser | 7 |
-| Squeezer | 4 |
-| Free mass | 54 |
-| Signal | 71 |
-| Detector | 1 |
-| Frequency | 1 |
-| qnoised (quantum noise sink) | 1 |
+| Lasers | 3 |
+| Squeezers | **0** |
+| Mirrors | 57 |
+| Beam splitters | 13 |
+| Faraday isolators | 1 |
+| **Total free parameters** | **120** |
 
-Total free parameters listed in the JSON: **386**.
-
-**Important**: this is NOT the type8/sol00 design from the GWDetectorZoo. It is a different specific solution from the same family (post-merger band, similar mirror count but different laser and beamsplitter counts). The exact type8/sol00 numbers will require either reading the `.kat` file or finding a published JSON version.
+These are the authoritative numbers from `solutions/type8/sol00/README.md`. They contradict prior artifact-derived claims of "48 mirrors and 4 squeezers" — the truth is 57 mirrors and zero squeezers.
