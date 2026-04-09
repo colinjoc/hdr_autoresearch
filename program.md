@@ -135,27 +135,124 @@ Re-run the tournament if the HDR loop plateaus (5+ consecutive reverts).
 
 ---
 
+## Phase 3: Paper Writeup
+
+After the HDR loop converges (improvements plateau OR novelty checklist satisfied), produce a **publication-quality academic paper** as the final deliverable.
+
+### Required output: `paper.md`
+
+Structure:
+1. **Abstract** — 200-300 words. Problem, method, key result, novelty.
+2. **Introduction** — context, prior work, the gap this paper fills (1-2 pages)
+3. **Methods** — simulator/dataset, baseline, HDR protocol, evaluation metric (1-2 pages)
+4. **Results** — every kept experiment, with tables and figures. Quantitative findings. (2-3 pages)
+5. **Discussion** — physical interpretation, why it worked, what surprised us, limitations
+6. **Conclusion** — punchline + implications + future work
+7. **References** — 30+ citations from `papers.csv`, properly formatted
+
+### Quality bar
+- Every claim cited
+- Every number traceable to a specific experiment in `results.tsv`
+- All figures reproducible from the data
+- Honest about limitations and what wasn't tested
+- A reviewer should be able to replicate the work from the paper alone
+
+### Style
+- Match the conventions of the target venue (likely Phys. Rev. Letters, Nature Communications, or domain-specific journal)
+- Use the standard tone — not breathless, not understated
+- Write the paper LAST so it reflects the full HDR journey, not the original hypotheses
+
+---
+
 ## Novelty Checklist
 
 Before declaring done:
 - [ ] Results exceed published SOTA (or match with simpler/faster/more robust method)
 - [ ] At least one surprising finding
 - [ ] Knowledge base contains insights valuable to other researchers
-- [ ] Could be written as a short paper
+- [ ] Paper.md drafted with abstract, methods, results, discussion, references
+
+---
+
+## Repository Hygiene: No Data, No PDFs
+
+**The git repo must contain ONLY code and markdown — never data files, never paper PDFs.**
+
+### Why
+- Data files bloat the repo (gigabytes of parquet/csv/h5)
+- Paper PDFs may have copyright restrictions
+- Other researchers should fetch data from the canonical source, not a copy
+- Reproducibility requires linking to versioned upstream sources
+
+### What gets committed
+- `program.md`, `literature_review.md`, `papers.csv`, `research_queue.md`, `knowledge_base.md`, `results.tsv`, `observations.md`, `paper.md` — all markdown
+- `model.py`, `evaluate.py`, `tests/` — all Python source
+- `.gitignore` — exclude `data/`, `literature/`, `venv/`, `__pycache__/`, `discoveries/*.csv` if large
+
+### What gets a URL link instead
+- **Datasets** → URL in `data_sources.md`
+- **Paper PDFs** → DOI/arXiv/journal URL in `papers.csv`
+- **Trained model weights** → HuggingFace/Zenodo URL in `model_artifacts.md`
+- **External code** → GitHub URL with commit hash in `dependencies.md`
+
+### Required: `data_sources.md`
+
+Single markdown file at the project root listing every external data source with:
+- **Name** — what it is
+- **URL** — where to download it
+- **Size** — approximate
+- **Checksum** — SHA256 of the canonical version (for reproducibility)
+- **License** — what you can do with it
+- **Local path** — where the code expects to find it after download
+- **Download command** — wget/curl/gh-clone command to fetch it
+
+Example entry:
+```markdown
+## UCI Concrete Compressive Strength
+- URL: https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength
+- Size: 56 KB
+- License: CC BY 4.0
+- Local path: data/concrete.csv
+- Fetch: `python -c "from sklearn.datasets import fetch_openml; fetch_openml(data_id=4353, as_frame=True).frame.to_csv('data/concrete.csv', index=False)"`
+```
+
+### .gitignore template
+```
+# Data — fetched from URLs in data_sources.md
+data/
+discoveries/*.csv
+
+# Literature — fetched from URLs in papers.csv
+literature/papers/
+literature/books/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Models — too large for git
+*.pkl
+*.ubj
+*.h5
+*.safetensors
+```
 
 ---
 
 ## File Structure
 
 ```
-program.md              # This file
-literature_review.md    # Phase 0 output
+program.md              # Methodology (this file)
+literature_review.md    # Phase 0 narrative review
+papers.csv              # 100+ citations with URLs (no PDFs)
+data_sources.md         # External data URLs (no data files)
 feature_candidates.md   # Domain → computable features
-papers.csv              # 100+ citation tracker
 research_queue.md       # Prioritised hypotheses
 knowledge_base.md       # Cumulative findings
 results.tsv             # Every experiment result
 observations.md         # Data gaps, signal ideas
+paper.md                # Phase 3 academic paper writeup
 model.py / strategy.py  # ONLY file modified during HDR
 evaluate.py             # Evaluation harness (fixed)
 tests/                  # TDD — test every component before integration
