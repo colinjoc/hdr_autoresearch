@@ -1,0 +1,17 @@
+{
+  "exp_id": "P25.5",
+  "description": "Compose: baseline + wb+scm + monotone + n=600",
+  "model_family": "xgboost",
+  "extra_features": [
+    "wb_ratio",
+    "scm_pct"
+  ],
+  "xgb_params": {},
+  "lgb_params": {},
+  "monotone_constraints": {
+    "cement": 1
+  },
+  "log_target": false,
+  "n_estimators": 600,
+  "mae": 2.5467273064030027
+}
