@@ -182,3 +182,79 @@ def test_parser_handles_all_25_type8_solutions():
         except Exception as e:
             failures.append((d.name, repr(e)))
     assert not failures, f"Parser failed on: {failures}"
+
+
+# ---------------------------------------------------------------------------
+# Cross-validation against PyKat (the canonical Finesse parser)
+# ---------------------------------------------------------------------------
+
+def _try_load_pykat():
+    """Try to import pykat and create a kat parser. Return None if PyKat is unusable.
+
+    PyKat is unmaintained and broken on Python ≥ 3.12 by default. The venv used
+    by this project applies two small patches (imp → importlib, distutils.spawn
+    → shutil.which, and tolerating MissingFinesse at init). If those patches
+    are not in place, this test is skipped.
+    """
+    try:
+        import warnings
+        warnings.filterwarnings("ignore")
+        from pykat import finesse
+        from pykat.components import mirror, beamSplitter, space, laser
+        return finesse, (mirror, beamSplitter, space, laser)
+    except Exception:
+        return None
+
+
+def _filter_kat_for_pykat(text: str) -> str:
+    """Strip output/control directives that the canonical PyKat parser
+    refuses to process. Components and parameters parse fine without them."""
+    skip = ("xaxis", "noxaxis", "yaxis", "put", "set", "func", "lock",
+            "noplot", "trace", "maxtem", "phase")
+    out = []
+    for line in text.splitlines():
+        s = line.strip()
+        if any(s.startswith(k + " ") or s == k for k in skip):
+            continue
+        out.append(line)
+    return "\n".join(out)
+
+
+def test_cross_validate_against_pykat(sol00_doc: KatDocument):
+    """Both parsers must agree on the basic component counts in sol00.
+
+    This is the strongest correctness test for our parser: agreement with
+    the canonical PyKat library (the same library the GWDetectorZoo authors
+    used to generate the .kat files).
+    """
+    py = _try_load_pykat()
+    if py is None:
+        pytest.skip("PyKat not available; this test requires the patched venv.")
+    finesse, (mirror, beamSplitter, space, laser) = py
+
+    text = SOL00_KAT.read_text()
+    k = finesse.kat()
+    k.parse(_filter_kat_for_pykat(text))
+
+    pykat_mirrors = sum(1 for _, c in k.components.items() if isinstance(c, mirror))
+    pykat_bs = sum(1 for _, c in k.components.items() if isinstance(c, beamSplitter))
+    pykat_spaces = sum(1 for _, c in k.components.items() if isinstance(c, space))
+    pykat_lasers = sum(1 for _, c in k.components.items() if isinstance(c, laser))
+
+    my_mirrors = sum(1 for c in sol00_doc.components if c.type == "mirror")
+    my_bs = sum(1 for c in sol00_doc.components if c.type == "beamsplitter")
+    my_spaces = len(sol00_doc.spaces)
+    my_lasers = sum(1 for c in sol00_doc.components if c.type == "laser")
+
+    assert pykat_mirrors == my_mirrors == 57, (
+        f"mirror disagreement: pykat={pykat_mirrors}, mine={my_mirrors}"
+    )
+    assert pykat_bs == my_bs == 13, (
+        f"beamsplitter disagreement: pykat={pykat_bs}, mine={my_bs}"
+    )
+    assert pykat_spaces == my_spaces == 78, (
+        f"space disagreement: pykat={pykat_spaces}, mine={my_spaces}"
+    )
+    assert pykat_lasers == my_lasers == 3, (
+        f"laser disagreement: pykat={pykat_lasers}, mine={my_lasers}"
+    )
