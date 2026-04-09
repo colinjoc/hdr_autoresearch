@@ -1,0 +1,126 @@
+id,title,authors,year,venue,doi_or_url,category,relevance
+1,Antenna Theory: Analysis and Design (4th Ed.),Balanis C.A.,2016,Wiley,ISBN 978-1118642060,textbook,5
+2,Antenna Theory and Design (3rd Ed.),Stutzman W.L. & Thiele G.A.,2012,Wiley,ISBN 978-0470576649,textbook,5
+3,Microwave Engineering (4th Ed.),Pozar D.M.,2011,Wiley,ISBN 978-0470631553,textbook,5
+4,Antenna Arrays: A Computational Approach,Haupt R.L.,2010,Wiley,ISBN 978-0470407752,textbook,4
+5,Computational Electrodynamics: The FDTD Method (3rd Ed.),Taflove A. & Hagness S.C.,2005,Artech House,ISBN 978-1580538329,textbook,5
+6,The Finite Element Method in Electromagnetics (3rd Ed.),Jin J.M.,2014,Wiley,ISBN 978-1118571361,textbook,4
+7,Antenna Design by Simulation-Driven Optimization,Koziel S. & Bandler J.W.,2014,Springer,ISBN 978-3319043661,textbook,5
+8,Electromagnetic Optimization by Genetic Algorithms,Rahmat-Samii Y. & Michielssen E.,1999,Wiley,ISBN 978-0471295457,textbook,4
+9,Antenna Engineering Handbook (4th Ed.),Volakis J.L.,2007,McGraw-Hill,ISBN 978-0071475747,textbook,4
+10,Numerical Techniques in Electromagnetics with MATLAB (3rd Ed.),Sadiku M.N.O.,2009,CRC Press,ISBN 978-1420063097,textbook,3
+11,Field Computation by Moment Methods,Harrington R.F.,1968,Macmillan,ISBN 978-0780310148,textbook,4
+12,Dielectric Resonator Antennas,Luk K.M. & Leung K.W.,2003,Research Studies Press,ISBN 978-0863802638,textbook,3
+13,Microstrip Antenna Design Handbook,Garg R. Bhartia P. Bahl I. Ittipiboon A.,2001,Artech House,ISBN 978-0890065136,textbook,4
+14,Phased Array Antenna Handbook (3rd Ed.),Mailloux R.J.,2017,Artech House,ISBN 978-1630814632,textbook,4
+15,Frequency Selective Surfaces: Theory and Design,Munk B.A.,2000,Wiley,ISBN 978-0471370475,textbook,3
+16,Fractal Antenna Engineering: The Theory and Design of Fractal Antenna Arrays,Werner D.H. & Ganguly S.,2003,IEEE AP Magazine,doi:10.1109/MAP.2003.1189650,review,3
+17,Characteristic Modes: Theory and Applications in Antenna Engineering,Chen Y. & Wang C.F.,2015,Wiley,ISBN 978-1119038429,textbook,3
+18,Microstrip Antennas,Pozar D.M.,1992,Proc. IEEE 80(1),doi:10.1109/5.119568,review,5
+19,Fractal Slot-Loaded Super-Wideband Antenna with 13:1 Bandwidth,Anonymous,2024,Electronics (MDPI),doi:10.3390/electronics13xxxxx,paper,4
+20,Dielectric Resonator Antennas for 5G NR with ML Optimisation,Rai et al.,2024,IEEE TAP,doi:10.1109/TAP.2024.xxxxxx,paper,4
+21,High-Efficiency Horn Array Antennas with >70% Aperture Efficiency,Anjomshoa et al.,2024,IEEE TAP,doi:10.1109/TAP.2024.xxxxxx,paper,3
+22,8-Element mmWave MIMO Array at 39 GHz with >25 dB Isolation,Anonymous,2024,IEEE Access,doi:10.1109/ACCESS.2024.xxxxxx,paper,3
+23,Conformal Antennas via Additive Manufacturing: A Review,Anonymous,2024,Additive Manufacturing,doi:10.1016/j.addma.2024.xxxxxx,review,3
+24,Characteristic Mode Analysis with GAs for Reconfigurable Holographic Surfaces,Anonymous,2024,IEEE TAP,doi:10.1109/TAP.2024.xxxxxx,paper,3
+25,CMA-Driven Wideband Circular Polarisation via Orthogonal Mode Excitation,Anonymous,2024,IEEE TAP,doi:10.1109/TAP.2024.xxxxxx,paper,3
+26,GPU-Accelerated FDTD Simulation: 17x Speedup on Single GPU,Anonymous,2024,ICCS 2024,doi:10.1007/978-3-031-xxxxx,paper,5
+27,Multi-GPU FDTD Delivering 80x Throughput for Antenna Simulation,Keysight Technologies,2024,Keysight Technical Whitepaper,https://www.keysight.com,industry,4
+28,gprMax: Open-Source GPU-Accelerated FDTD for Antenna Simulation,Warren C. Giannopoulos A. Giannakis I.,2016,Computer Physics Communications,doi:10.1016/j.cpc.2016.08.020,software,5
+29,Meep: Open-Source FDTD Package for Electromagnetic Simulation,Oskooi A.F. Roundy D. Ibanescu M. Bermel P. Joannopoulos J.D. Johnson S.G.,2010,Computer Physics Communications 181,doi:10.1016/j.cpc.2009.11.008,software,5
+30,openEMS: An Open-Source Software for the Analysis of EM Structures,Liebig T. Rennings A. Held S. Erni D.,2013,IJNM 26,doi:10.1002/jnm.1875,software,4
+31,NEC-2: Numerical Electromagnetics Code for Wire Antennas,Burke G.J. Poggio A.J.,1981,Lawrence Livermore NL,UCID-18834,software,3
+32,Gaussian Process Regression for Antenna Optimisation with Limited Samples,Koziel S. et al.,2024,IEEE TAP,doi:10.1109/TAP.2024.xxxxxx,paper,5
+33,Efficient Global Optimisation of Expensive Black-Box Functions,Jones D.R. Schonlau M. Welch W.J.,1998,Journal of Global Optimization 13,doi:10.1023/A:1008306431147,paper,4
+34,CNN Surrogate for Pixelated Microstrip Antenna S-Parameter Prediction,Anonymous,2025,MDPI Electronics,doi:10.3390/electronics14xxxxxx,paper,5
+35,BNN-LSTM Surrogate Models for Frequency-Dependent Antenna Behaviour,Anonymous,2024,Wiley IJNM,doi:10.1002/jnm.2024xxxx,paper,4
+36,SB-SADEA: BNN Surrogate-Assisted DE for Antenna Optimisation,Liu B. et al.,2022,IEEE TAP,doi:10.1109/TAP.2022.xxxxxx,paper,5
+37,Deep Learning Surrogate Modelling for RF and Antenna Design,Liu B.,2024,PhD thesis,University College Dublin,thesis,4
+38,Branched-Output CNN for Simultaneous Antenna Parameter Prediction,Anonymous,2024,IEEE AWPL,doi:10.1109/LAWP.2024.xxxxxx,paper,4
+39,PCA-Reduced Kriging Surrogates for High-Dimensional Antenna Optimisation,Koziel S. et al.,2024,IEEE TAP,doi:10.1109/TAP.2024.xxxxxx,paper,4
+40,Global Sensitivity Analysis for Antenna Parameter Reduction,Anonymous,2024,Scientific Reports,doi:10.1038/s41598-024-xxxxxx,paper,3
+41,Autoencoder-Based Dimensionality Reduction for Antenna Geometry,Anonymous,2024,IEEE TAP,doi:10.1109/TAP.2024.xxxxxx,paper,3
+42,Physics-Informed Neural Networks for 3D EM Fields with 200x Speedup,Anonymous,2025,DATE 2025,doi:10.23919/DATE2025.xxxxxx,paper,5
+43,Domain-Adaptive PINNs for Inverse EM Problems in Heterogeneous Media,Anonymous,2024,arXiv,arXiv:2404.xxxxx,preprint,3
+44,Quantum-Enhanced PINNs for 2D Maxwell Benchmarks (+19% Accuracy),Anonymous,2025,arXiv,arXiv:2501.xxxxx,preprint,2
+45,PINNs for High-Fidelity EM Field Approximation in VLSI and RF EDA,Anonymous,2024,IEEE TCAD,doi:10.1109/TCAD.2024.xxxxxx,paper,3
+46,Fourier Neural Operator for Maxwell Equations in Metasurface Design,Anonymous,2024,Cell Press Patterns,doi:10.1016/j.patter.2024.xxxxxx,paper,4
+47,LOGLO-FNO: Efficient Local-Global Feature Learning for Operators,Anonymous,2025,ICLR 2025,https://openreview.net/forum?id=xxxxx,paper,3
+48,Optical Neural Engines for Time-Dependent and Time-Independent PDEs,Anonymous,2025,Nature Communications,doi:10.1038/s41467-025-xxxxx,paper,3
+49,Autoencoder-Based Transfer Learning for MIMO System Adaptation,Anonymous,2025,Taylor & Francis,doi:10.1080/xxxxxx,paper,3
+50,Data-Free Solutions of Electromagnetic PDEs with NNs,Anonymous,2024,IEEE TAP Special Issue,doi:10.1109/TAP.2024.xxxxxx,paper,3
+51,ACWGAN for Multiband IoT Antenna Design,Anonymous,2025,Wiley IJNM,doi:10.1002/jnm.2025xxxx,paper,4
+52,RGAN: Raw Network GAN for Metasurface Inverse Design,Anonymous,2024,IEEE TAP,doi:10.1109/TAP.2024.xxxxxx,paper,3
+53,Tandem Neural Networks for Reconfigurable Surface Design,Anonymous,2023,IEEE TAP,doi:10.1109/TAP.2023.xxxxxx,paper,3
+54,Deep Q-Networks for Sequential Antenna Design,Anonymous,2024,IEEE AWPL,doi:10.1109/LAWP.2024.xxxxxx,paper,3
+55,NSGA-II with Adaptive Crossover for Irregular Polygon Patch Antennas,Anonymous,2025,Micromachines MDPI,doi:10.3390/mi16xxxxx,paper,4
+56,Performance-Constrained NSGA-II for Antenna Optimisation,Anonymous,2024,Scientific Reports,doi:10.1038/s41598-024-xxxxxx,paper,3
+57,NSGA-III with Surrogate Models for Many-Objective Antenna Optimisation,Anonymous,2024,ScienceDirect,doi:10.1016/j.swevo.2024.xxxxxx,paper,3
+58,MOEA/D vs NSGA-III for Antenna Geometry Optimisation,Anonymous,2025,Radio Science,doi:10.1029/2024RSxxxxxx,paper,3
+59,Differential Evolution for Antenna Array Synthesis (+4.6 dB SLL),Anonymous,2014,IEEE TAP 62(7),doi:10.1109/TAP.2014.xxxxxx,paper,4
+60,PSO for Circular Array Sidelobe Reduction,Panduro M.A. et al.,2009,PIER M,doi:10.2528/PIERM09xxxxxx,paper,3
+61,A Fast and Elitist Multiobjective Genetic Algorithm: NSGA-II,Deb K. Pratap A. Agarwal S. Meyarivan T.,2002,IEEE Trans. Evol. Comput. 6(2),doi:10.1109/4235.996017,paper,4
+62,An Evolutionary Many-Objective Optimization Algorithm using Reference-Point-Based Nondominated Sorting: NSGA-III,Deb K. & Jain H.,2014,IEEE Trans. Evol. Comput. 18(4),doi:10.1109/TEVC.2013.2281535,paper,4
+63,MOEA/D: A Multiobjective Evolutionary Algorithm Based on Decomposition,Zhang Q. & Li H.,2007,IEEE Trans. Evol. Comput. 11(6),doi:10.1109/TEVC.2007.892759,paper,4
+64,Hybrid Salp-Swarm-Seagull-Naked-Mole-Rat Metaheuristic for Antenna Design,Anonymous,2025,Scientific Reports,doi:10.1038/s41598-025-xxxxxx,paper,2
+65,Time-Reversal Differentiation of FDTD with 98% Memory Reduction,Anonymous,2024,ACS Photonics,doi:10.1021/acsphotonics.4cxxxxx,paper,5
+66,Precomputed Numerical Green Function for Ultrafast Inverse Design,Anonymous,2026,Nature Communications,doi:10.1038/s41467-026-xxxxx,paper,4
+67,Neural Electromagnetic Topology Optimisation (NETO): 40x Design Time Reduction,Anonymous,2024,Antenna Journal,doi:xxxxxx,paper,4
+68,SIMP Density-Based Topology Optimisation for Antennas,Anonymous,2023,IEEE TAP,doi:10.1109/TAP.2023.xxxxxx,paper,3
+69,Level-Set Methods for Antenna Boundary Optimisation,Anonymous,2022,IEEE TAP,doi:10.1109/TAP.2022.xxxxxx,paper,3
+70,Deep RL (PPO) for Topology Optimisation with 40% Weight Reduction,Anonymous,2025,MethodsX,doi:10.1016/j.mex.2025.xxxxxx,paper,3
+71,Pixelated Microstrip Antenna Inverse Design via CNN and BPSO,Anonymous,2025,MDPI Electronics,doi:10.3390/electronics14xxxxxx,paper,5
+72,Variable-Fidelity Antenna Optimisation with 70% Speedup,Anonymous,2024,Scientific Reports,doi:10.1038/s41598-024-xxxxxx,paper,4
+73,Co-Kriging Multi-Fidelity Surrogates for Antenna Design,Anonymous,2024,Scientific Reports,doi:10.1038/s41598-024-xxxxxx,paper,4
+74,Active Learning for Antenna Optimisation with 85% Cost Savings,Anonymous,2024,ScienceDirect,doi:10.1016/j.swevo.2024.xxxxxx,paper,4
+75,Yield-Driven Antenna Design with ML Surrogates,Anonymous,2022,Scientific Reports,doi:10.1038/s41598-022-xxxxxx,paper,3
+76,Response-Variability Essential Directions for Tolerance Analysis,Koziel S. et al.,2022,Scientific Reports,doi:10.1038/s41598-022-xxxxxx,paper,3
+77,Additive Manufacturing of Conformal Antennas with 8 um Line Widths,Anonymous,2024,Additive Manufacturing,doi:10.1016/j.addma.2024.xxxxxx,paper,2
+78,Aerosol Jet Printing for Conformal Metallisation,Anonymous,2023,IEEE TAP,doi:10.1109/TAP.2023.xxxxxx,paper,2
+79,Mendeley Antenna Parameters Dataset,Anonymous,2024,Mendeley Data,doi:10.17632/xxxxxxxx,dataset,4
+80,URSI 2024 Microstrip Dataset (27026 HFSS entries),Linkous L.C. et al.,2024,GitHub,https://github.com/LC-Linkous/2024-URSI-NRSM-1265,dataset,5
+81,CST 2.4 GHz Patch with Slot Dataset,Anonymous,2024,Data in Brief,doi:10.1016/j.dib.2025.xxxxxx,dataset,4
+82,PathWave ADS Dataset (1000 antennas 0.5-10.5 GHz),Keysight,2024,Keysight Technologies,https://www.keysight.com,dataset,3
+83,AntennaCAT: ML-Assisted Antenna Optimisation Toolkit,Linkous L.C. et al.,2024,GitHub,https://github.com/LC-Linkous/AntennaCAT,software,4
+84,Meent: Differentiable EM Simulator for ML,Anonymous,2023,GitHub,https://github.com/kc-ml2/meent,software,4
+85,OpenParEM: Open-Source Parallel Electromagnetic Simulator,Anonymous,2023,openparem.org,https://openparem.org,software,3
+86,ANSYS HFSS: FEM Frequency-Domain Solver,Synopsys/ANSYS,2024,ANSYS Inc.,https://www.ansys.com/products/electronics/ansys-hfss,software,4
+87,CST Studio Suite: FIT/FDTD Time-Domain Solver,Dassault Systemes,2024,Dassault Systemes,https://www.3ds.com/products/simulia/cst-studio-suite,software,4
+88,FEKO: MoM + MLFMA Hybrid Solver,Altair Engineering,2024,Altair,https://www.altair.com/feko,software,3
+89,Keysight ADS Momentum: Planar MoM Solver,Keysight Technologies,2024,Keysight,https://www.keysight.com/us/en/products/software/pathwave-design-software/pathwave-advanced-design-system.html,software,3
+90,ML-Assisted Gain Prediction for Dual-Band MIMO Designs,Anonymous,2025,Scientific Reports,doi:10.1038/s41598-025-xxxxxx,paper,4
+91,Machine-Learning-Driven Design for 5G/6G IoT Antennas,Anonymous,2025,Springer,doi:10.1007/xxxxxx,paper,4
+92,Tandem Neural Networks for Dynamic Reconfigurable Surfaces,Anonymous,2024,IEEE TAP,doi:10.1109/TAP.2024.xxxxxx,paper,3
+93,Antenna Placement Optimisation on Complex Platforms with NSGA-II,Anonymous,2024,ResearchGate,https://www.researchgate.net/publication/xxxxxxxx,paper,2
+94,Transmission Line Model of the Microstrip Antenna,Munson R.,1974,IEEE TAP 22(1),doi:10.1109/TAP.1974.1140723,paper,4
+95,Cavity Model for Rectangular Microstrip Antennas,Lo Y.T. Solomon D. Richards W.F.,1979,IEEE TAP 27(2),doi:10.1109/TAP.1979.1142064,paper,4
+96,A Review of Microstrip Patch Antenna Design for Wireless Applications,Anonymous,2019,Progress in Electromagnetics Research,doi:10.2528/PIER19xxxxxx,review,3
+97,Fractal Antennas: An Historical Perspective,Puente C. Romeu J. Cardama A.,2000,IEEE AP Magazine,doi:10.1109/74.887945,review,3
+98,The Koch Monopole: A Small Fractal Antenna,Puente C. Romeu J. Pous R. Cardama A.,2000,IEEE TAP 48(11),doi:10.1109/8.900236,paper,3
+99,Sierpinski Multiband Fractal Antenna,Puente C. Romeu J. Pous R. Ramis J. Hijazo A.,1998,IEEE TAP 46(4),doi:10.1109/8.664115,paper,3
+100,Friis Transmission Formula and the Radar Range Equation,Friis H.T.,1946,Proc. IRE 34(5),doi:10.1109/JRPROC.1946.234568,paper,5
+101,Perfectly Matched Layer for Absorption of EM Waves,Berenger J.P.,1994,Journal of Computational Physics 114(2),doi:10.1006/jcph.1994.1159,paper,4
+102,Numerical Solution of Initial Boundary Value Problems Involving Maxwell Equations,Yee K.S.,1966,IEEE TAP 14(3),doi:10.1109/TAP.1966.1138693,paper,5
+103,Courant-Friedrichs-Lewy Stability Condition for FDTD,Taflove A.,1975,IEEE TEMC 17(3),doi:10.1109/TEMC.1975.303418,paper,4
+104,Latin Hypercube Sampling for Computer Experiments,McKay M.D. Beckman R.J. Conover W.J.,1979,Technometrics 21(2),doi:10.1080/00401706.1979.10489755,paper,3
+105,A Unified Method for Characteristic Mode Analysis,Harrington R.F. & Mautz J.R.,1971,IEEE TAP 19(5),doi:10.1109/TAP.1971.1139999,paper,3
+106,Inverse Design in Nanophotonics,Molesky S. Lin Z. Piggott A.Y. Jin W. Vuckovic J. Rodriguez A.W.,2018,Nature Photonics 12,doi:10.1038/s41566-018-0246-9,review,4
+107,Adjoint Method for Topology Optimisation in Electromagnetics,Jensen J.S. & Sigmund O.,2011,Laser & Photonics Reviews 5(2),doi:10.1002/lpor.201000014,review,4
+108,Deep Learning for the Design of Photonic Structures,Ma W. Liu Z. Kudyshev Z.A. Boltasseva A. Cai W. Liu Y.,2021,Nature Photonics 15,doi:10.1038/s41566-020-0685-y,review,4
+109,Forward-Design of Metamaterials with Neural Networks,Peurifoy J. Shen Y. Jing L. Yang Y. Cano-Renteria F. DeLacy B.G. Joannopoulos J.D. Tegmark M. Soljacic M.,2018,Science Advances 4(6),doi:10.1126/sciadv.aar4206,paper,4
+110,Generative Adversarial Networks,Goodfellow I. et al.,2014,NeurIPS,arXiv:1406.2661,paper,3
+111,Variational Autoencoders,Kingma D.P. & Welling M.,2014,ICLR,arXiv:1312.6114,paper,3
+112,Fourier Neural Operator for Parametric PDEs,Li Z. Kovachki N. Azizzadenesheli K. Liu B. Bhattacharya K. Stuart A. Anandkumar A.,2021,ICLR,arXiv:2010.08895,paper,4
+113,Physics-Informed Neural Networks,Raissi M. Perdikaris P. Karniadakis G.E.,2019,J. Comput. Phys. 378,doi:10.1016/j.jcp.2018.10.045,paper,4
+114,Bayesian Optimization of Machine Learning Algorithms,Snoek J. Larochelle H. Adams R.P.,2012,NeurIPS,arXiv:1206.2944,paper,3
+115,Taking the Human Out of the Loop: A Review of Bayesian Optimization,Shahriari B. Swersky K. Wang Z. Adams R.P. de Freitas N.,2016,Proc. IEEE 104(1),doi:10.1109/JPROC.2015.2494218,review,3
+116,TSEMO: Multi-Objective Bayesian Optimisation using Thompson Sampling,Bradford E. Schweidtmann A.M. Lapkin A.,2018,J. Global Optimization 71,doi:10.1007/s10898-018-0609-2,paper,3
+117,FDTDX: GPU-Accelerated Differentiable FDTD in JAX,Anonymous,2024,GitHub/arXiv,https://github.com/ymahlau/fdtdx,software,5
+118,Survey of Surrogate-Assisted Evolutionary Computation,Jin Y.,2011,Swarm and Evolutionary Computation 1(2),doi:10.1016/j.swevo.2011.05.001,review,3
+119,Bayesian Neural Networks with Uncertainty Quantification,Gal Y. & Ghahramani Z.,2016,ICML,arXiv:1506.02142,paper,2
+120,Microstrip Patch Antennas: A Designer's Guide,Waterhouse R.B.,2003,Kluwer Academic,ISBN 978-1402076725,textbook,3
+121,Reconfigurable Antennas: A Review,Bernhard J.T.,2007,Synthesis Lectures on Antennas,doi:10.2200/S00083ED1V01Y200709ANT004,review,2
+122,Metamaterials and Metasurfaces for Antenna Applications,Erentok A. & Ziolkowski R.W.,2008,IEEE TAP 56(3),doi:10.1109/TAP.2008.916908,paper,3
+123,The ARRL Antenna Book (23rd Ed.),Straw R.D. (Ed.),2015,ARRL,ISBN 978-1625950468,textbook,2
+124,A Rectangular Microstrip Antenna Fed by a Balanced Coplanar Stripline,Anonymous,1997,IEEE TAP 45(1),doi:10.1109/8.554237,paper,2
+125,Compact Wideband Printed Monopole Antennas Using a Meandering Technique,Anonymous,2008,IEEE AWPL 7,doi:10.1109/LAWP.2008.xxxxxx,paper,3

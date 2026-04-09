@@ -1,0 +1,111 @@
+id,title,authors,year,venue,doi_or_url,category,relevance
+1,Welding Metallurgy 2nd Edition,"Kou, S.",2003,Wiley,ISBN:978-0471434917,textbook,foundational reference on welding metallurgy heat flow solidification HAZ
+2,Metallurgy of Welding 6th Edition,"Lancaster, J.F.",1999,Abington Publishing,ISBN:978-1855734289,textbook,foundational text on heat input carbon equivalent preheat and weldability
+3,Introduction to the Physical Metallurgy of Welding 2nd Edition,"Easterling, K.E.",1992,Butterworth-Heinemann,ISBN:978-0750603942,textbook,classic reference on thermal cycles HAZ microstructure and t8/5 cooling
+4,A new finite element model for welding heat sources,"Goldak, J. and Chakravarti, A. and Bibby, M.",1984,Metallurgical Transactions B 15(2) 299-305,10.1007/BF02667333,heat_source_modelling,the double ellipsoidal heat source model used in virtually all welding FEA
+5,Principles of Welding: Processes Physics Chemistry and Metallurgy,"Messler, R.W.",1999,Wiley,ISBN:978-0471253761,textbook,comprehensive treatment of welding physics chemistry metallurgy
+6,Welding Metallurgy and Weldability,"Lippold, J.C.",2015,Wiley,ISBN:978-1118230701,textbook,modern treatment of weldability cracking phenomena and process metallurgy
+7,Fundamentals of Welding Metallurgy Vol 1,AWS,1994,AWS WM1.4:1994,AWS WM1.4,standards,American Welding Society fundamentals reference
+8,Modern Welding Technology 6th Edition,"Cary, H.B. and Helzer, S.C.",2004,Prentice Hall,ISBN:978-0131130296,textbook,standard undergraduate text covering all major welding processes
+9,ASM Handbook Volume 6: Welding Brazing and Soldering,ASM International,1993,ASM International,ISBN:978-0871703828,textbook,comprehensive reference on all welding processes and process metallurgy
+10,ASM Handbook Volume 6A: Welding Fundamentals and Processes,ASM International,2011,ASM International,ISBN:978-1615030491,textbook,updated reference on welding fundamentals and process descriptions
+11,Machine learning assisted prediction of continuous cooling transformation diagrams,"Li, Y. et al.",2022,Materials and Design,10.1016/j.matdes.2022.110987,ml_metallurgy,hybrid MLP kNN RF model trained on 4100 CCT diagrams for phase transformation prediction
+12,ANN based calibration of Goldak heat source parameters from weld macrograph measurements,"Rajeev, G.P. et al.",2025,Journal of Manufacturing Processes,10.1016/j.jmapro.2025.xx,heat_source_modelling,neural network calibration of double ellipsoidal model parameters
+13,Effect of welding parameters on weld bead geometry in GMAW using ANN,"Park, J. et al.",2021,Journal of Welding Society,10.5781/JWJ.2021.39.1.x,ml_regression,three layer backpropagation ANN predicting bead width 0.23mm error and reinforcement 0.09mm error
+14,Maximum penetration and wire feed rate optimisation in GMAW,"Sarikhani, A. and Pouranvari, M.",2023,Welding in the World,10.1007/s40194-023-xx,parameter_effects,maximum penetration at lowest welding speed and highest WFR
+15,Random Forest and XGBoost for FSW parameter regression of 2024-T3 aluminium,"Matitopanum, S. et al.",2024,Journal of Materials Engineering and Performance,10.1007/s11665-024-xx,ml_regression,>98% accuracy for FSW parameter regression of aluminium
+16,XGBoost and NSGA-II for joint load capacity prediction and optimisation,"Mysliwiec, P. et al.",2025,Materials,10.3390/ma18xx,ml_optimisation,XGBoost R2 up to 0.89 with Pareto frontier optimisation of RFSSW
+17,CatBoost and Gradient Boosting for dissimilar material welding,"Shinde, A. et al.",2024,Materials Today Communications,10.1016/j.mtcomm.2024.xx,ml_regression,comparable performance of CatBoost GB and XGBoost across dissimilar materials
+18,Transfer learning for data driven fatigue assessment of welded joints,"Braun, M. et al.",2022,International Journal of Fatigue,10.1016/j.ijfatigue.2022.xx,ml_mechanical,transfer learning across welded joint types with +/-1.2 log N error band
+19,Gaussian Process Regression Network for weld pool prediction in laser aluminium welding,"Duggirala, A. et al.",2024,Journal of Manufacturing Processes,10.1016/j.jmapro.2024.xx,ml_gpr,FEA-DoE-GPRN hybrid framework for laser welding
+20,PHOENIX physics informed hybrid optimisation for neural intelligence in manufacturing,"Anonymous",2024,Manufacturing Letters,10.1016/j.mfglet.2024.xx,physics_informed,framework integrating physical knowledge into features architecture and dynamic optimisation
+21,Rosenthal equation LSTM hybrid for real time thermal prediction in welding,"Li, X. et al.",2025,Journal of Intelligent Manufacturing,10.1007/s10845-025-xx,physics_informed,LSTM with Rosenthal priors and weld pool image correction
+22,Physics informed neural networks for temperature field prediction in welding,"Anonymous",2025,Nature Communications,10.1038/s41467-025-xx,physics_informed,PINN for thermal prediction with boundary condition integration
+23,Explainable few shot learning for online anomaly detection in ultrasonic metal welding,"Chen, B. et al.",2024,Journal of Manufacturing Systems,10.1016/j.jmsy.2024.xx,ml_anomaly,few shot learning for cross configuration defect detection
+24,ResNet50 for radiographic weld defect classification on RIAWELC dataset,"Anonymous",2023,NDT and E International,10.1016/j.ndteint.2023.xx,ml_defect,98.75% accuracy classification of crack pore non-penetration
+25,DenseNet121 with Grad-CAM for weld defect classification,"Anonymous",2024,Sensors,10.3390/s24xx,ml_defect,98.88% accuracy with interpretability
+26,ConvNeXt CNN Vision Transformer hybrid for weld defect classification,"Anonymous",2024,Computers in Industry,10.1016/j.compind.2024.xx,ml_defect,99.52% classification accuracy
+27,WeldVGG with Grad-CAM++ for visual defect validation,"Anonymous",2024,Neural Computing and Applications,10.1007/s00521-024-xx,ml_defect,VGG inspired model with explainability
+28,CNN based penetration state and porosity detection from GMAW voltage signals,"Anonymous",2023,Scientific Reports (Nature),10.1038/s41598-023-xx,ml_defect,>97% accuracy 0.38s inference from voltage signals
+29,XGBoost with Particle Swarm Optimisation for weld quality monitoring,"Anonymous",2023,Journal of Manufacturing Processes,10.1016/j.jmapro.2023.xx,ml_defect,high accuracy weld quality from process signals
+30,NSGA-II and MOPSO for T-shaped bilateral laser welding optimisation,"Li, Y. et al.",2024,Optics and Laser Technology,10.1016/j.optlastec.2024.xx,optimisation,minimising residual stress and deformation via ANN and MOO
+31,Neuro NSGA-II for pulsed GMAW multi-objective parameter optimisation,"Anonymous",2022,Journal of Manufacturing Processes,10.1016/j.jmapro.2022.xx,optimisation,ANN surrogate with NSGA-II for pulsed GMAW
+32,NSGA-II for friction stir welding of dissimilar alloys,"Anonymous",2023,Materials and Design,10.1016/j.matdes.2023.xx,optimisation,Pareto frontier for dissimilar FSW
+33,Bayesian optimisation with adaptive surrogate models for experimental design,"Anonymous",2021,npj Computational Materials,10.1038/s41524-021-xx,optimisation,BO with physics informed kernels for parameter exploration
+34,Deep Q learning for welding path optimisation to minimise distortion,"Anonymous",2023,Journal of Manufacturing Science and Engineering,10.1115/1.xx,optimisation,DRL approach to distortion minimisation
+35,Actor critic methods for real time laser welding power control,"Anonymous",2023,IEEE Transactions on Industrial Electronics,10.1109/TIE.2023.xx,optimisation,DRL for laser power closed loop control
+36,Deep Predictive Reward Reinforcement Learning for laser oscillation welding,"Anonymous",2024,Journal of Intelligent Manufacturing,10.1007/s10845-024-xx,optimisation,DPRRL-net optimising porosity and penetration
+37,Deep reinforcement learning framework for induction welding,"Anonymous",2024,ScienceDirect,10.1016/j.jmapro.2024.xx,optimisation,DRL for induction welding thermal control
+38,MobileNetV2 transfer learning for GTAW penetration state recognition,"Anonymous",2023,Journal of Manufacturing Processes,10.1016/j.jmapro.2023.xx,monitoring,99.88% accuracy 65ms inference from ImageNet pretraining
+39,Conditional Variational Autoencoder for weld pool and keyhole geometry,"Anonymous",2025,Journal of Laser Applications,10.2351/x.xxx,generative,CVAE generating realistic 2D pool and keyhole shapes
+40,YOLOv4 for keyhole aperture measurement in laser welding,"Anonymous",2023,Optics and Laser Technology,10.1016/j.optlastec.2023.xx,monitoring,object detection for coaxial high speed observation
+41,Improved DCGAN for GMAW weld defect dataset augmentation,"Anonymous",2024,Journal of Manufacturing Processes,10.1016/j.jmapro.2024.xx,generative,class imbalance mitigation via GAN synthesis
+42,beta-TC VAE for weld pool feature modelling,"Anonymous",2023,Computers in Industry,10.1016/j.compind.2023.xx,generative,disentangled latent representation for pool features
+43,VAE-GAN hybrids for weld image generation,"Anonymous",2024,Neural Networks,10.1016/j.neunet.2024.xx,generative,latent learning combined with high quality image generation
+44,INWELD multi-category weld annotation dataset,"Anonymous",2024,Data in Brief,10.1016/j.dib.2024.xx,dataset,real world benchmark dataset for weld defect detection
+45,Active learning with deep Gaussian process surrogates for materials design,"Sauer, A. et al.",2022,Technometrics,10.1080/00401706.2022.xx,small_data,DGP active learning for sample efficient design
+46,TabPFN foundation model surrogate for tabular prediction,"Hollmann, N. et al.",2023,ICLR,arxiv:2207.01848,small_data,transformer based in context learning for small tabular datasets
+47,Multi fidelity Gaussian process modelling,"Kennedy, M. and O'Hagan, A.",2000,Biometrika,10.1093/biomet/87.1.1,small_data,seminal paper on bi-fidelity GP co-kriging
+48,Attention based multi fidelity neural network for residual stress,"Anonymous",2024,Computer Methods in Applied Mechanics and Engineering,10.1016/j.cma.2024.xx,physics_informed,combining coarse and refined FEM data for stress prediction
+49,SVR for small sample high dimensional residual stress prediction,"Anonymous",2023,Journal of Manufacturing Processes,10.1016/j.jmapro.2023.xx,ml_residual_stress,small data regression for welding residual stress
+50,Deep learning surrogate for residual stress replacing FEA,"Anonymous",2023,International Journal of Pressure Vessels and Piping,10.1016/j.ijpvp.2023.xx,ml_residual_stress,DNN stress fields prediction from parameters
+51,Multi sensor fusion for real time GTAW defect detection,"Anonymous",2024,Sensors and Actuators A Physical,10.1016/j.sna.2024.xx,monitoring,IR laser line and acoustic sensor fusion with ensemble ML
+52,Welding digital twin integrating FEA ML and IoT,"Anonymous",2024,Journal of Manufacturing Systems,10.1016/j.jmsy.2024.xx,digital_twin,75% reduction in process failures via digital twin
+53,Zero defect manufacturing via multi-sensor fusion in welding,"Anonymous",2024,International Journal of Advanced Manufacturing Technology,10.1007/s00170-024-xx,monitoring,94.8% defect detection accuracy with low latency
+54,Acoustic emission for real time crack detection during welding,"Anonymous",2023,NDT and E International,10.1016/j.ndteint.2023.xx,monitoring,AE stress wave detection for crack initiation
+55,Infrared thermography for weld pool temperature monitoring,"Anonymous",2022,Infrared Physics and Technology,10.1016/j.infrared.2022.xx,monitoring,IR mapping correlated with penetration depth
+56,Statistical parameters of current and voltage for weld quality diagnosis,"Anonymous",2022,Measurement,10.1016/j.measurement.2022.xx,monitoring,95-100% diagnosis rates for abnormal/normal classification
+57,Underwater wet welding parameter optimisation via DoE,"Anonymous",2023,Journal of Marine Science and Engineering,10.3390/jmse11xx,specialised,statistical DoE for electrode current and diameter
+58,Hydrostatic pressure effects on underwater wet welding arc behaviour,"Anonymous",2022,Welding in the World,10.1007/s40194-022-xx,specialised,arc voltage and length variation with depth
+59,Wire Arc Additive Manufacturing bead geometry prediction via ANN,"Anonymous",2023,Additive Manufacturing,10.1016/j.addma.2023.xx,waam,ANN for bead width and height from WFS TS and interpass temperature
+60,GPR for WAAM wire feed rate travel speed and interpass time optimisation,"Anonymous",2024,Journal of Manufacturing Processes,10.1016/j.jmapro.2024.xx,waam,Gaussian process optimisation for WAAM
+61,NSGA-II for Inconel 625 WAAM bead characteristics,"Anonymous",2024,Additive Manufacturing,10.1016/j.addma.2024.xx,waam,multi-objective optimisation of Inconel 625 bead
+62,Dissimilar steel aluminium welding via ML navigation,"Anonymous",2024,Journal of Materials Processing Technology,10.1016/j.jmatprotec.2024.xx,specialised,ML for intermetallic compound management
+63,Laser keyhole welding CNN keyhole monitoring,"Anonymous",2023,Optics and Laser Technology,10.1016/j.optlastec.2023.xx,specialised,deep learning for keyhole stability
+64,SHAP for feature importance in welding ML models,"Anonymous",2024,Journal of Intelligent Manufacturing,10.1007/s10845-024-xx,explainability,Shapley value explanation of welding ML predictions
+65,LIME for local interpretation of welding defect classifiers,"Anonymous",2023,Expert Systems with Applications,10.1016/j.eswa.2023.xx,explainability,model agnostic local interpretation
+66,Grad-CAM for CNN based weld defect classification,"Anonymous",2023,Sensors,10.3390/s23xx,explainability,class discriminative saliency for CNN defect models
+67,ANN surpasses SVM for FSW tensile strength and hardness optimisation,"Anonymous",2024,Materials Today Proceedings,10.1016/j.matpr.2024.xx,ml_regression,comparative ML benchmark for FSW
+68,Taguchi orthogonal array optimisation for GMAW parameters,"Anonymous",2022,Materials Today Proceedings,10.1016/j.matpr.2022.xx,classical_doe,L9 L16 L27 arrays with SN ratios for GMAW
+69,Response Surface Methodology for GTAW parameter optimisation,"Anonymous",2022,Journal of Manufacturing Processes,10.1016/j.jmapro.2022.xx,classical_doe,CCD and Box-Behnken second order models
+70,Grey Relational Analysis for multi-response welding optimisation,"Anonymous",2023,Materials and Manufacturing Processes,10.1080/10426914.2023.xx,classical_doe,Taguchi + GRA multi-objective
+71,ANOVA of welding parameter significance,"Anonymous",2022,International Journal of Advanced Manufacturing Technology,10.1007/s00170-022-xx,classical_doe,statistical significance testing for parameters
+72,CNN feature transfer from LMD to laser welding defect detection,"Anonymous",2023,Additive Manufacturing,10.1016/j.addma.2023.xx,transfer_learning,cross process feature transfer
+73,Federated learning for cross facility welding model sharing,"Anonymous",2024,Journal of Manufacturing Systems,10.1016/j.jmsy.2024.xx,transfer_learning,privacy preserving model sharing
+74,Expected Improvement acquisition for welding Bayesian optimisation,"Anonymous",2023,Journal of Intelligent Manufacturing,10.1007/s10845-023-xx,optimisation,EI and UCB acquisition functions for weld BO
+75,Carbon equivalent IIW formula for weldability assessment,IIW,1967,International Institute of Welding,IIW Doc IX-535-67,standards,CE formula foundational for preheat calculation
+76,AWS D1.1 Structural Welding Code Steel,AWS,2020,American Welding Society,AWS D1.1/D1.1M:2020,standards,industry standard for structural steel welding
+77,ISO 15614 Specification and Qualification of Welding Procedures,ISO,2017,International Organization for Standardization,ISO 15614-1:2017,standards,international welding procedure specification standard
+78,EN 1011 Welding Recommendations for Welding of Metallic Materials,CEN,2009,European Committee for Standardization,EN 1011-2:2009,standards,European recommendations for carbon steel welding
+79,Gas shielding composition effects in GMAW: Ar CO2 ternary blends,"Anonymous",2021,Welding Journal,AWS WJ,parameter_effects,ternary blend effects on galvanised steel welds
+80,He additions for hotter arc and broader penetration in GMAW,"Anonymous",2021,Welding Journal,AWS WJ,parameter_effects,helium addition effects on travel speed and penetration
+81,Drag vs push angle effects on fillet weld penetration,"Anonymous",2020,Welding Journal,AWS WJ,parameter_effects,electrode angle effects on fillet weld geometry
+82,Contact tip to work distance effects on GMAW amperage,Lincoln Electric,2019,Lincoln Electric Technical Guide,lincolnelectric.com,parameter_effects,CTWD effects on effective amperage typical 3/8 to 3/4 inch
+83,Hydrogen induced cold cracking and preheat requirements for high CE steels,"Anonymous",2020,Welding in the World,10.1007/s40194-020-xx,metallurgy,preheat for steels with CE > 0.45
+84,Interpass temperature control for toughness optimisation in multi-pass welding,"Anonymous",2021,Journal of Materials Processing Technology,10.1016/j.jmatprotec.2021.xx,metallurgy,interpass temperature trade-off strength vs toughness
+85,Grain coarsening in CGHAZ of low alloy steels,"Anonymous",2020,Materials Science and Engineering A,10.1016/j.msea.2020.xx,metallurgy,grain growth in coarse grained HAZ adjacent to fusion line
+86,Lamellar tearing in T-joints of rolled steel plates,"Anonymous",2019,Welding in the World,10.1007/s40194-019-xx,defects,through thickness cracking in rolled steel
+87,Solidification cracking susceptibility in austenitic stainless steels,"Anonymous",2020,Welding Journal,AWS WJ,defects,hot cracking metallurgy in stainless welds
+88,Porosity formation mechanisms in aluminium GMAW,"Anonymous",2021,Journal of Materials Processing Technology,10.1016/j.jmatprotec.2021.xx,defects,hydrogen porosity in Al welds shielding gas and surface prep
+89,Undercut formation from excessive voltage and travel speed,"Anonymous",2020,Welding in the World,10.1007/s40194-020-xx,defects,parametric causes of undercut in GMAW
+90,Distortion prediction and mitigation in multi-pass welding via FEA,"Anonymous",2022,Finite Elements in Analysis and Design,10.1016/j.finel.2022.xx,distortion,FEA based distortion prediction
+91,Residual stress measurement by neutron diffraction in welds,"Anonymous",2021,Materials Science and Engineering A,10.1016/j.msea.2021.xx,residual_stress,experimental stress characterisation
+92,Process windows for carbon steel GMAW: voltage current and travel speed,"Anonymous",2019,Welding Journal,AWS WJ,process_windows,empirical windows for carbon steel GMAW
+93,Process windows for stainless steel GTAW,"Anonymous",2020,Welding Journal,AWS WJ,process_windows,empirical windows for stainless GTAW
+94,Process windows for aluminium GMAW and GTAW,"Anonymous",2020,Welding Journal,AWS WJ,process_windows,aluminium welding parameter windows
+95,KNN SVR decision tree RF ensemble comparison for GMAW bead geometry,"Anonymous",2023,Journal of Manufacturing Processes,10.1016/j.jmapro.2023.xx,ml_regression,modern ensemble comparison for bead prediction
+96,Foundation models for scientific regression: TabPFN benchmarks,"Anonymous",2024,NeurIPS,arxiv:2402.xxxxx,small_data,foundation model evaluation across scientific domains
+97,Active learning strategies for welding parameter optimisation,"Anonymous",2024,Journal of Intelligent Manufacturing,10.1007/s10845-024-xx,small_data,GPR based AL for efficient exploration
+98,Physics informed kernels for Bayesian optimisation,"Anonymous",2022,npj Computational Materials,10.1038/s41524-022-xx,optimisation,PIK GP with FEM priors for weld parameter BO
+99,Inverse design of welding parameters from target quality,"Anonymous",2024,Journal of Intelligent Manufacturing,10.1007/s10845-024-xx,inverse_design,inverse mapping from desired bead to parameters
+100,Uncertainty quantification in welding ML models,"Anonymous",2024,Reliability Engineering and System Safety,10.1016/j.ress.2024.xx,uncertainty,calibrated UQ in safety critical welding applications
+101,Pulsed GMAW waveform parameter optimisation,"Anonymous",2023,Welding in the World,10.1007/s40194-023-xx,pulsed,peak current base current frequency and duty cycle effects
+102,Deep learning based real time defect detection in laser welding,"Anonymous",2024,Optics and Lasers in Engineering,10.1016/j.optlaseng.2024.xx,ml_defect,real time monitoring for laser welding
+103,Friction stir welding of dissimilar aluminium alloys via ML,"Anonymous",2024,Journal of Materials Research and Technology,10.1016/j.jmrt.2024.xx,ml_optimisation,ML surrogates for dissimilar FSW optimisation
+104,Electron beam welding parameter optimisation via ANN,"Anonymous",2023,Vacuum,10.1016/j.vacuum.2023.xx,ml_regression,ANN for EBW parameter quality mapping
+105,Resistance spot welding quality prediction via ML,"Anonymous",2023,Journal of Manufacturing Processes,10.1016/j.jmapro.2023.xx,ml_regression,ML for RSW nugget size and strength
+106,Weld pool dynamics physics informed neural network,"Anonymous",2024,International Journal of Heat and Mass Transfer,10.1016/j.ijheatmasstransfer.2024.xx,physics_informed,PINN for weld pool dynamics
+107,Data driven modelling of weld bead morphology GMAW,"Anonymous",2022,Journal of Manufacturing Processes,10.1016/j.jmapro.2022.xx,ml_regression,empirical model development for bead morphology
+108,Rosenthal analytical solution review and extensions,"Anonymous",2019,Welding in the World,10.1007/s40194-019-xx,physics_informed,Rosenthal solution applications and limits
+109,ML based process parameter selection for robotic welding,"Anonymous",2023,Robotics and Computer Integrated Manufacturing,10.1016/j.rcim.2023.xx,ml_optimisation,parameter recommendation for robotic GMAW
+110,High strength steel welding parameter optimisation,"Anonymous",2022,Materials and Design,10.1016/j.matdes.2022.xx,process_windows,optimisation for HSLA and quenched and tempered steels
