@@ -1,0 +1,81 @@
+{
+  "scratch_hardness_N": {
+    "exp_id": "E004",
+    "description": "scratch_hardness_N: add binder_pigment_ratio",
+    "model_family": "ridge",
+    "extra_features": [
+      "binder_pigment_ratio"
+    ],
+    "xgb_params": {},
+    "lgb_params": {},
+    "sklearn_kwargs": {},
+    "gp_kernel": "matern",
+    "monotone_constraints": null,
+    "log_target": false,
+    "n_estimators": 300,
+    "cv_mae": 1.7994954475989708,
+    "cv_rmse": 2.3352626414035917,
+    "cv_r2": 0.2207510489959027
+  },
+  "gloss_60": {
+    "exp_id": "E109",
+    "description": "gloss_60: xgb lr=0.05 n=300 d=7",
+    "model_family": "xgboost",
+    "extra_features": [
+      "log_thickness",
+      "thickness_x_matting"
+    ],
+    "xgb_params": {
+      "learning_rate": 0.05,
+      "max_depth": 7
+    },
+    "lgb_params": {},
+    "sklearn_kwargs": {},
+    "gp_kernel": "matern",
+    "monotone_constraints": null,
+    "log_target": false,
+    "n_estimators": 300,
+    "cv_mae": 10.035860956632174,
+    "cv_rmse": 13.207746692973966,
+    "cv_r2": 0.7256421645883528
+  },
+  "hiding_power_pct": {
+    "exp_id": "P25_046",
+    "description": "hiding_power_pct: ExtraTrees max_features=0.5",
+    "model_family": "extratrees",
+    "extra_features": [
+      "thickness_x_pigment"
+    ],
+    "xgb_params": {},
+    "lgb_params": {},
+    "sklearn_kwargs": {
+      "max_features": 0.5
+    },
+    "gp_kernel": "matern",
+    "monotone_constraints": null,
+    "log_target": false,
+    "n_estimators": 300,
+    "cv_mae": 2.186626493013822,
+    "cv_rmse": 3.6226388637429334,
+    "cv_r2": 0.6638926818365494
+  },
+  "cupping_mm": {
+    "exp_id": "P25_025",
+    "description": "cupping_mm: combo feats=['cyc_x_matting', 'pvc_proxy']",
+    "model_family": "extratrees",
+    "extra_features": [
+      "cyc_x_matting",
+      "pvc_proxy"
+    ],
+    "xgb_params": {},
+    "lgb_params": {},
+    "sklearn_kwargs": {},
+    "gp_kernel": "matern",
+    "monotone_constraints": null,
+    "log_target": false,
+    "n_estimators": 300,
+    "cv_mae": 1.5193864703178406,
+    "cv_rmse": 2.1772361567391405,
+    "cv_r2": 0.7146502965482934
+  }
+}

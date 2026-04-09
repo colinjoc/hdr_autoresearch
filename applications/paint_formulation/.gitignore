@@ -1,0 +1,18 @@
+# Data - fetched from Zenodo via prepare_data.py
+data/
+discoveries/*.csv
+
+# Literature - fetched from URLs in papers.csv
+literature/papers/
+literature/books/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Models
+*.pkl
+*.ubj
+*.h5
+*.safetensors

@@ -258,3 +258,78 @@ From LR 7, these are the limits of current formulation knowledge that HDR is exp
 8. Physics-informed ML priors (PVC/CPVC, stoichiometry) are underused [LR 7.7].
 
 The HDR loop should explicitly target gaps 2, 4, 5, 7, and 8 as scientific contributions.
+
+---
+
+## 9. HDR Findings (added after Phase 2 + 2.5 loop)
+
+These are the empirical facts learned by running 204 single-change
+experiments on the Zenodo PURformance dataset (65 two-component
+polyurethane (2K PU) lacquer samples, four composition variables plus
+film thickness, four performance targets).
+
+### 9.1 Per-task model family selection matters on small N
+- **Ridge regression** wins scratch hardness prediction (Mean Absolute
+  Error (MAE) = 1.80 N, R² = 0.22) — linear baseline beats every tree
+  ensemble tested. Confirms the HDR anti-pattern "linear baseline first,
+  if Ridge wins, publish it".
+- **ExtraTrees** wins 2 of 4 targets (hiding power, cupping test) and is
+  the Phase 1 tournament winner for gloss too. Confirms the HDR
+  anti-pattern "bagging beats boosting for small N (<100 samples)".
+- **XGBoost** at depth 7 with 300 boosting rounds wins gloss in Phase 2
+  after the best physics features are added (log thickness + thickness x
+  matting agent interaction).
+
+### 9.2 Physics-informed features that matter
+- For **gloss**: `log_thickness` + `thickness_x_matting` (matches the
+  published Sobol indices where thickness + matting agents explain 85%
+  of the main effect variance).
+- For **hiding power**: `thickness_x_pigment` (matches the Sobol result
+  that pigment concentration carries 64% of hiding-power main effect).
+- For **cupping test**: `cyc_x_matting` + `pvc_proxy` (matches the
+  physics that IPDI stiffness + pigment volume concentration jointly
+  determine flexural strain at failure).
+- For **scratch hardness**: `binder_pigment_ratio` (the simplest
+  physics-informed feature; no interaction or polynomial term beat it).
+
+### 9.3 Approaches that did NOT help
+- **Monotonicity constraints** in XGBoost (cement→strength analogue):
+  every tested constraint made MAE worse, suggesting the 65-sample
+  dataset does not have enough signal to benefit from hard physical
+  priors.
+- **Log-target transform**: no target benefited from log-transformation;
+  the distributions are already well-behaved.
+- **Aitchison log-ratio (simplex-aware) features**: tested on all four
+  targets, none were kept. The four composition columns are already
+  approximately log-ratio-like because they were normalised to 0-1 by
+  the data publishers.
+- **Kitchen-sink 7-feature addition**: single-change physics features
+  outperformed adding 7 at once — Occam's razor bites.
+- **Cross-family retries after Phase 2** did not find a model that beat
+  the per-target Phase 2 winners — the tournament + Phase 2 chain
+  converged.
+
+### 9.4 Improvement over published Zenodo GP baseline
+On 5-fold cross-validation with matching procedure:
+| Target | Published GP MAE | HDR MAE | Relative improvement |
+|---|---|---|---|
+| scratch_hardness_N | 1.84 N | 1.80 N | 2% |
+| gloss_60 | 11.50 GU | 10.04 GU | 13% |
+| hiding_power_pct | 2.84 % | 2.19 % | 23% |
+| cupping_mm | 2.11 mm | 1.52 mm | 28% |
+
+The HDR loop improved three of four targets by double-digit percentages
+by switching model family per-task and adding one or two
+physics-informed features. Scratch hardness improvement is marginal
+(below noise floor) and should be reported as a reproduction, not an
+improvement.
+
+### 9.5 Discovery findings (Phase B)
+- Screened 7785 candidate formulations across 5 generation strategies.
+- Pareto front on gloss × Volatile Organic Compound (VOC) content: 24
+  non-dominated points. Best ≥80 gloss unit prediction sits at an
+  estimated ~73 g/L VOC, which is inside the low-VOC regime
+  (<100 g/L).
+- Pareto front on hardness × VOC: 9 non-dominated points.
+- The trade-off between gloss and hardness is weak (33-point front):
+  moderately-pigmented mixes achieve both targets simultaneously.

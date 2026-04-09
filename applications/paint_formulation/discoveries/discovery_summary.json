@@ -1,0 +1,31 @@
+{
+  "n_candidates": 7785,
+  "n_valid": 7784,
+  "generation_strategies": [
+    "grid",
+    "high_gloss",
+    "high_hardness",
+    "lhs_random",
+    "low_voc"
+  ],
+  "pareto_gloss_voc_size": 24,
+  "pareto_hardness_voc_size": 9,
+  "pareto_gloss_hardness_size": 33,
+  "max_predicted_gloss": 88.01380920410156,
+  "max_predicted_scratch_hardness": 19.163007736206055,
+  "max_predicted_hiding_power": 94.59024810791016,
+  "min_voc_above_80gloss": 72.8,
+  "min_voc_above_17hardness": 20.99999999999997,
+  "headline_low_voc_high_gloss": {
+    "crosslink": 1.0,
+    "cyc_nco_frac": 0.6666666666666666,
+    "matting_agent": 0.5,
+    "pigment_paste": 0.8,
+    "thickness_um": 40.0,
+    "predicted_gloss_60": 81.26924133300781,
+    "predicted_scratch_hardness_N": 15.64853572845459,
+    "estimated_voc_g_per_L": 72.8,
+    "estimated_cost_usd_per_kg": 5.8566666666666665,
+    "source": "high_hardness"
+  }
+}
