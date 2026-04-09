@@ -1,0 +1,35 @@
+# Python
+**/venv/
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+
+# Data — fetched from URLs in data_sources.md
+**/data/
+**/literature/
+**/.feat_cache/
+**/catboost_info/
+
+# Models
+**/*.pkl
+**/*.h5
+**/*.pt
+**/*.safetensors
+**/*.ubj
+**/*.npz
+
+# External upstream clones (per-project, not our work)
+**/GWDetectorZoo/
+**/Differometor/
+**/challenge_repo/
+
+# PDFs (per repo hygiene)
+**/*.pdf
+
+# Discoveries — large screening outputs (small summary files committed manually)
+**/discoveries/*.csv
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
