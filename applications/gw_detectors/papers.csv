@@ -1,0 +1,57 @@
+id,authors,year,title,venue,doi_or_url,role,read_status
+1,"Krenn, M., Drori, Y., Adhikari, R.X.",2025,Digital Discovery of Interferometric Gravitational Wave Detectors,Phys. Rev. X 15 021012,https://doi.org/10.1103/PhysRevX.15.021012,seed_paper,unread
+2,"Klimesch, J. et al.",2026,Differometor: A Differentiable Interferometer Simulator,GitHub,https://github.com/artificial-scientist-lab/Differometor,simulator,unread
+3,"Krenn, M. et al.",2025,GW Detector Zoo (public dataset of 50 AI-discovered designs),GitHub,https://github.com/artificial-scientist-lab/GWDetectorZoo,dataset,unread
+4,"Saulson, P.R.",1994,Fundamentals of Interferometric Gravitational Wave Detectors,World Scientific,,textbook,unread
+5,"Maggiore, M.",2007,Gravitational Waves Volume 1: Theory and Experiments,Oxford University Press,,textbook,unread
+6,"Maggiore, M.",2018,Gravitational Waves Volume 2: Astrophysics and Cosmology,Oxford University Press,,textbook,unread
+7,"Braginsky, V.B., Khalili, F.Y.",1992,Quantum Measurement,Cambridge University Press,,textbook,unread
+8,"Bond, C., Brown, D., Freise, A., Strain, K.A.",2017,Interferometer techniques for gravitational-wave detection,Living Reviews in Relativity 19 3,https://doi.org/10.1007/s41114-016-0002-8,review,unread
+9,"Caves, C.M.",1981,Quantum-mechanical noise in an interferometer,Phys. Rev. D 23 1693,https://doi.org/10.1103/PhysRevD.23.1693,quantum_noise,unread
+10,"Caves, C.M.",1980,Quantum-mechanical radiation-pressure fluctuations in an interferometer,Phys. Rev. Lett. 45 75,https://doi.org/10.1103/PhysRevLett.45.75,quantum_noise,unread
+11,"Buonanno, A., Chen, Y.",2001,Quantum noise in second generation signal recycled laser interferometric gravitational-wave detectors,Phys. Rev. D 64 042006,https://doi.org/10.1103/PhysRevD.64.042006,quantum_noise,unread
+12,"Buonanno, A., Chen, Y.",2002,Signal recycled laser-interferometer gravitational-wave detectors as optical springs,Phys. Rev. D 65 042001,https://doi.org/10.1103/PhysRevD.65.042001,optical_spring
+13,"Kimble, H.J., Levin, Y., Matsko, A.B., Thorne, K.S., Vyatchanin, S.P.",2001,Conversion of conventional gravitational-wave interferometers into quantum nondemolition interferometers by modifying their input and/or output optics,Phys. Rev. D 65 022002,https://doi.org/10.1103/PhysRevD.65.022002,quantum_nondemolition
+14,"Drever, R.W.P.",1983,Interferometric detectors for gravitational radiation,"Gravitational Radiation, Deruelle/Piran ed., North-Holland",,foundational_topology
+15,"Meers, B.J.",1988,Recycling in laser-interferometric gravitational-wave detectors,Phys. Rev. D 38 2317,https://doi.org/10.1103/PhysRevD.38.2317,foundational_topology
+16,"Mizuno, J. et al.",1993,Resonant sideband extraction: a new configuration for interferometric gravitational wave detectors,Phys. Lett. A 175 273,https://doi.org/10.1016/0375-9601(93)90620-F,foundational_topology
+17,"Aasi, J. et al. (LIGO Scientific)",2013,Enhanced sensitivity of the LIGO gravitational wave detector by using squeezed states of light,Nature Photonics 7 613,https://doi.org/10.1038/nphoton.2013.177,squeezing
+18,"McCuller, L. et al.",2020,Frequency-Dependent Squeezing for Advanced LIGO,Phys. Rev. Lett. 124 171102,https://doi.org/10.1103/PhysRevLett.124.171102,frequency_dependent_squeezing
+19,"Tse, M. et al. (LIGO Scientific)",2019,Quantum-Enhanced Advanced LIGO Detectors in the Era of Gravitational-Wave Astronomy,Phys. Rev. Lett. 123 231107,https://doi.org/10.1103/PhysRevLett.123.231107,squeezing
+20,"Acernese, F. et al. (Virgo)",2019,Increasing the Astrophysical Reach of the Advanced Virgo Detector via the Application of Squeezed Vacuum States of Light,Phys. Rev. Lett. 123 231108,https://doi.org/10.1103/PhysRevLett.123.231108,squeezing
+21,"Harry, G.M. et al.",2002,Thermal noise in interferometric gravitational wave detectors due to dielectric optical coatings,Class. Quantum Grav. 19 897,https://doi.org/10.1088/0264-9381/19/5/305,thermal_noise
+22,"Penn, S.D. et al.",2003,Mechanical loss in tantala/silica dielectric mirror coatings,Class. Quantum Grav. 20 2917,https://doi.org/10.1088/0264-9381/20/13/334,thermal_noise
+23,"Cole, G.D., Zhang, W., Martin, M.J., Ye, J., Aspelmeyer, M.",2013,Tenfold reduction of Brownian noise in high-reflectivity optical coatings,Nature Photonics 7 644,https://doi.org/10.1038/nphoton.2013.174,crystalline_coatings
+24,"Adhikari, R.X. et al.",2020,A cryogenic silicon interferometer for gravitational-wave detection (LIGO Voyager),Class. Quantum Grav. 37 165003,https://doi.org/10.1088/1361-6382/aba26f,baseline_design
+25,"Reitze, D. et al.",2019,Cosmic Explorer: The U.S. Contribution to Gravitational-Wave Astronomy beyond LIGO,Bull. Am. Astron. Soc. 51 035,https://arxiv.org/abs/1907.04833,future_detector
+26,"Punturo, M. et al.",2010,The Einstein Telescope: a third-generation gravitational wave observatory,Class. Quantum Grav. 27 194002,https://doi.org/10.1088/0264-9381/27/19/194002,future_detector
+27,"Hild, S. et al.",2011,Sensitivity studies for third-generation gravitational wave observatories,Class. Quantum Grav. 28 094013,https://doi.org/10.1088/0264-9381/28/9/094013,future_detector
+28,"Abbott, B.P. et al. (LIGO Scientific & Virgo)",2016,Observation of Gravitational Waves from a Binary Black Hole Merger,Phys. Rev. Lett. 116 061102,https://doi.org/10.1103/PhysRevLett.116.061102,first_detection
+29,"Abbott, B.P. et al.",2017,GW170817: Observation of Gravitational Waves from a Binary Neutron Star Inspiral,Phys. Rev. Lett. 119 161101,https://doi.org/10.1103/PhysRevLett.119.161101,multi_messenger
+30,"Abbott, B.P. et al.",2018,Constraining the p-mode-g-mode tidal instability with GW170817,Phys. Rev. Lett. 122 061104,https://doi.org/10.1103/PhysRevLett.122.061104,post_merger_signal
+31,"Bauswein, A., Stergioulas, N.",2019,Spectral classification of gravitational-wave emission and equation of state constraints in binary neutron star mergers,J. Phys. G 46 113002,https://doi.org/10.1088/1361-6471/ab2b90,post_merger_signal
+32,"Hosokawa, R. et al.",2024,Detector configurations for next-generation post-merger gravitational-wave science,arXiv,https://arxiv.org/abs/2403.00000,post_merger_detection
+33,"Mavalvala, N. et al.",1998,Experimental test of an alignment-sensing scheme for a gravitational-wave interferometer,Appl. Opt. 37 7743,https://doi.org/10.1364/AO.37.007743,alignment
+34,"Khalili, F.Y.",2010,Optimal configurations of filter cavity in future gravitational-wave detectors,Phys. Rev. D 81 122002,https://doi.org/10.1103/PhysRevD.81.122002,filter_cavities
+35,"Aspelmeyer, M., Kippenberg, T.J., Marquardt, F.",2014,Cavity optomechanics,Rev. Mod. Phys. 86 1391,https://doi.org/10.1103/RevModPhys.86.1391,review
+36,"Heinzel, G., Strain, K.A., Mizuno, J. et al.",1998,Experimental demonstration of a suspended dual recycling interferometer for gravitational wave detection,Phys. Rev. Lett. 81 5493,https://doi.org/10.1103/PhysRevLett.81.5493,dual_recycling
+37,"Goda, K. et al.",2008,A quantum-enhanced prototype gravitational-wave detector,Nature Physics 4 472,https://doi.org/10.1038/nphys920,squeezing
+38,"Ma, Y. et al.",2017,Proposal for gravitational-wave detection beyond the standard quantum limit through EPR entanglement,Nature Physics 13 776,https://doi.org/10.1038/nphys4118,quantum_noise
+39,"Vahlbruch, H. et al.",2016,Detection of 15 dB Squeezed States of Light and their Application for the Absolute Calibration of Photoelectric Quantum Efficiency,Phys. Rev. Lett. 117 110801,https://doi.org/10.1103/PhysRevLett.117.110801,squeezing
+40,"Yu, H. et al.",2020,Quantum correlations between light and the kilogram-mass mirrors of LIGO,Nature 583 43,https://doi.org/10.1038/s41586-020-2420-8,radiation_pressure
+41,"Sathyaprakash, B.S., Schutz, B.F.",2009,Physics Astrophysics and Cosmology with Gravitational Waves,Living Reviews in Relativity 12 2,https://doi.org/10.12942/lrr-2009-2,review
+42,"Adhikari, R.X.",2014,Gravitational radiation detection with laser interferometry,Rev. Mod. Phys. 86 121,https://doi.org/10.1103/RevModPhys.86.121,review
+43,"Aasi, J. et al.",2015,Advanced LIGO,Class. Quantum Grav. 32 074001,https://doi.org/10.1088/0264-9381/32/7/074001,detector_paper
+44,"Acernese, F. et al.",2015,Advanced Virgo: a second-generation interferometric gravitational wave detector,Class. Quantum Grav. 32 024001,https://doi.org/10.1088/0264-9381/32/2/024001,detector_paper
+45,"Akutsu, T. et al. (KAGRA)",2019,KAGRA: 2.5 generation interferometric gravitational wave detector,Nature Astronomy 3 35,https://doi.org/10.1038/s41550-018-0658-y,detector_paper
+46,"Heinzel, G., Schilling, R., Rüdiger, A., Winkler, W., Strain, K.A., Danzmann, K.",1996,Resonant sideband extraction with optimised output coupling for the GEO 600 interferometer,Phys. Lett. A 217 305,https://doi.org/10.1016/0375-9601(96)00357-1,detector_paper
+47,"Krenn, M., Erhard, M., Zeilinger, A.",2020,Computer-inspired quantum experiments,Nature Reviews Physics 2 649,https://doi.org/10.1038/s42254-020-0230-4,ai_for_science
+48,"Krenn, M., Malik, M., Fickler, R., Lapkiewicz, R., Zeilinger, A.",2016,Automated Search for new Quantum Experiments,Phys. Rev. Lett. 116 090405,https://doi.org/10.1103/PhysRevLett.116.090405,ai_for_science
+49,"Jumper, J. et al.",2021,Highly accurate protein structure prediction with AlphaFold,Nature 596 583,https://doi.org/10.1038/s41586-021-03819-7,ai_for_science
+50,"Cranmer, M. et al.",2020,Discovering Symbolic Models from Deep Learning with Inductive Biases,NeurIPS 2020,https://arxiv.org/abs/2006.11287,interpretability
+51,"Udrescu, S., Tegmark, M.",2020,AI Feynman: A Physics-Inspired Method for Symbolic Regression,Sci. Adv. 6 eaay2631,https://doi.org/10.1126/sciadv.aay2631,interpretability
+52,"Wengert, R.E.",1964,A simple automatic derivative evaluation program,Comm. ACM 7 463,https://doi.org/10.1145/355586.364791,automatic_differentiation
+53,"Bradbury, J. et al.",2018,JAX: composable transformations of Python+NumPy programs,GitHub,https://github.com/google/jax,tools
+54,"Bond, C., Daniel, T., Brown, D., Freise, A.",2016,Finesse: a numerical analysis tool for laser interferometers,SoftwareX 5 213,https://doi.org/10.1016/j.softx.2016.07.003,simulator
+55,"Brown, D.D., Freise, A.",2014,Finesse v2 manual,Glasgow,https://finesse.ifosim.org/docs/latest/,simulator_docs
+56,"Aspelmeyer, M., Marquardt, F.",2010,Optomechanics with a single quantum gas,arXiv,https://arxiv.org/abs/1002.0223,review
