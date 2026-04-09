@@ -151,9 +151,62 @@ mean = 1.43x   median = 1.11x   max = 4.05x (sol00)   min = 1.00x (sol22-24)
 
 ---
 
+## E06–E25 — Phase 2 Decomposition Loop (20 hypothesis-driven experiments)
+
+Driver: `hdr_loop.py`. Each experiment tests one hypothesis from `research_queue.md` with a stated prior, articulated mechanism, and explicit KEEP/REVERT decision. Full results in `results.tsv`. Decisions: **13 KEEP, 7 REVERT** out of 20.
+
+| Exp | Hypothesis | Prior | Result | Decision |
+|---|---|---|---|---|
+| E06 | H02: mirrors with R in [0.99, 0.9999] (impedance-matched range) | 75% | **0** mirrors | **REVERT** |
+| E07 | H01-bs: BSs at R extremes (R<0.05 or R>0.95) | 70% | 7 of 13 | REVERT (predicted ≥9) |
+| E08 | H02-arm: impedance-matched mirrors at arm endpoints | 65% | **0** | **REVERT** |
+| E09 | H03: BSs all at ±45° angle | 90% | 13 of 13 (9 at −45°, 4 at +45°) | KEEP |
+| E10 | H04: spaces at exactly 1.0 m (PyKat default) | 60% | **50 of 78 (64%)** | KEEP |
+| E11 | H05: fsig injections target free spaces | 95% | 26 of 26 | KEEP |
+| E12 | H06: 4 mirrors at exactly 200 kg | 50% | 4 (MB2_1_l, MB2_2_l, MB3_1_d, MB3_2_u) | KEEP |
+| E13 | H07: mass/reflectivity correlation in sol00 | 80% (uncorrelated) | r = −0.167 | KEEP |
+| E14 | H08: arm cavities have few distinct lengths | 65% | 6 spaces, **2** lengths (3670, 3847 m) | KEEP |
+| E15 | H09: R-like params clustered at boundaries (>30%) | 80% | 26% (15/57) — below threshold | REVERT |
+| E16 | H15+H16: laser and BS counts vary across family | 55% | laser ∈ {1,2,3,4}; BS ∈ {5..13} | KEEP |
+| E17 | H17: dbs presence correlates with improvement | 50% | **All 25 solutions have ≥1 dbs** — unfalsifiable | REVERT (no comparison group) |
+| E18 | H18: bottom-13 cluster tightly near 1.0× | 70% | mean = 1.027, std = 0.031 — very tight | KEEP |
+| E19 | H19: long arm lengths share canonical values | 75% | **31 distinct lengths** across 25 sols — heterogeneous | REVERT |
+| E20 | H20: fsig count vs component count correlation | 60% | r = **+0.919** (very strong) | KEEP |
+| E21 | H21: sol00 vs sol01 differ structurally | 70% | mirror diff +16, BS diff +2, laser diff −1 | KEEP |
+| E22 | H22: sol00 vs sol24 differ in ≥3 categories | 80% | 6 categorical differences | KEEP |
+| E23 | H23: top-4 vs bottom-21 squeezer signature | 50% | top-4 mean = 1.00; bottom-21 mean = **2.71** | KEEP |
+| E24 | H24: long arm spaces in 3500–4000 m bucket | 65% | 83 of 192 in 4000-m bucket (43%) plus 35 in 3900 (18%) | KEEP |
+| E25 | H25: param-ID gaps shared across family | 30% | sol00 has 26 gaps, avg shared = 9.6 (37%) | REVERT |
+
+### Surprises and updated picture
+
+The seven reverts produced more interesting findings than the keeps:
+
+1. **E06+E08 — There are NO impedance-matched cavity mirrors in sol00.** Zero mirrors fall in the canonical Fabry-Perot input range R ∈ [0.99, 0.9999], and zero are at the endpoints of the 6 long-arm spaces. The lost reconstruction's central claim that "critical cavity coupling at finesse ~6100 contributes 65% of the improvement" cannot be true — sol00 does not contain any traditional Fabry-Perot input mirrors. Whatever sol00 is doing, it is not classical cavity finesse engineering.
+
+2. **E15 — Only 26% of R-like params at boundaries** (predicted >30%). The boundary-pinning is real but less aggressive than the prior estimate. Sol00 is more interior-tuned than I thought.
+
+3. **E17 — Every type8 solution has at least one directional beamsplitter.** H17 cannot be tested because the no-dbs comparison group is empty across the entire family. This reveals that Faraday-like elements are universal in this family — they may be a structural prerequisite for a usable post-merger detector, not a discriminator.
+
+4. **E19 — 31 distinct long-space lengths across the 25-solution family.** H19 (canonical lengths) is wrong: the family has high heterogeneity in arm lengths.
+
+5. **E25 — Param-ID gaps are NOT shared.** Sol00 has 26 unused param IDs but only 9.6 are common with any other type8 solution (average across sol01–sol05). The gaps are largely random, not structural.
+
+The keeps produced these confirmations:
+
+6. **E10 — 64% of sol00's free spaces are exactly 1.0 m** (PyKat defaults). Even more over-parameterised than the components.
+
+7. **E20 — Signal injection count is essentially deterministic from component count** (r = +0.92). Auto-generated.
+
+8. **E23 — Top-4 average 1.0 squeezers, bottom-21 average 2.71 squeezers** — quantifies the negative correlation finding.
+
+9. **E14 — Sol00's 6 arm cavities use exactly 2 distinct lengths** (3670 m and 3847 m) — symmetric multi-arm geometry.
+
+10. **E18 — The bottom 13 solutions cluster within ±3% of Voyager** (mean 1.027, std 0.031) — confirming the family is heavily skewed.
+
 ## What was NOT measured (and why)
 
-- **Component-level ablation** (set a specific mirror to R=0 and recompute strain): would require either re-running Finesse (PyKat broken on 3.12) or building a Differometor `Setup` from the parsed kat (substantial engineering, signal-injection API not in the public Differometor examples). Deferred to future work.
-- **Mechanism attribution** (what fraction of the 4.05× improvement comes from cavity coupling vs. test-mass mass vs. beamsplitter ratio): same blocker as above. Deferred.
-- **Re-optimisation of broad-plateau parameters** (find parameters whose value can be perturbed by ±10% without measurable change, then sweep them for better local optima): same blocker. Deferred.
-- **Cross-type analysis** (extend the structural decomposition to types 0, 1, 2, 3, 5, 6, 9, 10): straightforward extension of `analysis.py`, but scope-limited to type8 in this paper.
+- **Component-level ablation** (set a specific mirror to R=0 and recompute strain): would require either re-running Finesse (PyKat broken on Python 3.12) or building a Differometor `Setup` from the parsed kat (signal-injection API not in the public Differometor examples). Deferred to future work.
+- **Mechanism attribution by simulation** (compute the exact strain change when one component is perturbed): same blocker as above.
+- **Re-optimisation of broad-plateau parameters**: same blocker.
+- **Cross-type analysis** (extend to types 0/1/2/3/5/6/9/10): straightforward extension of `analysis.py`, but scope-limited to type8 in this paper.

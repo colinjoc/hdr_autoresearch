@@ -1,0 +1,21 @@
+exp_id	hypothesis_id	description	prior	mechanism	result	decision	notes
+E06	H02	Mirrors with R in [0.99, 0.9999] (impedance-matched cavity range)	0.75	Critical-coupling cavity input mirrors should sit in this range	0 mirrors with R in [0.99, 0.9999]	REVERT	
+E07	H01-bs	Beamsplitters pinned at R extremes (R<0.05 or R>0.95)	0.70	Optimiser fills the UIFO grid with degenerate BSs	7 BS at extremes, 6 BS interior (of 13)	REVERT	
+E08	H02-arm	Impedance-matched mirrors at arm-cavity endpoints	0.65	If H02 is real, the impedance mirrors should be linked to the long arms	0 impedance-matched mirrors at arm-cavity endpoints	REVERT	
+E09	H03	Beamsplitter angles all at ±45°	0.90	Standard Michelson reflection orientation	angle distribution {-45.0: 9, 45.0: 4}; 13/13 at ±45°	KEEP	
+E10	H04	Free spaces with length exactly 1.0 m	0.60	PyKat default for unset distances	50 of 78 spaces have length exactly 1.0 m	KEEP	
+E11	H05	fsig signal injections target free spaces	0.95	Standard kat convention for strain perturbations	26/26 fsig injections target free spaces	KEEP	
+E12	H06	Mirrors at exactly 200 kg (Voyager-equivalent)	0.50	Boundary mirrors the optimiser refused to perturb	4 mirrors at exactly 200.0 kg: ['MB2_1_l', 'MB2_2_l', 'MB3_1_d', 'MB3_2_u']	KEEP	
+E13	H07	Mirror mass/reflectivity correlation in sol00	0.80	Mass and R are independent design dimensions in UIFO	Pearson r(mass, R) = -0.167 across 57 mirrors	KEEP	
+E14	H08	Distinct lengths among the 6 arm cavities	0.65	Symmetric multi-arm geometry uses few unique lengths	6 arm spaces, 2 distinct lengths: [3670.8, 3847.0]	KEEP	
+E15	H09	R-like parameters clustered at boundaries	0.80	Optimiser saturates parameters it does not need	15/57 R-like params at boundary (26%)	REVERT	
+E16	H15+H16	Laser and BS counts across type8 family	0.55	Different solutions have different component counts	laser counts {3: 7, 4: 5, 2: 10, 1: 3}; BS counts {13: 1, 11: 9, 7: 3, 6: 3, 8: 4, 9: 1, 10: 2, 12: 1, 5: 1}	KEEP	
+E17	H17	Directional BS presence vs improvement	0.50	Faraday isolators may indicate a different operating regime	with_dbs n=25 mean_imp=1.43, without_dbs n=0 mean_imp=nan, diff=+nan	REVERT	
+E18	H18	Bottom-13 solutions cluster near 1.0×	0.70	The bottom half is essentially Voyager-equivalent	bottom-13 mean_imp=1.027 std=0.031	KEEP	
+E19	H19	Long arm lengths share canonical values across the family	0.75	Optimiser doesn't tune length per-solution	across 25 sols: 141 long spaces, 31 distinct lengths	REVERT	
+E20	H20	fsig count vs total component count correlation	0.60	More components require more signal injection points	Pearson r(fsig_count, n_components) = +0.919	KEEP	
+E21	H21	sol00 vs sol01 categorical structural diff	0.70	Top two solutions are not parameter perturbations	sol00-sol01 type-count diffs: {'mirror': 16, 'laser': -1, 'beamsplitter': 2, 'dc_photodetector': -1}	KEEP	
+E22	H22	sol00 vs sol24 structural diff in ≥3 categories	0.80	Best vs worst differ in multiple ways	sol00-sol24 type-count diffs: {'mirror': 22, 'laser': 1, 'beamsplitter': 8, 'directional_beamsplitter': -3, 'dc_photodetector': -1, 'squeezer': -5}	KEEP	
+E23	H23	Top-4 vs bottom-21 squeezer signature	0.50	Top solutions share a common feature absent from the rest	top-4 mean squeezers=1.00, bottom-21 mean squeezers=2.71	KEEP	
+E24	H24	Long arm space lengths in 3500-4000m bucket	0.65	All AI-discovered arms are 4-km class	long-space length buckets (×100m): {1300: 3, 2700: 4, 3100: 3, 3300: 6, 3600: 3, 3700: 3, 3800: 8, 3900: 35, 4000: 83}	KEEP	
+E25	H25	Param gaps shared across the family	0.30	Unused IDs reflect optimiser pinning, not random skipping	sol00 has 26 param gaps; avg shared with sol01-sol05: 9.6	REVERT	
