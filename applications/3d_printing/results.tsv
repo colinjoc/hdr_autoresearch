@@ -1,0 +1,65 @@
+exp_id	description	mae	rmse	r2	n_pareto	best_efficiency	prior	decision	notes
+E00	Baseline XGBoost on raw features	4.4421	5.6304	0.5940			1.00	BASELINE	depth=6 lr=0.05 n=300
+T01	LightGBM on raw features	5.2163	6.5474	0.4509			0.45	REVERT	family=lightgbm
+T02	ExtraTrees on raw features	4.9697	6.2582	0.4984			0.50	REVERT	family=extratrees
+T03	RandomForest on raw features	5.0799	6.2928	0.4928			0.40	REVERT	family=randomforest
+T04	Ridge regression on raw features (linear sanity check)	5.8634	7.2144	0.3333			0.10	REVERT	family=ridge
+E01	Add linear energy density E_lin	4.7453	5.8842	0.5565			0.70	REVERT	family=xgboost feats=1
+E02	Add volumetric flow rate	4.6818	5.7421	0.5777			0.40	REVERT	family=xgboost feats=1
+E03	Add cooling-rate proxy	4.7463	5.9130	0.5522			0.55	REVERT	family=xgboost feats=1
+E04	Add interlayer time (Sun-model proxy)	4.5776	5.7171	0.5814			0.60	REVERT	family=xgboost feats=1
+E05	Add infill contact area	4.5163	5.5864	0.6003			0.50	REVERT	family=xgboost feats=1
+E06	Add thermal margin above Tg	4.6122	5.5938	0.5992			0.50	REVERT	family=xgboost feats=1
+E07	Full physics feature set	4.4998	5.8142	0.5670			0.55	REVERT	family=xgboost feats=6
+E08	Physics set minus cool_rate	4.2921	5.4112	0.6250			0.45	KEEP	family=xgboost feats=5
+E09	Physics set minus interlayer_time	4.5143	5.6940	0.5847			0.45	REVERT	family=xgboost feats=5
+E10	Physics set minus thermal_margin	4.8159	6.0500	0.5312			0.45	REVERT	family=xgboost feats=5
+E11	Add log(layer_height)	4.5621	5.6018	0.5981			0.35	REVERT	family=xgboost feats=1
+E12	Add log(print_speed)	4.5776	5.7171	0.5814			0.35	REVERT	family=xgboost feats=1
+E13	Add 1/layer_height	4.6341	5.6892	0.5854			0.35	REVERT	family=xgboost feats=1
+E14	Add 1/print_speed	4.5776	5.7171	0.5814			0.35	REVERT	family=xgboost feats=1
+E15	Add road aspect ratio h/w	4.5621	5.6018	0.5981			0.30	REVERT	family=xgboost feats=1
+E16	Add nozzle_temp x infill_density interaction	4.6341	5.7420	0.5777			0.45	REVERT	family=xgboost feats=1
+E17	Add print_speed x layer_height interaction	4.6818	5.7421	0.5777			0.40	REVERT	family=xgboost feats=1
+E18	Add thermal_margin x wall_thickness	4.8301	6.1066	0.5224			0.35	REVERT	family=xgboost feats=1
+E19	Add fan_speed / thermal_margin	4.6101	5.6801	0.5868			0.30	REVERT	family=xgboost feats=1
+E20	Add bed_temperature / Tg	4.6531	5.6425	0.5922			0.35	REVERT	family=xgboost feats=1
+E21	Add is_pla binary flag	4.5592	5.6912	0.5851			0.20	REVERT	family=xgboost feats=1
+E22	Lower learning rate 0.05 -> 0.02, n=600	4.7390	5.9208	0.5510			0.30	REVERT	family=xgboost feats=1
+E23	Lower learning rate 0.05 -> 0.03, n=500	4.7216	5.8825	0.5568			0.30	REVERT	family=xgboost feats=1
+E24	Increase max_depth to 8	4.7663	5.8977	0.5545			0.25	REVERT	family=xgboost feats=1
+E25	Decrease max_depth to 4	4.6956	5.8113	0.5674			0.30	REVERT	family=xgboost feats=1
+E26	Decrease max_depth to 3	4.6589	5.7385	0.5782			0.30	REVERT	family=xgboost feats=1
+E27	Subsample 0.8 -> 0.6	4.6597	5.8720	0.5584			0.25	REVERT	family=xgboost feats=1
+E28	min_child_weight 3 -> 1	4.7134	6.0513	0.5310			0.30	REVERT	family=xgboost feats=1
+E29	min_child_weight 3 -> 5	4.5308	5.6348	0.5933			0.25	REVERT	family=xgboost feats=1
+E30	n_estimators 300 -> 600	4.7261	5.8555	0.5608			0.30	REVERT	family=xgboost feats=1
+E31	n_estimators 300 -> 900	4.7264	5.8537	0.5611			0.25	REVERT	family=xgboost feats=1
+E32	colsample_bytree 0.8 -> 0.5	4.4015	5.6601	0.5897			0.25	REVERT	family=xgboost feats=1
+E33	Train on log(tension_strength) target	4.7257	5.9789	0.5421			0.35	REVERT	family=xgboost feats=1
+E34	Monotone: infill_density -> strength (+1)	4.7121	5.8740	0.5581			0.55	REVERT	family=xgboost feats=1
+E35	Monotone: nozzle_temperature -> strength (+1)	4.5944	6.1908	0.5091			0.55	REVERT	family=xgboost feats=1
+E36	Monotone: print_speed -> strength (-1)	4.7803	5.8868	0.5561			0.55	REVERT	family=xgboost feats=1
+E37	Monotone: layer_height -> strength (-1)	4.6959	5.8721	0.5583			0.45	REVERT	family=xgboost feats=1
+E38	Monotone: infill+ and speed-	4.7174	5.8589	0.5603			0.60	REVERT	family=xgboost feats=1
+E39	Monotone: infill+, speed-, nozzle_temp+	4.5710	6.1088	0.5220			0.50	REVERT	family=xgboost feats=1
+E40	Monotone: infill+, speed-, layer-	4.6266	5.7840	0.5715			0.50	REVERT	family=xgboost feats=1
+E41	Add sqrt(infill_density)	4.5163	5.5864	0.6003			0.30	REVERT	family=xgboost feats=1
+E42	Add walls_x_infill interaction	4.9164	6.2025	0.5072			0.30	REVERT	family=xgboost feats=1
+E43	Add layer_ratio (h / d_nozzle)	4.5621	5.6018	0.5981			0.25	REVERT	family=xgboost feats=1
+E44	Add cool_per_fan (cool rate per fan slot)	4.4598	5.5732	0.6022			0.25	REVERT	family=xgboost feats=1
+E45	Add Elin_per_vol	4.4598	5.5732	0.6022			0.30	REVERT	family=xgboost feats=1
+E46	E_lin + interlayer_time	4.7231	5.8617	0.5599			0.40	REVERT	family=xgboost feats=2
+E47	E_lin + cool_rate	4.8723	6.1694	0.5125			0.40	REVERT	family=xgboost feats=2
+E48	E_lin + thermal_margin	4.3234	5.4998	0.6126			0.40	REVERT	family=xgboost feats=2
+E49	E_lin + infill_contact	4.7180	5.9269	0.5501			0.40	REVERT	family=xgboost feats=2
+E50	E_lin + temp_x_infill	4.8728	5.9927	0.5400			0.40	REVERT	family=xgboost feats=2
+P25.0	Compose: reproduce Phase 2 winner E08	4.2921	5.4112	0.6250			1.00	REVERT	family=xgboost feats=5
+P25.1	Compose: E_lin + monotone(infill+, speed-)	4.7174	5.8589	0.5603			0.60	REVERT	family=xgboost feats=1
+P25.2	Compose: E_lin + monotone(infill+, speed-, nozzle+)	4.5710	6.1088	0.5220			0.55	REVERT	family=xgboost feats=1
+P25.3	Compose: E_lin + monotone(infill+, speed-) + n=600	4.6651	5.7984	0.5694			0.55	REVERT	family=xgboost feats=1
+P25.4	Compose: E_lin + monotone(infill+, speed-) + max_depth=4	4.6347	5.7083	0.5826			0.45	REVERT	family=xgboost feats=1
+P25.5	Compose: E_lin + thermal_margin + dual monotone	4.3132	5.4365	0.6214			0.50	REVERT	family=xgboost feats=2
+P25.6	Compose: E_lin + interlayer_time + dual monotone	4.6719	5.8209	0.5660			0.50	REVERT	family=xgboost feats=2
+P25.7	Compose: E_lin + dual monotone + log_target	4.5271	5.7058	0.5830			0.40	REVERT	family=xgboost feats=1
+P25.8	Compose: E_lin + dual monotone + n=600 + depth=4	4.5914	5.6567	0.5902			0.45	REVERT	family=xgboost feats=1

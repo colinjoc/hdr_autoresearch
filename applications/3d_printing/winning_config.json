@@ -1,0 +1,20 @@
+{
+  "exp_id": "E08",
+  "description": "Physics set minus cool_rate",
+  "model_family": "xgboost",
+  "extra_features": [
+    "E_lin",
+    "vol_flow",
+    "interlayer_time",
+    "infill_contact",
+    "thermal_margin"
+  ],
+  "xgb_params": {},
+  "lgb_params": {},
+  "monotone_constraints": null,
+  "log_target": false,
+  "n_estimators": 300,
+  "mae": 4.292108306884765,
+  "phase": "phase2",
+  "phase2_keeps": 1
+}

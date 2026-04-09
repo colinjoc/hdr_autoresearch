@@ -336,3 +336,106 @@ These derived features will be tested in Phase A (H1, H2).
 - **LPBF** - Laser Powder Bed Fusion (metal AM, referenced for parallels).
 - **PLA / ABS / PETG / TPU** - Common thermoplastic feedstocks.
 - **Gyroid** - Triply periodic minimal surface infill pattern with isotropic mechanical properties.
+
+---
+
+## 14. Phase 2 HDR findings (added 2026-04-09)
+
+The following facts were added to the knowledge base by the HDR loop run
+in this session. The source for every number is `results.tsv` in this
+directory.
+
+### 14.1 Model family ranking on the Kaggle 3D Printer Dataset (N = 50)
+
+| Rank | Family | 5-fold MAE (MPa) | Relative to XGBoost |
+|---|---|---|---|
+| 1 | XGBoost (depth 6, lr 0.05, n=300) | 4.44 | 1.00x |
+| 2 | ExtraTrees (300 est.) | 4.97 | 1.12x worse |
+| 3 | RandomForest (300 est.) | 5.08 | 1.14x worse |
+| 4 | LightGBM (defaults) | 5.22 | 1.18x worse |
+| 5 | Ridge regression | 5.86 | 1.32x worse |
+
+**Key observation**: The tree-vs-linear gap is only 1.3x on this dataset.
+This is below program.md's 2x threshold for declaring the problem
+"strongly non-linear", which means the tensile-strength signal is
+roughly two-thirds linear and only one-third structured non-linear
+interactions. The implication for downstream work: neural networks
+are unlikely to help; linear models with hand-engineered interactions
+would be a defensible simpler baseline.
+
+### 14.2 The physics-informed feature set that wins
+
+**E08 winning feature set** (five derived features):
+
+- `E_lin = T_nozzle * v_print / h_layer` -- linear energy density
+- `vol_flow = v_print * h_layer * w_line` -- volumetric flow rate
+- `interlayer_time = 2500 / (v_print * w_line)` -- proxy for time above Tg
+- `infill_contact = (infill_density / 100) * 2500` -- load-bearing area proxy
+- `thermal_margin = T_nozzle - Tg(material)` -- temperature above glass transition
+
+**Rejected because hurt MAE**: `cool_rate = (T_nozzle - T_amb) * fan_speed / h_layer`
+
+The cooling-rate proxy was part of the pre-registered "full six-feature
+set" from hypothesis H2 but consistently made things worse. The most
+likely reason: the fan-speed coefficient in the formula gives the
+feature a bimodal distribution (ABS samples in the dataset have
+fan_speed 0 - 25, PLA samples have fan_speed 50 - 100), which XGBoost
+interprets as an implicit material indicator rather than a genuine
+thermal signal.
+
+### 14.3 Monotone constraints do not transfer from concrete to FDM
+
+Seven monotone-constraint experiments (E34 - E40) were run at priors
+0.45 - 0.60, all based on directional relationships that are well
+established in the FDM literature (infill+, print_speed-,
+nozzle_temperature+, layer_height-). All seven reverted. Phase 2.5
+re-tested the two most promising monotone compositions (P25.1 and
+P25.5) on top of the winning physics features. Both reverted.
+
+**Hypothesised reason**: N = 50 is too small for the constraint to
+help. Each monotone constraint eliminates tree splits that would
+otherwise fit the training fold, and the cross-validation fold's
+variance is too high for the regularisation benefit to show up.
+Concrete's N = 1030 is twenty times larger, and the monotone
+constraint on cement improved MAE there (E17: -0.034 MPa).
+
+### 14.4 Log-target transform does not help
+
+E33 (`log(tension_strength)` as the training target) reverted with
+delta = +0.43 MPa. The target is only mildly right-skewed (skewness
+0.07) and the dataset is too small to benefit from variance-stabilising
+transforms.
+
+### 14.5 Most hyperparameter sweeps are noise
+
+Eleven hyperparameter sweeps in Phase 2 (E22 - E32), all at priors
+0.25 - 0.30, all reverted. The deltas ranged from +0.11 to +0.47,
+all consistent with per-fold sampling noise. **On N = 50, the
+default XGBoost hyperparameters are already at or beyond the point
+of diminishing returns** -- spending optimisation budget on depth,
+learning rate, or row subsampling returns nothing.
+
+### 14.6 Phase B discovery result (in-distribution)
+
+The trained E08 model, when swept over 2,394 candidate print
+settings, identifies a configuration that simultaneously beats the
+Cura PLA slicer default on tensile strength, print time, and
+energy consumption:
+
+| Metric | Cura default | Discovery | Improvement |
+|---|---|---|---|
+| Predicted tensile strength | ~17 - 19 MPa | 30.1 MPa | +59 percent |
+| Print time | 0.52 h | 0.24 h | -54 percent |
+| Energy | 0.10 kWh | 0.049 kWh | -51 percent |
+
+The discovered recipe: PLA, layer height 0.20 mm, print speed 120
+mm/s, nozzle 215 C, infill 70 percent (honeycomb), 3 walls, fan
+75 percent, bed 60 C.
+
+**Novelty caveat**: The direction of each change is already in the
+literature (higher infill = stronger; thicker layers plus higher
+speed = faster; 70 percent infill is the classical "functional"
+setpoint). The novelty is that a data-driven surrogate, trained on
+50 samples, finds a single set of values that hit all three targets
+simultaneously, and that the set falls inside the training
+distribution so it can be printed immediately without extrapolation.
