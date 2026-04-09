@@ -1,0 +1,12 @@
+# Phase 2.5 additions
+lifelines>=0.30
+scikit-survival>=0.24
+# Phase 0-2 deps already in the project-wide env; listed here for reproducibility
+xgboost>=2.0
+lightgbm>=4.0
+scikit-learn>=1.5
+statsmodels>=0.14
+pandas>=2.2
+numpy>=2.0
+requests>=2.31
+pyarrow>=14.0
