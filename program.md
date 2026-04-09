@@ -24,7 +24,7 @@ Maximise **[METRIC]** on [BENCHMARK] via HDR. Then USE the model for discovery (
 Optimise **[OBJECTIVE]** by modifying **[DESIGN VARIABLES]** evaluated via **[SIMULATOR]**. The simulation must be realistic (all dominant physics, hardware constraints, validated against known results).
 
 ### Option C: Decomposition-Based
-Reverse-engineer an existing AI-discovered or black-box solution. Identify which components and parameters carry the win, which are optimisation artifacts, and what physical mechanism explains the performance. Use **systematic ablation** of the existing solution rather than forward search over a design space. Appropriate when a published result (e.g. Urania-discovered GW detector topologies, AlphaFold-discovered structures, neural-architecture-search winners) needs interpretation, not improvement. The Phase 2 loop runs in a different rhythm — see "Phase 2 Variant: Decomposition Loop" below.
+Reverse-engineer an existing AI-discovered or black-box solution. Identify which components and parameters carry the win, which are optimisation artifacts, and what physical mechanism explains the performance. Use **systematic ablation** of the existing solution rather than forward search over a design space. Appropriate when a published result needs interpretation, not improvement. The Phase 2 loop runs in a different rhythm — see "Phase 2 Variant: Decomposition Loop" below.
 
 ---
 
@@ -73,14 +73,14 @@ Before optimising, verify: all dominant physics included, hardware constraints e
 **CRITICAL: Always use the standard published simulator or dataset for the field, even if it's slower or more complex than building your own.** Building a simplified custom simulator is almost always the wrong choice, even when it speeds up iteration.
 
 **Why this matters:**
-- Results from custom simulators are **not comparable** to published benchmarks. You can't claim "we beat SOTA" unless you tested on the same simulator SOTA was measured on.
-- Custom simulators tend to encode the same simplifications as the analytical baselines they replace (e.g., a Poisson + saturation flow traffic simulator IS Webster's model — beating Webster on it means nothing).
+- Results from custom simulators are **not comparable** to published benchmarks. You cannot claim "we beat SOTA" unless you tested on the same simulator SOTA was measured on.
+- Custom simulators tend to encode the same simplifications as the analytical baselines they replace. Beating an analytical baseline on a simulator that IS that baseline is meaningless.
 - Custom simulators miss the physics that matters in reality. The optimisation will find solutions that exploit simulator artifacts rather than real phenomena.
 - Reviewers and replicators will not trust results from a one-off simulator built by the same person making claims about it.
 
 **The rule:**
-1. **Identify the standard simulator/dataset** for your field during Phase 0 lit review. Examples: SUMO for traffic, GROMACS for molecular dynamics, OpenAI Gym envs for RL, MuJoCo for robotics, Quantum ESPRESSO for DFT, FENICS for FEM, OpenFOAM for CFD, the UCI/Kaggle/papers-with-code dataset for the benchmark.
-2. **Use it.** Even if it's 100x slower than a custom alternative.
+1. **Identify the standard simulator/dataset** for your field during Phase 0 lit review.
+2. **Use it.** Even if it is 100x slower than a custom alternative.
 3. **If iteration speed is a problem**, fix it the right way: smaller test cases, lower resolution, fewer simulation steps, GPU acceleration of the standard tool, surrogate models trained on the standard tool's output. NOT a custom simulator.
 4. **Validate the standard simulator reproduces published results** for a known case before starting HDR. If it doesn't, your installation is broken.
 5. **Only build a custom simulator if there is genuinely no standard tool**, AND the lit review confirms this. Document why explicitly.
@@ -96,16 +96,14 @@ Before optimising, verify: all dominant physics included, hardware constraints e
 - Replacing a complex physics simulator with a simple analytical model
 - Building "the simplest possible simulator that captures the essence of the problem" — this almost always misses the essence
 
-**Lesson from the traffic signals project**: The HDR agent built a Poisson+saturation flow simulator instead of using the available SUMO installation. The 43% improvement over Webster on the custom simulator was meaningless because the custom simulator IS Webster's analytical model. Results that look impressive on toy simulators do not transfer to standard benchmarks. Always use the standard tool.
-
 ### Sanity Checks Before the HDR Loop Starts
 
 Four cheap calibration runs before any HDR experiment. Each one is more valuable than a new experiment because they reveal whether downstream improvements can even be trusted.
 
-1. **Reproduce published SOTA on the same system.** Run the published state-of-the-art method exactly as described — same simulator, same parameters, same optimiser — and verify your number is within 0.1–0.5% of theirs. A larger gap means your installation, simulator fidelity, or evaluation harness is broken. If you can't reproduce, fix that before starting the loop. *(quantum_gates: 99.94% vs published 99.98% — within margin, simulator trusted.)*
-2. **Featurizer speed audit at 500 samples.** For Option A projects, time every off-the-shelf featurizer (matminer, RDKit, etc.) on a 500-sample subset before running on the full dataset. Featurizers that work on toy data can hang on real scale. Cache featurization output to disk on the first run, not the tenth. *(matbench: `IonProperty` and `WenAlloys` ran for 100+ minutes on 4K samples until cached.)*
-3. **Validation must not overlap training.** Run leave-one-configuration-out CV alongside any holdout split. If they disagree, the holdout is overlapping training in disguise (same condition, same source) and reported gains are inflated. Trust the leave-one-out result. Do not pivot to ensembles or architecture changes until validation is honest. *(CYPHER: holdout-validation overlap masked stagnation for ~10 experiments.)*
-4. **Linear baseline first.** Fit Ridge / Logistic on the raw features before trying any tree, NN, or ensemble. If tree methods are not >2× better than the linear baseline, the relationship is mostly linear and you should skip neural models entirely. They will not help and they will overfit. *(matbench: 4b9974b — Ridge lost 3/4 tasks, confirming non-linearity needed before NN trials.)*
+1. **Reproduce published SOTA on the same system.** Run the published state-of-the-art method exactly as described — same simulator, same parameters, same optimiser — and verify your number is within 0.1–0.5% of theirs. A larger gap means your installation, simulator fidelity, or evaluation harness is broken. Fix the gap before starting the loop.
+2. **Featurizer speed audit at 500 samples.** For Option A projects, time every off-the-shelf featurizer on a 500-sample subset before running on the full dataset. Featurizers that work on toy data can hang for hours on real scale. Cache featurization output to disk on the first run, not the tenth.
+3. **Validation must not overlap training.** Run leave-one-condition-out CV alongside any holdout split. If they disagree, the holdout is overlapping training in disguise (same condition, same source) and reported gains are inflated. Trust the leave-one-out result. Do not pivot to ensembles or architecture changes until validation is honest.
+4. **Linear baseline first.** Fit Ridge / Logistic on the raw features before trying any tree, NN, or ensemble. If tree methods are not >2× better than the linear baseline, the relationship is mostly linear and you should skip neural models entirely. They will not help and they will overfit.
 
 ---
 
@@ -117,9 +115,9 @@ Re-run the tournament if the HDR loop plateaus (5+ consecutive reverts).
 
 ### Tournament anti-patterns
 
-- **Bagging beats boosting for small N.** When the tournament includes a task with N < 400 training examples, ExtraTrees / Random Forest typically beats XGBoost / LightGBM by 5–10%. The boosters overfit. Test bagging explicitly on small tasks. *(matbench: ExtraTrees won steels N=312 by 10%.)*
-- **Per-task model selection is mandatory.** Do not pick one model family for the whole project. Different tasks have different optimal model families, featurizers, and target transforms. Capture per-task winners in a decision table after the tournament — one-size-fits-all trades wins on ~50% of tasks. *(matbench: 23c41e2 — 3 model variants for expt_gap/mp_gap/steels.)*
-- **Hard thresholds beat soft blends for bimodal targets.** When a target has a sharp physical boundary (metal ↔ nonmetal, stable ↔ unstable, present ↔ absent), use a two-stage classifier→regressor with a hard threshold, not a soft probability blend. Soft blends consistently lose. *(matbench: 4978ea9 — two-stage gap 0.344→0.293; soft blend reverted at 0.308.)*
+- **Bagging beats boosting for small N.** When the tournament includes a task with N < 400 training examples, ExtraTrees / Random Forest typically beats XGBoost / LightGBM by 5–10%. The boosters overfit. Test bagging explicitly on small tasks.
+- **Per-task model selection is mandatory.** Do not pick one model family for the whole project. Different tasks have different optimal model families, featurizers, and target transforms. Capture per-task winners in a decision table after the tournament — one-size-fits-all trades wins on ~50% of tasks.
+- **Hard thresholds beat soft blends for bimodal targets.** When a target has a sharp physical boundary (metal ↔ nonmetal, stable ↔ unstable, present ↔ absent), use a two-stage classifier→regressor with a hard threshold, not a soft probability blend. Soft blends consistently lose.
 
 ---
 
@@ -129,7 +127,7 @@ A common Phase A → Phase B failure: the predictor improves in training but can
 
 ### Feature availability check
 
-For every feature in the predictor, verify it can be computed for an arbitrary candidate (not just training-set members). If a feature requires crystal structure data and your candidates are compositions, the feature defaults to 0 on candidates and the predictor systematically under-ranks them. *(superconductor: exp1+exp2 added structure features → predictor MAE improved 3.44→3.28, but discovery collapsed from 46 candidates to 0 because novel compositions had no structure data. Reverted.)*
+For every feature in the predictor, verify it can be computed for an arbitrary candidate (not just training-set members). If a feature requires data that is only present for training samples (e.g. crystal structure for compositional candidates), it will default to a placeholder on candidates and the predictor will systematically under-rank them.
 
 Add this test:
 1. Generate 5–10 synthetic candidates that span the design space.
@@ -138,11 +136,11 @@ Add this test:
 
 ### Combinatorial template diversity beats predictor improvement
 
-In Phase B the highest-impact lever is usually the **diversity of candidate templates**, not the predictor's MAE. Going from 1 template family to 5 typically yields 2–10× more discoveries. Going from MAE 3.4 → 2.7 typically yields none. Allocate Phase B effort to templates first, predictor refinement second. *(superconductor: exp7 added 4 new template families → discoveries 73→129. Predictor improvement across all 13 experiments only moved discoveries by single digits.)*
+In Phase B the highest-impact lever is usually the **diversity of candidate templates**, not the predictor's MAE. Going from 1 template family to 5 typically yields 2–10× more discoveries. A modest predictor improvement typically yields none. Allocate Phase B effort to templates first, predictor refinement second.
 
 ### Stability / feasibility post-filter
 
-For materials, designs, and any domain with a "physically realisable?" constraint, run a lightweight feasibility filter on the top-K predictions from the predictor. For materials, universal ML potentials (MACE-MP, M3GNet) compute formation energies in 1–10 seconds per candidate. Throw away anything infeasible. This removes predictions that exploit model weaknesses and restores honest discovery counts. *(superconductor: MACE-MP screen kept only 33/50 top Tc candidates as thermodynamically stable.)*
+For materials, designs, and any domain with a "physically realisable?" constraint, run a lightweight feasibility filter on the top-K predictions from the predictor. Universal ML potentials and constraint solvers are typically fast (1–10 seconds per candidate). Throw away anything infeasible. This removes predictions that exploit model weaknesses and restores honest discovery counts.
 
 ---
 
@@ -174,25 +172,25 @@ For materials, designs, and any domain with a "physically realisable?" constrain
 - **Cumulative**: every experiment produces knowledge, even failures
 - **Plateau detection — distinguish optimisation plateau from physical floor.**
   - **Optimisation plateau** (5+ consecutive reverts at moderate margins): re-tournament. The HDR loop has exhausted the current approach.
-  - **Physical floor** (improvements < the simulator's noise floor across many experiments): pivot to a new problem dimension instead of pushing harder. If you're trying to improve a single-qubit gate fidelity below the T1/T2 limit, no amount of pulse optimisation will help. Move to a new gate type, different hardware regime, or different objective. *(quantum_gates: hit decoherence floor at 99.94%, pivoted to 5 new research directions in next_steps.md.)*
-- **Tighten the revert threshold late-loop.** Early experiments (1–20) accept any positive Δ above noise. Mid-loop (20–50), require Δ > 2× the experimental noise floor. Late-loop (50+), require Δ > 3× noise OR a parallel benefit (inference speed, robustness, simplicity). Otherwise the loop drowns in tied experiments. *(CYPHER exp49–50: <0.02 Δ kept causing churn until threshold was tightened.)*
+  - **Physical floor** (improvements smaller than the simulator's noise floor across many experiments): pivot to a new problem dimension instead of pushing harder. If a fundamental physical limit is binding, no amount of optimisation will help. Move to a different objective, hardware regime, or problem formulation.
+- **Tighten the revert threshold late-loop.** Early experiments (1–20) accept any positive Δ above noise. Mid-loop (20–50), require Δ > 2× the experimental noise floor. Late-loop (50+), require Δ > 3× noise OR a parallel benefit (inference speed, robustness, simplicity). Otherwise the loop drowns in tied experiments.
 
 ### Bayesian Prior Calibration
 
 Stated priors are systematically wrong in characteristic directions. Adjust accordingly:
 
-- **Training-trick priors are overconfident.** Hyperparameter tweaks (LR schedules, weight decay, optimiser changes, init strategies, loss-function variants) feel plausible but rarely transfer. Default prior should be ≤ 30% for any standard ML training trick on a problem where the data is small or physics-rich. If your gut says 60%, write down 30%. *(CYPHER: CosineWarmRestarts 45%→revert, JIT 65%→revert, mini-batch 55%→revert, Huber 45%→revert, weight decay 55%→revert.)*
+- **Training-trick priors are overconfident.** Hyperparameter tweaks (LR schedules, weight decay, optimiser changes, init strategies, loss-function variants) feel plausible but rarely transfer. Default prior should be ≤ 30% for any standard ML training trick on a problem where the data is small or physics-rich. If your gut says 60%, write down 30%.
 - **Domain-feature priors are well-calibrated.** A new feature derived from domain physics with a clear mechanistic story typically lands in the 40–60% range and the realised hit rate matches.
-- **Architecture-pivot priors are catastrophically overconfident.** Switching model families (XGBoost→DNN, GP→ExtraTrees, etc.) feels like a 50% bet but realised success is closer to 10%. Demand strong motivation; do not pivot architectures because the loop is plateauing. *(CYPHER: XGBoost 50%→revert, ensemble pivot 40%→catastrophic +96 score.)*
-- **Inference / speed-optimisation priors are well-calibrated and stack reliably.** Treat inference-level optimisation (binary I/O, manual scaling, operator fusion, caching) as a separate axis from accuracy. It's reliable, it compounds, and it never hurts the score. Run these in parallel to accuracy work. *(CYPHER: every predict()-level optimisation kept; every architecture change at the same time reverted.)*
+- **Architecture-pivot priors are catastrophically overconfident.** Switching model families feels like a 50% bet but realised success is closer to 10%. Demand strong motivation; do not pivot architectures because the loop is plateauing.
+- **Inference / speed-optimisation priors are well-calibrated and stack reliably.** Treat inference-level optimisation (binary I/O, manual scaling, operator fusion, caching) as a separate axis from accuracy. It is reliable, it compounds, and it never hurts the score. Run these in parallel to accuracy work.
 
 ### Anti-Patterns to Watch For
 
-- **"Slightly tied" experiments are a sign Occam has won.** If a more complex variant is statistically tied with a simpler baseline (Δ < 0.5pp or < experimental noise), revert. Keeping the complex variant adds noise to the next experiment's signal. *(traffic_signals: 5 plausible improvements over E12 each tied within 0.5pp; all reverted; the 2-parameter rule held.)*
-- **Per-scenario regressions hide under positive means.** Always report per-scenario / per-task / per-condition results, not just aggregate. A +5% mean improvement that includes a +200% catastrophe on one condition is a regression, not a win. The aggregate mean can be a lie. *(traffic_signals S02: WAITING_THRESHOLD=3 was "slightly worse" on the toy mean but +219% catastrophic on uniform_low under SUMO.)*
-- **Absolute conditions scale; relative thresholds don't.** Rules of the form `queue == 0` (drain fully) or `confidence > 0.9` scale across regimes. Rules of the form `current − other > K` or `improvement > 5%` work in one regime and break in others. Prefer absolute conditions. *(traffic_signals E02: relative hysteresis margin of 3 won at low demand but failed +304% at high demand; E06's drain rule held across all 5.)*
-- **Random initialisation is malpractice for parameterised search.** Never start GRAPE / pulse optimisation / neural ODE / Fourier basis search from random parameters. Always warm-start from a known-good baseline (DRAG seed, Gaussian, published pulse, transfer-learned weights). Random init converges to local minima with 10–100× worse fidelity. *(quantum_gates exp3: DRAG warm-start → 3.58e-7 infidelity; random init fails outright.)*
-- **Cache custom featurization on first run.** A featurizer that takes 35 seconds on first run takes 35 milliseconds on the second if cached to disk. Add the cache the moment you write the featurizer, not after the loop is slow. *(matbench f929a21: disk cache reduced 15+ min to 35s.)*
+- **"Slightly tied" experiments are a sign Occam has won.** If a more complex variant is statistically tied with a simpler baseline (Δ < 0.5pp or < experimental noise), revert. Keeping the complex variant adds noise to the next experiment's signal.
+- **Per-scenario regressions hide under positive means.** Always report per-scenario / per-task / per-condition results, not just aggregate. A +5% mean improvement that includes a +200% catastrophe on one condition is a regression, not a win. The aggregate mean can be a lie.
+- **Absolute conditions scale; relative thresholds don't.** Rules of the form `queue == 0` (drain fully) or `confidence > 0.9` scale across regimes. Rules of the form `current − other > K` or `improvement > 5%` work in one regime and break in others. Prefer absolute conditions.
+- **Random initialisation is malpractice for parameterised search.** Never start gradient-based pulse / waveform / neural ODE / Fourier basis search from random parameters. Always warm-start from a known-good baseline (analytical solution, published seed, transfer-learned weights). Random init converges to local minima with 10–100× worse fidelity.
+- **Cache custom featurization on first run.** A featurizer that takes 35 seconds on first run takes 35 milliseconds on the second if cached to disk. Add the cache the moment you write the featurizer, not after the loop is slow.
 
 ### Phase 2 Variant: Decomposition Loop (for Option C projects)
 
@@ -211,11 +209,11 @@ When the goal is to reverse-engineer an existing AI-discovered or black-box solu
 
 #### Decomposition-mode rules
 
-- **Component ablation before parameter sweeps.** First identify which components are essential (binary on/off ablation). Only sweep parameters of components that survive. Sweeping parameters of redundant components wastes effort and gives misleading sensitivity curves. *(gw_detectors E05→E06: 48-mirror, 3-laser, 4-squeezer design reduced to ~10 essentials; second laser was actively harmful.)*
-- **Distinguish narrow optima from broad robustness.** A parameter sweep gives you a sensitivity curve. Sharp peaks (±5% kills the design) indicate real physics — lock down tight specifications. Broad plateaus (any value in [0.5, 0.8] works) indicate the optimiser over-parameterised a robust choice — simplify or reoptimise. *(gw_detectors: arm cavity finesse was a knife-edge critical-coupling parameter; beamsplitter ratio was a broad plateau the optimiser arbitrarily picked.)*
-- **Cross-validate decomposition against an independent source.** Differentiable simulators (JAX, autograd) and step-based simulators (Finesse, COMSOL) can disagree on internal scales. Verify the dominant mechanism on both before publishing the interpretation. *(gw_detectors E02→E03: initial Differometor claim of "5449× signal amplification" was contradicted by cross-checking the published Zoo loss function — actual mechanism was noise suppression.)*
-- **Survey the family, don't extrapolate from one solution.** After decomposing the best solution, decompose 3–5 others from the same family. They may use distinct mechanisms (e.g., signal amplification vs noise suppression). The "explanation" of the AI's discovery may be plural. *(gw_detectors E15: among 25 type8 solutions, two distinct mechanism families coexist.)*
-- **Verify the simplified design reaches or beats the original.** A successful decomposition produces a minimal design that, after re-optimising 1–2 free parameters, matches or exceeds the original AI-discovered performance. If it doesn't, you removed something essential. *(gw_detectors E14: 10-component minimal design matched original 3.12×; after BS reoptimisation reached 3.62× — 16% better than the AI's original.)*
+- **Component ablation before parameter sweeps.** First identify which components are essential (binary on/off ablation). Only sweep parameters of components that survive. Sweeping parameters of redundant components wastes effort and gives misleading sensitivity curves.
+- **Distinguish narrow optima from broad robustness.** A parameter sweep gives you a sensitivity curve. Sharp peaks (±5% kills the design) indicate real physics — lock down tight specifications. Broad plateaus indicate the optimiser over-parameterised a robust choice — simplify or reoptimise.
+- **Cross-validate decomposition against an independent source.** Differentiable simulators and step-based simulators can disagree on internal scales. Verify the dominant mechanism on both before publishing the interpretation.
+- **Survey the family, don't extrapolate from one solution.** After decomposing the best solution, decompose 3–5 others from the same family. They may use distinct mechanisms (e.g. signal amplification vs noise suppression). The "explanation" of the AI's discovery may be plural.
+- **Verify the simplified design reaches or beats the original.** A successful decomposition produces a minimal design that, after re-optimising 1–2 free parameters, matches or exceeds the original AI-discovered performance. If it doesn't, you removed something essential.
 
 ---
 
@@ -253,7 +251,7 @@ The website summary pipeline at `~/website/pipeline/` runs daily, scans every `a
 - Footer links to source code and HDR methodology
 - Auto-commit and push to the website repo
 
-**Do not write `summary.md` in the project directory.** It's deprecated; the pipeline owns the public version.
+**Do not write `summary.md` in the project directory.** It is deprecated; the pipeline owns the public version.
 
 ---
 
@@ -298,16 +296,6 @@ Single markdown file at the project root listing every external data source with
 - **License** — what you can do with it
 - **Local path** — where the code expects to find it after download
 - **Download command** — wget/curl/gh-clone command to fetch it
-
-Example entry:
-```markdown
-## UCI Concrete Compressive Strength
-- URL: https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength
-- Size: 56 KB
-- License: CC BY 4.0
-- Local path: data/concrete.csv
-- Fetch: `python -c "from sklearn.datasets import fetch_openml; fetch_openml(data_id=4353, as_frame=True).frame.to_csv('data/concrete.csv', index=False)"`
-```
 
 ### .gitignore template
 ```
