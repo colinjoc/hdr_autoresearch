@@ -1,0 +1,7 @@
+space	length_m	comp_a	type_a	R_a	mass_a	comp_b	type_b	R_b	mass_b	active_a	active_b
+mRL_3_2	3846.9567	MB3_2_r	mirror	2.086805e-03	1.6729e+01	MB4_2_l	mirror	1.503820e-04	1.7096e+01	1	1
+mRL_3_3	3846.9567	MB3_3_r	mirror	5.186815e-01	8.6516e+01	MB4_3_l	mirror	5.003761e-01	8.8929e+01	1	1
+mRL_3_4	3846.9567	MB3_4_r	mirror	9.529852e-01	1.3760e+02	MB4_4_l	mirror	8.061001e-02	7.8124e+01	1	1
+mUD_1_1	3670.8422	MB1_1_d	mirror	1.000000e+00	1.0979e+01	MB1_2_u	mirror	1.000000e+00	7.8029e+01	1	1
+mUD_2_1	3670.8422	MB2_1_d	mirror	8.591754e-02	6.2601e+01	MB2_2_u	mirror	1.000000e+00	7.1671e+01	1	1
+mUD_3_1	3670.8422	MB3_1_d	mirror	1.500000e-05	2.0000e+02	MB3_2_u	mirror	2.390159e-03	2.0000e+02	1	1

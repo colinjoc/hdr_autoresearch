@@ -1,0 +1,82 @@
+name	type	active	R	mass
+B1_1	beamsplitter	1	9.999949e-01	
+B1_2	beamsplitter	1	1.000000e+00	
+B1_3	beamsplitter	1	8.070571e-01	
+B1_4	beamsplitter	1	6.254469e-02	
+B2_1	beamsplitter	1	1.382538e-02	
+B2_2	beamsplitter	1	3.312336e-02	
+B2_3	beamsplitter	1	1.500000e-05	
+B3_1	beamsplitter	1	3.016734e-01	
+B3_2	beamsplitter	1	9.587124e-02	
+B3_3	beamsplitter	1	5.190286e-02	
+B3_4	beamsplitter	1	1.784343e-02	
+B4_2	beamsplitter	1	7.958745e-03	
+B4_3	beamsplitter	1	5.960028e-02	
+B4_4	directional_beamsplitter	1		
+L_1_0	laser	1		
+L_5_2	laser	1		
+L_5_4	laser	1		
+MB1_1_d	mirror	1	1.000000e+00	1.097882e+01
+MB1_1_l	mirror	1	3.375814e-04	1.986251e+02
+MB1_1_r	mirror	1	1.500000e-05	1.000000e-02
+MB1_1_u	mirror	1	1.500000e-05	8.962734e+01
+MB1_2_d	mirror	1	1.000000e+00	2.844455e+01
+MB1_2_r	mirror	1	1.500000e-05	1.638215e+02
+MB1_2_u	mirror	1	1.000000e+00	7.802901e+01
+MB1_3_d	mirror	1	1.000000e+00	5.523160e+01
+MB1_3_l	mirror	1	9.589138e-03	3.176263e+01
+MB1_3_r	mirror	1	6.678861e-01	1.885717e+02
+MB1_3_u	mirror	1	1.000000e+00	1.099901e+02
+MB1_4_d	mirror	1	1.737308e-02	1.470544e+02
+MB1_4_l	mirror	1	0.000000e+00	1.685129e+02
+MB1_4_u	mirror	1	1.000000e+00	1.448909e+02
+MB2_1_d	mirror	1	8.591754e-02	6.260076e+01
+MB2_1_l	mirror	1	7.906034e-04	2.000000e+02
+MB2_1_r	mirror	1	1.500000e-05	8.216135e+01
+MB2_1_u	mirror	1	4.378603e-02	1.000000e-02
+MB2_2_d	mirror	1	1.500000e-05	8.622319e+01
+MB2_2_l	mirror	1	4.564132e-01	2.000000e+02
+MB2_2_r	mirror	1	5.717360e-01	4.182811e+01
+MB2_2_u	mirror	1	1.000000e+00	7.167126e+01
+MB2_3_l	mirror	1	1.500000e-05	5.250640e+00
+MB2_3_u	mirror	1	5.449368e-01	5.913954e+01
+MB3_1_d	mirror	1	1.500000e-05	2.000000e+02
+MB3_1_l	mirror	1	9.999093e-01	1.721366e+01
+MB3_2_d	mirror	1	1.609105e-05	1.207591e+02
+MB3_2_l	mirror	1	8.222148e-01	1.736972e+02
+MB3_2_r	mirror	1	2.086805e-03	1.672917e+01
+MB3_2_u	mirror	1	2.390159e-03	2.000000e+02
+MB3_3_d	mirror	1	3.634861e-02	6.498483e+01
+MB3_3_l	mirror	1	1.500000e-05	1.371906e+02
+MB3_3_r	mirror	1	5.186815e-01	8.651636e+01
+MB3_3_u	mirror	1	1.269109e-03	1.577278e+02
+MB3_4_r	mirror	1	9.529852e-01	1.376015e+02
+MB3_4_u	mirror	1	2.800041e-01	1.709149e+02
+MB4_2_d	mirror	1	4.531684e-01	3.406188e+01
+MB4_2_l	mirror	1	1.503820e-04	1.709600e+01
+MB4_2_r	mirror	1	8.143869e-01	1.673949e+01
+MB4_2_u	mirror	1	0.000000e+00	2.693780e+01
+MB4_3_d	mirror	1	1.522899e-04	1.250409e+02
+MB4_3_l	mirror	1	5.003761e-01	8.892879e+01
+MB4_3_r	mirror	1	1.500000e-05	1.606100e+02
+MB4_3_u	mirror	1	2.658273e-02	1.017522e+02
+MB4_4_d	mirror	1	7.971355e-01	1.314989e+02
+MB4_4_l	mirror	1	8.061001e-02	7.812392e+01
+MB4_4_r	mirror	1	8.390625e-01	1.664537e+02
+MB4_4_u	mirror	1	3.972676e-05	1.268731e+02
+MDet1	mirror	1	1.000000e+00	1.217927e+01
+MDet2	mirror	1	9.733041e-01	4.596580e+01
+ML_0_1	mirror	1	0.000000e+00	2.663094e+01
+ML_0_3	mirror	1	5.825164e-04	1.672852e+02
+ML_1_0	mirror	1	1.940959e-02	1.000000e-02
+ML_4_5	mirror	1	9.469576e-01	2.852912e+01
+ML_5_2	mirror	1	1.500000e-05	8.864301e+01
+ML_5_3	mirror	1	2.043507e-01	1.473934e+02
+ML_5_4	mirror	1	9.419442e-01	9.045475e+01
+nodeFinalDet	homodyne_detector	1		
+nodeFinalDet1	quantum_noise_detector	1		
+nodeFinalDet2	quantum_noise_detector	1		
+poutdc1	dc_photodetector	1		
+poutdc2	dc_photodetector	1		
+poutf1	ac_photodetector	1		
+poutf2	ac_photodetector	1		
