@@ -135,11 +135,11 @@ Re-run the tournament if the HDR loop plateaus (5+ consecutive reverts).
 
 ---
 
-## Phase 3: Two Writeups
+## Phase 3: paper.md (the only writeup the project owns)
 
-After the HDR loop converges (improvements plateau OR novelty checklist satisfied), produce **two writeups** as the final deliverables: a formal academic paper for credibility, and a website summary for reach.
+After the HDR loop converges (improvements plateau OR novelty checklist satisfied), produce a single deliverable: `paper.md`, a formal academic paper. This is the canonical source of truth for the project. The public-facing website summary is generated automatically by the website summary pipeline (`~/website/pipeline/`) directly from `paper.md` — projects no longer maintain their own `summary.md`.
 
-### Output 1: `paper.md` — Formal academic paper
+### `paper.md` — Formal academic paper
 
 A publication-quality academic paper. Structure:
 
@@ -160,48 +160,16 @@ A publication-quality academic paper. Structure:
 - Standard academic tone — not breathless, not understated
 - Write the paper LAST so it reflects the full HDR journey, not the original hypotheses
 
-### Output 2: `summary.md` — Website-ready summary
+### Public summary (auto-generated, do not maintain by hand)
 
-A condensed, approachable version of the paper for the public-facing website. The same findings, communicated to a smart generalist audience rather than a domain expert.
+The website summary pipeline at `~/website/pipeline/` runs daily, scans every `applications/<project>/paper.md`, and regenerates `~/website/site/content/hdr/results/<project>.md` whenever the paper changes (hash-diff detection). The pipeline takes care of:
+- Hugo frontmatter
+- Tech-leaning-layman tone
+- Resolving hyperlinks for benchmarks, datasets, simulators, and code repos
+- Footer links to source code and HDR methodology
+- Auto-commit and push to the website repo
 
-**Structure** (use Hugo frontmatter):
-```yaml
----
-title: "Short, punchy title"
-date: YYYY-MM-DD
-domain: "Field name"
-headline: "One-sentence punchline that fits in a card"
-metric_name: "What was improved"
-metric_value: "By how much"
-tags: ["domain", "method", "topic"]
----
-```
-
-**Body sections**:
-1. **The Problem** — 1-2 paragraphs. What is this, why does it matter, what was the gap.
-2. **What We Found** — the headline result up front, with a number. Then the supporting findings as bullet points or a table.
-3. **Key Insights** — 3-7 bullet points. Each one is a specific, surprising finding. Use numbers, not adjectives.
-4. **Why This Matters** — practical implications. Who uses this? What changes?
-5. **Methodology** — short paragraph or bullet list. How many experiments, what tools, link to the formal paper.
-6. **Key References** — 3-5 of the most important citations with links.
-
-**Style**:
-- Bullet points over prose
-- Tables over paragraphs
-- Numbers over adjectives ("3.4× faster" not "significantly faster")
-- One sentence per idea
-- Lead with the answer, then the explanation
-- A smart generalist should understand it in under 5 minutes
-
-### Both files go in the project directory
-
-```
-applications/[project]/
-  paper.md      # for credibility — the formal academic version
-  summary.md    # for reach — the public-facing version
-```
-
-The `summary.md` content gets copied or symlinked into the website's `content/hdr/results/[project].md` for publication.
+**Do not write `summary.md` in the project directory.** It's deprecated; the pipeline owns the public version.
 
 ---
 
