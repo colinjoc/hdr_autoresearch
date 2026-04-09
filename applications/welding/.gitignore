@@ -1,0 +1,22 @@
+# Data — fetched or generated, never committed
+data/
+discoveries/*.csv
+discoveries/*.json
+
+# Literature PDFs — fetched from URLs in papers.csv
+literature/papers/
+literature/books/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Models — too large for git
+*.pkl
+*.ubj
+*.h5
+*.safetensors
+
+# Local test cache
+.pytest_cache/

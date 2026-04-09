@@ -1,0 +1,20 @@
+{
+  "exp_id": "P25.3",
+  "description": "Compose: HI + t85 + log_target + monotone",
+  "model_family": "xgboost",
+  "extra_features": [
+    "heat_input_kj_mm",
+    "cooling_t85_s_est"
+  ],
+  "xgb_params": {},
+  "lgb_params": {},
+  "sklearn_kwargs": {},
+  "monotone_constraints": {
+    "heat_input_kj_mm": 1,
+    "cooling_t85_s_est": 1
+  },
+  "log_target": true,
+  "n_estimators": 300,
+  "target": "haz_width_mm",
+  "mae": 1.1928436019590922
+}

@@ -1,0 +1,65 @@
+exp_id	description	mae	rmse	r2	n_pareto	best_efficiency	prior	decision	notes
+E00	XGBoost on raw process features	1.7152	2.5596	0.9344			1.00	BASELINE	raw features
+T01	LightGBM on raw features	1.6278	2.4786	0.9385			0.55	KEEP	family=lightgbm
+T02	ExtraTrees on raw features	1.9721	3.2221	0.8960			0.45	REVERT	family=extratrees
+T03	Ridge regression on raw features (linear baseline)	3.4656	4.7752	0.7715			0.10	REVERT	family=ridge
+E01	Add heat input (HI) as single derived feature	1.5730	2.4290	0.9409			0.85	KEEP	family=lightgbm feats=1
+E02	Add log(heat input)	1.5730	2.4290	0.9409			0.55	REVERT	family=lightgbm feats=1
+E03	Add heat_input^2 (quadratic regime)	1.5730	2.4290	0.9409			0.30	REVERT	family=lightgbm feats=1
+E04	Add sqrt(heat input)	1.5730	2.4290	0.9409			0.45	REVERT	family=lightgbm feats=1
+E05	Add cube-root heat input	1.5730	2.4290	0.9409			0.20	REVERT	family=lightgbm feats=1
+E06	Add Rosenthal cooling time t_{8/5}	1.3162	2.0835	0.9565			0.55	KEEP	family=lightgbm feats=1
+E07	Add log(t_{8/5}) — wide dynamic range	1.3162	2.0835	0.9565			0.50	REVERT	family=lightgbm feats=1
+E08	Add both HI and t_{8/5}	1.3837	2.1443	0.9539			0.75	REVERT	family=lightgbm feats=2
+E09	Add HI + t_{8/5} + log variants	1.3920	2.2219	0.9505			0.60	REVERT	family=lightgbm feats=4
+E10	Add raw arc power (eta*V*I)	1.5074	2.3626	0.9441			0.40	REVERT	family=lightgbm feats=1
+E11	Add V/I ratio (arc length proxy)	1.6441	2.6012	0.9322			0.40	REVERT	family=lightgbm feats=1
+E12	Add I/V ratio	1.6602	2.6021	0.9322			0.25	REVERT	family=lightgbm feats=1
+E13	Add heat flux per unit area (W/mm²)	1.5568	2.3847	0.9430			0.30	REVERT	family=lightgbm feats=1
+E14	Add linear energy (J/m)	1.5730	2.4290	0.9409			0.30	REVERT	family=lightgbm feats=1
+E15	Add log(travel_mm_s)	1.6563	2.5307	0.9358			0.30	REVERT	family=lightgbm feats=1
+E16	Add log(current)	1.7046	2.5911	0.9327			0.30	REVERT	family=lightgbm feats=1
+E17	Add log(voltage)	1.6727	2.5803	0.9333			0.25	REVERT	family=lightgbm feats=1
+E18	Add 1/travel speed	1.6308	2.5176	0.9365			0.30	REVERT	family=lightgbm feats=1
+E19	Add 1/thickness	1.6416	2.5696	0.9338			0.25	REVERT	family=lightgbm feats=1
+E20	Add HI / thickness	1.2972	2.0742	0.9569			0.55	KEEP	family=lightgbm feats=1
+E21	Add HI / sqrt(thickness)	1.3679	2.0677	0.9572			0.50	REVERT	family=lightgbm feats=1
+E22	Add CE × HI interaction	1.5849	2.3689	0.9438			0.30	REVERT	family=lightgbm feats=2
+E23	Add effective heat density (HI × k_steel)	1.5730	2.4290	0.9409			0.25	REVERT	family=lightgbm feats=1
+E24	Add HI × preheat interaction	1.5923	2.3928	0.9426			0.30	REVERT	family=lightgbm feats=2
+E25	Add Δ_T=800-T0 (cooling driver)	1.6770	2.5627	0.9342			0.30	REVERT	family=lightgbm feats=1
+E26	Lower learning rate to 0.03, n=500	1.3854	2.1498	0.9537			0.30	REVERT	family=lightgbm feats=2
+E27	Increase max_depth to 8	1.3837	2.1443	0.9539			0.25	REVERT	family=lightgbm feats=2
+E28	Decrease max_depth to 4 (regularise)	1.3837	2.1443	0.9539			0.30	REVERT	family=lightgbm feats=2
+E29	Train on log(HAZ width)	1.3178	2.0559	0.9577			0.50	REVERT	family=lightgbm feats=2
+E30	Subsample 0.6 (heavier bagging)	1.3837	2.1443	0.9539			0.25	REVERT	family=lightgbm feats=2
+E31	min_child_weight = 5 (stricter leaves)	1.3837	2.1443	0.9539			0.25	REVERT	family=lightgbm feats=2
+E32	n_estimators 300 → 600	1.3854	2.1495	0.9537			0.40	REVERT	family=lightgbm feats=2
+E33	Monotone: HI↑ → HAZ↑	1.2944	1.9771	0.9608			0.55	REVERT	family=xgboost feats=2
+E34	Monotone: HI↑, t85↑ → HAZ↑	1.2788	1.9756	0.9609			0.55	KEEP	family=xgboost feats=2
+E35	Monotone: current↑ → HAZ↑, travel↑ → HAZ↓	1.3763	2.0238	0.9590			0.50	REVERT	family=xgboost feats=2
+E36	Monotone: I↑ → HAZ↑, v↑ → HAZ↓, thk↑ → HAZ↓	1.6490	2.5903	0.9328			0.45	REVERT	family=xgboost feats=2
+E37	Full physics bundle (HI, t85, hi_over_thk, ce_times_hi)	1.3924	2.1372	0.9542			0.55	REVERT	family=lightgbm feats=4
+E38	Full bundle + log_travel + v_over_i	1.3622	2.1376	0.9542			0.45	REVERT	family=lightgbm feats=6
+E39	Physics bundle + all log variants	1.3976	2.2621	0.9487			0.35	REVERT	family=lightgbm feats=7
+E40	Physics bundle + sqrt/cube-root HI	1.3970	2.2064	0.9512			0.25	REVERT	family=lightgbm feats=4
+E41	Ridge on physics bundle (linear HDR baseline)	3.2198	4.3509	0.8103			0.35	REVERT	family=ridge feats=4
+E42	Ridge on log features only	3.3173	4.4903	0.7980			0.30	REVERT	family=ridge feats=3
+E43	Ridge alpha sweep 10.0	3.2256	4.3570	0.8098			0.15	REVERT	family=ridge feats=4
+E44	LightGBM + physics bundle	1.3837	2.1443	0.9539			0.40	REVERT	family=lightgbm feats=2
+E45	LightGBM + full bundle	1.3924	2.1372	0.9542			0.35	REVERT	family=lightgbm feats=4
+E46	ExtraTrees + physics bundle	1.5636	2.6170	0.9314			0.30	REVERT	family=extratrees feats=2
+E47	ExtraTrees deeper (unlimited depth)	1.4819	2.5211	0.9363			0.25	REVERT	family=extratrees feats=2
+E48	XGB + HI + t85 + n=600 + monotone(HI)	1.2895	1.9716	0.9611			0.60	REVERT	family=xgboost feats=2
+E49	XGB + full bundle + log target	1.2795	1.9574	0.9616			0.45	REVERT	family=xgboost feats=4
+E50	XGB + full bundle + monotone(HI, t85)	1.3148	2.0394	0.9583			0.55	REVERT	family=xgboost feats=4
+P25.1	Compose: HI + t85 + monotone + n=600	1.2756	1.9746	0.9609			0.70	REVERT	family=xgboost feats=2
+P25.2	Compose: HI + t85 + hi_over_thk + monotone	1.2760	1.9839	0.9606			0.65	REVERT	family=xgboost feats=3
+P25.3	Compose: HI + t85 + log_target + monotone	1.1928	1.7461	0.9695			0.50	KEEP	family=xgboost feats=2
+P25.4	Compose: HI + t85 + depth=4 + monotone	1.2570	1.9184	0.9631			0.40	REVERT	family=xgboost feats=2
+P25.5	Compose: HI + t85 + depth=4 + n=600 + monotone	1.2321	1.8961	0.9640			0.45	REVERT	family=xgboost feats=2
+P25.6	Compose: HI + t85 + lr=0.03 + n=800 + monotone	1.2441	1.9110	0.9634			0.40	REVERT	family=xgboost feats=2
+P25.T1	Transfer: train GMAW, test GTAW	3.9475	4.5936	0.3853			0.60	TRANSFER	H20 cross-process test
+P25.T2	Transfer: train GTAW, test GMAW	9.7611	11.8291	-0.7515			0.60	TRANSFER	H20 reverse-direction
+P25.T3	GTAW-only 5-fold CV (baseline for transfer)	0.7116	1.0249	0.9694			1.00	BASELINE	within-family reference
+P25.H1	H1 linear HI-only → HAZ width	5.9194	7.1699	0.4850			0.80	REFUTED	research_queue H1 explicit test

@@ -420,3 +420,104 @@ Drawn from `papers.csv`:
 - Duggirala et al. (2024) [id=19] -- GPRN for laser Al.
 - Li et al. (2025) [id=21] -- Rosenthal + LSTM.
 - Braun et al. (2022) [id=18] -- transfer learning for fatigue.
+
+---
+
+## 11. Phase 2 Findings (added 2026-04-09)
+
+These entries record what the Hypothesis-Driven Research (HDR) loop
+**learned** on top of the Phase 0 literature review. They are kept as a
+separate section so the Phase 0 content above remains a pure lit-review
+record.
+
+### 11.1 Heat input (HI) is necessary but not sufficient for Heat-Affected Zone (HAZ) prediction
+
+On a 560-row synthetic arc-welding dataset generated from the Rosenthal
+closed-form heat-flow solution, a linear regression using only
+HI = (eta * V * I) / (v * 1000) as a feature achieves cross-validated
+R^2 = 0.485 — well below the hypothesised 0.80 target in H1. Adding
+HI to a boosted-tree model (LightGBM) drops the 5-fold Mean Absolute
+Error (MAE) from 1.63 mm to 1.57 mm (3.4 percent) -- a real but modest
+gain. The dominant residual variance comes from the thin-/thick-plate
+regime switch at ~6 mm thickness, which a single HI scalar cannot
+represent.
+
+**Lesson:** Heat input alone is a necessary feature but thickness must
+enter the feature set explicitly or the model cannot separate the 2D
+and 3D heat-flow regimes.
+
+### 11.2 Cooling time t_{8/5} adds more than HI
+
+Adding the Rosenthal-derived cooling time t_{8/5} on top of the raw
+parameters dropped MAE from 1.63 to 1.32 mm — a 19 percent improvement,
+five times larger than HI alone. t_{8/5} is a scalar of the same
+physics as HI but has different thickness dependence (quadratic for
+thin plate, linear for thick plate) which the single HI scalar does
+not encode.
+
+**Lesson:** When two physics scalars express the same underlying heat
+flow in different ways, include both. Tree models will learn which to
+use in which regime.
+
+### 11.3 Monotonicity constraints beat hyperparameter tuning
+
+On this dataset, XGBoost with the constraint that `HI -> HAZ` and
+`t_{8/5} -> HAZ` must be non-decreasing gave MAE 1.28 mm — better than
+any combination of learning rate, depth, subsample, or estimator count
+we tested. Hyperparameter tuning alone never beat the default setting
+by more than 1 percent.
+
+**Lesson:** Physics-informed hard constraints are a higher-ROI lever
+than hyperparameter search on small (N~500) physics datasets. This
+is consistent with the concrete HDR project's P25.5 finding (monotone
+cement -> strength was the final winning change).
+
+### 11.4 Log-target transform is a composition-only win
+
+Training on log(1 + HAZ) with the raw feature set reverted (E29,
+delta = +0.02 mm over the running best). Training on log(1 + HAZ)
+*composed* with the HI + t_{8/5} + monotonicity bundle gave the final
+winning MAE of 1.19 mm -- a 8 percent drop from the non-log variant
+and a 30 percent drop from the E00 baseline.
+
+**Lesson:** Variance-stabilising target transforms should be re-tested
+in composition with feature-engineering changes, not only in isolation.
+The methodology's Phase 2.5 compositional retest exists exactly for
+this case.
+
+### 11.5 Cross-process transfer (GMAW -> GTAW) refuted
+
+H20 from `research_queue.md` claimed a model trained on Gas Metal Arc
+Welding (GMAW) would transfer to Gas Tungsten Arc Welding (GTAW) with
+small loss because of shared physics. On this dataset the GMAW -> GTAW
+transfer MAE was 3.95 mm against a 0.71 mm within-family CV baseline
+(+455 percent gap). The reverse direction (GTAW -> GMAW) was worse
+(MAE 9.76 mm, R^2 = -0.75 — worse than predicting the mean).
+
+**Lesson:** Arc efficiency and typical working windows differ enough
+between GMAW (eta 0.8, thick plate 3-20 mm) and GTAW (eta 0.6, thin
+plate 1.5-10 mm) that a single model does not generalise. Textbook
+claims of "heat input is universal" refer to physical principles, not
+to the calibration of ML regressors.
+
+### 11.6 Inverse design recovered the thin-plate low-heat-input window
+
+Phase B screened 1760 candidate tuples across five strategies. The
+top-5 candidates satisfying HAZ <= 5 mm were all at the low-voltage
+(18-24 V), low-current (100 A), high-travel-speed (10-15 mm/s),
+thin-plate (4-6 mm) corner of the parameter space. This is exactly
+the prescription Kou (2003) ch. 2 gives for narrow-HAZ welds. The
+model independently rediscovered it.
+
+### 11.7 Dataset gap (re-affirmed)
+
+A genuine open tabular welding parameter-quality dataset with bead
+geometry or HAZ measurements remains **unavailable** as of 2026-04.
+Every public release we could find in this session was either
+time-series process signals (not tabular), radiographic image data
+(different task), or too large to fetch in-session (Zenodo 12.7 GB).
+The Mendeley simulated-robotic-welding dataset
+(`data.mendeley.com/datasets/ndcns86bzt/1`) is binary classification.
+The Matitopanum et al. 2024 FSW tabular data is 45 rows -- too small
+for regression. Future welding HDR projects should budget time for
+curating data from supplementary materials.
