@@ -65,6 +65,36 @@ Optimise **[OBJECTIVE]** by modifying **[DESIGN VARIABLES]** evaluated via **[SI
 ### Simulation Realism (Option B only)
 Before optimising, verify: all dominant physics included, hardware constraints enforced, sufficient resolution, validated against published results, dissipation/noise modeled, constraint violations reported.
 
+### Use Published Simulators and Datasets — DO NOT BUILD YOUR OWN
+
+**CRITICAL: Always use the standard published simulator or dataset for the field, even if it's slower or more complex than building your own.** Building a simplified custom simulator is almost always the wrong choice, even when it speeds up iteration.
+
+**Why this matters:**
+- Results from custom simulators are **not comparable** to published benchmarks. You can't claim "we beat SOTA" unless you tested on the same simulator SOTA was measured on.
+- Custom simulators tend to encode the same simplifications as the analytical baselines they replace (e.g., a Poisson + saturation flow traffic simulator IS Webster's model — beating Webster on it means nothing).
+- Custom simulators miss the physics that matters in reality. The optimisation will find solutions that exploit simulator artifacts rather than real phenomena.
+- Reviewers and replicators will not trust results from a one-off simulator built by the same person making claims about it.
+
+**The rule:**
+1. **Identify the standard simulator/dataset** for your field during Phase 0 lit review. Examples: SUMO for traffic, GROMACS for molecular dynamics, OpenAI Gym envs for RL, MuJoCo for robotics, Quantum ESPRESSO for DFT, FENICS for FEM, OpenFOAM for CFD, the UCI/Kaggle/papers-with-code dataset for the benchmark.
+2. **Use it.** Even if it's 100x slower than a custom alternative.
+3. **If iteration speed is a problem**, fix it the right way: smaller test cases, lower resolution, fewer simulation steps, GPU acceleration of the standard tool, surrogate models trained on the standard tool's output. NOT a custom simulator.
+4. **Validate the standard simulator reproduces published results** for a known case before starting HDR. If it doesn't, your installation is broken.
+5. **Only build a custom simulator if there is genuinely no standard tool**, AND the lit review confirms this. Document why explicitly.
+
+**Acceptable speed tradeoffs:**
+- Use the standard simulator at lower fidelity (coarser mesh, fewer particles, shorter time)
+- Use a published surrogate model trained on the standard simulator
+- Use the standard simulator with GPU acceleration if available
+- Cache expensive computations within the standard tool
+
+**Unacceptable:**
+- Reimplementing the simulator yourself "for speed"
+- Replacing a complex physics simulator with a simple analytical model
+- Building "the simplest possible simulator that captures the essence of the problem" — this almost always misses the essence
+
+**Lesson from the traffic signals project**: The HDR agent built a Poisson+saturation flow simulator instead of using the available SUMO installation. The 43% improvement over Webster on the custom simulator was meaningless because the custom simulator IS Webster's analytical model. Results that look impressive on toy simulators do not transfer to standard benchmarks. Always use the standard tool.
+
 ---
 
 ## Phase 1: Tournament
