@@ -295,7 +295,13 @@ Combining the Phase 2 + 2.5 results, the final per-target winners are:
 | hiding_power_pct | ExtraTrees(max_features=0.5) | `thickness_x_pigment` | **2.187 %** | 0.664 |
 | cupping_mm | ExtraTrees | `cyc_x_matting`, `pvc_proxy` | **1.519 mm** | 0.715 |
 
-These final values are saved in `winning_config.json`.
+Figure 1 shows the predicted-versus-actual scatter plot for 60 degree gloss, the target with the highest cross-validated R squared (0.726). The cluster of points near the 1:1 line at high gloss values (above 70 GU) shows the model captures the high-gloss regime well, while the spread at low gloss values reflects the difficulty of predicting matte finishes where matting-agent loading dominates.
+
+![Figure 1: Predicted vs actual for 60 degree gloss (the best-R-squared target) under 5-fold cross-validation. The dashed line is the 1:1 reference.](plots/pred_vs_actual.png)
+
+These final values are saved in `winning_config.json`. The per-target model dispatch pattern is visualised in Figure 4.
+
+![Figure 4: Per-target model dispatch pattern. Ridge wins scratch hardness, XGBoost wins gloss (with physics features), and ExtraTrees wins hiding power and cupping.](plots/per_target_winners.png)
 
 ### 5.6 Comparison to the published GP baseline
 
@@ -308,7 +314,9 @@ Side-by-side comparison under identical 5-fold cross-validation:
 | hiding_power_pct (%) | 2.841 | 2.187 | −0.654 | −23.0% |
 | cupping_mm (mm) | 2.109 | 1.519 | −0.590 | −27.9% |
 
-The PTPIE configuration improves 3 of 4 targets by more than 10% and matches the baseline on scratch hardness within the noise floor. The improvements are largest on cupping and hiding, the two targets where the dominant physical mechanism (Kubelka-Munk for hiding, silica-modulus for cupping) is nonlinear in a single interaction term that ExtraTrees captures well.
+The PTPIE configuration improves 3 of 4 targets by more than 10% and matches the baseline on scratch hardness within the noise floor. The improvements are largest on cupping and hiding, the two targets where the dominant physical mechanism (Kubelka-Munk for hiding, silica-modulus for cupping) is nonlinear in a single interaction term that ExtraTrees captures well. Figure 3 presents this comparison as a grouped bar chart.
+
+![Figure 3: GP baseline vs PTPIE MAE for each target. The PTPIE per-target ensemble reduces MAE by 13-28% on gloss, hiding power, and cupping, and matches the baseline on scratch hardness within the noise floor.](plots/headline_finding.png)
 
 ### 5.7 Phase B discovery
 
@@ -345,7 +353,9 @@ The HDR loop recovers the main physical mechanisms reported in the Sobol analysi
 - **Cupping test is dominated by film thickness and cyclic NCO.** Sobol main-effect indices: thickness ≈ 0.57, cyc_nco ≈ 0.34 — together 91%. Our HDR loop found `cyc_x_matting` plus the PVC proxy as the best feature pair.
 - **Scratch hardness is the hardest target.** Sobol attributes 38% to matting agent, 14% to pigment, 12% to crosslink density, and less than 10% to any other single variable. This is a diffuse signal and shows up in our cross-validated R² of 0.22 — the model genuinely cannot predict scratch hardness better than that on 65 samples.
 
-The causal picture is consistent across the published Sobol analysis, the HDR feature kept/reverted pattern, and the per-target model family choice. No element of the final configuration is unexplained by the coating-physics literature.
+The causal picture is consistent across the published Sobol analysis, the HDR feature kept/reverted pattern, and the per-target model family choice. No element of the final configuration is unexplained by the coating-physics literature. Figure 2 confirms these relationships via permutation feature importance, showing that the physics-informed features (highlighted in red) rank among the top contributors for their respective targets.
+
+![Figure 2: Per-target permutation feature importance. Physics-informed features (red) rank highly for their intended targets: binder_pigment_ratio for scratch hardness, log_thickness and thickness_x_matting for gloss, thickness_x_pigment for hiding power, and cyc_x_matting plus pvc_proxy for cupping.](plots/feature_importance.png)
 
 ### 6.2 What surprised us
 
