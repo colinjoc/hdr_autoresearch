@@ -46,12 +46,12 @@ def _setup():
     PLOTS_DIR.mkdir(exist_ok=True)
     plt.style.use(STYLE)
     plt.rcParams.update({
-        'font.size': 11,
-        'axes.titlesize': 13,
-        'axes.labelsize': 12,
-        'xtick.labelsize': 10,
-        'ytick.labelsize': 10,
-        'legend.fontsize': 9,
+        'font.size': 14,
+        'axes.titlesize': 16,
+        'axes.labelsize': 14,
+        'xtick.labelsize': 12,
+        'ytick.labelsize': 12,
+        'legend.fontsize': 12,
         'figure.dpi': DPI,
         'savefig.dpi': DPI,
         'savefig.bbox': 'tight',
@@ -68,7 +68,7 @@ def plot_pred_vs_actual():
     from evaluate import attribute_sources_monthly
     from data_loaders import KEY_STATIONS
 
-    fig, ax = plt.subplots(figsize=(7, 6))
+    fig, ax = plt.subplots(figsize=(10, 8))
 
     all_measured = []
     all_predicted = []
@@ -136,19 +136,20 @@ def plot_pred_vs_actual():
     mae = np.mean(np.abs(m_arr[valid] - p_arr[valid]))
 
     ax.text(0.05, 0.92, f'$R^2$ = {r2:.3f}\nMAE = {mae:.1f} $\\mu$g/m$^3$',
-            transform=ax.transAxes, fontsize=10,
+            transform=ax.transAxes, fontsize=13,
             verticalalignment='top',
             bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
 
-    ax.set_xlabel('Measured monthly NO$_2$ ($\\mu$g/m$^3$)')
-    ax.set_ylabel('Model-attributed NO$_2$ ($\\mu$g/m$^3$)')
-    ax.set_title('Source Attribution Model: Predicted vs Measured NO$_2$')
-    ax.legend(loc='lower right')
+    ax.set_xlabel('Measured monthly NO$_2$ ($\\mu$g/m$^3$)', fontsize=14)
+    ax.set_ylabel('Model-attributed NO$_2$ ($\\mu$g/m$^3$)', fontsize=14)
+    ax.set_title('Source Attribution Model: Predicted vs Measured NO$_2$', fontsize=16)
+    ax.legend(loc='lower right', fontsize=12)
     ax.set_xlim(lims)
     ax.set_ylim(lims)
     ax.set_aspect('equal')
 
-    fig.savefig(PLOTS_DIR / 'pred_vs_actual.png')
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / 'pred_vs_actual.png', bbox_inches='tight')
     plt.close(fig)
     print("  [1/5] pred_vs_actual.png")
 
@@ -187,7 +188,8 @@ def plot_feature_importance():
 
     rdf = pd.DataFrame(rows).sort_values('traffic', ascending=True)
 
-    fig, ax = plt.subplots(figsize=(9, 6))
+    n_bars = len(rdf)
+    fig, ax = plt.subplots(figsize=(10, max(6, n_bars * 0.5)))
 
     y = np.arange(len(rdf))
     bar_height = 0.6
@@ -207,13 +209,13 @@ def plot_feature_importance():
         type_label = stype.replace('-', ' ').title()
         total = row['traffic'] + row['heating'] + row['background']
         pct = row['traffic'] / total * 100 if total > 0 else 0
-        ax.text(total + 0.5, i, f'{pct:.0f}%', va='center', fontsize=8, color=CB_RED)
+        ax.text(total + 0.5, i, f'{pct:.0f}%', va='center', fontsize=10, color=CB_RED)
 
     ax.set_yticks(y)
     ax.set_yticklabels(rdf['station'])
-    ax.set_xlabel('Annual mean NO$_2$ ($\\mu$g/m$^3$)')
-    ax.set_title('Source Attribution: Traffic Dominates Urban NO$_2$ (2019)')
-    ax.legend(loc='lower right')
+    ax.set_xlabel('Annual mean NO$_2$ ($\\mu$g/m$^3$)', fontsize=14)
+    ax.set_title('Source Attribution: Traffic Dominates Urban NO$_2$ (2019)', fontsize=16)
+    ax.legend(loc='lower right', fontsize=12)
 
     # WHO and EU lines
     ax.axvline(x=10, color=CB_PURPLE, linestyle='--', linewidth=1.5,
@@ -221,9 +223,10 @@ def plot_feature_importance():
     ax.axvline(x=40, color=CB_BLACK, linestyle=':', linewidth=1.5,
                label='EU limit (40)')
     # Re-draw legend with guideline lines
-    ax.legend(loc='lower right', fontsize=8)
+    ax.legend(loc='lower right', fontsize=12)
 
-    fig.savefig(PLOTS_DIR / 'feature_importance.png')
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / 'feature_importance.png', bbox_inches='tight')
     plt.close(fig)
     print("  [2/5] feature_importance.png")
 
@@ -248,7 +251,8 @@ def plot_headline_finding():
 
     s2019 = s2019.sort_values('annual_mean', ascending=True)
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    n_bars = len(s2019)
+    fig, ax = plt.subplots(figsize=(12, max(6, n_bars * 0.5)))
 
     y = np.arange(len(s2019))
     bar_height = 0.6
@@ -279,13 +283,13 @@ def plot_headline_finding():
         ratio = row['annual_mean'] / WHO_ANNUAL
         if ratio > 1:
             ax.text(row['annual_mean'] + 0.5, i, f'{ratio:.1f}x WHO',
-                    va='center', fontsize=8, fontweight='bold',
+                    va='center', fontsize=11, fontweight='bold',
                     color=CB_RED if ratio > 2 else CB_BLACK)
 
     ax.set_yticks(y)
     ax.set_yticklabels(s2019['station_name'])
-    ax.set_xlabel('Annual mean NO$_2$ ($\\mu$g/m$^3$)')
-    ax.set_title('Dublin/Cork Annual NO$_2$ vs WHO and EU Guidelines (2019)')
+    ax.set_xlabel('Annual mean NO$_2$ ($\\mu$g/m$^3$)', fontsize=14)
+    ax.set_title('Dublin/Cork Annual NO$_2$ vs WHO and EU Guidelines (2019)', fontsize=16)
 
     # Custom legend for station types + guidelines
     from matplotlib.patches import Patch
@@ -298,9 +302,10 @@ def plot_headline_finding():
         plt.Line2D([0], [0], color=CB_BLACK, linestyle=':', linewidth=2,
                    label=f'EU limit ({EU_ANNUAL} $\\mu$g/m$^3$)'),
     ]
-    ax.legend(handles=legend_elements, loc='lower right', fontsize=8)
+    ax.legend(handles=legend_elements, loc='lower right', fontsize=12)
 
-    fig.savefig(PLOTS_DIR / 'headline_finding.png')
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / 'headline_finding.png', bbox_inches='tight')
     plt.close(fig)
     print("  [3/5] headline_finding.png")
 
@@ -320,7 +325,7 @@ def plot_covid_validation():
 
     covid = covid.sort_values('change_pct', ascending=True)
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6), gridspec_kw={'width_ratios': [1.2, 1]})
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7), gridspec_kw={'width_ratios': [1.2, 1]})
 
     # Left panel: paired bar chart (2019 vs 2020)
     y = np.arange(len(covid))
@@ -333,9 +338,9 @@ def plot_covid_validation():
 
     ax1.set_yticks(y)
     ax1.set_yticklabels(covid['station_name'])
-    ax1.set_xlabel('Mean NO$_2$ ($\\mu$g/m$^3$)')
-    ax1.set_title('NO$_2$ Before and During COVID Lockdown')
-    ax1.legend(loc='lower right', fontsize=9)
+    ax1.set_xlabel('Mean NO$_2$ ($\\mu$g/m$^3$)', fontsize=14)
+    ax1.set_title('NO$_2$ Before and During COVID Lockdown', fontsize=16)
+    ax1.legend(loc='lower right', fontsize=12)
 
     # Right panel: % change, coloured by station type
     colors = []
@@ -352,14 +357,14 @@ def plot_covid_validation():
 
     ax2.set_yticks(y)
     ax2.set_yticklabels(covid['station_name'])
-    ax2.set_xlabel('NO$_2$ change (%)')
-    ax2.set_title('COVID Lockdown NO$_2$ Reduction by Station')
+    ax2.set_xlabel('NO$_2$ change (%)', fontsize=14)
+    ax2.set_title('COVID Lockdown NO$_2$ Reduction by Station', fontsize=16)
 
     # Annotate percentages
     for i, (_, row) in enumerate(covid.iterrows()):
         pct = row['change_pct']
         ax2.text(pct - 2 if pct < -10 else pct + 1, i, f'{pct:.0f}%',
-                 va='center', fontsize=8, fontweight='bold',
+                 va='center', fontsize=10, fontweight='bold',
                  color='white' if pct < -30 else CB_BLACK)
 
     # Custom legend
@@ -369,12 +374,12 @@ def plot_covid_validation():
         Patch(facecolor=CB_BLUE, label='Background station'),
         Patch(facecolor=CB_GREEN, label='Rural station'),
     ]
-    ax2.legend(handles=legend_elements, loc='lower left', fontsize=8)
+    ax2.legend(handles=legend_elements, loc='lower left', fontsize=12)
 
     fig.suptitle('COVID-19 Lockdown as Natural Experiment for Traffic Attribution',
-                 fontsize=13, fontweight='bold', y=1.02)
-    fig.tight_layout()
-    fig.savefig(PLOTS_DIR / 'covid_validation.png')
+                 fontsize=16, fontweight='bold', y=1.02)
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / 'covid_validation.png', bbox_inches='tight')
     plt.close(fig)
     print("  [4/5] covid_validation.png")
 
@@ -425,7 +430,7 @@ def plot_source_attribution():
     rdf['type_rank'] = rdf['type'].map(type_order).fillna(3)
     rdf = rdf.sort_values(['type_rank', 'traffic_pct'], ascending=[True, False])
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6),
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7),
                                     gridspec_kw={'width_ratios': [1, 1]})
 
     # Left panel: stacked bar (absolute values)
@@ -445,10 +450,10 @@ def plot_source_attribution():
     ax1.axhline(y=40, color=CB_BLACK, linestyle=':', linewidth=1.5, label='EU (40)')
 
     ax1.set_xticks(x)
-    ax1.set_xticklabels(rdf['station'], rotation=45, ha='right', fontsize=8)
-    ax1.set_ylabel('Annual mean NO$_2$ ($\\mu$g/m$^3$)')
-    ax1.set_title('Source Attribution (Absolute)')
-    ax1.legend(loc='upper right', fontsize=7)
+    ax1.set_xticklabels(rdf['station'], rotation=45, ha='right', fontsize=10)
+    ax1.set_ylabel('Annual mean NO$_2$ ($\\mu$g/m$^3$)', fontsize=14)
+    ax1.set_title('Source Attribution (Absolute)', fontsize=16)
+    ax1.legend(loc='upper right', fontsize=11)
 
     # Add station type brackets/labels
     # Group boundaries
@@ -469,16 +474,16 @@ def plot_source_attribution():
             label='Road traffic', color=CB_RED, edgecolor='white', linewidth=0.5)
 
     ax2.set_xticks(x)
-    ax2.set_xticklabels(rdf['station'], rotation=45, ha='right', fontsize=8)
-    ax2.set_ylabel('Source contribution (%)')
-    ax2.set_title('Source Attribution (Percentage)')
-    ax2.legend(loc='lower right', fontsize=7)
+    ax2.set_xticklabels(rdf['station'], rotation=45, ha='right', fontsize=10)
+    ax2.set_ylabel('Source contribution (%)', fontsize=14)
+    ax2.set_title('Source Attribution (Percentage)', fontsize=16)
+    ax2.legend(loc='lower right', fontsize=11)
     ax2.set_ylim(0, 105)
 
     fig.suptitle('NO$_2$ Source Attribution by Station Type (2019)',
-                 fontsize=13, fontweight='bold', y=1.02)
-    fig.tight_layout()
-    fig.savefig(PLOTS_DIR / 'source_attribution.png')
+                 fontsize=16, fontweight='bold', y=1.02)
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / 'source_attribution.png', bbox_inches='tight')
     plt.close(fig)
     print("  [5/5] source_attribution.png")
 

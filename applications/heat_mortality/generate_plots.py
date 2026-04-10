@@ -69,12 +69,12 @@ plt.style.use("seaborn-v0_8-whitegrid")
 plt.rcParams.update({
     "figure.dpi": 300,
     "savefig.dpi": 300,
-    "font.size": 11,
-    "axes.titlesize": 13,
-    "axes.labelsize": 12,
-    "xtick.labelsize": 10,
-    "ytick.labelsize": 10,
-    "legend.fontsize": 10,
+    "font.size": 14,
+    "axes.titlesize": 16,
+    "axes.labelsize": 14,
+    "xtick.labelsize": 12,
+    "ytick.labelsize": 12,
+    "legend.fontsize": 12,
     "figure.facecolor": "white",
     "savefig.facecolor": "white",
     "savefig.bbox": "tight",
@@ -125,7 +125,7 @@ def plot_pred_vs_actual(panel: pd.DataFrame, oof: np.ndarray) -> None:
     y = panel["excess_deaths"].astype("float64").values
     lethal = label_lethal_heatwave(panel).astype(bool)
 
-    fig, ax = plt.subplots(figsize=(7, 7))
+    fig, ax = plt.subplots(figsize=(10, 8))
 
     # Non-lethal weeks
     ax.scatter(
@@ -163,7 +163,8 @@ def plot_pred_vs_actual(panel: pd.DataFrame, oof: np.ndarray) -> None:
     ax.set_ylim(lims)
     ax.set_aspect("equal")
 
-    fig.savefig(PLOTS_DIR / "pred_vs_actual.png")
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / "pred_vs_actual.png", bbox_inches="tight")
     plt.close(fig)
     print(f"  saved {PLOTS_DIR / 'pred_vs_actual.png'}")
 
@@ -211,11 +212,12 @@ def plot_feature_importance() -> None:
     }
     labels = [name_map.get(f, f) for f in df["feature"]]
 
-    fig, ax = plt.subplots(figsize=(8, 6))
+    n_bars = len(df)
+    fig, ax = plt.subplots(figsize=(10, max(6, n_bars * 0.4)))
     bars = ax.barh(range(len(df)), df["builtin_importance"].values, color=colors)
 
     ax.set_yticks(range(len(df)))
-    ax.set_yticklabels(labels)
+    ax.set_yticklabels(labels, fontsize=12)
     ax.set_xlabel("Feature importance (Gini decrease)")
     ax.set_title("Top 15 Features by Importance (Binary Lethal Classifier)")
 
@@ -235,7 +237,8 @@ def plot_feature_importance() -> None:
         style="italic", color=CB_RED, alpha=0.8,
     )
 
-    fig.savefig(PLOTS_DIR / "feature_importance.png")
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / "feature_importance.png", bbox_inches="tight")
     plt.close(fig)
     print(f"  saved {PLOTS_DIR / 'feature_importance.png'}")
 
@@ -269,7 +272,7 @@ def plot_headline_finding() -> None:
         lambda n: "KEEP" if "KEEP" in str(n) else "REVERT"
     )
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(12, 8))
 
     # Plot each hypothesis as a dot
     keep_mask = night_tw["decision"] == "KEEP"
@@ -301,7 +304,7 @@ def plot_headline_finding() -> None:
         all_descs.append(f"{row['exp_id']}: {row['description'][:40]}")
 
     ax.set_yticks(range(len(all_descs)))
-    ax.set_yticklabels(all_descs, fontsize=8)
+    ax.set_yticklabels(all_descs, fontsize=10)
 
     # Noise floor zone
     noise = max(0.5, 0.01 * baseline_mae)
@@ -310,9 +313,10 @@ def plot_headline_finding() -> None:
 
     ax.set_xlabel("Change in MAE vs baseline (deaths/week)")
     ax.set_title("22 Flagship Night-Time Wet-Bulb Hypotheses:\nAll Cluster at the Noise Floor")
-    ax.legend(loc="lower right", fontsize=9)
+    ax.legend(loc="lower right", fontsize=12)
 
-    fig.savefig(PLOTS_DIR / "headline_finding.png")
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / "headline_finding.png", bbox_inches="tight")
     plt.close(fig)
     print(f"  saved {PLOTS_DIR / 'headline_finding.png'}")
 
@@ -373,7 +377,7 @@ def plot_robustness_heatmap() -> None:
     auc_df = df[df["metric"] == "AUC"].copy()
 
     # For the heatmap, show the DELTA from baseline for each test
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5),
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6),
                               gridspec_kw={"width_ratios": [9, 1]})
 
     # MAE heatmap (show deltas -- positive = worse)
@@ -423,9 +427,9 @@ def plot_robustness_heatmap() -> None:
     else:
         ax2.axis("off")
 
-    fig.suptitle("Phase 2.5 Robustness: Night-Tw Never Helps", fontsize=14, y=1.02)
-    fig.tight_layout()
-    fig.savefig(PLOTS_DIR / "robustness_heatmap.png")
+    fig.suptitle("Phase 2.5 Robustness: Night-Tw Never Helps", fontsize=16, y=1.02)
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / "robustness_heatmap.png", bbox_inches="tight")
     plt.close(fig)
     print(f"  saved {PLOTS_DIR / 'robustness_heatmap.png'}")
 
@@ -449,7 +453,7 @@ def plot_night_tw_vs_tmax(panel: pd.DataFrame) -> None:
     tw_night = tw_night[valid]
     lethal = lethal[valid]
 
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(10, 7))
 
     # Non-lethal
     ax.scatter(
@@ -479,7 +483,8 @@ def plot_night_tw_vs_tmax(panel: pd.DataFrame) -> None:
     ax.set_title("Night-Time Tw vs Daytime Tmax:\nBoth Separate Lethal Weeks Equally Well")
     ax.legend(loc="lower right")
 
-    fig.savefig(PLOTS_DIR / "night_tw_vs_tmax.png")
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / "night_tw_vs_tmax.png", bbox_inches="tight")
     plt.close(fig)
     print(f"  saved {PLOTS_DIR / 'night_tw_vs_tmax.png'}")
 
@@ -525,7 +530,7 @@ def plot_phase2_keeps() -> None:
         "seasonality": "Seasonality",
     }
 
-    fig, ax = plt.subplots(figsize=(10, 5))
+    fig, ax = plt.subplots(figsize=(12, 6))
 
     bar_colors = [cat_colors[c] for c in categories]
     y_pos = np.arange(len(keeps))
@@ -538,11 +543,12 @@ def plot_phase2_keeps() -> None:
                 fontsize=9, fontweight="bold", color="white")
 
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(labels, fontsize=9)
-    ax.set_xlabel("Change in MAE (deaths/week)")
+    ax.set_yticklabels(labels, fontsize=11)
+    ax.set_xlabel("Change in MAE (deaths/week)", fontsize=14)
     ax.set_title(
         "Phase 2 KEEPs: What Actually Improved the Model\n"
-        "(Baseline MAE 45.56 $\\rightarrow$ Phase 2 best 40.33, total gain = -5.23)"
+        "(Baseline MAE 45.56 $\\rightarrow$ Phase 2 best 40.33, total gain = -5.23)",
+        fontsize=16,
     )
     ax.axvline(0, color="black", linewidth=0.8)
     ax.invert_yaxis()  # first KEEP at the top
@@ -558,7 +564,7 @@ def plot_phase2_keeps() -> None:
                 Patch(facecolor=cat_colors[cat], label=cat_labels_map[cat],
                       edgecolor="black", linewidth=0.5)
             )
-    ax.legend(handles=legend_elements, loc="lower left", fontsize=9)
+    ax.legend(handles=legend_elements, loc="lower left", fontsize=12)
 
     # Annotation
     ax.text(
@@ -570,7 +576,8 @@ def plot_phase2_keeps() -> None:
         bbox=dict(boxstyle="round,pad=0.4", facecolor="white", alpha=0.8, edgecolor=CB_ORANGE),
     )
 
-    fig.savefig(PLOTS_DIR / "phase2_keeps.png")
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / "phase2_keeps.png", bbox_inches="tight")
     plt.close(fig)
     print(f"  saved {PLOTS_DIR / 'phase2_keeps.png'}")
 

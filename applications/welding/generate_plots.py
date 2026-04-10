@@ -48,6 +48,14 @@ CB_GREY = "#999999"
 
 STYLE = "seaborn-v0_8-whitegrid"
 DPI = 300
+plt.rcParams.update({
+    'font.size': 14,
+    'axes.titlesize': 16,
+    'axes.labelsize': 14,
+    'xtick.labelsize': 12,
+    'ytick.labelsize': 12,
+    'legend.fontsize': 12,
+})
 RANDOM_SEED = 42
 N_FOLDS = 5
 
@@ -148,7 +156,7 @@ def plot_pred_vs_actual():
     mae = mean_absolute_error(y_true_arr, y_pred_arr)
 
     with plt.style.context(STYLE):
-        fig, ax = plt.subplots(figsize=(6, 6))
+        fig, ax = plt.subplots(figsize=(10, 8))
         ax.scatter(y_true_arr, y_pred_arr, s=18, alpha=0.55, color=CB_BLUE,
                    edgecolors="none", label="Out-of-fold predictions")
         lo = min(y_true_arr.min(), y_pred_arr.min()) - 1
@@ -167,9 +175,9 @@ def plot_pred_vs_actual():
                 verticalalignment="top",
                 bbox=dict(boxstyle="round,pad=0.4", facecolor="white",
                           edgecolor=CB_GREY, alpha=0.9))
-        ax.legend(loc="lower right", fontsize=10)
+        ax.legend(loc="lower right", fontsize=12)
         ax.set_aspect("equal", adjustable="box")
-        fig.tight_layout()
+        fig.tight_layout(pad=2.0)
         fig.savefig(PLOTS_DIR / "pred_vs_actual.png", dpi=DPI,
                     bbox_inches="tight")
         plt.close(fig)
@@ -248,13 +256,14 @@ def plot_feature_importance():
     colours = [CB_ORANGE if n in DERIVED_FEATURES else CB_BLUE for n in names]
 
     with plt.style.context(STYLE):
-        fig, ax = plt.subplots(figsize=(8, 5))
+        n_bars = len(names)
+        fig, ax = plt.subplots(figsize=(10, max(6, n_bars * 0.5)))
         bars = ax.barh(range(len(names)), values, color=colours, edgecolor="white",
                        linewidth=0.5)
         ax.set_yticks(range(len(names)))
-        ax.set_yticklabels(pretty_names, fontsize=11)
+        ax.set_yticklabels(pretty_names, fontsize=12)
         ax.invert_yaxis()
-        ax.set_xlabel("MAE increase when feature is shuffled (mm)", fontsize=12)
+        ax.set_xlabel("MAE increase when feature is shuffled (mm)", fontsize=14)
         ax.set_title(
             "Permutation Importance: Cooling Time t$_{8/5}$ Outranks Heat Input",
             fontsize=13, fontweight="bold")
@@ -270,9 +279,9 @@ def plot_feature_importance():
             Patch(facecolor=CB_ORANGE, label="Physics-derived feature"),
             Patch(facecolor=CB_BLUE, label="Raw process parameter"),
         ]
-        ax.legend(handles=legend_elements, loc="lower right", fontsize=10)
+        ax.legend(handles=legend_elements, loc="lower right", fontsize=12)
 
-        fig.tight_layout()
+        fig.tight_layout(pad=2.0)
         fig.savefig(PLOTS_DIR / "feature_importance.png", dpi=DPI,
                     bbox_inches="tight")
         plt.close(fig)
@@ -326,7 +335,7 @@ def plot_headline_finding():
     mae_full = mean_absolute_error(y_true_arr, y_pred_full_arr)
 
     with plt.style.context(STYLE):
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5.5), sharey=True)
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7), sharey=True)
 
         lo = min(y_true_arr.min(), y_pred_hi_arr.min(), y_pred_full_arr.min()) - 1
         hi_lim = max(y_true_arr.max(), y_pred_hi_arr.max(), y_pred_full_arr.max()) + 1
@@ -337,9 +346,9 @@ def plot_headline_finding():
         ax1.plot([lo, hi_lim], [lo, hi_lim], "--", color=CB_GREY, linewidth=1.2)
         ax1.set_xlim(lo, hi_lim)
         ax1.set_ylim(lo, hi_lim)
-        ax1.set_xlabel("Actual HAZ half-width (mm)", fontsize=11)
-        ax1.set_ylabel("Predicted HAZ half-width (mm)", fontsize=11)
-        ax1.set_title("Heat Input Only (Linear)", fontsize=12, fontweight="bold")
+        ax1.set_xlabel("Actual HAZ half-width (mm)", fontsize=14)
+        ax1.set_ylabel("Predicted HAZ half-width (mm)", fontsize=14)
+        ax1.set_title("Heat Input Only (Linear)", fontsize=16, fontweight="bold")
         ax1.text(0.05, 0.92,
                  f"R$^2$ = {r2_hi:.3f}\nMAE = {mae_hi:.2f} mm",
                  transform=ax1.transAxes, fontsize=11,
@@ -354,8 +363,8 @@ def plot_headline_finding():
         ax2.plot([lo, hi_lim], [lo, hi_lim], "--", color=CB_GREY, linewidth=1.2)
         ax2.set_xlim(lo, hi_lim)
         ax2.set_ylim(lo, hi_lim)
-        ax2.set_xlabel("Actual HAZ half-width (mm)", fontsize=11)
-        ax2.set_title("Full Physics-Informed Model (P25.3)", fontsize=12,
+        ax2.set_xlabel("Actual HAZ half-width (mm)", fontsize=14)
+        ax2.set_title("Full Physics-Informed Model (P25.3)", fontsize=16,
                        fontweight="bold")
         ax2.text(0.05, 0.92,
                  f"R$^2$ = {r2_full:.4f}\nMAE = {mae_full:.2f} mm",
@@ -367,9 +376,9 @@ def plot_headline_finding():
 
         fig.suptitle(
             "H1 Refuted: Heat Input Alone Explains <50% of HAZ Variance",
-            fontsize=14, fontweight="bold", y=1.02)
-        fig.tight_layout()
-        fig.savefig(PLOTS_DIR / "headline_finding.png", dpi=DPI,
+            fontsize=16, fontweight="bold", y=1.02)
+        fig.tight_layout(pad=2.0)
+        fig.savefig(PLOTS_DIR / "headline_finding.png", dpi=200,
                     bbox_inches="tight")
         plt.close(fig)
     print(f"    HI-only R2={r2_hi:.3f}, Full model R2={r2_full:.4f}")
@@ -440,7 +449,7 @@ def plot_cross_process_transfer():
     bar_colours = [CB_GREEN, CB_ORANGE, CB_RED]
 
     with plt.style.context(STYLE):
-        fig, ax = plt.subplots(figsize=(8, 5.5))
+        fig, ax = plt.subplots(figsize=(10, 6))
         bars = ax.bar(conditions, maes, color=bar_colours, edgecolor="white",
                       width=0.55, linewidth=0.8)
 
@@ -460,17 +469,17 @@ def plot_cross_process_transfer():
             arrowprops=dict(arrowstyle="->", color=CB_RED, lw=1.5),
             ha="center")
 
-        ax.set_ylabel("Mean Absolute Error (mm)", fontsize=12)
+        ax.set_ylabel("Mean Absolute Error (mm)", fontsize=14)
         ax.set_title(
             "H20 Refuted: Cross-Process Transfer Fails Catastrophically",
-            fontsize=13, fontweight="bold")
+            fontsize=16, fontweight="bold")
         ax.set_ylim(0, max(maes) * 1.35)
 
         # Add a horizontal dashed line at the within-family baseline
         ax.axhline(y=mae_within, color=CB_GREEN, linestyle=":", linewidth=1.2,
                    alpha=0.6)
 
-        fig.tight_layout()
+        fig.tight_layout(pad=2.0)
         fig.savefig(PLOTS_DIR / "cross_process_transfer.png", dpi=DPI,
                     bbox_inches="tight")
         plt.close(fig)

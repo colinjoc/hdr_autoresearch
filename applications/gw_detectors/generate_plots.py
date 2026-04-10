@@ -186,11 +186,12 @@ def _setup_style():
     plt.rcParams.update({
         "figure.dpi": 300,
         "savefig.dpi": 300,
-        "font.size": 11,
-        "axes.titlesize": 13,
-        "axes.labelsize": 12,
-        "xtick.labelsize": 9,
-        "ytick.labelsize": 10,
+        "font.size": 14,
+        "axes.titlesize": 16,
+        "axes.labelsize": 14,
+        "xtick.labelsize": 12,
+        "ytick.labelsize": 12,
+        "legend.fontsize": 12,
         "figure.facecolor": "white",
         "savefig.facecolor": "white",
         "savefig.bbox": "tight",
@@ -210,7 +211,7 @@ def plot_headline_finding(out_path: Path) -> None:
     values = [d["improvement"] for d in data]
     median_val = float(np.median(values))
 
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(14, 7))
 
     # Colour: sol00 highlighted, rest graded
     colours = []
@@ -249,10 +250,10 @@ def plot_headline_finding(out_path: Path) -> None:
     )
 
     ax.set_xticks(range(len(labels)))
-    ax.set_xticklabels(labels, rotation=60, ha="right")
-    ax.set_ylabel("Improvement factor vs LIGO Voyager\n(log-averaged, 800-3000 Hz)")
-    ax.set_xlabel("Type8 solutions (ranked)")
-    ax.set_title("Family Skew: sol00 at 4.05x far above the rest of the type8 family")
+    ax.set_xticklabels(labels, rotation=60, ha="right", fontsize=11)
+    ax.set_ylabel("Improvement factor vs LIGO Voyager\n(log-averaged, 800-3000 Hz)", fontsize=14)
+    ax.set_xlabel("Type8 solutions (ranked)", fontsize=14)
+    ax.set_title("Family Skew: sol00 at 4.05x far above the rest of the type8 family", fontsize=16)
     ax.set_ylim(0.8, 4.5)
 
     # Legend
@@ -262,10 +263,10 @@ def plot_headline_finding(out_path: Path) -> None:
         mpatches.Patch(facecolor=CB_BLUE, label="Moderate improvement (1.1-2x)"),
         mpatches.Patch(facecolor=CB_GREY, label="Near break-even with Voyager"),
     ]
-    ax.legend(handles=legend_elements, loc="upper right", fontsize=9, framealpha=0.9)
+    ax.legend(handles=legend_elements, loc="upper right", fontsize=12, framealpha=0.9)
 
-    fig.tight_layout()
-    fig.savefig(out_path)
+    fig.tight_layout(pad=2.0)
+    fig.savefig(out_path, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -280,7 +281,7 @@ def plot_component_analysis(out_path: Path) -> None:
     md = SOL00_COMPONENT_DATA["mirrors"]
     bd = SOL00_COMPONENT_DATA["beamsplitters"]
 
-    fig, ax = plt.subplots(figsize=(9, 6))
+    fig, ax = plt.subplots(figsize=(10, 7))
 
     categories = ["Mirrors (57 total)", "Beamsplitters (13 total)"]
     doing_work = [md["doing_work"], bd["doing_work"]]
@@ -328,14 +329,14 @@ def plot_component_analysis(out_path: Path) -> None:
     )
 
     ax.set_xticks(x)
-    ax.set_xticklabels(categories, fontsize=12)
-    ax.set_ylabel("Number of components")
-    ax.set_title("sol00 Over-parameterisation: most components are filler")
-    ax.legend(loc="upper right", fontsize=10, framealpha=0.9)
+    ax.set_xticklabels(categories, fontsize=13)
+    ax.set_ylabel("Number of components", fontsize=14)
+    ax.set_title("sol00 Over-parameterisation: most components are filler", fontsize=16)
+    ax.legend(loc="upper right", fontsize=12, framealpha=0.9)
     ax.set_ylim(0, 70)
 
-    fig.tight_layout()
-    fig.savefig(out_path)
+    fig.tight_layout(pad=2.0)
+    fig.savefig(out_path, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -354,7 +355,7 @@ def plot_squeezer_anticorrelation(out_path: Path) -> None:
     # Compute Pearson r
     r = float(np.corrcoef(n_sq, imp)[0, 1])
 
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(10, 7))
 
     # Scatter with jitter for overlapping points
     jitter = np.random.RandomState(42).uniform(-0.15, 0.15, size=len(n_sq))
@@ -394,15 +395,15 @@ def plot_squeezer_anticorrelation(out_path: Path) -> None:
     ax.text(6.8, 1.25, "Bottom 21:\nmean 2.7 squeezers",
             fontsize=9, color=CB_GREY, ha="right", style="italic")
 
-    ax.set_xlabel("Number of squeezer elements")
-    ax.set_ylabel("Improvement factor vs Voyager")
-    ax.set_title(f"Squeezer Anti-correlation: more squeezers = worse improvement (r = {r:.2f})")
+    ax.set_xlabel("Number of squeezer elements", fontsize=14)
+    ax.set_ylabel("Improvement factor vs Voyager", fontsize=14)
+    ax.set_title(f"Squeezer Anti-correlation: more squeezers = worse improvement (r = {r:.2f})", fontsize=16)
     ax.set_xlim(-0.5, 7.5)
     ax.set_ylim(0.7, 4.5)
-    ax.legend(loc="upper right", fontsize=10, framealpha=0.9)
+    ax.legend(loc="upper right", fontsize=12, framealpha=0.9)
 
-    fig.tight_layout()
-    fig.savefig(out_path)
+    fig.tight_layout(pad=2.0)
+    fig.savefig(out_path, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -414,7 +415,7 @@ def plot_arm_cavity_classification(out_path: Path) -> None:
     """Classified bar chart of the 6 arm-cavity-class spaces in sol00."""
     _setup_style()
 
-    fig, ax = plt.subplots(figsize=(11, 6.5))
+    fig, ax = plt.subplots(figsize=(13, 7))
 
     # Colour map by classification
     class_colours = {
@@ -450,9 +451,9 @@ def plot_arm_cavity_classification(out_path: Path) -> None:
                 color=CB_GREY, style="italic")
 
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=10, rotation=30, ha="right")
-    ax.set_ylabel("Length (metres)")
-    ax.set_title("Arm-Cavity Classification: only 1 of 6 long spaces is a true cavity")
+    ax.set_xticklabels(labels, fontsize=12, rotation=30, ha="right")
+    ax.set_ylabel("Length (metres)", fontsize=14)
+    ax.set_title("Arm-Cavity Classification: only 1 of 6 long spaces is a true cavity", fontsize=16)
     ax.set_ylim(-500, 4400)
 
     # Add a "true cavity" highlight
@@ -460,11 +461,11 @@ def plot_arm_cavity_classification(out_path: Path) -> None:
 
     # Legend
     legend_elements = [mpatches.Patch(facecolor=c, label=l) for l, c in class_colours.items()]
-    ax.legend(handles=legend_elements, loc="upper right", fontsize=9, framealpha=0.9,
-              title="Space classification", title_fontsize=10)
+    ax.legend(handles=legend_elements, loc="upper right", fontsize=12, framealpha=0.9,
+              title="Space classification", title_fontsize=12)
 
-    fig.tight_layout()
-    fig.savefig(out_path)
+    fig.tight_layout(pad=2.0)
+    fig.savefig(out_path, bbox_inches="tight")
     plt.close(fig)
 
 

@@ -31,6 +31,14 @@ from model import CascadeRiskModel
 plt.style.use("seaborn-v0_8-whitegrid")
 # Colourblind-safe palette (Tol bright)
 CB_PALETTE = ["#4477AA", "#EE6677", "#228833", "#CCBB44", "#66CCEE", "#AA3377", "#BBBBBB"]
+plt.rcParams.update({
+    'font.size': 14,
+    'axes.titlesize': 16,
+    'axes.labelsize': 14,
+    'xtick.labelsize': 12,
+    'ytick.labelsize': 12,
+    'legend.fontsize': 12,
+})
 DPI = 300
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -84,7 +92,7 @@ def _loo_cv_predictions():
 # ─────────────────────────────────────────────────────────────────────
 def plot_roc_curves(y_true, y_prob_lr, y_prob_gbm, y_prob_ensemble):
     """ROC curve for ensemble, LR, and GBM with AUC annotations."""
-    fig, ax = plt.subplots(figsize=(6, 6))
+    fig, ax = plt.subplots(figsize=(10, 8))
 
     for probs, label, color, ls in [
         (y_prob_ensemble, "Ensemble (LR+GBM)", CB_PALETTE[0], "-"),
@@ -97,15 +105,15 @@ def plot_roc_curves(y_true, y_prob_lr, y_prob_gbm, y_prob_ensemble):
                 label=f"{label} (AUC = {auc_val:.3f})")
 
     ax.plot([0, 1], [0, 1], "k--", linewidth=0.8, alpha=0.5, label="Random classifier")
-    ax.set_xlabel("False Positive Rate", fontsize=12)
-    ax.set_ylabel("True Positive Rate", fontsize=12)
-    ax.set_title("ROC Curves — LOO-CV on 94 Days (8 Positive)", fontsize=13)
-    ax.legend(loc="lower right", fontsize=10)
+    ax.set_xlabel("False Positive Rate", fontsize=14)
+    ax.set_ylabel("True Positive Rate", fontsize=14)
+    ax.set_title("ROC Curves — LOO-CV on 94 Days (8 Positive)", fontsize=16)
+    ax.legend(loc="lower right", fontsize=12)
     ax.set_xlim(-0.02, 1.02)
     ax.set_ylim(-0.02, 1.02)
     ax.set_aspect("equal")
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(os.path.join(PLOTS_DIR, "pred_vs_actual.png"), dpi=DPI,
                 bbox_inches="tight", facecolor="white")
     plt.close(fig)
@@ -166,7 +174,8 @@ def plot_feature_importance():
     }
     df.index = [rename_map.get(f, f) for f in df.index]
 
-    fig, ax = plt.subplots(figsize=(9, 6))
+    n_bars = len(df)
+    fig, ax = plt.subplots(figsize=(10, max(6, n_bars * 0.5)))
     y_pos = np.arange(len(df))
     bar_height = 0.35
 
@@ -176,12 +185,12 @@ def plot_feature_importance():
             label="Gradient Boosting (impurity)", color=CB_PALETTE[2], alpha=0.85)
 
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(df.index, fontsize=10)
-    ax.set_xlabel("Normalized Importance", fontsize=12)
+    ax.set_yticklabels(df.index, fontsize=12)
+    ax.set_xlabel("Normalized Importance", fontsize=14)
     ax.set_title("Feature Importance — Top 12 Features\n(* = voltage stress indicator)", fontsize=13)
-    ax.legend(loc="lower right", fontsize=10)
+    ax.legend(loc="lower right", fontsize=12)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(os.path.join(PLOTS_DIR, "feature_importance.png"), dpi=DPI,
                 bbox_inches="tight", facecolor="white")
     plt.close(fig)
@@ -217,7 +226,7 @@ def plot_headline_finding():
     # Dates for x-axis
     dates = risk_window.index
 
-    fig, ax = plt.subplots(figsize=(12, 5))
+    fig, ax = plt.subplots(figsize=(14, 6))
 
     # Risk score line
     ax.plot(dates, risk_window.values, color=CB_PALETTE[0], linewidth=2,
@@ -251,17 +260,17 @@ def plot_headline_finding():
 
     ax.axhline(0.45, color=CB_PALETTE[3], linestyle="--", linewidth=1, alpha=0.7,
                label="Decision threshold (0.45)")
-    ax.set_xlabel("Date", fontsize=12)
-    ax.set_ylabel("Ensemble Risk Score", fontsize=12)
+    ax.set_xlabel("Date", fontsize=14)
+    ax.set_ylabel("Ensemble Risk Score", fontsize=14)
     ax.set_title("Cascade Risk Timeline — March to May 2025\nEnsemble (LR + GBM) Predicted Risk",
-                 fontsize=13)
+                 fontsize=16)
     ax.set_ylim(-0.05, 1.05)
-    ax.legend(loc="upper left", fontsize=9, framealpha=0.9)
+    ax.legend(loc="upper left", fontsize=12, framealpha=0.9)
 
     # Format x-axis dates
     fig.autofmt_xdate(rotation=30)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(os.path.join(PLOTS_DIR, "headline_finding.png"), dpi=DPI,
                 bbox_inches="tight", facecolor="white")
     plt.close(fig)
@@ -302,7 +311,7 @@ def plot_tournament_comparison():
     metrics = ["f1", "auc_roc", "precision", "recall"]
     metric_labels = ["F1 Score", "AUC-ROC", "Precision", "Recall"]
 
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(14, 7))
     x = np.arange(len(df))
     width = 0.18
 
@@ -315,16 +324,16 @@ def plot_tournament_comparison():
         for bar, val in zip(bars, vals):
             if not np.isnan(val):
                 ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.01,
-                        f"{val:.2f}", ha="center", va="bottom", fontsize=7.5, rotation=0)
+                        f"{val:.2f}", ha="center", va="bottom", fontsize=9, rotation=0)
 
     ax.set_xticks(x)
-    ax.set_xticklabels(df.index, fontsize=9)
-    ax.set_ylabel("Score", fontsize=12)
-    ax.set_title("Model Tournament — LOO-CV Performance Comparison", fontsize=13)
-    ax.legend(loc="lower left", fontsize=10, ncol=2)
+    ax.set_xticklabels(df.index, fontsize=11)
+    ax.set_ylabel("Score", fontsize=14)
+    ax.set_title("Model Tournament — LOO-CV Performance Comparison", fontsize=16)
+    ax.legend(loc="lower left", fontsize=12, ncol=2)
     ax.set_ylim(0, 1.15)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(os.path.join(PLOTS_DIR, "tournament_comparison.png"), dpi=DPI,
                 bbox_inches="tight", facecolor="white")
     plt.close(fig)
@@ -363,7 +372,7 @@ def plot_ablation():
     }
     df.index = [short_labels.get(e, e) for e in df.index]
 
-    fig, axes = plt.subplots(1, 2, figsize=(13, 5.5), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(16, 7), sharey=True)
 
     # F1 scores
     colors_f1 = []
@@ -399,7 +408,7 @@ def plot_ablation():
         axes[1].text(val + 0.01, i, f"{val:.3f}", va="center", fontsize=9)
 
     axes[0].set_yticks(y_pos)
-    axes[0].set_yticklabels(df.index, fontsize=9)
+    axes[0].set_yticklabels(df.index, fontsize=11)
 
     # Legend
     from matplotlib.patches import Patch
@@ -408,12 +417,12 @@ def plot_ablation():
         Patch(facecolor=CB_PALETTE[3], alpha=0.85, label="TIE (no change)"),
         Patch(facecolor=CB_PALETTE[1], alpha=0.85, label="REVERT (degraded)"),
     ]
-    axes[1].legend(handles=legend_elements, loc="lower right", fontsize=9)
+    axes[1].legend(handles=legend_elements, loc="lower right", fontsize=12)
 
     fig.suptitle("Ablation: Feature Group Contributions\n"
                  "Voltage stress features alone match full model; inertia is redundant",
-                 fontsize=13, y=1.02)
-    fig.tight_layout()
+                 fontsize=16, y=1.02)
+    fig.tight_layout(pad=2.0)
     fig.savefig(os.path.join(PLOTS_DIR, "ablation.png"), dpi=DPI,
                 bbox_inches="tight", facecolor="white")
     plt.close(fig)

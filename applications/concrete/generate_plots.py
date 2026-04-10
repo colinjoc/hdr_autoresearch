@@ -32,6 +32,14 @@ PLOTS_DIR.mkdir(exist_ok=True)
 
 # ── Style setup ──
 plt.style.use("seaborn-v0_8-whitegrid")
+plt.rcParams.update({
+    'font.size': 14,
+    'axes.titlesize': 16,
+    'axes.labelsize': 14,
+    'xtick.labelsize': 12,
+    'ytick.labelsize': 12,
+    'legend.fontsize': 12,
+})
 # Colourblind-safe palette (Okabe-Ito inspired)
 CB_BLUE = "#0072B2"
 CB_ORANGE = "#E69F00"
@@ -132,7 +140,7 @@ def cross_val_predictions(df: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
 # ── Plot 1: Predicted vs Actual ──
 
 def plot_pred_vs_actual(y_true: np.ndarray, y_pred: np.ndarray):
-    fig, ax = plt.subplots(figsize=(6, 6))
+    fig, ax = plt.subplots(figsize=(10, 8))
 
     ax.scatter(y_true, y_pred, alpha=0.35, s=18, color=CB_BLUE, edgecolors="none",
                label="Test-fold predictions")
@@ -149,18 +157,18 @@ def plot_pred_vs_actual(y_true: np.ndarray, y_pred: np.ndarray):
     rmse = np.sqrt(np.mean((y_true - y_pred) ** 2))
 
     ax.text(0.05, 0.92, f"MAE = {mae:.2f} MPa\nRMSE = {rmse:.2f} MPa\nR$^2$ = {r2:.3f}",
-            transform=ax.transAxes, fontsize=10,
+            transform=ax.transAxes, fontsize=13,
             verticalalignment="top",
             bbox=dict(boxstyle="round,pad=0.4", facecolor="white", edgecolor="gray", alpha=0.9))
 
-    ax.set_xlabel("Actual Compressive Strength (MPa)", fontsize=11)
-    ax.set_ylabel("Predicted Compressive Strength (MPa)", fontsize=11)
-    ax.set_title("Predicted vs Actual Compressive Strength\n(5-fold Cross-Validation)", fontsize=12)
+    ax.set_xlabel("Actual Compressive Strength (MPa)", fontsize=14)
+    ax.set_ylabel("Predicted Compressive Strength (MPa)", fontsize=14)
+    ax.set_title("Predicted vs Actual Compressive Strength\n(5-fold Cross-Validation)", fontsize=16)
     ax.set_xlim(lo, hi)
     ax.set_ylim(lo, hi)
     ax.set_aspect("equal")
-    ax.legend(loc="lower right", fontsize=9)
-    fig.tight_layout()
+    ax.legend(loc="lower right", fontsize=12)
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "pred_vs_actual.png", dpi=DPI, bbox_inches="tight")
     plt.close(fig)
     print("  Saved plots/pred_vs_actual.png")
@@ -190,7 +198,8 @@ def plot_feature_importance(booster):
     values = [importance[f] for f in features]
     labels = [pretty_names.get(f, f) for f in features]
 
-    fig, ax = plt.subplots(figsize=(8, 5))
+    n_bars = len(features)
+    fig, ax = plt.subplots(figsize=(10, max(6, n_bars * 0.4)))
     bars = ax.barh(range(len(features)), values, color=CB_BLUE, edgecolor="white", linewidth=0.5)
 
     # Highlight key features mentioned in the paper
@@ -200,10 +209,10 @@ def plot_feature_importance(booster):
             bars[i].set_color(CB_ORANGE)
 
     ax.set_yticks(range(len(features)))
-    ax.set_yticklabels(labels, fontsize=10)
+    ax.set_yticklabels(labels, fontsize=12)
     ax.invert_yaxis()
-    ax.set_xlabel("Feature Importance (Gain)", fontsize=11)
-    ax.set_title("XGBoost Feature Importance (Gain-Based)\nPhase 2.5 Winning Model", fontsize=12)
+    ax.set_xlabel("Feature Importance (Gain)", fontsize=14)
+    ax.set_title("XGBoost Feature Importance (Gain-Based)\nPhase 2.5 Winning Model", fontsize=16)
 
     # Add legend for highlight colour
     from matplotlib.patches import Patch
@@ -211,9 +220,9 @@ def plot_feature_importance(booster):
         Patch(facecolor=CB_ORANGE, label="Key engineered / constrained features"),
         Patch(facecolor=CB_BLUE, label="Other features"),
     ]
-    ax.legend(handles=legend_elements, loc="lower right", fontsize=9)
+    ax.legend(handles=legend_elements, loc="lower right", fontsize=12)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "feature_importance.png", dpi=DPI, bbox_inches="tight")
     plt.close(fig)
     print("  Saved plots/feature_importance.png")
@@ -226,7 +235,7 @@ def plot_headline_finding():
     cand_df = pd.read_csv(PROJECT_ROOT / "discoveries" / "discovery_candidates.csv")
     pareto_df = pd.read_csv(PROJECT_ROOT / "discoveries" / "discovery_pareto.csv")
 
-    fig, ax = plt.subplots(figsize=(9, 6))
+    fig, ax = plt.subplots(figsize=(12, 7))
 
     # All candidates as faint background
     ax.scatter(cand_df["co2_kg_per_m3"], cand_df["predicted_strength"],
@@ -263,7 +272,7 @@ def plot_headline_finding():
     mid_x = (c40_co2 + disc_co2) / 2 + 15
     mid_y = (c40_strength + disc_strength) / 2 + 2
     ax.text(mid_x, mid_y, "53% CO$_2$ reduction\n+18% strength",
-            fontsize=9, ha="center", va="bottom",
+            fontsize=12, ha="center", va="bottom",
             bbox=dict(boxstyle="round,pad=0.3", facecolor=CB_YELLOW, alpha=0.8, edgecolor="gray"))
 
     # 50 MPa structural target line
@@ -271,13 +280,13 @@ def plot_headline_finding():
     ax.text(ax.get_xlim()[0] + 5 if ax.get_xlim()[0] > 0 else 75, 50.8,
             "50 MPa structural target", fontsize=8, color="gray", alpha=0.8)
 
-    ax.set_xlabel("Embodied CO$_2$ (kg CO$_2$e / m$^3$)", fontsize=11)
-    ax.set_ylabel("Predicted Compressive Strength (MPa)", fontsize=11)
-    ax.set_title("CO$_2$ vs Compressive Strength: Pareto Front\nPhase B Discovery Sweep (3,685 candidates)", fontsize=12)
-    ax.legend(loc="lower right", fontsize=8.5, framealpha=0.9)
+    ax.set_xlabel("Embodied CO$_2$ (kg CO$_2$e / m$^3$)", fontsize=14)
+    ax.set_ylabel("Predicted Compressive Strength (MPa)", fontsize=14)
+    ax.set_title("CO$_2$ vs Compressive Strength: Pareto Front\nPhase B Discovery Sweep (3,685 candidates)", fontsize=16)
+    ax.legend(loc="lower right", fontsize=11, framealpha=0.9)
 
-    fig.tight_layout()
-    fig.savefig(PLOTS_DIR / "headline_finding.png", dpi=DPI, bbox_inches="tight")
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / "headline_finding.png", dpi=200, bbox_inches="tight")
     plt.close(fig)
     print("  Saved plots/headline_finding.png")
 
@@ -305,7 +314,7 @@ def plot_co2_comparison():
     c40_co2 = [c40[c] * CO2_PER_KG[c] for c in components]
     disc_co2 = [disc[c] * CO2_PER_KG[c] for c in components]
 
-    fig, ax = plt.subplots(figsize=(8, 5.5))
+    fig, ax = plt.subplots(figsize=(10, 7))
 
     x = np.array([0, 1])
     width = 0.55
@@ -356,17 +365,17 @@ def plot_co2_comparison():
     ax.set_xticks([0, 1])
     ax.set_xticklabels(["Conventional C40\n(350 kg cement, 28-day)",
                          "Low-Carbon Discovery\n(120 kg cement, 90-day)"],
-                        fontsize=10)
-    ax.set_ylabel("Embodied CO$_2$ (kg CO$_2$e / m$^3$)", fontsize=11)
-    ax.set_title("CO$_2$ Emissions by Component:\nConventional vs Low-Carbon Mix", fontsize=12)
+                        fontsize=12)
+    ax.set_ylabel("Embodied CO$_2$ (kg CO$_2$e / m$^3$)", fontsize=14)
+    ax.set_title("CO$_2$ Emissions by Component:\nConventional vs Low-Carbon Mix", fontsize=16)
     ax.set_ylim(0, c40_total + 50)
 
     # Legend — build from component labels
     from matplotlib.patches import Patch
     legend_handles = [Patch(facecolor=c, label=l) for c, l in zip(component_colours, component_labels)]
-    ax.legend(handles=legend_handles, loc="upper right", fontsize=8.5, framealpha=0.9)
+    ax.legend(handles=legend_handles, loc="upper right", fontsize=11, framealpha=0.9)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "co2_comparison.png", dpi=DPI, bbox_inches="tight")
     plt.close(fig)
     print("  Saved plots/co2_comparison.png")

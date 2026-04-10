@@ -43,12 +43,12 @@ def _apply_style():
     plt.rcParams.update({
         "figure.dpi": DPI,
         "savefig.dpi": DPI,
-        "font.size": 11,
-        "axes.titlesize": 13,
-        "axes.labelsize": 12,
-        "xtick.labelsize": 10,
-        "ytick.labelsize": 10,
-        "legend.fontsize": 10,
+        "font.size": 14,
+        "axes.titlesize": 16,
+        "axes.labelsize": 14,
+        "xtick.labelsize": 12,
+        "ytick.labelsize": 12,
+        "legend.fontsize": 12,
     })
 
 
@@ -89,7 +89,7 @@ def _plot_spacetime(df: pd.DataFrame, title: str, outpath: Path):
     Each dot is a vehicle at a given time. Colour encodes velocity:
     dark (near 0 m/s) = stopped/jammed, bright = moving freely.
     """
-    fig, ax = plt.subplots(figsize=(10, 5))
+    fig, ax = plt.subplots(figsize=(12, 6))
 
     # Subsample for speed: every 5th timestep (0.5 s resolution)
     times = sorted(df["time"].unique())
@@ -112,8 +112,8 @@ def _plot_spacetime(df: pd.DataFrame, title: str, outpath: Path):
     ax.set_xlim(0, df["time"].max())
     ax.set_ylim(0, 230)
 
-    fig.tight_layout()
-    fig.savefig(outpath, dpi=DPI, bbox_inches="tight")
+    fig.tight_layout(pad=2.0)
+    fig.savefig(outpath, dpi=100, bbox_inches="tight")
     plt.close(fig)
     print(f"  Saved {outpath.name}")
 
@@ -151,7 +151,7 @@ def plot_headline_finding():
     acc = sweep[sweep["sweep_controller"] == "ACC"].copy()
     acc = acc.sort_values("n_smart")
 
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10, 6))
 
     ax.plot(acc["n_smart"], acc["wave_amp_ms"],
             marker="o", color=CB_BLUE, linewidth=2, markersize=7,
@@ -185,7 +185,7 @@ def plot_headline_finding():
     ax.set_ylim(-0.3, 9.5)
     ax.legend(loc="upper right", framealpha=0.9)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "headline_finding.png", dpi=DPI,
                 bbox_inches="tight")
     plt.close(fig)
@@ -230,7 +230,7 @@ def plot_controller_comparison():
 
     colours = [CB_BLACK, CB_ORANGE, CB_RED, CB_BLUE, CB_PURPLE]
 
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10, 6))
     bars = ax.bar(df_bar["Controller"], df_bar["wave_amp_ms"],
                   color=colours, edgecolor="white", linewidth=0.8, width=0.65)
 
@@ -258,7 +258,7 @@ def plot_controller_comparison():
                 xy=(0.5, -0.12), xycoords="axes fraction",
                 ha="center", fontsize=8, fontstyle="italic", color="gray")
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "controller_comparison.png", dpi=DPI,
                 bbox_inches="tight")
     plt.close(fig)
@@ -278,7 +278,7 @@ def plot_pareto_front():
     acc = sweep[sweep["sweep_controller"] == "ACC"].copy()
     acc = acc.sort_values("n_smart")
 
-    fig, ax = plt.subplots(figsize=(8, 5.5))
+    fig, ax = plt.subplots(figsize=(10, 7))
 
     # Plot all ACC points
     sc = ax.scatter(
@@ -324,7 +324,7 @@ def plot_pareto_front():
     ax.text(400, 1.2, "1 m/s threshold", fontsize=8, color="gray",
             fontstyle="italic")
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "pareto_front.png", dpi=DPI,
                 bbox_inches="tight")
     plt.close(fig)

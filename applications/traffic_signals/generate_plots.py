@@ -26,6 +26,14 @@ PLOTS_DIR.mkdir(exist_ok=True)
 
 # ── Style ──────────────────────────────────────────────────────────────────
 plt.style.use("seaborn-v0_8-whitegrid")
+plt.rcParams.update({
+    'font.size': 14,
+    'axes.titlesize': 16,
+    'axes.labelsize': 14,
+    'xtick.labelsize': 12,
+    'ytick.labelsize': 12,
+    'legend.fontsize': 12,
+})
 # Colourblind-safe palette (Okabe-Ito)
 CB_BLUE = "#0072B2"
 CB_ORANGE = "#E69F00"
@@ -74,7 +82,7 @@ def plot_headline_finding():
     rl_low_awt = webster_mean * (1 - rl_high_pct / 100)  # 50% reduction = lower bound on AWT
     rl_high_awt = webster_mean * (1 - rl_low_pct / 100)  # 30% reduction = upper bound on AWT
 
-    fig, ax = plt.subplots(figsize=(7, 5))
+    fig, ax = plt.subplots(figsize=(10, 6))
 
     labels = [
         "Webster\nFixed-Time\n(Baseline)",
@@ -101,9 +109,9 @@ def plot_headline_finding():
     ax.text(2, sotl_mean + 0.25, f"{sotl_mean:.2f} s\n({pct_reduction:+.1f}%)",
             ha="center", va="bottom", fontsize=11, fontweight="bold", color=CB_GREEN)
 
-    ax.set_ylabel("Mean Average Wait Time (s)", fontsize=12)
+    ax.set_ylabel("Mean Average Wait Time (s)", fontsize=14)
     ax.set_title("20-Line Adaptive Rule Matches Deep RL Benchmark",
-                 fontsize=13, fontweight="bold", pad=12)
+                 fontsize=16, fontweight="bold", pad=12)
     ax.set_ylim(0, webster_mean * 1.35)
     ax.yaxis.set_major_locator(mticker.MaxNLocator(integer=True))
     ax.tick_params(axis="x", labelsize=10)
@@ -115,7 +123,7 @@ def plot_headline_finding():
         ha="center", fontsize=8, color="grey", style="italic",
     )
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     out = PLOTS_DIR / "headline_finding.png"
     fig.savefig(out, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
@@ -131,7 +139,7 @@ def plot_demand_sensitivity():
     x = np.arange(len(scenarios))
     width = 0.35
 
-    fig, ax = plt.subplots(figsize=(10, 5.5))
+    fig, ax = plt.subplots(figsize=(12, 6))
 
     bars_w = ax.bar(x - width / 2, sumo_bench["baseline_awt"], width,
                     label="Webster Fixed-Time", color=CB_BLUE, edgecolor="white",
@@ -148,11 +156,11 @@ def plot_demand_sensitivity():
                 fontsize=8.5, fontweight="bold", color=CB_RED)
 
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=9)
-    ax.set_ylabel("Average Wait Time (s)", fontsize=12)
+    ax.set_xticklabels(labels, fontsize=11)
+    ax.set_ylabel("Average Wait Time (s)", fontsize=14)
     ax.set_title("Performance Across Demand Profiles: Webster vs SOTL + Preemption",
-                 fontsize=13, fontweight="bold", pad=12)
-    ax.legend(fontsize=10, loc="upper left")
+                 fontsize=16, fontweight="bold", pad=12)
+    ax.legend(fontsize=12, loc="upper left")
     ax.set_ylim(0, sumo_bench["baseline_awt"].max() * 1.30)
     ax.yaxis.set_major_locator(mticker.MaxNLocator(integer=True))
 
@@ -163,7 +171,7 @@ def plot_demand_sensitivity():
     ax.text(5, sumo_bench["baseline_awt"].max() * 1.22, "sumo-rl published routes",
             ha="center", fontsize=8, color="grey", style="italic")
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     out = PLOTS_DIR / "demand_sensitivity.png"
     fig.savefig(out, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
@@ -256,7 +264,7 @@ def plot_controller_comparison():
         print("  WARNING: Too few milestones found; skipping controller_comparison")
         return
 
-    fig, ax = plt.subplots(figsize=(9, 5.5))
+    fig, ax = plt.subplots(figsize=(12, 6))
 
     labels = [d["label"] for d in plot_data]
     values = [d["mean_awt"] for d in plot_data]
@@ -282,10 +290,10 @@ def plot_controller_comparison():
                alpha=0.5, zorder=2)
 
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=9)
-    ax.set_ylabel("Mean Average Wait Time (s), 7 SUMO scenarios", fontsize=11)
+    ax.set_xticklabels(labels, fontsize=11)
+    ax.set_ylabel("Mean Average Wait Time (s), 7 SUMO scenarios", fontsize=14)
     ax.set_title("HDR Iteration Trajectory: Key Controller Variants on SUMO",
-                 fontsize=13, fontweight="bold", pad=12)
+                 fontsize=16, fontweight="bold", pad=12)
     ax.set_ylim(0, max(values) * 1.35)
     ax.yaxis.set_major_locator(mticker.MaxNLocator(integer=True))
 
@@ -297,9 +305,9 @@ def plot_controller_comparison():
         Patch(facecolor=CB_RED, label="Failed experiment (REVERTED)"),
         Patch(facecolor=CB_BLUE, label="Webster baseline"),
     ]
-    ax.legend(handles=legend_elements, fontsize=9, loc="upper right")
+    ax.legend(handles=legend_elements, fontsize=12, loc="upper right")
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     out = PLOTS_DIR / "controller_comparison.png"
     fig.savefig(out, dpi=DPI, bbox_inches="tight")
     plt.close(fig)

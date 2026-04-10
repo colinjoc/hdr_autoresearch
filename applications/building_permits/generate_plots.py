@@ -42,9 +42,12 @@ CB_GREY = "#999999"
 
 plt.style.use("seaborn-v0_8-whitegrid")
 plt.rcParams.update({
-    "font.size": 11,
-    "axes.titlesize": 13,
-    "axes.labelsize": 12,
+    "font.size": 14,
+    "axes.titlesize": 16,
+    "axes.labelsize": 14,
+    "xtick.labelsize": 12,
+    "ytick.labelsize": 12,
+    "legend.fontsize": 12,
     "figure.dpi": 150,
 })
 
@@ -140,7 +143,7 @@ def plot_pred_vs_actual():
     mae = mean_absolute_error(y_true, y_pred)
     r2 = r2_score(y_true, y_pred)
 
-    fig, ax = plt.subplots(figsize=(6, 5.5))
+    fig, ax = plt.subplots(figsize=(10, 8))
 
     city_colors = {
         "sf": CB_RED, "nyc": CB_BLUE, "la": CB_ORANGE,
@@ -169,14 +172,14 @@ def plot_pred_vs_actual():
     ax.plot([0, lim_max], [0, lim_max], "k--", lw=1.0, alpha=0.6, label="1:1 line")
     ax.set_xlim(0, 1000)
     ax.set_ylim(0, 1000)
-    ax.set_xlabel("Actual duration (days)")
-    ax.set_ylabel("Predicted duration (days)")
+    ax.set_xlabel("Actual duration (days)", fontsize=14)
+    ax.set_ylabel("Predicted duration (days)", fontsize=14)
     ax.set_title(f"Cross-City Baseline: Predicted vs Actual\n"
                  f"MAE = {mae:.1f} days, R\u00b2 = {r2:.3f}")
-    ax.legend(loc="upper left", fontsize=9, markerscale=3)
+    ax.legend(loc="upper left", fontsize=12, markerscale=3)
     ax.set_aspect("equal")
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "pred_vs_actual.png", dpi=200, bbox_inches="tight")
     plt.close(fig)
     print(f"    -> plots/pred_vs_actual.png  (MAE={mae:.1f}, R2={r2:.3f})")
@@ -206,7 +209,7 @@ def plot_feature_importance():
         "permit_subtype_te": "Permit subtype (TE)", "neighborhood_te": "Neighborhood (TE)",
     }
 
-    fig, ax = plt.subplots(figsize=(7, 5))
+    fig, ax = plt.subplots(figsize=(10, max(6, top_n * 0.4)))
     y_pos = np.arange(top_n)
     bars = ax.barh(
         y_pos,
@@ -214,12 +217,12 @@ def plot_feature_importance():
         color=CB_BLUE, edgecolor="white", linewidth=0.5,
     )
     ax.set_yticks(y_pos)
-    ax.set_yticklabels([pretty.get(names[i], names[i]) for i in top_idx], fontsize=10)
+    ax.set_yticklabels([pretty.get(names[i], names[i]) for i in top_idx], fontsize=12)
     ax.invert_yaxis()
-    ax.set_xlabel("Feature importance (gain)")
-    ax.set_title("Cross-City Baseline XGBoost: Top Feature Importances")
+    ax.set_xlabel("Feature importance (gain)", fontsize=14)
+    ax.set_title("Cross-City Baseline XGBoost: Top Feature Importances", fontsize=16)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "feature_importance.png", dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"    -> plots/feature_importance.png")
@@ -243,7 +246,7 @@ def plot_headline_finding():
     mae_vals = [89.40, 99.86, 70.80, 24.68, 4.04]
     colors = [CB_GREY, CB_GREY, CB_CYAN, CB_BLUE, CB_ORANGE]
 
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(12, 6))
     x = np.arange(len(categories))
     bars = ax.bar(x, mae_vals, color=colors, edgecolor="white", linewidth=0.8, width=0.65)
 
@@ -253,14 +256,15 @@ def plot_headline_finding():
             bar.get_x() + bar.get_width() / 2,
             bar.get_height() + 1.5,
             f"{val:.1f}",
-            ha="center", va="bottom", fontsize=11, fontweight="bold",
+            ha="center", va="bottom", fontsize=13, fontweight="bold",
         )
 
     ax.set_xticks(x)
-    ax.set_xticklabels(categories, fontsize=9)
-    ax.set_ylabel("5-Fold CV MAE (days)")
+    ax.set_xticklabels(categories, fontsize=11)
+    ax.set_ylabel("5-Fold CV MAE (days)", fontsize=14)
     ax.set_title("Stage-Level Data Collapses the Prediction Problem\n"
-                 "Generic ML saturates at 89 days; 2 stage features reach 25 days")
+                 "Generic ML saturates at 89 days; 2 stage features reach 25 days",
+                 fontsize=16)
     ax.set_ylim(0, 115)
 
     # Annotate the key improvement arrows
@@ -277,7 +281,7 @@ def plot_headline_finding():
         ha="center",
     )
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "headline_finding.png", dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"    -> plots/headline_finding.png")
@@ -304,7 +308,7 @@ def plot_duration_by_city():
     data_by_city = [df[df["city"] == c]["duration_days"].values for c in city_order]
     medians = [np.median(d) for d in data_by_city]
 
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10, 6))
     bp = ax.boxplot(
         data_by_city,
         positions=range(len(city_order)),
@@ -319,16 +323,16 @@ def plot_duration_by_city():
 
     # Annotate medians
     for i, med in enumerate(medians):
-        ax.text(i, med + 10, f"{med:.0f}d", ha="center", va="bottom", fontsize=10, fontweight="bold")
+        ax.text(i, med + 10, f"{med:.0f}d", ha="center", va="bottom", fontsize=12, fontweight="bold")
 
     ax.set_xticks(range(len(city_order)))
-    ax.set_xticklabels([city_labels[c] for c in city_order], fontsize=10)
-    ax.set_ylabel("Permit duration (days)")
+    ax.set_xticklabels([city_labels[c] for c in city_order], fontsize=12)
+    ax.set_ylabel("Permit duration (days)", fontsize=14)
     ax.set_title("Small-Residential Permit Duration by City\n"
                  "Outliers hidden; box = IQR, whiskers = 1.5\u00d7IQR")
     ax.set_ylim(0, 700)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "duration_by_city.png", dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"    -> plots/duration_by_city.png")
@@ -359,14 +363,15 @@ def plot_seattle_stage_decomposition():
     # Color: city-side vs applicant-side
     colors = [CB_BLUE if f != "Applicant corrections" else CB_ORANGE for f in features]
 
-    fig, ax = plt.subplots(figsize=(8, 5.5))
+    n_bars = len(features)
+    fig, ax = plt.subplots(figsize=(10, max(6, n_bars * 0.4)))
     y_pos = np.arange(len(features))
     bars = ax.barh(y_pos, r2_vals, color=colors, edgecolor="white", linewidth=0.5)
 
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(features, fontsize=10)
+    ax.set_yticklabels(features, fontsize=12)
     ax.invert_yaxis()
-    ax.set_xlabel("Univariate R\u00b2 (% of variance explained)")
+    ax.set_xlabel("Univariate R\u00b2 (% of variance explained)", fontsize=14)
     ax.set_title("Seattle Per-Stage Variance Decomposition (n = 20,173)\n"
                  "Blue = city-side; orange = applicant-side")
 
@@ -374,12 +379,12 @@ def plot_seattle_stage_decomposition():
     for bar, val in zip(bars, r2_vals):
         ax.text(
             bar.get_width() + 0.5, bar.get_y() + bar.get_height() / 2,
-            f"{val:.1f}%", va="center", fontsize=9,
+            f"{val:.1f}%", va="center", fontsize=11,
         )
 
     ax.set_xlim(0, 48)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "seattle_stage_decomposition.png", dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"    -> plots/seattle_stage_decomposition.png")
@@ -409,7 +414,7 @@ def plot_phase2_waterfall():
     n_show = min(25, len(reverts))
     show = reverts.head(n_show)
 
-    fig, ax = plt.subplots(figsize=(9, 6))
+    fig, ax = plt.subplots(figsize=(12, max(6, n_show * 0.35)))
     y_pos = np.arange(n_show)
     colors = [CB_GREEN if d < 0 else CB_RED for d in show["delta"].values]
 
@@ -424,7 +429,7 @@ def plot_phase2_waterfall():
         labels.append(f"{row['exp_id']}: {desc}")
 
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(labels, fontsize=8)
+    ax.set_yticklabels(labels, fontsize=10)
     ax.invert_yaxis()
 
     # Keep threshold line
@@ -435,9 +440,9 @@ def plot_phase2_waterfall():
     ax.set_xlabel("\u0394 MAE vs baseline (days); negative = improvement")
     ax.set_title("Phase 2: All Reverted Experiments by MAE Change\n"
                  "None cleared the KEEP threshold (dashed red)")
-    ax.legend(loc="lower right", fontsize=9)
+    ax.legend(loc="lower right", fontsize=12)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "phase2_waterfall.png", dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"    -> plots/phase2_waterfall.png")

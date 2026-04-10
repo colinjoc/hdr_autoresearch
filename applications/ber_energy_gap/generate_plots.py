@@ -20,6 +20,14 @@ import matplotlib.ticker as ticker
 
 # Style: seaborn-v0_8-whitegrid, colourblind-safe palette
 plt.style.use("seaborn-v0_8-whitegrid")
+plt.rcParams.update({
+    'font.size': 14,
+    'axes.titlesize': 16,
+    'axes.labelsize': 14,
+    'xtick.labelsize': 12,
+    'ytick.labelsize': 12,
+    'legend.fontsize': 12,
+})
 
 # Colourblind-safe palette (Wong 2011)
 CB_BLUE = "#0072B2"
@@ -99,7 +107,7 @@ def plot_pred_vs_actual(y_true, y_pred):
     """Scatter plot of predicted vs actual BER energy values."""
     print("Generating pred_vs_actual.png...")
 
-    fig, ax = plt.subplots(figsize=(7, 7))
+    fig, ax = plt.subplots(figsize=(10, 8))
 
     # Hex-bin for density (millions of points would overplot)
     hb = ax.hexbin(
@@ -114,10 +122,10 @@ def plot_pred_vs_actual(y_true, y_pred):
 
     ax.set_xlim(lims)
     ax.set_ylim(lims)
-    ax.set_xlabel("Actual BER energy (kWh/m$^2$/yr)", fontsize=12)
-    ax.set_ylabel("Predicted BER energy (kWh/m$^2$/yr)", fontsize=12)
-    ax.set_title("Predicted vs Actual BER Energy Rating", fontsize=14, fontweight="bold")
-    ax.legend(loc="upper left", fontsize=11)
+    ax.set_xlabel("Actual BER energy (kWh/m$^2$/yr)", fontsize=14)
+    ax.set_ylabel("Predicted BER energy (kWh/m$^2$/yr)", fontsize=14)
+    ax.set_title("Predicted vs Actual BER Energy Rating", fontsize=16, fontweight="bold")
+    ax.legend(loc="upper left", fontsize=12)
 
     # Annotate with metrics
     from sklearn.metrics import mean_absolute_error, r2_score
@@ -126,12 +134,12 @@ def plot_pred_vs_actual(y_true, y_pred):
     ax.text(
         0.97, 0.03,
         f"MAE = {mae:.1f} kWh/m$^2$/yr\nR$^2$ = {r2:.3f}",
-        transform=ax.transAxes, fontsize=11,
+        transform=ax.transAxes, fontsize=13,
         verticalalignment="bottom", horizontalalignment="right",
         bbox=dict(boxstyle="round,pad=0.4", facecolor="white", alpha=0.85, edgecolor="gray"),
     )
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     path = os.path.join(PLOTS_DIR, "pred_vs_actual.png")
     fig.savefig(path, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
@@ -167,7 +175,8 @@ def plot_feature_importance():
     }
     labels = [name_map.get(f, f) for f in top15["feature"]]
 
-    fig, ax = plt.subplots(figsize=(9, 6.5))
+    n_bars = len(top15)
+    fig, ax = plt.subplots(figsize=(10, max(6, n_bars * 0.4)))
 
     colours = []
     for feat in top15["feature"]:
@@ -183,13 +192,13 @@ def plot_feature_importance():
 
     bars = ax.barh(labels, top15["mean_abs_shap"], color=colours, edgecolor="white", linewidth=0.5)
 
-    ax.set_xlabel("Mean |SHAP value| (kWh/m$^2$/yr)", fontsize=12)
-    ax.set_title("Top 15 Feature Importances (SHAP)", fontsize=14, fontweight="bold")
+    ax.set_xlabel("Mean |SHAP value| (kWh/m$^2$/yr)", fontsize=14)
+    ax.set_title("Top 15 Feature Importances (SHAP)", fontsize=16, fontweight="bold")
 
     # Value labels
     for bar, val in zip(bars, top15["mean_abs_shap"]):
         ax.text(bar.get_width() + 0.5, bar.get_y() + bar.get_height() / 2,
-                f"{val:.1f}", va="center", fontsize=9)
+                f"{val:.1f}", va="center", fontsize=11)
 
     # Legend for colour categories
     from matplotlib.patches import Patch
@@ -199,10 +208,10 @@ def plot_feature_importance():
         Patch(facecolor=CB_GREEN, label="Ventilation"),
         Patch(facecolor=CB_PURPLE, label="Other"),
     ]
-    ax.legend(handles=legend_elements, loc="lower right", fontsize=10)
+    ax.legend(handles=legend_elements, loc="lower right", fontsize=12)
 
     ax.set_xlim(0, top15["mean_abs_shap"].max() * 1.15)
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     path = os.path.join(PLOTS_DIR, "feature_importance.png")
     fig.savefig(path, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
@@ -227,7 +236,7 @@ def plot_headline_finding(df_model):
     if len(df) > 300_000:
         df = df.sample(300_000, random_state=42)
 
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(14, 7))
 
     # Use box plot with colour gradient from green (A) to red (G)
     from matplotlib.colors import LinearSegmentedColormap
@@ -271,13 +280,13 @@ def plot_headline_finding(df_model):
     }
 
     ax.set_xticks(positions)
-    ax.set_xticklabels(band_labels, fontsize=10)
-    ax.set_ylabel("DEAP-calculated energy (kWh/m$^2$/yr)", fontsize=12)
-    ax.set_xlabel("BER Rating Band", fontsize=12)
+    ax.set_xticklabels(band_labels, fontsize=12)
+    ax.set_ylabel("DEAP-calculated energy (kWh/m$^2$/yr)", fontsize=14)
+    ax.set_xlabel("BER Rating Band", fontsize=14)
     ax.set_title(
         "Energy Consumption Distribution by BER Rating Band\n"
         "(boxes show IQR; whiskers show 1.5 IQR — note the substantial overlap between adjacent bands)",
-        fontsize=13, fontweight="bold",
+        fontsize=16, fontweight="bold",
     )
 
     # Overlay the nominal band boundaries as a step function
@@ -292,11 +301,11 @@ def plot_headline_finding(df_model):
 
     ax.plot(band_midpoints, band_upper, "s--", color=CB_BLACK, markersize=4,
             linewidth=1, alpha=0.5, label="Band upper boundary")
-    ax.legend(loc="upper left", fontsize=10)
+    ax.legend(loc="upper left", fontsize=12)
 
     ax.set_ylim(0, 700)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     path = os.path.join(PLOTS_DIR, "headline_finding.png")
     fig.savefig(path, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
@@ -335,7 +344,7 @@ def plot_era_comparison(df_model):
     if len(df) > 300_000:
         df = df.sample(300_000, random_state=42)
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(12, 7))
 
     # Era colours: old=warm, new=cool
     era_colours = [CB_RED, CB_ORANGE, CB_YELLOW, CB_CYAN, CB_BLUE, CB_GREEN]
@@ -381,26 +390,26 @@ def plot_era_comparison(df_model):
         if not np.isnan(m):
             ax.annotate(
                 f"{m:.0f}",
-                (pos, m), textcoords="offset points", xytext=(12, 5),
-                fontsize=10, fontweight="bold",
+                (pos, m), textcoords="offset points", xytext=(12, 8),
+                fontsize=12, fontweight="bold",
             )
 
-    ax.set_xticklabels(era_labels_used, fontsize=11)
-    ax.set_ylabel("DEAP-calculated energy (kWh/m$^2$/yr)", fontsize=12)
-    ax.set_xlabel("Construction era", fontsize=12)
+    ax.set_xticklabels(era_labels_used, fontsize=12, rotation=45, ha='right')
+    ax.set_ylabel("DEAP-calculated energy (kWh/m$^2$/yr)", fontsize=14)
+    ax.set_xlabel("Construction era", fontsize=14)
     ax.set_title(
         "BER Energy by Construction Era\n"
         "(8.5:1 ratio between pre-1930 and 2021+ reflects cumulative building regulation improvements)",
-        fontsize=13, fontweight="bold",
+        fontsize=16, fontweight="bold",
     )
-    ax.legend(loc="upper right", fontsize=11)
+    ax.legend(loc="upper right", fontsize=12)
     ax.set_ylim(0, 650)
 
     # Add regulation milestone annotations
     ax.axhline(y=339, color=CB_RED, linestyle=":", alpha=0.3, linewidth=1)
     ax.axhline(y=40, color=CB_GREEN, linestyle=":", alpha=0.3, linewidth=1)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     path = os.path.join(PLOTS_DIR, "era_comparison.png")
     fig.savefig(path, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
@@ -419,7 +428,7 @@ def plot_retrofit_cost_effectiveness():
     retrofit_df = retrofit_df[retrofit_df["saving_kwh_m2_yr"] > 0].copy()
     retrofit_df = retrofit_df.sort_values("saving_kwh_m2_yr", ascending=True)
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5.5), sharey=True)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7), sharey=True)
 
     labels = retrofit_df["intervention"].values
     savings = retrofit_df["saving_kwh_m2_yr"].values
@@ -439,23 +448,23 @@ def plot_retrofit_cost_effectiveness():
 
     # Left panel: absolute saving
     bars1 = ax1.barh(labels, savings, color=colours, edgecolor="white", linewidth=0.5)
-    ax1.set_xlabel("Predicted saving (kWh/m$^2$/yr)", fontsize=12)
-    ax1.set_title("Absolute DEAP Improvement", fontsize=13, fontweight="bold")
+    ax1.set_xlabel("Predicted saving (kWh/m$^2$/yr)", fontsize=14)
+    ax1.set_title("Absolute DEAP Improvement", fontsize=16, fontweight="bold")
 
     for bar, val in zip(bars1, savings):
         ax1.text(bar.get_width() + 0.3, bar.get_y() + bar.get_height() / 2,
-                f"{val:.1f}", va="center", fontsize=10, fontweight="bold")
+                f"{val:.1f}", va="center", fontsize=12, fontweight="bold")
 
     ax1.set_xlim(0, max(savings) * 1.25)
 
     # Right panel: cost per kWh/m2/yr saved
     bars2 = ax2.barh(labels, costs_per, color=colours, edgecolor="white", linewidth=0.5)
-    ax2.set_xlabel("Cost per kWh/m$^2$/yr saved (EUR)", fontsize=12)
-    ax2.set_title("Cost-Effectiveness", fontsize=13, fontweight="bold")
+    ax2.set_xlabel("Cost per kWh/m$^2$/yr saved (EUR)", fontsize=14)
+    ax2.set_title("Cost-Effectiveness", fontsize=16, fontweight="bold")
 
     for bar, val in zip(bars2, costs_per):
         ax2.text(bar.get_width() + 20, bar.get_y() + bar.get_height() / 2,
-                f"{val:.0f}", va="center", fontsize=10)
+                f"{val:.0f}", va="center", fontsize=12)
 
     ax2.set_xlim(0, max(costs_per) * 1.2)
 
@@ -467,15 +476,15 @@ def plot_retrofit_cost_effectiveness():
         Patch(facecolor=CB_ORANGE, label="600-1000 EUR (moderate)"),
         Patch(facecolor=CB_RED, label="> 1000 EUR (expensive)"),
     ]
-    fig.legend(handles=legend_elements, loc="lower center", ncol=4, fontsize=10,
+    fig.legend(handles=legend_elements, loc="lower center", ncol=4, fontsize=12,
                bbox_to_anchor=(0.5, -0.02))
 
     fig.suptitle(
         "Single-Measure Retrofit Cost-Effectiveness (Average Irish Dwelling, BER 171 kWh/m$^2$/yr)",
-        fontsize=13, fontweight="bold", y=1.02,
+        fontsize=16, fontweight="bold", y=1.02,
     )
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     path = os.path.join(PLOTS_DIR, "retrofit_cost_effectiveness.png")
     fig.savefig(path, dpi=DPI, bbox_inches="tight")
     plt.close(fig)

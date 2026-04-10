@@ -44,6 +44,14 @@ DATA_PATH = PROJECT_ROOT / "data" / "paint.csv"
 plt.style.use("seaborn-v0_8-whitegrid")
 # Colourblind-safe palette (Tol bright)
 CB_PALETTE = ["#4477AA", "#EE6677", "#228833", "#CCBB44", "#66CCEE", "#AA3377", "#BBBBBB"]
+plt.rcParams.update({
+    'font.size': 14,
+    'axes.titlesize': 16,
+    'axes.labelsize': 14,
+    'xtick.labelsize': 12,
+    'ytick.labelsize': 12,
+    'legend.fontsize': 12,
+})
 DPI = 300
 SEED = 42
 
@@ -94,7 +102,7 @@ def plot_pred_vs_actual(df: pd.DataFrame) -> None:
         "cupping_mm": "Cupping Depth (mm)",
     }
 
-    fig, ax = plt.subplots(figsize=(5.5, 5.5))
+    fig, ax = plt.subplots(figsize=(10, 8))
     ax.scatter(
         best_y_true, best_y_pred,
         c=CB_PALETTE[0], edgecolors="white", linewidths=0.5,
@@ -118,8 +126,8 @@ def plot_pred_vs_actual(df: pd.DataFrame) -> None:
         f"5-fold CV  R\u00b2 = {best_r2:.3f}",
         fontsize=13,
     )
-    ax.legend(loc="upper left", fontsize=10)
-    fig.tight_layout()
+    ax.legend(loc="upper left", fontsize=12)
+    fig.tight_layout(pad=2.0)
     out = PLOTS_DIR / "pred_vs_actual.png"
     fig.savefig(out, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
@@ -157,7 +165,7 @@ def _manual_permutation_importance(
 def plot_feature_importance(df: pd.DataFrame) -> None:
     """Permutation importance for each target, as a horizontal grouped bar chart."""
 
-    fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+    fig, axes = plt.subplots(2, 2, figsize=(14, 12))
     axes = axes.ravel()
 
     target_labels = {
@@ -191,17 +199,17 @@ def plot_feature_importance(df: pd.DataFrame) -> None:
         ax.barh(range(len(sorted_names)), sorted_imp, xerr=sorted_std,
                 color=colors, edgecolor="white", linewidth=0.5, capsize=3)
         ax.set_yticks(range(len(sorted_names)))
-        ax.set_yticklabels(sorted_names, fontsize=9)
-        ax.set_xlabel("Permutation Importance\n(increase in MAE when shuffled)", fontsize=9)
-        ax.set_title(target_labels[target], fontsize=11, fontweight="bold")
+        ax.set_yticklabels(sorted_names, fontsize=11)
+        ax.set_xlabel("Permutation Importance\n(increase in MAE when shuffled)", fontsize=12)
+        ax.set_title(target_labels[target], fontsize=14, fontweight="bold")
 
     # Legend
     raw_patch = mpatches.Patch(color=CB_PALETTE[0], label="Raw feature")
     phys_patch = mpatches.Patch(color=CB_PALETTE[1], label="Physics-informed feature")
     fig.legend(handles=[raw_patch, phys_patch], loc="lower center",
                ncol=2, fontsize=11, frameon=True)
-    fig.suptitle("Per-Target Permutation Feature Importance", fontsize=14, y=1.01)
-    fig.tight_layout(rect=[0, 0.04, 1, 1])
+    fig.suptitle("Per-Target Permutation Feature Importance", fontsize=16, y=1.01)
+    fig.tight_layout(rect=[0, 0.04, 1, 1], pad=2.0)
     out = PLOTS_DIR / "feature_importance.png"
     fig.savefig(out, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
@@ -227,7 +235,7 @@ def plot_headline_finding() -> None:
     x = np.arange(len(targets))
     width = 0.32
 
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10, 6))
     bars_gp = ax.bar(x - width / 2, gp_mae, width, label="GP Baseline",
                       color=CB_PALETTE[6], edgecolor="white", linewidth=0.8)
     bars_ptpie = ax.bar(x + width / 2, ptpie_mae, width, label="PTPIE (this work)",
@@ -252,17 +260,17 @@ def plot_headline_finding() -> None:
         )
 
     ax.set_xticks(x)
-    ax.set_xticklabels(target_short, fontsize=10)
-    ax.set_ylabel("5-fold CV Mean Absolute Error", fontsize=11)
+    ax.set_xticklabels(target_short, fontsize=12)
+    ax.set_ylabel("5-fold CV Mean Absolute Error", fontsize=14)
     ax.set_title(
         "GP Baseline vs Per-Target Physics-Informed Ensemble (PTPIE)\n"
         "12\u201328% MAE reduction on 3 of 4 targets",
         fontsize=13,
     )
-    ax.legend(fontsize=11, loc="upper right")
+    ax.legend(fontsize=12, loc="upper right")
     ax.set_ylim(0, max(gp_mae) * 1.25)
 
-    fig.tight_layout()
+    fig.tight_layout(pad=2.0)
     out = PLOTS_DIR / "headline_finding.png"
     fig.savefig(out, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
