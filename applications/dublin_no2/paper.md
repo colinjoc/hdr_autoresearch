@@ -86,7 +86,7 @@ Traffic is computed as the residual after subtracting background and heating:
 
 **NO2_traffic = max(0, NO2_measured - NO2_background - NO2_heating)**
 
-This is the defining assumption: at a traffic-classified station, the excess above what a background station in the same city would measure is attributable to local road traffic emissions. This is validated by two independent methods:
+This is the defining assumption: at a traffic-classified station, the excess above what a background station in the same city would measure is attributable to local road traffic emissions. Figure 1 (`plots/pred_vs_actual.png`) shows that the additive model (background + heating + traffic) closely recovers measured monthly NO2 across all stations (R-squared = 0.96). This is validated by two independent methods:
 
 **Validation 1: COVID-19 lockdown.** Ireland's first lockdown began 15 March 2020 with severe travel restrictions. Traffic volumes fell 60-80% [9]. If our traffic attribution is correct, the observed NO2 drop during lockdown should approximately match the traffic component.
 
@@ -112,7 +112,7 @@ Every Dublin and Cork urban station exceeds the WHO annual NO2 guideline of 10 �
 
 The 24-hour WHO guideline (25 µg/m³) is exceeded on 67-91% of days at Winetavern Street, on 41-58% of days at Blanchardstown, and on 8-26% of days at background stations.
 
-**No station exceeds the EU annual limit of 40 µg/m³** except Winetavern Street in 2018-2019 (43.5-43.7 µg/m³). Ireland therefore passes EU compliance while failing WHO health guidance at virtually every urban site.
+**No station exceeds the EU annual limit of 40 µg/m³** except Winetavern Street in 2018-2019 (43.5-43.7 µg/m³). Ireland therefore passes EU compliance while failing WHO health guidance at virtually every urban site. Figure 3 (`plots/headline_finding.png`) visualises this WHO-EU compliance gap across all stations.
 
 #### Source Attribution Results
 
@@ -129,7 +129,7 @@ Annual source attribution for 2019 (pre-COVID, full-year data):
 | Tallaght (background) | 14.7 | 4.8 (32%) | 3.9 (27%) | 6.0 (41%) | **41%** |
 | Cork Old Station Rd (background) | 21.1 | 4.8 (23%) | 3.9 (19%) | 12.8 (61%) | **61%** |
 
-Traffic dominates at all stations, contributing 41-80% of annual NO2 depending on proximity to roads. Even at background stations, traffic is the plurality source.
+Traffic dominates at all stations, contributing 41-80% of annual NO2 depending on proximity to roads. Even at background stations, traffic is the plurality source. Figure 2 (`plots/feature_importance.png`) and Figure 5 (`plots/source_attribution.png`) show this breakdown by station.
 
 #### COVID-19 Lockdown Validation
 
@@ -144,7 +144,7 @@ The COVID lockdown reduced NO2 by 28-62% across Dublin stations (March-June 2020
 | Ballyfermot | 23.1 | 10.9 | -12.2 | -53% |
 | Clonskeagh | 24.9 | 12.5 | -12.4 | -50% |
 
-The correlation between the model's predicted traffic drop and the observed total NO2 drop is **r = 0.974** across 14 stations. The model's traffic contribution explains 45-78% of the observed COVID drop depending on station type, consistent with the expectation that lockdown removed 60-80% of traffic (not 100%, due to essential workers) and that meteorological differences between 2019 and 2020 also contribute.
+The correlation between the model's predicted traffic drop and the observed total NO2 drop is **r = 0.974** across 14 stations. Figure 4 (`plots/covid_validation.png`) shows the station-by-station comparison. The model's traffic contribution explains 45-78% of the observed COVID drop depending on station type, consistent with the expectation that lockdown removed 60-80% of traffic (not 100%, due to essential workers) and that meteorological differences between 2019 and 2020 also contribute.
 
 The monthly phase analysis reveals progressive lockdown effects:
 - March 2020 (partial restrictions): -20% at Winetavern, -35% at M50
@@ -272,6 +272,18 @@ Using 9 years of real monitoring data from the EPA Ireland / EEA network, we est
 4. **Traffic reduction alone is insufficient** for WHO compliance at background stations. Heating fuel switching is also needed.
 
 5. The COVID lockdown demonstrated that Dublin's air quality can improve rapidly and substantially (-33 to -62%) when traffic is reduced — proving that policy interventions targeting diesel traffic would have measurable health benefits.
+
+## Figures
+
+- **Figure 1** (`plots/pred_vs_actual.png`): Model-predicted versus measured monthly NO2 scatter for all key stations. The additive source attribution model (background + heating + traffic) recovers measured values with R-squared = 0.96, MAE = 0.9 micrograms per cubic metre.
+
+- **Figure 2** (`plots/feature_importance.png`): Source contribution breakdown by station, sorted by traffic fraction. Traffic is the dominant contributor at all urban stations (41-82%), with heating and background making up the remainder.
+
+- **Figure 3** (`plots/headline_finding.png`): Annual mean NO2 by station (2019) with WHO 10 micrograms per cubic metre and EU 40 micrograms per cubic metre guideline lines. Every urban station exceeds the WHO guideline. Winetavern Street exceeds it by 4.3 times.
+
+- **Figure 4** (`plots/covid_validation.png`): COVID-19 lockdown natural experiment. Left: paired bars showing March-June 2019 vs 2020 NO2 at each station. Right: percentage reduction, with traffic-adjacent stations showing the largest drops (up to 62% at Blanchardstown M50).
+
+- **Figure 5** (`plots/source_attribution.png`): Stacked bar charts of absolute (left) and percentage (right) source attribution across all stations. Traffic stations show 64-82% traffic contribution; even background stations attribute 41-63% to traffic.
 
 ## References
 
