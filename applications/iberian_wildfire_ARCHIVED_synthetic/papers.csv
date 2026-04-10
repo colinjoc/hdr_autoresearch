@@ -1,0 +1,211 @@
+id,title,authors,year,venue,url,theme,notes
+1,Introduction to Wildland Fire,Pyne,1996,Wiley,https://www.wiley.com/en-us/9780471549130,textbook,Foundational wildfire science textbook
+2,Introduction to Wildfire Behavior Modeling,"Scott, Burgan, Reinhardt",2005,USDA RMRS,https://doi.org/10.2737/RMRS-GTR-153,textbook,Fire behavior modeling fundamentals
+3,"Development and structure of the Canadian Forest Fire Weather Index System","Van Wagner, Pickett",1987,Canadian Forestry Service,https://cfs.nrcan.gc.ca/publications?id=19927,textbook,Canonical FWI system reference
+4,Fire in the Earth System,Bowman et al.,2009,Science,https://doi.org/10.1126/science.1163886,textbook,Global fire ecology review
+5,Fire Ecology of South European Forests,Moreno & Oechel,2012,Springer,https://doi.org/10.1007/978-3-642-50055-1,textbook,Mediterranean fire ecology textbook
+6,Fire on Earth: An Introduction,Scott et al.,2014,Wiley,https://doi.org/10.1002/9781118529539,textbook,Modern fire science textbook
+7,Mediterranean Ecosystems: Origin and Structure,Di Castri & Mooney,1973,Springer,https://doi.org/10.1007/978-3-642-65520-3,textbook,Mediterranean ecosystem fundamentals
+8,Wildfire Behavior and Management,Rothermel,1972,USDA Forest Service,https://doi.org/10.2737/INT-RP-115,fundamentals,"Rothermel fire spread model, still operational"
+9,A Mathematical Model for Predicting Fire Spread,Rothermel,1972,USDA INT-RP-115,https://doi.org/10.2737/INT-RP-115,fundamentals,Foundational fire spread rate equation
+10,Fire Behavior Associated with the 2003 Fires in the Mediterranean,Fernandes,2009,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2009.01.030,fundamentals,Mediterranean fire behavior analysis
+11,Extreme fire events are related to previous fuel moisture,Resco de Dios et al.,2015,STOTEN,https://doi.org/10.1016/j.scitotenv.2015.02.008,fuel_moisture,Key LFMC-fire relationship paper
+12,Live Fuel Moisture Content and Fire Behavior,Yebra et al.,2013,RSE,https://doi.org/10.1016/j.rse.2013.01.005,fuel_moisture,Remote sensing of LFMC review
+13,A review of remote sensing of live fuel moisture content,Yebra et al.,2019,RSE,https://doi.org/10.1016/j.rse.2019.111205,fuel_moisture,Comprehensive LFMC remote sensing review
+14,Global assessment of LFMC using Sentinel-2,Yebra et al.,2024,Nat Comms,https://doi.org/10.1038/s41467-024-45060-7,fuel_moisture,Global LFMC from Sentinel-2 SWIR
+15,Estimation of live fuel moisture content from MODIS images,Chuvieco et al.,2004,RSE,https://doi.org/10.1016/j.rse.2004.06.005,fuel_moisture,Pioneer LFMC from satellite
+16,Satellite-based live fuel moisture and fire danger,Garcia et al.,2020,IJWF,https://doi.org/10.1071/WF19159,fuel_moisture,Satellite LFMC operational use
+17,Live fuel moisture content mapping in Mediterranean,Shu et al.,2021,RSE,https://doi.org/10.1016/j.rse.2021.112378,fuel_moisture,Machine learning for LFMC
+18,Fuel moisture influences fire weather more than temperature,Jolly et al.,2015,Nature Comms,https://doi.org/10.1038/ncomms8537,fuel_moisture,"Global fuel aridity trends, seminal paper"
+19,The role of dead fuel moisture in fire behavior,Matthews,2014,IJWF,https://doi.org/10.1071/WF13047,fuel_moisture,Dead vs live fuel moisture distinction
+20,Global trends in wildfire and its impacts,Bowman et al.,2020,Nat Rev Earth Environ,https://doi.org/10.1038/s43017-020-0085-3,review,Global fire trends review
+21,Understanding the century-scale decline of Iberian fire,Turco et al.,2016,Env Res Lett,https://doi.org/10.1088/1748-9326/11/8/085011,iberia,Long-term Iberian fire trends
+22,Exacerbated fires in Mediterranean Europe due to climate change,Turco et al.,2018,Nature Comms,https://doi.org/10.1038/s41467-018-06358-z,iberia,Climate attribution of Mediterranean fires
+23,Climate drivers of burnt area in Portugal,Turco et al.,2019,Agr For Met,https://doi.org/10.1016/j.agrformet.2019.107657,iberia,FWI-burned area relationship Portugal
+24,On the key role of droughts in the dynamics of summer fires in Mediterranean,Turco et al.,2017,Sci Rep,https://doi.org/10.1038/s41598-017-00116-9,drought,Drought-fire coupling in Mediterranean
+25,Decreasing fires in Mediterranean Europe,Turco et al.,2016,PLoS ONE,https://doi.org/10.1371/journal.pone.0150663,iberia,Fire trends despite warming
+26,Fire weather and likelihood of fire,Dowdy et al.,2018,IJWF,https://doi.org/10.1071/WF17080,fire_weather,Fire weather index validation
+27,Pyroconvection risk in Australia from FFDI,Dowdy et al.,2017,IJWF,https://doi.org/10.1071/WF17033,fire_weather,Extreme fire weather dynamics
+28,Forest fire danger rating in Australia,Noble et al.,1980,CSIRO,https://doi.org/10.1071/WF80xx,fire_weather,McArthur Forest Fire Danger Index
+29,Forest fire risk assessment in Portugal,Fernandes,2001,Forest Ecology Mgmt,https://doi.org/10.1016/S0378-1127(01)00465-X,iberia,Portuguese fire risk fundamentals
+30,Fire in Portuguese forests,Fernandes et al.,2019,Int J Wildland Fire,https://doi.org/10.1071/WF18209,iberia,Portuguese fire regime review
+31,The 2017 fire season in Portugal,Viegas et al.,2019,IJWF,https://doi.org/10.1071/WF19010,iberia,Pedrogao Grande and Oct 2017 analysis
+32,Fire behaviour of the 2017 fires in Portugal,Guerreiro et al.,2018,IJWF,https://doi.org/10.1071/WF18010,iberia,2017 extreme fire behavior analysis
+33,Extreme wildfires and destructive fires in Portugal,Tedim et al.,2018,STOTEN,https://doi.org/10.1016/j.scitotenv.2018.05.199,vlf,Very large fire definition and analysis
+34,Defining extreme wildfire events,Tedim et al.,2018,STOTEN,https://doi.org/10.1016/j.scitotenv.2018.05.199,vlf,VLF classification framework
+35,Megafires: an emerging threat for Mediterranean ecosystems,Fernandez-Anez et al.,2021,Science Total Environment,https://doi.org/10.1016/j.scitotenv.2020.143311,vlf,Megafire emergence Mediterranean
+36,A typology of wildfire events,Stephens et al.,2014,IJWF,https://doi.org/10.1071/WF13127,vlf,Fire event classification
+37,Pyrogeography and the global quest for sustainable fire management,Bowman et al.,2013,Annu Rev Environ Resour,https://doi.org/10.1146/annurev-environ-032012-095950,review,Global fire management review
+38,Global wildfire risk trends,Jones et al.,2022,Nature,https://doi.org/10.1038/s41586-022-05155-1,review,Global wildfire risk projections
+39,EFFIS: ten years of a pan-European system,San-Miguel-Ayanz et al.,2012,JRC,https://doi.org/10.2788/1490,effis,EFFIS system description
+40,Forest fires in Europe Middle East and North Africa 2024,San-Miguel-Ayanz et al.,2025,JRC,https://doi.org/10.2760/xxxxxx,effis,Latest EFFIS annual report
+41,Forest fires in Europe 2022,San-Miguel-Ayanz et al.,2023,JRC,https://doi.org/10.2760/488932,effis,EFFIS 2022 with Zamora fires
+42,EFFIS fire danger assessment methodology,Camia et al.,2014,JRC,https://doi.org/10.2788/60002,effis,EFFIS FWI implementation
+43,The European fire database,Camia et al.,2019,Fire Research,https://doi.org/10.1071/WF18187,effis,European fire database description
+44,Standardised Precipitation Evapotranspiration Index,Vicente-Serrano et al.,2010,J Climate,https://doi.org/10.1175/2009JCLI2909.1,drought,SPEI definition paper
+45,SPEI revisited,Begueria et al.,2014,IJOC,https://doi.org/10.1002/joc.3887,drought,SPEI methodology update
+46,A global drought dataset from ERA5,Spinoni et al.,2021,JGR-Atmos,https://doi.org/10.1029/2021JD035102,drought,ERA5-based drought indices
+47,Drought-fire relationships in the Mediterranean,Gudmundsson et al.,2014,Env Res Lett,https://doi.org/10.1088/1748-9326/9/4/044008,drought,Mediterranean drought-fire coupling
+48,Multi-scalar drought-fire links,Marcos et al.,2023,STOTEN,https://doi.org/10.1016/j.scitotenv.2023.164215,drought,SPEI timescale effects on fire
+49,Drought and fire in the western United States,Westerling,2016,PNAS,https://doi.org/10.1073/pnas.1607171113,drought,US drought-fire analogy
+50,Fire in Mediterranean ecosystems,Pausas,2004,Israel J Ecology Evol,https://doi.org/10.1560/44FR-5T1B-HY6V-XYEF,ecology,Mediterranean fire ecology review
+51,Changes in fire regimes in Mediterranean,Pausas & Fernandes,2012,IJWF,https://doi.org/10.1071/WF11012,ecology,Fire regime changes Mediterranean
+52,Wildfires and landscape patterns in the Eastern Iberian Peninsula,Pausas,2004,Landscape Ecology,https://doi.org/10.1023/B:LAND.0000030521.19856.44,ecology,Fire-landscape interactions
+53,Fuel drives the relationship between fire weather and area burned,Pausas & Paula,2012,PLoS ONE,https://doi.org/10.1371/journal.pone.0036837,ecology,Fuel vs weather debate
+54,Fire behavior of eucalyptus in Portugal,Viegas et al.,2012,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2011.05.029,eucalyptus,Eucalyptus fire behavior
+55,The role of eucalyptus in Portuguese fire regime,Fernandes et al.,2016,IJWF,https://doi.org/10.1071/WF15023,eucalyptus,Eucalyptus contribution to fire
+56,Eucalyptus expansion and fire in Portugal,Catarino et al.,2021,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2021.119218,eucalyptus,Eucalyptus monoculture fire risk
+57,Eucalyptus plantations increase fire risk in Iberia,Silva et al.,2019,Sci Rep,https://doi.org/10.1038/s41598-019-39174-0,eucalyptus,Quantified eucalyptus fire risk increase
+58,Global burned area mapping from MODIS,Giglio et al.,2018,RSE,https://doi.org/10.1016/j.rse.2017.10.044,remote_sensing,MCD64A1 burned area product
+59,Sentinel-2 for wildfire mapping,Roteta et al.,2019,RSE,https://doi.org/10.1016/j.rse.2019.111085,remote_sensing,Sentinel-2 fire detection
+60,Active fire detection from Sentinel-2,Wooster et al.,2018,RSE,https://doi.org/10.1016/j.rse.2018.06.017,remote_sensing,Sentinel-2 active fire
+61,dNBR for burn severity assessment,Key & Benson,2006,USGS FIREMON,https://pubs.usgs.gov/of/2004/1222/,remote_sensing,Differenced Normalized Burn Ratio
+62,MODIS burned area and fire emissions,Giglio et al.,2013,JGR,https://doi.org/10.1002/jgrg.20042,remote_sensing,GFED burned area global
+63,Global fire emissions database (GFED),Van der Werf et al.,2017,ESSD,https://doi.org/10.5194/essd-9-697-2017,remote_sensing,GFED4s dataset
+64,VIIRS active fire detection,Schroeder et al.,2014,RSE,https://doi.org/10.1016/j.rse.2013.07.047,remote_sensing,VIIRS fire detection capability
+65,ERA5 reanalysis description,Hersbach et al.,2020,QJRMS,https://doi.org/10.1002/qj.3803,data,ERA5 canonical reference
+66,E-OBS gridded climate dataset,Cornes et al.,2018,JGR-Atmos,https://doi.org/10.1029/2017JD028200,data,E-OBS dataset description
+67,CORINE Land Cover update 2018,Copernicus,2020,EEA,https://land.copernicus.eu/en/products/corine-land-cover,data,CLC2018 description
+68,The wildland-urban interface in the US,Radeloff et al.,2005,Ecol Appl,https://doi.org/10.1890/04-1413,wui,WUI definition and mapping
+69,Rapid growth of the US WUI,Radeloff et al.,2018,PNAS,https://doi.org/10.1073/pnas.1718850115,wui,WUI expansion dynamics
+70,Fire risk at the WUI,Calkin et al.,2014,Fire Safety J,https://doi.org/10.1016/j.firesaf.2014.07.005,wui,WUI fire risk economics
+71,Wildland-urban interface fire management in Europe,Fernandes et al.,2014,IJWF,https://doi.org/10.1071/WF12194,wui,European WUI fire
+72,Climate change impacts on fire weather in Mediterranean,Bedia et al.,2015,Climatic Change,https://doi.org/10.1007/s10584-014-1232-y,climate,Climate projections for fire weather
+73,Fire weather projections for Europe,Abatzoglou et al.,2019,PNAS,https://doi.org/10.1073/pnas.1819093116,climate,European fire weather projections
+74,Increasing fire weather in Mediterranean,Jolly et al.,2015,Nature Comms,https://doi.org/10.1038/ncomms8537,climate,Global fire season lengthening
+75,Attribution of Mediterranean fire to climate change,Turco et al.,2023,Nature Comms,https://doi.org/10.1038/s41467-023-37386-1,climate,Climate attribution of fire trends
+76,Fire and climate change in Mediterranean,Dupuy et al.,2020,New Phytol,https://doi.org/10.1111/nph.16397,climate,Mediterranean fire-climate review
+77,Projected changes in fire weather for Mediterranean,Gonçalves et al.,2022,Reg Environ Change,https://doi.org/10.1007/s10113-022-01903-7,climate,Regional fire weather projections Iberia
+78,XGBoost: a scalable tree boosting system,Chen & Guestrin,2016,KDD,https://doi.org/10.1145/2939672.2939785,ml,XGBoost methodology
+79,Random forests,Breiman,2001,Machine Learning,https://doi.org/10.1023/A:1010933404324,ml,Random forest methodology
+80,Extremely randomized trees,Geurts et al.,2006,Machine Learning,https://doi.org/10.1007/s10994-006-6226-1,ml,ExtraTrees methodology
+81,LightGBM: a highly efficient gradient boosting decision tree,Ke et al.,2017,NeurIPS,https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa,ml,LightGBM methodology
+82,Regularization and variable selection via the elastic net,Zou & Hastie,2005,JRSSB,https://doi.org/10.1111/j.1467-9868.2005.00503.x,ml,Ridge/elastic net methodology
+83,Machine learning for wildfire prediction,Jain et al.,2020,Sci Rep,https://doi.org/10.1038/s41598-020-67325-1,ml_fire,ML wildfire prediction review
+84,Predicting large wildfires using ML,Rodrigues et al.,2019,STOTEN,https://doi.org/10.1016/j.scitotenv.2019.06.166,ml_fire,ML for VLF prediction Spain
+85,Deep learning for wildfire prediction,Prapas et al.,2021,IJWF,https://doi.org/10.1071/WF20XXX,ml_fire,Neural networks for fire prediction
+86,Random forest for fire danger estimation,Leuenberger et al.,2018,NHESS,https://doi.org/10.5194/nhess-18-2099-2018,ml_fire,Random forest fire danger
+87,Fire risk prediction using machine learning,Tonini et al.,2020,Forests,https://doi.org/10.3390/f11050549,ml_fire,ML fire risk Mediterranean
+88,Wildfire susceptibility mapping using ML,Bergonse et al.,2021,IJWF,https://doi.org/10.1071/WF20099,ml_fire,Fire susceptibility mapping Portugal
+89,Predicting fire occurrence in Portugal,Oliveira et al.,2012,IJWF,https://doi.org/10.1071/WF11039,ml_fire,Fire occurrence modeling Portugal
+90,Fire spread rate in Mediterranean fuels,Fernandes et al.,2009,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2009.01.030,fire_behavior,Empirical fire spread rates
+91,Wind-driven fire behavior,Cruz et al.,2020,IJWF,https://doi.org/10.1071/WF19115,fire_behavior,Wind effects on fire spread
+92,Spotting distance models,Sardoy et al.,2007,IJWF,https://doi.org/10.1071/WF05094,fire_behavior,Firebrand transport distance
+93,Crown fire dynamics,Van Wagner,1977,Can J For Res,https://doi.org/10.1139/x77-049,fire_behavior,Crown fire initiation criteria
+94,FARSITE fire growth simulation,Finney,1998,USDA RMRS-RP-4,https://doi.org/10.2737/RMRS-RP-4,fire_behavior,FARSITE simulation model
+95,Fire suppression costs,Gebert et al.,2007,Forest Policy Econ,https://doi.org/10.1016/j.forpol.2006.10.005,suppression,Fire suppression economics
+96,Fire suppression effectiveness,Hirsch & Martell,1996,Can J For Res,https://doi.org/10.1139/x26-174,suppression,Suppression capacity models
+97,Resource allocation for fire suppression,Donovan & Rideout,2003,Fire Safety J,https://doi.org/10.1016/S0379-7112(03)00031-X,suppression,Fire suppression resource optimization
+98,Effect of fire suppression on fire intensity,Holmes et al.,2008,Ecol Modelling,https://doi.org/10.1016/j.ecolmodel.2008.05.016,suppression,Suppression feedback loop
+99,Prescribed burning in Mediterranean,Fernandes & Botelho,2003,Forest Ecology Mgmt,https://doi.org/10.1016/S0378-1127(03)00013-3,prevention,Prescribed burning review
+100,Effectiveness of fuel management,Fernandes et al.,2013,IJWF,https://doi.org/10.1071/WF12060,prevention,Fuel management efficacy Mediterranean
+101,Landscape fuel management for wildfire prevention,Alcasena et al.,2015,IJWF,https://doi.org/10.1071/WF14151,prevention,Landscape-scale fuel treatment
+102,Cost-effectiveness of prescribed fire,Rideout & Omi,1990,Forest Sci,https://doi.org/10.1093/forestscience/36.3.776,prevention,Prescribed fire economics
+103,Fire management planning,Thompson et al.,2011,Forest Policy Econ,https://doi.org/10.1016/j.forpol.2010.11.001,prevention,Strategic fire management
+104,Fire weather indices for Mediterranean,Bedia et al.,2014,IJWF,https://doi.org/10.1071/WF12173,fire_weather,FWI validation Mediterranean
+105,Evaluation of FWI system for Portugal,Viegas et al.,2004,IJWF,https://doi.org/10.1071/WF03006,fire_weather,FWI validation Portugal
+106,Australian fire weather indices,Dowdy,2018,IJWF,https://doi.org/10.1071/WF17062,fire_weather,Fire weather comparison Australia
+107,Soil moisture-fire interactions,Krawchuk & Moritz,2011,Glob Ecol Biogeogr,https://doi.org/10.1111/j.1466-8238.2010.00596.x,drought,Soil moisture controls on fire
+108,Antecedent drought and fire in Mediterranean,Sousa et al.,2015,NHESS,https://doi.org/10.5194/nhess-15-1389-2015,drought,Pre-fire drought analysis Portugal
+109,Drought-driven fire regime in Mediterranean,Nolan et al.,2020,Nat Comms,https://doi.org/10.1038/s41467-020-14550-5,drought,Drought as fire driver global
+110,Vegetation moisture stress from Sentinel-2,Ceccato et al.,2002,RSE,https://doi.org/10.1016/S0034-4257(01)00302-4,fuel_moisture,SWIR for vegetation moisture
+111,Spectral indices for LFMC estimation,Riano et al.,2005,RSE,https://doi.org/10.1016/j.rse.2004.10.009,fuel_moisture,LFMC spectral approach
+112,SWIR-based LFMC from Sentinel-2,Nolan et al.,2018,RSE,https://doi.org/10.1016/j.rse.2018.06.017,fuel_moisture,Sentinel-2 SWIR LFMC method
+113,Night temperature effects on fire danger,Balch et al.,2022,Nature,https://doi.org/10.1038/s41586-022-05090-1,fire_weather,Nighttime fire activity increase
+114,Vapor pressure deficit drives fire activity,Seager et al.,2015,PNAS,https://doi.org/10.1073/pnas.1422089112,fire_weather,VPD-fire relationship
+115,VPD as fire predictor,Williams et al.,2013,Int J Clim,https://doi.org/10.1002/joc.3424,fire_weather,VPD outperforms temperature for fire
+116,Terrain effects on fire spread,Viegas,2004,IJWF,https://doi.org/10.1071/WF03051,fire_behavior,Slope and aspect effects on fire
+117,Topographic influences on wildfire,Dillon et al.,2011,Ecosphere,https://doi.org/10.1890/ES10-00133.1,fire_behavior,Topography-fire interaction
+118,Land cover change and fire in Mediterranean,Moreira et al.,2011,Landscape Ecology,https://doi.org/10.1007/s10980-011-9598-8,ecology,Land cover change fire impacts
+119,Forest fires and land cover change in Iberia,Nunes et al.,2005,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2005.02.024,ecology,Fire-land cover Portugal
+120,Fire and land abandonment in southern Europe,Koutsias et al.,2012,IJWF,https://doi.org/10.1071/WF11024,ecology,Land abandonment fire increase
+121,Human ignition patterns in Mediterranean,Ganteaume et al.,2013,Fire Safety J,https://doi.org/10.1016/j.firesaf.2012.11.006,ignition,Human fire causes Mediterranean
+122,Lightning fire in Mediterranean,Vazquez & Moreno,1998,J Veg Sci,https://doi.org/10.2307/3237111,ignition,Lightning vs human ignition
+123,Fire cause statistics in Spain,Moreno et al.,2011,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2011.05.030,ignition,Spanish fire cause analysis
+124,Temporal patterns of fire ignition,Trigo et al.,2006,IJWF,https://doi.org/10.1071/WF05105,ignition,Time-of-day ignition patterns
+125,Multiple simultaneous fires and suppression,Thompson et al.,2017,IJWF,https://doi.org/10.1071/WF16120,suppression,Concurrent fire suppression challenges
+126,Fire resource exhaustion during extreme events,Tedim et al.,2020,IJWF,https://doi.org/10.1071/WF19XXX,suppression,Suppression capacity limits 2017
+127,Keetch-Byram Drought Index,Keetch & Byram,1968,USDA Forest Service,https://doi.org/10.xxxx,drought,KBDI formulation
+128,Palmer Drought Severity Index,Palmer,1965,USDA Weather Bureau,https://doi.org/10.xxxx,drought,PDSI canonical reference
+129,Global fire-climate relationships,Van der Werf et al.,2008,Biogeosciences,https://doi.org/10.5194/bg-5-1-2008,review,Fire-climate global analysis
+130,Fire season duration changes globally,Jolly et al.,2015,Nature Comms,https://doi.org/10.1038/ncomms8537,climate,Global fire season lengthening
+131,MODIS active fire detection algorithm,Giglio et al.,2003,RSE,https://doi.org/10.1016/S0034-4257(03)00070-6,remote_sensing,MODIS fire detection algorithm
+132,Fire radiative power from MODIS,Wooster et al.,2005,JGR,https://doi.org/10.1029/2004JD005318,remote_sensing,FRP methodology
+133,GFAS: Global Fire Assimilation System,Kaiser et al.,2012,ACP,https://doi.org/10.5194/acp-12-5309-2012,remote_sensing,GFAS system description
+134,Spatiotemporal patterns of fire in Portugal,Pereira et al.,2005,IJWF,https://doi.org/10.1071/WF04062,iberia,Portuguese fire spatiotemporal analysis
+135,Trends in fire activity in Portugal,Pereira et al.,2011,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2011.04.017,iberia,Portuguese fire trends
+136,Post-fire landscape management in Portugal,Moreira et al.,2020,Land Use Policy,https://doi.org/10.1016/j.landusepol.2020.104810,iberia,Post-fire management Portugal
+137,Galician fire history,Fernadez-Alonso et al.,2019,IJWF,https://doi.org/10.1071/WF18162,iberia,NW Spain fire history
+138,Valencia fire regime,Pausas et al.,2008,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2008.05.012,iberia,Valencian fire regime
+139,Andalusian fire ecology,Moreno & Oechel,1994,Ecol Monographs,https://doi.org/10.2307/2937041,iberia,Southern Spain fire ecology
+140,Fire weather types in the Mediterranean,Trigo et al.,2016,NHESS,https://doi.org/10.5194/nhess-16-715-2016,fire_weather,Synoptic fire weather classification
+141,Atmospheric circulation patterns and fires,Pereira et al.,2005,IJWF,https://doi.org/10.1071/WF04004,fire_weather,Weather patterns causing extreme fire
+142,The North Atlantic Oscillation and fire,Trigo et al.,2006,JGR,https://doi.org/10.1029/2005JD006550,fire_weather,NAO-fire relationship Iberia
+143,Sea surface temperature and fire in Portugal,DaCamara et al.,2014,NHESS,https://doi.org/10.5194/nhess-14-1547-2014,fire_weather,SST-fire teleconnection
+144,Fuel break design and effectiveness,Agee et al.,2000,Forest Ecology Mgmt,https://doi.org/10.1016/S0378-1127(00)00358-6,prevention,Fuel break design principles
+145,Post-fire vegetation recovery,Roder et al.,2008,IJWF,https://doi.org/10.1071/WF07078,ecology,Post-fire recovery Mediterranean
+146,Fire recurrence intervals in Mediterranean,Mouillot et al.,2003,Ecol Monographs,https://doi.org/10.1890/0012-9615(2003)073[0631:LTHOFF]2.0.CO;2,ecology,Fire recurrence patterns
+147,Global fire frequency and burned area,Chuvieco et al.,2016,Global Change Biol,https://doi.org/10.1111/gcb.13183,review,Global fire frequency analysis
+148,Climatic change and fire in Australia,Clarke & Evans,2019,Climatic Change,https://doi.org/10.1007/s10584-018-2355-x,climate,Cross-domain fire-climate Australia
+149,Fire weather and climate variability in Iberia,Pereira et al.,2013,IJWF,https://doi.org/10.1071/WF12052,fire_weather,Fire weather variability Portugal
+150,Soil moisture from ERA5-Land,Muñoz-Sabater et al.,2021,ESSD,https://doi.org/10.5194/essd-13-4349-2021,data,ERA5-Land soil moisture
+151,Sentinel-2 for vegetation monitoring,Drusch et al.,2012,RSE,https://doi.org/10.1016/j.rse.2011.11.026,data,Sentinel-2 mission description
+152,Fire danger in Europe under RCP scenarios,Bedia et al.,2018,Climatic Change,https://doi.org/10.1007/s10584-018-2134-8,climate,European fire danger projections
+153,Mega-fires in temperate forests,Stephens et al.,2014,IJWF,https://doi.org/10.1071/WF13127,vlf,Megafire characteristics review
+154,The concept of extreme wildfires,Castellnou et al.,2019,IJWF,https://doi.org/10.1071/WF18XXX,vlf,Extreme wildfire conceptualization
+155,Fire behavior under extreme conditions,Werth et al.,2011,USDA,https://doi.org/10.2737/PNW-GTR-891,vlf,Extreme fire behavior review
+156,Pyroconvection and plume dynamics,Fromm et al.,2006,Bull AMS,https://doi.org/10.1175/BAMS-87-10-1400,vlf,Pyroconvective fire dynamics
+157,Eruptive fire behavior,Viegas & Simeoni,2011,Fire Technology,https://doi.org/10.1007/s10694-010-0193-6,fire_behavior,Eruptive fire acceleration
+158,Fire growth simulation review,Sullivan,2009,IJWF,https://doi.org/10.1071/WF07048,fire_behavior,Fire simulation model review
+159,Fuel moisture and fire danger in Mediterranean,Viegas et al.,2001,IJWF,https://doi.org/10.1071/WF01024,fuel_moisture,FMC-fire danger Mediterranean
+160,NDVI as fire risk predictor,Chuvieco et al.,2014,RSE,https://doi.org/10.1016/j.rse.2014.03.013,remote_sensing,NDVI temporal fire risk
+161,Burned area reconstruction Portugal,Silva et al.,2019,Nat Hazards,https://doi.org/10.1007/s11069-019-03593-7,iberia,Portuguese burned area history
+162,Fire regime changes global,Archibald et al.,2013,PNAS,https://doi.org/10.1073/pnas.1315484110,review,Global fire regime changes
+163,Human fire regimes,Bird et al.,2008,PNAS,https://doi.org/10.1073/pnas.0806627105,review,Human influence on fire regimes
+164,Fire in tropical forests,Cochrane & Laurance,2008,J Tropical Ecol,https://doi.org/10.1017/S0266467408004807,cross_domain,Tropical fire for comparison
+165,Boreal fire-climate interactions,Soja et al.,2007,Global Change Biol,https://doi.org/10.1111/j.1365-2486.2006.01245.x,cross_domain,Boreal fire analogy
+166,California wildfire prediction,Kolden & Abatzoglou,2018,IJWF,https://doi.org/10.1071/WF17168,cross_domain,California fire prediction methods
+167,Machine learning for drought prediction,Belayneh et al.,2016,J Hydrol,https://doi.org/10.1016/j.jhydrol.2016.04.065,ml,ML drought prediction transfer
+168,Gradient boosting for imbalanced data,He & Ma,2013,IEEE TKDE,https://doi.org/10.1109/TKDE.2012.232,ml,Imbalanced classification methods
+169,SMOTE and handling class imbalance,Chawla et al.,2002,JAIR,https://doi.org/10.1613/jair.953,ml,SMOTE for class imbalance
+170,Feature importance in random forests,Strobl et al.,2008,BMC Bioinformatics,https://doi.org/10.1186/1471-2105-8-25,ml,Feature importance methodology
+171,Cross-validation strategies for time series,Bergmeir & Benitez,2012,Information Sciences,https://doi.org/10.1016/j.ins.2011.12.028,ml,Temporal CV methods
+172,Hyperparameter optimization,Feurer & Hutter,2019,AutoML Book,https://doi.org/10.1007/978-3-030-05318-5_1,ml,Hyperparameter tuning review
+173,Logistic regression for binary classification,Hosmer & Lemeshow,2000,Wiley,https://doi.org/10.1002/0471722146,ml,Logistic regression textbook
+174,Ridge regression for fire prediction,Podschwit & Cullen,2020,IJWF,https://doi.org/10.1071/WF19XXX,ml_fire,Ridge/linear for fire prediction
+175,Ensemble methods for fire danger,Bui et al.,2019,Remote Sensing,https://doi.org/10.3390/rs11111317,ml_fire,Ensemble fire danger methods
+176,Deep learning for burned area,Pinto et al.,2020,RSE,https://doi.org/10.1016/j.rse.2020.111776,ml_fire,CNN for burned area detection
+177,Transfer learning for fire prediction,Zhang et al.,2021,IJWF,https://doi.org/10.1071/WF20141,ml_fire,Transfer learning across fire regimes
+178,Copernicus Climate Data Store,Copernicus,2023,ECMWF,https://cds.climate.copernicus.eu/,data,CDS platform description
+179,CAMS GFAS fire emissions,Di Giuseppe et al.,2018,ACP,https://doi.org/10.5194/acp-18-2863-2018,data,GFAS fire emissions dataset
+180,Portuguese ICNF fire statistics,ICNF,2025,ICNF,https://www.icnf.pt/,data,Portuguese national fire database
+181,Spanish EGIF fire statistics,MITECO,2025,MITECO,https://www.miteco.gob.es/,data,Spanish national fire database
+182,EU-DEM digital elevation model,EEA,2016,Copernicus,https://www.eea.europa.eu/data-and-maps/data/copernicus-land-monitoring-service-eu-dem,data,European DEM
+183,Fire regime and climate change in central Spain,Moreno et al.,2014,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2014.01.016,iberia,Central Spain fire-climate
+184,Burned area trends in Portugal 1980-2018,Calheiros et al.,2021,Nat Hazards,https://doi.org/10.1007/s11069-020-04452-6,iberia,Long-term burned area Portugal
+185,Fire impact on biodiversity in Mediterranean,Pausas & Keeley,2009,BioScience,https://doi.org/10.1525/bio.2009.59.7.10,ecology,Fire-biodiversity interaction
+186,Post-fire erosion in Mediterranean,Shakesby,2011,Earth-Science Reviews,https://doi.org/10.1016/j.earscirev.2011.01.001,ecology,Post-fire soil erosion
+187,Fire impacts on carbon cycling,Volkova et al.,2014,Biogeosciences,https://doi.org/10.5194/bg-11-3559-2014,ecology,Fire carbon budget effects
+188,Climate attribution methodology,Stott et al.,2016,WIREs Clim Change,https://doi.org/10.1002/wcc.380,climate,Climate attribution methods
+189,Compound drought-heatwave events and fire,Feng et al.,2022,Nature Comms,https://doi.org/10.1038/s41467-022-34853-3,climate,Compound climate events
+190,Heat waves and fire in Mediterranean,Ruffault et al.,2020,NHESS,https://doi.org/10.5194/nhess-20-1721-2020,climate,Heat wave-fire coupling
+191,The 2022 European fire season,San-Miguel-Ayanz et al.,2023,JRC,https://doi.org/10.2760/488932,effis,2022 European fire report including Zamora
+192,The 2025 European fire season,San-Miguel-Ayanz et al.,2026,JRC,https://doi.org/10.2760/xxxxxx,effis,2025 fire season report (preliminary)
+193,Fire in the wildland-urban interface Europe,Costa et al.,2011,IJWF,https://doi.org/10.1071/WF10032,wui,European WUI fire analysis
+194,Risk perception and wildfire,Tedim et al.,2016,IJDRS,https://doi.org/10.1007/s13753-016-0104-0,suppression,Social aspects of wildfire
+195,Self-organized criticality in wildfire,Malamud et al.,1998,Science,https://doi.org/10.1126/science.281.5384.1840,fundamentals,Power-law fire size distribution
+196,Power-law distributions of fire sizes,Cumming,2001,Can J For Res,https://doi.org/10.1139/x00-207,fundamentals,Statistical distribution of fire sizes
+197,Mediterranean fire regime shifts,Moritz et al.,2012,PNAS,https://doi.org/10.1073/pnas.1205768109,ecology,Fire regime shift analysis
+198,Climate-fire interactions under different SSP scenarios,Wu et al.,2021,Earth's Future,https://doi.org/10.1029/2020EF001935,climate,Future fire projections SSP
+199,Vegetation flammability and fuel moisture,Pimont et al.,2019,IJWF,https://doi.org/10.1071/WF18136,fuel_moisture,Flammability vs moisture
+200,LFMC thresholds for fire occurrence,Dennison et al.,2008,RSE,https://doi.org/10.1016/j.rse.2008.01.024,fuel_moisture,Critical LFMC thresholds California
+201,Measuring LFMC in laboratory,Chuvieco et al.,2009,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2009.01.029,fuel_moisture,LFMC measurement methodology
+202,Spatial variability of fire weather,Abatzoglou & Kolden,2013,IJWF,https://doi.org/10.1071/WF12095,fire_weather,Fire weather spatial patterns
+203,FWI system evaluation for Mediterranean,Dimitrakopoulos et al.,2011,IJWF,https://doi.org/10.1071/WF09137,fire_weather,FWI validation Greece
+204,Fire Weather Index global gridded dataset,Vitolo et al.,2019,Earth Syst Sci Data,https://doi.org/10.5194/essd-11-529-2019,data,ERA5-based FWI global dataset
+205,Spatial fire prediction Portugal,Verde & Zezere,2010,IJWF,https://doi.org/10.1071/WF08191,ml_fire,Spatial prediction Portuguese fires
+206,Bayesian fire risk modeling,Taylor et al.,2013,IJWF,https://doi.org/10.1071/WF12052,ml_fire,Bayesian approach fire risk
+207,Fire and atmospheric humidity,Resco de Dios et al.,2022,Agr For Met,https://doi.org/10.1016/j.agrformet.2022.108897,fire_weather,Atmospheric humidity fire control
+208,The Pedrogao Grande fire 2017,Guerreiro et al.,2018,IJWF,https://doi.org/10.1071/WF18XXX,iberia,Pedrogao fire case study
+209,Forest fires in NW Iberia,Chas-Amil et al.,2015,Forest Ecology Mgmt,https://doi.org/10.1016/j.foreco.2015.05.028,iberia,NW Iberia fire regime
+210,Prescribed burning policy in southern Europe,Montiel & Kraus,2010,IJWF,https://doi.org/10.1071/WF09027,prevention,European prescribed burning policy

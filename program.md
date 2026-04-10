@@ -111,6 +111,29 @@ Before optimising, verify: all dominant physics included, hardware constraints e
 - Replacing a complex physics simulator with a simple analytical model
 - Building "the simplest possible simulator that captures the essence of the problem" — this almost always misses the essence
 
+### REAL DATA ONLY — Never Generate Synthetic Data When Real Data Exists
+
+**CRITICAL: Always use real measured data. Synthetic data generation is not a shortcut for "the download is annoying."**
+
+This rule exists because a retroactive audit found that agents consistently defaulted to generating synthetic data calibrated to published statistics rather than downloading the actual datasets. Results from synthetic data reflect the calibration assumptions, not reality.
+
+**The rule:**
+1. **Always download the real dataset first.** If the API requires registration, register. If it requires pagination, paginate. If it requires manual CSV download, do it.
+2. **Synthetic data is acceptable ONLY when ALL of these are true:**
+   - The real data genuinely does not exist in any downloadable form
+   - The project cannot proceed without it
+   - The lit review confirms no open dataset exists for this problem
+   - The synthetic generation method and calibration are documented with exact citations
+3. **When synthetic data IS the only option:**
+   - Label all results as "conditional on synthetic data" in the paper and website summary
+   - The paper's limitations section must lead with this
+   - Phase B discovery claims are strictly hypotheses, not findings
+4. **Simulation-based projects (Option B) are exempt** — running a physics simulator (SUMO, ring-road IDM, PyPSA) is not "synthetic data", it's the project's evaluation method by design.
+
+**Rubric impact for project selection:** If a candidate problem can only be answered with synthetic data (real data genuinely unavailable), apply a -3 penalty to the Data/Sim Availability dimension. Prefer problems where real open data exists. If the penalty drops the total below 24/30, do not select the project.
+
+**If you find yourself writing `np.random` to generate training data for a project that has a real dataset listed in `data_sources.md`, STOP. You are making a mistake. Go download the real data.**
+
 ### Sanity Checks Before the HDR Loop Starts
 
 Four cheap calibration runs before any HDR experiment. Each one is more valuable than a new experiment because they reveal whether downstream improvements can even be trusted.
