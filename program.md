@@ -326,9 +326,82 @@ When the goal is to reverse-engineer an existing AI-discovered or black-box solu
 
 ---
 
+## Phase 2.75: Adversarial Results Review
+
+**Mandatory. Do not skip. Do not combine with the HDR agent's own context.**
+
+After Phase 2.5 (interaction sweep) converges and before writing the paper, a **separate reviewer agent** audits the project. The reviewer must run in a fresh context with no access to the HDR agent's conversation history — it sees only the project artifacts on disk. Its job is to find flaws, not confirm quality.
+
+### Reviewer inputs (read-only)
+
+The reviewer reads these files from `applications/<project>/`:
+- `results.tsv` — every experiment result
+- `knowledge_base.md` — accumulated claims
+- `research_queue.md` — what was tested and what wasn't
+- `literature_review.md` — what the literature says
+- `model.py`, `evaluate.py` — the code
+- `data/` — the actual data (or `data_sources.md` to fetch it)
+
+### Review protocol
+
+The reviewer produces `review.md` with structured findings:
+
+**1. Reproducibility check.** Re-run 5 randomly selected experiments from `results.tsv` using the committed code. Verify the numbers match within the stated noise floor. Flag any that don't.
+
+**2. Cherry-picking audit.** Compare the number of git commits tagged as experiments to the number of rows in `results.tsv`. They should match. Check that REVERT experiments are recorded, not just KEEPs. Flag any gaps.
+
+**3. Overclaiming check.** For every claim in `knowledge_base.md`, trace it to a specific experiment in `results.tsv`. Flag any claim not directly supported by experimental evidence. Check that effect sizes are described accurately (not rounded up, not stripped of uncertainty).
+
+**4. Statistical validity.** Check whether reported improvements exceed the experimental noise floor. Check for per-task regressions hidden under positive aggregate means. Check whether the evaluation metric is appropriate for the claim being made.
+
+**5. Missing experiments.** This is the highest-value step. The reviewer proposes 5–10 experiments that the HDR agent did not run but should have, given the literature review, the results so far, and obvious robustness/generalisability gaps. These are not optional suggestions.
+
+**6. Scope and framing audit.** Check whether the headline finding, title, and abstract carry appropriate qualifiers. Flag any result presented without the conditions under which it holds (e.g. "works on a single-lane ring road" omitted from a claim about traffic).
+
+### Each finding has a severity
+
+| Severity | Definition | HDR agent obligation |
+|----------|-----------|---------------------|
+| **CRITICAL** | Result is wrong or unreproducible | Must fix before proceeding |
+| **MAJOR** | Overclaim, missing qualifier, or significant gap | Must fix or rebut with specific experimental evidence |
+| **MINOR** | Style, clarity, or a nice-to-have experiment | Should fix; may acknowledge as limitation |
+
+### HDR agent response protocol
+
+The HDR agent writes `review_response.md` addressing every finding. Each response must be one of:
+
+- **FIX** — change the code, re-run the experiment, or revise the claim. Show the diff or new result.
+- **REBUT** — cite a specific experiment (by ID in `results.tsv`) that contradicts the finding. "I disagree" without evidence is not a valid rebuttal.
+- **ACKNOWLEDGE** — add to `knowledge_base.md` limitations and flag for the paper's Discussion section.
+
+### Suggested experiments are mandatory
+
+**When the reviewer proposes missing experiments, the HDR agent MUST run them.** This is not optional. The reviewer's missing-experiment suggestions are treated as new entries in `research_queue.md` with priority above all remaining queued hypotheses. The HDR agent:
+
+1. Adds each suggested experiment to `research_queue.md` with a prior and mechanism (the reviewer may suggest these, or the HDR agent states them).
+2. Runs each experiment through the standard Phase 2 loop (implement, evaluate, record, update).
+3. Reports results in `review_response.md` with the experiment ID from `results.tsv`.
+
+If a suggested experiment reveals a problem (e.g. the headline finding doesn't hold under different conditions), this is a genuine discovery and must be reported honestly — not suppressed. The paper must reflect whatever the experiments show, even if it weakens the headline.
+
+### Second pass
+
+After the HDR agent submits `review_response.md`, the reviewer gets one more pass. If all CRITICAL and MAJOR findings are resolved, the reviewer signs off. If not, the cycle repeats. Maximum 3 review rounds — if findings are still unresolved after 3 rounds, they go into the paper as open limitations.
+
+### Deliverables
+
+```
+applications/<project>/
+├── review.md              # Reviewer's structured findings
+├── review_response.md     # HDR agent's responses + new experiment results
+└── review_signoff.md      # Final reviewer pass — approved or open items noted
+```
+
+---
+
 ## Phase 3: paper.md (the only writeup the project owns)
 
-After the HDR loop converges (improvements plateau OR novelty checklist satisfied), produce a single deliverable: `paper.md`, a formal academic paper. This is the canonical source of truth for the project. The public-facing website summary is generated automatically by the website summary pipeline (`~/website/pipeline/`) directly from `paper.md` — projects no longer maintain their own `summary.md`.
+After the review cycle is complete (reviewer sign-off obtained), produce a single deliverable: `paper.md`, a formal academic paper. This is the canonical source of truth for the project. The public-facing website summary is generated automatically by the website summary pipeline (`~/website/pipeline/`) directly from `paper.md` — projects no longer maintain their own `summary.md`.
 
 ### `paper.md` — Formal academic paper
 
@@ -425,6 +498,71 @@ The website summary pipeline at `~/website/pipeline/` runs daily, scans every `a
 - Auto-commit and push to the website repo
 
 **Do not write `summary.md` in the project directory.** It is deprecated; the pipeline owns the public version.
+
+---
+
+## Phase 3.5: Adversarial Paper Review
+
+**Mandatory. Do not skip. The paper must survive independent review before publication.**
+
+After the Phase 3 paper draft is complete, a **separate reviewer agent** reads `paper.md` in isolation — simulating a blind peer reviewer. This agent has no access to the HDR agent's conversation, `results.tsv`, or code. It sees only what a journal reviewer would see: the paper itself.
+
+### Reviewer inputs
+
+- `paper.md` only (plus any figures in `plots/`)
+- The reviewer does NOT see `results.tsv`, `review.md`, `knowledge_base.md`, or code
+
+### Review protocol
+
+The reviewer produces `paper_review.md` with findings in these categories:
+
+**1. Claims vs evidence.** For every quantitative claim in the paper, does the Methods section describe an experiment that would produce that number? Are confidence intervals or noise floors reported? Flag any number that appears without methodological support.
+
+**2. Scope vs framing.** Does the title accurately reflect the scope of the work? Does the abstract carry the same qualifiers as the Discussion? Flag any case where the headline framing omits conditions that limit the result. Example: a finding demonstrated on a single-lane ring road simulation should not be titled as if it applies to real highways.
+
+**3. Reproducibility.** Could a reader replicate the work from the paper alone? Are all parameters specified? Is the dataset identified with version/URL? Are evaluation metrics defined precisely? Flag anything a replicator would have to guess.
+
+**4. Missing experiments.** Based on the claims made, what obvious follow-up experiments would a reviewer demand? These are experiments the *paper itself implies should exist* but doesn't report. Examples: robustness to parameter variation, sensitivity to dataset size, generalisation to a second dataset or domain, ablation of key components.
+
+**5. Overclaiming and language.** Check for hedging failures: "we prove" when "we find evidence for" is appropriate; "always" when "in all tested conditions" is accurate; causal language when only correlation was demonstrated.
+
+**6. Literature positioning.** Does the paper fairly represent prior work? Are there obvious missing citations that a domain expert would notice? Does the paper claim novelty for something already published?
+
+### Severity and response
+
+Same severity scale as Phase 2.75 (CRITICAL / MAJOR / MINOR). Same response obligations (FIX / REBUT / ACKNOWLEDGE).
+
+### Suggested experiments are mandatory
+
+**This is the most important rule in the review process.** When the paper reviewer identifies missing experiments — robustness checks, sensitivity analyses, generalisation tests, ablations — the HDR agent MUST run them. These experiments are not optional follow-up work. They are required before publication.
+
+The HDR agent:
+1. Runs each suggested experiment through the standard evaluation harness
+2. Adds results to `results.tsv`
+3. Adds a new section or extends the Results section of `paper.md` with the findings
+4. **Reports the results honestly, even if they weaken the headline.** If a robustness check fails, the paper must say so. Suppressing a negative result from a reviewer-suggested experiment is the single most damaging thing the methodology can do to its credibility.
+
+If reviewer-suggested experiments significantly change the findings, the paper may need substantial revision — new abstract, revised conclusions, updated title. This is expected, not a failure. A paper that survives adversarial review is worth more than one that was never challenged.
+
+### Revision cycle
+
+1. HDR agent revises `paper.md` and writes `paper_review_response.md`
+2. Reviewer gets a second pass on the revised paper
+3. If all CRITICAL and MAJOR items are resolved, the reviewer signs off in `paper_review_signoff.md`
+4. Maximum 3 rounds. Unresolved items after 3 rounds become mandatory entries in the Discussion/Limitations section.
+
+### Deliverables
+
+```
+applications/<project>/
+├── paper_review.md              # Reviewer's structured findings on the paper
+├── paper_review_response.md     # HDR agent's responses + paper revisions
+└── paper_review_signoff.md      # Final reviewer approval or noted open items
+```
+
+### Only after sign-off
+
+The website summary pipeline should not publish a project until `paper_review_signoff.md` exists. A paper without reviewer sign-off is a draft, not a result.
 
 ---
 

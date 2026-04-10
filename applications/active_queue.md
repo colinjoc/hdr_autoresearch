@@ -1,6 +1,6 @@
 # HDR Active Queue
 
-**Last updated**: 2026-04-10 (P11 dublin_no2 re-run with REAL DATA from EEA/EPA Ireland — all synthetic data eliminated)
+**Last updated**: 2026-04-10 (added OSS abandonment + 2 economics projects targeting HN audience, slotted before Xylella)
 **Companion**: `pipeline.md` (full 140-candidate pool)
 **Order**: strict series — one project at a time, dependencies enforced via task tracker
 
@@ -15,16 +15,19 @@
 | 5 | **complete** | IE-1 | Irish BER vs real home energy gap | 29/30 | IE | 22 |
 | **REFRESH-1** | — | — | re-search candidate pool, update files | — | — | 23 |
 | 6 | **complete** | IE-2 | Predict dangerous Irish radon homes | 29/30 | IE | 24 |
-| 7 | queued | EU-3 | Xylella prediction in Spanish/Italian olive groves | 29/30 | EU | 25 |
-| 8 | **complete** | IE-3 | DART punctuality cascade prediction | 29/30 | IE | 26 |
-| 9 | **complete** | EU-6 | Iberian wildfire "very large fire" transition | 29/30 | EU | 27 |
-| 10 | **complete** | T-3 | Flight delay propagation through network | 29/30 | T | 28 |
+| 7 | queued | OSS-1 | What predicts open source project abandonment? (GH Archive/commits/stars/issues) | 30/30 | O | — |
+| 8 | queued | ECON-1 | Do YC companies actually outperform non-YC at same stage? (Crunchbase) | 30/30 | O | — |
+| 9 | queued | ECON-2 | What predicts which housing markets crash first? (permits/price-to-income/inventory) | 30/30 | O | — |
+| 10 | queued | EU-3 | Xylella prediction in Spanish/Italian olive groves | 29/30 | EU | 25 |
+| 11 | **complete** | IE-3 | DART punctuality cascade prediction | 29/30 | IE | 26 |
+| 12 | **complete** | EU-6 | Iberian wildfire "very large fire" transition | 29/30 | EU | 27 |
+| 13 | **complete** | T-3 | Flight delay propagation through network | 29/30 | T | 28 |
 | **REFRESH-2** | — | — | re-search candidate pool, update files | — | — | 29 |
-| 11 | **complete** | IE-7 | Dublin/Cork NO2 source attribution (REAL DATA, re-run from scratch) | 29/30 | IE | 30 |
-| 12 | queued | T-9 | NYC congestion charge effect decomposition | 29/30 | T | 31 |
-| 13 | queued | O-10 | Aircraft turnaround time mechanism (32 vs 71 min) | 29/30 | O | 32 |
-| 14 | queued | E-4 | TOU non-shifters mechanism (75% don't shift) | 29/30 | E | 33 |
-| 15 | queued | EU-2 | Po Valley fog persistence + aerosol coupling | 29/30 | EU | 34 |
+| 14 | **complete** | IE-7 | Dublin/Cork NO2 source attribution (REAL DATA, re-run from scratch) | 29/30 | IE | 30 |
+| 15 | queued | T-9 | NYC congestion charge effect decomposition | 29/30 | T | 31 |
+| 16 | queued | O-10 | Aircraft turnaround time mechanism (32 vs 71 min) | 29/30 | O | 32 |
+| 17 | queued | E-4 | TOU non-shifters mechanism (75% don't shift) | 29/30 | E | 33 |
+| 18 | queued | EU-2 | Po Valley fog persistence + aerosol coupling | 29/30 | EU | 34 |
 | **REFRESH-3** | — | — | re-search candidate pool, update files | — | — | 35 |
 
 ## Per-project HDR phases (every project runs these)
@@ -33,10 +36,12 @@
 2. **Phase 0.5** — Baseline audit: define the baseline algorithm + dataset + evaluation harness; record `E00` row in `results.tsv`
 3. **Phase 1** — Model-family tournament (4+ families + linear sanity check); pick winner for Phase 2 starting point
 4. **Phase 2** — 100-300+ pre-registered single-change experiments with Bayesian priors and KEEP/REVERT decisions
-5. **Phase 2.5** — Compositional retest of kept changes
-6. **Phase 3** — `paper.md` with Detailed Baseline + Detailed Solution sections (per writing rules in feedback memory)
-7. **Phase B** — Discovery sweep / inverse design / Pareto-front exploration over the trained surrogate
-8. **Website summary** — `~/website/site/content/hdr/results/<slug>.md`, commit, push
+5. **Phase 2.5** — Interaction sweep: pairwise test of near-miss rejected changes
+6. **Phase 2.75** — Adversarial results review by independent agent (reproducibility, cherry-picking, overclaiming, missing experiments). **Suggested experiments are mandatory — run them.**
+7. **Phase 3** — `paper.md` with Detailed Baseline + Detailed Solution sections (per writing rules in feedback memory)
+8. **Phase 3.5** — Adversarial paper review by independent agent (blind review of paper.md only). **Suggested experiments are mandatory — run them and update the paper.**
+9. **Phase B** — Discovery sweep / inverse design / Pareto-front exploration over the trained surrogate
+10. **Website summary** — `~/website/site/content/hdr/results/<slug>.md`, commit, push (only after `paper_review_signoff.md` exists)
 
 Each project lives in `applications/<slug>/` with `paper.md`, `model.py`, `evaluate.py`, `hdr_loop.py`, `phase_b_discovery.py`, `papers.csv`, `results.tsv`, `tests/`.
 
