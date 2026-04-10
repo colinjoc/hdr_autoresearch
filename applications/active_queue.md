@@ -10,8 +10,8 @@
 |---|---|---|---|---|---|---|
 | 1 | **complete** | O-4 | Building permit pipeline (Austin 48d vs SF 605+d) | 30/30 | O | 18 |
 | 2 | **complete** | W-5 | Heat-wave excess deaths predictor (night-time wet-bulb?) | 30/30 | W | 19 |
-| 3 | **in_progress** | T-1 | Phantom highway traffic jams (smart-car suppression) | 30/30 | T | 20 |
-| 4 | queued | EU-1 | Iberian blackout cascade prediction | 29/30 | EU | 21 |
+| 3 | **complete** | T-1 | Phantom highway traffic jams (smart-car suppression) | 30/30 | T | 20 |
+| 4 | **in_progress** | EU-1 | Iberian blackout cascade prediction | 29/30 | EU | 21 |
 | 5 | queued | IE-1 | Irish BER vs real home energy gap | 29/30 | IE | 22 |
 | **REFRESH-1** | — | — | re-search candidate pool, update files | — | — | 23 |
 | 6 | queued | IE-2 | Predict dangerous Irish radon homes | 29/30 | IE | 24 |
