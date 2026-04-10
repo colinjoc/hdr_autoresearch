@@ -1,0 +1,30 @@
+# Data — fetched from URLs in data_sources.md
+data/
+discoveries/*.csv
+
+# Literature — fetched from URLs in papers.csv
+literature/papers/
+literature/books/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.feat_cache/
+
+# Models
+*.pkl
+*.h5
+*.pt
+*.safetensors
+*.ubj
+*.npz
+
+# PDFs
+*.pdf
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

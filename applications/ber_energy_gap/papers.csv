@@ -1,0 +1,31 @@
+id,authors,year,title,journal,url,theme,notes
+1,SEAI,2019,DEAP Manual Version 4.2.2,SEAI Technical Document,https://www.seai.ie/home-energy/building-energy-rating-ber/support-for-ber-assessors/deap/,domain_fundamentals,Ireland's national calculation methodology
+2,ISO,2008,ISO 13790 Energy performance of buildings,International Standard,https://www.iso.org/standard/41974.html,domain_fundamentals,Base standard for DEAP
+3,EU,2010,Energy Performance of Buildings Directive recast,EU Directive 2010/31/EU,https://eur-lex.europa.eu/eli/dir/2010/31/oj,domain_fundamentals,EU regulatory framework
+4,Anderson B,2006,Conventions for U-value calculations,BRE Report BR 443,https://www.bre.co.uk/,domain_fundamentals,Standard U-value calculation methods
+5,Jokisalo J et al,2009,Building leakage infiltration and energy performance,Building and Environment,https://doi.org/10.1016/j.buildenv.2008.03.006,domain_fundamentals,Ventilation heat loss in housing
+6,SEAI,2019,Primary Energy Conversion Factors,SEAI Technical Report,https://www.seai.ie/,domain_fundamentals,Irish PE factors
+7,Sunikka-Blank M & Galvin R,2012,Introducing the prebound effect,Building Research & Information,https://doi.org/10.1080/09613218.2012.690952,energy_gap,Seminal paper on prebound effect
+8,Galvin R,2014,Making the rebound effect more useful,Building and Environment,https://doi.org/10.1016/j.buildenv.2013.09.012,energy_gap,Rebound effect framework
+9,Galvin R & Sunikka-Blank M,2014,Quantifying the performance gap,Energy and Buildings,https://doi.org/10.1016/j.enbuild.2014.01.022,energy_gap,Measured vs calculated gap quantification
+10,Moran P et al,2020,Measured vs calculated energy performance in Irish residential buildings,Energy and Buildings,https://doi.org/10.1016/j.enbuild.2020.110345,energy_gap,Irish-specific DEAP-to-actual gap
+11,Ahern C & Norton B,2020,Energy Performance Certification: Misassessment,Energy and Buildings,https://doi.org/10.1016/j.enbuild.2020.110251,energy_gap,Default assumptions in DEAP
+12,Famuyibo A et al,2012,Developing archetypes for domestic dwellings Ireland,Energy and Buildings,https://doi.org/10.1016/j.enbuild.2012.03.021,candidate_features,Irish dwelling archetypes
+13,Stafford A & Lilley D,2012,Predicting in situ heat pump performance,Energy and Buildings,https://doi.org/10.1016/j.enbuild.2011.12.003,candidate_features,Heat pump COP in practice
+14,Jones B et al,2016,Assessing uncertainty in housing stock infiltration rates,Building and Environment,https://doi.org/10.1016/j.buildenv.2016.09.001,candidate_features,Infiltration modelling
+15,IEA,2019,Energy Efficiency 2019 Lighting,International Energy Agency,https://www.iea.org/,candidate_features,Lighting efficiency trends
+16,SEAI,2023,Energy in Ireland 2023 Report,SEAI,https://www.seai.ie/data-and-insights/seai-statistics/,candidate_features,Irish energy statistics
+17,Collins M & Curtis J,2018,Identification of information gap in residential energy efficiency,Energy Efficiency,https://doi.org/10.1007/s12053-017-9575-y,ml_methods,BER determinants analysis
+18,Ali U et al,2019,Data-driven approach for multi-scale building archetypes,Energy and Buildings,https://doi.org/10.1016/j.enbuild.2019.109364,ml_methods,ML for building energy
+19,Hundi P & Shahsavar R,2020,Comparative study of ML methods for building energy prediction,Energy and Buildings,https://doi.org/10.1016/j.enbuild.2019.109673,ml_methods,Model comparison
+20,Wei Y et al,2018,Review of data-driven building energy prediction,Renewable and Sustainable Energy Reviews,https://doi.org/10.1016/j.rser.2017.09.108,ml_methods,Comprehensive ML review
+21,Beagon P et al,2020,Closing the gap between design and as-built performance,Energy and Buildings,https://doi.org/10.1016/j.enbuild.2020.109793,ml_methods,Irish as-built performance
+22,Box GEP & Cox DR,1964,An analysis of transformations,Journal of the Royal Statistical Society B,https://doi.org/10.1111/j.2517-6161.1964.tb00553.x,feature_engineering,Target transformation theory
+23,Amasyali K & El-Gohary N,2018,Review of data-driven building energy consumption prediction,Renewable and Sustainable Energy Reviews,https://doi.org/10.1016/j.rser.2017.04.095,feature_engineering,Feature engineering for buildings
+24,CIBSE,2015,Guide A Environmental Design 8th edition,CIBSE,https://www.cibse.org/,feature_engineering,Standard building physics reference
+25,Dall-O G et al,2013,Methodology for evaluating residential building performance,Energy and Buildings,https://doi.org/10.1016/j.enbuild.2013.01.002,transfer,Cross-country EPC comparison
+26,Walsh S,2012,Climate averages for Ireland 1981-2010,Met Eireann Climatological Note 14,https://www.met.ie/,transfer,Irish climate data
+27,SI 259/2019,2019,EU Energy Performance of Buildings Regulations,Irish Statutory Instrument,https://www.irishstatutebook.ie/,transfer,nZEB regulations Ireland
+28,SEAI,2023,Better Energy Homes Scheme,SEAI,https://www.seai.ie/grants/home-energy-grants/,retrofit,Grant scheme details
+29,Hyland M et al,2013,The value of domestic building energy efficiency,Energy Economics,https://doi.org/10.1016/j.eneco.2013.07.020,retrofit,Retrofit impact quantification
+30,Economidou M et al,2020,Review of 50 years of EU energy efficiency policies,Energy and Buildings,https://doi.org/10.1016/j.enbuild.2020.110322,retrofit,Rebound effects in retrofit
