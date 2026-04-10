@@ -14,7 +14,7 @@
 | 4 | **complete** | EU-1 | Iberian blackout cascade prediction | 29/30 | EU | 21 |
 | 5 | **complete** | IE-1 | Irish BER vs real home energy gap | 29/30 | IE | 22 |
 | **REFRESH-1** | — | — | re-search candidate pool, update files | — | — | 23 |
-| 6 | queued | IE-2 | Predict dangerous Irish radon homes | 29/30 | IE | 24 |
+| 6 | **complete** | IE-2 | Predict dangerous Irish radon homes | 29/30 | IE | 24 |
 | 7 | queued | EU-3 | Xylella prediction in Spanish/Italian olive groves | 29/30 | EU | 25 |
 | 8 | queued | IE-3 | DART punctuality cascade prediction | 29/30 | IE | 26 |
 | 9 | queued | EU-6 | Iberian wildfire "very large fire" transition | 29/30 | EU | 27 |
