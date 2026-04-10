@@ -205,6 +205,20 @@ For materials, designs, and any domain with a "physically realisable?" constrain
 5. Architecture changes
 6. Speed optimisation
 
+### Hypothesis Selection: Impact Scoring
+
+"Highest-impact first" must be explicit, not vibes. Each hypothesis in `research_queue.md` gets a 3-axis score:
+
+| Axis | 1 (low) | 2 (medium) | 3 (high) |
+|------|---------|------------|----------|
+| **Expected Δ** | < noise floor | 1–3× noise | > 3× noise |
+| **Novelty** | Standard technique, well-explored | Published but untested in this domain | No prior work; genuinely new combination |
+| **Mechanistic clarity** | "Might help" | Plausible causal story | Clear physics/domain mechanism with literature support |
+
+**Impact = Expected Δ + Novelty + Mechanistic clarity** (range 3–9). Pick the highest-scoring OPEN hypothesis. Break ties by preferring the one with the prior closest to 0.5 (maximum expected information gain — see Prior Discipline below).
+
+**Long-shot quota:** At least 20% of hypotheses in `research_queue.md` must have a stated prior ≤ 0.3. This prevents the queue from being dominated by "safe" confirmatory hypotheses. If the queue falls below the 20% long-shot ratio after pruning, add new speculative hypotheses from the literature before continuing. Long-shots are where the surprising discoveries come from — the methodology must not systematically avoid them.
+
 ### How many experiments is "enough"? — the saturation heuristic for Phase 2
 
 Mirroring the Phase 0 saturation rule: stop the HDR loop when both signals fire.
@@ -216,15 +230,61 @@ Stopping at 100 experiments because you "hit the count" is wrong if either signa
 
 ### Principles
 - **Domain-first**: every hypothesis grounded in domain science
-- **Isolation**: one change per experiment
-- **Bayesian**: state beliefs before data, update after
+- **Isolation**: one change per experiment (but see Interaction Sweep below)
+- **Bayesian**: state beliefs before data, update after (see Prior Discipline below)
 - **Cumulative**: every experiment produces knowledge, even failures
 - **Plateau detection — distinguish optimisation plateau from physical floor.**
   - **Optimisation plateau** (5+ consecutive reverts at moderate margins): re-tournament. The HDR loop has exhausted the current approach.
   - **Physical floor** (improvements smaller than the simulator's noise floor across many experiments): pivot to a new problem dimension instead of pushing harder. If a fundamental physical limit is binding, no amount of optimisation will help. Move to a different objective, hardware regime, or problem formulation.
 - **Tighten the revert threshold late-loop.** Early experiments (1–20) accept any positive Δ above noise. Mid-loop (20–50), require Δ > 2× the experimental noise floor. Late-loop (50+), require Δ > 3× noise OR a parallel benefit (inference speed, robustness, simplicity). Otherwise the loop drowns in tied experiments.
 
-### Bayesian Prior Calibration
+### Interaction Sweep (Phase 2.5)
+
+The isolation principle is analogous to coordinate descent: it finds improvements along single axes but misses combinatorial effects. A change that fails in isolation may succeed in combination with another. After the main Phase 2 loop converges, run an interaction sweep to catch these.
+
+**When to run:** After Phase 2 converges (sustained revert streak OR research-queue exhaustion), before writing the paper.
+
+**Procedure:**
+1. **Collect near-miss rejects.** From `results.tsv`, identify all reverted experiments where the result was within 1× the noise floor of the KEEP threshold (the "almost worked" changes). Take the top N candidates (N ≤ 8, typically 5).
+2. **Run a fractional factorial.** Test all pairs of near-miss rejects applied simultaneously (N×(N-1)/2 experiments). For N=5 this is 10 experiments; for N=8 this is 28. Each experiment applies exactly two reverted changes together.
+3. **Escalate winners.** Any pair that passes the KEEP threshold is kept as a unit. If multiple pairs win, test the union of all winning pairs as a single experiment.
+4. **Record interaction findings.** In `results.tsv`, tag interaction experiments with `interaction=True` and note which individual experiments they combine. In `knowledge_base.md`, document which interactions were synergistic and hypothesise why — this is often a genuine discovery about the problem structure.
+
+**What this is NOT:** It is not a full combinatorial search (2^N is intractable for large N). It is a targeted sweep over the most promising rejected changes. The methodology is closer to coordinate descent with a post-hoc pairwise interaction check than a full design-of-experiments approach. This is an explicit trade-off: tractability over completeness.
+
+**Scope limit:** If no reverted experiments are within 1× noise of the KEEP threshold, skip the interaction sweep — the rejected changes were clearly bad individually and unlikely to rescue each other.
+
+### Prior Discipline
+
+Bayesian priors are only useful if they are (a) calibrated, (b) used to order work, and (c) updated after each experiment. Without all three, stating a prior is performative rather than functional.
+
+#### 1. Calibration Tracking
+
+After every 20 experiments, compute a calibration check: bin all stated priors into buckets (0–0.3, 0.3–0.5, 0.5–0.7, 0.7–1.0) and compare the stated probability against the actual KEEP rate in each bucket. Record this in `results.tsv` as a calibration row.
+
+- If priors in the 0.7–1.0 bucket have a KEEP rate below 0.4, the agent is systematically overconfident. Apply a blanket 0.7× deflation to all future priors until the next calibration check.
+- If priors in the 0–0.3 bucket have a KEEP rate above 0.5, the agent is systematically underconfident about long-shots. Raise the long-shot quota (see Hypothesis Selection above) to 30%.
+- If calibration is reasonable (within ±15pp per bucket), no adjustment needed.
+
+Over time this produces a calibration curve that is itself a finding about how well the methodology predicts its own outcomes.
+
+#### 2. Prior-Informed Queue Ordering
+
+Hypotheses where the prior is far from 0.5 (strong belief either way) are less informative — you mostly already know what will happen. Hypotheses near 0.5 with high impact scores should go first because they maximise expected information gain.
+
+**Ordering formula:** When two hypotheses have the same impact score, break ties by preferring the one whose prior is closest to 0.5. When impact scores differ, impact wins — a high-impact hypothesis at 0.8 prior still beats a low-impact one at 0.5 prior. But among equals, chase uncertainty.
+
+#### 3. Posterior Updating
+
+After each experiment, compute and record the updated belief:
+- **KEEP result**: posterior = prior × 1.5 (capped at 0.95) for related hypotheses in the same cluster (e.g. if a VIX feature worked, raise priors for other volatility features)
+- **REVERT result**: posterior = prior × 0.5 for related hypotheses
+
+Record the posterior in `research_queue.md` alongside the prior. If a cluster of related hypotheses all converge toward posterior < 0.1 after multiple experiments, retire the cluster — the mechanism is not active in this problem. Conversely, if a cluster converges toward posterior > 0.8, the mechanism is confirmed; shift effort elsewhere.
+
+This prevents two failure modes: (a) endlessly testing variants of a dead idea, and (b) abandoning a productive direction after a single failure.
+
+#### 4. Known Bias Corrections
 
 Stated priors are systematically wrong in characteristic directions. Adjust accordingly:
 
@@ -305,7 +365,55 @@ A publication-quality academic paper. Structure:
 
 - **The methodology section answers two questions only**: (a) what was the baseline and how was it calculated, with enough detail for reproduction, and (b) how did the project iterate on the baseline to reach the final result, including what classes of hypothesis were tested and what the keep-vs-revert criterion was. The methodology section MUST NOT include literature citation counts, hypothesis counts, or any other Phase 0 / Phase 0.5 work-effort metric. Those numbers are administrative trivia and live in `experiment_log.md`, not in the published methodology.
 
-- **Section ordering for paper.md and summaries**: Abstract → Introduction → **Detailed Baseline** → **Detailed Solution** → Methods (the iteration process) → Results → Discussion → Conclusion → References. The two new sections sit between the introduction and the methods because they establish what is being compared *before* the reader sees how the comparison was done.
+- **Section ordering for paper.md**: Abstract → Introduction → **Detailed Baseline** → **Detailed Solution** → Methods (the iteration process) → Results → Discussion → Conclusion → References. The two new sections sit between the introduction and the methods because they establish what is being compared *before* the reader sees how the comparison was done.
+
+### Plots and figures in paper.md (mandatory)
+
+Every paper.md must include plots generated by a `generate_plots.py` script in the project directory. Plots are saved as PNG (300 DPI) to a `plots/` subdirectory and referenced in the markdown as `![caption](plots/filename.png)`. Commit the PNGs to git alongside the paper.
+
+**Rule of thumb: add a plot when the finding would take more than 2 sentences to describe in text.** If you're writing a paragraph of numbers comparing 5 things, that's a chart, not prose.
+
+**Mandatory plots (every project):**
+
+1. **Predicted vs actual scatter** — shows model quality at a glance. Tight diagonal = good, scatter = bad. Include the 1:1 reference line.
+2. **Feature importance (top 10-15)** — horizontal bar chart of permutation importance or SHAP values. This IS the mechanism finding — what the model actually relies on.
+3. **The headline finding visualised** — whatever the "surprise" is (the refutation, the threshold, the decomposition, the Pareto front) as a single compelling figure. This is the figure a journalist would use.
+
+**Conditional plots (add when the trigger applies):**
+
+| Trigger | Plot type |
+|---|---|
+| Phase 2 had multiple keeps | Waterfall chart of cumulative improvement, experiment by experiment |
+| Phase B produced a Pareto front | Pareto scatter with labelled knee points and the baseline marked |
+| Data has a geographic dimension | Choropleth map or station-level heatmap |
+| Data has a time dimension | Time series with the key event or anomaly highlighted |
+| Two competing hypotheses tested | Side-by-side grouped bar chart or paired dot plot |
+| Distribution shape matters to the story | Histogram with annotated thresholds (e.g. the 200 Bq/m³ radon line) |
+| Before/after comparison | Paired scatter or back-to-back histogram showing the shift |
+| Cross-city or cross-country comparison | Faceted small-multiples or a single ranked bar chart |
+
+**Style rules for plots:**
+- Use `matplotlib` with a clean style (`plt.style.use('seaborn-v0_8-whitegrid')` or similar)
+- Label axes with units. Title optional (the caption in the markdown serves as the title).
+- Use colourblind-safe palettes (e.g. `tab10`, `Set2`, or the Wong palette)
+- `dpi=300, bbox_inches='tight'` for every `savefig`
+- Keep each PNG under 500 KB (resize if needed)
+- No more than 8-10 plots per paper — each one must earn its place
+
+**File structure:**
+```
+applications/<project>/
+├── generate_plots.py    # reads results.tsv + cached data, produces all PNGs
+├── plots/
+│   ├── pred_vs_actual.png
+│   ├── feature_importance.png
+│   ├── headline_finding.png
+│   └── ...
+├── paper.md             # references plots as ![](plots/filename.png)
+└── ...
+```
+
+`generate_plots.py` must be runnable standalone (`python generate_plots.py`) and produce all plots from cached data without re-running the model. It reads `results.tsv`, any cached predictions, and the cleaned dataset.
 
 ### Public summary (auto-generated, do not maintain by hand)
 
