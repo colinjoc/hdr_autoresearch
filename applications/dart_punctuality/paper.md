@@ -10,7 +10,7 @@ Dublin Area Rapid Transit (DART) punctuality collapsed from 92.8% in June 2024 t
 
 Dublin Area Rapid Transit (DART) is Ireland's electrified commuter rail system, serving approximately 45,000 daily passengers on approximately 150 daily services across 32 stations. The system operates on a linear network running from Malahide and Howth in the north through central Dublin (Connolly, Tara Street, Pearse) to Bray and Greystones in the south [1].
 
-In June 2024, DART commuter punctuality stood at 92.8% — comfortably above the National Transport Authority's (NTA) target of 90% within 5 minutes of schedule. By October 2024, punctuality had collapsed to 64.5%, a 28.3 percentage point drop in four months [2]. The Irish Times documented "delays, cancellations, timetable chaos, signal failures" with no agreed root cause [3]. Competing explanations included: Connolly Station's 1970s signalling infrastructure reaching a capacity ceiling; a new timetable introduced in September 2024 that reduced buffer times; weather sensitivity on the exposed Bray-Greystones coastal section; and rolling stock availability problems.
+In June 2024, DART commuter punctuality stood at 92.8% — comfortably above the National Transport Authority's (NTA) target of 90% within 5 minutes of schedule. By October 2024, punctuality had collapsed to 64.5%, a 28.3 percentage point drop in four months [2] (Figure 1). The Irish Times documented "delays, cancellations, timetable chaos, signal failures" with no agreed root cause [3]. Competing explanations included: Connolly Station's 1970s signalling infrastructure reaching a capacity ceiling; a new timetable introduced in September 2024 that reduced buffer times; weather sensitivity on the exposed Bray-Greystones coastal section; and rolling stock availability problems.
 
 ### 1.2 Research Question
 
@@ -118,7 +118,7 @@ LightGBM slightly outperforms XGBoost on CV metrics (AUC 0.989 vs 0.971), but bo
 
 The final model uses XGBoost with 26 features (17 base + 9 HDR additions) and one hyperparameter adjustment (min_child_weight increased from 5 to 10 for stability).
 
-**Feature importance ranking:**
+**Feature importance ranking** (Figure 2):
 1. post_timetable_change: 0.493
 2. post_change_x_wind: 0.253
 3. morning_punct: 0.106
@@ -128,7 +128,7 @@ The final model uses XGBoost with 26 features (17 base + 9 HDR additions) and on
 7. rolling_7d_punct: 0.013
 8. Remaining 19 features: <1% each
 
-The top three features account for 85.2% of total feature importance, confirming that the prediction is dominated by (1) whether the system is in the post-timetable-change regime, (2) whether that regime is stressed by wind, and (3) whether the morning cascade indicator is elevated.
+The top three features account for 85.2% of total feature importance, confirming that the prediction is dominated by (1) whether the system is in the post-timetable-change regime, (2) whether that regime is stressed by wind, and (3) whether the morning cascade indicator is elevated (Figure 5).
 
 ## 4. Methods
 
@@ -174,7 +174,7 @@ The holdout set (last 3 months of data) achieves:
 - Precision: 0.975
 - Recall: 1.000
 
-This near-perfect performance reflects the dominance of the structural break: in the holdout period, the post_timetable_change indicator is always 1, and the model correctly identifies nearly all bad days.
+This near-perfect performance reflects the dominance of the structural break: in the holdout period, the post_timetable_change indicator is always 1, and the model correctly identifies nearly all bad days (Figure 3).
 
 ### 5.3 Day-of-Week and Seasonal Risk Patterns
 
@@ -200,7 +200,7 @@ Monday is the worst day, consistent with the pattern of incomplete weekend recov
 - February-May: 0.346-0.420
 - June-August: 0.288-0.314 (lowest)
 
-The October-December peak reflects the combination of post-timetable-change regime, autumn/winter weather (higher wind, more rain), school term (higher demand), and leaf-fall adhesion problems.
+The October-December peak reflects the combination of post-timetable-change regime, autumn/winter weather (higher wind, more rain), school term (higher demand), and leaf-fall adhesion problems (Figure 4).
 
 ### 5.4 Competing Explanatory Models
 
@@ -210,7 +210,7 @@ Feature ablation analysis tests four competing explanations for the punctuality 
 
 **(b) Connolly Station signalling:** Not directly testable from this data. However, the timetable change EXPOSES the signalling limitation by demanding higher throughput from the same infrastructure. The signalling constraint is a necessary condition (the infrastructure cannot handle the new timetable), but the timetable change is the sufficient condition (the old timetable worked within the signalling constraint).
 
-**(c) Weather sensitivity:** Weather features (wind, rain, temperature, frost, directional exposure) account for approximately 5% of feature importance. Weather is real — the Bray-Greystones section is genuinely weather-exposed — but it is secondary. Weather turns a marginal day into a bad day; the timetable change turns most days into marginal days.
+**(c) Weather sensitivity:** Weather features (wind, rain, temperature, frost, directional exposure) account for approximately 1.4% of feature importance (Figure 5). Weather is real — the Bray-Greystones section is genuinely weather-exposed — but it is secondary. Weather turns a marginal day into a bad day; the timetable change turns most days into marginal days.
 
 **(d) Rolling stock availability:** Not testable without fleet data. Remains an open hypothesis.
 
@@ -262,6 +262,18 @@ The model achieves near-perfect prediction (CV AUC 0.971, holdout AUC 1.000), bu
 3. A GTFS-RT data collection campaign running for 6-12 months would enable per-service delay prediction and validation of these synthetic-data findings.
 
 **Future work:** Collect historical GTFS-RT data, build a within-regime prediction model (predicting bad days without the post_timetable_change feature), test fleet availability as a competing explanation, and extend to InterCity and Commuter services where different dynamics may apply.
+
+## Figures
+
+**Figure 1.** DART monthly punctuality time series (January 2023 to December 2025) with the September 2024 timetable change marked as a vertical dashed line. Pre-change punctuality averaged approximately 93%; post-change it collapsed to 64.5% in October 2024 before partially recovering to 75-81%. The NTA 90% target is shown as a horizontal dotted line. (`plots/headline_finding.png`)
+
+**Figure 2.** Top 15 XGBoost feature importances (gain), colour-coded by category: timetable regime (orange), cascade/system state (green), weather (dark blue), temporal/other (light blue). The post_timetable_change indicator dominates, followed by the timetable-wind interaction and morning punctuality. (`plots/feature_importance.png`)
+
+**Figure 3.** Predicted bad-day probability vs actual daily punctuality. Orange points are actual bad days (punctuality < 85%); blue points are normal days. The model achieves clean separation: virtually all bad days receive predicted probability > 0.5, and normal days receive < 0.2. (`plots/pred_vs_actual.png`)
+
+**Figure 4.** Cascade risk calendar: mean predicted bad-day probability by day-of-week (rows) and month (columns). The dashed rectangle highlights the post-timetable-change months (September-December), where risk exceeds 0.60 across all days of the week. Monday is the highest-risk weekday. (`plots/cascade_risk_calendar.png`)
+
+**Figure 5.** Feature group importance comparison. Left panel: aggregate importance by category, showing that timetable regime features (76.9%) dwarf cascade/system state (16.8%), temporal/demand (4.8%), and weather (1.4%). Right panel: individual feature comparison between timetable and weather groups, showing that each timetable feature individually outweighs all weather features combined. (`plots/timetable_vs_weather.png`)
 
 ## References
 
