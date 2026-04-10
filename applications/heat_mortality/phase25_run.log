@@ -1,0 +1,49 @@
+Phase 2.5 robustness runner
+cache: /home/col/generalized_hdr_autoresearch/applications/heat_mortality/data/clean/heat_mortality_phase2.parquet
+panel: rows=9276 cols=149 cities=30
+reference feature set has 70 columns
+  overlap with flagship: 1
+  reference baseline MAE=40.448 R2=0.8231 AUC=0.8171
+  reference +tw_max MAE=40.504 R2=0.8222 AUC=0.8197
+  reference +22 stacked MAE=40.677 R2=0.8202 AUC=0.8149
+sanity wall=35.7s
+
+=== R01 per-city ensemble ===
+  R01: base=44.357  +tw=44.371 (REVERT)  +stacked=44.724 (REVERT)  wall=54.1s
+
+=== R02 70+ proxy target ===
+  R02 70+ demographic-proxy target: base MAE=4.167  +tw MAE=4.172 (REVERT)  +stacked MAE=4.193 (REVERT)  wall=34.8s
+
+=== R03 Davies-Jones swap ===
+  R03 Davies-Jones wet-bulb swap: base MAE=40.448  +tw MAE=40.458 (REVERT)  +stacked MAE=40.819 (REVERT)  wall=34.8s
+
+=== R04 climatology era swap ===
+  R04 climatology era swap (panel median per city-week): base MAE=40.532  +tw MAE=40.458 (REVERT)  +stacked MAE=40.700 (REVERT)  wall=34.9s
+
+=== R05 drop city+country FEs ===
+  R05 drop city + country fixed effects: base MAE=41.294  +tw MAE=41.217 (REVERT)  +stacked MAE=41.432 (REVERT)  wall=29.3s
+
+=== R06 drop autocorrelation features ===
+  R06 drop autocorrelation (prior pscores): base MAE=42.555  +tw MAE=42.498 (REVERT)  +stacked MAE=43.144 (REVERT)  wall=31.9s
+
+=== R07 hot-cities subset ===
+  R07 n_rows=3812  cities=['athens', 'atlanta', 'dallas', 'houston', 'las_vegas', 'lisbon', 'madrid', 'miami', 'milan', 'phoenix', 'rome', 'san_diego']
+  R07 hot cities only (n=3812): base MAE=52.646  +tw MAE=52.490 (REVERT)  +stacked MAE=53.012 (REVERT)  wall=13.7s
+
+=== R08 heat-wave weeks only ===
+  R08 n_rows=524 (top-5% by city p95)
+  R08 heat-wave weeks only (tmax>=city p95, n=524): base MAE=52.588  +tw MAE=52.525 (REVERT)  +stacked MAE=53.294 (REVERT)  wall=3.2s
+
+=== R09 lethal-heat-wave classifier ===
+  R09: base AUC=0.9804  +tw AUC=0.9805 (REVERT)  +stacked AUC=0.9781 (REVERT)  wall=4.9s
+
+=== R10 Mediterranean subset ===
+  R10 n_rows=1957  cities=['athens', 'lisbon', 'madrid', 'milan', 'rome']
+  R10 Mediterranean subset (n=1957): base MAE=36.423  +tw MAE=36.551 (REVERT)  +stacked MAE=36.553 (REVERT)  wall=7.7s
+
+=== R11 wildfire smoke — DEFER ===
+
+=== R12 Farrington baseline — DEFER ===
+
+=== Phase 2.5 total wall time: 285.0s ===
+Markdown summary -> /home/col/generalized_hdr_autoresearch/applications/heat_mortality/phase25_robustness.md

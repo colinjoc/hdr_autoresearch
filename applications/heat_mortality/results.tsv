@@ -1,0 +1,164 @@
+exp_id	description	model	extra_features	cv_mae_deaths	cv_rmse_deaths	cv_r2	cv_auc_lethal	cv_brier_lethal	notes
+E00	Phase 0.5 atmospheric-only baseline	xgboost	BASELINE	47.488	80.448	0.6974	0.8277	0.1419	5-fold CV, n=9276, cities=30, wall=1.4s
+T01	Tournament xgboost	xgboost	BASELINE	47.488	80.448	0.6974	0.8277	0.1419	5-fold CV, n=9276, cities=30, wall=1.1s
+T02	Tournament lightgbm	lightgbm	BASELINE	47.946	81.003	0.6932	0.8237	0.1429	5-fold CV, n=9276, cities=30, wall=0.8s
+T03	Tournament extratrees	extratrees	BASELINE	45.558	73.921	0.7445	0.8220	0.1387	5-fold CV, n=9276, cities=30, wall=9.8s
+T04	Tournament randomforest	randomforest	BASELINE	47.059	79.541	0.7042	0.8185	0.1388	5-fold CV, n=9276, cities=30, wall=20.3s
+T05	Tournament ridge	ridge	BASELINE	64.130	117.083	0.3590	0.8359	0.1376	5-fold CV, n=9276, cities=30, wall=0.1s
+H001	add tw_night_c_max	extratrees	tw_night_c_max	45.587	73.804	0.7453	0.8220	0.1384	5-fold CV n=9276 REVERT wall=10.0s
+H002	add tw_night_c_mean	extratrees	tw_night_c_mean	45.713	74.235	0.7423	0.8245	0.1385	5-fold CV n=9276 REVERT wall=10.3s
+H003	add tw_night_c_max+mean	extratrees	tw_night_c_max,tw_night_c_mean	45.733	74.467	0.7407	0.8253	0.1384	5-fold CV n=9276 REVERT wall=10.4s
+H004	add consecutive_nights_tw_above_24_count	extratrees	consecutive_nights_tw_above_24_count	45.521	73.921	0.7445	0.8239	0.1385	5-fold CV n=9276 REVERT wall=9.8s
+H005	add tw_day_night_spread_c	extratrees	tw_day_night_spread_c	45.400	73.906	0.7446	0.8244	0.1383	5-fold CV n=9276 REVERT wall=10.2s
+H006	add tropical_night_count_week (Tmin>=20)	extratrees	tropical_night_count_week	45.644	74.097	0.7433	0.8227	0.1388	5-fold CV n=9276 REVERT wall=9.8s
+H007	add tropical_night_count_tw22 (wet-bulb)	extratrees	tropical_night_count_tw22	45.642	74.162	0.7428	0.8203	0.1388	5-fold CV n=9276 REVERT wall=9.8s
+H008	add tw_night_c_max_p95_anomaly	extratrees	tw_night_c_max_p95_anomaly	45.578	73.861	0.7449	0.8247	0.1384	5-fold CV n=9276 REVERT wall=10.2s
+H009	add tw_night_c_mean_p90_anomaly	extratrees	tw_night_c_mean_p90_anomaly	45.745	74.625	0.7396	0.8253	0.1383	5-fold CV n=9276 REVERT wall=10.1s
+H010	add tw_night_c_max_zscore_city	extratrees	tw_night_c_max_zscore_city	45.620	73.996	0.7440	0.8259	0.1384	5-fold CV n=9276 REVERT wall=10.3s
+H011	widen night window 22:00-06:00 (tw_night_c_max_nw22)	extratrees	tw_night_c_max_nw22,tw_night_c_mean_nw22	45.634	74.177	0.7427	0.8248	0.1384	5-fold CV n=9276 REVERT wall=10.5s
+H012	narrow night window 02:00-06:00 (tw_night_c_max_nw02)	extratrees	tw_night_c_max_nw02,tw_night_c_mean_nw02	45.672	74.323	0.7417	0.8264	0.1381	5-fold CV n=9276 REVERT wall=10.5s
+H013	add tw_night_c_min	extratrees	tw_night_c_min	45.603	74.216	0.7424	0.8247	0.1383	5-fold CV n=9276 REVERT wall=10.1s
+H014	Davies-Jones wet-bulb (gated on ERA5)	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs metpy / Davies-Jones — Stull is current default) wall=0.0s
+H015	night-time UTCI (gated on ERA5-HEAT)	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs ERA5-HEAT pull) wall=0.0s
+H016	tw_night_c_max x age65p (gated on age data)	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs age-stratified loader) wall=0.0s
+H017	tw_night_c_max x AC penetration (gated)	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs AC penetration loader) wall=0.0s
+H018	3-day rolling tw_night_max peak	extratrees	tw_night_max_roll3d	45.473	73.643	0.7464	0.8226	0.1383	5-fold CV n=9276 REVERT wall=10.2s
+H019	wet-bulb compound flag (compound_tw_days_count)	extratrees	compound_tw_days_count,tw_compound_flag	45.692	74.120	0.7431	0.8253	0.1385	5-fold CV n=9276 REVERT wall=10.1s
+H020	tw degree-hours above 26 C	extratrees	tw_degree_hours_above_26	45.554	73.798	0.7453	0.8227	0.1385	5-fold CV n=9276 REVERT wall=9.7s
+H021	tw degree-hours above 24 C	extratrees	tw_degree_hours_above_24	45.487	73.757	0.7456	0.8261	0.1386	5-fold CV n=9276 REVERT wall=9.7s
+H022	4-week rolling tw_night max (heat-priming)	extratrees	tw_night_c_max_roll4w	44.709	72.306	0.7555	0.8253	0.1385	5-fold CV n=9276 KEEP wall=10.1s
+H023	Davies-Jones whole pipeline	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs metpy install + pressure) wall=0.0s
+H024	elevation-stratified Stull/DJ	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs DJ + elevation) wall=0.0s
+H025	sWBGT	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs vapour-pressure-derived sWBGT (skip without ERA5)) wall=0.0s
+H026	Liljegren WBGT	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs ERA5 + Liljegren solver) wall=0.0s
+H027	tmax x tmin interaction	extratrees	tmax_x_tmin	44.885	72.807	0.7521	0.8262	0.1382	5-fold CV n=9276 REVERT wall=10.7s
+H028	Tang 2-day compound flag	extratrees	tang_compound_2d_flag	44.815	72.573	0.7537	0.8226	0.1385	5-fold CV n=9276 REVERT wall=10.3s
+H029	Yin 3-day compound flag	extratrees	compound_3d_flag	44.895	72.593	0.7536	0.8232	0.1386	5-fold CV n=9276 REVERT wall=10.3s
+H030	compound_days_count	extratrees	compound_days_count	44.767	72.320	0.7554	0.8232	0.1386	5-fold CV n=9276 REVERT wall=10.4s
+H031	heatwave_type_ordinal	extratrees	heatwave_type_ordinal	44.708	72.478	0.7544	0.8244	0.1382	5-fold CV n=9276 REVERT wall=10.5s
+H032	compound_days_4w_lag	extratrees	compound_days_4w_lag	44.743	72.291	0.7556	0.8289	0.1383	5-fold CV n=9276 REVERT wall=10.3s
+H033	fixed Tmax>=35 3-day flag	extratrees	hw_fixed_35_3d_flag	44.739	72.316	0.7555	0.8263	0.1381	5-fold CV n=9276 REVERT wall=10.4s
+H034	p95 3-day flag	extratrees	hw_p95_3d_flag	44.790	72.465	0.7545	0.8279	0.1385	5-fold CV n=9276 REVERT wall=10.3s
+H035	EuroHEAT flag	extratrees	euroheat_flag	44.858	72.541	0.7539	0.8251	0.1383	5-fold CV n=9276 REVERT wall=10.4s
+H036	Hobday calendar-day p90 5-day flag	extratrees	hobday_atm_flag	44.890	72.545	0.7539	0.8273	0.1382	5-fold CV n=9276 REVERT wall=10.3s
+H037	NWS HeatRisk feature	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs NWS HeatRisk archive) wall=0.0s
+H038	UK HHAS feature	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs UK HHAS archive) wall=0.0s
+H039	ensemble of 3 HW definitions vote	extratrees	hw_majority_vote	44.777	72.255	0.7559	0.8243	0.1383	5-fold CV n=9276 REVERT wall=10.2s
+H040	Russo HWMI	extratrees	hwmi_daily	44.901	72.907	0.7514	0.8281	0.1384	5-fold CV n=9276 REVERT wall=10.4s
+H041	tw_c_mean - city MMT	extratrees	tw_c_mean_minus_city_mmt	44.868	72.859	0.7518	0.8247	0.1383	5-fold CV n=9276 REVERT wall=10.6s
+H042	MMT percentile	extratrees	mmt_percentile_city	44.833	72.883	0.7516	0.8247	0.1384	5-fold CV n=9276 REVERT wall=10.5s
+H043	1961-1990 climatology	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (no historical climatology cache) wall=0.0s
+H044	1991-2020 climatology	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (no historical climatology cache) wall=0.0s
+H045	year-index x tw interaction	extratrees	tw_c_mean_x_year_index	44.932	73.077	0.7503	0.8263	0.1382	5-fold CV n=9276 REVERT wall=10.6s
+H046	lag-0/1 tmax rolling max	extratrees	tmax_max2d_week	44.505	72.010	0.7575	0.8280	0.1378	5-fold CV n=9276 REVERT wall=10.6s
+H047	0-14 day Tw rolling mean (2-week)	extratrees	tw_rolling_14d_mean	44.469	72.007	0.7575	0.8257	0.1378	5-fold CV n=9276 REVERT wall=10.6s
+H048	0-21 day Tw rolling mean (3-week)	extratrees	tw_rolling_21d_mean	44.048	71.259	0.7626	0.8256	0.1381	5-fold CV n=9276 KEEP wall=10.5s
+H049	0-28 day Tw rolling mean (4-week)	extratrees	tw_rolling_28d_mean	43.741	70.774	0.7658	0.8242	0.1382	5-fold CV n=9276 REVERT wall=11.0s
+H050	DLNM-style cross-basis tw weekly lag1..4	extratrees	tw_c_mean_lag1,tw_c_mean_lag2,tw_c_mean_lag3,tw_c_mean_lag4,tw_c_max_lag1,tw_c_max_lag2,tw_c_max_lag3,tw_c_max_lag4	44.055	71.316	0.7622	0.8232	0.1364	5-fold CV n=9276 REVERT wall=14.2s
+H051	DLNM-style cross-basis tw_night weekly lag1..4	extratrees	tw_night_c_max_lag1,tw_night_c_max_lag2,tw_night_c_max_lag3,tw_night_c_max_lag4,tw_night_c_mean_lag1,tw_night_c_mean_lag2,tw_night_c_mean_lag3,tw_night_c_mean_lag4	44.073	71.499	0.7610	0.8215	0.1364	5-fold CV n=9276 REVERT wall=14.3s
+H052	separate cold lag basis	extratrees	tmin_c_mean_lag1,tmin_c_mean_lag2,tmin_c_mean_lag3,tmin_c_mean_lag4	43.755	70.392	0.7683	0.8193	0.1368	5-fold CV n=9276 REVERT wall=12.4s
+H053	pct_age_65p	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs age-stratified loader) wall=0.0s
+H054	ac_penetration_pct	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs AC penetration loader) wall=0.0s
+H055	UHI intensity	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs UHI dataset) wall=0.0s
+H056	deprivation index	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs SVI/IMD loader) wall=0.0s
+H057	prior_week_pscore (autocorrelation)	extratrees	prior_week_pscore	43.339	66.871	0.7909	0.8244	0.1401	5-fold CV n=9276 KEEP wall=11.6s
+H058	prior_4w_mean_pscore	extratrees	prior_4w_mean_pscore	42.311	65.176	0.8014	0.8184	0.1413	5-fold CV n=9276 KEEP wall=12.1s
+H059	tw_night x lat (vulnerability proxy)	extratrees	tw_night_c_max_x_lat	42.455	65.569	0.7990	0.8183	0.1412	5-fold CV n=9276 REVERT wall=12.6s
+H060	city minus country p90	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs country-level percentile aggregator) wall=0.0s
+H061	PM2.5 weekly mean	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs air-quality loader) wall=0.0s
+H062	O3 weekly mean	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs air-quality loader) wall=0.0s
+H063	wildfire smoke flag	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs air-quality loader) wall=0.0s
+H064	PM2.5 x tw_night	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs air-quality loader) wall=0.0s
+H065	O3 8-hour daily max	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs air-quality loader) wall=0.0s
+H066	country fixed effects	extratrees	country_US,country_FR,country_GB,country_ES,country_IT,country_DE,country_GR,country_PT,country_RO,country_AT,country_PL,country_SE,country_DK,country_IE,country_NL	41.416	63.323	0.8125	0.8185	0.1417	5-fold CV n=9276 KEEP wall=12.7s
+H067	city fixed effects already in baseline (sanity)	extratrees	(none)	41.416	63.323	0.8125	0.8185	0.1417	5-fold CV n=9276 REVERT wall=12.8s
+H068	per-city ensemble	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (time budget; deferred to Phase 2.5) wall=0.0s
+H069	Köppen-cluster ensemble	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (time budget) wall=0.0s
+H070	log-rate target (gated)	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs population column) wall=0.0s
+H071	raw excess_deaths target (already baseline)	extratrees	(none)	41.416	63.323	0.8125	0.8185	0.1417	5-fold CV n=9276 REVERT wall=12.6s
+H072	binary classifier on p>=0.10	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (evaluator regresses excess_deaths; classifier-only run skipped) wall=0.0s
+H073	binary classifier on p>=0.20	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (same as H072) wall=0.0s
+H074	age-standardised mortality rate	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs age strata) wall=0.0s
+H075	predict lag heat->mortality peak	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (new target family — Phase 2.5) wall=0.0s
+H076	survival weeks-to-pscore-neg	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (new target family) wall=0.0s
+H077	quantile regression tau=0.95	lightgbm	(none)	83.890	114.354	0.3885	0.8016	0.3260	5-fold CV n=9276 REVERT wall=0.8s
+H078	DLNM-like dry-bulb cross-basis weekly lag1..4	extratrees	tmax_c_mean_lag1,tmax_c_mean_lag2,tmax_c_mean_lag3,tmax_c_mean_lag4	40.838	62.359	0.8182	0.8197	0.1411	5-fold CV n=9276 KEEP wall=14.5s
+H079	penalised DLNM	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs P-spline DLNM library) wall=0.0s
+H080	LightGBM max_depth=8	lightgbm	(none)	42.159	64.798	0.8037	0.8204	0.1462	5-fold CV n=9276 REVERT wall=1.1s
+H081	LightGBM lr=0.02 n=2000	lightgbm	(none)	42.468	65.218	0.8011	0.8150	0.1468	5-fold CV n=9276 REVERT wall=6.1s
+H082	LightGBM min_child_samples=20	lightgbm	(none)	42.600	65.794	0.7976	0.8222	0.1469	5-fold CV n=9276 REVERT wall=0.9s
+H083	LightGBM subsample=0.8 cb=0.8	lightgbm	(none)	42.702	65.833	0.7973	0.8186	0.1466	5-fold CV n=9276 REVERT wall=1.0s
+H084	LightGBM num_leaves=63	lightgbm	(none)	42.666	65.803	0.7975	0.8204	0.1467	5-fold CV n=9276 REVERT wall=1.3s
+H085	LightGBM monotone constraints (gated)	lightgbm	(none)	nan	nan	nan	nan	nan	DEFER (constraint-vector building requires per-feature mapping) wall=0.0s
+H086	XGBoost re-pivot	xgboost	(none)	42.158	65.495	0.7994	0.8251	0.1455	5-fold CV n=9276 REVERT wall=1.9s
+H087	ExtraTrees re-pivot (current best)	extratrees	(none)	40.838	62.359	0.8182	0.8197	0.1411	5-fold CV n=9276 REVERT wall=14.5s
+H088	RandomForest re-pivot	randomforest	(none)	42.212	65.142	0.8016	0.8169	0.1450	5-fold CV n=9276 REVERT wall=32.3s
+H089	Ridge sanity check	ridge	(none)	61.854	104.655	0.4878	0.7505	0.1780	5-fold CV n=9276 REVERT wall=0.0s
+H090	Quantile LGBM tau=0.9	lightgbm	(none)	66.138	94.702	0.5806	0.8174	0.2646	5-fold CV n=9276 REVERT wall=1.1s
+H091	Poisson LGBM (gated)	lightgbm	(none)	nan	nan	nan	nan	nan	DEFER (Poisson on excess_deaths needs non-negative target) wall=0.0s
+H092	Tweedie LGBM (gated)	lightgbm	(none)	nan	nan	nan	nan	nan	DEFER (Tweedie on excess_deaths needs non-negative target) wall=0.0s
+H093	stacked DLNM+LGBM	lightgbm	(none)	nan	nan	nan	nan	nan	DEFER (stacking — Phase 2.5) wall=0.0s
+H094	ERA5-Land replacement	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs ERA5) wall=0.0s
+H095	UHI correction	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs ERA5) wall=0.0s
+H096	HadISDH climatology	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs HadISDH) wall=0.0s
+H097	SPI-3	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs precipitation) wall=0.0s
+H098	30-day precipitation anomaly	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs precipitation) wall=0.0s
+H099	soil moisture percentile	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs ERA5-Land) wall=0.0s
+H100	week-of-year cyclic	extratrees	week_of_year_sin,week_of_year_cos	40.334	61.235	0.8247	0.8198	0.1413	5-fold CV n=9276 KEEP wall=15.2s
+H101	holiday flag	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs holiday calendar) wall=0.0s
+H102	tw_night x sin(week)	extratrees	tw_night_x_sin_week	40.422	61.534	0.8229	0.8157	0.1418	5-fold CV n=9276 REVERT wall=15.8s
+H103	days_since_jun1	extratrees	days_since_jun1	40.388	61.353	0.8240	0.8176	0.1416	5-fold CV n=9276 REVERT wall=15.8s
+H104	keep COVID weeks + dummy	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (changes panel composition; would invalidate compare) wall=0.0s
+H105	Farrington baseline	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs Farrington baseline rebuild) wall=0.0s
+H106	Storm Events Excessive Heat flag	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs Storm Events join) wall=0.0s
+H107	power outage flag	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs outage data) wall=0.0s
+H108	wildfire acres burned	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (needs NIFC) wall=0.0s
+H109	isotonic post-calibration	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (post-calibration on regressor not directly comparable) wall=0.0s
+H110	Platt post-calibration	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (post-calibration on regressor not directly comparable) wall=0.0s
+H111	conformal MAPIE	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (post-calibration on regressor not directly comparable) wall=0.0s
+H112	focal loss	extratrees	(none)	nan	nan	nan	nan	nan	DEFER (post-calibration on regressor not directly comparable) wall=0.0s
+H113	nowcast horizon 0 (=baseline)	extratrees	(none)	40.334	61.235	0.8247	0.8198	0.1413	5-fold CV n=9276 REVERT wall=15.2s
+H114	1-week-ahead lagged features	extratrees	tw_c_mean_lag1,tmax_c_mean_lag1,tmin_c_mean_lag1,tw_night_c_max_lag1	40.107	60.859	0.8268	0.8158	0.1416	5-fold CV n=9276 REVERT wall=16.6s
+H115	2-week-ahead lagged features	extratrees	tw_c_mean_lag2,tmax_c_mean_lag2,tmin_c_mean_lag2,tw_night_c_max_lag2	40.633	61.768	0.8216	0.8175	0.1416	5-fold CV n=9276 REVERT wall=16.7s
+H116	3-week-ahead lagged features	extratrees	tw_c_mean_lag3,tmax_c_mean_lag3,tmin_c_mean_lag3,tw_night_c_max_lag3	40.529	61.583	0.8227	0.8149	0.1417	5-fold CV n=9276 REVERT wall=16.5s
+R01.E00	R01 baseline: per-city ensemble (one ExtraTrees per city)	extratrees	BASE_PHASE2_BEST	44.357	70.623	0.7668	0.8086	0.1377	per-city KFold wall=54.1s n=9276
+R01.tw_max	R01 +tw_night_c_max: per-city ensemble (one ExtraTrees per city)	extratrees	BASE+tw_night_c_max	44.371	70.559	0.7672	0.8036	0.1378	per-city KFold wall=54.1s n=9276 decision=REVERT
+R01.stacked	R01 +22 flagship: per-city ensemble (one ExtraTrees per city)	extratrees	BASE+22_flagship	44.724	71.151	0.7633	0.8107	0.1373	per-city KFold wall=54.1s n=9276 decision=REVERT
+R02.E00	R02 baseline: 70+ demographic-proxy target	extratrees	BASE_PHASE2_BEST	4.167	6.294	0.7907	0.8161	0.1417	70+ proxy (linear rescale by demographic share) wall=34.8s n=9276
+R02.tw_max	R02 +tw_night_c_max: 70+ demographic-proxy target	extratrees	BASE+tw_night_c_max	4.172	6.317	0.7892	0.8188	0.1417	70+ proxy (linear rescale by demographic share) wall=34.8s n=9276 decision=REVERT
+R02.stacked	R02 +22 flagship: 70+ demographic-proxy target	extratrees	BASE+22_flagship	4.193	6.354	0.7867	0.8217	0.1415	70+ proxy (linear rescale by demographic share) wall=34.8s n=9276 decision=REVERT
+R03.E00	R03 baseline: Davies-Jones wet-bulb swap	extratrees	BASE_PHASE2_BEST	40.448	61.511	0.8231	0.8171	0.1415	DJ(tavg,tdew)+stull-night-offset wall=34.8s n=9276
+R03.tw_max	R03 +tw_night_c_max: Davies-Jones wet-bulb swap	extratrees	BASE+tw_night_c_max	40.458	61.609	0.8225	0.8221	0.1415	DJ(tavg,tdew)+stull-night-offset wall=34.8s n=9276 decision=REVERT
+R03.stacked	R03 +22 flagship: Davies-Jones wet-bulb swap	extratrees	BASE+22_flagship	40.819	62.308	0.8185	0.8176	0.1416	DJ(tavg,tdew)+stull-night-offset wall=34.8s n=9276 decision=REVERT
+R04.E00	R04 baseline: climatology era swap (panel median per city-week)	extratrees	BASE_PHASE2_BEST	40.532	61.643	0.8223	0.8163	0.1418	climatology-median-reanchored wall=34.9s n=9276
+R04.tw_max	R04 +tw_night_c_max: climatology era swap (panel median per city-week)	extratrees	BASE+tw_night_c_max	40.458	61.472	0.8233	0.8189	0.1416	climatology-median-reanchored wall=34.9s n=9276 decision=REVERT
+R04.stacked	R04 +22 flagship: climatology era swap (panel median per city-week)	extratrees	BASE+22_flagship	40.700	61.963	0.8205	0.8140	0.1417	climatology-median-reanchored wall=34.9s n=9276 decision=REVERT
+R05.E00	R05 baseline: drop city + country fixed effects	extratrees	BASE_PHASE2_BEST	41.294	63.401	0.8120	0.8250	0.1477	FE one-hots zeroed out wall=29.3s n=9276
+R05.tw_max	R05 +tw_night_c_max: drop city + country fixed effects	extratrees	BASE+tw_night_c_max	41.217	63.399	0.8120	0.8224	0.1479	FE one-hots zeroed out wall=29.3s n=9276 decision=REVERT
+R05.stacked	R05 +22 flagship: drop city + country fixed effects	extratrees	BASE+22_flagship	41.432	63.811	0.8096	0.8202	0.1479	FE one-hots zeroed out wall=29.3s n=9276 decision=REVERT
+R06.E00	R06 baseline: drop autocorrelation (prior pscores)	extratrees	BASE_PHASE2_BEST	42.555	67.343	0.7879	0.8197	0.1372	prior_week_pscore & prior_4w_mean_pscore zeroed wall=31.9s n=9276
+R06.tw_max	R06 +tw_night_c_max: drop autocorrelation (prior pscores)	extratrees	BASE+tw_night_c_max	42.498	67.024	0.7899	0.8199	0.1373	prior_week_pscore & prior_4w_mean_pscore zeroed wall=31.9s n=9276 decision=REVERT
+R06.stacked	R06 +22 flagship: drop autocorrelation (prior pscores)	extratrees	BASE+22_flagship	43.144	68.965	0.7776	0.8201	0.1368	prior_week_pscore & prior_4w_mean_pscore zeroed wall=31.9s n=9276 decision=REVERT
+R07.E00	R07 baseline: hot cities only (n=3812)	extratrees	BASE_PHASE2_BEST	52.646	79.306	0.8047	0.8449	0.1625	subset ['athens', 'atlanta', 'dallas', 'houston', 'las_vegas', 'lisbon', 'madrid', 'miami', 'milan', 'phoenix', 'rome', 'san_diego'] wall=13.7s n=3812
+R07.tw_max	R07 +tw_night_c_max: hot cities only (n=3812)	extratrees	BASE+tw_night_c_max	52.490	79.122	0.8056	0.8414	0.1628	subset ['athens', 'atlanta', 'dallas', 'houston', 'las_vegas', 'lisbon', 'madrid', 'miami', 'milan', 'phoenix', 'rome', 'san_diego'] wall=13.7s n=3812 decision=REVERT
+R07.stacked	R07 +22 flagship: hot cities only (n=3812)	extratrees	BASE+22_flagship	53.012	79.688	0.8028	0.8426	0.1623	subset ['athens', 'atlanta', 'dallas', 'houston', 'las_vegas', 'lisbon', 'madrid', 'miami', 'milan', 'phoenix', 'rome', 'san_diego'] wall=13.7s n=3812 decision=REVERT
+R08.E00	R08 baseline: heat-wave weeks only (tmax>=city p95, n=524)	extratrees	BASE_PHASE2_BEST	52.588	86.157	0.7605	0.8033	0.1902	heat-wave-weeks wall=3.2s n=524
+R08.tw_max	R08 +tw_night_c_max: heat-wave weeks only (tmax>=city p95, n=524)	extratrees	BASE+tw_night_c_max	52.525	87.250	0.7544	0.8059	0.1905	heat-wave-weeks wall=3.2s n=524 decision=REVERT
+R08.stacked	R08 +22 flagship: heat-wave weeks only (tmax>=city p95, n=524)	extratrees	BASE+22_flagship	53.294	87.083	0.7553	0.7973	0.1936	heat-wave-weeks wall=3.2s n=524 decision=REVERT
+R09.E00	R09 baseline: lethal-heat-wave binary classifier (AUC decision)	extratrees	BASE_PHASE2_BEST	nan	nan	nan	0.9804	0.0197	ETClassifier class_weight=balanced wall=4.9s n=9276
+R09.tw_max	R09 +tw_night_c_max: lethal-heat-wave binary classifier (AUC decision)	extratrees	BASE+tw_night_c_max	nan	nan	nan	0.9805	0.0198	ETClassifier class_weight=balanced wall=4.9s n=9276 decision=REVERT
+R09.stacked	R09 +22 flagship: lethal-heat-wave binary classifier (AUC decision)	extratrees	BASE+22_flagship	nan	nan	nan	0.9781	0.0207	ETClassifier class_weight=balanced wall=4.9s n=9276 decision=REVERT
+R10.E00	R10 baseline: Mediterranean subset (n=1957)	extratrees	BASE_PHASE2_BEST	36.423	48.808	0.4909	0.8593	0.1333	['athens', 'lisbon', 'madrid', 'milan', 'rome'] wall=7.7s n=1957
+R10.tw_max	R10 +tw_night_c_max: Mediterranean subset (n=1957)	extratrees	BASE+tw_night_c_max	36.551	48.854	0.4900	0.8505	0.1331	['athens', 'lisbon', 'madrid', 'milan', 'rome'] wall=7.7s n=1957 decision=REVERT
+R10.stacked	R10 +22 flagship: Mediterranean subset (n=1957)	extratrees	BASE+22_flagship	36.553	48.885	0.4893	0.8564	0.1323	['athens', 'lisbon', 'madrid', 'milan', 'rome'] wall=7.7s n=1957 decision=REVERT
+R11.E00	R11 E00 (DEFER): wildfire smoke indicator (HMS)	extratrees	DEFER	nan	nan	nan	nan	nan	DEFER (HMS shapefile spatial-join loader not cached; 25-min budget)
+R11.tw_max	R11 tw_max (DEFER): wildfire smoke indicator (HMS)	extratrees	DEFER	nan	nan	nan	nan	nan	DEFER (HMS shapefile spatial-join loader not cached; 25-min budget)
+R11.stacked	R11 stacked (DEFER): wildfire smoke indicator (HMS)	extratrees	DEFER	nan	nan	nan	nan	nan	DEFER (HMS shapefile spatial-join loader not cached; 25-min budget)
+R12.E00	R12 E00 (DEFER): Farrington-robust expected baseline	extratrees	DEFER	nan	nan	nan	nan	nan	DEFER (surveillance/pyflu not installed; 5y same-week mean retained)
+R12.tw_max	R12 tw_max (DEFER): Farrington-robust expected baseline	extratrees	DEFER	nan	nan	nan	nan	nan	DEFER (surveillance/pyflu not installed; 5y same-week mean retained)
+R12.stacked	R12 stacked (DEFER): Farrington-robust expected baseline	extratrees	DEFER	nan	nan	nan	nan	nan	DEFER (surveillance/pyflu not installed; 5y same-week mean retained)
+B01_minimal_detector	Phase B: minimal lethal-heatwave classifier (greedy forward)	extratrees	consecutive_days_above_p95_tmax,iso_year	81.433	134.636	0.1524	0.9696	0.0759	5-fold CV n=9276 greedy forward selection (cap 8, floor 0.001)
+B02_per_city_dispatch	Phase B: per-city ensemble dispatch (weighted-mean per-city AUC)	extratrees	PHASE2_BEST	nan	nan	nan	0.9745	nan	per-city weighted mean AUC, n_cities=29
+B03_strawman_tmax_only	Phase B: baseline strawman EWS (tmax_c_max top-5% per city)	rule	tmax_c_max	nan	nan	nan	nan	nan	FAR=0.0352 MISS=0.5187 TP=167 FP=314 FN=180
+B04_literature_night_tw_threshold	Phase B: literature night-Tw EWS (tw_night_c_max top-5% per city)	rule	tw_night_c_max	nan	nan	nan	nan	nan	FAR=0.0393 MISS=0.6254 TP=130 FP=351 FN=217
+B05_hdr_best_recommended	Phase B: HDR-recommended EWS (minimal detector, top-5% per city)	extratrees	consecutive_days_above_p95_tmax,iso_year	nan	nan	nan	0.9696	0.0759	FAR=0.0298 MISS=0.3804 TP=215 FP=266 FN=132
