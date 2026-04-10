@@ -69,6 +69,8 @@ A 5-seed sweep (seeds: 42, 0, 1, 2, 100) established the noise floor at 2-sigma:
 
 The baseline wave is a single coherent jamiton propagating backward around the ring. Vehicles periodically decelerate to near-zero speed (the "jam" region), then accelerate back toward free-flow speed before encountering the trailing edge of the jam again. The wave period is approximately 35-40 seconds, consistent with analytical predictions for IDM at this density. The velocity range within a single wave cycle spans from near 0 m/s to approximately 8 m/s, matching the measured wave amplitude of 8.17 m/s.
 
+**Figure 1** (`plots/trajectory_baseline.png`) shows the space-time trajectory diagram of the baseline all-IDM ring. Each dot represents a vehicle at a given time, coloured by velocity (dark = stopped, bright = free-flow). The backward-propagating stop-and-go wave is clearly visible as diagonal dark bands sweeping from right to left across the ring.
+
 ---
 
 ## 3. Detailed Solution: ACC at 18.2% Penetration
@@ -106,6 +108,8 @@ The four ACC vehicles are placed at equally spaced positions around the ring (in
 | Throughput | 1039.4 veh/hr | 930.4 veh/hr | -10.5% |
 | Fuel proxy | 130.65 mL/km | 107.55 mL/km | -17.7% |
 | Minimum spacing | 1.79 m | 4.08 m | +128% |
+
+**Figure 2** (`plots/trajectory_suppressed.png`) shows the space-time trajectory for the ACC 4/22 configuration. Compared to Figure 1, the dark bands have vanished: all vehicles maintain a nearly uniform velocity, and the stop-and-go wave is suppressed.
 
 ### 3.3 Causal Mechanism
 
@@ -215,6 +219,8 @@ A dense sweep from 0 to 22 smart vehicles (in steps of 1) was run for three cont
 
 Key observations: ACC dramatically outperforms FS at 18.2%. PI is catastrophically broken. ConstantVelocity is effective but unsafe (it ignores the leader). Both FS and ACC can fully suppress the wave at 100% penetration, but FS reduces throughput to near-zero (7.6 veh/hr) at 100% because its v_des = 15 m/s is too high for the ring's equilibrium, causing vehicles to stop frequently.
 
+**Figure 3** (`plots/controller_comparison.png`) shows the wave amplitude for each controller family at 18.2% penetration. The PI controller's catastrophic instability (30.1 m/s, worse than baseline) and ACC's near-complete suppression (0.55 m/s) are immediately apparent.
+
 ### 5.2 Phase 2: HDR Loop Results
 
 Of 105 pre-registered single-change experiments:
@@ -275,6 +281,8 @@ The critical finding from the dense 0-to-22 sweep:
 | 16 | 72.7% | 0.19 | 439.5 | 102.77 | 2.98 |
 | 22 | 100.0% | 0.00 | 283.2 | 100.00 | 5.45 |
 
+**Figure 4** (`plots/headline_finding.png`) plots wave amplitude against the number of ACC vehicles from 0 to 22. The sharp transition at 4/22 is the headline finding of this paper: the curve drops from 1.77 m/s at 3 ACC vehicles to 0.55 m/s at 4 ACC vehicles, then flattens with diminishing returns.
+
 **Critical penetration rates for wave_amp < 1 m/s:**
 - ACC: **4/22 (18.2%)** -- achieves 0.55 m/s
 - FS-default: **5/22 (22.7%)** -- achieves 0.74 m/s
@@ -288,6 +296,8 @@ The Pareto front for ACC shows a clear knee at 4/22 (18.2%):
 - Above 18.2%: diminishing returns on wave amplitude with continued throughput loss
 
 Each additional ACC vehicle beyond 4 reduces wave amplitude by only ~0.02-0.05 m/s but costs roughly 45-50 veh/hr of throughput. The marginal trade-off becomes unfavourable.
+
+**Figure 5** (`plots/pareto_front.png`) shows this Pareto front with points coloured by the number of ACC vehicles. The knee at 4 ACC (18.2%) is clearly visible: moving rightward (higher throughput) from the knee rapidly increases wave amplitude, while moving leftward (more ACC vehicles) yields only marginal wave reduction.
 
 ### 5.5 FollowerStopper: A Throughput Problem
 
@@ -375,6 +385,18 @@ Key secondary findings include:
 - Noise level has minimal effect on steady-state wave characteristics
 
 The ring road result provides an optimistic upper bound. Real highways with lane changes, on-ramps, and heterogeneous traffic will require higher penetration rates. Nevertheless, the finding that a simple constant-time-headway ACC -- not a purpose-designed wave-suppression controller -- can nearly eliminate a phantom jam at under 20% penetration is encouraging for the near-term deployment of connected and automated vehicles.
+
+---
+
+## List of Figures
+
+| Figure | File | Description |
+|---|---|---|
+| 1 | `plots/trajectory_baseline.png` | Space-time trajectory of the all-IDM baseline showing the backward-propagating stop-and-go wave |
+| 2 | `plots/trajectory_suppressed.png` | Space-time trajectory with 4 ACC vehicles (18.2%) showing the wave suppressed |
+| 3 | `plots/controller_comparison.png` | Controller comparison bar chart at 18.2% penetration |
+| 4 | `plots/headline_finding.png` | Wave amplitude vs number of ACC vehicles -- the sharp penetration threshold |
+| 5 | `plots/pareto_front.png` | Pareto front: wave amplitude vs throughput for the ACC penetration sweep |
 
 ---
 
