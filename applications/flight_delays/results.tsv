@@ -1,0 +1,6 @@
+exp_id	description	model_family	n_features	cv_mae_mean	cv_mae_std	cv_r2_mean	cv_r2_std	cv_auc30_mean	cv_auc30_std	holdout_mae	holdout_rmse	holdout_r2	holdout_auc30	holdout_f1_30	holdout_precision_30	holdout_recall_30	notes
+E00	Baseline: XGBoost 27 features	xgboost	27	20.88	0.79	0.3099	0.0121	0.7177	0.0058	21.13	35.74	0.3265	0.7255	0.5260	0.7469	0.4060	Baseline: XGBoost 27 features
+T_xgboost	Tournament: xgboost	xgboost	27	20.88	0.79	0.3099	0.0121	0.7177	0.0058	21.13	35.74	0.3265	0.7255	0.5260	0.7469	0.4060	Phase 1 tournament
+T_lightgbm	Tournament: lightgbm	lightgbm	27	20.83	0.78	0.3125	0.0123	0.7188	0.0061	21.03	35.69	0.3285	0.7259	0.5257	0.7538	0.4036	Phase 1 tournament
+T_extratrees	Tournament: extratrees	extratrees	27	21.20	0.85	0.2980	0.0155	0.7057	0.0062	21.37	35.76	0.3258	0.7144	0.5220	0.7052	0.4144	Phase 1 tournament
+T_ridge	Tournament: ridge	ridge	27	20.63	0.87	0.3115	0.0139	0.7149	0.0070	20.86	35.70	0.3279	0.7210	0.5262	0.7398	0.4083	Phase 1 tournament

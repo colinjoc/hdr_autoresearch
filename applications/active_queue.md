@@ -1,6 +1,6 @@
 # HDR Active Queue
 
-**Last updated**: 2026-04-09
+**Last updated**: 2026-04-09 (P10 flight_delays complete)
 **Companion**: `pipeline.md` (full 140-candidate pool)
 **Order**: strict series — one project at a time, dependencies enforced via task tracker
 
@@ -17,8 +17,8 @@
 | 6 | **complete** | IE-2 | Predict dangerous Irish radon homes | 29/30 | IE | 24 |
 | 7 | queued | EU-3 | Xylella prediction in Spanish/Italian olive groves | 29/30 | EU | 25 |
 | 8 | **complete** | IE-3 | DART punctuality cascade prediction | 29/30 | IE | 26 |
-| 9 | queued | EU-6 | Iberian wildfire "very large fire" transition | 29/30 | EU | 27 |
-| 10 | queued | T-3 | Flight delay propagation through network | 29/30 | T | 28 |
+| 9 | **complete** | EU-6 | Iberian wildfire "very large fire" transition | 29/30 | EU | 27 |
+| 10 | **complete** | T-3 | Flight delay propagation through network | 29/30 | T | 28 |
 | **REFRESH-2** | — | — | re-search candidate pool, update files | — | — | 29 |
 | 11 | queued | IE-7 | Dublin/Cork NO2 source attribution | 29/30 | IE | 30 |
 | 12 | queued | T-9 | NYC congestion charge effect decomposition | 29/30 | T | 31 |
