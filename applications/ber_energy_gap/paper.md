@@ -91,7 +91,7 @@ The HDR loop tested 11 hypotheses (9 features, 2 model configurations). Six hypo
 - LightGBM with tuned hyperparameters (learning rate 0.05, 600 trees, max depth 10, L2 regularisation lambda 1.0)
 - Four additional engineered features (compactness ratio, ventilation loss proxy, primary energy factor, space heating fraction)
 
-Evaluated on the full 1.33 million records with 5-fold cross-validation, the composition achieved MAE 18.05 kWh/m2/yr and R2 = 0.951. This represents:
+Evaluated on the full 1.33 million records with 5-fold cross-validation, the composition achieved MAE 18.05 kWh/m2/yr and R2 = 0.951 (Figure 1). This represents:
 
 - 44% MAE reduction from the Ridge baseline (32.28 to 18.05)
 - 7.6% MAE reduction from the LightGBM baseline (19.54 to 18.05)
@@ -111,7 +111,7 @@ We computed SHAP (SHapley Additive exPlanations) values on a random subsample of
 
 ### 4.1 Feature Importance
 
-Two complementary importance measures — built-in LightGBM split-based importance and SHAP mean absolute values — agree on the top features but with instructive differences:
+Two complementary importance measures — built-in LightGBM split-based importance and SHAP mean absolute values — agree on the top features but with instructive differences (Figure 2):
 
 | Rank | Feature | SHAP (mean |SHAP|) | Built-in importance (%) |
 |------|---------|---------------------|-------------------------|
@@ -138,7 +138,7 @@ Two complementary importance measures — built-in LightGBM split-based importan
 
 ### 4.2 Per-Band Prediction Accuracy
 
-The model's accuracy varies substantially across BER bands:
+The distribution of energy values within each BER band (Figure 3) reveals the substantial overlap between adjacent rating categories — a key manifestation of the compression inherent in the DEAP rating system. The model's accuracy varies substantially across BER bands:
 
 | Band | Count | MAE (kWh/m2/yr) | Band width |
 |------|-------|-----------------|------------|
@@ -154,7 +154,7 @@ Accuracy is best for A-rated homes (MAE 5.1 for A2) and degrades progressively t
 
 ### 4.3 Retrofit Cost-Effectiveness
 
-The counterfactual analysis applied single-measure retrofits to the average Irish dwelling (predicted BER 171 kWh/m2/yr, roughly C1 band):
+The counterfactual analysis applied single-measure retrofits to the average Irish dwelling (predicted BER 171 kWh/m2/yr, roughly C1 band; Figure 5):
 
 | Retrofit measure | Predicted saving (kWh/m2/yr) | Approximate cost (EUR) | EUR per kWh/m2/yr saved |
 |-----------------|------------------------------|------------------------|------------------------|
@@ -177,7 +177,7 @@ Three findings stand out:
 
 **County-level variation.** The mean BER ranges from 239 kWh/m2/yr (Leitrim) to 160 (Kildare), a 50% spread. The worst-performing counties are rural western counties (Leitrim, Roscommon, Mayo, Tipperary) with older housing stock. The best-performing counties are Dublin commuter belt counties (Kildare, Meath) and Wicklow, which have a high proportion of post-2006 suburban development.
 
-**Construction era.** This is by far the strongest predictor of BER rating. Mean BER by era: pre-1930 (339), 1930-1977 (271), 1978-2005 (199), 2006-2011 (146), 2012-2020 (54), 2021+ (40). The 8.5:1 ratio between pre-1930 and 2021+ dwellings reflects the cumulative effect of successive building regulations. However, we emphasise that this is the DEAP-calculated ratio; the measured consumption ratio would be closer to 2:1 due to the prebound and rebound effects.
+**Construction era.** This is by far the strongest predictor of BER rating (Figure 4). Mean BER by era: pre-1930 (339), 1930-1977 (271), 1978-2005 (199), 2006-2011 (146), 2012-2020 (54), 2021+ (40). The 8.5:1 ratio between pre-1930 and 2021+ dwellings reflects the cumulative effect of successive building regulations. However, we emphasise that this is the DEAP-calculated ratio; the measured consumption ratio would be closer to 2:1 due to the prebound and rebound effects.
 
 **Heat pump adoption.** Heat pumps are present in less than 1% of pre-2012 certificates but 50% of 2012-2020 and 80% of 2021+ certificates. This near-universal adoption in new construction reflects the nZEB regulation's de facto requirement for renewable heating.
 
@@ -236,6 +236,18 @@ We analysed 1.33 million real Irish BER certificates to determine what drives th
 5. **All findings are conditional on the DEAP model, not measured reality.** The well-documented performance gap (prebound and rebound effects) means real energy savings from any intervention are 20-40% smaller than DEAP predicts.
 
 Future work should combine BER certificate data with metered energy consumption (from smart meters or utility records) to quantify the dwelling-level performance gap and produce more realistic retrofit savings estimates.
+
+## Figures
+
+**Figure 1.** Predicted vs actual BER energy rating (kWh/m2/yr) for 200,000 dwellings using 5-fold cross-validation. The hexbin density plot shows strong agreement along the 1:1 line (MAE = 18.4, R2 = 0.949). Prediction accuracy degrades at higher energy values where the housing stock is more heterogeneous. See `plots/pred_vs_actual.png`.
+
+**Figure 2.** Top 15 features ranked by mean absolute SHAP value. The Heat Loss Parameter (HLP) dominates at 55.4 kWh/m2/yr — more than double the next feature (heating system efficiency, 23.7). Features are colour-coded by category: building fabric (blue), heating system (orange), ventilation (green), and other (purple). See `plots/feature_importance.png`.
+
+**Figure 3.** Distribution of DEAP-calculated energy consumption within each BER rating band (A1 through G). Box plots show IQR with 1.5 IQR whiskers; the dashed line traces official band upper boundaries. The substantial overlap between adjacent bands illustrates the compression inherent in the rating system. See `plots/headline_finding.png`.
+
+**Figure 4.** BER energy by construction era, showing the massive vintage effect. Mean energy drops from 339 kWh/m2/yr (pre-1930) to 40 kWh/m2/yr (2021+), an 8.5:1 ratio driven by cumulative building regulation improvements. Diamond markers show era means; boxes show IQR. See `plots/era_comparison.png`.
+
+**Figure 5.** Single-measure retrofit cost-effectiveness for the average Irish dwelling (BER 171 kWh/m2/yr). Left panel: absolute DEAP improvement; right panel: cost per kWh/m2/yr saved. Chimney sealing (25.1 kWh/m2/yr at 8 EUR per unit saved) is an order of magnitude more cost-effective than any other measure. Colours indicate cost-effectiveness tiers. See `plots/retrofit_cost_effectiveness.png`.
 
 ## References
 
