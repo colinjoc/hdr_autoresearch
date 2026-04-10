@@ -138,6 +138,8 @@ Performance of the Phase 2 best on the full panel:
 
 The MAE and R-squared improvements come from the autocorrelation features (H057, H058), the country fixed effects (H066), and the distributed-lag dry-bulb Tmax (H078). **The AUC actually drifts slightly downward**, which is diagnostic: the regression gain is in mid-week noise, not in the detection of lethal heat waves. Section 5.8 returns to this point when discussing the Phase 2.5 binary classifier variant.
 
+![Predicted vs actual excess deaths (5-fold out-of-fold, Phase 2 best ExtraTrees). The model achieves MAE 40.3 deaths/week and R-squared 0.825 on 9,276 city-weeks. Lethal heat-wave weeks (red) track the identity line.](plots/pred_vs_actual.png)
+
 ### 3.2 Final code block
 
 The full reproducible implementation of the Phase 2 best model, as a standalone Python snippet:
@@ -362,6 +364,8 @@ The 7 KEEPs in order:
 | H078 | DLNM-like dry-bulb Tmax lag1..4 | 41.42 | 40.84 | -0.58 |
 | H100 | week-of-year cyclic | 40.84 | 40.33 | -0.51 |
 
+![Phase 2 KEEP waterfall: the 7 kept experiments as horizontal bars showing their individual MAE improvements. Autocorrelation (H057, H058) dominates; the only night-Tw feature kept (H022) is a 4-week memory signal.](plots/phase2_keeps.png)
+
 Of the 58 REVERTs, the majority come from two clusters: the night-time wet-bulb flagship hypotheses (H001-H022, 21 of which revert) and the model/hyperparameter pivots (H080-H092, all revert because the Phase 1 winner is already close to optimal). Of the 51 DEFERs, 48 are gated on external datasets not yet cached - air pollution (PM2.5, ozone, wildfire smoke), age strata, AC penetration, UHI intensity, ERA5-HEAT, HadISDH, and the Farrington baseline. The DEFERs are documented in `results.tsv` and represent the list of open Phase 3 extensions.
 
 ### 5.4 The 22 flagship night-time wet-bulb hypotheses: 1 KEEP
@@ -391,6 +395,8 @@ The 17 REVERTs include every flavour of night-Tw feature the literature has prop
 
 None of these kept at the 0.5-deaths / 1% noise floor on the cleaned panel.
 
+![Dot plot of all 22 flagship night-time wet-bulb hypotheses. Every experiment clusters within the noise floor (shaded band). Only H022 (4-week rolling max, a memory signal) kept; all others reverted.](plots/headline_finding.png)
+
 ### 5.5 Stacking all 22 flagship features hurts
 
 Does the problem go away if we stack the flagship features rather than adding them one at a time? No: stacking all 22 night-time wet-bulb columns on top of the Phase 1 baseline gives MAE 45.617 deaths per week, **worse than the Phase 1 reference** (45.56). Stacking on top of the Phase 2 best (which already contains H022 and H078) gives MAE 40.677 versus the Phase 2 best 40.334 - also slightly worse. The stacked flagship set is not a hidden win the single-change rule missed.
@@ -416,7 +422,11 @@ Phase 2.5 runs 10 alternative specifications. Each is a triplet (Phase 2 best ba
 | R09 | Binary lethal classifier | -- | -- | -- | **0.9804** | 0.9805 | NO |
 | R10 | Mediterranean subset (n=1,957) | 36.42 | 36.55 | 36.55 | 0.859 | 0.851 | NO |
 
-R11 (wildfire smoke) and R12 (Farrington-corrected baseline) were DEFERred for data/implementation reasons. **The negative finding is robust to every specification we could run.** It does not flip on per-city ensembles (which might have let regional heterogeneity reveal a hot-climate-only signal), on an age-skewed target (which might have revealed a vulnerability interaction), on the Davies-Jones more-accurate wet-bulb solver, on an alternative climatology reference, on dropping fixed effects, on dropping autocorrelation (to see if the Phase 2 best was hiding a signal through autocorrelation dominance), on hot-cities-only, on heat-wave-weeks-only, on a binary classifier framing, or on a Mediterranean-only subset.
+R11 (wildfire smoke) and R12 (Farrington-corrected baseline) were DEFERred for data/implementation reasons. **The negative finding is robust to every specification we could run.**
+
+![Robustness heatmap: 9 MAE-based tests and 1 AUC-based test (R09), each showing baseline, +tw_night_c_max, and +22 flagship stacked. Annotated values are absolute MAE; colour encodes delta from baseline. Adding night-Tw features never helps.](plots/robustness_heatmap.png)
+
+It does not flip on per-city ensembles (which might have let regional heterogeneity reveal a hot-climate-only signal), on an age-skewed target (which might have revealed a vulnerability interaction), on the Davies-Jones more-accurate wet-bulb solver, on an alternative climatology reference, on dropping fixed effects, on dropping autocorrelation (to see if the Phase 2 best was hiding a signal through autocorrelation dominance), on hot-cities-only, on heat-wave-weeks-only, on a binary classifier framing, or on a Mediterranean-only subset.
 
 ### 5.8 R09 binary classifier ceiling: AUC 0.9804 without any night-Tw features
 
@@ -429,6 +439,8 @@ This is the saturation ceiling. The lethal-heat-wave label is simple enough that
 Phase B runs on the same panel and feature set and produces four outputs.
 
 **5.9.1 Feature importance (task 1A).** Permutation importance on the R09 binary classifier ranks `consecutive_days_above_p95_tmax` first with a clean AUC drop of 0.0024. Every other feature has a permutation importance of 0 to machine precision, which is the expected symptom of a saturated classifier with substantial redundancy: dropping any one non-top feature leaves the model able to recover the AUC using other correlated features. The built-in Gini-decrease importance is more differentiated, and places `tw_rolling_21d_mean` (the daytime wet-bulb 3-week rolling mean, H048) second at 0.0261, followed by `tmax_c_max` (0.0448), `tmax_c_mean` (0.0404), `tavg_c` (0.0380), `tw_c_max` (0.0345), and then the city_* one-hots. **No night-time wet-bulb feature is in the top 10 by either permutation importance or built-in importance**. The only Tw-derived feature anywhere in the top 15 is `tw_rolling_21d_mean` (daytime) and `tw_c_max` (daytime) - the daytime wet-bulb does carry signal, just not the night-time version.
+
+![Top 15 features by Gini-decrease importance in the binary lethal-week classifier. Night-time wet-bulb features (which would appear in orange) are entirely absent. Dry-bulb Tmax persistence dominates.](plots/feature_importance.png)
 
 **5.9.2 Minimal detector (task 1B).** Greedy forward selection on the 25-feature actionable candidate pool (all Phase 2 best features except city_* and country_* one-hots) starts at AUC 0.5 and selects:
 
@@ -464,6 +476,8 @@ The inference fails for three plausible reasons, any or all of which could be op
 **First, aggregation attenuates physiological signal.** A week is 168 hours. Even in a city like Phoenix during the July 2023 heat dome, the number of overnight hours with Tw > 27 C was a single-digit percentage of the week, and the panel's weekly `tw_night_c_max` is an average of at most a handful of peak hours per day over 7 days. The signal-to-noise ratio at the weekly aggregate is much worse than at the hourly individual-exposure level. A signal that dominates at the 6-hour exposure window may be invisible at the weekly aggregate.
 
 **Second, vulnerability is already implicit in the baseline.** The 30-city one-hots, the log_population proxy, the `lat` column, and the country fixed effects absorb most of the cross-city heterogeneity that Vecellio's physiology would project onto population exposure. Any additional variance the night-Tw threshold might explain has already been absorbed by the structural controls. This is the argument for the R05 (no fixed effects) robustness test - which also showed no reversal.
+
+![Night-time wet-bulb max vs daytime Tmax, coloured by lethal-week status. The two variables are highly correlated (r = 0.876) and lethal weeks cluster identically in both dimensions, explaining why night-Tw adds no marginal information.](plots/night_tw_vs_tmax.png)
 
 **Third, mortality may be driven by the daytime peak, not the overnight minimum**. Gasparrini et al. (2015) and Achebak et al. (2022) both report that heat-mortality peaks at short lags (0-3 days) and decays rapidly. If the proximate cause of death is the daytime heat spike with overnight recovery modulating recovery capacity, then the heat-lethal signal is in the daytime peak - which is exactly what our Phase 2 best captures via `tmax_c_mean`, `tmax_c_max`, and the `tmax_c_mean_lag1..4` distributed-lag cross-basis.
 
