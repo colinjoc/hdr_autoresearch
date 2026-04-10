@@ -1,0 +1,6 @@
+exp_id	description	model_family	n_features	cv_auc_mean	cv_auc_std	cv_f2_mean	cv_f2_std	holdout_auc	holdout_f2	holdout_precision	holdout_recall	collapse_period_auc	notes
+E00	Baseline: XGBoost with 26 features	xgboost	26	0.9707	0.0415	0.8162	0.2337	1.0000	0.9950	0.9753	1.0000	nan	Baseline: XGBoost with 26 features
+T_xgboost	Tournament: xgboost	xgboost	26	0.9707	0.0415	0.8162	0.2337	1.0000	0.9950	0.9753	1.0000	nan	Phase 1 tournament
+T_extratrees	Tournament: extratrees	extratrees	26	0.8965	0.0536	0.4537	0.4370	0.9221	0.9705	0.8681	1.0000	nan	Phase 1 tournament
+T_ridge	Tournament: ridge	ridge	26	0.9827	0.0132	0.6857	0.0584	0.9922	0.7641	1.0000	0.7215	nan	Phase 1 tournament
+T_lightgbm	Tournament: lightgbm	lightgbm	26	0.9888	0.0123	0.9082	0.1036	1.0000	0.9950	0.9753	1.0000	nan	Phase 1 tournament

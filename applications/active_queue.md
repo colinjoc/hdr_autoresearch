@@ -16,7 +16,7 @@
 | **REFRESH-1** | — | — | re-search candidate pool, update files | — | — | 23 |
 | 6 | **complete** | IE-2 | Predict dangerous Irish radon homes | 29/30 | IE | 24 |
 | 7 | queued | EU-3 | Xylella prediction in Spanish/Italian olive groves | 29/30 | EU | 25 |
-| 8 | queued | IE-3 | DART punctuality cascade prediction | 29/30 | IE | 26 |
+| 8 | **complete** | IE-3 | DART punctuality cascade prediction | 29/30 | IE | 26 |
 | 9 | queued | EU-6 | Iberian wildfire "very large fire" transition | 29/30 | EU | 27 |
 | 10 | queued | T-3 | Flight delay propagation through network | 29/30 | T | 28 |
 | **REFRESH-2** | — | — | re-search candidate pool, update files | — | — | 29 |
