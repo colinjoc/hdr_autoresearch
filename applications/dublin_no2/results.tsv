@@ -1,0 +1,17 @@
+experiment	metric	value	notes
+baseline	covid_validation_mae	4.48	MAE of traffic attribution vs COVID lockdown drop across 14 stations
+baseline	covid_validation_corr	0.974	Correlation of model traffic drop vs observed COVID NO2 drop
+baseline	winetavern_annual_2019	43.5	Winetavern St annual mean NO2 (µg/m³) — highest in Ireland
+baseline	winetavern_traffic_pct_2019	80	% of Winetavern NO2 attributed to traffic (2019)
+baseline	who_annual_exceedance_rate	0.81	Fraction of Dublin station-years exceeding WHO 10 µg/m³
+baseline	covid_winetavern_drop_pct	33	% NO2 drop at Winetavern during COVID lockdown (Mar-Jun 2020 vs 2019)
+baseline	covid_blanchardstown_drop_pct	62	% NO2 drop at M50 during COVID lockdown
+baseline	covid_ballyfermot_drop_pct	53	% NO2 drop at Ballyfermot (residential) during COVID lockdown
+Q1_weekday_weekend	winetavern_weekday_weekend_ratio	1.28	Weekday/weekend NO2 ratio at Winetavern (traffic proxy)
+Q1_weekday_weekend	winetavern_traffic_pct_from_dow	55	Independent traffic % estimate from weekday-weekend diff
+Q1_weekday_weekend	rural_weekday_weekend_ratio	1.15	Even rural Lough Navar shows slight weekday effect (transboundary)
+Q4_covid_phases	winetavern_apr2020_drop_pct	51	April 2020 vs April 2019 — peak strict lockdown
+Q4_covid_phases	blanchardstown_may2020_drop_pct	83	May 2020 vs May 2019 — M50 nearly empty
+Q5_temperature	ballyfermot_winter_temp_corr	-0.323	Negative correlation: colder = more NO2 (heating signal)
+Q5_temperature	clonskeagh_winter_temp_corr	-0.392	Strongest temp-NO2 signal at Clonskeagh
+Q5_temperature	cold_day_no2_excess	14	Extra µg/m³ at background stations on cold (<2°C) vs mild (>11°C) days

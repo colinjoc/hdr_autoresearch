@@ -1,6 +1,6 @@
 # HDR Active Queue
 
-**Last updated**: 2026-04-09 (P11 dublin_no2 complete)
+**Last updated**: 2026-04-10 (P11 dublin_no2 re-run with REAL DATA from EEA/EPA Ireland — all synthetic data eliminated)
 **Companion**: `pipeline.md` (full 140-candidate pool)
 **Order**: strict series — one project at a time, dependencies enforced via task tracker
 
@@ -20,7 +20,7 @@
 | 9 | **complete** | EU-6 | Iberian wildfire "very large fire" transition | 29/30 | EU | 27 |
 | 10 | **complete** | T-3 | Flight delay propagation through network | 29/30 | T | 28 |
 | **REFRESH-2** | — | — | re-search candidate pool, update files | — | — | 29 |
-| 11 | **complete** | IE-7 | Dublin/Cork NO2 source attribution | 29/30 | IE | 30 |
+| 11 | **complete** | IE-7 | Dublin/Cork NO2 source attribution (REAL DATA, re-run from scratch) | 29/30 | IE | 30 |
 | 12 | queued | T-9 | NYC congestion charge effect decomposition | 29/30 | T | 31 |
 | 13 | queued | O-10 | Aircraft turnaround time mechanism (32 vs 71 min) | 29/30 | O | 32 |
 | 14 | queued | E-4 | TOU non-shifters mechanism (75% don't shift) | 29/30 | E | 33 |
