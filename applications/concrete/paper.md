@@ -253,6 +253,10 @@ The model's mathematical maximum-efficiency point uses cement = 40 kg per cubic 
 
 A 0.23 MPa MAE improvement (8.3 percent of the baseline) over 23 experiments. Each kept change contributed between 0.022 and 0.063 MPa.
 
+Figure 1 (`plots/pred_vs_actual.png`) shows the predicted-versus-actual compressive strength scatter for all 1030 out-of-fold predictions from the 5-fold cross-validation. The tight clustering around the diagonal confirms that the model is well-calibrated across the full 2 to 82 MPa range, with no systematic bias at either extreme.
+
+Figure 2 (`plots/feature_importance.png`) shows the gain-based feature importance ranking for the winning Phase 2.5 model. The water-to-binder ratio (the explicit Abrams' law feature) is the most important feature by gain, followed by curing age and cement content. The two engineered features (water-to-binder ratio and supplementary-cementitious-material percentage) and the monotonicity-constrained cement feature are highlighted — together they account for three of the top five features by gain.
+
 ### 5.2 Phase B discovery
 
 | Statistic | Value |
@@ -275,6 +279,10 @@ Best in-distribution mix at 50+ MPa with 56-day curing (more practical):
 - Predicted strength 53.2 MPa
 - Embodied CO₂ 146.9 kg per cubic metre (56 percent reduction vs C40)
 - Cost $98 per cubic metre
+
+Figure 3 (`plots/headline_finding.png`) shows the CO₂-versus-strength Pareto front from the Phase B discovery sweep. All 3,685 candidates are plotted as faint background points, with the 31-design Pareto front traced as a connected curve. The conventional C40 baseline (50 MPa, 335 kg CO₂ per cubic metre) is marked as a diamond, and the in-distribution Pareto winner (58.8 MPa, 156.9 kg CO₂ per cubic metre) is marked as a star. The arrow illustrates the 53 percent CO₂ reduction at 18 percent higher strength.
+
+Figure 4 (`plots/co2_comparison.png`) shows the component-level CO₂ breakdown for the conventional C40 mix versus the discovered low-carbon mix. Cement dominates the conventional mix's emissions at 315 of 335 kg CO₂ per cubic metre (94 percent). In the discovery mix, cement drops to 108 kg CO₂, and the slag and fly ash contributions (21 and 1.5 kg CO₂ respectively) partially offset this but at far lower emission intensity.
 
 ### 5.3 Pareto-knee summary
 
