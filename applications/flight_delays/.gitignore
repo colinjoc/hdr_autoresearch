@@ -1,0 +1,21 @@
+# Data — fetched from URLs in data_sources.md
+data/
+discoveries/*.csv
+
+# Generated plots (reproducible from generate_plots.py)
+plots/
+
+# Literature — fetched from URLs in papers.csv
+literature/papers/
+literature/books/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Models — too large for git
+*.pkl
+*.ubj
+*.h5
+*.safetensors
