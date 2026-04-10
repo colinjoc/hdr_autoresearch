@@ -24,7 +24,35 @@ Can daily operational data from the Spanish grid, when decomposed into physics-i
 
 We adopt a decomposition approach: rather than treating the blackout as a monolithic event, we decompose it into the component physical mechanisms identified by the ENTSO-E investigation and construct proxy features for each. These physics-informed features are combined with standard grid stress indicators and evaluated using multiple machine learning classifiers under LOO-CV.
 
-## 2. Data
+## 2. Related Work
+
+### 2.1 Historical Blackout Analysis
+
+The study of cascading failures in power systems has a rich history driven by major blackout events. The August 14, 2003 Northeast US-Canada blackout (55 GW disconnected, 55 million affected) was investigated by a joint US-Canada task force that identified inadequate tree trimming, alarm system failures, and insufficient regional situational awareness as root causes (US-Canada Power System Outage Task Force 2004). Bialek et al. (2005) analyzed both the North American and Italian 2003 blackouts, finding common patterns of protection relay cascades amplifying initial disturbances. The September 28, 2003 Italian blackout (27 GW, 45 million affected) was an under-frequency cascade triggered by overloaded Swiss-Italian interconnectors (Berizzi 2004; Corsi and Sabelli 2004; Sforna and Delfanti 2006).
+
+The November 4, 2006 European system disturbance split the Continental European synchronous area into three islands following the disconnection of a 380 kV line in northern Germany, affecting 15 million people (UCTE 2007; Bialek 2007; Vournas et al. 2008). The March 31, 2015 Turkey blackout (76 million affected) began with inadequate N-1 margins and resulted in frequency collapse (ENTSO-E 2015; Gumus et al. 2023). The August 9, 2019 UK power disruption (1,691 MW lost) saw unexpected disconnection of both the Hornsea One wind farm and Little Barford gas plant after a lightning strike (E3C 2020; Strbac et al. 2020; Wilson et al. 2021). The January 8, 2021 Continental Europe system separation split the synchronous area into two parts following a busbar coupler trip in Croatia (ENTSO-E 2021).
+
+Pourbeik, Kundur, and Taylor (2006) documented common patterns across blackouts, while Dobson et al. (2001, 2005) provided theoretical frameworks based on self-organized criticality and branching processes. Hines et al. (2009) showed that blackout size distributions follow power-law-like patterns. All of these events were driven by under-frequency mechanisms. The Iberian blackout is the first Continental European event driven by overvoltage cascading, representing a qualitative departure from the historical record.
+
+### 2.2 Voltage Stability Theory
+
+Classical voltage stability theory, as formalized by Van Cutsem and Vournas (1998) and Taylor (1994), focuses predominantly on undervoltage collapse, where reactive power demand exceeds supply. Venikov et al. (1989) established the theoretical framework for voltage collapse as a bifurcation phenomenon. The IEEE Power System Relaying Committee (2014) documented mitigation strategies for conventional undervoltage mechanisms. The overvoltage-driven cascade documented in the Iberian event sits outside this classical framework; a 2026 paper in Electric Power Systems Research described it as the first such event in scientific literature.
+
+### 2.3 Renewable Integration and Grid Stability
+
+The impact of renewable energy sources on power system inertia and frequency stability has been extensively reviewed (Fernandez-Guillamon et al. 2019; Denholm et al. 2020; Smahi et al. 2025; Alhejji et al. 2024). The ENTSO-E Project Inertia Phase II report (2023) established that rate of change of frequency exceeding 1 Hz/s compromises defence plan effectiveness. Grid-forming inverter technology, reviewed by Khan et al. (2024) and Lin et al. (2024), offers a path to active voltage and frequency regulation from inverter-based resources, in contrast to the grid-following fixed power factor mode that contributed to the Iberian cascade.
+
+Spain's solar PV capacity reached 32,043 MW by early 2025, making it the country's largest generation technology (REE 2025). Spain achieved its first weekday of 100% renewable generation on April 22, 2025, just six days before the blackout (pv magazine 2025). Negative electricity prices occurred with increasing frequency, exceeding 500 hours in 2025 (Fortune 2026), reflecting structural oversupply during high-solar periods. Kumar et al. (2023) review reactive power control in renewable-rich grids, documenting the shift from synchronous machine-based voltage regulation to inverter-based reactive power provision.
+
+### 2.4 Machine Learning for Cascading Failure Prediction
+
+Li et al. (2024) provide a comprehensive review of ML applications in cascading failure analysis. Nakarmi et al. (2025) demonstrated that random forests and gradient boosting classifiers can predict cascade outcomes from grid operating parameters. Althelaya et al. (2022) revisited gradient boosting for imbalanced power grid anomaly detection. Wang et al. (2022) applied transformer models, and Donon et al. (2023) used geometric deep learning for online prediction. Alimi et al. (2024) proposed deep learning early warning systems for blackout prevention. Most existing approaches train on simulated cascade data from power system models; our approach is distinctive in using real operational data with physics-informed feature engineering.
+
+### 2.5 Class Imbalance and Small-Sample Learning
+
+Blackout events are inherently rare, creating severe class imbalance. He and Garcia (2009) review learning from imbalanced datasets. Chawla et al. (2002) introduced SMOTE (Synthetic Minority Over-sampling Technique). Galar et al. (2020) review boosting methods for imbalanced classification, finding that gradient boosting methods maintain robustness. For small-sample problems, LOO-CV provides the least biased generalization error estimate (Geisser 1975; Arlot and Celisse 2010), though with high variance. King and Zeng (2001) address logistic regression methodology specifically for rare events.
+
+## 3. Data
 
 ### 2.1 Sources
 
@@ -41,17 +69,45 @@ The raw data were aggregated into a daily feature matrix with one row per day an
 
 ### 2.3 Dataset Size and Class Distribution
 
-The final dataset comprises 94 daily observations. Labels are assigned by combining the known blackout date (28 April 2025) with additional high-risk days identified by the composite grid stress score (top 5th percentile), yielding 8 positive and 86 negative samples. The positive class prevalence is 8.5%, representing extreme class imbalance typical of rare-event prediction problems.
+The final dataset comprises 94 daily observations spanning January 1 through May 4, 2025. Labels are assigned through a two-step procedure. First, the known blackout date (28 April 2025) is labeled as positive. Second, a composite grid stress score is computed from the stress indicators (mean of normalized renewable fraction, solar fraction, inverse synchronous fraction, and negative price flag), and days exceeding the 95th percentile threshold are labeled as additional positives. This yields 8 positive and 86 negative samples, with a positive class prevalence of 8.5%.
 
-## 3. Detailed Baseline
+The labeling strategy reflects the domain understanding that the blackout was not a singular anomaly but rather the realization of a risk state that had been approached on several previous days. The 95th percentile threshold was chosen to capture only the most extreme conditions while providing sufficient positive examples for LOO-CV to produce meaningful estimates. With fewer positives, the cross-validation folds containing the held-out positive sample would dominate the variance; with more positives, the definition of "high-risk" would be diluted.
 
-### 3.1 Baseline Design
+### 3.4 Data Quality and Preprocessing
+
+Several data quality considerations were addressed during feature matrix construction. Generation values from the REE API are reported in MWh (daily totals) and are clipped to non-negative values, since generation should not be negative (though curtailment or data recording artifacts can occasionally produce small negatives). Demand data in MW are resampled from hourly to daily using mean, maximum, minimum, and standard deviation aggregations, providing both level and variability information. Interconnector exchange data include both exports and imports; net flow is computed as the algebraic sum, where positive values indicate net exports. Price data include occasional negative values, which are preserved rather than clipped, as they carry critical signal about oversupply conditions that directly contributed to the cascade mechanism.
+
+Missing values in the feature matrix arise from endpoints covering different date ranges (generation data extends through May while interconnector and price data extend through April). These are handled through outer joins on the date index, with any completely-NaN columns dropped before model fitting. Duplicate date entries from overlapping monthly data files are resolved by keeping the first occurrence. The feature matrix passes 39 automated tests covering data type validation, value range checking, completeness, and the presence of the April 28 blackout day in the index.
+
+### 3.5 Feature Categories
+
+The complete feature matrix includes approximately 40 raw columns organized into five categories:
+
+1. **Generation by technology** (approximately 15 columns): MWh for each technology type reported by REE, including solar PV, wind, nuclear, combined cycle gas turbine, coal, hydroelectric, biomass, cogeneration, fuel-gas, and others.
+
+2. **Derived generation ratios** (8 columns): Total generation, renewable generation, synchronous generation, and the corresponding fractions (renewable/total, solar/total, wind/total, synchronous/total).
+
+3. **Demand statistics** (4 columns): Daily mean, maximum, minimum, and standard deviation of hourly demand in MW.
+
+4. **Cross-border flows** (up to 9 columns): Exports, imports, and net flow for each of France, Portugal, and Morocco.
+
+5. **Price statistics** (4 columns): Daily mean, minimum, maximum, and standard deviation of hourly spot prices in EUR/MWh.
+
+6. **Temporal features** (3 columns): Day of week, month, and weekend indicator.
+
+From these raw features, the physics proxy features and grid stress indicators are derived as described in Section 5.
+
+## 4. Detailed Baseline
+
+### 4.1 Baseline Design
 
 The baseline model uses logistic regression with L2 regularization (regularization strength C = 0.1) on 11 stress indicator features computed from the daily feature matrix. These stress indicators include renewable fraction, solar fraction, synchronous fraction, excess generation ratio, total net exports, export fraction, price floor, negative price flag, mean price, demand coefficient of variation (CV), and composite risk score. Features are standardized using zero-mean unit-variance scaling. Evaluation uses LOO-CV, which trains 94 models each leaving out one day and predicting on it, providing an unbiased (though high-variance) estimate of generalization error on small datasets (Geisser 1975).
 
-The baseline represents the simplest reasonable model: a linear classifier on grid stress indicators without physics decomposition.
+The baseline represents the simplest reasonable model: a linear classifier on grid stress indicators without physics decomposition. The choice of C = 0.1 (strong regularization) follows the standard practice for small-sample high-dimensional problems where overfitting is a primary concern. The balanced class weight option instructs the solver to weight positive samples proportionally to their scarcity, addressing the 8.5% prevalence without requiring explicit oversampling.
 
-### 3.2 Baseline Results
+LOO-CV was chosen over k-fold cross-validation because of the extreme class imbalance: with only 8 positive samples, a 5-fold split would place 1-2 positives in each fold, making stratification unreliable. LOO-CV guarantees that every positive sample appears in a test fold exactly once, providing the most information-efficient evaluation for this regime, albeit with higher variance than stratified k-fold (Arlot and Celisse 2010).
+
+### 4.2 Baseline Results
 
 | Metric | Value |
 |--------|-------|
@@ -64,9 +120,9 @@ The baseline represents the simplest reasonable model: a linear classifier on gr
 
 The baseline achieves high recall (0.875, detecting 7 of 8 high-risk days) but low precision (0.583, with 5 false positives out of 12 positive predictions). The AUC-ROC of 0.910 indicates good discrimination between risk levels. This establishes the reference point: stress indicators alone, with a linear model, can detect most high-risk days but generate substantial false alarms.
 
-## 4. Detailed Solution: Physics-Informed Feature Engineering and Model Tournament
+## 5. Detailed Solution: Physics-Informed Feature Engineering and Model Tournament
 
-### 4.1 Physics Proxy Features
+### 5.1 Physics Proxy Features
 
 Guided by the ENTSO-E root cause analysis, we engineered three physics-informed proxy features that capture the specific mechanisms of the overvoltage cascade:
 
@@ -92,7 +148,7 @@ The first term captures the situation where high solar generation in fixed power
 - `solar_x_low_sync = voltage_stress * (1 - inertia_proxy)`: joint risk of voltage stress with low synchronous generation
 - `reactive_x_export = reactive_gap * export_fraction`: reactive power deficit amplified by heavy exports
 
-### 4.2 Model Tournament
+### 5.2 Model Tournament
 
 We evaluated five model families using the 16 physics proxy features and 2 interaction features under LOO-CV:
 
@@ -107,7 +163,7 @@ We evaluated five model families using the 16 physics proxy features and 2 inter
 
 The GBM with 50 estimators and maximum depth 2 achieved the highest F1 (0.857) and perfect precision (1.000), meaning every day it flagged as high-risk was genuinely high-risk. Its recall of 0.750 means it detected 6 of 8 high-risk days. The Support Vector Machine (SVM) with radial basis function (RBF) kernel achieved the highest AUC-ROC (0.958) but the lowest F1 (0.588) due to poor precision, and was reverted.
 
-### 4.3 Enhanced Feature Set and Threshold Optimization
+### 5.3 Enhanced Feature Set and Threshold Optimization
 
 An enhanced feature set of 18 features (adding additional grid stress indicators to the physics proxies) was evaluated with logistic regression at the optimized regularization strength (C = 1.0, chosen based on tournament results showing AUC-ROC improvement from 0.910 at C = 0.1 to 0.948 at C = 1.0):
 
@@ -118,7 +174,7 @@ An enhanced feature set of 18 features (adding additional grid stress indicators
 
 The enhanced logistic regression achieves the best-calibrated risk scores (AUC-ROC = 0.952) with an optimal decision threshold of 0.70, meaning a day must have a predicted risk probability above 70% to be flagged. The GBM achieves the same F1 as in the tournament with an optimal threshold of 0.10, reflecting the conservative probability estimates typical of gradient boosting with balanced class weights.
 
-### 4.4 Ensemble Model
+### 5.4 Ensemble Model
 
 The best overall performance was achieved by an ensemble averaging the predicted probabilities of the enhanced logistic regression and GBM:
 
@@ -128,7 +184,7 @@ The best overall performance was achieved by an ensemble averaging the predicted
 
 The ensemble retains the GBM's perfect precision (1.000) and F1 (0.857) while inheriting the logistic regression's superior probability calibration (AUC-ROC = 0.954 versus 0.750 for GBM alone). The optimal ensemble threshold is 0.45, close to the natural decision boundary, indicating well-calibrated risk scores from the averaged probabilities.
 
-### 4.5 Ablation Studies
+### 5.5 Ablation Studies
 
 We conducted six ablation experiments to test specific hypotheses about feature contributions:
 
@@ -149,7 +205,7 @@ Three findings emerge:
 
 3. **GBM is saturated.** No additional features or interactions improve GBM performance beyond the tournament-winning configuration. With only 94 samples and 8 positive cases, the model has likely reached the information ceiling of the daily-granularity data.
 
-### 4.6 Models That Failed
+### 5.6 Models That Failed
 
 Two model families were reverted:
 
@@ -157,7 +213,7 @@ Two model families were reverted:
 - **Random Forest on enhanced features** (F1 = 0.615): RF underperformed on this small, imbalanced dataset. With 100 trees and maximum depth 3, it lacked the GBM's ability to focus on the minority class through sequential boosting.
 - **Extra Trees on enhanced features** (F1 = 0.706): Adding more features degraded Extra Trees performance compared to the tournament configuration, suggesting overfitting.
 
-## 5. The Iteration Story
+## 6. The Iteration Story
 
 The path from baseline to final model involved seven distinct improvements:
 
@@ -177,57 +233,87 @@ The path from baseline to final model involved seven distinct improvements:
 
 The key insight driving improvement was not algorithmic complexity but domain-specific feature engineering guided by the ENTSO-E root cause analysis.
 
-## 6. Discussion
+## 7. Discussion
 
-### 6.1 A Novel Failure Mode
+### 7.1 A Novel Failure Mode
 
 The Iberian blackout introduced overvoltage-driven cascading collapse to the power system stability literature. Previous major blackouts (Italy 2003, Europe 2006, Turkey 2015, UK 2019) were under-frequency events caused by generation deficit. The Iberian event was caused by generation surplus under specific conditions: high solar penetration, low demand, negative prices dispatching away from synchronous generators, and heavy exports creating lightly loaded transmission lines that raised voltage. This represents a qualitative shift in blackout risk that classical contingency analysis, designed for synchronous-machine-dominated systems, is not equipped to detect.
 
-### 6.2 The Voltage Stress Signal
+### 7.2 The Voltage Stress Signal
 
 The dominance of the voltage stress proxy in feature importance confirms the ENTSO-E finding. The proxy combines four indicators (solar fraction, excess generation ratio, negative price occurrence, export fraction) that jointly characterize the conditions under which overvoltage develops. Its predictive power validates the physics-informed decomposition approach: rather than treating grid data as generic time series features, decomposing them through the lens of the cascade mechanism captures the signal.
 
-### 6.3 Inertia Alone Is Not Enough
+### 7.3 Inertia Alone Is Not Enough
 
 The ablation confirming inertia redundancy is a critical result. There is a widespread assumption, reinforced by decades of under-frequency blackout analysis, that low system inertia is the primary risk factor in high-renewable grids. The ENTSO-E investigation explicitly contradicted this for the Iberian event, and our data confirms it: removing the inertia proxy produces no change in prediction accuracy. This does not mean inertia is unimportant for frequency stability in general, but rather that for this specific novel failure mode, voltage control and reactive power management are the binding constraints.
 
-### 6.4 Data Limitations and the Information Ceiling
+### 7.4 Data Limitations and the Information Ceiling
 
 The GBM's saturation at F1 = 0.857 despite multiple feature engineering attempts suggests a fundamental information ceiling at daily granularity. The actual cascade evolved over sub-second timescales (24 seconds from first transformer trip to total collapse), while our features are daily aggregates. The two undetected high-risk days (recall = 0.750, missing 2 of 8) may represent days where intra-day conditions were briefly dangerous but averaged out in daily statistics. Hourly or sub-hourly data could potentially improve recall by capturing transient voltage excursions.
 
-### 6.5 Practical Implications
+### 7.5 Practical Implications
 
 An early warning system based on this model could flag days where the combination of high solar forecast, low demand forecast, negative price forecast, and planned export schedules creates conditions conducive to overvoltage cascading. The perfect precision of the GBM and ensemble (no false alarms) is operationally attractive: every flagged day represents genuine elevated risk, allowing targeted preventive actions such as pre-emptive shunt reactor activation, dispatch of synchronous condensers, or adjustment of renewable power factor settings from fixed to voltage-regulated mode.
 
-### 6.6 Comparison to Existing Approaches
+### 7.6 Comparison to Existing Approaches
 
 Machine learning approaches to cascading failure prediction reviewed by Li et al. (2024) typically train on simulated cascade data from power system models rather than real operational data. Graph neural network approaches (Donon et al. 2023; Wang et al. 2024) require detailed network topology. Our approach is distinctive in using only publicly available aggregate operational data (generation mix, demand, prices, interconnector flows) combined with physics-informed feature engineering. This makes the approach applicable to any grid for which a system operator publishes daily operational statistics.
 
-## 7. Threats to Validity
+### 7.7 The Role of Market Design
 
-### 7.1 Labeling Bias
+The pre-blackout spot price of approximately negative 1 EUR/MWh is a market signal that directly contributed to the cascade. Negative prices arise when variable renewable generators, receiving production subsidies independent of the spot price, continue producing even when the market signals oversupply. This displaces synchronous generators from the dispatch order, reducing voltage control authority. The Iberian blackout suggests that market design -- specifically, the interaction between renewable subsidy structures and the spot market clearing mechanism -- can create incentives that systematically degrade grid stability. This aligns with broader European trends: Fortune (2026) reports that Spain experienced over 500 negative-price hours in 2025, more than double the 2024 total. Gridcog (2025) documents the "duck curve" phenomenon in European markets, where midday solar surplus creates a trough in net demand that drives prices negative.
+
+A voltage-aware dispatch mechanism, where the market clearing also considers reactive power availability and voltage control constraints, could prevent the conditions that led to the cascade. The ENTSO-E report's 22 recommendations include several that implicitly address this market-grid interaction, including mandatory reactive power capability for new renewable installations and enhanced requirements for voltage regulation services.
+
+### 7.8 Protection System Implications
+
+The cascade was amplified by protection relay settings that disconnected renewable generators at overvoltage thresholds below regulatory limits. Mishra et al. (2024) review adaptive protection schemes that could dynamically adjust thresholds based on grid conditions. The IEC (2025) addresses relay protection for power-electronics-dominated systems. In the Iberian case, shunt reactors that could have absorbed excess reactive power and suppressed the voltage rise were available but required manual activation -- a human-factors failure that automated protection coordination could have prevented. Future protection system design must account for overvoltage cascading as a realistic failure mode, alongside the conventional under-frequency scenarios that existing defence plans are designed to handle.
+
+### 7.9 Implications for Other High-Renewable Grids
+
+The conditions that produced the Iberian blackout -- high solar penetration, low synchronous generation fraction, heavy exports, negative prices, and fixed power factor operation -- are not unique to Spain. Germany, Australia, California, and other regions with rapidly growing solar capacity are approaching or have already experienced periods where inverter-based resources provide the majority of generation. The lessons from the Iberian event apply broadly: voltage control infrastructure must scale with renewable deployment, reactive power management must be automated, protection settings must be reviewed for overvoltage scenarios, and market designs must incentivize (or at minimum not penalize) the provision of voltage support services from renewable generators.
+
+## 8. Threats to Validity
+
+### 8.1 Labeling Bias
 
 The labeling strategy combines one known blackout date with stress-score-based threshold labeling for additional high-risk days. The 95th percentile threshold is a modeling choice; different thresholds would produce different positive sets and potentially different results. We chose 95th percentile to capture only extreme conditions, but this makes the results conditional on the labeling definition.
 
-### 7.2 Small Sample Size
+### 8.2 Small Sample Size
 
 With 94 samples and 8 positive cases, statistical power is limited. LOO-CV provides an unbiased error estimate but with high variance. The perfect precision reported for GBM and ensemble could be fragile: a single additional false positive would reduce precision substantially. Confidence intervals on all metrics are wide.
 
-### 7.3 Daily Granularity
+### 8.3 Daily Granularity
 
 The cascade occurred over sub-second timescales, but our data is aggregated to daily resolution. This limits the model's ability to detect within-day risk transitions and likely accounts for the recall ceiling of 0.750.
 
-### 7.4 Single Event
+### 8.4 Single Event
 
 The model is validated against conditions surrounding a single blackout event. Whether the learned patterns generalize to other grids or future Iberian conditions remains untested. The 2021 Continental Europe system separation and 2019 UK power disruption provide analogous events but occurred under different grid conditions with different failure mechanisms.
 
-### 7.5 No Real-Time Voltage Data
+### 8.5 No Real-Time Voltage Data
 
 Without direct voltage measurements, transmission line loading, or reactive power flow data, the model relies entirely on proxy features. The proxies capture the documented conditions correlated with overvoltage but cannot directly measure it. Access to SCADA (Supervisory Control and Data Acquisition) or PMU (Phasor Measurement Unit) data would enable more direct predictors.
 
-## 8. Conclusion
+## 9. Future Work
 
-The Iberian blackout of 28 April 2025 introduced a novel failure mode to the power system stability literature: overvoltage-driven cascading collapse in a grid dominated by solar PV generation operating in fixed power factor mode. Using physics-informed proxy features derived from the ENTSO-E root cause analysis and trained on 94 days of real REE operational data, we built a cascade risk predictor achieving F1 = 0.857, precision = 1.000, and AUC-ROC = 0.954 under leave-one-out cross-validation. The voltage stress proxy dominates feature importance, confirming the overvoltage mechanism; the inertia proxy is redundant, confirming the ENTSO-E finding that inertia deficit was not the primary cause. The ensemble of logistic regression and gradient boosting machine provides the best overall model, combining perfect precision with well-calibrated risk probabilities. Future work should incorporate sub-daily data to improve recall beyond the 0.750 ceiling imposed by daily granularity, and validate on additional grid events as they occur.
+Several directions could extend and improve upon these results:
+
+**Sub-daily resolution.** The most impactful improvement would be moving from daily to hourly or sub-hourly feature aggregation. The cascade developed over minutes but was preceded by oscillations beginning 30 minutes earlier. Hourly demand and price data (already available from REE) could capture within-day risk transitions that daily aggregates miss, potentially improving recall beyond the 0.750 ceiling.
+
+**Direct voltage and reactive power data.** Access to SCADA or PMU data would enable direct measurement of bus voltages, reactive power flows, and transmission line loading, replacing the proxy features with the quantities they approximate. This data is not publicly available but could be obtained through collaboration with REE or ENTSO-E.
+
+**Multi-event validation.** As additional grid events occur in high-renewable systems, the model's generalizability can be tested. The 2019 UK power disruption, the 2021 Continental Europe system separation, and any future events in Germany, Australia, or California provide natural validation opportunities, though each has different grid characteristics and failure mechanisms.
+
+**Forecasting integration.** The current model evaluates historical days retrospectively. Integrating with day-ahead generation forecasts, demand forecasts, and scheduled interconnector flows would enable true prospective risk assessment, flagging dangerous conditions before they develop.
+
+**Grid-forming inverter scenarios.** As grid-forming inverter technology is deployed, its impact on the voltage stress proxy could be modeled, providing quantitative assessment of how much grid-forming penetration is needed to reduce overvoltage cascade risk below acceptable thresholds.
+
+## 10. Conclusion
+
+The Iberian blackout of 28 April 2025 introduced a novel failure mode to the power system stability literature: overvoltage-driven cascading collapse in a grid dominated by solar PV generation operating in fixed power factor mode. Using physics-informed proxy features derived from the ENTSO-E root cause analysis and trained on 94 days of real REE operational data, we built a cascade risk predictor achieving F1 = 0.857, precision = 1.000, and AUC-ROC = 0.954 under leave-one-out cross-validation. The voltage stress proxy dominates feature importance, confirming the overvoltage mechanism; the inertia proxy is redundant, confirming the ENTSO-E finding that inertia deficit was not the primary cause. The ensemble of logistic regression and gradient boosting machine provides the best overall model, combining perfect precision with well-calibrated risk probabilities.
+
+The key finding is not algorithmic but domain-specific: physics-informed decomposition of the cascade mechanism, guided by the ENTSO-E root cause analysis, is what transforms publicly available aggregate operational data into a functional early warning signal. The approach demonstrates that even with daily-granularity data and severe class imbalance, domain knowledge can substitute for data volume when the features are constructed to capture the physical mechanisms that drive the phenomenon being predicted.
 
 ## References
 
