@@ -67,6 +67,8 @@ The cleaned dataset is produced from the raw union by applying, in order:
 
 The resulting sample has 50,000 rows by construction and passes the 4 unit tests in `tests/test_baseline.py`.
 
+![Distribution of small-residential permit processing duration by city, after cleaning. San Francisco has the longest median and widest spread; Austin and NYC have shorter medians. Box = IQR, whiskers = 1.5x IQR, outliers hidden for readability.](plots/duration_by_city.png)
+
 ### 2.3 Feature set (`RAW_FEATURES`)
 
 The 13 baseline features are:
@@ -133,6 +135,8 @@ Three justifications:
 1. **Representativeness.** XGBoost with `max_depth=6`, `learning_rate=0.05`, `n_estimators=300` is the default tabular-regression recipe in practice across 2022–2026 — it is what any competent ML engineer would try first. Starting from this recipe means any subsequent improvement is an honest incremental contribution, not a gap closed against a deliberately weak baseline.
 2. **Fidelity to the data schema.** Every one of the 13 features is present in all five cities' public feeds after harmonisation. The Phase 0.5 audit rejected features only available in one or two cities (Seattle cycles, NYC professional-cert, LA business-unit, Chicago review-type) to keep the cross-city comparison honest. The Phase 2.5 follow-on relaxes this constraint.
 3. **Seed-stable and test-covered.** The baseline is reproducible at the 6th-decimal-place level across runs on the same machine because the target encodings, the CV split, and the XGBoost random seed are all fixed. This is tested by `test_baseline_reproducibility`.
+
+![XGBoost baseline feature importances (gain). Filed year and the two target-encoded columns (neighborhood and permit subtype) dominate; city one-hots contribute moderate importance; the numeric features (valuation, square feet, unit count) are secondary.](plots/feature_importance.png)
 
 ## 3. Detailed Solution
 
@@ -304,6 +308,8 @@ Zero experiments KEPT. The best Phase 2 single-change was `H086` (Optuna-guided 
 
 ## 5. Results
 
+![Stage-level data collapses the prediction problem. Generic ML on 13 cross-city features saturates at MAE 89.4 days; adding Seattle's two stage-timing buckets drops it to 24.7 days (4x improvement); NYC's four BIS stages reach 4.0 days (22x).](plots/headline_finding.png)
+
 ### 5.1 Phase 1 tournament: 5-way model family comparison
 
 ```
@@ -315,6 +321,8 @@ T05 Ridge         MAE 100.561 R²_log 0.3764  wall 0.3s
 ```
 
 Three observations. First, the tree-family spread is narrow: XGBoost, LightGBM and RandomForest all cluster within a 2.1-day window of each other, while ExtraTrees trails at +5.4 days. Second, the tree-to-linear MAE ratio is 89.40 / 100.56 = **0.889**. A ratio below 1 means the tree model is better than the linear model, but a ratio this close to 1 indicates the relationship between the 13 baseline features and `log1p(duration_days)` is *close to linear*: there is no strong non-linearity or interaction effect for a tree to exploit. This is the first signal that the missing ingredient is features, not model flexibility. Third, the tournament wall-clock times span two orders of magnitude (Ridge at 0.3s to RandomForest at 31.6s); the XGBoost baseline's 1.7s cost is cheap enough to run the 120 single-change experiments sequentially in roughly 5 minutes wall-clock.
+
+![Cross-city baseline out-of-fold predictions versus actual permit duration (5,000-row subsample from the 50,000-row stratified dataset). The 1:1 line shows perfect prediction. The model clusters predictions in the 50-250 day range while actuals span 0-1,000+ days, reflecting the 89.4-day MAE and the heavy right tail that generic features cannot resolve.](plots/pred_vs_actual.png)
 
 ### 5.2 Phase 2 HDR loop: 120 single-change experiments, 0 KEEP — the negative result
 
@@ -353,6 +361,8 @@ The most informative REVERTs are the target transforms:
 
 The 10-day penalty on the raw-duration target is the cleanest evidence that the heavy-tailed duration distribution matters: predicting on the raw scale puts the 5-year outliers at 1800 days next to the 1-day fast permits and the square-error loss lets the long tail dominate.
 
+![Phase 2 experiment deltas sorted by MAE change versus baseline. Green bars indicate improvements (negative delta); red bars indicate regressions. The dashed red line marks the KEEP threshold at -0.89 days. No experiment crossed the threshold -- the best was H086 (Optuna sweep) at -0.36 days.](plots/phase2_waterfall.png)
+
 ### 5.3 Phase 2.5 Seattle decomposition: variance attribution per stage
 
 The Seattle Plan Review feed `tqk8-y2z5` ships one row per (permit × reviewtype × cycle). We collapse this to one row per permit, with the following per-permit columns (see `phase25.build_seattle_decomposition`):
@@ -385,6 +395,8 @@ Univariate r² per feature, top 10:
 | `days_out_corrections` | 18.5% |
 | `zoning_active_days` | 16.0% |
 | `days_initial_plan_review` | 15.2% |
+
+![Seattle per-stage univariate variance decomposition. City plan review explains 39.2% of the variance in total permit duration -- more than double the applicant-correction bucket at 18.5%. Blue bars are city-side stages; the orange bar is applicant-side.](plots/seattle_stage_decomposition.png)
 
 **Headline**: city plan review explains 39.2% of the univariate variance, more than double the applicant-correction bucket at 18.5%. The most common narrative in the lay press — "permits are slow because applicants take forever to respond to reviewer comments" — is the secondary story, not the primary one. At least in Seattle, the primary story is how long the reviewers take to work through each file.
 
