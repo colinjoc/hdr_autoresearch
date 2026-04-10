@@ -1,0 +1,12 @@
+experiment_id	description	mae_mean	mae_std	hra_f1	hra_accuracy	kept	timestamp
+E00	Ridge baseline (no leaking county stats)	7.3263	1.4910	0.2913	0.6439	True	2026-04-10T21:05:30.712875
+E01	XGBoost baseline	6.5824	1.3128	0.4695	0.7134	True	2026-04-10T21:05:48.395235
+E02	LightGBM baseline	6.5250	1.5311	0.4656	0.7256	False	2026-04-10T21:06:03.837380
+E03	ExtraTrees baseline	6.9352	1.4217	0.4629	0.7085	False	2026-04-10T21:06:20.547758
+E04	RF baseline	6.6390	1.4365	0.4311	0.7232	False	2026-04-10T21:06:38.796043
+E05	XGBoost enhanced (Tellus derived)	6.4521	1.4452	0.4848	0.7305	True	2026-04-10T21:06:58.127883
+E06	XGBoost full (one-hot bedrock units/ages)	6.4857	1.2415	0.4793	0.7244	True	2026-04-10T21:07:28.136988
+E07	LightGBM enhanced features	6.4882	1.4029	0.4896	0.7305	True	2026-04-10T21:08:19.765364
+E08	XGBoost tuned (500 trees, lr=0.03, depth=5)	6.4419	1.3446	0.4796	0.7354	True	2026-04-10T21:08:41.111467
+E09	XGBoost interaction features (eU x geology)	6.4795	1.3719	0.4747	0.7220	True	2026-04-10T21:09:22.141037
+E10	XGBoost full (interactions + one-hot bedrock)	6.4178	1.2730	0.4692	0.7268	True	2026-04-10T21:09:43.770788
