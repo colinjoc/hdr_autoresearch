@@ -1,0 +1,9 @@
+exp_id	description	model	features	cv_auc	cv_brier	cv_f2	holdout_auc	notes
+E00	Phase 0.5 baseline	ridge	BASELINE	0.9255	0.1338	0.7358	0.9127	temporal CV, n=952
+T01	Tournament ridge	ridge	BASELINE	0.9255	0.1338	0.7358	0.9127	temporal CV, wall=5.9s
+T02	Tournament xgboost	xgboost	BASELINE	0.9926	0.0244	0.9125	1.0000	temporal CV, wall=1.1s
+T03	Tournament xgboost_deep	xgboost_deep	BASELINE	0.9930	0.0237	0.9221	1.0000	temporal CV, wall=0.9s
+T04	Tournament extratrees	extratrees	BASELINE	0.9752	0.0476	0.8513	0.9769	temporal CV, wall=4.5s
+T05	Tournament randomforest	randomforest	BASELINE	0.9831	0.0397	0.8466	0.9947	temporal CV, wall=5.4s
+T06	Tournament lightgbm	lightgbm	BASELINE	0.9897	0.0292	0.8770	1.0000	temporal CV, wall=0.5s
+E50	Phase 2: + land cover fractions	ridge	BASELINE+LANDCOVER	0.9090	0.1367	0.7319	0.9087	added forest_frac, shrub_frac
