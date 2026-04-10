@@ -1,0 +1,42 @@
+exp_id	description	model_family	n_features	cv_mae_mean	cv_mae_std	cv_r2_mean	cv_r2_std	cv_exceedance_auc_mean	cv_exceedance_auc_std	holdout_mae	holdout_r2	holdout_exceedance_auc	holdout_mbe	notes
+E00	Baseline: met+temporal features	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Baseline: met+temporal features
+T_xgboost	Tournament: xgboost	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Phase 1 tournament
+T_lightgbm	Tournament: lightgbm	lightgbm	13	8.9853	2.6098	-0.4779	1.1243	0.9068	0.0381	7.3673	0.5266	0.8624	0.9542	Phase 1 tournament
+T_extratrees	Tournament: extratrees	extratrees	13	9.0796	2.6419	-0.5020	1.1346	0.9024	0.0435	7.3813	0.5256	0.8620	0.8712	Phase 1 tournament
+T_ridge	Tournament: ridge	ridge	13	10.2364	2.0884	-0.5254	0.9380	0.8582	0.0300	8.5228	0.3386	0.8119	0.8774	Phase 1 tournament
+E01	Add station fixed effects (all stations)	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add station fixed effects (all stations)
+E02	Add rush_hour indicator	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add rush_hour indicator
+E03	Add rush_hour_weekday interaction	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add rush_hour_weekday interaction
+E04	Add wind_dir_traffic (wind from traffic corridors)	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add wind_dir_traffic (wind from traffic corridors)
+E05	Add wind_dir_port (wind from Dublin Port)	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add wind_dir_port (wind from Dublin Port)
+E06	Add cold_evening (heating season + cold + evening)	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add cold_evening (heating season + cold + evening)
+E07	Add temp_heating_interaction	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add temp_heating_interaction
+E08	Add calm_wind indicator (< 1.5 m/s)	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add calm_wind indicator (< 1.5 m/s)
+E09	Add wind_x_blh ventilation index	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add wind_x_blh ventilation index
+E10	Add inverse_ventilation coefficient	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add inverse_ventilation coefficient
+E11	Add rain_washout effect	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add rain_washout effect
+E12	Add is_lockdown (COVID natural experiment)	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add is_lockdown (COVID natural experiment)
+E13	Add year_trend (fleet electrification proxy)	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add year_trend (fleet electrification proxy)
+E14	Add weekend_early_morning (background NO2 proxy)	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add weekend_early_morning (background NO2 proxy)
+E15	Add rush_wind_dir_traffic interaction	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add rush_wind_dir_traffic interaction
+E16	Add temp_inversion_proxy (night cold calm = trapping)	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Add temp_inversion_proxy (night cold calm = trapping)
+E_final	Final: best feature combination	xgboost	13	8.9893	2.6153	-0.4824	1.1279	0.9069	0.0385	7.3642	0.5272	0.8626	0.9509	Final: best feature combination
+E01	Add station fixed effects (all stations)	xgboost	20	6.1676	2.4312	0.1929	0.6908	0.9356	0.0250	2.1982	0.9583	0.9883	0.9541	Add station fixed effects (all stations)
+E02	Add rush_hour indicator	xgboost	21	6.1673	2.4067	0.1681	0.7106	0.9332	0.0246	2.1548	0.9604	0.9886	0.9419	Add rush_hour indicator
+E03	Add rush_hour_weekday interaction	xgboost	21	6.2057	2.4700	0.1530	0.7427	0.9335	0.0268	2.1366	0.9611	0.9887	0.9595	Add rush_hour_weekday interaction
+E04	Add wind_dir_traffic (wind from traffic corridors)	xgboost	22	6.3025	2.4246	0.1586	0.7166	0.9338	0.0258	2.1457	0.9607	0.9888	0.9646	Add wind_dir_traffic (wind from traffic corridors)
+E05	Add wind_dir_port (wind from Dublin Port)	xgboost	22	6.2969	2.4042	0.1609	0.7119	0.9339	0.0252	2.1419	0.9610	0.9888	0.9583	Add wind_dir_port (wind from Dublin Port)
+E06	Add cold_evening (heating season + cold + evening)	xgboost	22	6.3285	2.4365	0.1543	0.7205	0.9340	0.0265	2.1407	0.9610	0.9887	0.9692	Add cold_evening (heating season + cold + evening)
+E07	Add temp_heating_interaction	xgboost	22	6.3013	2.4102	0.1552	0.7161	0.9335	0.0261	2.1284	0.9614	0.9889	0.9603	Add temp_heating_interaction
+E08	Add calm_wind indicator (< 1.5 m/s)	xgboost	22	6.3096	2.3981	0.1665	0.6964	0.9337	0.0246	2.1408	0.9610	0.9888	0.9557	Add calm_wind indicator (< 1.5 m/s)
+E09	Add wind_x_blh ventilation index	xgboost	22	6.3071	2.4911	0.1462	0.7495	0.9313	0.0276	2.1259	0.9612	0.9886	0.9787	Add wind_x_blh ventilation index
+E10	Add inverse_ventilation coefficient	xgboost	22	6.2830	2.4858	0.1559	0.7402	0.9314	0.0273	2.1170	0.9616	0.9887	0.9644	Add inverse_ventilation coefficient
+E11	Add rain_washout effect	xgboost	22	6.2973	2.4223	0.1602	0.7131	0.9340	0.0255	2.1478	0.9606	0.9888	0.9631	Add rain_washout effect
+E12	Add is_lockdown (COVID natural experiment)	xgboost	22	6.1841	2.4362	0.1869	0.7114	0.9388	0.0230	2.2045	0.9587	0.9888	1.1373	Add is_lockdown (COVID natural experiment)
+E13	Add year_trend (fleet electrification proxy)	xgboost	22	6.3001	2.4289	0.1447	0.7327	0.9313	0.0310	2.0063	0.9646	0.9888	0.2468	Add year_trend (fleet electrification proxy)
+E14	Add weekend_early_morning (background NO2 proxy)	xgboost	23	6.1971	2.6551	0.1127	0.8290	0.9277	0.0360	2.0018	0.9643	0.9887	0.2371	Add weekend_early_morning (background NO2 proxy)
+E15	Add rush_wind_dir_traffic interaction	xgboost	23	6.1684	2.6691	0.1156	0.8295	0.9273	0.0359	2.0126	0.9641	0.9886	0.2283	Add rush_wind_dir_traffic interaction
+E16	Add temp_inversion_proxy (night cold calm = trapping)	xgboost	23	6.1858	2.6849	0.1075	0.8397	0.9269	0.0363	1.9926	0.9648	0.9888	0.2291	Add temp_inversion_proxy (night cold calm = trapping)
+E17	Ablation: remove rush_hour_weekday	xgboost	21	6.1594	2.4767	0.1606	0.7336	0.9315	0.0298	2.0618	0.9620	0.9881	0.1933	Ablation: remove rush_hour_weekday
+E18	Ablation: remove year_trend	xgboost	21	6.2057	2.4700	0.1530	0.7427	0.9335	0.0268	2.1366	0.9611	0.9887	0.9595	Ablation: remove year_trend
+E_final	Final: best feature combination	xgboost	22	6.3001	2.4289	0.1447	0.7327	0.9313	0.0310	2.0063	0.9646	0.9888	0.2468	Final: best feature combination
