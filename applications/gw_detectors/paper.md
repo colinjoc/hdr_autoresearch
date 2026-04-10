@@ -95,7 +95,9 @@ Across the 25 type8 solutions, log-space-averaged improvement over Voyager in 80
 | **mean** |  | **1.43×** |
 | **median** |  | **1.11×** |
 
-The dramatic gap between sol00 (4.05×) and sol01 (3.36×) suggests that the type8 family is not a smooth manifold of equivalent designs but rather has a single dominant peak with sol00 at the top. Solutions 13–24 are within 10% of Voyager — they qualify as "improvements" only by the very loose criterion the Zoo applies.
+The dramatic gap between sol00 (4.05×) and sol01 (3.36×) suggests that the type8 family is not a smooth manifold of equivalent designs but rather has a single dominant peak with sol00 at the top. Solutions 13–24 are within 10% of Voyager — they qualify as "improvements" only by the very loose criterion the Zoo applies. Figure 1 visualises the ranked improvement factors as a lollipop plot, making the family skew immediately apparent.
+
+![Figure 1: Improvement factor vs LIGO Voyager for all 25 type8 solutions, ranked. Sol00 at 4.05× is dramatically above the median of 1.11×.](plots/headline_finding.png)
 
 ### 3.2 Component counts
 
@@ -156,7 +158,9 @@ The 13 declared beamsplitters in sol00 have the following reflectivities:
 
 Of the 13 declared beamsplitters, **only 2 are doing real beam splitting** (B1_3 at 0.81 and B3_1 at 0.30). Two more (B1_1, B1_2) are pinned to R = 1 and function as perfect mirrors despite their `bs1` declaration. The remaining 9 are pinned at R near 0 (transparent or near-transparent), contributing essentially no power-splitting behaviour.
 
-This is a striking result: **the design declares 13 beamsplitters but uses only 2 of them as actual beamsplitters**. The other 11 are filler in the UIFO grid that the optimiser pinned to one extreme or the other. From an engineering standpoint, the simplified design needs at most 2 beamsplitters in the configuration that sol00 actually exploits.
+This is a striking result: **the design declares 13 beamsplitters but uses only 2 of them as actual beamsplitters**. The other 11 are filler in the UIFO grid that the optimiser pinned to one extreme or the other. From an engineering standpoint, the simplified design needs at most 2 beamsplitters in the configuration that sol00 actually exploits. Figure 2 summarises the over-parameterisation across both component types.
+
+![Figure 2: Sol00 component over-parameterisation. Of 57 mirrors, 29 (51%) are at extreme reflectivity values (filler). Of 13 beamsplitters, 11 (85%) are filler — only 2 perform actual beam splitting.](plots/component_analysis.png)
 
 ### 3.5 Mass distribution and arm-cavity-class spaces
 
@@ -198,7 +202,9 @@ Two correlations are notable for their sign and magnitude:
 
 **(b) Mirrors pinned to R ≈ 0 correlate positively with improvement (r = +0.51).** Solutions with more "transparent" mirrors are better solutions. This is an unexpected positive feedback: the optimiser is more successful when it aggressively prunes its own UIFO grid. We interpret this as evidence that the Urania optimisation landscape rewards finding clean light paths over fitting more components into the topology — sol00 with 20 transparent mirrors is dramatically better than the median solution which has many fewer.
 
-The two correlations together support the same interpretation: **the type8 family's best solutions have the simplest functional structure**, achieved either by removing squeezers entirely or by pinning unused mirrors to transparent. The improvements are not coming from more complex optical machinery; they are coming from cleaner optical paths.
+The two correlations together support the same interpretation: **the type8 family's best solutions have the simplest functional structure**, achieved either by removing squeezers entirely or by pinning unused mirrors to transparent. The improvements are not coming from more complex optical machinery; they are coming from cleaner optical paths. Figure 3 shows the squeezer anti-correlation directly.
+
+![Figure 3: Squeezer count vs improvement factor across the 25 type8 solutions. The negative correlation (Pearson r = −0.50) shows that more squeezers are associated with worse performance. Sol00 (0 squeezers, 4.05×) and sol13 (7 squeezers, 1.10×) mark the extremes.](plots/squeezer_anticorrelation.png)
 
 ### 3.7 Hypothesis-driven decomposition loop (20 experiments)
 
@@ -265,7 +271,9 @@ The 6 arm-cavity-class spaces in sol00 (3 at 3847 m, 3 at 3670 m) were classifie
 
 The only space that actually forms a Fabry-Perot-like cavity is **`mRL_3_3`**, with reflectivities approximately 0.52 and 0.50 at its two endpoints, giving a finesse of approximately 4.6, a free spectral range of 39 kHz, and a cavity linewidth of 8.5 kHz. This is a low-finesse cavity — much broader than the canonical impedance-matched high-finesse cavities used in Voyager, and consistent with the §3.3 finding that no mirror in sol00 has reflectivity in the [0.99, 0.9999] range.
 
-The other 5 arm-class spaces are not cavities at all. Two are long delay lines (light just passes through), one is a dead trap, one is an asymmetric one-sided wall, and one is asymmetric. The earlier framing of "6 arm cavities forming a multi-arm geometry" must be retracted: there is **1 cavity, plus several long-baseline delay lines and dead spaces**.
+The other 5 arm-class spaces are not cavities at all. Two are long delay lines (light just passes through), one is a dead trap, one is an asymmetric one-sided wall, and one is asymmetric. The earlier framing of "6 arm cavities forming a multi-arm geometry" must be retracted: there is **1 cavity, plus several long-baseline delay lines and dead spaces**. Figure 4 visualises the classification of all 6 arm-cavity-class spaces with their endpoint reflectivities.
+
+![Figure 4: Classification of the 6 arm-cavity-class free spaces in sol00. Only mRL_3_3 (green) is a true symmetric cavity (finesse ~4.6). The other 5 are through-pass delay lines, a dead trap, a one-sided wall, and an asymmetric cavity.](plots/arm_cavity_classification.png)
 
 #### M03 — The 200-kg mirrors are optimiser artifacts on transparent through-passes
 
