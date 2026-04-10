@@ -118,7 +118,7 @@ LOO-CV was chosen over k-fold cross-validation because of the extreme class imba
 | AUC-ROC | 0.9099 |
 | Samples | 94 (8 positive) |
 
-The baseline achieves high recall (0.875, detecting 7 of 8 high-risk days) but low precision (0.583, with 5 false positives out of 12 positive predictions). The AUC-ROC of 0.910 indicates good discrimination between risk levels. This establishes the reference point: stress indicators alone, with a linear model, can detect most high-risk days but generate substantial false alarms.
+The baseline achieves high recall (0.875, detecting 7 of 8 high-risk days) but low precision (0.583, with 5 false positives out of 12 positive predictions). The AUC-ROC of 0.910 indicates good discrimination between risk levels. This establishes the reference point: stress indicators alone, with a linear model, can detect most high-risk days but generate substantial false alarms. The full ROC curves comparing the baseline, GBM, and ensemble models are shown in Figure 1.
 
 ## 5. Detailed Solution: Physics-Informed Feature Engineering and Model Tournament
 
@@ -161,7 +161,7 @@ We evaluated five model families using the 16 physics proxy features and 2 inter
 | tournament_svm | SVM(RBF) | 0.588 | 0.958 | 0.556 | 0.625 | 0.926 | REVERT |
 | tournament_lr_c1 | LogisticRegression(C=1.0) | 0.737 | 0.948 | 0.636 | 0.875 | 0.947 | KEEP |
 
-The GBM with 50 estimators and maximum depth 2 achieved the highest F1 (0.857) and perfect precision (1.000), meaning every day it flagged as high-risk was genuinely high-risk. Its recall of 0.750 means it detected 6 of 8 high-risk days. The Support Vector Machine (SVM) with radial basis function (RBF) kernel achieved the highest AUC-ROC (0.958) but the lowest F1 (0.588) due to poor precision, and was reverted.
+The GBM with 50 estimators and maximum depth 2 achieved the highest F1 (0.857) and perfect precision (1.000), meaning every day it flagged as high-risk was genuinely high-risk. Its recall of 0.750 means it detected 6 of 8 high-risk days. The Support Vector Machine (SVM) with radial basis function (RBF) kernel achieved the highest AUC-ROC (0.958) but the lowest F1 (0.588) due to poor precision, and was reverted. Figure 4 provides a visual comparison of all model families across the four evaluation metrics.
 
 ### 5.3 Enhanced Feature Set and Threshold Optimization
 
@@ -182,7 +182,7 @@ The best overall performance was achieved by an ensemble averaging the predicted
 |------------|-------|-----|---------|-----------|--------|-----------|--------|
 | hdr_ensemble_lr_gbm | Ensemble(LR+GBM) | 0.857 | 0.954 | 1.000 | 0.750 | 0.45 | KEEP |
 
-The ensemble retains the GBM's perfect precision (1.000) and F1 (0.857) while inheriting the logistic regression's superior probability calibration (AUC-ROC = 0.954 versus 0.750 for GBM alone). The optimal ensemble threshold is 0.45, close to the natural decision boundary, indicating well-calibrated risk scores from the averaged probabilities.
+The ensemble retains the GBM's perfect precision (1.000) and F1 (0.857) while inheriting the logistic regression's superior probability calibration (AUC-ROC = 0.954 versus 0.750 for GBM alone). The optimal ensemble threshold is 0.45, close to the natural decision boundary, indicating well-calibrated risk scores from the averaged probabilities. Figure 1 shows the ROC curves for all three model configurations.
 
 ### 5.5 Ablation Studies
 
@@ -197,7 +197,7 @@ We conducted six ablation experiments to test specific hypotheses about feature 
 | hdr_voltage_focus | voltage-focused features only | 0.857 | 0.750 | Voltage features sufficient | TIE |
 | hdr_rf_enhanced | RF(100,d3) | 0.615 | 0.893 | RF underperforms | REVERT |
 
-Three findings emerge:
+Three findings emerge (see Figure 5 for a visual summary):
 
 1. **Inertia is redundant.** Dropping the inertia proxy produces no change in any metric, confirming the ENTSO-E finding that inertia was not the primary mechanism. The voltage stress and reactive power gap proxies already capture the predictive signal.
 
@@ -241,7 +241,7 @@ The Iberian blackout introduced overvoltage-driven cascading collapse to the pow
 
 ### 7.2 The Voltage Stress Signal
 
-The dominance of the voltage stress proxy in feature importance confirms the ENTSO-E finding. The proxy combines four indicators (solar fraction, excess generation ratio, negative price occurrence, export fraction) that jointly characterize the conditions under which overvoltage develops. Its predictive power validates the physics-informed decomposition approach: rather than treating grid data as generic time series features, decomposing them through the lens of the cascade mechanism captures the signal.
+The dominance of the voltage stress proxy in feature importance confirms the ENTSO-E finding (Figure 2). The proxy combines four indicators (solar fraction, excess generation ratio, negative price occurrence, export fraction) that jointly characterize the conditions under which overvoltage develops. Its predictive power validates the physics-informed decomposition approach: rather than treating grid data as generic time series features, decomposing them through the lens of the cascade mechanism captures the signal.
 
 ### 7.3 Inertia Alone Is Not Enough
 
@@ -253,7 +253,7 @@ The GBM's saturation at F1 = 0.857 despite multiple feature engineering attempts
 
 ### 7.5 Practical Implications
 
-An early warning system based on this model could flag days where the combination of high solar forecast, low demand forecast, negative price forecast, and planned export schedules creates conditions conducive to overvoltage cascading. The perfect precision of the GBM and ensemble (no false alarms) is operationally attractive: every flagged day represents genuine elevated risk, allowing targeted preventive actions such as pre-emptive shunt reactor activation, dispatch of synchronous condensers, or adjustment of renewable power factor settings from fixed to voltage-regulated mode.
+An early warning system based on this model could flag days where the combination of high solar forecast, low demand forecast, negative price forecast, and planned export schedules creates conditions conducive to overvoltage cascading. Figure 3 shows the ensemble risk score timeline from March to May 2025, illustrating the escalating risk pattern in the weeks preceding the blackout, with a cluster of high-risk days in mid-to-late April. The perfect precision of the GBM and ensemble (no false alarms) is operationally attractive: every flagged day represents genuine elevated risk, allowing targeted preventive actions such as pre-emptive shunt reactor activation, dispatch of synchronous condensers, or adjustment of renewable power factor settings from fixed to voltage-regulated mode.
 
 ### 7.6 Comparison to Existing Approaches
 
@@ -314,6 +314,18 @@ Several directions could extend and improve upon these results:
 The Iberian blackout of 28 April 2025 introduced a novel failure mode to the power system stability literature: overvoltage-driven cascading collapse in a grid dominated by solar PV generation operating in fixed power factor mode. Using physics-informed proxy features derived from the ENTSO-E root cause analysis and trained on 94 days of real REE operational data, we built a cascade risk predictor achieving F1 = 0.857, precision = 1.000, and AUC-ROC = 0.954 under leave-one-out cross-validation. The voltage stress proxy dominates feature importance, confirming the overvoltage mechanism; the inertia proxy is redundant, confirming the ENTSO-E finding that inertia deficit was not the primary cause. The ensemble of logistic regression and gradient boosting machine provides the best overall model, combining perfect precision with well-calibrated risk probabilities.
 
 The key finding is not algorithmic but domain-specific: physics-informed decomposition of the cascade mechanism, guided by the ENTSO-E root cause analysis, is what transforms publicly available aggregate operational data into a functional early warning signal. The approach demonstrates that even with daily-granularity data and severe class imbalance, domain knowledge can substitute for data volume when the features are constructed to capture the physical mechanisms that drive the phenomenon being predicted.
+
+## Figures
+
+**Figure 1.** ROC curves for the three model configurations under LOO-CV (94 days, 8 positive). The ensemble (LR+GBM) achieves AUC = 0.948, combining the logistic regression's calibration with the GBM's precision. See `plots/pred_vs_actual.png`.
+
+**Figure 2.** Feature importance comparison between logistic regression (absolute coefficient magnitude) and gradient boosting (impurity-based importance). Voltage stress indicators (marked with *) dominate, confirming the overvoltage mechanism as the predictive signal. See `plots/feature_importance.png`.
+
+**Figure 3.** Ensemble cascade risk score timeline from March to May 2025. The model assigns high risk (above the 0.45 decision threshold) to a cluster of days in mid-to-late April, including the April 28 blackout date (risk = 0.98). The escalating pattern of high-risk days illustrates the building stress on the grid. See `plots/headline_finding.png`.
+
+**Figure 4.** Model tournament comparison across F1, AUC-ROC, precision, and recall. The ensemble achieves the best combined performance: F1 = 0.857, AUC-ROC = 0.954, precision = 1.000. SVM achieves high AUC-ROC but poor F1 due to low precision. See `plots/tournament_comparison.png`.
+
+**Figure 5.** Ablation study results. Removing the inertia proxy produces no change (confirming ENTSO-E findings). Voltage-focused features alone match the full model. RF and ExtraTrees on enhanced features degrade performance (reverted). See `plots/ablation.png`.
 
 ## References
 
