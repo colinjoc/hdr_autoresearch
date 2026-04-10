@@ -189,6 +189,16 @@ After the stage-1 SOTL rule was identified, we ported it directly to SUMO withou
 
 ### 5.1 Per-scenario results
 
+Figure 1 summarises the headline finding: the 20-line SOTL rule with preemption reduces mean Average Wait Time by 49.1 percent relative to Webster, placing it squarely within the 30 to 50 percent improvement range reported by published deep reinforcement learning methods — without any training.
+
+![Headline finding: Webster vs Deep RL vs SOTL+Preemption](plots/headline_finding.png)
+*Figure 1. Mean Average Wait Time across all seven SUMO scenarios. The SOTL + Preemption controller (this work) achieves a 49.1% reduction over Webster, matching the published 30-50% deep RL range. Error bar on the Deep RL bar shows the reported range.*
+
+Figure 2 disaggregates this result across demand profiles. The SOTL rule delivers improvements on every scenario, with the largest gains on medium and high uniform demand (57% and 60%) and the smallest on uniform-low (13%) and the time-varying sumo-rl variable-flow scenario (36%).
+
+![Demand sensitivity](plots/demand_sensitivity.png)
+*Figure 2. Per-scenario Average Wait Time for Webster (blue) and SOTL + Preemption (green). Dashed line separates custom uniform-demand routes from the sumo-rl published benchmark routes. Percentage labels show the reduction achieved by the adaptive rule.*
+
 | Scenario | Webster Average Wait Time (s) | SOTL+Preemption Average Wait Time (s) | Reduction |
 |---|---|---|---|
 | uniform-low demand | 2.27 | 1.86 | -18.1% |
@@ -208,7 +218,14 @@ On the medium-demand scenario at five random seeds:
 
 The standard deviation across seeds is **2.7 times lower** for the new controller, in addition to the mean being lower. The simple rule is more stable across stochastic vehicle arrivals than Webster, not just lower-mean.
 
-### 5.3 Cross-simulator validation
+### 5.3 HDR iteration trajectory
+
+Figure 3 shows the trajectory of key controller variants tested during the SUMO HDR campaign (Stage 2). The initial SOTL port from the toy simulator (S01) immediately achieved a 49 percent reduction. Subsequent refinements (S03, S15, S16) added incremental gains through eager draining and preemption. Not all ideas helped: the "max-lane queue" variant (S05), which switched to per-phase max-lane instead of sum-lane queues, regressed on several scenarios and was reverted.
+
+![Controller comparison](plots/controller_comparison.png)
+*Figure 3. Mean Average Wait Time across 7 SUMO scenarios for key controller variants tested during the HDR iteration. Blue = Webster baseline, cyan = intermediate KEPT experiments, orange = REVERTED experiment, green = final controller.*
+
+### 5.4 Cross-simulator validation
 
 | Idea (tested in both simulators) | Toy result | SUMO result | Verdict |
 |---|---|---|---|
