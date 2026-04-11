@@ -231,3 +231,75 @@ def test_ridge_reproducibility(modelling_df):
                      test_years=[2020], verbose=False)
     assert abs(m1["auc"] - m2["auc"]) < 1e-10, \
         f"Reproducibility broken: {m1['auc']} vs {m2['auc']}"
+
+
+# ---------------------------------------------------------------- review-driven experiments
+
+def test_fire_persistence_analysis(modelling_df):
+    """Fire persistence analysis: count onset vs persistence VLF weeks."""
+    from evaluate import fire_persistence_analysis
+    result = fire_persistence_analysis(modelling_df)
+    assert "onset_count" in result
+    assert "persist_count" in result
+    assert "persist_fraction" in result
+    assert "autocorrelation" in result
+    # Persistence fraction should be between 0 and 1
+    assert 0.0 <= result["persist_fraction"] <= 1.0
+    # Total should match VLF count
+    assert result["onset_count"] + result["persist_count"] == int(modelling_df["vlf"].sum())
+
+
+def test_onset_only_evaluation(modelling_df):
+    """Onset-only evaluation should work on filtered dataset."""
+    from evaluate import onset_only_eval
+    result = onset_only_eval(modelling_df, make_ridge, get_baseline_features())
+    assert "auc" in result
+    assert "n_onset" in result
+    assert result["n_onset"] > 0
+    # AUC should be above chance even for onset-only
+    assert result["auc"] > 0.55
+
+
+def test_persistence_baseline(modelling_df):
+    """Simple persistence baseline (area_lag1) should have positive AUC."""
+    from evaluate import persistence_baseline_auc
+    result = persistence_baseline_auc(modelling_df)
+    assert "auc" in result
+    assert result["auc"] > 0.5  # better than random
+
+
+def test_threshold_sensitivity(modelling_df):
+    """Threshold sensitivity should return results for multiple thresholds."""
+    from evaluate import threshold_sensitivity
+    # Use raw data for re-labeling
+    from data_loaders import load_effis_weekly, add_features
+    df_raw = load_effis_weekly()
+    df_raw = df_raw[(df_raw["year"] >= 2012) & (df_raw["year"] <= 2025)].copy()
+    df_raw = add_features(df_raw)
+    df_raw = df_raw[(df_raw["week"] >= 15) & (df_raw["week"] <= 48)].copy()
+    result = threshold_sensitivity(df_raw, thresholds=[2500, 5000, 10000])
+    assert len(result) == 3
+    for row in result:
+        assert "threshold" in row
+        assert "lfmc_auc" in row
+        assert "fwi_auc" in row
+
+
+def test_xgboost_predictor_comparison(modelling_df):
+    """XGBoost predictor comparison should run and return results."""
+    from evaluate import run_predictor_comparison_xgb
+    result = run_predictor_comparison_xgb(modelling_df, verbose=False)
+    assert len(result) > 0
+    assert "config" in result.columns
+    assert "cv_auc" in result.columns
+
+
+def test_per_year_auc(modelling_df):
+    """Per-year AUC should return one entry per test year."""
+    from evaluate import per_year_auc
+    result = per_year_auc(modelling_df, make_ridge, get_baseline_features(),
+                          test_years=[2020, 2021])
+    assert len(result) == 2
+    for row in result:
+        assert "test_year" in row
+        assert "auc" in row

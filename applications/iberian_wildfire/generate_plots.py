@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Generate publication-quality plots for the Iberian wildfire VLF prediction project.
 
-Produces 5 PNGs in plots/. All use seaborn-v0_8-whitegrid, colourblind-safe
+Produces 7 PNGs in plots/. All use seaborn-v0_8-whitegrid, colourblind-safe
 palettes, 300 DPI, labelled axes, and no annotation collisions.
 
 Usage:
@@ -92,87 +92,81 @@ def _get_holdout_predictions(df: pd.DataFrame, model_factory, features,
 
 
 # ============================================================
-# Plot 1: Headline Finding -- LFMC proxy beats FWI proxy
+# Plot 1: Headline Finding -- Recent fire activity beats seasonal climatology
 # ============================================================
 
 def plot_headline_finding() -> None:
-    """Bar chart comparing predictor families by CV AUC.
-
-    Shows that recent fire activity dynamics (LFMC proxy) outperforms
-    historical fire danger patterns (FWI proxy) for VLF prediction.
-    """
+    """Bar chart comparing predictor families by CV AUC (Ridge and XGBoost)."""
     comp_path = DISCOVERIES_DIR / "predictor_comparison.csv"
     comp = pd.read_csv(comp_path)
 
-    # Reorder for presentation
-    order = ["FWI_proxy", "Drought_proxy", "LFMC_proxy",
-             "FWI+LFMC", "FWI+Drought", "LFMC+Drought",
-             "All_three", "Baseline_full"]
+    # Reorder: show core 3 families + full baseline
+    order = ["FWI_proxy", "Drought_proxy", "LFMC_proxy", "Baseline_full"]
     comp = comp.set_index("config").reindex(order).reset_index()
 
     labels = {
-        "FWI_proxy": "Fire weather\n(historical patterns)",
-        "Drought_proxy": "Drought\n(cumulative stress)",
-        "LFMC_proxy": "Fuel moisture proxy\n(recent fire dynamics)",
-        "FWI+LFMC": "Weather +\nFuel moisture",
-        "FWI+Drought": "Weather +\nDrought",
-        "LFMC+Drought": "Fuel moisture +\nDrought",
-        "All_three": "All three\ncombined",
+        "FWI_proxy": "Seasonal\nclimatology",
+        "Drought_proxy": "Cumulative\nstress",
+        "LFMC_proxy": "Recent fire\nactivity",
         "Baseline_full": "Full baseline\n(26 features)",
     }
 
-    fig, ax = plt.subplots(figsize=(14, 7))
+    # Also load XGBoost comparison
+    xgb_path = DISCOVERIES_DIR / "predictor_comparison_xgb.csv"
+    xgb_comp = pd.read_csv(xgb_path)
+    xgb_comp = xgb_comp.set_index("config").reindex(order).reset_index()
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7), sharey=True)
 
     x = np.arange(len(comp))
     width = 0.35
 
-    # Color: LFMC-family = orange, FWI-family = blue, combos = green
-    colors_cv = []
-    colors_ho = []
-    for c in comp["config"]:
-        if "LFMC" in c and "FWI" not in c and "Drought" not in c:
-            colors_cv.append(CB_ORANGE)
-            colors_ho.append(CB_ORANGE)
-        elif "FWI" in c and "LFMC" not in c and "Drought" not in c:
-            colors_cv.append(CB_BLUE)
-            colors_ho.append(CB_BLUE)
-        else:
-            colors_cv.append(CB_GREEN)
-            colors_ho.append(CB_GREEN)
+    colors = [CB_BLUE, CB_GREEN, CB_ORANGE, CB_GREY]
 
-    bars1 = ax.bar(x - width / 2, comp["cv_auc"], width, label="Temporal CV AUC",
-                   color=colors_cv, alpha=0.8, edgecolor="black", linewidth=0.5)
-    bars2 = ax.bar(x + width / 2, comp["holdout_auc"], width, label="2025 Holdout AUC",
-                   color=colors_ho, alpha=0.4, edgecolor="black", linewidth=0.5,
-                   hatch="//")
-
-    # Value labels on bars
+    # Ridge panel
+    bars1 = ax1.bar(x - width / 2, comp["cv_auc"], width, label="CV AUC",
+                    color=colors, alpha=0.8, edgecolor="black", linewidth=0.5)
+    bars2 = ax1.bar(x + width / 2, comp["holdout_auc"], width, label="2025 Holdout",
+                    color=colors, alpha=0.4, edgecolor="black", linewidth=0.5,
+                    hatch="//")
     for bar in bars1:
-        height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width() / 2., height + 0.005,
-                f"{height:.3f}", ha="center", va="bottom", fontsize=9)
+        h = bar.get_height()
+        ax1.text(bar.get_x() + bar.get_width() / 2., h + 0.005,
+                 f"{h:.3f}", ha="center", va="bottom", fontsize=9)
     for bar in bars2:
-        height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width() / 2., height + 0.005,
-                f"{height:.3f}", ha="center", va="bottom", fontsize=9)
+        h = bar.get_height()
+        ax1.text(bar.get_x() + bar.get_width() / 2., h + 0.005,
+                 f"{h:.3f}", ha="center", va="bottom", fontsize=9)
 
-    ax.set_xlabel("")
-    ax.set_ylabel("AUC")
-    ax.set_title("Which Predictor Family Best Identifies\nVery Large Fire Weeks on the Iberian Peninsula?")
-    ax.set_xticks(x)
-    ax.set_xticklabels([labels.get(c, c) for c in comp["config"]], fontsize=10)
-    ax.set_ylim(0.65, 1.05)
-    ax.legend(loc="lower left", fontsize=12)
+    ax1.set_xticks(x)
+    ax1.set_xticklabels([labels.get(c, c) for c in comp["config"]], fontsize=10)
+    ax1.set_ylabel("AUC")
+    ax1.set_title("Ridge Logistic Regression")
+    ax1.set_ylim(0.65, 1.08)
+    ax1.legend(loc="lower left", fontsize=10)
 
-    # Annotation -- positioned below the bars to avoid overlaps
-    ax.text(
-        0.02, 0.03,
-        "Fuel moisture proxy alone (AUC 0.952)\noutperforms fire weather (AUC 0.809)",
-        transform=ax.transAxes, fontsize=11, va="bottom", ha="left",
-        color=CB_ORANGE, fontweight="bold",
-        bbox=dict(boxstyle="round,pad=0.3", facecolor="white",
-                  edgecolor=CB_ORANGE, alpha=0.9),
-    )
+    # XGBoost panel
+    bars3 = ax2.bar(x - width / 2, xgb_comp["cv_auc"], width, label="CV AUC",
+                    color=colors, alpha=0.8, edgecolor="black", linewidth=0.5)
+    bars4 = ax2.bar(x + width / 2, xgb_comp["holdout_auc"], width, label="2025 Holdout",
+                    color=colors, alpha=0.4, edgecolor="black", linewidth=0.5,
+                    hatch="//")
+    for bar in bars3:
+        h = bar.get_height()
+        ax2.text(bar.get_x() + bar.get_width() / 2., h + 0.005,
+                 f"{h:.3f}", ha="center", va="bottom", fontsize=9)
+    for bar in bars4:
+        h = bar.get_height()
+        ax2.text(bar.get_x() + bar.get_width() / 2., h + 0.005,
+                 f"{h:.3f}", ha="center", va="bottom", fontsize=9)
+
+    ax2.set_xticks(x)
+    ax2.set_xticklabels([labels.get(c, c) for c in xgb_comp["config"]], fontsize=10)
+    ax2.set_title("XGBoost (depth=4)")
+    ax2.legend(loc="lower left", fontsize=10)
+
+    fig.suptitle("Predictor Family Comparison for VLF Week Classification",
+                 fontsize=16, y=1.02)
 
     fig.tight_layout(pad=2.0)
     fig.savefig(PLOTS_DIR / "headline_finding.png", bbox_inches="tight")
@@ -222,7 +216,7 @@ def plot_tournament_comparison() -> None:
         fontsize=10,
     )
     ax.set_ylabel("AUC")
-    ax.set_title("Phase 1 Tournament: Model Comparison for VLF Prediction")
+    ax.set_title("Model Tournament: VLF Week Classification (Full Baseline Features)")
     ax.set_ylim(0.9, 1.01)
     ax.legend(loc="lower left")
 
@@ -244,19 +238,19 @@ def plot_feature_importance() -> None:
     df = df.sort_values("standardized_importance", ascending=True)
 
     # Classify features
-    lfmc_keywords = ["ratio", "lag1", "lag2", "_2wk"]
-    fwi_keywords = ["avg", "max", "log_", "season"]
-    drought_keywords = ["cum_", "year_trend"]
+    activity_keywords = ["ratio", "lag1", "lag2", "_2wk"]
+    seasonal_keywords = ["avg", "max", "log_", "season"]
+    cumulative_keywords = ["cum_", "year_trend"]
 
     def classify(name):
-        if any(kw in name for kw in lfmc_keywords):
-            return "lfmc"
-        if any(kw in name for kw in drought_keywords):
-            return "drought"
-        return "fwi"
+        if any(kw in name for kw in activity_keywords):
+            return "activity"
+        if any(kw in name for kw in cumulative_keywords):
+            return "cumulative"
+        return "seasonal"
 
     categories = [classify(f) for f in df["feature"]]
-    cat_colors = {"fwi": CB_BLUE, "lfmc": CB_ORANGE, "drought": CB_GREEN}
+    cat_colors = {"seasonal": CB_BLUE, "activity": CB_ORANGE, "cumulative": CB_GREEN}
     colors = [cat_colors[c] for c in categories]
 
     name_map = {
@@ -288,9 +282,9 @@ def plot_feature_importance() -> None:
 
     from matplotlib.patches import Patch
     legend_elements = [
-        Patch(facecolor=CB_BLUE, label="Fire weather (historical patterns)"),
-        Patch(facecolor=CB_ORANGE, label="Fuel moisture proxy (recent activity)"),
-        Patch(facecolor=CB_GREEN, label="Drought (cumulative stress)"),
+        Patch(facecolor=CB_BLUE, label="Seasonal climatology"),
+        Patch(facecolor=CB_ORANGE, label="Recent fire activity"),
+        Patch(facecolor=CB_GREEN, label="Cumulative season stress"),
     ]
     ax.legend(handles=legend_elements, loc="lower right")
 
@@ -364,8 +358,8 @@ def plot_holdout_roc(df: pd.DataFrame) -> None:
     configs = [
         ("Ridge (baseline)", make_ridge, features, CB_BLUE),
         ("XGBoost (depth=4)", make_xgboost, features, CB_ORANGE),
-        ("Ridge (LFMC proxy only)", make_ridge, LFMC_PROXY_FEATURES, CB_GREEN),
-        ("Ridge (FWI proxy only)", make_ridge, FWI_PROXY_FEATURES, CB_PURPLE),
+        ("Ridge (recent activity)", make_ridge, LFMC_PROXY_FEATURES, CB_GREEN),
+        ("Ridge (seasonal clim.)", make_ridge, FWI_PROXY_FEATURES, CB_PURPLE),
     ]
 
     fig, ax = plt.subplots(figsize=(10, 8))
@@ -380,7 +374,7 @@ def plot_holdout_roc(df: pd.DataFrame) -> None:
     ax.plot([0, 1], [0, 1], "--", color="grey", linewidth=1)
     ax.set_xlabel("False Positive Rate")
     ax.set_ylabel("True Positive Rate")
-    ax.set_title("ROC Curves: 2025 Holdout Year\n(Trained on 2012-2024)")
+    ax.set_title("ROC Curves: 2025 Holdout Year\n(Trained on 2012-2024, N=68)")
     ax.legend(loc="lower right", fontsize=11)
     ax.set_xlim(-0.02, 1.02)
     ax.set_ylim(-0.02, 1.02)
@@ -392,6 +386,82 @@ def plot_holdout_roc(df: pd.DataFrame) -> None:
 
 
 # ============================================================
+# Plot 6: Threshold Sensitivity
+# ============================================================
+
+def plot_threshold_sensitivity() -> None:
+    """Line plot showing AUC across different VLF thresholds."""
+    thresh_path = DISCOVERIES_DIR / "threshold_sensitivity.csv"
+    df = pd.read_csv(thresh_path)
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    ax.plot(df["threshold"], df["lfmc_auc"], "o-", color=CB_ORANGE,
+            linewidth=2, markersize=8, label="Recent fire activity")
+    ax.plot(df["threshold"], df["full_auc"], "s-", color=CB_GREY,
+            linewidth=2, markersize=8, label="Full baseline")
+    ax.plot(df["threshold"], df["fwi_auc"], "^-", color=CB_BLUE,
+            linewidth=2, markersize=8, label="Seasonal climatology")
+
+    # Persistence baseline reference
+    ax.axhline(y=0.814, color=CB_RED, linestyle="--", linewidth=1.5,
+               label="Persistence baseline (area_lag1)")
+
+    ax.set_xlabel("VLF Threshold (hectares)")
+    ax.set_ylabel("Ridge CV AUC")
+    ax.set_title("Threshold Sensitivity: Predictor Family Comparison")
+    ax.legend(loc="center left", fontsize=11)
+    ax.set_xscale("log")
+    ax.set_xticks(df["threshold"])
+    ax.get_xaxis().set_major_formatter(mticker.FuncFormatter(
+        lambda x, _: f"{int(x):,}"))
+    ax.set_ylim(0.65, 1.02)
+
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / "threshold_sensitivity.png", bbox_inches="tight")
+    plt.close(fig)
+    print(f"  saved {PLOTS_DIR / 'threshold_sensitivity.png'}")
+
+
+# ============================================================
+# Plot 7: Persistence Analysis
+# ============================================================
+
+def plot_persistence_analysis(df: pd.DataFrame) -> None:
+    """Stacked bar showing onset vs persistence VLF weeks by year."""
+    df2 = df.sort_values(["country", "year", "week"]).reset_index(drop=True)
+    df2["vlf_prev"] = df2.groupby("country")["vlf"].shift(1).fillna(0)
+    df2["vlf_onset"] = ((df2["vlf"] == 1) & (df2["vlf_prev"] == 0)).astype(int)
+    df2["vlf_persist"] = ((df2["vlf"] == 1) & (df2["vlf_prev"] == 1)).astype(int)
+
+    yearly = df2.groupby("year").agg(
+        onset=("vlf_onset", "sum"),
+        persist=("vlf_persist", "sum"),
+    ).reset_index()
+
+    fig, ax = plt.subplots(figsize=(12, 6))
+    x = np.arange(len(yearly))
+    width = 0.6
+
+    ax.bar(x, yearly["onset"], width, label="VLF onset (new)",
+           color=CB_ORANGE, edgecolor="black", linewidth=0.5)
+    ax.bar(x, yearly["persist"], width, bottom=yearly["onset"],
+           label="VLF persistence (continuing)", color=CB_BLUE, alpha=0.6,
+           edgecolor="black", linewidth=0.5)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(yearly["year"], rotation=45)
+    ax.set_ylabel("Number of VLF country-weeks")
+    ax.set_title("VLF Onset vs. Persistence by Year\n(47% of VLF weeks are persistence events)")
+    ax.legend(loc="upper left")
+
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / "persistence_analysis.png", bbox_inches="tight")
+    plt.close(fig)
+    print(f"  saved {PLOTS_DIR / 'persistence_analysis.png'}")
+
+
+# ============================================================
 # Main
 # ============================================================
 
@@ -399,26 +469,31 @@ def main() -> None:
     warnings.filterwarnings("ignore", category=FutureWarning)
     warnings.filterwarnings("ignore", message=".*lbfgs.*")
     warnings.filterwarnings("ignore", message=".*penalty.*deprecated.*")
+    warnings.filterwarnings("ignore", message=".*ConvergenceWarning.*")
     print("Generating plots for Iberian wildfire VLF prediction project...")
 
-    print("\n[1/5] Loading data...")
+    print("\n[1/7] Loading data...")
     df = _load_data()
     print(f"  {len(df)} rows, VLF rate={df['vlf'].mean():.1%}")
 
-    print("\n[2/5] Headline finding (predictor comparison)...")
+    print("\n[2/7] Headline finding (predictor comparison)...")
     plot_headline_finding()
 
-    print("\n[3/5] Tournament comparison...")
+    print("\n[3/7] Tournament comparison...")
     plot_tournament_comparison()
 
-    print("\n[4/5] Feature importance...")
+    print("\n[4/7] Feature importance...")
     plot_feature_importance()
 
-    print("\n[5/5] Seasonal risk profile...")
+    print("\n[5/7] Seasonal risk profile...")
     plot_seasonal_risk(df)
 
-    print("\n[6/5] Holdout ROC curves...")
+    print("\n[6/7] Holdout ROC curves...")
     plot_holdout_roc(df)
+
+    print("\n[7/7] Threshold sensitivity & persistence...")
+    plot_threshold_sensitivity()
+    plot_persistence_analysis(df)
 
     print(f"\nAll plots saved to {PLOTS_DIR}/")
     for p in sorted(PLOTS_DIR.glob("*.png")):

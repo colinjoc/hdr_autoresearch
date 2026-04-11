@@ -1,0 +1,8 @@
+{
+  "onset_count": 66,
+  "persist_count": 59,
+  "persist_fraction": 0.472,
+  "autocorrelation": 0.387,
+  "total_vlf": 125,
+  "persistence_baseline_auc": 0.814
+}

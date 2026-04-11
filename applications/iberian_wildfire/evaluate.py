@@ -50,6 +50,7 @@ from model import (
     make_ridge,
     make_xgboost,
 )
+from data_loaders import load_effis_weekly, add_features
 
 HERE = Path(__file__).resolve().parent
 RESULTS_PATH = HERE / "results.tsv"
@@ -385,6 +386,153 @@ def compute_feature_importance(df: pd.DataFrame) -> pd.DataFrame:
     }).sort_values("standardized_importance", ascending=False)
 
     return imp
+
+
+# ---------------------------------------------------------------- review-driven experiments
+
+
+def fire_persistence_analysis(df: pd.DataFrame) -> dict:
+    """Analyse how many VLF weeks are onset (new) vs persistence (continuing).
+
+    A VLF week is 'persistence' if the immediately preceding week for the
+    same country was also VLF. Otherwise it is 'onset'.
+
+    Returns dict with onset_count, persist_count, persist_fraction,
+    autocorrelation (week-to-week burned area correlation).
+    """
+    df2 = df.sort_values(["country", "year", "week"]).reset_index(drop=True)
+    df2["vlf_prev"] = df2.groupby("country")["vlf"].shift(1).fillna(0)
+    # Onset: VLF this week, not VLF last week (or first week of year)
+    onset = ((df2["vlf"] == 1) & (df2["vlf_prev"] == 0)).sum()
+    persist = ((df2["vlf"] == 1) & (df2["vlf_prev"] == 1)).sum()
+    total_vlf = int(df2["vlf"].sum())
+    persist_frac = persist / total_vlf if total_vlf > 0 else 0.0
+
+    # Week-to-week autocorrelation of burned area
+    area = df2["area_ha"].values
+    area_lag = df2["area_lag1"].values
+    mask = np.isfinite(area) & np.isfinite(area_lag)
+    if mask.sum() > 2:
+        autocorr = float(np.corrcoef(area[mask], area_lag[mask])[0, 1])
+    else:
+        autocorr = float("nan")
+
+    return {
+        "onset_count": int(onset),
+        "persist_count": int(persist),
+        "persist_fraction": float(persist_frac),
+        "autocorrelation": autocorr,
+        "total_vlf": total_vlf,
+    }
+
+
+def onset_only_eval(df: pd.DataFrame, model_factory, feature_cols: list,
+                    verbose: bool = False) -> dict:
+    """Evaluate on onset-only VLF weeks (excluding persistence).
+
+    Removes VLF weeks that are preceded by another VLF week, then
+    runs temporal CV on the remaining data with vlf_onset as target.
+    """
+    df2 = df.sort_values(["country", "year", "week"]).reset_index(drop=True)
+    df2["vlf_prev"] = df2.groupby("country")["vlf"].shift(1).fillna(0)
+    df2["vlf_onset"] = ((df2["vlf"] == 1) & (df2["vlf_prev"] == 0)).astype(int)
+    df2["vlf_persist"] = ((df2["vlf"] == 1) & (df2["vlf_prev"] == 1)).astype(int)
+
+    # Remove persistence weeks entirely, relabel target
+    df_onset = df2[df2["vlf_persist"] == 0].copy()
+    df_onset["vlf"] = df_onset["vlf_onset"]
+    n_onset = int(df_onset["vlf"].sum())
+
+    cv = temporal_cv(df_onset, model_factory, feature_cols, verbose=verbose)
+    return {
+        "auc": cv["auc"],
+        "f2": cv["f2"],
+        "n_onset": n_onset,
+        "n_total": len(df_onset),
+        "fold_metrics": cv.get("fold_metrics", []),
+    }
+
+
+def persistence_baseline_auc(df: pd.DataFrame) -> dict:
+    """Compute AUC for a trivial persistence baseline: predict VLF from area_lag1."""
+    y_true = df["vlf"].values
+    y_pred = df["area_lag1"].values
+    auc = float("nan")
+    if y_true.sum() >= 1 and (len(y_true) - y_true.sum()) >= 1:
+        try:
+            auc = float(roc_auc_score(y_true, y_pred))
+        except ValueError:
+            pass
+    return {"auc": auc, "n_pos": int(y_true.sum()), "n_total": len(y_true)}
+
+
+def threshold_sensitivity(df_raw: pd.DataFrame,
+                          thresholds: list | None = None) -> list[dict]:
+    """Run predictor comparison at multiple VLF thresholds.
+
+    df_raw should have features added but NO vlf column (or it will be overwritten).
+    """
+    if thresholds is None:
+        thresholds = [1000, 2500, 5000, 10000, 20000]
+
+    results = []
+    for thresh in thresholds:
+        df = df_raw.copy()
+        df["vlf"] = ((df["area_ha"] > thresh) & (df["fires"] >= 1)).astype(int)
+        n_pos = int(df["vlf"].sum())
+        if n_pos < 5:
+            results.append({
+                "threshold": thresh, "n_pos": n_pos, "vlf_rate": df["vlf"].mean(),
+                "fwi_auc": float("nan"), "lfmc_auc": float("nan"),
+                "full_auc": float("nan"),
+            })
+            continue
+
+        cv_fwi = temporal_cv(df, make_ridge, FWI_PROXY_FEATURES, verbose=False)
+        cv_lfmc = temporal_cv(df, make_ridge, LFMC_PROXY_FEATURES, verbose=False)
+        cv_full = temporal_cv(df, make_ridge, get_baseline_features(), verbose=False)
+        results.append({
+            "threshold": thresh,
+            "n_pos": n_pos,
+            "vlf_rate": float(df["vlf"].mean()),
+            "fwi_auc": cv_fwi["auc"],
+            "lfmc_auc": cv_lfmc["auc"],
+            "full_auc": cv_full["auc"],
+        })
+    return results
+
+
+def run_predictor_comparison_xgb(df: pd.DataFrame,
+                                  verbose: bool = True) -> pd.DataFrame:
+    """Phase 2.5b: Predictor comparison using XGBoost instead of Ridge."""
+    configs = {
+        "FWI_proxy": FWI_PROXY_FEATURES,
+        "LFMC_proxy": LFMC_PROXY_FEATURES,
+        "Drought_proxy": DROUGHT_PROXY_FEATURES,
+        "Baseline_full": get_baseline_features(),
+    }
+    results = []
+    for name, features in configs.items():
+        if verbose:
+            print(f"\n  === {name} (XGBoost, {len(features)} features) ===")
+        cv = temporal_cv(df, make_xgboost, features, verbose=verbose)
+        ho = holdout_eval(df, make_xgboost, features, verbose=verbose)
+        results.append({
+            "config": name,
+            "n_features": len(features),
+            "cv_auc": cv["auc"],
+            "cv_f2": cv["f2"],
+            "holdout_auc": ho["auc"],
+        })
+    return pd.DataFrame(results)
+
+
+def per_year_auc(df: pd.DataFrame, model_factory, feature_cols: list,
+                 test_years: list | None = None) -> list[dict]:
+    """Return per-year AUC from temporal CV."""
+    cv = temporal_cv(df, model_factory, feature_cols,
+                     test_years=test_years, verbose=False)
+    return cv.get("fold_metrics", [])
 
 
 # ---------------------------------------------------------------- main

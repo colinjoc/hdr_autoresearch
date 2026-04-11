@@ -137,15 +137,14 @@ def get_phase2_features() -> List[str]:
     return list(BASELINE_FEATURES) + list(PHASE2_EXTRA_FEATURES)
 
 
-# ---------------------------------------------------------------- FWI-only, LFMC-only, SPEI-only feature sets for Phase 2.5
-
-# These use subsets of features to test which predictor family dominates.
-# "FWI proxy" = fire weather captured by historical fire danger patterns
-#   -> fires_avg, fires_max, area_ha_avg, area_ha_max, is_fire_season
-# "LFMC proxy" = vegetation moisture captured by fire activity dynamics
-#   -> fires_ratio, area_ratio, fires_lag1, area_lag1 (recent activity = dry fuel)
-# "SPEI proxy" = drought captured by cumulative fire season stress
-#   -> cum_area_ytd, cum_fires_ytd, year_trend
+# ---------------------------------------------------------------- Feature subsets for predictor family comparison
+#
+# NOTE: Variable names (FWI_PROXY, LFMC_PROXY, DROUGHT_PROXY) are legacy.
+# The paper uses corrected terminology:
+#   FWI_PROXY_FEATURES  = "Seasonal Climatology" (historical fire activity patterns)
+#   LFMC_PROXY_FEATURES = "Recent Fire Activity" (ratios to norms + lagged values)
+#   DROUGHT_PROXY_FEATURES = "Cumulative Season Stress" (year-to-date accumulations)
+# None of these are actual fire weather, fuel moisture, or drought measurements.
 
 FWI_PROXY_FEATURES = [
     "month_sin", "month_cos",
