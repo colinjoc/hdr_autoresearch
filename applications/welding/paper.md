@@ -37,11 +37,17 @@ alone, a finding not articulated in the Phase 0 queue. An inverse-design
 Phase B sweep over 1760 candidates recovers the classical thin-plate
 low-heat-input prescription (18-24 V, 100 A, 10-15 mm/s travel speed,
 4-6 mm plate) for narrow-HAZ welding without seeing the textbook. The
-primary limitation is that the dataset is synthetic — no open tabular
-welding parameter-quality dataset of comparable size exists as of
-April 2026. All quantitative claims in this paper are traceable to a
-specific row in `results.tsv`; a reviewer can reproduce the baseline,
-tournament, HDR loop, Phase 2.5, and Phase B by running
+primary limitation is that the dataset is synthetic — the physics
+features are derived from the same Rosenthal formulas that generated
+the data, so the 30.5 percent improvement is an upper bound on what
+can be achieved on real measured welds. The theoretical noise ceiling
+on this dataset is R² = 0.991 given the 5 percent Gaussian noise;
+P25.3's R² = 0.9695 captures 78 percent of the recoverable signal
+beyond the baseline. No open tabular welding parameter-quality
+dataset of comparable size exists as of April 2026. All quantitative
+claims in this paper are traceable to a specific row in `results.tsv`;
+a reviewer can reproduce the baseline, tournament, HDR loop,
+Phase 2.5, and Phase B by running
 `python build_dataset.py && python hdr_loop.py && python hdr_phase25.py
 && python phase_b_discovery.py`.
 
@@ -233,9 +239,9 @@ Three reasons motivate this choice:
 Running `python hdr_loop.py` reports row **E00** in `results.tsv`:
 
     E00  XGBoost on raw process features
-         MAE  = 1.7152 mm
+         MAE  = 1.7152 mm  (per-fold std = 0.089 mm)
          RMSE = 2.5596 mm
-         R²   = 0.9344
+         R²   = 0.9344     (per-fold std = 0.011)
 
 This is the target the HDR loop must improve upon.
 
@@ -353,9 +359,14 @@ class WeldingModel:
 Running `python evaluate.py` reports:
 
     PHASE A: HAZ half-width prediction (5-fold CV)
-      MAE:  1.193 mm     RMSE: 1.746 mm     R²: 0.9695
+      MAE:  1.193 mm  (per-fold std = 0.070 mm)
+      RMSE: 1.746 mm
+      R²:   0.9695    (per-fold std = 0.004)
 
-which corresponds exactly to row **P25.3** in `results.tsv`.
+which corresponds exactly to row **P25.3** in `results.tsv`. The
+result is stable across cross-validation seeds: over five different
+KFold random states (0, 1, 2, 42, 100), the MAE ranges from 1.181
+to 1.241 mm (mean 1.202, std 0.022).
 Figure 1 (`plots/pred_vs_actual.png`) shows a scatter of predicted
 versus actual HAZ half-width from the 5-fold out-of-fold predictions;
 the tight clustering around the diagonal confirms the R² = 0.97 fit.
@@ -393,14 +404,18 @@ Why does this configuration work? Four distinct effects stack:
    transform only helps *after* the physics features and
    monotonicity are already in.
 
-**Concrete differences from the baseline** (Section 2):
+**Concrete differences from the baseline** (Section 2). The individual
+deltas below are measured sequentially (each relative to the best at
+that point in the HDR trajectory, not the original baseline), so they
+do not sum to the total. The total is measured directly as
+E00 (1.7152) minus P25.3 (1.1928):
 
-| Change                               | Effect on MAE  |
-|--------------------------------------|----------------|
-| add heat input (HI) feature          | -0.058 mm      |
-| add Rosenthal cooling time t_{8/5}   | -0.258 mm      |
-| monotone constraints on HI and t_{8/5}| -0.050 mm     |
-| log(1 + HAZ) target transform         | -0.086 mm     |
+| Change                               | Sequential delta |
+|--------------------------------------|------------------|
+| add heat input (HI) feature          | -0.058 mm        |
+| add Rosenthal cooling time t_{8/5}   | -0.258 mm        |
+| monotone constraints on HI and t_{8/5}| -0.050 mm       |
+| log(1 + HAZ) target transform         | -0.086 mm       |
 | **total (baseline 1.7152 → P25.3)**  | **-0.522 mm (-30.5 percent)** |
 
 ### 3.4 Assumptions and limits
@@ -589,8 +604,14 @@ retest exists precisely to catch.
 
 ### 5.4 Cross-process transfer (hypothesis H20)
 
-Training the P25.3 configuration on a single process and testing on
-the other:
+Training the P25.3 feature set and hyperparameters on a single
+process and testing on the other. Note: the transfer experiments
+use the raw target (not the log(1+HAZ) transform) because the
+log transform was calibrated on the combined dataset's distribution;
+applying it to a single-process subset with different target range
+would conflate the transfer signal with a distribution-shift
+artifact. The physics features and monotonicity constraints are
+identical to P25.3:
 
 | Experiment | Train | Test | MAE (mm) | R²      |
 |------------|-------|------|----------|---------|
@@ -653,7 +674,7 @@ Results:
 - Pareto front (HAZ vs inverse travel speed): 6 designs
 - Minimum predicted HAZ width: 3.71 mm
 - Minimum heat input in candidate set: 0.107 kJ/mm
-- Candidates with predicted HAZ ≤ 5 mm: 38
+- Candidates with predicted HAZ ≤ 5 mm: 20
 
 Top 5 low-heat-input candidates with predicted HAZ ≤ 5 mm:
 
@@ -736,15 +757,22 @@ Four independent effects stacked to give the 30.5 percent improvement:
 
 ### 6.3 Limitations
 
-- **Synthetic dataset.** We could not locate a real, open, tabular
-  welding parameter-quality regression dataset of comparable size in
-  this session. The 560-row dataset is generated from the Rosenthal
-  closed-form solution with Gaussian noise, and the 45-row FSW subset
-  from Matitopanum et al. (2024) is the only real-data ground truth.
-  The 30.5 percent relative improvement holds against the synthetic
-  ground truth; it is an *upper bound* on what can be achieved on a
-  real dataset (synthetic data is always easier because its true
-  generator is in the function class the model searches).
+- **Synthetic dataset and Rosenthal circularity.** We could not
+  locate a real, open, tabular welding parameter-quality regression
+  dataset of comparable size in this session. The 560-row dataset is
+  generated from the Rosenthal closed-form solution with Gaussian
+  noise, and the 45-row FSW subset from Matitopanum et al. (2024) is
+  the only real-data ground truth. Crucially, the two winning physics
+  features (heat input and cooling time t_{8/5}) are derived from the
+  *same* Rosenthal formulas that generated the target values, so the
+  model has access to the generator's own intermediate variables. The
+  theoretical noise ceiling given 5 percent Gaussian measurement noise
+  is R² ≈ 0.991; P25.3's R² = 0.9695 captures 78 percent of the
+  recoverable signal beyond the baseline. The 30.5 percent relative
+  improvement is therefore an *upper bound* on what can be achieved
+  on a real dataset where calibration error, electrode wear,
+  shielding gas variation, and non-Rosenthal heat flow would introduce
+  irreducible model-form error.
 - **Single target.** We predict only HAZ half-width. Hardness,
   cooling time, and UTS are in the dataset but the HDR loop does not
   iterate against them. A multi-target version of the same pipeline

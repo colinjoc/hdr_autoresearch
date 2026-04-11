@@ -20,7 +20,7 @@ Two sources of data are merged:
    distinguishable from the synthetic arc-welding rows.
 
 Outputs:
-    data/welding.csv  — 609 rows, 13 columns, one header line.
+    data/welding.csv  — 605 rows, 13 columns, one header line.
 
 Columns (all floats unless otherwise noted):
     process          : {"GMAW", "GTAW", "FSW"}  — process family
