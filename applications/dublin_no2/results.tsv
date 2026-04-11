@@ -15,3 +15,10 @@ Q4_covid_phases	blanchardstown_may2020_drop_pct	83	May 2020 vs May 2019 — M50 
 Q5_temperature	ballyfermot_winter_temp_corr	-0.323	Negative correlation: colder = more NO2 (heating signal)
 Q5_temperature	clonskeagh_winter_temp_corr	-0.392	Strongest temp-NO2 signal at Clonskeagh
 Q5_temperature	cold_day_no2_excess	14	Extra µg/m³ at background stations on cold (<2°C) vs mild (>11°C) days
+R1_ww_correction	ww_raw_mean_error	44.3	Mean absolute error of raw weekday-weekend vs station-diff (%)
+R1_ww_correction	ww_corrected_mean_error	14.2	Mean absolute error of corrected weekday-weekend vs station-diff (%)
+R2_photochemistry	mean_urban_o3_no2_corr	-0.401	Mean O3-NO2 correlation at urban stations
+R3_weather_confound	temp_diff_2020_vs_2019	0.30	March-June mean temp difference (2020-2019) degrees C
+R3_weather_confound	wdsp_diff_2020_vs_2019	-0.03	March-June mean wind speed difference (2020-2019) knots
+R3_weather_confound	sun_diff_2020_vs_2019	1.63	March-June mean sunshine difference (2020-2019) hours/day
+R4_wind_direction	winetavern_max_min_ratio	1.70	Max/min NO2 ratio by wind direction at Winetavern

@@ -488,6 +488,151 @@ def plot_source_attribution():
     print("  [5/5] source_attribution.png")
 
 
+def plot_wind_direction():
+    """Plot 6: NO2 pollution rose showing wind-direction dependence.
+
+    Shows how NO2 varies by wind direction at Winetavern Street (traffic)
+    and Rathmines (background), revealing directional source signatures.
+    """
+    from evaluate import wind_direction_no2_analysis
+
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6), subplot_kw={'projection': 'polar'})
+
+    stations = [
+        ('IE005AP', 'Winetavern Street (Traffic)'),
+        ('IE0098A', 'Rathmines (Background)'),
+    ]
+
+    for ax, (code, title) in zip(axes, stations):
+        wd = wind_direction_no2_analysis(code, n_sectors=16)
+
+        # Convert to radians (meteorological convention: N=0, clockwise)
+        theta = np.deg2rad(wd['wddir_center'].values)
+        r = wd['NO2_mean'].values
+
+        # Close the polygon
+        theta = np.append(theta, theta[0])
+        r = np.append(r, r[0])
+
+        ax.plot(theta, r, color=CB_RED if 'Traffic' in title else CB_BLUE,
+                linewidth=2)
+        ax.fill(theta, r, alpha=0.25,
+                color=CB_RED if 'Traffic' in title else CB_BLUE)
+
+        ax.set_theta_zero_location('N')
+        ax.set_theta_direction(-1)
+        ax.set_title(title, fontsize=14, pad=20)
+        ax.set_rlabel_position(45)
+
+        # Add compass labels
+        ax.set_thetagrids([0, 45, 90, 135, 180, 225, 270, 315],
+                          ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'])
+
+    fig.suptitle('NO$_2$ by Wind Direction ($\\mu$g/m$^3$ mean)',
+                 fontsize=16, fontweight='bold', y=1.02)
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / 'wind_direction.png', bbox_inches='tight')
+    plt.close(fig)
+    print("  [6/8] wind_direction.png")
+
+
+def plot_weekday_weekend_correction():
+    """Plot 7: Weekday-weekend traffic estimate with correction applied.
+
+    Shows raw vs corrected weekday-weekend implied traffic % alongside
+    the station-differencing estimate.
+    """
+    from evaluate import weekday_weekend_corrected
+
+    ww = weekday_weekend_corrected()
+
+    fig, ax = plt.subplots(figsize=(12, 6))
+
+    x = np.arange(len(ww))
+    bar_width = 0.25
+
+    ax.bar(x - bar_width, ww['implied_traffic_pct_raw'], bar_width,
+           label='Weekday-weekend (raw)', color=CB_CYAN,
+           edgecolor='white', linewidth=0.5)
+    ax.bar(x, ww['implied_traffic_pct_corrected'], bar_width,
+           label='Weekday-weekend (corrected)', color=CB_BLUE,
+           edgecolor='white', linewidth=0.5)
+    ax.bar(x + bar_width, ww['station_diff_traffic_pct'], bar_width,
+           label='Station-differencing model', color=CB_RED,
+           edgecolor='white', linewidth=0.5)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(ww['station_name'], rotation=30, ha='right')
+    ax.set_ylabel('Traffic contribution (%)', fontsize=14)
+    ax.set_title('Weekday-Weekend Traffic Estimate: Raw vs Corrected\n'
+                 '(correction assumes weekend traffic = 60% of weekday)', fontsize=14)
+    ax.legend(fontsize=12)
+    ax.set_ylim(0, 100)
+
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / 'weekday_weekend_correction.png', bbox_inches='tight')
+    plt.close(fig)
+    print("  [7/8] weekday_weekend_correction.png")
+
+
+def plot_o3_no2_photochemistry():
+    """Plot 8: O3-NO2 anti-correlation demonstrating photochemistry.
+
+    Shows scatter of daily O3 vs NO2 at stations with concurrent measurements,
+    plus seasonal bar chart of mean O3 and NO2.
+    """
+    from data_loaders import load_ireland_daily, KEY_STATIONS
+
+    df = load_ireland_daily()
+
+    # Pick two stations with good O3+NO2 data: Clonskeagh (urban bg) and Castlebar (rural bg)
+    stations = [
+        ('IE0028A', 'Clonskeagh (Urban Background)'),
+        ('IE0140A', 'Tallaght (Suburban Background)'),
+    ]
+
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+    for ax, (code, title) in zip(axes, stations):
+        sdf = df[(df['station'] == code) & df['O3'].notna() & df['NO2'].notna()].copy()
+        if len(sdf) == 0:
+            continue
+
+        sdf['month'] = sdf['date'].dt.month
+        sdf['season'] = sdf['month'].map(
+            lambda m: 'Winter' if m in [12, 1, 2] else
+                      'Spring' if m in [3, 4, 5] else
+                      'Summer' if m in [6, 7, 8] else 'Autumn'
+        )
+
+        season_colors = {
+            'Winter': CB_BLUE, 'Spring': CB_GREEN,
+            'Summer': CB_ORANGE, 'Autumn': CB_RED
+        }
+
+        for season in ['Winter', 'Spring', 'Summer', 'Autumn']:
+            ss = sdf[sdf['season'] == season]
+            ax.scatter(ss['NO2'], ss['O3'], alpha=0.3, s=12,
+                       c=season_colors[season], label=season, edgecolors='none')
+
+        corr = sdf['O3'].corr(sdf['NO2'])
+        ax.text(0.05, 0.95, f'r = {corr:.2f}\nn = {len(sdf)}',
+                transform=ax.transAxes, fontsize=12, verticalalignment='top',
+                bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
+
+        ax.set_xlabel('NO$_2$ ($\\mu$g/m$^3$)', fontsize=13)
+        ax.set_ylabel('O$_3$ ($\\mu$g/m$^3$)', fontsize=13)
+        ax.set_title(title, fontsize=14)
+        ax.legend(fontsize=10, loc='upper right')
+
+    fig.suptitle('NO$_2$-O$_3$ Anti-correlation: Evidence of Photochemical Cycling',
+                 fontsize=16, fontweight='bold', y=1.02)
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / 'o3_no2_photochemistry.png', bbox_inches='tight')
+    plt.close(fig)
+    print("  [8/8] o3_no2_photochemistry.png")
+
+
 def main():
     """Generate all plots."""
     print("Generating Dublin NO2 source attribution plots...")
@@ -497,6 +642,9 @@ def main():
     plot_headline_finding()
     plot_covid_validation()
     plot_source_attribution()
+    plot_wind_direction()
+    plot_weekday_weekend_correction()
+    plot_o3_no2_photochemistry()
     print(f"Done. All plots saved to {PLOTS_DIR}/")
 
 

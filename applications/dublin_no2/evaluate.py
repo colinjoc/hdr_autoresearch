@@ -280,3 +280,159 @@ def run_baseline_evaluation() -> dict:
         'correlation': float(corr) if not np.isnan(corr) else 0.0,
         'n_stations': len(vdf),
     }
+
+
+# ============================================================================
+# Review response analyses (added post-review)
+# ============================================================================
+
+def wind_direction_no2_analysis(station: str = 'IE005AP', n_sectors: int = 16) -> pd.DataFrame:
+    """Analyze NO2 by wind direction sector at a given station.
+
+    Bins wind direction into n_sectors and computes mean NO2 for each.
+    Uses Dublin Airport wind direction as proxy for all Dublin stations.
+
+    Returns DataFrame with columns: wddir_bin, wddir_center, NO2_mean, NO2_median, count
+    """
+    from data_loaders import load_merged_daily
+    df = load_merged_daily(station=station)
+    df = df[df['NO2'].notna() & df['wddir_mode'].notna()].copy()
+
+    # Bin wind direction into sectors
+    bin_width = 360 / n_sectors
+    df['wddir_bin'] = ((df['wddir_mode'] + bin_width / 2) % 360 // bin_width).astype(int)
+    df['wddir_center'] = df['wddir_bin'] * bin_width
+
+    result = df.groupby(['wddir_bin', 'wddir_center']).agg(
+        NO2_mean=('NO2', 'mean'),
+        NO2_median=('NO2', 'median'),
+        count=('NO2', 'count'),
+    ).reset_index()
+
+    return result.sort_values('wddir_center')
+
+
+def weekday_weekend_corrected(weekend_traffic_fraction: float = 0.60) -> pd.DataFrame:
+    """Compute corrected weekday-weekend traffic estimate.
+
+    The raw weekday-weekend method assumes weekend traffic is zero, which
+    underestimates the traffic fraction. Correcting for the known weekend
+    traffic fraction (typically ~60% of weekday) brings estimates closer
+    to the station-differencing results.
+
+    Formula: corrected_traffic_pct = raw_implied / (1 - weekend_traffic_fraction)
+
+    Returns DataFrame with columns per station:
+        station_name, weekday_mean, weekend_mean, ratio,
+        implied_traffic_pct_raw, implied_traffic_pct_corrected,
+        station_diff_traffic_pct
+    """
+    df = load_ireland_daily()
+    rows = []
+
+    # Stations to analyze (those with enough data and station-diff estimates)
+    stations_to_check = {
+        'IE005AP': ('Winetavern Street', 80),
+        'IE004AP': ('Pearse Street', 64),
+        'IE0131A': ('Blanchardstown (M50/N3)', 71),
+        'IE0036A': ('Ballyfermot', 56),
+        'IE001BP': ('Cork Old Station Road', 61),
+    }
+
+    for code, (name, station_diff_pct) in stations_to_check.items():
+        sdf = df[(df['station'] == code) & df['NO2'].notna()].copy()
+        sdf['dow'] = sdf['date'].dt.dayofweek  # 0=Mon, 6=Sun
+
+        weekday = sdf[sdf['dow'] < 5]['NO2'].mean()
+        weekend = sdf[sdf['dow'] >= 5]['NO2'].mean()
+
+        if weekday > 0 and weekend > 0:
+            ratio = weekday / weekend
+            raw_implied = (weekday - weekend) / weekday * 100
+            # Correct: the difference only captures (1 - weekend_frac) of traffic
+            corrected_implied = raw_implied / (1 - weekend_traffic_fraction)
+            # Cap at 100%
+            corrected_implied = min(corrected_implied, 100.0)
+
+            rows.append({
+                'station_name': name,
+                'weekday_mean': weekday,
+                'weekend_mean': weekend,
+                'ratio': ratio,
+                'implied_traffic_pct_raw': raw_implied,
+                'implied_traffic_pct_corrected': corrected_implied,
+                'station_diff_traffic_pct': station_diff_pct,
+            })
+
+    return pd.DataFrame(rows)
+
+
+def o3_no2_analysis() -> pd.DataFrame:
+    """Analyze O3-NO2 relationship at stations with concurrent measurements.
+
+    NO2 photochemistry: NO + O3 -> NO2, and NO2 + hv -> NO + O.
+    This creates an anti-correlation between O3 and NO2 in urban areas.
+
+    Returns DataFrame with columns:
+        station, station_name, o3_no2_corr, o3_summer_mean, o3_winter_mean,
+        no2_summer_mean, no2_winter_mean, n_days
+    """
+    df = load_ireland_daily()
+    rows = []
+
+    for code in KEY_STATIONS:
+        name, stype, city = KEY_STATIONS[code]
+        sdf = df[(df['station'] == code)].copy()
+        # Only stations with both O3 and NO2
+        both = sdf[sdf['O3'].notna() & sdf['NO2'].notna()].copy()
+        if len(both) < 100:
+            continue
+
+        corr = both['O3'].corr(both['NO2'])
+        both['month'] = both['date'].dt.month
+
+        summer = both[both['month'].isin([6, 7, 8])]
+        winter = both[both['month'].isin([12, 1, 2])]
+
+        rows.append({
+            'station': code,
+            'station_name': name,
+            'station_type': stype,
+            'o3_no2_corr': corr,
+            'o3_summer_mean': summer['O3'].mean() if len(summer) > 0 else np.nan,
+            'o3_winter_mean': winter['O3'].mean() if len(winter) > 0 else np.nan,
+            'no2_summer_mean': summer['NO2'].mean() if len(summer) > 0 else np.nan,
+            'no2_winter_mean': winter['NO2'].mean() if len(winter) > 0 else np.nan,
+            'n_days': len(both),
+        })
+
+    return pd.DataFrame(rows)
+
+
+def weather_comparison_2019_2020() -> dict:
+    """Compare March-June weather between 2019 and 2020.
+
+    Quantifies meteorological confounding for the COVID validation.
+    Returns dict with mean temperature, wind speed, rain, and sunshine
+    for both periods.
+    """
+    from data_loaders import load_daily_weather
+    wx = load_daily_weather()
+    wx['year'] = wx['date'].dt.year
+    wx['month'] = wx['date'].dt.month
+
+    result = {}
+    for year in [2019, 2020]:
+        period = wx[(wx['year'] == year) & wx['month'].isin([3, 4, 5, 6])]
+        result[f'temp_{year}'] = period['temp_mean'].mean()
+        result[f'wdsp_{year}'] = period['wdsp_mean'].mean()
+        result[f'rain_{year}'] = period['rain_sum'].mean()
+        result[f'sun_{year}'] = period['sun_sum'].mean()
+
+    # Differences
+    result['temp_diff'] = result['temp_2020'] - result['temp_2019']
+    result['wdsp_diff'] = result['wdsp_2020'] - result['wdsp_2019']
+    result['rain_diff'] = result['rain_2020'] - result['rain_2019']
+    result['sun_diff'] = result['sun_2020'] - result['sun_2019']
+
+    return result
