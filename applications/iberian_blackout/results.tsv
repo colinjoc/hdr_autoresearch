@@ -7,7 +7,7 @@ tournament_svm	SVM(RBF)	physics_proxies_16	0.9255	0.5556	0.6250	0.5882	0.9578	Hi
 tournament_lr_c1	LogisticRegression(C=1.0)	physics_proxies_16	0.9468	0.6364	0.8750	0.7368	0.9477	Good balance of AUC and F1	KEEP
 hdr_lr_enhanced	LogisticRegression(C=1.0)	enhanced_18	0.9681	0.8571	0.7500	0.8000	0.9520	Optimal threshold=0.70, best calibrated	KEEP
 hdr_gbm_threshold	GBM(50,d2)	enhanced_18	0.9787	1.0000	0.7500	0.8571	0.7500	Optimal threshold=0.10, robust	KEEP
-hdr_ensemble_lr_gbm	Ensemble(LR+GBM)	enhanced_18	0.9787	1.0000	0.7500	0.8571	0.9535	Avg proba, threshold=0.45, best overall	KEEP
+hdr_ensemble_lr_gbm	Ensemble(LR+GBM)	enhanced_18	0.9787	1.0000	0.7500	0.8571	0.9480	Avg proba, threshold=0.45, best overall	KEEP
 hdr_rolling_ren7d	GBM(50,d2)	+rolling_ren_7d	0.9787	1.0000	0.7500	0.8571	0.7500	No change from baseline GBM	TIE
 hdr_solar_neg_price	GBM(50,d2)	+solar_neg_price	0.9787	1.0000	0.7500	0.8571	0.7500	No change from baseline GBM	TIE
 hdr_triple_interact	GBM(50,d2)	+triple	0.9787	1.0000	0.7500	0.8571	0.7500	No change from baseline GBM	TIE
@@ -15,3 +15,10 @@ hdr_drop_inertia	GBM(50,d2)	-inertia	0.9787	1.0000	0.7500	0.8571	0.7500	Confirms
 hdr_voltage_focus	GBM(50,d2)	voltage_focused	0.9787	1.0000	0.7500	0.8571	0.7500	Voltage-focused features, same performance	TIE
 hdr_rf_enhanced	RF(100,d3)	enhanced_18	0.9468	0.8000	0.5000	0.6154	0.8932	RF underperforms on small data	REVERT
 hdr_et_enhanced	ExtraTrees	enhanced_19	0.9468	0.6667	0.7500	0.7059	0.9084	ET weaker with more features	REVERT
+review_permutation_test	GBM(50,d2)	enhanced_18	N/A	N/A	N/A	N/A	N/A	p<0.005 (0/200 perms >= F1=0.857); limited by circular labeling	INFO
+review_threshold_rule	CRS>0.330	composite_risk_score	0.9894	1.0000	0.8750	0.9333	N/A	Simple threshold beats ML; confirms circular labeling	INFO
+review_threshold_85pct	GBM(50,d2)	enhanced_18	N/A	1.0000	0.9375	0.9677	0.9375	Threshold sensitivity: 85th pct, n_pos=16	INFO
+review_threshold_90pct	GBM(50,d2)	enhanced_18	N/A	0.9333	0.9333	0.9333	0.9222	Threshold sensitivity: 90th pct, n_pos=15	INFO
+review_threshold_99pct	GBM(50,d2)	enhanced_18	N/A	0.0000	0.0000	0.0000	0.3300	Threshold sensitivity: 99th pct, n_pos=3 (model collapses)	INFO
+review_temporal_holdout	GBM(50,d2)	enhanced_18	N/A	N/A	N/A	N/A	N/A	Impossible: 0 positives in Jan-Mar training set	INFO
+review_apr28_holdout	GBM(50,d2)	enhanced_18	N/A	N/A	N/A	N/A	N/A	GBM assigns prob=0.000 to Apr 28 when held out	INFO
