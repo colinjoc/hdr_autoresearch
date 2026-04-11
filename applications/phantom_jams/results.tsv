@@ -127,3 +127,20 @@ C007	ACC T_des=1.0 3/22	ACC	3	0.136	8.0	2.86	972.2	131.19	1.76	composition | wav
 C008	ACC T_des=0.8 3/22	ACC	3	0.136	9.13	3.18	963.7	137.1	1.15	composition | wave_amp=9.13
 C009	ACC T_des=0.8 2/22	ACC	2	0.091	8.87	3.11	983.4	135.31	1.29	composition | wave_amp=8.87
 C010	2ACC(T=0.8)+2FS(ring) 4/22	Mixed	4	0.182	7.74	2.75	851.5	129.29	1.0	composition mixed
+R001	ACC 4/22 seed=42	ACC	4	0.182	0.55	0.16	930.4	107.55	4.08	multi-seed replication | seed=42
+R002	ACC 4/22 seed=0	ACC	4	0.182	1.05	0.33	929.6	107.94	3.85	multi-seed replication | seed=0
+R003	ACC 4/22 seed=1	ACC	4	0.182	0.85	0.26	930.0	107.7	3.93	multi-seed replication | seed=1
+R004	ACC 4/22 seed=2	ACC	4	0.182	1.24	0.4	928.3	108.1	3.76	multi-seed replication | seed=2
+R005	ACC 4/22 seed=100	ACC	4	0.182	0.98	0.31	929.7	107.83	3.96	multi-seed replication | seed=100
+R006	ACC 3/22 seed=42	ACC	3	0.136	1.77	0.62	984.8	109.15	3.39	multi-seed replication | seed=42
+R007	ACC 3/22 seed=0	ACC	3	0.136	2.1	0.77	982.1	109.75	3.11	multi-seed replication | seed=0
+R008	ACC 3/22 seed=1	ACC	3	0.136	2.17	0.8	982.1	109.8	2.75	multi-seed replication | seed=1
+R009	ACC 3/22 seed=2	ACC	3	0.136	1.94	0.69	982.8	109.39	3.1	multi-seed replication | seed=2
+R010	ACC 3/22 seed=100	ACC	3	0.136	2.39	0.86	980.5	110.11	2.81	multi-seed replication | seed=100
+R011	ACC 4/22 dt=0.05	ACC	4	0.182	0.83	0.27	930.6	107.58	3.98	dt sensitivity check
+R012	ACC 4/22 clustered [0-3]	ACC	4	0.182	2.8	0.96	916.3	110.46	2.7	placement sensitivity | indices=[0, 1, 2, 3]
+R013	ACC 4/22 paired [0,1,11,12]	ACC	4	0.182	0.72	0.22	929.7	107.63	3.96	placement sensitivity | indices=[0, 1, 11, 12]
+R014	ACC 4/22 random [3,7,15,19]	ACC	4	0.182	0.84	0.26	929.9	107.73	3.87	placement sensitivity | indices=[3, 7, 15, 19]
+R015	Baseline wave speed measurement	IDM	0	0.000	8.17	2.89	1039.4	130.65	1.79	wave_speed=-5.364 m/s | wave_period=400.10 s
+R016	ACC 4/22 delay=0.2s	DelayedACC	4	0.182	1.33	0.49	928.5	108.32	3.21	sensor delay=0.2s (2 steps)
+R017	ACC 4/22 delay=0.5s	DelayedACC	4	0.182	5.19	2.04	886.5	119.29	1.77	sensor delay=0.5s (5 steps)

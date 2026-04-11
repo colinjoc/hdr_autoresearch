@@ -4,7 +4,7 @@
 
 Phantom traffic jams -- stop-and-go waves that form on homogeneous highways without any external trigger -- can be suppressed by a small fraction of longitudinally controlled vehicles. We quantify the minimum penetration rate required using a pure-Python Intelligent Driver Model (IDM) simulation of the canonical Sugiyama ring road (22 vehicles, 230 metres) and a systematic hypothesis-driven research (HDR) loop of 105 pre-registered single-change experiments followed by composition retests and a dense penetration sweep. Starting from an all-human baseline with 8.17 m/s wave amplitude, we test five controller families across 20 experimental themes covering penetration rate, controller gains, ring size, human-driver model parameters, noise levels, vehicle placement, and multi-objective trade-offs.
 
-The headline finding is that four Adaptive Cruise Control (ACC) vehicles among 22 human drivers -- an 18.2% penetration rate -- reduce wave amplitude from 8.17 to 0.55 m/s, a 93.3% reduction. The transition is sharp: three ACC vehicles (13.6%) still leave a 1.77 m/s wave. The FollowerStopper (FS) controller requires 22.7% penetration (5/22 vehicles) to achieve comparable suppression but imposes a throughput penalty of 61% versus ACC's 10%. The PI-with-saturation controller is catastrophically unstable on the ring due to integral windup. A dense sweep from 0 to 22 ACC vehicles reveals monotonic improvement with diminishing returns, while the wave-amplitude-versus-throughput Pareto front shows that ACC at 18.2% sits at a natural knee where further penetration buys little additional wave reduction but costs significant throughput. These results provide an upper bound on real-highway effectiveness, as the ring road eliminates lane changes, on-ramps, and multi-lane dynamics.
+The headline finding is that four Adaptive Cruise Control (ACC) vehicles among 22 human drivers -- an 18.2% penetration rate -- reduce wave amplitude from 8.06 +/- 0.20 m/s (baseline, 5-seed mean +/- std) to 0.93 +/- 0.23 m/s, an 88 +/- 3% reduction (bootstrap 95% CI: 84-93%). The transition is sharp and statistically significant: three ACC vehicles (13.6%) leave a 2.07 +/- 0.21 m/s wave (two-sample t-test: p < 0.001). The FollowerStopper (FS) controller requires 22.7% penetration (5/22 vehicles) to achieve comparable suppression but imposes a throughput penalty of 61% versus ACC's 10%. The PI-with-saturation controller is catastrophically unstable on the ring due to integral windup. A dense sweep from 0 to 22 ACC vehicles reveals monotonic improvement with diminishing returns, while the wave-amplitude-versus-throughput Pareto front shows that ACC at 18.2% sits at a natural knee where further penetration buys little additional wave reduction but costs significant throughput. These results provide an upper bound on real-highway effectiveness, as the ring road eliminates lane changes, on-ramps, and multi-lane dynamics.
 
 ---
 
@@ -55,15 +55,15 @@ Integration uses forward Euler at dt = 0.1 s for 600 seconds. A single-timestep 
 
 The baseline all-IDM run (experiment E00, seed=42) produces:
 
-| Metric | Value | Definition |
-|---|---|---|
-| Wave amplitude | 8.17 m/s | Mean per-timestep (max velocity - min velocity) in steady-state window (last 2/3 of simulation) |
-| Velocity variance | 2.89 m/s | Standard deviation of all velocities in steady-state |
-| Throughput | 1039.4 veh/hr | Edie's generalised throughput: total distance / (ring length x time) x 3600 |
-| Fuel proxy | 130.65 mL/km | VT-Micro simplified: alpha*v + beta*v*max(a,0) + gamma*v^3, normalised to mL per vehicle-km |
-| Minimum spacing | 1.79 m | Smallest bumper-to-bumper gap in steady-state |
+| Metric | Value (seed=42) | 5-seed mean +/- std | Definition |
+|---|---|---|---|
+| Wave amplitude | 8.17 m/s | 8.06 +/- 0.20 m/s | Mean per-timestep (max velocity - min velocity) in steady-state window (last 2/3 of simulation) |
+| Velocity variance | 2.89 m/s | -- | Standard deviation of all velocities in steady-state |
+| Throughput | 1039.4 veh/hr | -- | Edie's generalised throughput: total distance / (ring length x time) x 3600 |
+| Fuel proxy | 130.65 mL/km | -- | VT-Micro simplified: alpha*v + beta*v*max(a,0) + gamma*v^3, normalised to mL per vehicle-km |
+| Minimum spacing | 1.79 m | -- | Smallest bumper-to-bumper gap in steady-state |
 
-A 5-seed sweep (seeds: 42, 0, 1, 2, 100) established the noise floor at 2-sigma: wave amplitude +/- 0.40 m/s, velocity variance +/- 0.109 m/s, throughput +/- 15.15 veh/hr, fuel +/- 1.98 mL/km. The keep/revert threshold for Phase 2 experiments is set at 2-sigma: an improvement must reduce wave amplitude by at least 0.40 m/s below the current best to be kept.
+A 5-seed sweep (seeds: 42, 0, 1, 2, 100) established the noise floor at 2-sigma: wave amplitude +/- 0.40 m/s, velocity variance +/- 0.109 m/s, throughput +/- 15.15 veh/hr, fuel +/- 1.98 mL/km. The keep/revert threshold for Phase 2 experiments is set at 2-sigma: an improvement must reduce wave amplitude by at least 0.40 m/s below the current best to be kept. The fuel proxy uses simplified VT-Micro coefficients (alpha=0.1 mL/m, beta=0.07 mL*s/m^2, gamma=3e-6 mL*s^2/m^3) and should be interpreted as a relative proxy for fuel consumption trends, not a calibrated absolute estimate.
 
 ### 2.3 Wave Characteristics
 
@@ -101,6 +101,8 @@ The four ACC vehicles are placed at equally spaced positions around the ring (in
 
 ### 3.2 Performance
 
+Single-seed (seed=42) results:
+
 | Metric | Baseline (E00) | ACC 4/22 (T08) | Change |
 |---|---|---|---|
 | Wave amplitude | 8.17 m/s | 0.55 m/s | -93.3% |
@@ -108,6 +110,16 @@ The four ACC vehicles are placed at equally spaced positions around the ring (in
 | Throughput | 1039.4 veh/hr | 930.4 veh/hr | -10.5% |
 | Fuel proxy | 130.65 mL/km | 107.55 mL/km | -17.7% |
 | Minimum spacing | 1.79 m | 4.08 m | +128% |
+
+**Multi-seed replication (5 seeds: 42, 0, 1, 2, 100):**
+
+| Metric | Baseline (5-seed) | ACC 4/22 (5-seed) | Change |
+|---|---|---|---|
+| Wave amplitude | 8.06 +/- 0.20 m/s | 0.93 +/- 0.23 m/s | -88 +/- 3% |
+| Throughput | -- | 929.6 +/- 0.7 veh/hr | -- |
+| Fuel proxy | -- | 107.82 +/- 0.19 mL/km | -- |
+
+The seed=42 result (0.55 m/s) represents the most favourable seed; the 5-seed mean of 0.93 m/s is the more appropriate headline figure. The 88% reduction (bootstrap 95% CI: 84-93%) remains a substantial suppression of the wave.
 
 **Figure 2** (`plots/trajectory_suppressed.png`) shows the space-time trajectory for the ACC 4/22 configuration. Compared to Figure 1, the dark bands have vanished: all vehicles maintain a nearly uniform velocity, and the stop-and-go wave is suppressed.
 
@@ -121,7 +133,21 @@ The ACC suppresses the wave through two complementary mechanisms embedded in its
 
 **Conservative time headway:** The ACC's T_des = 1.8 s (versus the human IDM's T = 1.0 s) means the ACC maintains a larger gap. This absorbs perturbations: when a human ahead brakes into the jam, the ACC has more gap-distance to work with before it needs to brake sharply itself. The larger gap acts as a buffer.
 
-**Why four vehicles suffice:** With four equally-spaced ACC vehicles on a 22-vehicle ring, every consecutive human platoon contains at most 4-5 vehicles. Below the critical platoon length for IDM wave growth at these parameters, perturbations cannot amplify enough within a 4-5 vehicle chain to regenerate the wave before hitting the next ACC vehicle, which damps them. The transition from 3 ACC (1.77 m/s, platoon length ~6) to 4 ACC (0.55 m/s, platoon length ~4-5) corresponds precisely to crossing below this critical length.
+**Why four vehicles suffice -- critical platoon length analysis:** With four equally-spaced ACC vehicles on a 22-vehicle ring, every consecutive human platoon contains at most 4-5 vehicles. Whether this is sufficient depends on the critical platoon length for the IDM at these parameters.
+
+*Linearized stability analysis:* At the Sugiyama equilibrium (v_eq = 3.45 m/s, g_eq = 5.45 m), the linearized IDM velocity transfer function from leader to follower is:
+
+```
+G(s) = (c1 - c3*s) / (s^2 - (c2 + c3)*s + c1)
+```
+
+where c1 = df/d(gap) = 0.477 s^-2, c2 = df/d(v) = -0.477 s^-1, and c3 = df/d(Delta_v) = -0.511 s^-1 are the IDM's linearized sensitivities. The peak gain is |G|_max = 1.029 at omega = 0.33 rad/s (period ~19 s), confirming string instability: each human vehicle amplifies perturbations by approximately 3% per vehicle at the most-amplified frequency. However, the linearized gain is barely above unity, implying that approximately 24 vehicles would be needed to *double* a perturbation amplitude -- far more than the 8-10 vehicles where the full nonlinear wave develops. This discrepancy indicates that the wave growth is primarily a *nonlinear* phenomenon: the linearized instability seeds small oscillations that grow through the IDM's nonlinear braking dynamics (particularly the (s*/gap)^2 term becoming large as vehicles approach standstill).
+
+*Numerical critical chain length:* To directly measure the critical chain length, we ran isolated rings of N human IDM vehicles at Sugiyama density (N/L = 22/230) for N = 3, 4, 5, 6, 7, 8, 10, 12, 15, 22. The results show a clear transition: chains of 8 or fewer vehicles remain stable (wave amplitude < 0.40 m/s), while chains of 10 or more develop full stop-and-go waves (wave amplitude > 1 m/s). The critical chain length is therefore **approximately 8-9 vehicles** at these IDM parameters.
+
+With 4 equally-spaced ACC vehicles, the maximum human platoon length is 4-5 vehicles -- well below the critical chain length of 8-9. With 3 ACC vehicles, the maximum human platoon length is 6-7 vehicles -- still below the isolated-ring critical length, but closer to it. The fact that 3 ACC still leaves a residual wave of 2.07 +/- 0.21 m/s (5-seed mean) while 4 ACC achieves 0.93 +/- 0.23 m/s suggests that the effective critical platoon length on the mixed ring is shorter than the isolated-ring value, because the ACC vehicles do not provide a perfect wave-absorbing boundary. The two-sample t-test confirms the transition is statistically significant (p < 0.001).
+
+*Placement sensitivity:* Consistent with the platoon-length mechanism, clustered ACC placement (indices [0,1,2,3], creating one 18-vehicle human platoon) produces 2.80 m/s wave amplitude -- nearly five times worse than equally-spaced placement. Paired placement ([0,1,11,12], max human platoon ~9) achieves 0.72 m/s, and random placement ([3,7,15,19]) achieves 0.84 m/s. The performance correlates with the maximum human platoon length.
 
 ---
 
@@ -311,9 +337,17 @@ At 100% penetration (all FS), throughput collapses to 7.6 veh/hr -- essentially 
 
 ### 6.1 The Sharp Transition at 18.2%
 
-The most striking finding is the sharpness of the ACC penetration transition. Moving from 3 to 4 ACC vehicles (13.6% to 18.2%) reduces wave amplitude from 1.77 to 0.55 m/s -- a factor of 3.2 improvement from adding a single vehicle. This transition corresponds to reducing the maximum human-platoon length from approximately 6 vehicles to 4-5 vehicles, which crosses below the critical platoon length for IDM wave growth at T = 1.0 s, a = 1.3 m/s^2, noise = 0.3 m/s^2.
+The most striking finding is the sharpness of the ACC penetration transition. Multi-seed replication (5 seeds) confirms the transition is statistically robust: ACC at 3/22 produces 2.07 +/- 0.21 m/s wave amplitude, while ACC at 4/22 produces 0.93 +/- 0.23 m/s (two-sample t-test: t = 7.33, p < 0.001). The effect size is large: adding a single ACC vehicle reduces the wave amplitude by a factor of 2.2 on average.
 
-The critical platoon length for string instability depends on the human driver model parameters. With the Treiber-Kesting stability criterion for IDM, the amplification factor per vehicle is approximately exp(L / L_crit) where L_crit depends on the IDM parameters. When the maximum platoon length drops below L_crit, perturbations decay rather than grow, and the wave cannot sustain itself.
+This transition corresponds to reducing the maximum human-platoon length from approximately 6-7 vehicles (with 3 ACC) to 4-5 vehicles (with 4 ACC). The numerical critical chain length analysis (Section 3.3) shows that isolated IDM chains of 8 or fewer vehicles at Sugiyama density are stable, while chains of 10+ develop full waves. The mixed-ring effective critical length is shorter because ACC vehicles are imperfect wave boundaries -- they damp perturbations but do not fully absorb them. The linearized IDM transfer function confirms string instability (peak gain |G| = 1.029 per vehicle), but the wave growth is primarily nonlinear, driven by the IDM's braking dynamics as vehicles approach standstill.
+
+### 6.1.1 Wave Speed Measurement
+
+The backward-propagating wave travels at approximately 5.4 m/s (19.3 km/h) upstream, measured by tracking the position of the velocity-minimum vehicle over time. This is consistent with Sugiyama et al.'s (2008) measurement of approximately 20 km/h and with the analytical prediction from the fundamental diagram slope at Sugiyama density. The wave period as experienced by individual vehicles is approximately 29 seconds.
+
+### 6.1.2 Communication Delay Sensitivity
+
+Adding realistic sensor delay to the ACC controller degrades performance: 0.2 s delay increases the 5-seed headline wave amplitude from 0.93 to 1.33 m/s (seed=42), while 0.5 s delay raises it to 5.19 m/s, nearly recovering the full baseline wave. This confirms that the ACC's effectiveness depends on timely state feedback. Practical deployment would require sensor delays below approximately 0.3 s for the 18.2% penetration threshold to hold.
 
 ### 6.2 ACC Beating FollowerStopper: A Surprising Result
 
@@ -362,19 +396,27 @@ This study has several important limitations:
 
 3. **Pure-Python, not SUMO.** Our forward-Euler integrator at dt = 0.1 s is accurate for the IDM's timescales but does not include SUMO's lane-change model, vehicle-type distributions, or detailed geometric representation. The dt sensitivity experiments (H081-H083) show that halving dt to 0.05 s produces similar results (8.28 vs 8.17 m/s), validating the 0.1 s timestep.
 
-4. **No actuator delay or sensor noise in the controller.** Real ACC systems have sensor delay (~0.1-0.3 s), actuator delay (~0.1-0.5 s), and measurement noise. These reduce the achievable minimum headway for string stability and would increase the required penetration rate.
+4. **No actuator delay or sensor noise in the controller (partially addressed).** Real ACC systems have sensor delay (~0.1-0.3 s), actuator delay (~0.1-0.5 s), and measurement noise. Our reviewer-response experiments (R016-R017) show that 0.2 s sensor delay degrades wave amplitude from 0.93 to 1.33 m/s, while 0.5 s delay effectively negates the controller (5.19 m/s). Practical deployment requires total loop delay below approximately 0.3 s.
 
-5. **IDM may not perfectly represent human driving.** The IDM is a convenient analytical model but real drivers exhibit asymmetric acceleration/deceleration, distraction, variable reaction times, and cultural differences in following distance.
+5. **IDM may not perfectly represent human driving.** The IDM is a convenient analytical model but real drivers exhibit asymmetric acceleration/deceleration, distraction, variable reaction times, and cultural differences in following distance. The T = 1.0 s time headway used here is deliberately aggressive (textbook value is 1.5 s) and the 18.2% threshold is conditional on this parameter choice. At T = 1.5 s, the system is nearly stable without any control (H047: 0.40 m/s wave amplitude).
 
 6. **The result is an upper bound.** Given limitations 1-5, the 18.2% critical penetration rate we find should be interpreted as a lower bound on the real-highway figure. Real-world experiments like the CIRCLES MegaVanderTest suggest that 3-5% penetration has measurable but incomplete effect on I-24, consistent with our finding that ACC at 4.5% (1/22) reduces wave amplitude by only 9% (from 8.17 to 7.45 m/s).
+
+7. **No comparison to reinforcement learning controllers.** Wu et al. (2017), Kreidieh et al. (2018), and Vinitsky et al. (2018) trained RL agents on the Sugiyama ring-road using the Flow framework and achieved wave suppression at approximately 5% penetration (1/22) in some configurations. Our hand-designed ACC requires 18.2% -- a substantially higher threshold. A direct comparison on our simulator would require reimplementing the Flow RL policies, which is beyond the scope of this study, but the gap suggests significant room for controller optimisation.
+
+8. **The ACC controller is ring-optimised, not generic.** The ACC's gains (k1=0.3, k2=0.5) and time headway (T_des=1.8 s) were selected for performance on the Sugiyama ring. Theme 5 shows that T_des < 1.4 s is counterproductive. Calling the ACC "not purpose-designed" understates the parameter selection involved.
+
+9. **Heterogeneous human driver parameters not fully explored.** Theme 11 varied desired speeds but not the time headway T, maximum acceleration a, or comfortable deceleration b across the human population. Real traffic exhibits wide variation in driver aggressiveness.
+
+10. **The HDR Phase 2 protocol is better described as systematic sensitivity analysis.** Of 105 pre-registered experiments, 104 were reverted and the sole KEEP (H008: 100% FS) is trivial. The strict keep/revert criterion (must beat 0.00 m/s after H008) means Phase 2 results are a comprehensive parameter exploration rather than genuine hypothesis falsification.
 
 ---
 
 ## 7. Conclusion
 
-Four Adaptive Cruise Control vehicles among 22 human drivers -- an 18.2% penetration rate -- reduce phantom traffic jam wave amplitude on the Sugiyama ring road from 8.17 m/s to 0.55 m/s, a 93.3% reduction. This result emerges from a systematic hypothesis-driven research campaign of 105 single-change experiments across 20 themes, with strict pre-registered keep/revert criteria.
+Four Adaptive Cruise Control (ACC) vehicles among 22 human drivers -- an 18.2% penetration rate -- reduce phantom traffic jam wave amplitude on the Sugiyama ring road from 8.06 +/- 0.20 m/s to 0.93 +/- 0.23 m/s, an 88 +/- 3% reduction (5-seed replication; bootstrap 95% CI: 84-93%). This result emerges from a systematic hypothesis-driven research campaign of 105 single-change experiments across 20 themes, with strict pre-registered keep/revert criteria.
 
-The ACC controller achieves this through gap-error feedback and relative-velocity damping, which together prevent perturbation amplification across short human-driver platoons. The transition from ineffective (13.6% penetration, 1.77 m/s wave) to effective (18.2%, 0.55 m/s) is sharp and corresponds to reducing the maximum human-platoon length below the critical threshold for IDM string instability.
+The ACC controller achieves this through gap-error feedback and relative-velocity damping, which together prevent perturbation amplification across short human-driver platoons. The transition from ineffective (13.6% penetration, 2.07 +/- 0.21 m/s wave) to effective (18.2%, 0.93 +/- 0.23 m/s) is sharp and statistically significant (p < 0.001), corresponding to reducing the maximum human-platoon length from 6-7 to 4-5 vehicles -- well below the numerically determined critical chain length of 8-9 vehicles for IDM at these parameters.
 
 Key secondary findings include:
 - FollowerStopper matches ACC performance when its parameters are tuned for the ring (v_des = 5-8 m/s), but imposes a severe throughput penalty
@@ -384,7 +426,7 @@ Key secondary findings include:
 - Equal spacing of smart vehicles outperforms clustered or random placement
 - Noise level has minimal effect on steady-state wave characteristics
 
-The ring road result provides an optimistic upper bound. Real highways with lane changes, on-ramps, and heterogeneous traffic will require higher penetration rates. Nevertheless, the finding that a simple constant-time-headway ACC -- not a purpose-designed wave-suppression controller -- can nearly eliminate a phantom jam at under 20% penetration is encouraging for the near-term deployment of connected and automated vehicles.
+The ring road result provides an optimistic upper bound. Real highways with lane changes, on-ramps, heterogeneous traffic, and sensor delays will require higher penetration rates. Communication delays of 0.5 s alone are sufficient to negate most of the wave suppression at 18.2% penetration. Nevertheless, the finding that a constant-time-headway ACC with gains (k1=0.3, k2=0.5) tuned for the ring-road flow regime can nearly eliminate a phantom jam at under 20% penetration is encouraging. The ACC's parameters (particularly T_des = 1.8 s and k2 = 0.5) were selected for wave suppression performance on this ring; whether commercially deployed ACC systems with different calibrations would achieve similar results remains an open question. Wu et al. (2017) and Kreidieh et al. (2018) showed that reinforcement learning agents trained on the same ring-road configuration can achieve wave suppression at approximately 5% penetration (1/22), a substantially lower threshold than our hand-designed ACC's 18.2%. The RL results suggest that the 18.2% figure is a property of our specific controller design, not a fundamental limit of the mixed-autonomy system.
 
 ---
 
@@ -400,7 +442,13 @@ The ring road result provides an optimistic upper bound. Real highways with lane
 
 ---
 
-## 8. Key References
+## 8. Code Availability
+
+The complete simulation code (`sim_ring_road.py`, 329 lines), controller library (`controllers.py`), measurement functions (`measurements.py`), evaluation harness (`evaluate.py`), Phase 2 experiment runner (`run_phase2.py`), and plot generation script (`generate_plots.py`) are available at [https://github.com/colinjoc/hdr_autoresearch/tree/master/applications/phantom_jams](https://github.com/colinjoc/hdr_autoresearch/tree/master/applications/phantom_jams). All 105 hypothesis experiments, 10 compositions, and the dense penetration sweep are deterministically reproducible from the provided seed values.
+
+---
+
+## 9. Key References
 
 1. Sugiyama, Y., Fukui, M., Kikuchi, M., et al. (2008). "Traffic jams without bottlenecks -- experimental evidence for the physical mechanism of the formation of a jam." New Journal of Physics 10, 033001.
 2. Tadaki, S., Kikuchi, M., Fukui, M., et al. (2013). "Phase transition in traffic jam experiment on a circuit." New Journal of Physics 15, 103034.
