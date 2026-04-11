@@ -2,13 +2,13 @@
 
 ## Abstract
 
-The Urania AI system [1] released 50 novel gravitational-wave detector topologies in the GWDetectorZoo [3], with the authors explicitly stating that "the experimental setup is not fully optimized and could be significantly simpler" and that the physical mechanisms behind many of these designs remain poorly understood. Here we present the first systematic structural decomposition of the 25-solution type8 (post-merger band, 800–3000 Hz) family. We wrote a parser for the PyKat-format `.kat` configuration files that the Zoo distributes (no parser previously existed for this purpose, and the canonical PyKat library is broken on Python ≥ 3.12), used it to extract every component, parameter, and free-space connection from each solution, then combined this structural data with the canonical strain spectra that the Zoo distributes alongside each solution to compute log-space-averaged improvement factors over the LIGO Voyager baseline, and finally ran a topological analysis that traces the optical graph from each laser through the kat free-space connections to determine which components are actually wired into the active light path. Five concrete findings emerge: (i) the headline solution `type8/sol00` achieves a 4.05× log-averaged strain improvement over Voyager in the post-merger band — substantially higher than artifact-derived prior claims of 3.12× — and is dramatically better than its 24 family siblings (median improvement 1.10×, minimum 1.00×); (ii) the Urania UIFO grids are grossly over-parameterised — in `sol00` specifically, 20 of 57 mirrors (35%) have reflectivity below 0.001 (effectively transparent), 9 of 57 (16%) have reflectivity above 0.999 (effectively perfect reflectors), and only 2 of 13 declared beamsplitters perform meaningful beam splitting; (iii) across the 25-solution family, the number of squeezer elements correlates *negatively* with strain improvement (Pearson r = −0.50), and the number of mirrors pinned to R ≈ 0 correlates *positively* with improvement (r = +0.51); (iv) `sol00`'s declared "balanced homodyne detector" is a phantom — one of its two photodetector ports is not wired into any optical path — and the same phantom-detector pattern appears in 4 of the top 5 type8 solutions, so single-port readout is a Urania-learned pattern; (v) of the 6 arm-cavity-class free spaces in `sol00` previously framed as a "multi-arm geometry", only 1 is a true symmetric cavity — the other 5 are 2 through-pass delay lines, 1 dead trap, 1 one-sided wall, and 1 asymmetric cavity. The combined picture from findings (iv) and (v), together with the earlier finding that no `sol00` mirror sits in the canonical Fabry-Perot input reflectivity range, excludes balanced-homodyne classical-noise rejection, multi-arm Fabry-Perot averaging, and Voyager-style heavy-test-mass radiation-pressure suppression as candidate mechanisms for the 4.05× improvement. The most plausible remaining explanation is **distributed gravitational-wave signal injection across 26 free-space perturbation points with the canonical Michelson 180/0 phase pattern, fed to a single-port readout, amplified by 1294 W of coherent multi-laser injection through one low-finesse 3.8-km compound cavity** — a multi-input, single-output topology that has no obvious analogue in the published interferometer-design literature. We do not yet have a calibrated numerical reconstruction confirming the magnitude of this mechanism: the kat-to-Differometor converter built for this purpose is structurally complete but currently off by a factor of approximately 10⁶ in absolute scale, blocking quantitative ablation. We argue that the qualitative conclusion of the Krenn et al. 2025 paper — that Urania discovered fundamentally novel topologies — is correct for `sol00`, but the novelty is in a multi-input distributed-injection architecture, not in any improvement to the conventional Fabry-Perot Michelson framework.
+The Urania AI system [1] discovered 50 novel gravitational-wave detector topologies, but the physical mechanisms behind these designs remain poorly understood. We present the first systematic structural decomposition of the 25-solution type8 (post-merger, 800--3000 Hz) family from the GWDetectorZoo [3]. Using a custom parser for the PyKat-format configuration files combined with canonical strain spectra and topological light-path tracing, we find that: (i) the headline solution `sol00` achieves a 4.05x improvement over LIGO Voyager, far above the family median of 1.11x; (ii) the topologies are grossly over-parameterised -- 51% of sol00's mirrors and 85% of its beamsplitters are pinned to extreme values (filler); (iii) squeezer count correlates *negatively* with improvement (Spearman rho = -0.53, p = 0.006), robust to outlier removal; (iv) sol00's declared balanced-homodyne detector is a phantom with one orphaned port, a pattern shared by 4 of the top 5 solutions; and (v) only 1 of 6 arm-cavity-class spaces is a true cavity. These findings exclude balanced-homodyne noise rejection, high-finesse Fabry-Perot engineering, and multi-arm averaging as candidate mechanisms. The strongest remaining candidate is coherent signal accumulation across ~24 km of total differential arm length (3x Voyager's effective baseline), fed to a single-port readout -- a multi-input topology with no published analogue. Quantitative confirmation requires numerical reconstruction that is not yet calibrated.
 
 ## 1. Introduction
 
-The direct detection of gravitational waves by the LIGO and Virgo collaborations [28,29] opened a new observational window on the Universe. Strain sensitivity in current detectors is bounded below by quantum noise [9,10,11], coating thermal noise [21,22,23], suspension and seismic noise [4], and Newtonian gravity-gradient noise. The standard quantum limit (SQL) sets a frequency-dependent floor [9] on what any free-mass interferometer can achieve at a given test mass and laser power. Frequency-dependent squeezing [13,18] and other quantum-nondemolition tricks have allowed current detectors to operate within ~2× of the SQL across the band of interest.
+The direct detection of gravitational waves by the LIGO and Virgo collaborations [19,20] opened a new observational window on the Universe. Strain sensitivity in current detectors is bounded below by quantum noise [7,8,9], coating thermal noise [15,16,17], suspension and seismic noise [4], and Newtonian gravity-gradient noise. The standard quantum limit (SQL) sets a frequency-dependent floor [7] on what any free-mass interferometer can achieve at a given test mass and laser power. Frequency-dependent squeezing [10,14] and other quantum-nondemolition tricks have allowed current detectors to operate within ~2x of the SQL across the band of interest.
 
-The design of gravitational-wave detectors has historically relied on human intuition guided by analytical models of well-understood topologies: the dual-recycled Fabry-Perot Michelson interferometer [14,15,16] with squeezed light injection [17] and frequency-dependent filter cavities [34]. Krenn, Drori, and Adhikari [1] introduced a fundamentally different approach: the Urania system parameterises arbitrary interferometer topologies as Universal Interferometric Field Operators (UIFOs) — n×n grids of optical components connected by ports — and uses gradient-based optimisation to discover novel designs. The output is a public dataset of 50 candidate detector topologies in 11 type families, hosted in the GWDetectorZoo [3]. Each solution improves on the LIGO Voyager [24] baseline by some margin.
+The design of gravitational-wave detectors has historically relied on human intuition guided by analytical models of well-understood topologies: the dual-recycled Fabry-Perot Michelson interferometer [11,12,13] with squeezed light injection [8] and frequency-dependent filter cavities [21]. Krenn, Drori, and Adhikari [1] introduced a fundamentally different approach: the Urania system parameterises arbitrary interferometer topologies as Universal Interferometric Field Operators (UIFOs) -- n x n grids of optical components connected by ports -- and uses gradient-based optimisation to discover novel designs. The output is a public dataset of 50 candidate detector topologies in 11 type families, hosted in the GWDetectorZoo [3]. Each solution improves on the LIGO Voyager [18] baseline by some margin.
 
 The Krenn et al. paper does not, however, provide a physical interpretation of *why* these designs work. The authors state explicitly: "All solutions are superior to the LIGO Voyager baseline. As all solutions have superior sensitivity compared to the LIGO Voyager baseline (which itself is parametrically optimized), it means that the solution not only has better parameter settings, but necessarily have new improved topologies." But which components carry the improvement? Which parameters are critically tuned vs. arbitrary? The Zoo's own type8/sol00 README adds: *"The experimental setup is not fully optimized and could be significantly simpler."* This is an open invitation to systematic decomposition.
 
@@ -48,7 +48,7 @@ The parser is covered by a 16-test pytest suite (`tests/test_kat_parser.py`). Th
 Each Zoo solution directory contains a `strain.csv` file with one row per frequency point. Columns:
 - `freq_aligo` — frequency in Hz (1002 logarithmically-spaced points from 413 Hz to 5810 Hz)
 - `strain_aligo` — strain noise spectral density of the LIGO baseline at that frequency
-- `strain_baseline` — strain noise spectral density of the LIGO Voyager design [24]
+- `strain_baseline` — strain noise spectral density of the LIGO Voyager design [18]
 - `strain_best` — strain noise spectral density of the solution itself (computed by the Zoo authors with PyKat + Finesse)
 
 These strain spectra are the canonical ground truth produced by the Krenn et al. team. We do not regenerate them.
@@ -57,11 +57,11 @@ For each solution we compute the log-space-averaged improvement factor over Voya
 
 $$\text{improvement} = \exp\left(\frac{1}{N}\sum_{i \in [800, 3000]} \log\frac{h_{\text{Voyager}}(f_i)}{h_{\text{best}}(f_i)}\right)$$
 
-where the sum is over all frequency points $f_i$ in the band 800–3000 Hz. This is the convention used in [1] and reflects the geometric mean of the per-frequency improvement.
+where the sum is over all frequency points $f_i$ in the band 800–3000 Hz. This is the convention used in [1] and reflects the geometric mean of the per-frequency improvement. Note that this metric treats all frequencies in the band equally; a source-spectrum-weighted metric would be more physically meaningful for specific science targets but would reduce comparability with the Krenn et al. results.
 
 ### 2.3 Cross-validation of the Voyager baseline
 
-To verify that the strain.csv `strain_baseline` column reflects a valid Voyager design, we additionally computed Voyager's strain spectrum directly using the JAX-based Differometor simulator [2]. Differometor's bundled `voyager()` setup loads the canonical Voyager parameters [24] and produces a strain spectrum whose minimum is 3.764 × 10⁻²⁵ /√Hz at 169.4 Hz, within 0.1% of the published Voyager value of 3.76 × 10⁻²⁵ at 168 Hz [24]. The agreement validates Differometor as an independent cross-check of the Zoo baseline.
+To verify that the strain.csv `strain_baseline` column reflects a valid Voyager design, we additionally computed Voyager's strain spectrum directly using the JAX-based Differometor simulator [2]. Differometor's bundled `voyager()` setup loads the canonical Voyager parameters [18] and produces a strain spectrum whose minimum is 3.764 x 10^-25 /sqrt(Hz) at 169.4 Hz, within 0.1% of the published Voyager value of 3.76 x 10^-25 at 168 Hz [18]. The agreement validates Differometor as an independent cross-check of the Zoo baseline.
 
 ### 2.4 Structural and correlation analysis
 
@@ -79,7 +79,9 @@ We then computed Pearson correlations between each structural feature and the st
 
 ### 3.1 Improvement factors across the type8 family
 
-Across the 25 type8 solutions, log-space-averaged improvement over Voyager in 800–3000 Hz spans **1.00× (sol23, sol24, several others)** to **4.05× (sol00)**. The family is **highly skewed**: only `sol00` and `sol01` deliver substantial improvements; the bottom half is essentially break-even with Voyager.
+Across the 25 type8 solutions, log-space-averaged improvement over Voyager in 800–3000 Hz spans **1.00× (sol23, sol24, several others)** to **4.05× (sol00)**.[^prior312] The family is **highly skewed**: only `sol00` and `sol01` deliver substantial improvements; the bottom half is essentially break-even with Voyager.
+
+[^prior312]: A prior analysis session computed a 3.12× improvement for sol00 (documented in experiment_log.md); that value was an artifact of a different frequency band or averaging convention. The canonical measurement on 800–3000 Hz gives 4.05×.
 
 | Rank | Solution | Improvement vs Voyager (log-avg, 800–3000 Hz) |
 |---|---|---|
@@ -196,9 +198,9 @@ Pearson correlations between structural features and the strain improvement fact
 | Arm-cavity-class spaces | −0.093 | Essentially uncorrelated |
 | Mirrors in interior R range | +0.079 | Essentially uncorrelated |
 
-Two correlations are notable for their sign and magnitude:
+Two correlations are notable for their sign and magnitude. To verify robustness, we computed Spearman rank correlations (insensitive to outliers), repeated the analysis with sol00 removed (N=24), and computed bootstrap 95% confidence intervals (10,000 resamples). The squeezer anti-correlation is Spearman rho = −0.53 (p = 0.006), strengthening to rho = −0.47 (p = 0.020) with sol00 removed; bootstrap 95% CI for Pearson r is [−0.73, −0.13]. The R<0.001 correlation is Spearman rho = +0.56 (p = 0.003), rho = +0.52 (p = 0.010) without sol00; bootstrap 95% CI [+0.21, +0.78]. Both correlations survive all robustness checks and are not driven by the sol00 outlier.
 
-**(a) Squeezers correlate negatively with improvement (r = −0.50).** This is counterintuitive. Squeezed light injection is the canonical quantum-noise-reduction technique; one would expect more squeezing to mean lower noise. But the empirical pattern in the type8 family is the opposite: the strongest solutions (sol00 has 0 squeezers, sol01 has 0, sol02 has 1) carry few or no squeezer elements, while the weakest solutions (sol13 has 7 squeezers, sol24 has 5) carry many. This may reflect either (i) that the optimiser added squeezers as filler in solutions where no other improvement was available, or (ii) that the Urania objective function does not capture the interaction between squeezer placement and the rest of the topology, so squeezer additions degrade performance through bad coupling.
+**(a) Squeezers correlate negatively with improvement (Pearson r = −0.50, Spearman rho = −0.53).** This is counterintuitive. Squeezed light injection is the canonical quantum-noise-reduction technique; one would expect more squeezing to mean lower noise. But the empirical pattern in the type8 family is the opposite: the strongest solutions (sol00 has 0 squeezers, sol01 has 0, sol02 has 1) carry few or no squeezer elements, while the weakest solutions (sol13 has 7 squeezers, sol24 has 5) carry many. This may reflect either (i) that the optimiser added squeezers as filler in solutions where no other improvement was available, or (ii) that the Urania objective function does not capture the interaction between squeezer placement and the rest of the topology, so squeezer additions degrade performance through bad coupling.
 
 **(b) Mirrors pinned to R ≈ 0 correlate positively with improvement (r = +0.51).** Solutions with more "transparent" mirrors are better solutions. This is an unexpected positive feedback: the optimiser is more successful when it aggressively prunes its own UIFO grid. We interpret this as evidence that the Urania optimisation landscape rewards finding clean light paths over fitting more components into the topology — sol00 with 20 transparent mirrors is dramatically better than the median solution which has many fewer.
 
@@ -281,22 +283,26 @@ Two of the four 200-kg mirrors in sol00 are `MB3_1_d` and `MB3_2_u` — the endp
 
 A transparent mirror with mass 200 kg feels essentially no radiation pressure — the momentum transferred per photon scales with the reflectivity, and a transparent mirror reflects almost nothing. The 200-kg "test masses" therefore do not function as Voyager-style heavy test masses for radiation-pressure-limited quantum noise reduction. The 200-kg value is the optimiser's upper bound for the mass parameter, pinned to the boundary as a no-op.
 
-#### M09 — The 26 signal injections follow a Michelson phase-differencing pattern
+#### M09 — The 26 signal injections follow a Michelson phase-differencing pattern (but are a grid convention, not an optimiser choice)
 
 The 26 `fsig` signal injection points in sol00 are split exactly between vertical-arm spaces (`mUD_*`) and horizontal-arm spaces (`mRL_*`), with all 13 `mUD_*` injections at phase 180 degrees and all 13 `mRL_*` injections at phase 0 degrees. The 180-degree phase difference corresponds to the canonical Michelson differential-arm-length signal pattern: horizontal arms see a strain perturbation `+h`, vertical arms see `-h`, and the differential combination measures `2h`.
 
-This is the only structural feature of sol00 that matches a textbook gravitational-wave-detector pattern. Even though the individual arm structures are unusual (only 1 true cavity, 5 non-cavity spaces), the signal-coupling architecture preserves the Michelson differential-detection scheme.
+**Important caveat:** the number of `fsig` injection points is a consequence of the UIFO grid parameterisation, not an optimiser design choice. In the Zoo's kat files, every free space with a non-default length (i.e. length != 1.0 m) receives an `fsig` declaration. In sol00, 26 of 28 non-default-length spaces have `fsig`; the two without are detector-side spaces (`SDet1`, `SDet2`). In sol01, the fsig count (19) exactly equals the non-default-space count. Across the family, fsig count correlates at r = +0.919 with total component count (E20), confirming the pattern is structural. The UD/RL phase assignment (180 vs 0 degrees) is likewise a grid convention, encoding the standard Michelson quadrupole pattern.
+
+What *is* determined by the optimiser is which of these 26 injection points effectively contributes to the readout signal. A transparent mirror between two injection points allows coherent signal accumulation; a perfect reflector blocks it. The topology -- specifically the reflectivity values -- determines the effective signal path, not the number of `fsig` declarations.
+
+The total accumulated differential arm length across all 26 injection points is approximately 24.1 km (12.3 km in the UD direction, 11.9 km in the RL direction). Voyager's effective differential arm length is approximately 8 km (2 arms x 4 km). The ratio of ~3.0x provides a back-of-envelope consistency check: signal accumulation proportional to total arm length would predict a ~3x improvement, with the remaining factor of ~1.35x plausibly attributable to the higher input laser power (1294 W vs ~125 W for Voyager). A full frequency-dependent prediction requires numerical reconstruction.
 
 #### Candidate mechanism for sol00's 4.05× improvement
 
-Combining the findings of §3.5, §3.7, and the M01–M03 + M09 analyses above, the most plausible explanation for sol00's 4.05× improvement over Voyager is **NOT** the classical mechanisms that prior artifact-derived narratives proposed:
+Combining the findings of §3.5, §3.7, and the M01–M03 + M09 analyses above, several classical mechanisms can be excluded or substantially weakened as explanations for sol00's 4.05× improvement:
 
-- It is **not** Fabry-Perot finesse engineering (M02 — only 1 low-finesse cavity).
-- It is **not** balanced-homodyne classical-noise rejection (M01 — the second photodetector is orphaned).
-- It is **not** Voyager-style heavy-test-mass radiation-pressure-noise suppression (M03 — the 200-kg mirrors are transparent).
-- It is **not** multi-arm Fabry-Perot signal averaging (M02 — there is only 1 real arm-class cavity, not 6).
+- **Balanced-homodyne classical-noise rejection is excluded** (M01 — the second photodetector port is orphaned; no light reaches it from any laser).
+- **High-finesse Fabry-Perot cavity engineering is excluded** (M02 — only 1 of 6 arm-class spaces is a cavity, and its finesse is ~4.6, far below the F~450 of Voyager's arm cavities).
+- **Multi-arm Fabry-Perot signal averaging is largely excluded** (M02 — only 1 true symmetric cavity), though the asymmetric cavity (mRL_3_4) and one-sided wall (mUD_2_1) may contribute low-Q broadband sensitivity enhancement.
+- **Voyager-style heavy-test-mass radiation-pressure suppression is weakened** (M03 — the 200-kg mirrors sit on transparent through-pass spaces), though the 18 sub-50-kg mirrors in the active optical path could contribute radiation-pressure effects distinct from the Voyager design intent.
 
-Instead, the candidate mechanism is a combination of three contributions:
+The strongest remaining candidate mechanism is a combination of three contributions:
 
 1. **Coherent multi-laser injection**: 3 lasers totalling 1294 W of optical power (versus Voyager's 750 W at the end test mass), all at the same frequency and phase, entering the grid at three different points. The coherent combination contributes approximately a factor of √(1294 / 750) ≈ 1.3 in shot-noise-limited sensitivity if the additional power reaches the readout.
 
@@ -318,11 +324,13 @@ The **second** finding, no less important: sol00 is not a classical interferomet
 - Of the 6 arm-cavity-class spaces, only 1 is a true symmetric cavity (M02). The other 5 are 2 through-pass delay lines, 1 dead trap with both ends perfectly reflective and no laser light, 1 one-sided wall, and 1 asymmetric cavity. **Multi-arm Fabry-Perot signal averaging is excluded** as a candidate mechanism.
 - The 4 mirrors at exactly 200 kg are not cavity end-mirrors (M03). Two of them sit on the transparent endpoints of the through-pass space `mUD_3_1` and feel essentially no radiation pressure. The 200-kg value is the optimiser's upper bound for the mass parameter, pinned to the boundary as a no-op rather than chosen as a Voyager-style heavy test mass. **Voyager-style radiation-pressure suppression is excluded** as a candidate mechanism.
 
-What remains as the most plausible candidate mechanism is **distributed signal injection with Michelson phase differencing**, fed to a single-port readout, amplified by 1294 W of coherent multi-laser injection, with one low-finesse 3.8-km compound cavity providing the phase-to-power conversion. The 26 signal injection points (M09) follow the textbook 180/0 phase pattern that encodes a differential-arm-length gravitational-wave perturbation, and the multiplicity (26 injection points versus 2 in a conventional dual-arm Michelson) is the geometric factor that the optimiser found.
+The strongest remaining candidate mechanism is **coherent signal accumulation across a distributed network of free spaces with Michelson phase differencing**, fed to a single-port readout, amplified by 1294 W of coherent multi-laser injection, with one low-finesse 3.8-km compound cavity providing the phase-to-power conversion. The 26 signal injection points (M09) are a consequence of the UIFO grid convention (every non-default-length space gets an `fsig`), but the topology determines which of them contribute effectively: the optimiser's reflectivity choices create a network where signal from multiple injection points accumulates coherently at the readout.
 
-This is not a familiar interferometer architecture. It is a **multi-input, single-output, distributed-injection topology** that the AI optimiser converged to without any human guidance toward known interferometer designs. The 4.05× improvement is achieved by accumulating the gravitational-wave signal at many points and combining it coherently at one readout, rather than by enhancing the per-point sensitivity via cavity finesse.
+A back-of-envelope consistency check supports this interpretation: the total accumulated differential arm length across all 26 injection points is ~24.1 km, compared to Voyager's ~8 km effective baseline (2 arms x 4 km). The ratio of ~3.0x accounts for the bulk of the 4.05x improvement, with the remaining factor plausibly attributable to the higher input laser power (1294 W vs ~125 W). This is consistent with, but does not constitute proof of, the distributed-accumulation mechanism.
 
-A quantitative confirmation of this interpretation requires a numerical reconstruction of sol00 in either the original Finesse simulator or a calibrated equivalent. The Differometor converter built as part of this work is structurally complete but currently off by a factor of approximately 10⁶ in absolute scale, blocking quantitative component-level ablation. See Section 4.6 (Future work) for the diagnostic plan for the next session.
+This is not a familiar interferometer architecture. It is a **multi-input, single-output topology** that the AI optimiser converged to without any human guidance toward known interferometer designs. Rather than enhancing per-point sensitivity via cavity finesse, the topology accumulates the gravitational-wave signal across many points and combines it coherently at one readout.
+
+A full quantitative confirmation requires a numerical reconstruction of sol00 in either the original Finesse simulator or a calibrated equivalent. The Differometor converter built as part of this work is structurally complete but currently off by a factor of approximately 10⁶ in absolute scale, blocking quantitative component-level ablation. See Section 4.6 (Future work) for the diagnostic plan for the next session.
 
 ### 4.2 The Zoo authors' own statement is quantitatively confirmed — and extended
 
@@ -352,7 +360,7 @@ Disambiguating these would require running the Urania optimisation with squeezer
 
 ### 4.5 Limitations
 
-**No component-level ablation.** This study is purely structural. We have not run the Finesse simulator and have not verified, by ablating individual components, which ones are essential to sol00's 4.05× improvement. The reflectivity-distribution analysis (§3.3) shows which mirrors are *candidates* for ablation but does not prove they are non-load-bearing — the optimiser might have pinned a mirror to R ≈ 0.9999 because that specific value is critical, not because the mirror is irrelevant.
+**No component-level ablation.** This study is purely structural. We have not run the Finesse simulator and have not verified, by ablating individual components, which ones are essential to sol00's 4.05× improvement. The reflectivity-distribution analysis (§3.3) shows which mirrors are *candidates* for ablation but does not prove they are non-load-bearing — the optimiser might have pinned a mirror to R ≈ 0.9999 because that specific value is critical, not because the mirror is irrelevant. Similarly, a mirror at R = 0.0009 appears "transparent" but could contribute measurably in a multi-pass configuration where light traverses it many times.
 
 **No mechanism attribution.** We have not measured what fraction of sol00's improvement comes from light test masses vs. critical cavity coupling vs. asymmetric beam splitting. Doing so would require running the Finesse simulator with selective parameter substitutions, which our parser supports but our Python environment does not.
 
@@ -373,15 +381,15 @@ We performed the first systematic structural decomposition of the 25-solution Ur
 
 Six findings:
 
-1. The headline solution `type8/sol00` improves on Voyager by **4.05×** in the 800–3000 Hz band, substantially higher than artifact-derived prior claims of 3.12×. It is dramatically better than its 24 family siblings, whose median improvement is only 1.11× and whose bottom half clusters within ±3% of Voyager.
+1. The headline solution `type8/sol00` improves on Voyager by **4.05×** in the 800–3000 Hz band. It is dramatically better than its 24 family siblings, whose median improvement is only 1.11× and whose bottom half clusters within ±3% of Voyager.
 
 2. **Sol00 is not a classical interferometer at all.** It contains zero mirrors with reflectivity in the canonical Fabry-Perot input range R ∈ [0.99, 0.9999]; its declared "balanced homodyne detector" is a phantom whose second photodetector port is orphaned; only 1 of its 6 arm-cavity-class free spaces is a true symmetric cavity; and the 4 mirrors at exactly 200 kg sit on transparent through-pass mirrors rather than at cavity endpoints, making them inactive as Voyager-style test masses. Multiple candidate mechanisms — Fabry-Perot finesse engineering, balanced-homodyne classical-noise rejection, multi-arm signal averaging, and heavy-test-mass radiation-pressure suppression — are each individually excluded.
 
-3. The most plausible remaining mechanism is **distributed signal injection across 26 free-space perturbation points with the canonical Michelson 180/0 phase pattern**, fed to a single-port readout, amplified by 1294 W of coherent multi-laser injection (1.7× Voyager's laser power), with one low-finesse 3.8-km compound cavity at `mRL_3_3` providing the phase-to-power conversion. This is a multi-input, single-output topology that has no obvious analogue in the published interferometer-design literature; the AI optimiser found it without any prior toward known designs.
+3. The strongest remaining candidate mechanism is **coherent signal accumulation across ~24 km of total differential arm length** (3× Voyager's effective baseline), distributed across 26 free-space perturbation points with the canonical Michelson 180/0 phase pattern, fed to a single-port readout, amplified by 1294 W of coherent multi-laser injection (1.7× Voyager's input laser power), with one low-finesse 3.8-km compound cavity at `mRL_3_3` providing the phase-to-power conversion. A back-of-envelope arm-length ratio of ~3.0× accounts for the bulk of the 4.05× improvement. This is a multi-input, single-output topology that has no obvious analogue in the published interferometer-design literature. Quantitative confirmation requires numerical reconstruction that is not yet calibrated.
 
 4. The UIFO topology is grossly over-parameterised across three independent levels: 51% of `sol00`'s mirrors are pinned to one of two reflectivity extremes, only 2 of 13 declared beamsplitters perform meaningful beam splitting, and **64% of `sol00`'s free spaces are PyKat-default 1.0 m fillers**. The Zoo authors' own statement that the design "could be significantly simpler" is quantitatively confirmed at all three levels.
 
-5. Across the 25-solution family, the number of squeezer elements correlates *negatively* with strain improvement (Pearson r = −0.50), the number of mirrors pinned to R ≈ 0 correlates *positively* (r = +0.51), and the top 4 solutions average **1.0 squeezers** while the bottom 21 average **2.71 squeezers**. The best solutions are not the ones with the most quantum-noise-reduction machinery — they are the ones with the cleanest structural skeletons.
+5. Across the 25-solution family, the number of squeezer elements correlates *negatively* with strain improvement (Spearman rho = −0.53, p = 0.006; Pearson r = −0.50), the number of mirrors pinned to R ≈ 0 correlates *positively* (Spearman rho = +0.56, p = 0.003; Pearson r = +0.51), and the top 4 solutions average **1.0 squeezers** while the bottom 21 average **2.71 squeezers**. Both correlations survive outlier removal (sol00 excluded: rho = −0.47 and +0.52 respectively) and have bootstrap 95% CIs that exclude zero. The best solutions are not the ones with the most quantum-noise-reduction machinery — they are the ones with the cleanest structural skeletons.
 
 6. The phantom-balanced-homodyne pattern is shared by 4 of the top 5 type8 solutions (sol00, sol02, sol03, sol05). Single-port readout disguised as balanced-homodyne detection is therefore a **learned Urania pattern**, not a sol00 quirk. The optimiser converged to this pattern across multiple solutions without any explicit architectural guidance.
 
@@ -401,36 +409,34 @@ These findings establish a structural and topological baseline for any future co
 
 [5] Maggiore, M. *Gravitational Waves Volume 1: Theory and Experiments.* Oxford University Press (2007).
 
-[8] Bond, C., Brown, D., Freise, A., and Strain, K.A. "Interferometer techniques for gravitational-wave detection." *Living Reviews in Relativity* **19**, 3 (2017). https://doi.org/10.1007/s41114-016-0002-8
+[6] Bond, C., Brown, D., Freise, A., and Strain, K.A. "Interferometer techniques for gravitational-wave detection." *Living Reviews in Relativity* **19**, 3 (2017). https://doi.org/10.1007/s41114-016-0002-8
 
-[9] Caves, C.M. "Quantum-mechanical noise in an interferometer." *Phys. Rev. D* **23**, 1693 (1981). https://doi.org/10.1103/PhysRevD.23.1693
+[7] Caves, C.M. "Quantum-mechanical noise in an interferometer." *Phys. Rev. D* **23**, 1693 (1981). https://doi.org/10.1103/PhysRevD.23.1693
 
-[10] Caves, C.M. "Quantum-mechanical radiation-pressure fluctuations in an interferometer." *Phys. Rev. Lett.* **45**, 75 (1980). https://doi.org/10.1103/PhysRevLett.45.75
+[8] Caves, C.M. "Quantum-mechanical radiation-pressure fluctuations in an interferometer." *Phys. Rev. Lett.* **45**, 75 (1980). https://doi.org/10.1103/PhysRevLett.45.75
 
-[11] Buonanno, A. and Chen, Y. "Quantum noise in second generation signal recycled laser interferometric gravitational-wave detectors." *Phys. Rev. D* **64**, 042006 (2001). https://doi.org/10.1103/PhysRevD.64.042006
+[9] Buonanno, A. and Chen, Y. "Quantum noise in second generation signal recycled laser interferometric gravitational-wave detectors." *Phys. Rev. D* **64**, 042006 (2001). https://doi.org/10.1103/PhysRevD.64.042006
 
-[13] Kimble, H.J., Levin, Y., Matsko, A.B., Thorne, K.S., and Vyatchanin, S.P. "Conversion of conventional gravitational-wave interferometers into quantum nondemolition interferometers by modifying their input and/or output optics." *Phys. Rev. D* **65**, 022002 (2001). https://doi.org/10.1103/PhysRevD.65.022002
+[10] Kimble, H.J., Levin, Y., Matsko, A.B., Thorne, K.S., and Vyatchanin, S.P. "Conversion of conventional gravitational-wave interferometers into quantum nondemolition interferometers by modifying their input and/or output optics." *Phys. Rev. D* **65**, 022002 (2001). https://doi.org/10.1103/PhysRevD.65.022002
 
-[14] Drever, R.W.P. "Interferometric detectors for gravitational radiation." in *Gravitational Radiation*, ed. N. Deruelle and T. Piran, North-Holland (1983).
+[11] Drever, R.W.P. "Interferometric detectors for gravitational radiation." in *Gravitational Radiation*, ed. N. Deruelle and T. Piran, North-Holland (1983).
 
-[15] Meers, B.J. "Recycling in laser-interferometric gravitational-wave detectors." *Phys. Rev. D* **38**, 2317 (1988). https://doi.org/10.1103/PhysRevD.38.2317
+[12] Meers, B.J. "Recycling in laser-interferometric gravitational-wave detectors." *Phys. Rev. D* **38**, 2317 (1988). https://doi.org/10.1103/PhysRevD.38.2317
 
-[16] Mizuno, J. et al. "Resonant sideband extraction: a new configuration for interferometric gravitational wave detectors." *Phys. Lett. A* **175**, 273 (1993).
+[13] Mizuno, J. et al. "Resonant sideband extraction: a new configuration for interferometric gravitational wave detectors." *Phys. Lett. A* **175**, 273 (1993).
 
-[17] Caves, C.M. (squeezed-light proposal). *Phys. Rev. Lett.* **45**, 75 (1980).
+[14] McCuller, L. et al. "Frequency-Dependent Squeezing for Advanced LIGO." *Phys. Rev. Lett.* **124**, 171102 (2020). https://doi.org/10.1103/PhysRevLett.124.171102
 
-[18] McCuller, L. et al. "Frequency-Dependent Squeezing for Advanced LIGO." *Phys. Rev. Lett.* **124**, 171102 (2020). https://doi.org/10.1103/PhysRevLett.124.171102
+[15] Harry, G.M. et al. "Thermal noise in interferometric gravitational wave detectors due to dielectric optical coatings." *Class. Quantum Grav.* **19**, 897 (2002). https://doi.org/10.1088/0264-9381/19/5/305
 
-[21] Harry, G.M. et al. "Thermal noise in interferometric gravitational wave detectors due to dielectric optical coatings." *Class. Quantum Grav.* **19**, 897 (2002). https://doi.org/10.1088/0264-9381/19/5/305
+[16] Penn, S.D. et al. "Mechanical loss in tantala/silica dielectric mirror coatings." *Class. Quantum Grav.* **20**, 2917 (2003).
 
-[22] Penn, S.D. et al. "Mechanical loss in tantala/silica dielectric mirror coatings." *Class. Quantum Grav.* **20**, 2917 (2003).
+[17] Cole, G.D. et al. "Tenfold reduction of Brownian noise in high-reflectivity optical coatings." *Nature Photonics* **7**, 644 (2013). https://doi.org/10.1038/nphoton.2013.174
 
-[23] Cole, G.D. et al. "Tenfold reduction of Brownian noise in high-reflectivity optical coatings." *Nature Photonics* **7**, 644 (2013). https://doi.org/10.1038/nphoton.2013.174
+[18] Adhikari, R.X. et al. "A cryogenic silicon interferometer for gravitational-wave detection (LIGO Voyager)." *Class. Quantum Grav.* **37**, 165003 (2020). https://doi.org/10.1088/1361-6382/aba26f
 
-[24] Adhikari, R.X. et al. "A cryogenic silicon interferometer for gravitational-wave detection (LIGO Voyager)." *Class. Quantum Grav.* **37**, 165003 (2020). https://doi.org/10.1088/1361-6382/aba26f
+[19] Abbott, B.P. et al. (LIGO Scientific Collaboration and Virgo Collaboration). "Observation of Gravitational Waves from a Binary Black Hole Merger." *Phys. Rev. Lett.* **116**, 061102 (2016). https://doi.org/10.1103/PhysRevLett.116.061102
 
-[28] Abbott, B.P. et al. (LIGO Scientific Collaboration and Virgo Collaboration). "Observation of Gravitational Waves from a Binary Black Hole Merger." *Phys. Rev. Lett.* **116**, 061102 (2016). https://doi.org/10.1103/PhysRevLett.116.061102
+[20] Abbott, B.P. et al. "GW170817: Observation of Gravitational Waves from a Binary Neutron Star Inspiral." *Phys. Rev. Lett.* **119**, 161101 (2017). https://doi.org/10.1103/PhysRevLett.119.161101
 
-[29] Abbott, B.P. et al. "GW170817: Observation of Gravitational Waves from a Binary Neutron Star Inspiral." *Phys. Rev. Lett.* **119**, 161101 (2017). https://doi.org/10.1103/PhysRevLett.119.161101
-
-[34] Khalili, F.Y. "Optimal configurations of filter cavity in future gravitational-wave detectors." *Phys. Rev. D* **81**, 122002 (2010). https://doi.org/10.1103/PhysRevD.81.122002
+[21] Khalili, F.Y. "Optimal configurations of filter cavity in future gravitational-wave detectors." *Phys. Rev. D* **81**, 122002 (2010). https://doi.org/10.1103/PhysRevD.81.122002
