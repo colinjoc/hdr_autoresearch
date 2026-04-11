@@ -15,3 +15,8 @@ H010	Wall heat loss (area * U-value)	19.54	28.93	0.9424	0.08	0.13	6.4	NO
 H014	Log-transform target (predict log(kWh/m2))	19.67	29.30	0.9409	0.00	0.00	6.2	NO
 H013	LightGBM tuned (lr=0.05, n=600, depth=10, reg_lambda=1)	19.44	28.79	0.9430	0.08	0.13	11.4	YES
 COMP_01	Composition: LightGBM tuned + 4 HDR features + raw target	18.05	26.77	0.9508	0.02	0.05	80.6	YES
+DEAP_RECON	DEAP reconstruction (sum PE components / floor area)	6.96	29.07	0.9420	0.00	0.00	0.0	BASELINE
+TEMPORAL	Temporal holdout (train pre-2020, test 2020+)	27.50	39.49	0.8840	0.00	0.00	0.0	YES
+ABLATION_no_shf	Without sh_fraction	19.44	0.00	0.9430	0.00	0.00	0.0	YES
+ABLATION_no_shf_pef	Without sh_fraction + primary_energy_factor	19.42	0.00	0.9431	0.00	0.00	0.0	YES
+ABLATION_orig	Original features only (no HDR additions)	19.44	0.00	0.9430	0.00	0.00	0.0	YES
