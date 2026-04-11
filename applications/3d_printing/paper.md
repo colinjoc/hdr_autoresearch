@@ -1,9 +1,9 @@
-# A Physics-Informed Feature Set Beats Raw Parameters for Small-N Fused Deposition Modelling Tensile-Strength Prediction
+# Physics-Informed Features and the Small-Data Wall in Fused Deposition Modelling Tensile-Strength Prediction
 
 **Project**: Hypothesis-Driven Research (HDR) application --
 `applications/3d_printing/`
 
-**Date**: 2026-04-09
+**Date**: 2026-04-10 (revised after adversarial review)
 
 ## Abstract
 
@@ -15,35 +15,43 @@ manufacturing literature. The standard public benchmark is the
 Kaggle 3D Printer Dataset (N = 50 samples, Ultimaker S5, Poly-Lactic
 Acid and Acrylonitrile Butadiene Styrene specimens). We take this
 dataset through a Hypothesis-Driven Research (HDR) loop consisting of
-a four-way model-family tournament (Extreme Gradient Boosting,
-Light Gradient Boosting Machine, Extra Trees, Random Forest, and Ridge
-regression), a fifty-experiment single-change loop covering physics-
-informed features, hyperparameter sweeps, target transforms, and
-monotonicity constraints, a nine-experiment compositional re-test of
-the kept changes, and a Phase B discovery sweep over 2,394 candidate
-print settings. The Extreme Gradient Boosting baseline with nine raw
-features gives a five-fold cross-validated Mean Absolute Error (MAE)
-of 4.4421 megapascals (MPa). The winning configuration is a five-
-feature physics-informed set (linear energy density, volumetric flow
-rate, inter-layer time, infill contact area, thermal margin above the
-glass transition temperature) that drops the MAE to 4.2921 MPa, a 3.4
-percent reduction. No hyperparameter change, no target transform, and
-no monotonicity constraint survived Phase 2. Phase B discovery
-identifies a PLA recipe (layer height 0.20 millimetres, print speed
-120 millimetres per second, nozzle 215 degrees Celsius, 70 percent
-honeycomb infill, 3 walls) that simultaneously dominates the Cura
-Poly-Lactic Acid slicer default on predicted tensile strength (plus 59
-percent), print time (minus 54 percent), and energy consumption (minus
-51 percent) while staying inside the training distribution. The
-project's two non-obvious findings are (a) that the tree-vs-linear
-cross-validation gap on this dataset is only a factor of 1.32, far
-below the concrete-project finding of 3x, meaning the FDM tensile-
-strength signal is more linear than assumed; and (b) that monotonicity
-constraints, which improved the concrete project by 1.3 percent MAE,
-hurt this project because N = 50 is below the threshold where the
-constraint's regularisation benefit exceeds its expressiveness cost.
-The Kaggle dataset is a small publicly-available sample (N = 50) used
-exactly as published, with no synthetic data.
+a five-model tournament (Extreme Gradient Boosting, Light Gradient
+Boosting Machine, Extra Trees, Random Forest, and Ridge regression), a
+fifty-experiment single-change loop covering physics-informed features,
+hyperparameter sweeps, target transforms, and monotonicity constraints,
+a nine-experiment compositional re-test of the kept changes, and a
+Phase B discovery sweep over 2,394 candidate print settings. The
+Extreme Gradient Boosting baseline with nine raw features gives a
+five-fold cross-validated Mean Absolute Error (MAE) of 4.44 megapascals
+(MPa, 95 percent bootstrap confidence interval 3.53 to 5.44). The
+best single-seed configuration is a five-feature physics-informed set
+(linear energy density, volumetric flow rate, inter-layer time, infill
+contact area, thermal margin above the glass transition temperature)
+that drops the MAE to 4.29 MPa (95 percent CI 3.42 to 5.24) on seed
+42, a 3.4 percent reduction. However, a multi-seed robustness test
+across five random seeds shows the improvement is not statistically
+robust: E08 wins on 2 of 5 seeds, with a mean delta of -0.02 MPa
+(standard deviation 0.13). The confidence intervals fully overlap,
+confirming that at N = 50 the physics-feature improvement is within the
+noise floor. No hyperparameter change, no target transform, and no
+monotonicity constraint survived Phase 2. Phase B discovery identifies
+a PLA recipe (layer height 0.20 millimetres, print speed 120
+millimetres per second, nozzle 215 degrees Celsius, 70 percent
+honeycomb infill, 3 walls) that the surrogate model predicts at 30.1
+MPa, compared with 16.0 MPa for a Cura-like in-distribution default --
+an 88 percent predicted improvement in tensile strength. These are
+surrogate predictions (model RMSE = 5.41 MPa), not physical
+measurements, and require experimental validation. The project's two
+non-obvious findings are (a) that the tree-vs-linear cross-validation
+gap on this dataset is only a factor of 1.32, far below the concrete-
+project finding of 3x, meaning the FDM tensile-strength signal is more
+linear than assumed -- a Ridge regression with the physics features
+closes the gap to only 1.08x; and (b) that monotonicity constraints,
+which improved the concrete project by 1.3 percent MAE, hurt this
+project because N = 50 is below the threshold where the constraint's
+regularisation benefit exceeds its expressiveness cost. The Kaggle
+dataset is a small publicly-available sample (N = 50) used exactly as
+published, with no synthetic data.
 
 ---
 
@@ -632,9 +640,10 @@ Figure 3 (`plots/headline_finding.png`, left panel) visualises the
 1/50 keep rate as a dot plot of all Phase 2 experiments sorted by
 MAE. Experiment E08 is the single point below the baseline noise
 floor; the remaining 49 cluster at or above it. The right panel
-of Figure 3 shows the Cura PLA slicer default compared with the
-Phase B discovery recipe on all three objectives (tensile strength,
-print time, energy), with percentage improvements annotated.
+of Figure 3 shows an in-distribution Cura-like default compared
+with the Phase B discovery recipe on three surrogate-predicted
+objectives (tensile strength, print time, energy), with percentage
+improvements annotated.
 
 Per-class KEEP rates:
 
@@ -696,25 +705,145 @@ hyperparameter changes).
 - **Best strength-per-print-hour**: 137.9 MPa per hour
 - **Best strength-per-kilowatt-hour**: 669 MPa per kilowatt-hour
 
-#### Comparison against the Cura PLA slicer default
+#### Comparison against a Cura-like in-distribution default
 
-The Cura Poly-Lactic Acid default profile (layer 0.2 mm, speed 50
-mm/s, temperature 210 C, 20 percent infill, 2 walls, honeycomb)
-evaluates through the trained model at approximately 17 - 19 MPa
-predicted tensile strength, 0.52 hours print time, 0.10 kilowatt-
-hours energy. The Phase B discovery result dominates it on all
-three objectives:
+The exact Cura Poly-Lactic Acid default profile uses print speed 50
+mm/s and wall thickness 2, neither of which appears in the PLA subset
+of the training data (unique PLA speeds are 40, 60, 120; unique PLA
+wall thicknesses are 1, 3, 4, 5, 6, 7, 8, 9, 10). The model's
+prediction at the exact Cura default (11.97 MPa) is therefore
+unreliable because it interpolates at unseen parameter values. To
+provide a fair comparison, we use an in-distribution Cura-like default:
+layer 0.2 mm, speed 60 mm/s (nearest in-distribution value), 210 C, 20
+percent infill, 3 walls (nearest in-distribution value), honeycomb, PLA,
+fan 100 percent. This Cura-like default evaluates at 16.0 MPa predicted
+tensile strength, 0.26 hours print time, 0.052 kilowatt-hours energy.
 
-| Metric | Cura default | Discovery | Improvement |
+| Metric | Cura-like default | Discovery | Improvement |
 |---|---|---|---|
-| Predicted tensile strength (MPa) | ~17 - 19 | 30.1 | +59 percent |
-| Print time (hours) | 0.52 | 0.24 | -54 percent |
-| Energy (kWh) | 0.10 | 0.049 | -51 percent |
+| Predicted tensile strength (MPa) | 16.0 | 30.1 | +88 percent |
+| Print time (hours) | 0.26 | 0.24 | -6 percent |
+| Energy (kWh) | 0.052 | 0.049 | -6 percent |
 
-This is the headline discovery claim, subject to the in-distribution
-caveat discussed in section 6.
+The discovery recipe's primary advantage is predicted strength (the
+model predicts nearly twice the tensile strength), not print time or
+energy. The strength difference of 14.1 MPa is approximately 2.6 times
+the model's RMSE of 5.41 MPa, giving a signal-to-noise ratio on the
+comparison of roughly 2.6:1. This is a surrogate prediction, not a
+physical measurement, and requires experimental validation on a printer
+before it can be treated as an empirical result.
 
-### 5.6 Tests
+### 5.6 Seed robustness test
+
+The E08 improvement was originally measured at a single random seed
+(42). To test whether the improvement is robust to fold assignment,
+both E00 and E08 were re-evaluated on five random seeds (40, 41, 42,
+43, 44):
+
+| Seed | E00 MAE | E08 MAE | Delta (E00 - E08) |
+|---|---|---|---|
+| 40 | 4.0714 | 4.2669 | -0.1955 |
+| 41 | 4.0442 | 4.1137 | -0.0695 |
+| 42 | 4.4421 | 4.2921 | +0.1499 |
+| 43 | 3.7914 | 3.6750 | +0.1164 |
+| 44 | 4.1969 | 4.2929 | -0.0960 |
+| **Mean** | **4.1092** | **4.1281** | **-0.0189** |
+| **Std** | **0.2122** | **0.2361** | **0.1315** |
+
+E08 wins on 2 of 5 seeds. The mean improvement is -0.019 MPa (that is,
+E08 is slightly worse on average across seeds). The standard deviation
+of the delta is 0.13 MPa, larger than the delta itself. **The physics-
+feature improvement is not seed-robust at N = 50.** It was a real
+finding on seed 42 (0.15 MPa, passing the 0.005 threshold), but the
+expected value of the improvement across random fold assignments is
+approximately zero.
+
+This does not invalidate the physics features as a modelling choice:
+they encode domain knowledge that is physically correct, and on a
+larger dataset (N > 200) the improvement would likely stabilise. But
+the 3.4 percent figure reported for seed 42 should not be interpreted
+as the expected improvement on arbitrary fold assignments.
+
+### 5.7 Bootstrap confidence intervals
+
+Bootstrap resampling (10,000 replicates) of the out-of-fold
+predictions gives the following 95 percent confidence intervals:
+
+| Model | MAE | 95% CI | R-squared | 95% CI |
+|---|---|---|---|---|
+| E00 (raw) | 4.4421 | [3.53, 5.44] | 0.5940 | [0.40, 0.73] |
+| E08 (physics) | 4.2921 | [3.42, 5.24] | 0.6250 | [0.45, 0.76] |
+
+The confidence intervals for MAE fully overlap, confirming that the
+improvement is not statistically significant at the 95 percent level.
+
+### 5.8 Ridge regression on the 14-feature set
+
+Section 6.3 hypothesised that Ridge regression on the 14-feature set
+would be within 15 percent of XGBoost. The experiment confirms this:
+
+| Model | Features | MAE | R-squared |
+|---|---|---|---|
+| Ridge | 9 raw | 5.8634 | 0.3333 |
+| Ridge | 14 (raw + physics) | 4.6206 | 0.5204 |
+| XGBoost | 9 raw (E00) | 4.4421 | 0.5940 |
+| XGBoost | 14 (raw + physics, E08) | 4.2921 | 0.6250 |
+
+The physics features improve Ridge regression from 5.86 to 4.62 MPa,
+a 21 percent reduction -- much larger than the 3.4 percent improvement
+for XGBoost. The Ridge-14 to XGBoost-14 ratio is only 1.08x, meaning
+a simple linear model with the physics features gets 92 percent of the
+way to the best tree model. This confirms that the physics features
+are primarily helping by providing a better linear basis, not by
+enabling nonlinear interactions.
+
+### 5.9 Leave-one-speed-out cross-validation
+
+To test for condition leakage in shuffled K-fold, leave-one-speed-out
+cross-validation was run (three folds, one per unique print speed):
+
+| Model | Leave-one-speed-out MAE | Shuffled CV MAE | Degradation |
+|---|---|---|---|
+| E00 (raw) | 5.7165 | 4.4421 | +1.27 MPa |
+| E08 (physics) | 5.6599 | 4.2921 | +1.37 MPa |
+
+Both models degrade substantially when entire speed conditions are
+held out, confirming that shuffled K-fold benefits from seeing the
+same speed values in train and test. The physics-feature model (E08)
+still edges the raw-feature model (5.66 vs 5.72) under this harder
+evaluation, but the advantage is smaller (0.06 MPa vs 0.15 MPa).
+
+### 5.10 Residual analysis
+
+The model exhibits a systematic bias pattern in its cross-validation
+predictions:
+
+| Strength range | N samples | Mean residual (actual - predicted) |
+|---|---|---|
+| Low (< 15 MPa) | 18 | -4.52 MPa (over-predicts) |
+| Mid (15 - 25 MPa) | 13 | +0.53 MPa (approximately unbiased) |
+| High (> 25 MPa) | 19 | +3.77 MPa (under-predicts) |
+
+The model pulls predictions toward the mean, a classic small-N
+tree-ensemble pattern. The five worst individual predictions are:
+
+1. Actual 34.0, predicted 17.3 (residual +16.7 MPa) -- PLA, h=0.10,
+   walls=4, infill=90, speed=120, temp=215
+2. Actual 37.0, predicted 24.2 (residual +12.8 MPa) -- ABS, h=0.06,
+   walls=6, infill=80, speed=60, temp=220
+3. Actual 12.0, predicted 21.9 (residual -9.9 MPa) -- PLA, h=0.10,
+   walls=4, infill=40, speed=120, temp=205
+4. Actual 14.0, predicted 23.8 (residual -9.8 MPa) -- PLA, h=0.20,
+   walls=4, infill=20, speed=40, temp=205
+5. Actual 5.0, predicted 13.8 (residual -8.8 MPa) -- ABS, h=0.02,
+   walls=6, infill=90, speed=40, temp=250
+
+Errors are material-dependent: PLA MAE = 5.01 MPa, ABS MAE = 3.57
+MPa. The model is less accurate on PLA samples, likely because the
+PLA subset spans a wider strength range (4 - 34 MPa) than the ABS
+subset (5 - 37 MPa) at lower density.
+
+### 5.11 Tests
 
 The project includes a 138-line pytest suite at `tests/test_harness.py`
 with 18 unit tests covering the dataset loader, the derived-feature
@@ -727,19 +856,27 @@ source modules (TDD discipline) and are run after every change.
 
 ## 6. Discussion
 
-### 6.1 Why the improvement is modest
+### 6.1 Why the improvement is modest and not seed-robust
 
-The headline improvement is 3.4 percent MAE. This is small compared
-with the concrete project's 8.3 percent, and small compared with the
-95 percent accuracy numbers quoted in the best ML-for-FDM papers.
-The reason is almost entirely dataset size. With N = 50 and a per-
-fold standard deviation of about 1.1 MPa, the noise floor on any
-single-experiment comparison is approximately 0.5 MPa. A 0.15 MPa
-improvement is signal but it is less than one-third of the noise
-floor, which is why it took a full five-feature set (rather than
-a single feature) to reach the 0.005 MPa threshold. On a dataset
-of N = 500 the same five features would likely cut MAE by 10 - 15
-percent or more, matching the published numbers.
+The headline improvement on seed 42 is 3.4 percent MAE. The multi-
+seed robustness test (section 5.6) shows this improvement is not
+statistically robust: across five random seeds, E08 wins on only 2,
+and the mean delta is -0.019 MPa (i.e., E08 is slightly worse on
+average). The 95 percent bootstrap confidence intervals fully overlap
+(section 5.7). This is a direct consequence of dataset size. With
+N = 50 and a per-fold standard deviation of about 1.1 MPa, the noise
+floor on any single-experiment comparison is approximately 0.5 MPa.
+A 0.15 MPa improvement is less than one-third of the noise floor,
+which means it can appear or disappear depending on fold assignment.
+
+The physics features themselves are not wrong -- they encode real
+physical mechanisms, and the Ridge regression experiment (section 5.8)
+shows they help a linear model enormously (21 percent MAE reduction).
+The issue is that at N = 50, XGBoost can already learn most of the
+relevant structure from the raw features, and the marginal benefit of
+precomputed physics features is within the sampling noise. On a
+dataset of N = 500 the improvement would likely stabilise and become
+statistically significant.
 
 ### 6.2 Why monotone constraints failed here but succeeded on concrete
 
@@ -773,12 +910,15 @@ from Phase 1. Three practical consequences follow:
    those papers report are almost certainly leakage from shuffled
    splits where the same condition appears in train and test.
 
-2. **Simple linear models with hand-engineered interactions would
-   be a defensible alternative baseline**. A Ridge regression on
-   the 14-feature set (nine raw plus the five E08 physics features)
-   would probably be within 15 percent of XGBoost on MAE, and would
-   be easier to interpret. We did not test this explicitly but it
-   is a cheap follow-up.
+2. **Simple linear models with physics features nearly match
+   XGBoost**. A Ridge regression on the 14-feature set (nine raw
+   plus the five E08 physics features) achieves MAE 4.62, only
+   1.08x worse than XGBoost's 4.29 (section 5.8). The physics
+   features close most of the linear-to-tree gap: Ridge improves
+   from 5.86 to 4.62 (21 percent), while XGBoost improves from
+   4.44 to 4.29 (3.4 percent on seed 42, not robust across seeds).
+   This makes the physics features primarily a linear-basis
+   improvement, not a nonlinear-interaction enabler.
 
 3. **The physical relationships that drive FDM tensile strength
    are dominantly linear on this parameter range**. Infill is
@@ -797,14 +937,19 @@ thicker layers plus higher speed, intermediate nozzle temperature
 -- is already in the slicer-manufacturer literature. What is novel
 is that a data-driven surrogate, trained on 50 samples, finds a
 single recipe (PLA, 0.20 mm, 120 mm/s, 215 C, 70 percent infill, 3
-walls) that dominates the Cura default on all three objectives
-simultaneously, and that the recipe lies inside the training
-distribution (all nine parameter values appear in the training set).
-No extrapolation is required; the recipe can be printed on any
-Ultimaker S5 without adjustment. To our knowledge, no prior study
-has published a specific parameter vector that dominates a slicer
-default on strength and time and energy, using only the Kaggle
-public dataset as training evidence.
+walls) that the surrogate predicts at 88 percent higher tensile
+strength than an in-distribution Cura-like default configuration.
+Unlike the Cura default itself (which uses print_speed=50 and
+wall_thickness=2, values absent from the PLA training data), the
+discovery recipe uses only parameter values that appear in the PLA
+training subset: all nine values were verified point-by-point against
+the training distribution (section 5.5). No extrapolation is
+required; the recipe can be printed on any Ultimaker S5 without
+adjustment. The strength difference of 14.1 MPa has a
+signal-to-noise ratio of approximately 2.6 relative to the model's
+RMSE of 5.41 MPa, making it plausible but not certain. Physical
+validation on a printer is required before this comparison can be
+treated as an empirical result.
 
 The recipe's physical plausibility is straightforward: 0.20 mm
 layer height is the upper end of the range (fast), 120 mm/s is the
@@ -827,11 +972,20 @@ only confirms that the choices stack.
   those axes, and a continuous design would dominate the grid by
   a small margin.
 - **Slicer-default comparison is predictive, not measured**. The
-  headline "59 percent stronger" number is a comparison between
-  two predictions from the same surrogate model. It is not a
-  physical measurement on a printed part. A physical validation
-  run -- print both configurations and test them on an Instron
-  tensile tester -- is the natural next step.
+  headline "+88 percent stronger" number is a comparison between
+  two predictions from the same surrogate model (RMSE = 5.41 MPa).
+  The signal-to-noise ratio on the 14.1 MPa predicted difference
+  is approximately 2.6:1, making the direction plausible but the
+  magnitude uncertain. A physical validation run -- print both
+  configurations and test them on an Instron tensile tester -- is
+  the natural next step. The exact Cura default (speed=50, walls=2)
+  could not be used for comparison because those parameter values
+  are absent from the PLA training data; an in-distribution Cura-
+  like default (speed=60, walls=3) was used instead.
+- **Seed robustness**. The physics-feature improvement (E08 vs E00)
+  is not robust across random seeds (section 5.6). The 3.4 percent
+  improvement reported for seed 42 does not generalise to other
+  fold assignments at N = 50.
 - **Energy and print-time proxies are simple kinematic models**.
   The print-time proxy assumes perfect volumetric-flow delivery
   and ignores travel moves, retractions, and acceleration limits.
@@ -880,26 +1034,28 @@ changes would likely help:
 ## 7. Conclusion
 
 We ran a Hypothesis-Driven Research loop on the Kaggle 3D Printer
-Dataset (N = 50), covering a four-way model-family tournament, 50
-Phase 2 single-change experiments, 9 Phase 2.5 compositional re-
-tests, and a Phase B discovery sweep of 2,394 candidate print
-settings. The final winning model is an Extreme Gradient Boosting
-regressor on nine raw features plus a five-feature physics-informed
-set (linear energy density, volumetric flow rate, inter-layer time,
-infill contact area, thermal margin above the glass transition
-temperature). The 5-fold cross-validated Mean Absolute Error drops
-from 4.4421 MPa at the baseline to 4.2921 MPa at the winner, a 3.4
-percent reduction. No monotonicity constraint, hyperparameter change,
-target transform, log / inverse transform, or interaction feature
-survived the loop's keep threshold. The Phase B discovery sweep
-identifies a Poly-Lactic Acid recipe (layer height 0.20 mm, print
-speed 120 mm/s, nozzle 215 C, 70 percent honeycomb infill, 3 walls)
-that dominates the Cura PLA slicer default on three objectives --
-predicted tensile strength (plus 59 percent), print time (minus 54
-percent), and energy consumption (minus 51 percent) -- while staying
-inside the training distribution.
+Dataset (N = 50), covering a five-model tournament, 50 Phase 2
+single-change experiments, 9 Phase 2.5 compositional re-tests,
+and a Phase B discovery sweep of 2,394 candidate print settings.
+The physics-informed five-feature set (linear energy density,
+volumetric flow rate, inter-layer time, infill contact area,
+thermal margin above the glass transition temperature) reduces
+5-fold cross-validated MAE from 4.44 to 4.29 MPa on seed 42, but
+a multi-seed robustness test shows this improvement is within the
+sampling noise at N = 50 (E08 wins on 2 of 5 seeds, mean delta =
+-0.02 MPa). Bootstrap 95 percent confidence intervals on MAE fully
+overlap ([3.53, 5.44] vs [3.42, 5.24]). No monotonicity constraint,
+hyperparameter change, target transform, or interaction feature
+survived the loop's keep threshold.
 
-The two cross-project lessons are:
+The Phase B discovery sweep identifies a PLA recipe (layer height
+0.20 mm, print speed 120 mm/s, nozzle 215 C, 70 percent honeycomb
+infill, 3 walls) that the surrogate predicts at 30.1 MPa, 88
+percent above an in-distribution Cura-like default (16.0 MPa).
+This is a surrogate prediction (model RMSE = 5.41 MPa), not a
+physical measurement, and requires experimental validation.
+
+The three cross-project lessons are:
 1. **Monotone constraints are dataset-size dependent.** They
    improved the concrete project at N = 1030 but hurt the 3D
    printing project at N = 50, because the constraint's
@@ -907,9 +1063,16 @@ The two cross-project lessons are:
 2. **The linear-baseline sanity check from program.md Phase 0.5
    fires on this dataset.** The tree-to-linear MAE ratio is 1.32,
    well below the 2x threshold for declaring the task strongly
-   non-linear. Neural networks are unlikely to help on any variant
-   of this benchmark, and published high-R-squared neural results
-   on the Kaggle 3D Printer Dataset should be treated with caution.
+   non-linear. A Ridge regression with the physics features closes
+   the gap to 1.08x, confirming the features provide a linear-
+   basis improvement. Neural networks are unlikely to help on any
+   variant of this benchmark, and published high-R-squared neural
+   results on the Kaggle 3D Printer Dataset should be treated with
+   caution.
+3. **Seed robustness is mandatory for small-N claims.** A single-
+   seed improvement of 3.4 percent looked like a clean win but
+   vanished under multi-seed evaluation. Any claim of improvement
+   on N < 200 should report results across at least 5 random seeds.
 
 Future work: validate the Phase B recipe physically; extend the
 HDR loop to a larger FDM dataset (N > 500) where monotone
@@ -961,9 +1124,10 @@ All figures are in the `plots/` directory, generated by
   finding. Left: dot plot of all 50 Phase 2 experiments' MAE,
   showing the 1/50 keep rate -- 49 experiments at or above the
   baseline noise floor and one (E08) below. Right: grouped bar
-  comparison of the Phase B discovery recipe versus the Cura PLA
-  slicer default on tensile strength (+59%), print time (-54%), and
-  energy consumption (-51%).
+  comparison of the Phase B discovery recipe versus an in-
+  distribution Cura-like default on predicted tensile strength
+  (+88%), print time (-6%), and energy consumption (-6%). All
+  values are surrogate predictions, not physical measurements.
 - **Figure 4** (`plots/tree_to_linear.png`): Phase 1 tournament bar
   chart showing all five model families' MAE. The tree-to-linear
   ratio of 1.32 (XGBoost 4.44 vs Ridge 5.86) is annotated alongside

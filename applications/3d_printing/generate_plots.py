@@ -260,21 +260,25 @@ def plot_headline_finding(results_df: pd.DataFrame) -> None:
     # Hide y-ticks (experiment ordering is just visual)
     ax1.set_yticks([])
 
-    # --- Right panel: Discovery recipe vs Cura default ---
+    # --- Right panel: Discovery recipe vs Cura-like default ---
+    # Cura-like default uses in-distribution values (speed=60, walls=3)
+    # because the exact Cura default (speed=50, walls=2) is not in
+    # the training data. Predictions are from the E08 model trained on
+    # the full 50-sample dataset.
     categories = ["Tensile Strength\n(MPa)", "Print Time\n(hours)", "Energy\n(kWh)"]
-    cura_vals = [18.0, 0.52, 0.10]
+    cura_vals = [16.0, 0.26, 0.052]
     discovery_vals = [30.1, 0.24, 0.049]
 
     x_pos = np.arange(len(categories))
     width = 0.32
 
-    bars_cura = ax2.bar(x_pos - width / 2, cura_vals, width, label="Cura PLA Default",
+    bars_cura = ax2.bar(x_pos - width / 2, cura_vals, width, label="Cura-like Default (in-distribution)",
                         color=CB_GREY, edgecolor="white", linewidth=0.5)
     bars_disc = ax2.bar(x_pos + width / 2, discovery_vals, width, label="Discovery Recipe (E08 model)",
                         color=CB_GREEN, edgecolor="white", linewidth=0.5)
 
     # Add percentage improvement labels
-    improvements = ["+59%", "-54%", "-51%"]
+    improvements = ["+88%", "-6%", "-6%"]
     for i, (bar, imp) in enumerate(zip(bars_disc, improvements)):
         ax2.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.5,
                  imp, ha="center", va="bottom", fontsize=12, fontweight="bold",
@@ -283,7 +287,7 @@ def plot_headline_finding(results_df: pd.DataFrame) -> None:
     ax2.set_xticks(x_pos)
     ax2.set_xticklabels(categories, fontsize=12)
     ax2.set_ylabel("Value", fontsize=14)
-    ax2.set_title("Discovery Recipe vs Cura PLA Default\n"
+    ax2.set_title("Discovery Recipe vs Cura-like Default\n"
                   "(PLA, 0.20 mm, 120 mm/s, 215 C, 70% infill, 3 walls)",
                   fontsize=16, fontweight="bold")
     ax2.legend(loc="upper right", fontsize=12)
