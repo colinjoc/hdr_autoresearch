@@ -290,17 +290,13 @@ def plot_feature_importance():
         n_estimators=300, max_depth=6, learning_rate=0.1,
         subsample=0.8, colsample_bytree=0.8,
         eval_metric='logloss', verbosity=0, n_jobs=-1,
-        tree_method='hist', device='cuda',
+        tree_method='hist', random_state=42,
     )
     try:
+        model.set_params(device='cuda')
         model.fit(X, y)
     except Exception:
-        model = XGBClassifier(
-            n_estimators=300, max_depth=6, learning_rate=0.1,
-            subsample=0.8, colsample_bytree=0.8,
-            eval_metric='logloss', verbosity=0, n_jobs=-1,
-            tree_method='hist', device='cpu',
-        )
+        model.set_params(device='cpu')
         model.fit(X, y)
 
     imps = dict(zip(feature_cols, model.feature_importances_))
@@ -407,6 +403,17 @@ def plot_delay_cause_decomposition():
     return fig, ax
 
 
+def plot_shap_importance():
+    """
+    Plot 6: SHAP-based feature importance.
+
+    Uses TreeExplainer for unbiased feature attribution, addressing
+    the known gain-importance bias toward high-cardinality features.
+    """
+    from review_experiments import plot_shap_summary
+    return plot_shap_summary(months=[1, 2, 3], sample_size=20000)
+
+
 def save_all_plots(output_dir=None):
     """Save all plots to the specified directory."""
     if output_dir is None:
@@ -419,6 +426,7 @@ def save_all_plots(output_dir=None):
         'propagation_depth': plot_propagation_depth,
         'feature_importance': plot_feature_importance,
         'delay_cause_decomposition': plot_delay_cause_decomposition,
+        'shap_importance': plot_shap_importance,
     }
 
     for name, func in plot_funcs.items():

@@ -104,6 +104,7 @@ class TestPlotSaving:
             'propagation_depth.png',
             'feature_importance.png',
             'delay_cause_decomposition.png',
+            'shap_importance.png',
         ]
         for fname in expected_files:
             fpath = os.path.join(str(tmp_path), fname)
