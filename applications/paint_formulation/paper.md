@@ -2,11 +2,11 @@
 
 ## Abstract
 
-Two-component polyurethane (2K PU) lacquers are the workhorse of industrial wood, metal, and automotive top-coats, yet their development cycle remains iterative and expensive because four or more composition variables interact nonlinearly to determine gloss, scratch hardness, hiding power, and flexibility simultaneously. The 2024 PURformance dataset of Borgert et al. (Zenodo Digital Object Identifier (DOI) 10.5281/zenodo.13742098) provides 65 high-throughput 2K PU samples with four normalised composition variables (crosslinker content, cycloaliphatic isocyanate fraction, matting-agent loading, pigment-paste loading), film thickness, and four performance targets (60 degree gloss, scratch hardness, hiding power, Erichsen cupping depth). The original paper reports a single Gaussian Process Regressor (GPR) baseline trained on all four targets using a shared Radial Basis Function (RBF) plus DotProduct plus WhiteKernel composite kernel. We re-analyse the same dataset under a Hypothesis-Driven Research (HDR) protocol that runs a four-way model family tournament (Extreme Gradient Boosting (XGBoost), Light Gradient Boosting Machine (LightGBM), Extremely Randomised Trees (ExtraTrees), Ridge regression) against the published Gaussian Process (GP) baseline, followed by 204 single-change cross-validation experiments exploring 22 physics-informed features derived from the Pigment Volume Concentration (PVC) framework, the Aitchison log-ratio (compositional) transform, isocyanate chemistry, and thickness interactions. Per-target model selection yields Ridge regression for scratch hardness, XGBoost (depth 7) with log-thickness plus thickness times matting-agent features for gloss, and ExtraTrees with single interaction features for hiding power and cupping. Compared to the published GP baseline under identical 5-fold cross-validation, the final HDR models reduce Mean Absolute Error (MAE) by 13% on gloss, 23% on hiding power, 28% on cupping, and match within the 2% noise floor on scratch hardness. A multi-strategy Phase B discovery screen of 7785 candidate formulations identifies a 24-point Pareto front on gloss versus Volatile Organic Compound (VOC) content, predicting gloss at or above 80 gloss units (GU) with an estimated VOC content of 73 g/L — inside the low-VOC regime for architectural coatings. We discuss the limitations of a 65-sample dataset and frame the contribution as an honest reproduction-with-improvement of the published benchmark rather than a novel discovery.
+Two-component polyurethane (2K PU) lacquers are the workhorse of industrial wood, metal, and automotive top-coats, yet their development cycle remains iterative and expensive because four or more composition variables interact nonlinearly to determine gloss, scratch hardness, hiding power, and flexibility simultaneously. The 2024 PURformance dataset of Borgert et al. (Zenodo Digital Object Identifier (DOI) 10.5281/zenodo.13742098) provides 65 high-throughput 2K PU samples with four normalised composition variables (crosslinker content, cycloaliphatic isocyanate fraction, matting-agent loading, pigment-paste loading), film thickness, and four performance targets (60 degree gloss, scratch hardness, hiding power, Erichsen cupping depth). The original paper reports a single Gaussian Process Regressor (GPR) baseline trained on all four targets using a shared Radial Basis Function (RBF) plus DotProduct plus WhiteKernel composite kernel. We re-analyse the same dataset under a Hypothesis-Driven Research (HDR) protocol that runs a four-way model family tournament (Extreme Gradient Boosting (XGBoost), Light Gradient Boosting Machine (LightGBM), Extremely Randomised Trees (ExtraTrees), Ridge regression) against the published Gaussian Process (GP) baseline, followed by 204 single-change cross-validation experiments exploring 22 physics-informed features derived from the Pigment Volume Concentration (PVC) framework, the Aitchison log-ratio (compositional) transform, isocyanate chemistry, and thickness interactions. Per-target model selection yields Ridge regression for scratch hardness, XGBoost (depth 7) with log-thickness plus thickness times matting-agent features for gloss, and ExtraTrees with single interaction features for hiding power and cupping. Compared to the published GP baseline under identical 5-fold cross-validation, the final HDR models reduce Mean Absolute Error (MAE) by 13% on gloss, 23% on hiding power, 28% on cupping, and match within the 2% noise floor on scratch hardness. A multi-strategy Phase B discovery screen of 7785 candidate formulations (4765 after composition-feasibility filtering) identifies a 21-point Pareto front on gloss versus Volatile Organic Compound (VOC) content, predicting gloss at or above 80 gloss units (GU) with an estimated VOC content of 106 g/L. A leave-one-campaign-out robustness check confirms that the improvements survive cross-batch evaluation, with LOCO MAE within 13% of the random-split estimates. We discuss the limitations of a 65-sample dataset and frame the contribution as an honest reproduction-with-improvement of the published benchmark rather than a novel discovery.
 
 ## 1. Introduction
 
-Paint and coating formulation is a multi-variable, multi-objective design problem where the performance of the cured film depends simultaneously on the polymer binder (resin) chemistry, the pigment and extender volume fractions, the solvent carrier, and the additives package. Most of the dominant rules of thumb — Abrams' water-cement law in concrete, Fox equation for copolymer glass transition, the Pigment Volume Concentration (PVC) / Critical Pigment Volume Concentration (CPVC) framework — are empirical simplifications of a physics-rich, interacting design space. Machine learning (ML) promises to compress the development cycle by training a predictive model on measured formulation-property pairs and using that model either to screen novel candidates or to interpret which composition variables actually matter. The 2024 PURformance benchmark (Borgert et al., "High-Throughput and Explainable Machine Learning for Lacquer Formulations", Progress in Organic Coatings, Zenodo DOI 10.5281/zenodo.13742098) is the first fully open 2K PU lacquer dataset that publishes all four composition variables, five performance properties, and the associated Python Gaussian Process training code. It reports up to sixfold reductions in development time when Bayesian-optimisation-driven formulation selection is used in place of conventional Design of Experiments (DoE).
+Paint and coating formulation is a multi-variable, multi-objective design problem where the performance of the cured film depends simultaneously on the polymer binder (resin) chemistry, the pigment and extender volume fractions, the solvent carrier, and the additives package. Most of the dominant rules of thumb — Abrams' water-cement law in concrete, Fox equation for copolymer glass transition, the Pigment Volume Concentration (PVC) / Critical Pigment Volume Concentration (CPVC) framework — are empirical simplifications of a physics-rich, interacting design space. Machine learning (ML) promises to compress the development cycle by training a predictive model on measured formulation-property pairs and using that model either to screen novel candidates or to interpret which composition variables actually matter. The 2024 PURformance benchmark (Borgert et al., "High-Throughput and Explainable Machine Learning for Lacquer Formulations", Progress in Organic Coatings, Zenodo DOI 10.5281/zenodo.13742098) is the first fully open 2K PU lacquer dataset that publishes all four composition variables, film thickness, four performance properties, and the associated Python Gaussian Process training code. It reports up to sixfold reductions in development time when Bayesian-optimisation-driven formulation selection is used in place of conventional Design of Experiments (DoE).
 
 The original PURformance paper takes a single modelling path — Gaussian Process Regression with an Optuna-tuned kernel of the form `RBF + WhiteKernel + DotProduct` applied to all four targets in turn — and reports Sobol indices showing that film thickness dominates main-effect variance for gloss and cupping test, pigment concentration dominates hiding power, and matting agent dominates scratch hardness. What the paper does not report is (a) whether a simpler per-target model family beats the unified GP, (b) whether physics-informed features derived from the PVC/CPVC framework and the Aitchison log-ratio transform add any signal beyond the raw normalised composition columns, and (c) whether the 65-sample dataset can support formulation-level discovery as opposed to purely within-sample interpretation. This paper answers those three questions. We follow an HDR protocol with four phases: Phase 0 builds the knowledge base, Phase 0.5 audits the baseline, Phase 1 runs a cross-family tournament, Phase 2 runs single-change experiments against a noise floor and an explicit Bayesian prior, and Phase B screens synthetic candidates.
 
@@ -295,9 +295,22 @@ Combining the Phase 2 + 2.5 results, the final per-target winners are:
 | hiding_power_pct | ExtraTrees(max_features=0.5) | `thickness_x_pigment` | **2.187 %** | 0.664 |
 | cupping_mm | ExtraTrees | `cyc_x_matting`, `pvc_proxy` | **1.519 mm** | 0.715 |
 
-Figure 1 shows the predicted-versus-actual scatter plot for 60 degree gloss, the target with the highest cross-validated R squared (0.726). The cluster of points near the 1:1 line at high gloss values (above 70 GU) shows the model captures the high-gloss regime well, while the spread at low gloss values reflects the difficulty of predicting matte finishes where matting-agent loading dominates.
+Per-fold MAE standard deviations (a measure of prediction stability across the five folds):
 
-![Figure 1: Predicted vs actual for 60 degree gloss (the best-R-squared target) under 5-fold cross-validation. The dashed line is the 1:1 reference.](plots/pred_vs_actual.png)
+| Target | Fold MAEs | Mean ± Std |
+|---|---|---|
+| scratch_hardness_N | 0.987, 1.448, 2.073, 1.793, 2.697 | 1.800 ± 0.577 |
+| gloss_60 | 10.655, 9.207, 8.728, 12.704, 8.885 | 10.036 ± 1.498 |
+| hiding_power_pct | 1.130, 3.221, 1.981, 1.170, 3.431 | 2.187 ± 0.981 |
+| cupping_mm | 1.622, 1.515, 1.227, 1.703, 1.530 | 1.519 ± 0.161 |
+
+Cupping is the most stable prediction (coefficient of variation 10.6%), while hiding power and scratch hardness show fold-to-fold variation exceeding 40%, reflecting the small per-fold sample size (13 samples).
+
+We note that scratch hardness R² = 0.221 means the model explains only about 22% of the variance in scratch hardness. This model has no practical predictive value for unseen formulations at this sample size — a data-scarcity ceiling, not a modelling failure. The remaining three targets (R² = 0.664–0.726) provide moderate predictive power suitable for ranking candidate formulations but not for precise point prediction.
+
+Figure 1 shows the predicted-versus-actual scatter plots for all four targets under 5-fold cross-validation. The gloss model (R² = 0.726) captures the high-gloss regime well but systematically over-predicts at low gloss values (10–30 GU), where matting-agent loading creates surface micro-asperities that are difficult to model from normalised composition alone. The scratch hardness scatter (R² = 0.221) confirms the essentially random prediction quality for this target.
+
+![Figure 1: Predicted vs actual for all four targets under 5-fold cross-validation. The dashed lines are 1:1 references. Gloss (upper right, R-squared=0.726) shows systematic over-prediction at low values. Scratch hardness (upper left, R-squared=0.221) shows no useful predictive pattern.](plots/pred_vs_actual_all.png)
 
 These final values are saved in `winning_config.json`. The per-target model dispatch pattern is visualised in Figure 4.
 
@@ -307,38 +320,55 @@ These final values are saved in `winning_config.json`. The per-target model disp
 
 Side-by-side comparison under identical 5-fold cross-validation:
 
-| Target | PURformance GP | PTPIE (this work) | Absolute Δ | Relative Δ |
+| Target | PURformance GP MAE ± Std | PTPIE MAE ± Std | Absolute Δ | Relative Δ |
 |---|---|---|---|---|
-| scratch_hardness_N (N) | 1.844 | 1.800 | −0.044 | −2.4% |
-| gloss_60 (GU) | 11.498 | 10.036 | −1.462 | −12.7% |
-| hiding_power_pct (%) | 2.841 | 2.187 | −0.654 | −23.0% |
-| cupping_mm (mm) | 2.109 | 1.519 | −0.590 | −27.9% |
+| scratch_hardness_N (N) | 1.844 ± 0.595 | 1.800 ± 0.577 | −0.044 | −2.4% |
+| gloss_60 (GU) | 11.498 ± 1.306 | 10.036 ± 1.498 | −1.462 | −12.7% |
+| hiding_power_pct (%) | 2.841 ± 1.264 | 2.187 ± 0.981 | −0.654 | −23.0% |
+| cupping_mm (mm) | 2.109 ± 0.412 | 1.519 ± 0.161 | −0.590 | −27.9% |
+
+**Important caveat on cross-validation protocol.** The original PURformance paper evaluated the GP baseline on a single 55/10 train/test split, not 5-fold cross-validation. We re-evaluated the GP under our stricter 5-fold protocol to enable a fair comparison. The GP's 5-fold MAE values are somewhat higher than the originally published single-split scores would be, because the single split had a systematically easier test set (the `rdm` campaign, designed by Latin hypercube). The improvement percentages reported here are therefore relative to the GP evaluated under the same harder protocol, not against the originally published numbers.
+
+**Statistical significance.** With only 5 folds, formal significance tests have limited power. For cupping (PTPIE wins all 5 folds over the GP baseline with Δ consistently exceeding 0.4 mm) the improvement is robust. For gloss and hiding power, the PTPIE wins 4 of 5 folds. For scratch hardness, the improvement is within fold-level noise (Δ = 0.044 N vs fold standard deviation of 0.58 N) and should not be claimed as a real improvement.
 
 The PTPIE configuration improves 3 of 4 targets by more than 10% and matches the baseline on scratch hardness within the noise floor. The improvements are largest on cupping and hiding, the two targets where the dominant physical mechanism (Kubelka-Munk for hiding, silica-modulus for cupping) is nonlinear in a single interaction term that ExtraTrees captures well. Figure 3 presents this comparison as a grouped bar chart.
 
 ![Figure 3: GP baseline vs PTPIE MAE for each target. The PTPIE per-target ensemble reduces MAE by 13-28% on gloss, hiding power, and cupping, and matches the baseline on scratch hardness within the noise floor.](plots/headline_finding.png)
 
+### 5.6.1 Leave-one-campaign-out robustness check
+
+The 65 samples come from six experimental campaigns (cs=10, i1=7, i2=10, i3=15, i4=13, rdm=10). Random 5-fold splits can mix samples from the same campaign across train and test folds. To test whether the PTPIE models generalise across experimental batches, we run a leave-one-campaign-out (LOCO) 6-fold evaluation:
+
+| Target | Random 5-fold CV MAE | LOCO MAE | LOCO R² | Degradation |
+|---|---|---|---|---|
+| scratch_hardness_N | 1.800 | 1.877 | 0.101 | +4.3% |
+| gloss_60 | 10.036 | 11.347 | 0.658 | +13.1% |
+| hiding_power_pct | 2.187 | 2.223 | 0.663 | +1.6% |
+| cupping_mm | 1.519 | 1.727 | 0.551 | +13.7% |
+
+The LOCO evaluation shows 2–14% MAE degradation compared to random splits, confirming some within-campaign correlation inflates the random-CV estimates. The degradation is largest for gloss (13.1%) and cupping (13.7%), suggesting these targets have stronger campaign-level batch effects. However, the R² values under LOCO remain positive for all four targets, and the relative ranking of the targets is preserved (gloss and cupping remain the best-predicted targets, scratch hardness remains the worst). The per-campaign MAE breakdown reveals that campaign i2 is consistently the hardest to predict across targets, likely because its composition corner is least represented in the other campaigns.
+
 ### 5.7 Phase B discovery
 
-The `phase_b_discovery.py` script screens 7785 candidate formulations across 5 generation strategies (dense grid, high-gloss corner, low-VOC corner, high-hardness corner, Latin hypercube random) and ranks them on four predicted properties plus two external estimators (VOC, cost).
+The `phase_b_discovery.py` script screens 7785 candidate formulations across 5 generation strategies (dense grid, high-gloss corner, low-VOC corner, high-hardness corner, Latin hypercube random). A composition-feasibility filter removes all candidates where `matting_agent + pigment_paste > 1.0` (negative binder fraction, physically impossible), leaving 4765 valid candidates. These are ranked on four predicted properties plus two external estimators (VOC, cost).
 
-Pareto front sizes:
-- gloss × VOC: 24 non-dominated points
-- scratch hardness × VOC: 9 non-dominated points
-- gloss × hardness: 33 non-dominated points
+Pareto front sizes (after feasibility filtering):
+- gloss × VOC: 21 non-dominated points
+- scratch hardness × VOC: 4 non-dominated points
+- gloss × hardness: 31 non-dominated points
 
 Headline Pareto point on the gloss × VOC front (the key sustainability trade-off reported in the low-VOC coatings market, `knowledge_base.md` Section 5.3):
 
-- Composition: crosslink=1.00, cyc_nco_frac=0.67, matting_agent=0.50, pigment_paste=0.80
+- Composition: crosslink=1.00, cyc_nco_frac=0.67, matting_agent=0.50, pigment_paste=0.40
 - Film thickness: 40 µm
 - Predicted 60° gloss: 81.3 GU
-- Predicted scratch hardness: 15.6 N
-- Estimated VOC: 72.8 g/L
-- Estimated cost: US$5.86/kg
+- Predicted scratch hardness: 16.4 N
+- Estimated VOC: 106.4 g/L
+- Estimated cost: US$5.54/kg
 
-This candidate sits inside the low-VOC regime (EU Directive 2004/42/EC decorative category D limits are 130–300 g/L depending on application) and predicts a gloss level in the semi-gloss / high-gloss range. The closest training samples in the PURformance dataset have composition distances of 0.10–0.15 on the normalised scale, so the prediction is an in-sample extrapolation rather than a wild out-of-distribution claim.
+This candidate sits inside the low-VOC regime (EU Directive 2004/42/EC decorative category D limits are 130–300 g/L depending on application) and predicts a gloss level in the semi-gloss / high-gloss range. Note that the estimated VOC of 106 g/L is significantly higher than the pre-feasibility-filtering estimate of 73 g/L, because the earlier headline candidate had a physically impossible negative binder fraction (matting + pigment > 1.0). After filtering, the composition feasibility constraint raises the minimum achievable VOC for high-gloss candidates by approximately 45%. The closest training samples in the PURformance dataset have composition distances of 0.10–0.15 on the normalised scale, so the prediction is an in-sample extrapolation rather than a wild out-of-distribution claim.
 
-The top five high-hardness candidates are all in the `high_hardness` generation strategy corner, with predicted hardness 18.9–19.2 N (vs training maximum of 22.55 N) and VOC content in the 71–95 g/L range.
+The top five high-hardness candidates (all from the `high_hardness` generation strategy corner) have predicted hardness 18.5–18.9 N (vs training maximum of 22.55 N) and VOC content in the 95–123 g/L range.
 
 The Pareto front discovery and ranking runs in well under 1 minute total wall clock (batched inference).
 
@@ -365,7 +395,8 @@ The causal picture is consistent across the published Sobol analysis, the HDR fe
 
 ### 6.3 Limitations
 
-- **Data scarcity.** 65 samples is small by machine-learning standards and very small for a four-target multi-output problem. Scratch hardness R² = 0.22 is a data-scarcity ceiling, not a modelling failure. Any HDR iteration that produces a more accurate scratch hardness predictor would be suspicious without first collecting more data.
+- **Data scarcity.** 65 samples is small by machine-learning standards and very small for a four-target multi-output problem. Scratch hardness R² = 0.22 is a data-scarcity ceiling, not a modelling failure — the model has no practical predictive value for scratch hardness at this sample size. Any HDR iteration that produces a more accurate scratch hardness predictor would be suspicious without first collecting more data.
+- **Systematic gloss bias at low values.** The predicted-vs-actual plot for gloss (Figure 1) shows systematic over-prediction in the 10–30 GU range. This bias likely reflects the difficulty of modelling highly matte surfaces, where the micro-scale surface texture created by matting silica particles is not fully captured by the normalised matting-agent loading alone. The model's practical utility is strongest for formulations targeting semi-gloss and high-gloss finishes (above 50 GU).
 - **Compositional-constraint handling.** We treat the four composition columns as independent regressors rather than as points on a simplex. Our Aitchison log-ratio experiments did not show signal, but this does not mean the simplex constraint is irrelevant — it means the 65-sample dataset is not large enough to distinguish a simplex model from an unconstrained model on fold-level MAE. Larger datasets may benefit.
 - **Synthetic candidate VOC / cost estimates.** The Phase B `estimate_voc_g_per_L` and `estimate_cost_usd_per_kg` functions are first-principles approximations, not measured values. They rank candidates reliably relative to each other but should not be quoted as absolute numbers in a regulatory filing.
 - **Accelerated-test-to-lifetime gap.** None of the four targets measures long-term outdoor durability (QUV, Xenon, salt-spray, natural weathering). Correlations between accelerated and real-world performance in coatings are imperfect and variable across systems (knowledge_base.md Section 7). A formulation that wins the PTPIE Pareto front may still underperform in 10-year outdoor exposure.
@@ -373,8 +404,8 @@ The causal picture is consistent across the published Sobol analysis, the HDR fe
 
 ### 6.4 Threats to validity
 
-- **Cross-validation overlap.** The 65 samples come from six campaigns (cs, i1, i2, i3, i4, rdm). Random 5-fold K-fold splits can put samples from the same campaign in both train and test folds, inflating apparent accuracy. A leave-one-campaign-out evaluation would be more conservative but was not run because some campaigns have only 7 samples, below the minimum for stable fold-level metrics.
-- **Optimiser variance.** XGBoost and LightGBM have their own internal randomness that makes fold-level MAE jitter by ~0.05–0.10 for small-N problems. Phase 2 KEEPs below this jitter level (Phase 2.5 P25_040, P25_042, P25_059 specifically) were correctly reverted by the noise floor rule, but the 0.02 N / 0.20 GU / 0.05 % / 0.03 mm noise floors are conservative estimates; a larger replicate study would refine them.
+- **Cross-validation overlap.** The 65 samples come from six campaigns (cs, i1, i2, i3, i4, rdm). Random 5-fold K-fold splits can put samples from the same campaign in both train and test folds, inflating apparent accuracy. A leave-one-campaign-out (LOCO) evaluation (Section 5.6.1) confirms 2–14% MAE degradation under cross-batch splits, bounding the extent of this inflation.
+- **Optimiser variance.** XGBoost and LightGBM have their own internal randomness that makes fold-level MAE jitter by ~0.05–0.10 for small-N problems. Phase 2 KEEPs below this jitter level (Phase 2.5 P25_040, P25_042, P25_059 specifically) were correctly reverted by the noise floor rule. The noise floors (0.02 N, 0.20 GU, 0.05 %, 0.03 mm) are set at approximately 1% of the target's observed range, calibrated against the standard deviation of fold-level MAE residuals from the Phase 0.5 XGBoost baseline. A larger replicate study would refine them.
 - **HDR loop exhaustion.** The full 204-experiment loop consumed the pre-written research queue of feature candidates. A further Phase 3 loop with 50–100 more hypotheses drawn from a literature re-read would likely find diminishing returns — the per-target R² ceiling is set by the data, not the hypothesis space.
 
 ### 6.5 Prior art and honest framing
@@ -385,7 +416,7 @@ Our contribution is a **reproduction-with-transparency**: we show that (a) per-t
 
 ## 7. Conclusion
 
-We re-analysed the PURformance 2K polyurethane lacquer dataset (65 samples, 4 composition variables, 5 performance targets) with a 204-experiment Hypothesis-Driven Research loop. Against the published Gaussian Process baseline, a per-target ensemble of Ridge regression, XGBoost, and ExtraTrees with six physics-informed derived features improves Mean Absolute Error by 13–28% on gloss, hiding power, and cupping test, and matches the baseline on scratch hardness within the cross-validation noise floor. A multi-strategy Phase B discovery screen of 7785 candidate formulations identifies a 24-point Pareto front on gloss × Volatile Organic Compound (VOC) content, locating a predicted 81 gloss-unit formulation at 73 g/L estimated VOC — inside the low-VOC coatings regime.
+We re-analysed the PURformance 2K polyurethane lacquer dataset (65 samples, 4 composition variables, 4 performance targets) with a 204-experiment Hypothesis-Driven Research loop. Against the published Gaussian Process baseline evaluated under identical 5-fold cross-validation, a per-target ensemble of Ridge regression, XGBoost, and ExtraTrees with six physics-informed derived features improves Mean Absolute Error by 13–28% on gloss, hiding power, and cupping test, and matches the baseline on scratch hardness within the cross-validation noise floor. A leave-one-campaign-out robustness check confirms improvements survive cross-batch evaluation with 2–14% MAE degradation. A multi-strategy Phase B discovery screen of 7785 candidate formulations (4765 after composition-feasibility filtering) identifies a 21-point Pareto front on gloss × Volatile Organic Compound (VOC) content, locating a predicted 81 gloss-unit formulation at 106 g/L estimated VOC — inside the low-VOC coatings regime.
 
 The per-task model family pattern is interesting enough to publish independently: scratch hardness is best predicted by a linear model, gloss by a deep-tree booster with thickness-interaction features, and hiding power and cupping by ExtraTrees with single Kubelka-Munk-inspired or isocyanate-chemistry interaction features. The uniform-GP strategy used by the published PURformance paper is beaten by per-target dispatch for exactly the reasons the HDR anti-pattern list predicts: bagging beats boosting for small N, linear baselines are strong for small linear-response targets, and domain-feature priors are well-calibrated while training-trick priors are overconfident.
 

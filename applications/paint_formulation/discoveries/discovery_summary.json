@@ -1,6 +1,6 @@
 {
   "n_candidates": 7785,
-  "n_valid": 7784,
+  "n_valid": 4765,
   "generation_strategies": [
     "grid",
     "high_gloss",
@@ -8,24 +8,24 @@
     "lhs_random",
     "low_voc"
   ],
-  "pareto_gloss_voc_size": 24,
-  "pareto_hardness_voc_size": 9,
-  "pareto_gloss_hardness_size": 33,
+  "pareto_gloss_voc_size": 21,
+  "pareto_hardness_voc_size": 4,
+  "pareto_gloss_hardness_size": 31,
   "max_predicted_gloss": 88.01380920410156,
-  "max_predicted_scratch_hardness": 19.163007736206055,
-  "max_predicted_hiding_power": 94.59024810791016,
-  "min_voc_above_80gloss": 72.8,
-  "min_voc_above_17hardness": 20.99999999999997,
+  "max_predicted_scratch_hardness": 18.866662979125977,
+  "max_predicted_hiding_power": 93.67709350585938,
+  "min_voc_above_80gloss": 106.40000000000003,
+  "min_voc_above_17hardness": 88.26267775815437,
   "headline_low_voc_high_gloss": {
     "crosslink": 1.0,
     "cyc_nco_frac": 0.6666666666666666,
     "matting_agent": 0.5,
-    "pigment_paste": 0.8,
+    "pigment_paste": 0.4,
     "thickness_um": 40.0,
-    "predicted_gloss_60": 81.26924133300781,
-    "predicted_scratch_hardness_N": 15.64853572845459,
-    "estimated_voc_g_per_L": 72.8,
-    "estimated_cost_usd_per_kg": 5.8566666666666665,
+    "predicted_gloss_60": 81.2990951538086,
+    "predicted_scratch_hardness_N": 16.400941848754883,
+    "estimated_voc_g_per_L": 106.40000000000003,
+    "estimated_cost_usd_per_kg": 5.536666666666667,
     "source": "high_hardness"
   }
 }

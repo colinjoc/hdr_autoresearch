@@ -302,8 +302,11 @@ def main():
     print(f"\nWrote discovery_candidates.csv ({len(cand_df)} rows)")
 
     # Remove physically impossible / degenerate predictions
+    # Composition feasibility: matting_agent + pigment_paste must be <= 1.0
+    # (otherwise binder fraction is negative, which is physically impossible)
     valid = cand_df[
-        (cand_df["predicted_gloss_60"] > 0)
+        (cand_df["matting_agent"] + cand_df["pigment_paste"] <= 1.0)
+        & (cand_df["predicted_gloss_60"] > 0)
         & (cand_df["predicted_gloss_60"] < 100)
         & (cand_df["predicted_scratch_hardness_N"] > 0)
         & (cand_df["predicted_hiding_power_pct"] > 0)
