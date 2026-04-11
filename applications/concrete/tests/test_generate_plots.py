@@ -52,6 +52,7 @@ EXPECTED_PLOTS = [
     "feature_importance.png",
     "headline_finding.png",
     "co2_comparison.png",
+    "emission_sensitivity.png",
 ]
 
 

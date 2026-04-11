@@ -8,7 +8,7 @@ Final winning configuration (Phase 2.5 P25.5):
     cementitious-material percentage
   - Monotonicity constraint: cement → strength must be non-decreasing
   - XGBoost with 600 boosting rounds (otherwise default hyperparameters)
-  - 5-fold cross-validated MAE = 2.5467 MPa, R² = 0.944
+  - 5-fold cross-validated MAE = 2.55 MPa, R² = 0.941
 """
 
 import numpy as np

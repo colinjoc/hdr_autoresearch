@@ -1,0 +1,81 @@
+{
+  "emission_sensitivity": [
+    {
+      "slag_ef": 0.02,
+      "co2_kg_per_m3": 141.91,
+      "pct_reduction": 57.69
+    },
+    {
+      "slag_ef": 0.04,
+      "co2_kg_per_m3": 147.91,
+      "pct_reduction": 55.9
+    },
+    {
+      "slag_ef": 0.07,
+      "co2_kg_per_m3": 156.91,
+      "pct_reduction": 53.22
+    },
+    {
+      "slag_ef": 0.1,
+      "co2_kg_per_m3": 165.91,
+      "pct_reduction": 50.53
+    },
+    {
+      "slag_ef": 0.15,
+      "co2_kg_per_m3": 180.91,
+      "pct_reduction": 46.06
+    },
+    {
+      "slag_ef": 0.2,
+      "co2_kg_per_m3": 195.91,
+      "pct_reduction": 41.59
+    },
+    {
+      "slag_ef": 0.25,
+      "co2_kg_per_m3": 210.91,
+      "pct_reduction": 37.12
+    },
+    {
+      "slag_ef": 0.3,
+      "co2_kg_per_m3": 225.91,
+      "pct_reduction": 32.64
+    }
+  ],
+  "local_density": {
+    "total_samples": 1030,
+    "n_samples_102_140": 42,
+    "n_samples_100_160": 137,
+    "n_samples_102_120": 12,
+    "cement_percentiles": {
+      "p5": 143.745,
+      "p10": 153.55,
+      "p25": 192.375,
+      "p50": 272.9,
+      "p75": 350.0,
+      "p90": 425.0,
+      "p95": 480.0
+    },
+    "local_mae_102_140": 1.7086,
+    "local_n_test_samples": 42,
+    "global_mae": 2.5467,
+    "local_vs_global_ratio": 0.671
+  },
+  "holdout": {
+    "train_size": 824,
+    "test_size": 206,
+    "test_mae": 2.1457,
+    "test_rmse": 3.1273,
+    "test_r2": 0.9641
+  },
+  "bootstrap_ci": {
+    "n_bootstrap": 200,
+    "mae_mean": 2.544,
+    "mae_std": 0.0938,
+    "mae_ci_lower": 2.3878,
+    "mae_ci_upper": 2.7533,
+    "r2_mean": 0.9401,
+    "r2_std": 0.0065,
+    "r2_ci_lower": 0.927,
+    "r2_ci_upper": 0.9515
+  }
+}

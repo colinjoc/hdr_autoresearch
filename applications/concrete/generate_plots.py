@@ -381,6 +381,71 @@ def plot_co2_comparison():
     print("  Saved plots/co2_comparison.png")
 
 
+# ── Plot 5: Emission Factor Sensitivity ──
+
+def plot_emission_sensitivity():
+    """Bar chart showing how the headline CO2 reduction varies with the
+    slag emission-factor allocation method."""
+    # Discovery mix: 120/300/150 + 160 water + 12 SP + 950 coarse + 700 fine
+    disc_base = {
+        "cement": 120, "slag": 300, "fly_ash": 150, "water": 160,
+        "superplasticizer": 12, "coarse_agg": 950, "fine_agg": 700,
+    }
+    c40_co2 = 335.4
+
+    scenarios = [
+        (0.02, "System\nexpansion"),
+        (0.07, "Economic\n(default)"),
+        (0.10, "Mid-range"),
+        (0.20, "Mass\nallocation"),
+        (0.30, "Conservative"),
+    ]
+
+    slag_efs = [s[0] for s in scenarios]
+    labels = [s[1] for s in scenarios]
+    disc_co2s = []
+    reductions = []
+    for ef, _ in scenarios:
+        factors = dict(CO2_PER_KG)
+        factors["slag"] = ef
+        co2 = sum(disc_base.get(k, 0) * factors.get(k, 0) for k in factors)
+        disc_co2s.append(co2)
+        reductions.append((1 - co2 / c40_co2) * 100)
+
+    fig, ax1 = plt.subplots(figsize=(10, 6))
+
+    x = np.arange(len(scenarios))
+    bars = ax1.bar(x, reductions, width=0.55, color=CB_BLUE, edgecolor="white", linewidth=0.5)
+
+    # Highlight the default
+    bars[1].set_color(CB_ORANGE)
+
+    for i, (red, co2) in enumerate(zip(reductions, disc_co2s)):
+        ax1.text(i, red + 1.2, f"{red:.0f}%", ha="center", va="bottom", fontsize=11, fontweight="bold")
+        ax1.text(i, red / 2, f"{co2:.0f}\nkg CO$_2$", ha="center", va="center",
+                 fontsize=9, color="white", fontweight="bold")
+
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(labels, fontsize=11)
+    ax1.set_xlabel("Slag Emission-Factor Allocation Method", fontsize=13)
+    ax1.set_ylabel("CO$_2$ Reduction vs C40 Baseline (%)", fontsize=13)
+    ax1.set_title("Sensitivity of Headline CO$_2$ Reduction\nto Slag Emission-Factor Allocation", fontsize=15)
+    ax1.set_ylim(0, max(reductions) + 10)
+
+    # Add horizontal reference line at C40
+    ax1.axhline(0, color="gray", linewidth=0.5)
+
+    # Add note
+    ax1.text(0.98, 0.02, f"C40 baseline: {c40_co2:.0f} kg CO$_2$/m$^3$\nDiscovery: 120/300/150 cement/slag/fly ash",
+             transform=ax1.transAxes, fontsize=9, ha="right", va="bottom",
+             bbox=dict(boxstyle="round,pad=0.3", facecolor="white", edgecolor="gray", alpha=0.8))
+
+    fig.tight_layout(pad=2.0)
+    fig.savefig(PLOTS_DIR / "emission_sensitivity.png", dpi=DPI, bbox_inches="tight")
+    plt.close(fig)
+    print("  Saved plots/emission_sensitivity.png")
+
+
 # ── Main ──
 
 def main():
@@ -398,6 +463,7 @@ def main():
     plot_feature_importance(booster)
     plot_headline_finding()
     plot_co2_comparison()
+    plot_emission_sensitivity()
 
     print("\nAll plots saved to plots/")
 
