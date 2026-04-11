@@ -24,7 +24,7 @@
 | 13 | **complete** | T-3 | Flight delay propagation through network | 29/30 | T | 28 |
 | **REFRESH-2** | — | — | re-search candidate pool, update files | — | — | 29 |
 | 14 | **complete** | IE-7 | Dublin/Cork NO2 source attribution (REAL DATA, re-run from scratch) | 29/30 | IE | 30 |
-| 15 | queued | T-9 | NYC congestion charge effect decomposition | 29/30 | T | 31 |
+| 15 | **complete** | T-9 | NYC congestion charge effect decomposition | 29/30 | T | 31 |
 | 16 | queued | O-10 | Aircraft turnaround time mechanism (32 vs 71 min) | 29/30 | O | 32 |
 | 17 | queued | E-4 | TOU non-shifters mechanism (75% don't shift) | 29/30 | E | 33 |
 | 18 | queued | EU-2 | Po Valley fog persistence + aerosol coupling | 29/30 | EU | 34 |
