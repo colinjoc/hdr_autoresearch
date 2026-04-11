@@ -1,14 +1,14 @@
-# One City's Timestamps Beat 120 Pre-Registered Machine-Learning Experiments: A Hypothesis-Driven Study of Cross-City Building-Permit Processing Time
+# Per-Stage Timestamps, Not Feature Engineering, Predict Building-Permit Duration: A Negative Result from 34 Completed Experiments on Five US Cities
 
 ## Abstract
 
 Small-residential building permits in major United States (US) cities take wildly different amounts of time to process. A reported median of 280 days in San Francisco is separated from Austin's 91 days and San Diego's 134 days by roughly an order of magnitude. We ask two questions: (1) Can an out-of-the-box Gradient-Boosted Decision Tree (GBDT) regressor trained on widely-available permit-record metadata predict that duration accurately enough to be useful for policy analysis? (2) If not, what is the minimal structural information needed to close the gap?
 
-To answer (1) we ran a full Hypothesis-Driven Research (HDR) loop. The Phase 0 work built a 350-citation literature review, a 4,015-word knowledge base, a 120-hypothesis research queue, and an 80-variable design catalogue. The baseline (Phase 0.5) is an Extreme Gradient Boosting (XGBoost) regressor (Chen and Guestrin 2016) trained on a stratified 50,000-permit sample drawn proportionally from San Francisco, New York City, Los Angeles, Chicago, and Austin, with 9 raw numeric and one-hot features plus two in-fold target-encoded columns. Under 5-fold Cross-Validation (CV) this baseline achieves Mean Absolute Error (MAE) 89.40 days and Coefficient of Determination R² 0.516 on log1p duration. A 5-family tournament (Phase 1) confirms XGBoost is the best tree family; the tree-to-linear MAE ratio of 0.889 (Ridge at MAE 100.56 versus XGBoost at 89.40) shows the cross-city relationship is close to linear in the raw feature space. Phase 2 ran 120 single-change pre-registered experiments — calendar features, target transforms, reform cutoffs, rolling-load features, hyperparameter sweeps, feature-pruning passes, and model-family alternatives. **Zero of the 120 experiments cleared the KEEP threshold.** 34 cleanly REVERTed and 86 DEFERred on schema or infrastructure blockers. The generic feature engineering saturated at the cross-city noise floor.
+To answer (1) we ran a full Hypothesis-Driven Research (HDR) loop. The Phase 0 work built a 350-citation literature review, a 4,015-word knowledge base, a 120-hypothesis research queue, and an 80-variable design catalogue. The baseline (Phase 0.5) is an Extreme Gradient Boosting (XGBoost) regressor (Chen and Guestrin 2016) trained on a stratified 50,000-permit sample drawn proportionally from San Francisco, New York City, Los Angeles, Chicago, and Austin, with 9 raw numeric and one-hot features plus two in-fold target-encoded columns. Under shuffled 5-fold Cross-Validation (CV) this baseline achieves Mean Absolute Error (MAE) 89.40 days (95% bootstrap CI: [88.1, 90.7]) and Coefficient of Determination R-squared 0.516 on log1p duration. Under a temporal train/test split (train on 2015--2022, test on 2023+), the baseline achieves MAE 75.32 days (95% CI: [73.7, 77.0]), suggesting the shuffled-CV estimate is conservative relative to prospective deployment. A 5-family tournament (Phase 1) confirms XGBoost is the best tree family; the tree-to-linear MAE ratio of 0.889 (Ridge at MAE 100.56 versus XGBoost at 89.40) shows the cross-city relationship is close to linear in the raw feature space. Of the 120-hypothesis pre-registered research queue, 34 experiments ran to completion on the cross-city sample -- calendar features, target transforms, reform cutoffs, rolling-load features, hyperparameter sweeps, and model-family alternatives. **Zero of the 34 completed experiments cleared the KEEP threshold.** The remaining 86 hypotheses were deferred (never executed) due to schema mismatches, missing external data, or city-specific scope. The generic feature engineering search did not find a 1-day improvement within the feature space explored.
 
-To answer (2) we ran Phase 2.5: a stage-decomposition analysis on the one US municipal open-data feed that publishes per-(review_type × cycle) timestamps, the Seattle Plan Review feed `tqk8-y2z5`, plus a partial New York City (NYC) Buildings Information System (BIS) stage decomposition using the filing / paid / approved / permitted timestamps. The Seattle two-feature model — XGBoost on `days_plan_review_city` and `days_out_corrections` alone — achieves MAE **24.68 days** and R² log 0.884 on the Seattle subset: a **4.0× improvement** over the cross-city baseline, driven entirely by data access rather than model complexity. The NYC BIS four-stage model achieves MAE **4.04 days** and R² log 0.999 on the NYC subset. A counterfactual projection suggests that if every US city published Seattle-grade per-stage timestamps, the cross-city MAE would drop from 89.40 days to approximately 22.1 days. We further report 12.7×, 4×, and 7.5× median-duration spreads at NYC, Los Angeles (LA), and Chicago respectively driven purely by *intake channel* (professional-certification filings at NYC, `business_unit` at LA, `review_type` at Chicago). The Phase B discovery sweep ranks stage-time interventions by predicted annual dollar value using a $300/day carrying cost; the top Seattle interventions save $227M–$267M per year.
+To answer (2) we ran Phase 2.5: a stage-decomposition analysis on the one US municipal open-data feed that publishes per-(review_type x cycle) timestamps, the Seattle Plan Review feed `tqk8-y2z5`, plus a partial New York City (NYC) Buildings Information System (BIS) stage decomposition using the filing / paid / approved / permitted timestamps. The Seattle two-feature model -- XGBoost on `days_plan_review_city` and `days_out_corrections` alone -- achieves MAE **24.68 days** (95% CI: [23.6, 25.8]) and R-squared log 0.884 on the Seattle subset under shuffled CV, and MAE **28.17 days** (95% CI: [26.0, 30.4]) under a temporal holdout (train on 2015--2022, test on 2023+). Compared to the Seattle-only metadata baseline (C013, MAE 99.86), this is a **4.0x within-Seattle improvement**, driven entirely by data access rather than model complexity. (Note: the cross-city baseline MAE of 89.40 is not directly comparable because it operates on a different population of five cities.) The NYC BIS four-stage model achieves MAE 4.04 days and R-squared log 0.999 on the NYC subset; however, this result is a near-tautology because the four BIS stages sum approximately to the target variable, so predicting a sum from its summands is not a meaningful prediction task. We further report 12.7x, 4x, and 7.5x median-duration spreads at NYC, Los Angeles (LA), and Chicago respectively driven purely by *intake channel* (professional-certification filings at NYC, `business_unit` at LA, `review_type` at Chicago); these are raw univariate comparisons not adjusted for confounds. Under a sensitivity analysis varying the assumed per-day carrying cost from $100 to $500, the Phase B intervention projections range from $7.6M--$37.9M/year for the top Seattle intervention and $17.5M--$87.7M/year for NYC, with the $300/day central estimate at $28M and $53M respectively.
 
-The headline result is not a better model. It is a measurement: generic tabular Machine Learning (ML) on permit metadata cannot substitute for per-stage timestamps, and the highest-leverage policy intervention for this problem is data publication.
+The headline finding is a negative result: generic tabular Machine Learning (ML) on permit metadata does not substitute for per-stage timestamps on this problem, and the highest-leverage policy intervention may be data publication.
 
 ## 1. Introduction
 
@@ -22,20 +22,20 @@ The closest prior study of in-pipeline permit delay is the Building Process Inte
 
 ### 1.2 Why generic Machine Learning does not solve this (preview)
 
-A natural first attempt is to pull the per-permit data that every major US city now publishes via its open-data portal, concatenate, clean, filter to small-residential permits, and fit a tree-based regressor. This is the Phase 0.5 baseline of this paper. It gets MAE 89.40 days on a 50,000-row sample covering five cities. We then ran 120 pre-registered single-change experiments on top of this baseline: calendar features, reform cutoffs, rolling-load counts, neighbourhood recency, target transforms, hyperparameter tuning, quantile regression, monotonicity constraints, model-family swaps, per-city ensembles, and target-encoded cross features. Zero of the 120 experiments cleared the KEEP threshold of a 0.5-day absolute MAE improvement or a 1% relative improvement (whichever was larger), and the best single experiment shaved 0.36 days off the baseline. This is Phase 2's negative result: **generic tabular Machine Learning saturates at the noise floor on this problem**, not because the model family is wrong and not because the hyperparameters are wrong, but because the features are wrong.
+A natural first attempt is to pull the per-permit data that every major US city now publishes via its open-data portal, concatenate, clean, filter to small-residential permits, and fit a tree-based regressor. This is the Phase 0.5 baseline of this paper. It gets MAE 89.40 days on a 50,000-row sample covering five cities. We pre-registered a 120-hypothesis research queue and executed 34 of those experiments on the cross-city sample: calendar features, reform cutoffs, rolling-load counts, neighbourhood recency, target transforms, hyperparameter tuning, quantile regression, monotonicity constraints, model-family swaps, per-city ensembles, and target-encoded cross features. The remaining 86 hypotheses were deferred without execution due to schema mismatches (columns existing in only one city), missing external data (macroeconomic variables not fetched), or city-specific scope. Zero of the 34 completed experiments cleared the KEEP threshold of a 0.5-day absolute MAE improvement or a 1% relative improvement (whichever was larger), and the best single experiment shaved 0.36 days off the baseline. This is Phase 2's negative result: **within the feature space we explored, generic tabular Machine Learning did not find a 1-day improvement on this problem**. The 86 deferred hypotheses -- which include macroeconomic context variables and city-specific schema extensions -- remain untested and could in principle change this conclusion.
 
-What the features are missing is stage information. The 50-state, 5-city baseline has one timestamp in (filed_date) and one timestamp out (issued_date). The duration in between is a sum over 6–10 reviewer-specific service stages, with waiting time, correction cycles, and hand-offs between stages. The aggregate duration is observed but the decomposition is not. One US city in the public dataset does publish the per-(review_type × cycle) timestamps: Seattle. Using the Seattle decomposition, a two-feature XGBoost model achieves MAE 24.68 days — a 4× improvement — entirely from data access. This is the Phase 2.5 positive result.
+What the features are missing is stage information. The 50-state, 5-city baseline has one timestamp in (filed_date) and one timestamp out (issued_date). The duration in between is a sum over 6--10 reviewer-specific service stages, with waiting time, correction cycles, and hand-offs between stages. The aggregate duration is observed but the decomposition is not. One US city in the public dataset does publish the per-(review_type x cycle) timestamps: Seattle. Using the Seattle decomposition, a two-feature XGBoost model achieves MAE 24.68 days -- a 4x improvement relative to the Seattle-only metadata baseline (MAE 99.86) -- entirely from data access. This is the Phase 2.5 positive result. (The cross-city baseline MAE of 89.40 is not directly comparable because it pools five cities with different duration distributions.)
 
 ### 1.3 Contributions
 
-1. **The first large-scale Hypothesis-Driven Research negative result on cross-city building permits.** 120 pre-registered single-change experiments on a 50,000-row 5-city stratified sample, all reverted. The negative result directly implies a measurement rather than a modelling claim: generic tabular ML cannot substitute for per-stage timestamps on this dataset.
-2. **A per-stage variance decomposition of the Seattle permit pipeline.** `days_plan_review_city` and `days_out_corrections` alone absorb 54.1% of the variance in total duration, with near-unit stage coefficients. The two-feature XGBoost model has MAE 24.68 days versus the cross-city baseline 89.40 days.
-3. **A four-stage New York City BIS mini-decomposition.** Using `pre__filing_date`, `paid`, `fully_paid`, `approved`, `fully_permitted`, a four-stage OLS absorbs 99.9% of NYC BIS duration variance. The `approved → fully_permitted` owner-pickup wait is 62% univariate and accounts for 55% of the total elapsed time in the sum-over-permits sense.
-4. **Quantified intake-channel effects** in three cities: NYC `professional_cert` delivers a 12.7× median-duration speedup; LA `business_unit` delivers a 4× spread between Plan-Check-at-Counter and Regular Plan Check; Chicago `review_type` delivers a 7.5× spread between EXPRESS and STANDARD.
-5. **A Phase B counterfactual intervention sweep** ranking stage interventions by predicted annual dollar value under a $300/day small-residential carrying cost assumption. Top Seattle interventions are valued at $227M–$267M per year; the top NYC BIS intervention (halving the owner pickup wait) is valued at $420M per year against the Phase 2.5 sample.
-6. **A reproducible, open, test-covered, seed-stable code package** at `applications/building_permits/` with 4 baseline unit tests and a single `evaluate.py` Command Line Interface (CLI) that reruns the entire HDR loop from cached raw parquet data.
+1. **A systematic negative result on cross-city building-permit prediction.** A 120-hypothesis pre-registered research queue was designed; 34 experiments ran to completion on a 50,000-row 5-city stratified sample. Zero cleared the KEEP threshold. An additional 86 hypotheses were deferred (not executed) due to schema or data constraints and remain untested. The negative result applies to the specific feature space explored, not to all possible features.
+2. **A per-stage variance decomposition of the Seattle permit pipeline.** `days_plan_review_city` and `days_out_corrections` alone absorb 54.1% of the variance in total duration, with near-unit stage coefficients. The two-feature XGBoost model has MAE 24.68 days (95% CI: [23.6, 25.8]) versus the Seattle-only metadata baseline MAE 99.86 days -- a 4x within-Seattle improvement. Under temporal holdout the MAE is 28.17 days (95% CI: [26.0, 30.4]), confirming prospective validity.
+3. **A four-stage New York City BIS mini-decomposition.** Using `pre__filing_date`, `paid`, `fully_paid`, `approved`, `fully_permitted`, a four-stage Ordinary Least Squares (OLS) absorbs 99.9% of NYC BIS duration variance. However, because the four stages sum approximately to the target variable, this R-squared reflects a near-tautological decomposition rather than a predictive finding. The descriptive finding remains informative: the `approved -> fully_permitted` owner-pickup wait accounts for 55% of the total elapsed time.
+4. **Quantified intake-channel effects** in three cities: NYC `professional_cert` delivers a 12.7x median-duration speedup; LA `business_unit` delivers a 4x spread between Plan-Check-at-Counter and Regular Plan Check; Chicago `review_type` delivers a 7.5x spread between EXPRESS and STANDARD. These are raw univariate comparisons not adjusted for project size, neighbourhood, or filing year; the magnitudes should be treated as upper bounds.
+5. **A Phase B counterfactual intervention sweep** ranking stage interventions by predicted annual dollar value. Under a sensitivity analysis varying the per-day carrying cost from $100 to $500, the top Seattle intervention (halving applicant correction time) is valued at $11M--$55M/year (central $33M at $300/day), and the top NYC BIS intervention (halving the owner pickup wait) is valued at $18M--$88M/year (central $53M at $300/day). These are upper-bound projections assuming 1-for-1 day savings.
+6. **A reproducible, versioned, test-covered, seed-stable code package** at `applications/building_permits/` with baseline unit tests, a `data_version_manifest.txt` recording SHA-256 hashes of all cached data files, and a single `evaluate.py` Command Line Interface (CLI) that reruns the entire HDR loop from cached raw parquet data.
 
-The headline recommendation is straightforward: every US city should publish per-(review_type × cycle) timestamps. The next-best intervention is to expand the eligibility of fast intake channels.
+The headline recommendation is that US cities should consider publishing per-stage permit timestamps. The evidence base for this recommendation is a single-city (Seattle) demonstration with temporal holdout validation, supported by a partial NYC decomposition and three intake-channel observations. Causal claims about the magnitude of policy effects require further analysis with confound adjustment.
 
 ## 2. Detailed Baseline
 
@@ -136,7 +136,7 @@ Three justifications:
 2. **Fidelity to the data schema.** Every one of the 13 features is present in all five cities' public feeds after harmonisation. The Phase 0.5 audit rejected features only available in one or two cities (Seattle cycles, NYC professional-cert, LA business-unit, Chicago review-type) to keep the cross-city comparison honest. The Phase 2.5 follow-on relaxes this constraint.
 3. **Seed-stable and test-covered.** The baseline is reproducible at the 6th-decimal-place level across runs on the same machine because the target encodings, the CV split, and the XGBoost random seed are all fixed. This is tested by `test_baseline_reproducibility`.
 
-![XGBoost baseline feature importances (gain). Filed year and the two target-encoded columns (neighborhood and permit subtype) dominate; city one-hots contribute moderate importance; the numeric features (valuation, square feet, unit count) are secondary.](plots/feature_importance.png)
+![XGBoost baseline feature importances (gain). City: SF is the highest-importance feature (gain approximately 0.43), followed by Permit subtype (TE) at approximately 0.25. Filed year, neighbourhood TE, and the remaining city one-hots contribute moderate importance; the numeric features (valuation, square feet, unit count) are secondary. The dominance of City: SF is consistent with SF having by far the longest and most variable permit durations in the sample.](plots/feature_importance.png)
 
 ## 3. Detailed Solution
 
@@ -151,7 +151,7 @@ The final "winning" configuration is **not** a better cross-city model. The Phas
 - **Evaluation**: 5-fold `KFold(shuffle=True, random_state=42)` on the Seattle subset.
 - **Result**: **MAE 24.683 days, R² log 0.8843, R² days 0.8441** (row `C012` in `results.tsv`).
 
-This is a 3.6× MAE reduction relative to the cross-city baseline (89.40 → 24.68 days) and a 64% improvement over the Seattle-only model without stage features (`C013` at MAE 99.86 days), even though the Seattle-only baseline is itself slightly worse than the cross-city baseline on generic metadata.
+Compared to the Seattle-only metadata baseline (`C013` at MAE 99.86 days), this is a **4.0x within-Seattle MAE reduction** (99.86 -> 24.68 days). The cross-city baseline MAE of 89.40 is not directly comparable because it pools five cities with different duration distributions; the apples-to-apples comparison is C013 vs C012, both evaluated on the same Seattle subset. Under a temporal holdout (train 2015--2022, test 2023+), the Seattle 2-bucket model achieves MAE 28.17 days (95% CI: [26.0, 30.4]), confirming that the model generalises to unseen time periods with modest degradation.
 
 ### 3.2 The two-bucket model
 
@@ -183,7 +183,7 @@ Univariate Pearson r² per feature on the Seattle subset:
 | `zoning_active_days` | 16.0% |
 | `days_initial_plan_review` | 15.2% |
 
-The XGBoost model on the two global buckets absorbs enough of this variance that adding per-stage features only improves MAE from 24.68 (C012, 2 features) to around 70.8 (C001, 14 features including per-stage active days and cycles). The observation that *more* per-stage features make the Seattle-only MAE *worse* is an overfitting artifact — the 2-feature model is the global optimum on this subset.
+The XGBoost model on the two global buckets absorbs enough of this variance that adding per-stage features actually worsens MAE from 24.68 (C012, 2 features) to around 70.8 (C001, 14 features including per-stage active days and cycles). The observation that *more* per-stage features make the Seattle-only MAE *worse* is an overfitting artifact — the 2-feature model is the global optimum on this subset.
 
 ### 3.3 Final code block
 
@@ -253,7 +253,7 @@ The Seattle per-permit decomposition parquet is itself produced by `phase25.buil
 
 ### 3.4 Causal mechanism — why per-stage data matters
 
-The cross-city baseline saturates at MAE 89.40 days because the features available to it are *proxies* for the true drivers of duration, not the true drivers themselves. Valuation, square footage, neighbourhood, and permit subtype are all correlated with how long a permit takes, but the correlation is weak because the true driver — how many reviewer days, how many correction cycles, whether the file sat with a slow stage or a fast stage — is not in the feature vector. A tree model can only interpolate between observed feature points; it cannot recover a signal that is not there.
+The cross-city baseline achieves MAE 89.40 days, and the 34 completed feature-engineering experiments did not improve on it, likely because the features available are *proxies* for the true drivers of duration, not the true drivers themselves. Valuation, square footage, neighbourhood, and permit subtype are all correlated with how long a permit takes, but the correlation is weak because the true driver -- how many reviewer days, how many correction cycles, whether the file sat with a slow stage or a fast stage -- is not in the feature vector. A tree model can only interpolate between observed feature points; it cannot recover a signal that is absent. (We note that 86 deferred hypotheses, including macroeconomic features, remain untested.)
 
 The Seattle two-bucket model closes the gap because `days_plan_review_city` and `days_out_corrections` are not proxies; they are the two additive components of the duration identity `duration_days ≈ days_plan_review_city + days_out_corrections + hand-off overhead`. The regression problem reduces to learning the hand-off overhead, which is small and largely constant per city, so a shallow XGBoost (depth 4, 200 rounds) suffices.
 
@@ -261,16 +261,19 @@ The same mechanism explains the NYC BIS result. The four stages filing → paid 
 
 ### 3.5 Difference from the baseline
 
-| Aspect | Baseline E00 | Winner C012 |
-|---|---|---|
-| Scope | Cross-city (5 cities) | Seattle only |
-| Features | 13 (city one-hot + calendar + numeric + 2 TE) | 2 (`days_plan_review_city`, `days_out_corrections`) |
-| Sample | 50,000 stratified | 20,173 Seattle issued permits |
-| Model | XGBoost depth 6, 300 rounds | XGBoost depth 4, 200 rounds |
-| Target | log1p(duration_days) | log1p(duration_days) |
-| 5-fold CV MAE | 89.40 days | **24.68 days** |
-| 5-fold CV R² (log) | 0.516 | **0.884** |
-| 5-fold CV R² (days) | 0.328 | **0.844** |
+**Important**: The primary comparison is the within-Seattle ablation (C013 vs C012), not the cross-city baseline vs C012. The cross-city and Seattle-only models operate on different populations with different duration distributions and are not directly comparable as an "improvement ratio."
+
+| Aspect | Seattle no-stage C013 | Winner C012 | Cross-city E00 (different pop.) |
+|---|---|---|---|
+| Scope | Seattle only | Seattle only | Cross-city (5 cities) |
+| Features | 8 (calendar + numeric + 2 TE) | 2 (`days_plan_review_city`, `days_out_corrections`) | 13 (city one-hot + calendar + numeric + 2 TE) |
+| Sample | 20,173 Seattle | 20,173 Seattle | 50,000 stratified |
+| Model | XGBoost depth 6, 300 rounds | XGBoost depth 4, 200 rounds | XGBoost depth 6, 300 rounds |
+| Target | log1p(duration_days) | log1p(duration_days) | log1p(duration_days) |
+| 5-fold CV MAE | 99.86 days | **24.68 days** [95% CI: 23.6--25.8] | 89.40 days [95% CI: 88.1--90.7] |
+| Temporal holdout MAE | n/a | **28.17 days** [95% CI: 26.0--30.4] | 75.32 days [95% CI: 73.7--77.0] |
+| 5-fold CV R-squared (log) | 0.239 | **0.884** | 0.516 |
+| 5-fold CV R-squared (days) | 0.132 | **0.844** | 0.328 |
 
 ### 3.6 Assumptions and limits
 
@@ -292,23 +295,25 @@ The Hypothesis-Driven Research loop for this project followed the standard phase
 
 - **Phase 1 — Tournament.** Five model families were evaluated on the same 50,000-row sample and the same feature set. Rows `T01`–`T05` in `results.tsv` record XGBoost, Light Gradient Boosting Machine (LightGBM), Extremely Randomised Trees (ExtraTrees), Random Forest, and Ridge regression respectively. XGBoost (MAE 89.40) narrowly beat LightGBM (89.73) and Ridge trailed at 100.56. The tree-to-linear MAE ratio is 89.40 / 100.56 = 0.889, meaning the best tree model is only 11% ahead of the linear sanity check — evidence that the cross-city relationship between the 13 baseline features and `log1p(duration_days)` is close to linear and that tree-based non-linearity cannot be the missing ingredient. XGBoost was chosen as the Phase 2 starting point because it was the tournament winner by a 0.33-day margin over LightGBM.
 
-- **Phase 2 — 120 single-change pre-registered experiments.** Each hypothesis was registered with a short description, a rough Bayesian prior, a mechanism statement, and a keep/revert criterion. Each experiment changed exactly one thing relative to the baseline: a single new feature, a single hyperparameter swap, a single target transform, or a single model-family substitution. The experiments are rows `H014` through `H120` in `results.tsv`, supplemented by `H001`–`H013` which are Phase 2.5 placeholders deferred with clear reasons (e.g. `needs_survival_infra`, `seattle_only`, `stage_columns_not_in_schema`).
+- **Phase 2 — 120-hypothesis research queue (34 completed, 86 deferred).** A 120-hypothesis queue was pre-registered. Each hypothesis described a single-change edit relative to the baseline. Of these, 34 ran to completion on the cross-city sample and 86 were deferred without execution due to schema mismatches, missing external data, or city-specific scope. The experiments are rows `H001` through `H120` in `results.tsv`; deferred rows carry a DEFER tag with a reason code.
 
 - **Phase 2.5 — Compositional retests and schema promotion.** Five tasks: (1) build and analyse the Seattle per-stage decomposition (C001, C011, C012, C013 rows); (2) run survival models with right-censoring (S01, S02, S03 rows); (3) promote LA / Chicago / NYC BIS extended columns that the baseline cleaning dropped (C014, C015 rows, plus the NYC BIS mini-decomposition used by C002); (4) compositional retests combining promising Phase 2 deferred improvements (C003–C010 rows); (5) aggregate the cross-city best so far.
 
 - **Phase B — Counterfactual discovery sweep.** For each of the stages in the Seattle decomposition (Zoning, Ordinance/Structural, Addressing, Drainage, Energy, Structural Engineer, Other) and each of the two Seattle global buckets (`days_plan_review_city`, `days_out_corrections`), compute the predicted reduction in median / p90 / mean duration under a counterfactual in which X% of that stage's observed per-permit contribution is subtracted from each permit's observed total duration. Sweep X ∈ {10, 20, …, 90}. Repeat for the 4 NYC BIS stages. Project the annual dollar value using a $300/day small-residential carrying cost assumption and the observed per-city sample volume.
 
-### 4.3 Keep/revert criterion and the noise floor
+### 4.3 Keep/revert criterion and threshold sensitivity
 
-Each Phase 2 experiment was KEPT if and only if its 5-fold CV MAE improved on the best-so-far MAE by more than `max(0.5, 0.01 × best)` days — i.e. a 0.5-day absolute threshold or a 1% relative threshold, whichever was larger. The threshold was set at this level during Phase 0.5 based on fold-to-fold standard deviation of the baseline MAE (approximately 0.4 days across the 5 folds) rounded up for safety. The rule is implemented in `evaluate._keep_or_revert` and called by the Phase 2 driver in `evaluate.run_phase2_loop`.
+Each Phase 2 experiment was KEPT if and only if its 5-fold CV MAE improved on the best-so-far MAE by more than `max(0.5, 0.01 * best)` days -- i.e. a 0.5-day absolute threshold or a 1% relative threshold, whichever was larger. The threshold was set at this level during Phase 0.5 based on fold-to-fold standard deviation of the baseline MAE (approximately 0.4 days across the 5 folds) rounded up for safety. The rule is implemented in `evaluate._keep_or_revert` and called by the Phase 2 driver in `evaluate.run_phase2_loop`.
 
-Experiments that could not be evaluated at all — for example, a hypothesis requiring a column that exists in only one city's schema — were DEFERRED with a short reason code rather than REVERTed. DEFER is not a failure; it documents a scope boundary. 86 of the 120 Phase 2 experiments DEFERred, most commonly with reason codes `seattle_only`, `column_not_in_schema`, `external_data_not_fetched`, `already_in_baseline`, or `phase_2.5_composition`. The remaining 34 REVERTED: they ran, produced a number, and the number did not clear the KEEP threshold.
+Experiments that could not be evaluated at all -- for example, a hypothesis requiring a column that exists in only one city's schema -- were DEFERRED with a short reason code rather than REVERTed. DEFER means the experiment was never executed, not that it failed. 86 of the 120 hypotheses DEFERred, most commonly with reason codes `seattle_only`, `column_not_in_schema`, `external_data_not_fetched`, `already_in_baseline`, or `phase_2.5_composition`. The remaining 34 ran and REVERTED: they produced a number that did not clear the KEEP threshold.
 
-Zero experiments KEPT. The best Phase 2 single-change was `H086` (Optuna-guided hyperparameter sweep on depth / learning rate / min child weight), MAE 89.046 days, a 0.36-day improvement below the 0.89-day KEEP threshold.
+**Threshold sensitivity**: The reviewer correctly notes that a threshold of 0.3 days (closer to the raw fold-to-fold MAE standard deviation) would have kept H086 at -0.36 days. The threshold is a design choice that trades off false-positive KEEPs against false-negative REVERTs. The bootstrap 95% CI on the E00 baseline MAE is [88.09, 90.70], so an improvement of 0.36 days (89.40 -> 89.05) is within the noise band. We report H086 as the best single experiment and note the ambiguity.
+
+Zero experiments KEPT out of 34 that ran. The best was `H086` (Optuna sweep), MAE 89.046 days, a 0.36-day improvement below the 0.89-day KEEP threshold.
 
 ## 5. Results
 
-![Stage-level data collapses the prediction problem. Generic ML on 13 cross-city features saturates at MAE 89.4 days; adding Seattle's two stage-timing buckets drops it to 24.7 days (4x improvement); NYC's four BIS stages reach 4.0 days (22x).](plots/headline_finding.png)
+![Stage-level data substantially improves within-city prediction. The Seattle-only metadata baseline achieves MAE 99.9 days; adding two stage-timing buckets drops it to 24.7 days (4.0x within-Seattle improvement). The cross-city baseline (89.4 days, 5 cities) is shown for context but is not directly comparable due to different population. The NYC BIS 4-stage MAE of 4.0 days reflects a near-tautological decomposition (stages sum to target) and should not be interpreted as a predictive finding.](plots/headline_finding.png)
 
 ### 5.1 Phase 1 tournament: 5-way model family comparison
 
@@ -320,19 +325,21 @@ T04 RandomForest  MAE 91.507  R²_log 0.4683  wall 31.6s
 T05 Ridge         MAE 100.561 R²_log 0.3764  wall 0.3s
 ```
 
-Three observations. First, the tree-family spread is narrow: XGBoost, LightGBM and RandomForest all cluster within a 2.1-day window of each other, while ExtraTrees trails at +5.4 days. Second, the tree-to-linear MAE ratio is 89.40 / 100.56 = **0.889**. A ratio below 1 means the tree model is better than the linear model, but a ratio this close to 1 indicates the relationship between the 13 baseline features and `log1p(duration_days)` is *close to linear*: there is no strong non-linearity or interaction effect for a tree to exploit. This is the first signal that the missing ingredient is features, not model flexibility. Third, the tournament wall-clock times span two orders of magnitude (Ridge at 0.3s to RandomForest at 31.6s); the XGBoost baseline's 1.7s cost is cheap enough to run the 120 single-change experiments sequentially in roughly 5 minutes wall-clock.
+Three observations. First, the tree-family spread is narrow: XGBoost, LightGBM and RandomForest all cluster within a 2.1-day window of each other, while ExtraTrees trails at +5.4 days. Second, the tree-to-linear MAE ratio is 89.40 / 100.56 = **0.889**. A ratio below 1 means the tree model is better than the linear model, but a ratio this close to 1 indicates the relationship between the 13 baseline features and `log1p(duration_days)` is *close to linear*: there is no strong non-linearity or interaction effect for a tree to exploit. This is the first signal that the missing ingredient is features, not model flexibility. Third, the tournament wall-clock times span two orders of magnitude (Ridge at 0.3s to RandomForest at 31.6s); the XGBoost baseline's 1.7s cost is cheap enough to run the 34 completed experiments sequentially in roughly 1 minute wall-clock.
 
 ![Cross-city baseline out-of-fold predictions versus actual permit duration (5,000-row subsample from the 50,000-row stratified dataset). The 1:1 line shows perfect prediction. The model clusters predictions in the 50-250 day range while actuals span 0-1,000+ days, reflecting the 89.4-day MAE and the heavy right tail that generic features cannot resolve.](plots/pred_vs_actual.png)
 
-### 5.2 Phase 2 HDR loop: 120 single-change experiments, 0 KEEP — the negative result
+### 5.2 Phase 2: 34 completed experiments, 0 KEEP -- the negative result
 
-The full Phase 2 results table is rows `H014`–`H120` in `results.tsv`. The summary is:
+The 120-hypothesis pre-registered research queue is documented in rows `H001`--`H120` in `results.tsv`. Of these, **34 experiments ran to completion** on the cross-city sample, and **86 were deferred** (never executed) due to schema mismatches, missing external data, or city-specific scope. The summary:
 
-- **0 KEEP**
-- **34 REVERT** — experiment ran, produced a CV MAE, did not clear the 0.89-day threshold
-- **86 DEFER** — experiment blocked on schema, infrastructure, or was a composition for Phase 2.5
+- **0 KEEP** out of 34 completed experiments
+- **34 REVERT** -- experiment ran, produced a CV MAE, did not clear the 0.89-day threshold
+- **86 DEFER** -- hypothesis never executed; blocked on column availability, external data fetch, survival infrastructure, or composition scope
 
-The **best single Phase 2 experiment** was `H086` (Optuna hyperparameter sweep on depth / learning rate / min child weight, landing on `max_depth=7, lr=0.06, min_child_weight=5`) at MAE 89.046, a 0.355-day improvement. The KEEP threshold was 0.89 days. REVERTED.
+The deferred hypotheses include macroeconomic context features (WRLURI, ACS density, FRED mortgage rates, BLS construction employment), city-specific extended schema columns, and survival-model variants. These remain untested and could plausibly change the negative result.
+
+The **best single completed experiment** was `H086` (Optuna hyperparameter sweep on depth / learning rate / min child weight, landing on `max_depth=7, lr=0.06, min_child_weight=5`) at MAE 89.046, a 0.355-day improvement. The KEEP threshold was 0.89 days. REVERTED.
 
 The **best improvement-per-category summary**:
 
@@ -350,7 +357,7 @@ The **best improvement-per-category summary**:
 | Depth 9 | `H087` | −0.29 |
 | Learning rate 0.03 / 600 rounds | `H088` | −0.19 |
 
-No category produced a Δ MAE approaching the 0.89-day keep threshold, even though many categories produced small consistent improvements. The implication is a genuine measurement-level noise floor: with the 13 baseline features on the 50,000-row sample, there simply is no 1-day absolute improvement available anywhere in the search space we explored.
+No category produced a delta-MAE approaching the 0.89-day keep threshold, even though many categories produced small consistent improvements. Within the 34 experiments that ran, there was no 1-day improvement available. We note that this does not establish an information-theoretic "noise floor" -- the 86 deferred hypotheses include feature families (macroeconomic context, city-specific schema extensions) that could plausibly unlock larger improvements. The term "saturation" applies to the specific feature space explored, not to the problem in general.
 
 The most informative REVERTs are the target transforms:
 
@@ -362,6 +369,49 @@ The most informative REVERTs are the target transforms:
 The 10-day penalty on the raw-duration target is the cleanest evidence that the heavy-tailed duration distribution matters: predicting on the raw scale puts the 5-year outliers at 1800 days next to the 1-day fast permits and the square-error loss lets the long tail dominate.
 
 ![Phase 2 experiment deltas sorted by MAE change versus baseline. Green bars indicate improvements (negative delta); red bars indicate regressions. The dashed red line marks the KEEP threshold at -0.89 days. No experiment crossed the threshold -- the best was H086 (Optuna sweep) at -0.36 days.](plots/phase2_waterfall.png)
+
+### 5.2a Temporal train/test split (robustness check)
+
+All results above use shuffled 5-fold CV, which allows information leakage across time (a 2024 permit in the training fold can inform predictions of 2023 permits in the validation fold). To assess the practical relevance of this concern, we ran a temporal train/test split: train on permits filed 2015--2022, test on permits filed 2023+.
+
+| Model | Shuffled 5-fold CV MAE | Temporal holdout MAE | Delta |
+|---|---:|---:|---:|
+| Cross-city baseline (E00) | 89.40 [88.1, 90.7] | 75.32 [73.7, 77.0] | -14.08 |
+| Seattle 2-bucket (C012) | 24.68 [23.6, 25.8] | 28.17 [26.0, 30.4] | +3.49 |
+
+The cross-city baseline actually improves under temporal split (MAE 75.32 vs 89.40), likely because the 2023+ test set is dominated by post-reform permits (post-SB 423 in SF) that are faster on average. The R-squared on raw days drops sharply (0.328 -> 0.056), indicating the model's variance explanation degrades even as the mean prediction improves. The Seattle 2-bucket model shows modest degradation (24.68 -> 28.17), confirming prospective validity.
+
+### 5.2b Per-city models and naive baselines (ablation)
+
+To assess whether the cross-city baseline MAE reflects a composition effect (pooling cities with different distributions) or a genuine feature-set limitation, we fit per-city XGBoost models and compare to naive baselines.
+
+**Per-city XGBoost models** (5-fold CV, no city one-hots, same hyperparameters):
+
+| City | n | Per-city MAE [95% CI] | Cross-city MAE (for reference) |
+|---|---:|---|---:|
+| San Francisco | 5,815 | 204.34 [198.7, 210.1] | 89.40 (pooled) |
+| New York City | 10,433 | 78.34 [75.5, 81.3] | -- |
+| Los Angeles | 11,283 | 98.28 [95.4, 101.0] | -- |
+| Chicago | 10,311 | 52.18 [50.5, 54.1] | -- |
+| Austin | 12,158 | 67.47 [65.2, 69.8] | -- |
+
+San Francisco alone has MAE 204 -- dramatically higher than the pooled cross-city number -- because the cross-city model uses city one-hot encoding to effectively route SF predictions toward the global mean, masking SF's extreme tail. The per-city results confirm that (a) SF dominates the difficulty of the cross-city prediction problem, and (b) the within-city prediction task varies substantially across cities.
+
+**Naive baselines** (5-fold CV):
+
+| Baseline | MAE | R-squared (days) |
+|---|---:|---:|
+| City-median | 108.28 | 0.137 |
+| City x subtype-median | 101.75 | 0.190 |
+| XGBoost (E00) | 89.40 | 0.328 |
+
+The XGBoost model adds 12--19 MAE-days of value over a grouped-median lookup. The improvement is meaningful but moderate, consistent with the finding that most of the predictive signal in the cross-city problem comes from city identity (the single highest-importance feature).
+
+### 5.2c Sensitivity analyses
+
+**Target encoding smoothing**: Varying the TE smoothing weight from 1 to 100 produces MAE in the range [89.36, 89.53] -- the baseline is not sensitive to this choice (the default of 10 is within 0.1 days of all alternatives).
+
+**KEEP threshold**: The reviewer notes that a threshold of 0.3 days (closer to the raw fold-to-fold MAE standard deviation of ~0.4 days) would have kept H086 at -0.36 days. This is correct. The threshold was set conservatively at `max(0.5, 0.01 * best)` to avoid false-positive KEEPs from fold-level noise. Whether H086's 0.36-day improvement is "real" vs noise is genuinely ambiguous without further replication; we report it honestly and note that the KEEP threshold is a design choice, not a law of nature.
 
 ### 5.3 Phase 2.5 Seattle decomposition: variance attribution per stage
 
@@ -404,23 +454,23 @@ Univariate r² per feature, top 10:
 
 ### 5.4 Phase 2.5 NYC BIS mini-decomposition
 
-The NYC BIS feed (`data.cityofnewyork.us/resource/ic3t-wcy2.json`) publishes per-permit timestamps for the four canonical pipeline stages: `pre__filing_date` (filed), `paid` (fees paid), `fully_paid` (fees fully paid), `approved` (DOB approved), `fully_permitted` (permit picked up). The duration of interest is `fully_permitted − pre__filing_date`. The four stage intervals are:
+The NYC BIS feed (`data.cityofnewyork.us/resource/ic3t-wcy2.json`) publishes per-permit timestamps for the four canonical pipeline stages: `pre__filing_date` (filed), `paid` (fees paid), `fully_paid` (fees fully paid), `approved` (DOB approved), `fully_permitted` (permit picked up). The duration of interest is `fully_permitted - pre__filing_date`. The four stage intervals are:
 
-- `s_filing_to_paid = paid − filed`
-- `s_paid_to_fully_paid = fully_paid − paid`
-- `s_fully_paid_approved = approved − fully_paid`
-- `s_approved_permitted = fully_permitted − approved`
+- `s_filing_to_paid = paid - filed`
+- `s_paid_to_fully_paid = fully_paid - paid`
+- `s_fully_paid_approved = approved - fully_paid`
+- `s_approved_permitted = fully_permitted - approved`
 
 On the 143,000-permit BIS subset with all 4 stages non-null and `0 < duration_days < 1825`:
 
-- 4-stage OLS joint R² = **99.9%** — the four stages are a near-complete decomposition of total NYC BIS duration.
+- 4-stage OLS joint R-squared = **99.9%**
 - `s_approved_permitted` (the owner pickup wait) is **62%** univariate and accounts for **55%** of summed total elapsed time.
 - `s_fully_paid_approved` (DOB review) accounts for **42%** of summed total elapsed time.
-- `s_filing_to_paid` and `s_paid_to_fully_paid` together account for less than 3% of summed total elapsed time — they are fast.
+- `s_filing_to_paid` and `s_paid_to_fully_paid` together account for less than 3% of summed total elapsed time.
 
-The **approved → permitted** wait is the headline NYC finding: the permit has been approved by the DOB, the applicant has been notified, and the only remaining step is for the applicant to formally pick up the permit. This wait is an *applicant-side* delay, not a government-side delay. The policy lever is different from the Seattle Drainage / Zoning bottleneck.
+**Critical caveat (tautology)**: The four stage intervals sum by construction to the target variable: `duration = s_filing_to_paid + s_paid_to_fully_paid + s_fully_paid_approved + s_approved_permitted`. The R-squared of 0.999 therefore reflects this identity, not a predictive finding. Predicting a sum from its summands is not a meaningful machine-learning result. The MAE of 4.04 days (row `C002`) should **not** be compared to the cross-city baseline as a "22x improvement" -- it is a measurement artefact of the identity relationship. The value of this analysis is purely **descriptive**: it reveals where in the NYC pipeline the time is being spent, not that we can predict duration from stages.
 
-A 6-feature XGBoost regressor on the 4 stages plus `filed_year` plus `has_pro_cert` (the professional-certification flag) achieves **MAE 4.04 days, R² log 0.999** on the NYC BIS subset (row `C002`). This 22× improvement over the cross-city baseline MAE is, again, entirely due to feature access: the model is shallow (depth 6, 300 rounds) and the hyperparameters are the defaults.
+The **approved -> permitted** wait is the headline NYC descriptive finding: the permit has been approved by the DOB, the applicant has been notified, and the only remaining step is for the applicant to formally pick up the permit. This wait is an *applicant-side* delay, not a government-side delay. The policy lever is different from the Seattle Drainage / Zoning bottleneck.
 
 ### 5.5 Phase 2.5 LA / Chicago intake-channel effects
 
@@ -461,32 +511,34 @@ All three models are marked REVERT against the baseline because their MAE includ
 
 ### 5.8 Phase B counterfactual: stage-time intervention sweep + headline recommendations
 
-The Phase B sweep runs a direct counterfactual: for each stage, subtract a fraction of each permit's observed per-stage active days from its observed total duration, then recompute the summary statistics and project annual dollar savings at $300/day × the sample's annual permit volume.
+The Phase B sweep runs a direct counterfactual: for each stage, subtract a fraction of each permit's observed per-stage active days from its observed total duration, then recompute the summary statistics and project annual dollar savings at an assumed per-day carrying cost times the estimated annual permit volume.
 
-Top-5 Seattle interventions at the 50% intervention level:
+**Corrected annual permit volumes**: The Seattle sample of 20,173 permits spans 2018--2025 (approximately 8 years), yielding an annual rate of approximately 2,522 permits/year. The NYC BIS sample of 42,018 permits spans approximately 8 years, yielding approximately 5,252 permits/year. (An earlier version of this analysis erroneously used the total sample size as the annual count, inflating projections by approximately 8x.)
 
-| Rank | Stage | Δ mean duration | Annual savings |
-|---:|---|---:|---:|
-| 1 | `days_out_corrections` global bucket | 44.1 days | $266.8M/year |
-| 2 | `days_plan_review_city` global bucket | 37.6 days | $227.8M/year |
-| 3 | Other (Building / Mechanical / Site Engineer / all other review types) | 26.3 days | $159.0M/year |
-| 4 | Zoning | 15.8 days | $95.9M/year |
-| 5 | Drainage | 10.3 days | $62.3M/year |
+**Sensitivity analysis on carrying cost**: The $300/day carrying cost is a rule of thumb that is not grounded in a published source for this specific context. Different stakeholders bear different costs: the applicant's carrying cost includes construction-loan interest, opportunity cost of delayed occupancy, and contractor overhead; the city's cost is minimal. The table below shows the range of projections:
 
-**Single best stage to attack for biggest impact per day saved**: the `days_out_corrections` global bucket — cutting applicant correction time in half saves 44 days off the mean duration. This is a slightly surprising result given that the *variance* decomposition puts city plan review ahead of applicant corrections; the two results are consistent because the correction bucket has a heavier right tail even though its mean is lower, so a multiplicative intervention (cut 50%) saves more raw days.
+Top-5 Seattle interventions at the 50% intervention level, with carrying-cost sensitivity:
+
+| Rank | Stage | Days saved (mean) | @ $100/day | @ $300/day | @ $500/day |
+|---:|---|---:|---:|---:|---:|
+| 1 | `days_out_corrections` | 44.1 days | $11.1M/yr | $33.4M/yr | $55.6M/yr |
+| 2 | `days_plan_review_city` | 37.6 days | $9.5M/yr | $28.4M/yr | $47.4M/yr |
+| 3 | Other (Building / Mechanical / etc.) | 26.3 days | $6.6M/yr | $19.9M/yr | $33.1M/yr |
+| 4 | Zoning | 15.8 days | $4.0M/yr | $11.9M/yr | $19.9M/yr |
+| 5 | Drainage | 10.3 days | $2.6M/yr | $7.8M/yr | $13.0M/yr |
 
 NYC BIS interventions at the 50% level:
 
-| Rank | Stage | Δ mean duration | Annual savings |
-|---:|---|---:|---:|
-| 1 | DOB approved → permit picked up (owner wait) | 33.4 days | $420.4M/year |
-| 2 | Fully paid → DOB approved | 25.3 days | $319.3M/year |
-| 3 | Fees paid → fully paid | 1.6 days | $19.9M/year |
-| 4 | Filing → fees paid | 0.2 days | $3.1M/year |
+| Rank | Stage | Days saved (mean) | @ $100/day | @ $300/day | @ $500/day |
+|---:|---|---:|---:|---:|---:|
+| 1 | DOB approved -> permit picked up | 33.4 days | $17.5M/yr | $52.6M/yr | $87.7M/yr |
+| 2 | Fully paid -> DOB approved | 25.3 days | $13.3M/yr | $39.9M/yr | $66.4M/yr |
+| 3 | Fees paid -> fully paid | 1.6 days | $0.8M/yr | $2.5M/yr | $4.2M/yr |
+| 4 | Filing -> fees paid | 0.2 days | $0.1M/yr | $0.3M/yr | $0.5M/yr |
 
-**Best single NYC intervention**: cut the post-approval owner pickup wait in half. This is an applicant-side intervention (automated pickup notifications, auto-issuance for pro-cert filings, or a deadline-enforced pickup window). At the Phase 2.5 sample volume of 42,018 permits, the projected savings is $420M/year, the largest single number in the Phase B table.
+These projections assume: (a) the assumed carrying cost applies uniformly to all permits, (b) the intervention achieves a full 50% reduction, (c) stage-time reductions translate 1-for-1 into wall-time reductions, and (d) no general-equilibrium effects (e.g., faster permits leading to more filings). All four assumptions are strong. The projections are best interpreted as order-of-magnitude upper bounds, not precise forecasts.
 
-Cross-city counterfactual: if all 5 cities published Seattle-grade data, the projected MAE is `89.40 × (24.68 / 99.86) = 22.09 days` — a **67-day reduction**, 75% relative. The projection is a ceiling and depends on the Seattle-specific within-city ratio generalising to SF / LA / Chicago / Austin / NYC. See `discoveries/cross_city_counterfactual.md` for the caveats.
+Cross-city counterfactual: the projection `89.40 * (24.68 / 99.86) = 22.09 days` assumes the within-Seattle ratio of (stage-model MAE / metadata-only MAE) generalises to cities with vastly different regulatory structures and duration distributions. San Francisco's median duration is approximately 8x Seattle's. There is no evidence or theoretical argument for why this ratio should transfer, and the projection should be treated as speculative.
 
 All Phase B outputs are written to `discoveries/`:
 - `seattle_intervention_sweep.csv` (82 rows: 9 stages × 9 percentages + baseline)
@@ -500,13 +552,13 @@ Phase B candidate rows `B01_seattle_drainage_50pct`, `B02_nyc_pickup_50pct`, `B0
 
 ### 6.1 What worked and why
 
-The single thing that worked — Seattle's two-bucket model — worked because Seattle publishes the decomposition of total duration into its two natural components. Nothing about the model was special: XGBoost depth 4, 200 boosting rounds, log1p target, random seed 42. The model is almost deliberately boring. What matters is that the two input features (`days_plan_review_city`, `days_out_corrections`) are not *correlated* with duration, they *sum to* duration (modulo a small hand-off overhead). The regression problem is consequently nearly trivial in the information-theoretic sense: the target is an additive function of the inputs and the noise is small.
+The single thing that worked -- Seattle's two-bucket model -- worked because Seattle publishes the decomposition of total duration into its two natural components. Nothing about the model was special: XGBoost depth 4, 200 boosting rounds, log1p target, random seed 42. The model is almost deliberately boring. What matters is that the two input features (`days_plan_review_city`, `days_out_corrections`) are not merely *correlated* with duration; they *sum to* duration (modulo a small hand-off overhead). The regression problem is consequently close to trivial: the target is an additive function of the inputs and the residual noise is small. The temporal holdout (MAE 28.17 vs shuffled 24.68) confirms this model generalises to unseen time periods.
 
-The NYC BIS four-stage model is the same lesson applied to a different city with different stage names. The joint R² of 99.9% and the MAE of 4 days are not a modelling victory; they are a direct observation of the identity `duration = filing-to-paid + paid-to-fully-paid + fully-paid-to-approved + approved-to-permitted`. A tree can learn this identity with near-perfect accuracy because the identity is present in the data.
+The NYC BIS four-stage model is a tautological decomposition: `duration = filing-to-paid + paid-to-fully-paid + fully-paid-to-approved + approved-to-permitted` by construction. The joint R-squared of 99.9% and the MAE of 4 days are not a modelling victory; they are a direct observation of the arithmetic identity. The descriptive value remains: the decomposition reveals that 55% of NYC BIS elapsed time is the post-approval owner-pickup wait, which is a surprising and policy-relevant finding even without a predictive claim.
 
 ### 6.2 Surprising findings
 
-**The Phase 2 negative result.** In 120 pre-registered experiments on a 50,000-row five-city sample, exactly zero experiments cleared the KEEP threshold. This is surprising at the prior level because a reasonable Bayesian prior on any individual experiment was around 20–40% KEEP probability, so a pre-experiment expected count might have been 30–50 KEEPs. The observed count is zero. The implication is that the noise floor of the cross-city problem is structural — it is set by missing stage data, not by feature-engineering tuning. A single unexpected observation can refine a prior; 120 unexpected observations in a row refine the prior so strongly that you should stop tuning and go find better data.
+**The Phase 2 negative result.** Of the 34 experiments that ran to completion on the 50,000-row five-city sample, exactly zero cleared the KEEP threshold. This is surprising but requires honest qualification: 86 additional hypotheses were deferred without execution, including macroeconomic features and city-specific schema extensions that could plausibly change the result. The negative finding applies to the specific feature space explored (calendar, reform, rolling-load, hyperparameter, target-transform, and model-family variations on the 13 cross-city baseline features). It does not establish that no feature exists that could improve the baseline -- only that the features we tested do not.
 
 **Drainage and Zoning outrank applicant corrections in Seattle variance.** The folk wisdom among permit applicants is that "the city is waiting for me". In Seattle the *variance* explained by city plan review (39.2%) is more than double the variance explained by applicant corrections (18.5%). The applicant-corrections bucket does have a larger absolute mean and a fatter tail (which is why the Phase B intervention ranks it first by raw days saved), but when you want to *predict* whether a given permit will be slow, the single most informative scalar is how long the city has been reviewing it. This inverts the folk wisdom cleanly enough that it should be treated as an empirical finding in its own right.
 
@@ -522,20 +574,25 @@ The NYC BIS four-stage model is the same lesson applied to a different city with
 
 4. **The 5-city baseline excludes Seattle.** The headline cross-city baseline deliberately does not include Seattle, because Seattle's unique stage data makes it non-comparable. Rows where the Phase 2 baseline is evaluated against 5 cities (SF, NYC, LA, Chicago, Austin) are therefore apples-to-oranges with the Seattle-only winner in Phase 2.5. This is a scope choice, not a bug: Phase 0.5 explicitly chose the 5-city baseline to be "what every major US city exposes", and Seattle's extended schema is an accidentally-privileged outlier.
 
-5. **The $300/day carrying cost is a rule of thumb.** Phase B's annual dollar values assume each day of delay costs the applicant $300. This is a reasonable small-residential rule of thumb (see `knowledge_base.md` §3), but actual carrying costs vary with project valuation, loan terms, and construction stage. The dollar figures are upper-bound projections, not measured outcomes.
+5. **The $300/day carrying cost is a rule of thumb.** Phase B's annual dollar values assume each day of delay costs the applicant $300. This assumption is not grounded in a published carrying-cost estimate specific to building permits. Actual costs vary with project valuation, loan terms, and construction stage. A sensitivity analysis varying the cost from $100 to $500/day is reported in Section 5.8; the central estimate at $300/day yields $28--33M for Seattle interventions and $53M for the top NYC intervention, not the hundreds of millions reported in an earlier version of this analysis.
 
-6. **The intake-channel effects are univariate.** The 12.7× NYC professional_cert ratio, the 4× LA business_unit ratio, and the 7.5× Chicago review_type ratio are all raw median-duration comparisons between two groups. They do not adjust for project size, neighbourhood, or filing year. A causal interpretation would require matching on these confounds, which Phase 2.5 did not do. The effect directions are clearly established, but the magnitudes should be treated as upper bounds.
+6. **The intake-channel effects are univariate.** The 12.7x NYC professional_cert ratio, the 4x LA business_unit ratio, and the 7.5x Chicago review_type ratio are all raw median-duration comparisons between two groups. They do not adjust for project size, neighbourhood, or filing year. A propensity-score match, regression adjustment, or stratified comparison by project size and neighbourhood is needed before claiming these are actionable effect sizes. A causal interpretation would require such adjustment, which this paper does not provide.
+
+7. **Data versioning.** The raw data comes from Socrata API pulls ("newest-first" up to 150k rows per city). These are live feeds that change daily. We provide SHA-256 hashes of all cached parquet files in `data_version_manifest.txt` so that the exact dataset used in this analysis can be verified. However, no DOI or public data archive has been created. A reader running the code in 2027 will get different data unless they use the cached files.
+
+8. **Shuffled CV may allow temporal leakage.** The primary evaluation uses shuffled 5-fold CV, which allows a model to see 2024 permits during training and predict 2023 permits during validation. We report temporal train/test splits (Section 5.2a) as a robustness check; the key results hold under temporal evaluation, though the cross-city baseline MAE changes substantially (89.40 -> 75.32).
 
 ### 6.4 Threats to validity
 
-- **Selection bias in who uses fast channels.** Applicants who qualify for the NYC professional-cert pathway or the LA Plan-Check-at-Counter channel may also have simpler projects, so the 12.7× and 4× ratios partially reflect project characteristics rather than pure channel effects. A project-size control would attenuate these.
+- **Selection bias in who uses fast channels.** Applicants who qualify for the NYC professional-cert pathway or the LA Plan-Check-at-Counter channel may also have simpler projects, so the 12.7x and 4x ratios partially reflect project characteristics rather than pure channel effects. A project-size control would attenuate these.
 - **Newest-first sampling of raw caches** (see Limitation 3) means the historical tail may still be underrepresented even after v2 stratification.
-- **Censoring bias** at the right edge of the observation window: recent permits have a shorter window to issue in, so the recent-year MAE is biased down. The Phase 2.5 survival analysis (S01–S03) addresses this partially but does not propagate the correction back into the E00 baseline MAE.
+- **Censoring bias** at the right edge of the observation window: recent permits have a shorter window to issue in, so the recent-year MAE is biased down. The Phase 2.5 survival analysis (S01--S03) addresses this partially but does not propagate the correction back into the E00 baseline MAE.
 - **The Chicago filter's recall limitation.** Some of the Chicago baseline MAE is attributable to non-small-residential permits sneaking through the filter. We cannot quantify this without a ground-truth label.
+- **Temporal leakage in shuffled CV.** See Limitation 8 above and Section 5.2a.
 
 ### 6.5 Honest framing — what we did NOT solve
 
-1. We did not solve cross-city building-permit time prediction. The Phase 2 saturation at MAE 89.40 days is a measurement of the problem's ceiling, not a solution. If you want to predict cross-city permit duration from the generic metadata that five US cities publish in common, the best we found is MAE 89.40 days.
+1. We did not solve cross-city building-permit time prediction. The MAE 89.40 days is the best we achieved on the cross-city sample with the features we tested. It should not be characterised as a "noise floor" or "ceiling" because 86 hypotheses remain untested.
 2. We did not cause the Seattle or NYC BIS results to *transfer*. The Seattle 2-bucket model is a Seattle-only model because it uses Seattle-only columns. The NYC BIS 4-stage model is a NYC BIS-only model because it uses NYC-only columns. Neither improves the cross-city baseline on the 5-city sample.
 3. We did not do a full-pipeline process-mining study on any city. The BPIC 2015 literature's inductive-miner / conformance-checking toolkit would be the natural next step on Seattle, and it is explicitly out of scope for this iteration (rows `H101`–`H106` in `results.tsv` are deferred as `seattle_only`).
 4. We did not run any of the hypothesised macroeconomic-context experiments (`H046`–`H051`: WRLURI update, Census Building Permits Survey load, American Community Survey density, Federal Reserve Economic Data mortgage rate, Bureau of Labor Statistics construction employment, Federal Reserve Economic Data housing starts). These are deferred as `external_data_not_fetched`. Fetching and joining them is a Phase 3 extension, not something this paper can claim to have done.
@@ -548,31 +605,33 @@ The Terner Center's 2022 San Francisco project-level study (Metcalf, Reid and Ga
 
 The economics literature on WRLURI-correlated price effects (Glaeser and Gyourko 2003, 2018 [5, 9]; Gyourko et al. 2008, 2021 [2, 3]; Gyourko and Krimmel 2021 [4]) operates at the jurisdiction level and is cross-sectional. Our work operates at the permit level and is within-jurisdiction, so the two are looking at orthogonal slices of the same problem.
 
-There is no peer-reviewed US building-permit survival analysis at project granularity that we have been able to find. The closest relatives are the BPIC 2015 process-mining submissions, the Terner Center descriptive work, and individual SF Examiner / Texas Tribune journalism on the SF 280-day / Austin 91-day figures. This paper's contribution is the first US-city-level, project-granularity predictive decomposition with a fully open code package and 350 supporting citations.
+We have not found a peer-reviewed US building-permit survival analysis at project granularity. The closest relatives are the BPIC 2015 process-mining submissions, the Terner Center descriptive work, and individual SF Examiner / Texas Tribune journalism on the SF 280-day / Austin 91-day figures. We believe this paper contributes the first US-city-level, project-granularity predictive decomposition with open code, though we note this novelty claim rests on a literature review whose search methodology is not formally documented and could be incomplete.
+
+**Literature gaps acknowledged by the reviewer**: This paper does not engage with (a) the ML-for-government-processing-times literature (e.g., visa processing, court-case durations), (b) the feature-selection / AutoML literature (e.g., Domingos 2012, "A Few Useful Things to Know About Machine Learning"), or (c) the causal inference / policy evaluation literature (difference-in-differences, regression discontinuity, synthetic control methods). These gaps weaken the literature positioning and should be addressed in a future revision.
 
 ### 6.7 Policy implications
 
-**Recommendation 1 — publish per-stage timestamps.** Every US city should publish the per-(review_type × cycle) timestamps that Seattle already publishes. The marginal data-engineering cost is small (Seattle's feed is a small extension of the base permit-issuance feed). The predictive lift is enormous: 4× on the MAE, and a projected 75% reduction in cross-city MAE if every city adopted it. This is a zero-legislation, low-engineering-cost, high-payoff intervention.
+The following observations suggest directions for policy, but they fall short of causal evidence. A causal identification strategy (e.g., difference-in-differences around a policy reform, regression discontinuity at an eligibility threshold, or a propensity-score match) would be needed to establish the magnitude of any intervention effect.
 
-**Recommendation 2 — expand fast intake channels.** NYC's professional-certification pathway delivers a 12.7× median-duration speedup. LA's Plan Check at Counter pathway delivers a 4×. Chicago's EXPRESS review type delivers a 7.5×. In each case the fast channel is currently restricted to a narrow subset of eligible project types; expanding eligibility would shift a larger share of the permit distribution into the fast regime. This is a legislative / regulatory lever with near-zero engineering cost.
+**Observation 1 -- per-stage timestamps enable prediction.** The one US city that publishes per-(review_type x cycle) timestamps (Seattle) enables a 4x within-city MAE improvement. Whether other cities would see comparable gains is unknown; the cross-city ratio extrapolation is speculative (Section 5.8).
 
-**Recommendation 3 — automate the post-approval pickup wait.** In the NYC BIS data, 55% of the total elapsed time for issued permits is the `approved → permitted` wait. This is applicant-side time, not DOB time. Automation options: auto-issuance for pro-cert filings, automated email and text notifications with a deadline-enforced pickup window, or digital permit issuance (which the DOB NOW platform is already building toward). Halving this wait is projected at $420M/year in the BIS sample.
+**Observation 2 -- intake-channel selection is correlated with duration.** NYC's professional-certification pathway is associated with a 12.7x median-duration difference. LA's Plan Check at Counter is associated with a 4x difference. Chicago's EXPRESS review type is associated with a 7.5x difference. These are unadjusted comparisons; the true causal effect of expanding channel eligibility is likely smaller because of selection effects (simpler projects self-select into fast channels).
 
-**Recommendation 4 — target Drainage and Zoning in Seattle-style cities.** Drainage and Zoning together account for 53% of the per-stage variance attribution in Seattle's stage-only OLS. Both are stage-specific: reducing the number of drainage cycles (e.g. via standardised small-residential drainage templates) or the number of zoning cycles (e.g. via zoning pre-check templates) would directly target the biggest contributors.
+**Observation 3 -- the post-approval pickup wait is a large share of NYC duration.** In the NYC BIS data, 55% of the total elapsed time for issued permits is the `approved -> permitted` wait. This is applicant-side time. Automation of the pickup process (auto-issuance, notification systems) is a plausible intervention, though the dollar value depends on the carrying-cost assumption (sensitivity range: $18M--$88M/year).
 
-**Recommendation 5 — do not expect generic ML to substitute for these interventions.** The Phase 2 negative result means that a sophisticated model on commonly-published permit metadata will not close the gap. No amount of feature engineering on the 13 cross-city baseline columns produced a 1-day improvement across 120 experiments. The problem is data, not modelling.
+**Observation 4 -- Drainage and Zoning are the dominant Seattle bottleneck stages.** Drainage and Zoning together account for 53% of the per-stage variance attribution in Seattle's stage-only OLS. This is a descriptive finding based on a single city.
 
 ## 7. Conclusion
 
-This paper reports a Hypothesis-Driven Research loop on cross-city US building-permit processing time. The Phase 0.5 baseline — XGBoost on 13 raw features of a 50,000-row 5-city stratified sample — achieves MAE 89.40 days and R² log 0.516. The Phase 2 HDR loop ran 120 pre-registered single-change experiments against this baseline. Zero KEEPs, 34 REVERTs, 86 DEFERs. The generic feature-engineering search saturated at the noise floor.
+This paper reports a Hypothesis-Driven Research loop on cross-city US building-permit processing time. The Phase 0.5 baseline -- XGBoost on 13 raw features of a 50,000-row 5-city stratified sample -- achieves MAE 89.40 days (95% CI: [88.1, 90.7]) under shuffled CV and MAE 75.32 days (95% CI: [73.7, 77.0]) under temporal holdout. A 120-hypothesis research queue was designed; 34 experiments ran to completion on the cross-city sample. Zero cleared the KEEP threshold. 86 hypotheses were deferred without execution due to schema, data, or infrastructure constraints.
 
-The resolution was not a better model. It was Seattle's `tqk8-y2z5` feed, which publishes per-(review_type × cycle) timestamps that no other US city in our sample publishes. A two-feature XGBoost on `days_plan_review_city + days_out_corrections` achieves MAE 24.68 days on the Seattle subset — a 4× improvement purely from data access. The NYC BIS partial decomposition on four payment and approval stages achieves MAE 4.04 days on the NYC subset. The Phase B counterfactual projections indicate that if every US city published Seattle-grade data, the cross-city MAE would drop from 89.4 days to approximately 22 days.
+The positive result is from Seattle, where per-stage timestamps enable a 4x within-Seattle MAE reduction (99.86 -> 24.68 days under shuffled CV, 28.17 days under temporal holdout). This improvement comes from data access, not from model complexity. The NYC BIS four-stage analysis is a tautological decomposition (stages sum to target) and should not be interpreted as a predictive finding, though the descriptive insight that 55% of elapsed time is the post-approval pickup wait is policy-relevant.
 
-Three quantitative intake-channel effects were documented as side results: NYC `professional_cert` produces a 12.7× median-duration speedup, LA `business_unit` produces a 4× spread, and Chicago `review_type` produces a 7.5× spread. These are raw univariate comparisons and the effect sizes should be treated as upper bounds until causally adjusted, but the direction and order of magnitude are clear.
+Three intake-channel effects were documented as unadjusted comparisons: NYC professional_cert (12.7x), LA business_unit (4x), Chicago review_type (7.5x). These magnitudes should be treated as upper bounds until confound-adjusted.
 
-The headline policy recommendation is narrow and concrete: every major US city should publish per-stage permit timestamps to the same standard Seattle already uses. The secondary recommendation is to expand fast-intake-channel eligibility where such channels already exist. Both are low-engineering-cost, high-expected-payoff interventions, and neither requires a better model than the baseline XGBoost that Phase 2.5 already used.
+Dollar projections depend on an assumed $300/day carrying cost and range from $28M--$53M/year for the top interventions at the central estimate, with a sensitivity range of $8M--$88M/year across $100--$500/day carrying costs.
 
-The broader methodological contribution is that a negative Hypothesis-Driven Research result can be load-bearing. One hundred and twenty pre-registered experiments that all fail to beat a noise floor is a stronger statement about the problem's structure than 120 experiments that all succeed. The Phase 2 result, taken on its own, would be undiagnosable — "nothing works, I guess" — but taken alongside the Phase 2.5 Seattle result, it becomes a precise statement about *what kind of thing* is needed to make progress: not a better model, but a richer feature schema.
+The paper's scope is narrower than its evidence base might suggest: the positive results come from one city (Seattle) with temporal holdout validation, supported by a partial NYC decomposition and three univariate intake-channel observations. The negative result applies to 34 experiments on a specific feature space, not to all possible features. Policy recommendations should be read as observations warranting further causal analysis, not as demonstrated intervention effects.
 
 ## 8. Key References
 
