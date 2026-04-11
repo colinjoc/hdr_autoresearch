@@ -72,7 +72,8 @@ def scenario_label(key: str) -> str:
 def plot_headline_finding():
     webster_mean = sumo_bench["baseline_awt"].mean()
     sotl_mean = sumo_bench["ctrl_awt"].mean()
-    pct_reduction = 100 * (sotl_mean - webster_mean) / webster_mean
+    # Use the mean of per-scenario deltas (same metric as evaluate.py and paper)
+    pct_reduction = sumo_bench["awt_delta_pct"].mean()
 
     # Published RL range from paper: 30-50% improvement over fixed-time
     # Use midpoint (40%) as representative RL benchmark for illustration

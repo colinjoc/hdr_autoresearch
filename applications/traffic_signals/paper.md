@@ -1,8 +1,8 @@
-# A Two-Parameter Self-Organising Rule for Adaptive Traffic Signal Control: Matching Reinforcement Learning Without Training
+# A Four-Parameter Self-Organising Rule for Adaptive Traffic Signal Control: Matching Reinforcement Learning Without Online Learning
 
 ## Abstract
 
-Adaptive traffic signal control has become a flagship benchmark for deep reinforcement learning, with published methods reporting 30 to 50 percent wait-time reductions over fixed-time baselines on the standard Simulation of Urban MObility (SUMO) benchmarks. We apply a Hypothesis-Driven Research (HDR) protocol — systematic literature-grounded hypothesis generation, isolated single-change experimentation, and explicit Bayesian belief updating — to the traffic signal control problem. The result is a two-parameter Self-Organising Traffic Light (SOTL) rule with one preemption clause that achieves a 49.10 percent mean Average Wait Time (AWT) reduction over Webster's optimal fixed-time baseline on SUMO across seven scenarios, matching or exceeding published deep-reinforcement-learning results without any training, neural network, or hyperparameter search. The rule, encoded in approximately twenty lines of Python, switches phases when (a) the current phase has fully drained AND (b) the other phase has at least one waiting vehicle, with optional preemption when the other queue exceeds twice the current queue and is at least four vehicles deep. We further perform a methodological cross-validation: an initial twenty-experiment HDR campaign on a custom Poisson + saturation-flow simulator produced a 42.7 percent improvement, but parameter tuning did not transfer cleanly to SUMO. Of nine candidate "improvements" tested in both simulators, eight failed in both — but the optimal `WAITING_THRESHOLD` shifted from 2 (toy) to 1 (SUMO), and a new preemption rule (only visible on SUMO's multi-phase scenarios) added an additional three percentage points. We argue that simple deterministic rules represent a strong baseline that the deep-reinforcement-learning traffic-signal literature has under-tested, and that the HDR methodology's explicit separation of robust top-level findings from fragile parameter tuning provides a defence against simulator-induced overfitting.
+Adaptive traffic signal control has become a flagship benchmark for deep reinforcement learning, with published methods reporting 30 to 50 percent wait-time reductions over fixed-time baselines on the standard Simulation of Urban MObility (SUMO) benchmarks. We apply a Hypothesis-Driven Research (HDR) protocol — systematic literature-grounded hypothesis generation, isolated single-change experimentation, and explicit Bayesian belief updating — to the traffic signal control problem. The result is a four-parameter Self-Organising Traffic Light (SOTL) rule that achieves a 49.10 percent mean Average Wait Time (AWT) reduction over Webster's optimal fixed-time baseline on SUMO across seven scenarios (three random seeds each), placing it within the 30 to 50 percent range reported by published deep-reinforcement-learning methods — without any online learning, neural network, or gradient-based optimisation. The rule, encoded in approximately twenty lines of Python, switches phases when (a) the current phase has fully drained AND (b) the other phase has at least one waiting vehicle, with preemption when the other queue exceeds twice the current queue and is at least four vehicles deep. The four parameters are `CLEAR_THRESHOLD = 0`, `WAITING_THRESHOLD = 1`, `PREEMPT_RATIO = 2`, and `PREEMPT_FLOOR = 4`, all integers selected through a 38-experiment HDR campaign across two simulators. We further perform a methodological cross-validation: an initial twenty-experiment HDR campaign on a custom Poisson + saturation-flow simulator produced a 42.7 percent improvement, but parameter tuning did not transfer cleanly to SUMO. Of nine candidate "improvements" tested in both simulators, eight failed in both — but the optimal `WAITING_THRESHOLD` shifted from 2 (toy) to 1 (SUMO), and the preemption rule (only visible on SUMO's multi-phase scenarios) added an additional three percentage points. We note that this is not a head-to-head comparison: no reinforcement-learning method was run on our scenarios. Rather, we show that the improvement range achieved by a simple rule overlaps the range reported in the literature, suggesting that simple deterministic baselines have been under-tested. We argue that the HDR methodology's explicit separation of robust top-level findings from fragile parameter tuning provides a defence against simulator-induced overfitting.
 
 ## 1. Introduction
 
@@ -14,7 +14,7 @@ Yet a parallel line of work, dating to Cools, Gershenson, and D'Hooghe's 2007 Se
 
 We address this gap with the HDR methodology — combining literature review, single-change experimentation, and explicit Bayesian belief updating. Our contributions:
 
-1. A two-parameter Self-Organising Traffic Light controller plus one preemption clause that achieves a 49.10 percent mean wait-time reduction over Webster's optimal fixed-time formula on SUMO across seven scenarios, matching or exceeding published reinforcement-learning methods.
+1. A four-parameter Self-Organising Traffic Light controller that achieves a 49.10 percent mean wait-time reduction over Webster's optimal fixed-time formula on SUMO across seven scenarios (three seeds each), placing it within the 30 to 50 percent range reported by published reinforcement-learning methods. No RL method was run on our scenarios; the comparison is to published literature ranges.
 2. A simulator cross-validation study: we ran the same HDR loop on both a lightweight custom simulator and SUMO, and found that the top-level finding (the SOTL rule) transfers cleanly while specific parameter tunings do not. This is a cautionary tale for the field's reliance on toy simulators during method development.
 3. An open-source HDR implementation for traffic signal optimisation, including thirty-eight numbered experiments with full provenance.
 
@@ -55,7 +55,7 @@ It never observes vehicles, never reads queue lengths, never adapts. The cycle l
 
 For each of the seven SUMO scenarios used in this paper, we compute Webster's $C_o$ and per-phase $g_i$ from the route file's flow rates, using a lost time of $L = 8$ seconds per cycle (2 phases, each with a 2-second yellow plus a 2-second all-red). The saturation flow is taken from SUMO's per-lane vehicle physics defaults (1900 vehicles per hour per lane). The Webster controller is evaluated on each scenario at three random seeds and reported as a mean Average Wait Time across all seven scenarios.
 
-For the seven-scenario panel, the Webster baseline yields a mean Average Wait Time of **7.88 seconds** (cf. Table 1). On the medium-demand scenario specifically, Webster averages **4.88 ± 0.16 seconds** across five random seeds.
+For the seven-scenario panel, the Webster baseline yields a mean Average Wait Time of **7.90 seconds** (cf. Table 1, three random seeds per scenario). On the medium-demand scenario specifically, Webster averages **4.88 ± 0.16 seconds** across five random seeds.
 
 ### 2.5 Why Webster is the right baseline
 
@@ -70,7 +70,7 @@ This section describes the final discovered controller in enough depth that a re
 
 ### 3.1 The final code
 
-The full final controller is the `select_action` function below. Four integer parameters: `CLEAR_THRESHOLD = 0`, `WAITING_THRESHOLD = 1`, `PREEMPT_RATIO = 2`, `PREEMPT_FLOOR = 4`. No state, no learned weights, no neural network.
+The full final controller is the `select_action` function below. Four integer parameters, all selected through the HDR experimental loop (Section 4): `CLEAR_THRESHOLD = 0`, `WAITING_THRESHOLD = 1`, `PREEMPT_RATIO = 2`, `PREEMPT_FLOOR = 4`. No state, no learned weights, no neural network.
 
 ```python
 CLEAR_THRESHOLD = 0
@@ -116,7 +116,7 @@ def select_action(state, current_phase, time_in_phase, MIN_GREEN=5):
     return current_phase
 ```
 
-`best_other_phase(queues, current_phase)` returns the non-current phase with the largest sum of halting vehicles. `current_phase_lanes` and `other_phases` are simple lookups against the SUMO scenario's signal program.
+`best_other_phase(queues, current_phase)` returns the non-current phase with the largest sum of halting vehicles. `current_phase_lanes` and `other_phases` are simple lookups against the SUMO scenario's signal program. Note: this listing is pseudocode for readability. The actual implementation in `controller.py` uses a phase-lane mask matrix multiply (`mask @ queue`) to compute per-phase queue sums, which is more concise but equivalent.
 
 ### 3.2 Step-by-step description of how it works
 
@@ -189,38 +189,38 @@ After the stage-1 SOTL rule was identified, we ported it directly to SUMO withou
 
 ### 5.1 Per-scenario results
 
-Figure 1 summarises the headline finding: the 20-line SOTL rule with preemption reduces mean Average Wait Time by 49.1 percent relative to Webster, placing it squarely within the 30 to 50 percent improvement range reported by published deep reinforcement learning methods — without any training.
+Figure 1 summarises the headline finding: the 20-line SOTL rule with preemption reduces mean Average Wait Time by 49.1 percent relative to Webster (mean of per-scenario percentage reductions, three seeds per scenario), placing it within the 30 to 50 percent improvement range reported by published deep reinforcement learning methods — without any online learning. The Deep RL bar in Figure 1 is a literature estimate (not a head-to-head measurement on our scenarios); see Section 6.2 for discussion.
 
 ![Headline finding: Webster vs Deep RL vs SOTL+Preemption](plots/headline_finding.png)
-*Figure 1. Mean Average Wait Time across all seven SUMO scenarios. The SOTL + Preemption controller (this work) achieves a 49.1% reduction over Webster, matching the published 30-50% deep RL range. Error bar on the Deep RL bar shows the reported range.*
+*Figure 1. Mean Average Wait Time across all seven SUMO scenarios (three seeds each). The SOTL + Preemption controller (this work) achieves a 49.1% mean per-scenario reduction over Webster. The Deep RL bar represents the 30-50% range reported in the literature (not a direct measurement on these scenarios). Error bar shows the reported range.*
 
-Figure 2 disaggregates this result across demand profiles. The SOTL rule delivers improvements on every scenario, with the largest gains on medium and high uniform demand (57% and 60%) and the smallest on uniform-low (13%) and the time-varying sumo-rl variable-flow scenario (36%).
+Figure 2 disaggregates this result across demand profiles. The SOTL rule delivers improvements on every scenario, with the largest gains on medium and high uniform demand (55% and 60%) and the smallest on uniform-low (18%) and the time-varying sumo-rl variable-flow scenario (50%).
 
 ![Demand sensitivity](plots/demand_sensitivity.png)
-*Figure 2. Per-scenario Average Wait Time for Webster (blue) and SOTL + Preemption (green). Dashed line separates custom uniform-demand routes from the sumo-rl published benchmark routes. Percentage labels show the reduction achieved by the adaptive rule.*
+*Figure 2. Per-scenario Average Wait Time for Webster (blue) and SOTL + Preemption (green), three seeds each. Dashed line separates custom uniform-demand routes from the sumo-rl published benchmark routes. Percentage labels show the reduction achieved by the adaptive rule.*
 
 | Scenario | Webster Average Wait Time (s) | SOTL+Preemption Average Wait Time (s) | Reduction |
 |---|---|---|---|
-| uniform-low demand | 2.27 | 1.86 | -18.1% |
-| uniform-medium demand | 4.72 | 2.06 | -56.4% |
-| uniform-high demand | 9.54 | 3.84 | -59.8% |
-| asymmetric demand (north-south heavy) | 5.43 | 2.50 | -54.0% |
-| sumo-rl horizontal-flow benchmark | 11.11 | 4.87 | -56.2% |
-| sumo-rl vertical-flow benchmark | 11.05 | 5.31 | -52.0% |
-| sumo-rl variable-flow benchmark | 11.02 | 5.78 | -47.6% |
-| **Mean across all 7 scenarios** | **7.88** | **3.75** | **-49.10%** |
+| uniform-low demand | 2.21 | 1.82 | -17.5% |
+| uniform-medium demand | 4.76 | 2.13 | -55.1% |
+| uniform-high demand | 9.58 | 3.88 | -59.5% |
+| asymmetric demand (north-south heavy) | 5.47 | 2.58 | -52.7% |
+| sumo-rl horizontal-flow benchmark | 11.16 | 4.83 | -56.8% |
+| sumo-rl vertical-flow benchmark | 11.10 | 5.30 | -52.3% |
+| sumo-rl variable-flow benchmark | 11.03 | 5.54 | -49.8% |
+| **Mean across all 7 scenarios** | **7.90** | **3.73** | **-49.10%** |
 
 ### 5.2 Variance reduction
 
-On the medium-demand scenario at five random seeds:
+On the medium-demand scenario at five random seeds (full results in `discoveries/robustness_sumo.csv`):
 - Webster: 4.88 ± 0.16 seconds
 - SOTL with preemption: 2.17 ± 0.10 seconds
 
-The standard deviation across seeds is **2.7 times lower** for the new controller, in addition to the mean being lower. The simple rule is more stable across stochastic vehicle arrivals than Webster, not just lower-mean.
+The standard deviation across seeds is **1.6 times lower** for the new controller, in addition to the mean being lower. The coefficient of variation (CV = std/mean) drops from 3.3% (Webster) to 4.6% (SOTL), indicating that both controllers have similar relative stability but the SOTL rule achieves its lower mean without increased relative variance.
 
 ### 5.3 HDR iteration trajectory
 
-Figure 3 shows the trajectory of key controller variants tested during the SUMO HDR campaign (Stage 2). The initial SOTL port from the toy simulator (S01) immediately achieved a 49 percent reduction. Subsequent refinements (S03, S15, S16) added incremental gains through eager draining and preemption. Not all ideas helped: the "max-lane queue" variant (S05), which switched to per-phase max-lane instead of sum-lane queues, regressed on several scenarios and was reverted.
+Figure 3 shows the trajectory of key controller variants tested during the SUMO HDR campaign (Stage 2). The initial SOTL port from the toy simulator (S01) immediately achieved a 46 percent mean per-scenario reduction. Subsequent refinements (S03, S15, S16) added incremental gains through more eager draining and preemption. Not all ideas helped: the "max-lane queue" variant (S05), which switched to per-phase max-lane instead of sum-lane queues, regressed on several scenarios and was reverted.
 
 ![Controller comparison](plots/controller_comparison.png)
 *Figure 3. Mean Average Wait Time across 7 SUMO scenarios for key controller variants tested during the HDR iteration. Blue = Webster baseline, cyan = intermediate KEPT experiments, orange = REVERTED experiment, green = final controller.*
@@ -249,9 +249,9 @@ But the optimal `WAITING_THRESHOLD` shifted from 2 (toy) to 1 (SUMO), and the pr
 
 The drain-first rule succeeds because Webster's main weakness is committing to a fixed cycle before observing demand. Any deterministic rule that responds to actual queue lengths beats Webster on variable demand by capturing the wasted phase-end time. The two parameters in the rule encode the irreducible tradeoffs: `CLEAR_THRESHOLD = 0` says "drain completely before yielding"; `WAITING_THRESHOLD = 1` says "yield at the first waiting vehicle on the other side". Together they form a near-optimal greedy queue-clearing policy with one extra preemption clause for asymmetric multi-phase intersections.
 
-### 6.2 Why deep reinforcement learning has not outperformed this
+### 6.2 Comparison with deep reinforcement learning
 
-Published deep-reinforcement-learning traffic-signal controllers report 30 to 50 percent improvements over fixed-time, the same range our two-parameter rule achieves. We conjecture three reasons the field has not noticed this:
+Published deep-reinforcement-learning traffic-signal controllers report 30 to 50 percent improvements over fixed-time baselines. Our four-parameter rule achieves a 49 percent improvement, placing it within this range. However, this is not a head-to-head comparison: we did not run any RL method on our seven scenarios, and the published results span different networks, baselines, and evaluation metrics. A direct comparison would require running a specific RL implementation (e.g. DQN, PPO) on the same seven SUMO scenarios with the same Webster baseline, which we leave to future work. With this caveat, we conjecture three reasons simple rules have been under-tested in the literature:
 
 1. **Baseline weakness.** Many reinforcement-learning papers compare against poorly tuned fixed-time controllers rather than Webster-optimal ones, inflating the apparent improvement.
 2. **Benchmark choice.** Standard benchmarks (CityFlow, sumo-rl small grids) under-test the conditions where complex policies might genuinely help: very heavy congestion, long-horizon planning, multi-modal interactions.
@@ -267,7 +267,9 @@ The deeper issue is that our custom simulator was, mathematically, equivalent to
 
 ### 6.4 Limitations
 
-**Single-intersection focus.** Five of our seven scenarios are single intersections. Network-level coordination (green waves, gridlock prevention, demand-responsive routing) is not addressed by our rule. Real cities are networks.
+**Single-intersection focus.** All seven scenarios are single intersections. Network-level coordination (green waves, gridlock prevention, demand-responsive routing) is not addressed by our rule. Real cities are networks, and the single-intersection setting is where simple rules are most likely to succeed; the advantage of RL-based methods is more likely to appear at the network scale.
+
+**Custom scenarios.** Four of our seven scenarios use custom uniform-demand routes not published in any prior study. Only the three sumo-rl scenarios (horizontal, vertical, vhvh) are externally reproducible published benchmarks.
 
 **No pedestrian phase.** Real traffic signals must accommodate pedestrian crossing phases, emergency vehicle preemption, and transit priority. Our simulation does not include these.
 
@@ -277,14 +279,15 @@ The deeper issue is that our custom simulator was, mathematically, equivalent to
 
 ### 6.5 Future work
 
-1. Network-scale validation on city-sized SUMO scenarios (Manhattan, Monaco) to test whether the simple rule degrades, holds, or requires extension.
-2. Pedestrian and emergency preemption to handle the constraints real signals must satisfy.
-3. Field deployment at a controlled real intersection with before-and-after measurement.
-4. Direct comparison against published reinforcement-learning methods on identical sumo-rl benchmark scenarios with identical evaluation protocols.
+1. **Head-to-head RL comparison.** Run a specific RL method (e.g. DQN, PPO via sumo-rl's built-in examples) on the same seven scenarios with the same Webster baseline. This is the most important missing experiment.
+2. Network-scale validation on city-sized SUMO scenarios (Manhattan, Monaco) to test whether the simple rule degrades, holds, or requires extension.
+3. Pedestrian and emergency preemption to handle the constraints real signals must satisfy.
+4. Field deployment at a controlled real intersection with before-and-after measurement.
+5. **MIN_GREEN sensitivity.** Test whether the SOTL rule's advantage changes at MIN_GREEN values other than the default 5 seconds.
 
 ## 7. Conclusion
 
-A two-parameter Self-Organising Traffic Light rule with one preemption clause achieves a 49.10 percent mean Average Wait Time reduction over Webster's optimal fixed-time baseline on Simulation of Urban MObility (SUMO) across seven scenarios — matching or exceeding published deep reinforcement learning methods, without any training. The result is robust: 38 HDR experiments across two simulators (a custom toy and the standard SUMO with sumo-rl) confirm the top-level finding while exposing the limits of toy-simulator parameter tuning. Eight of nine candidate "improvements" failed in both simulators, supporting the Occam principle in this domain. We argue that the deep-reinforcement-learning traffic-signal literature has under-tested simple deterministic baselines and that a 20-line rule should be the new floor against which complex policies must demonstrate value.
+A four-parameter Self-Organising Traffic Light rule achieves a 49.10 percent mean Average Wait Time reduction over Webster's optimal fixed-time baseline on Simulation of Urban MObility (SUMO) across seven scenarios (three seeds each) — placing it within the 30 to 50 percent range reported by published deep reinforcement learning methods, without any online learning. This is not a head-to-head comparison; no RL method was run on our scenarios. The result is robust: 38 HDR experiments across two simulators (a custom toy and the standard SUMO with sumo-rl) confirm the top-level finding while exposing the limits of toy-simulator parameter tuning. Eight of nine candidate "improvements" failed in both simulators, supporting the Occam principle in this domain. We argue that the deep-reinforcement-learning traffic-signal literature has under-tested simple deterministic baselines and that a 20-line rule should be the new floor against which complex policies must demonstrate value. A direct RL-vs-SOTL comparison on identical scenarios remains the most important piece of future work.
 
 ## References
 
