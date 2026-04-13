@@ -1,7 +1,7 @@
 # HDR Active Queue
 
-**Last updated**: 2026-04-10 (added OSS abandonment + 2 economics projects targeting HN audience, slotted before Xylella)
-**Companion**: `pipeline.md` (full 140-candidate pool)
+**Last updated**: 2026-04-13 (REFRESH-3 done; 45 new candidates across 9 clusters added to pipeline.md)
+**Companion**: `pipeline.md` (216-candidate pool as of REFRESH-3)
 **Order**: strict series — one project at a time, dependencies enforced via task tracker
 
 ## Top 15 (in execution order)
@@ -25,10 +25,20 @@
 | **REFRESH-2** | — | — | re-search candidate pool, update files | — | — | 29 |
 | 14 | **complete** | IE-7 | Dublin/Cork NO2 source attribution (REAL DATA, re-run from scratch) | 29/30 | IE | 30 |
 | 15 | **complete** | T-9 | NYC congestion charge effect decomposition | 29/30 | T | 31 |
-| 16 | queued | O-10 | Aircraft turnaround time mechanism (32 vs 71 min) | 29/30 | O | 32 |
-| 17 | queued | E-4 | TOU non-shifters mechanism (75% don't shift) | 29/30 | E | 33 |
-| 18 | queued | EU-2 | Po Valley fog persistence + aerosol coupling | 29/30 | EU | 34 |
-| **REFRESH-3** | — | — | re-search candidate pool, update files | — | — | 35 |
+| 16 | **complete** | O-10 | Aircraft turnaround time mechanism (32 vs 71 min) | 29/30 | O | 32 |
+| 17 | **complete** | E-4 | TOU non-shifters mechanism (75% don't shift) | 29/30 | E | 33 |
+| 18 | **complete** | EU-2 | Po Valley fog persistence + aerosol coupling | 29/30 | EU | 34 |
+| **REFRESH-3** | **complete** | — | 45 new candidates across 9 clusters; queue re-ranked | — | — | 35 |
+| 19 | **complete** | OSS-1 | What predicts open-source project abandonment? (GH Archive) | 30/30 | O | — |
+| 20 | queued | EU-29 | Predict where European aircraft lose GNSS — Baltic/Black Sea corridor | 30/30 | EU | — |
+| 21 | queued | ECON-1 | Do YC companies actually outperform non-YC at same stage? (Crunchbase) | 30/30 | O | — |
+| 22 | queued | ECON-2 | What predicts which housing markets crash first? | 30/30 | O | — |
+| 23 | queued | W-20 | SWIO rapid-intensification cyclones (Gezani/Fytia) | 29/30 | W | — |
+| 24 | queued | EU-30 | Which European imports face biggest CBAM cost shock | 29/30 | EU | — |
+| 25 | queued | EU-31 | H5N1 bovine spillover — which EU dairy region next | 29/30 | EU | — |
+| 26 | queued | Q-20 | EU AQD 2030 PM2.5 breaches — traffic vs wood vs transboundary | 29/30 | Q | — |
+| 27 | queued | P-13 | Why did this SSW crash polar vortex and the next barely nudge | 29/30 | P | — |
+| **REFRESH-4** | — | — | re-search candidate pool after 5 more completed projects | — | — | — |
 
 ## Per-project HDR phases (every project runs these)
 

@@ -1,0 +1,231 @@
+id	authors	year	venue	title	claim_or_finding
+1	Avelino et al.	2016	ICPC	A Novel Approach for Estimating Truck Factors	Truck factor (TF) computed from DOA; ~65% of 133 GitHub projects have TF<=2.
+2	Avelino et al.	2019	JSS	On the abandonment and survival of open source projects	1932 projects; 41% survive via successor; abandonment linked to contributor concentration.
+3	Coelho & Valente	2017	FSE	Why modern open source projects fail	104 failed projects interviewed; top causes usurped/obsolete/lack-of-interest.
+4	Coelho et al.	2018	EMSE	Identifying unmaintained projects in GitHub	RF classifier F1 0.80 detecting unmaintained from commits/authors/issues.
+5	Coelho et al.	2020	EMSE	Is this GitHub project maintained? Measuring the level of maintenance activity	Maintenance activity score on 2927 projects; commit-frequency decay strongest predictor.
+6	Valiev Vasilescu Herbsleb	2018	FSE	Ecosystem-level determinants of sustained activity in OSS projects	PyPI Cox on 46k packages; upstream activity + org backing predict sustained commits.
+7	Miller et al.	2019	ICSE	Did you miss my comment or what? Understanding toxic behavior in OSS	Toxic interactions correlate with maintainer departure.
+8	Raman et al.	2020	ICSE	Stress and burnout in open source	Pushback classifier; maintainers with pushback show 90-day attrition elevation.
+9	Constantinou & Mens	2017	JSS	Developer retention in RubyGems and npm ecosystems	Median developer active period ~1 year; npm churn higher.
+10	Qiu et al.	2019	ICSE	Going farther together: The impact of social capital on sustained participation in OSS	Network embeddedness + reciprocity predict contributor retention.
+11	Zhou & Mockus	2015	TSE	Who will stay in the FLOSS community?	Early-month activity patterns predict long-term retention (AUC 0.72).
+12	Lin et al.	2017	MSR	Developer turnover in global industrial OSS	Industrial OSS turnover 50% over 5 years; bus factor coupled with layoffs.
+13	Ferreira et al.	2019	MSR	Comparison of three truck factor algorithms	DOA-based TF most predictive of actual abandonment.
+14	Jergensen Sarma Wagstrom	2011	ESEM	The onion patch: migration in open source ecosystems	Peripheral-to-core transition <8%.
+15	Robles & Gonzalez-Barahona	2006	MSR	Contributor turnover in libre software projects	>40% of contributors are one-shot; turnover is default state.
+16	Eghbal	2016	Ford Foundation Report	Roads and Bridges: The Unseen Labor Behind Our Digital Infrastructure	Articulates OSS maintainer burden; seminal framing.
+17	Eghbal	2020	Stripe Press	Working in Public	Taxonomy federations/clubs/stadiums/toys; stadium projects highest abandonment risk.
+18	Crowston & Howison	2006	KBS	Assessing the health of open source communities	Early health framework; activity/responsiveness/demographics.
+19	Schweik & English	2012	MIT Press	Internet Success: A Study of OSS Commons	174k SourceForge projects; only ~17% reach success; abandonment dominant.
+20	Khondhu Capiluppi Stol	2013	OSS	Is it all lost? A study of inactive open source projects	Reactivation in ~22% of dormant projects.
+21	Izquierdo-Cortazar et al.	2009	OSS	Software archaeology: knowledge loss when key developers leave	Orphaned code; quantifies knowledge loss.
+22	Yamashita et al.	2015	MSR	Revisiting the pareto principle in core development	80/20 concentration across most OSS projects predicts fragility.
+23	Lee Carver Bosu	2017	ICSME	Impact of bot usage on developer work practices	Bots mask human maintainer decline.
+24	Mombach & Valente	2018	ICSME	GitHub REST API vs GHTorrent vs GHArchive	Methodological; GH Archive best for longitudinal.
+25	Gousios et al.	2014	ICSE	Lean GHTorrent	GHTorrent pipeline predecessor.
+26	Kalliamvakou et al.	2014	MSR	Promises and perils of mining GitHub	Warns against treating inactive repos as failed.
+27	Kalliamvakou et al.	2016	EMSE	In-depth study of promises and perils of mining GitHub	Engineered project filter widely used downstream.
+28	Borges & Valente	2018	JSS	Whats in a GitHub star?	Stars correlate weakly with quality.
+29	Borges Hora Valente	2016	ICSME	Factors that impact popularity of GitHub repositories	Popularity driven by owner reputation/language/domain.
+30	Zhu Zhou Mockus	2016	FSE	Code contribution effectiveness: patch vs pull-request	PR tooling increases volume not long-term retention.
+31	Tsay Dabbish Herbsleb	2014	ICSE	Influence of social and technical factors on contributions	Social signals bias PR acceptance.
+32	Steinmacher et al.	2015	ICSE	Social barriers faced by newcomers	Onboarding reception decisive for drop-off.
+33	Steinmacher et al.	2018	TSE	Almost there: quasi-contributors in OSS	Quasi-contributors 60%+ of all.
+34	Pinto Steinmacher Gerosa	2016	OSS	Casual contributors	48% of contributors make only one commit.
+35	Dey et al.	2020	MSR	Detecting and characterizing bots	Bot activity masks declining human activity.
+36	Decan Mens Grosjean	2019	EMSE	Dependency network evolution	Abandonment propagates along dependency edges.
+37	Decan Mens Constantinou	2018	MSR	Security vulnerabilities in npm dependency network	Abandoned deps primary attack surface.
+38	Cogo Oliva Hassan	2019	ICSME	Deprecation of packages in npm	Formal deprecation rare; silent abandonment dominant.
+39	Zerouali et al.	2022	EMSE	JS developers facing uncertainty	Uncertainty around abandonment slows downstream updates.
+40	Valiev et al.	2020	ESEM	Past present future of industrial participation in OSS	Corporate layoffs produce downstream abandonment signatures.
+41	Germonprez et al.	2018	JAIS	Sustainability of corporate contributions to OSS	Firm-sponsored projects survive longer but create single-sponsor fragility.
+42	Pham et al.	2013	ICSE	Shared understanding of testing culture	Testing norms transfer; weak health signal.
+43	Foucault et al.	2015	FSE	Impact of developer turnover on quality in OSS	Turnover increases defect density.
+44	Rigby et al.	2016	TSE	Quantifying knowledge loss	Models knowledge loss from departures.
+45	Raymond	1999	Book	The Cathedral and the Bazaar	"Many eyeballs" thesis later challenged.
+46	Zhou et al.	2016	TSE	Inflow of commits and exit of contributors in OSS	Exit rate step-function around release cycles.
+47	Calefato Lanubile Novielli	2018	EMSE	Mood and emotions in OSS	Sentiment correlates with maintainer retention.
+48	Ortu et al.	2015	MSR	Are bullies more productive?	Negative sentiment precedes maintainer departures.
+49	Destefanis et al.	2018	OSS	Politeness level of communications	Low politeness linked to project decline.
+50	Bock et al.	2022	ICSE	Measuring maintainer self-efficacy and burnout	45% of 284 maintainers report burnout symptoms.
+51	Guzman Azocar Li	2014	MSR	Sentiment analysis of commit comments	Baseline for later abandonment predictors.
+52	Wang et al.	2020	ICSE	Elite developers activities in OSS	Elite departure causes disproportionate activity drop.
+53	Trinkenreich et al.	2021	TOSEM	Womens participation in OSS	Women leave at higher rates after hostile interactions.
+54	Vasilescu et al.	2015	CHI	Gender and tenure diversity	Diversity associated with productivity and survival.
+55	CHAOSS Project	2019	Whitepaper	CHAOSS Metrics	Standardized health metrics.
+56	Goggins et al.	2021	MSR	OSS Community Health: metrics and narratives	Formalizes CHAOSS narratives.
+57	Linux Foundation / Harvard	2022	Report	Census III of FOSS	Top 1000 critical packages; many 1-2 maintainers.
+58	Synopsys OSSRA	2023	Industry Report	Open Source Security and Risk Analysis	84% of codebases contain an abandoned dependency.
+59	Trockman et al.	2018	ICSE	Repository badges	Badges correlate with sustained activity modestly.
+60	Kikas et al.	2017	MSR	Structure and evolution of package dependency networks	Abandonment cascades modeled.
+61	Mirhosseini & Parnin	2017	ASE	Automated PRs for dependency upgrades	Greenkeeper/Dependabot masks upstream abandonment.
+62	Zhou et al.	2021	ICSE	Sentiment on contributor retention	Negative sentiment in first interaction doubles drop-off.
+63	Kikas Dumas Pfahl	2016	MSR	Dynamic contextual features for issue lifetime	Issue response-time model generalizes.
+64	Iyer et al.	2019	EMSE	Personality traits on PR acceptance	Maintainer personality affects contributor retention.
+65	Jansen	2014	IST	Measuring health of OSS ecosystems	Health framework robustness/productivity/niche.
+66	Manikas	2016	JSS	Revisiting software ecosystems research	Meta-review of health metric families.
+67	Tamburri et al.	2019	EMSE	Community smells in OSS	Smells (silo/black cloud/lone wolf) predict decline.
+68	Palyart et al.	2018	TSE	Change of developer activity after joining GitHub	Post-joining activity predicts 5-year retention.
+69	Lee et al.	2017	ICSE	Impact of rapid releases on software quality	Release cadence slowdown precedes abandonment.
+70	Mens Decan Grosjean	2019	IEEE Software	Technical lag in npm	Technical lag as leading indicator.
+71	Zerouali Mens De Roover	2021	EMSE	Package usage in Docker Hub images	Downstream users continue using abandoned packages for years.
+72	Yin et al.	2021	ESEM	ASF project graduation/retirement	ASF graduation/retirement rates.
+73	Valiev et al.	2022	ICSE	Developer burnout empirical study	5-dimension burnout scale validated.
+74	Blincoe et al.	2016	JSS	Following affiliation influence leadership	Follower graph predicts longevity.
+75	Jiang Adams German	2013	FSE	Will my patch make it?	Early issue-latency model.
+76	Canfora et al.	2012	FSE	Going going gone: resignation of developers	Early survival on SourceForge; "going" state.
+77	Samoladas Angelis Stamelos	2010	IST	Survival Analysis Duration of OSS Projects	Weibull; 50% projects die within 1 year.
+78	Wang	2012	IST	Survival factors for FOSS projects	Age/team size/license as predictors.
+79	Subramanian et al.	2020	ICSE	Commit message detail and defects	Commit-message quality as engagement side-channel.
+80	Xia et al.	2022	TSE	Predicting issue response time on GitHub	LSTM/transformer 0.82 AUC.
+101	Nagle Powell Zitomer Wheeler	2024	LF/Harvard LISH	Census III of FOSS	Dependency concentration and thin-maintainer packages at enterprise scale.
+102	Nagle Dabbish Herbsleb	2020	LF/Harvard LISH	Census II FOSS Application Libraries	10 widely-deployed libs maintained by one dev.
+103	OpenSSF/LF/LISH	2020	CII	Vulnerabilities in the Core (Census II pre-release)	First accounting of widely-deployed OSS with sub-sustainability maintainer counts.
+104	Hoffmann Nagle Zhou	2024	HBS WP 24-038	The Value of Open Source Software	Demand-side value USD 8.8T; 3.5x firm-cost multiplier.
+105	Nagle	2019	Management Science	Government Technology Policy Social Value National Competitiveness	Gov OSS adoption increases IT productivity.
+106	Nagle	2019	Strategy Science	Open Source Software and Firm Productivity	Firms ~8.4% productivity gains dependent on maintainer updates.
+107	Zhang Nagle Wang Hoffmann	2024	HBS WP	OSS Contributions and Free-Riding	<5% corporate users contribute back.
+108	Tidelift	2024	Survey	2024 State of the Open Source Maintainer	60% unpaid; 44% burnout; under-26 fell 25% to 10%.
+109	Tidelift	2023	Survey	2023 State of the Open Source Maintainer	77% want to be paid.
+110	Tidelift	2022	Survey	2022 State of the Open Source Maintainer	46% unpaid maintainers considered quitting in past year.
+111	Tidelift	2021	Survey	2021 Maintainer Survey	First large-N survey linking pay to participation.
+112	Tidelift	2020	Blog	Respecting the Work of Open Source Maintainers	Baseline burnout/thankless-work prevalence.
+113	GitHub	2024	Octoverse	Octoverse 2024	Long-tail package maintainer retention declining.
+114	GitHub	2023	Octoverse	Octoverse 2023	4.5B contributions; more one-time contributors.
+115	GitHub	2022	Octoverse	Octoverse 2022	20% of active repos have fewer than 2 committers.
+116	GitHub	2021	Octoverse	Octoverse 2021	Pandemic slowdown; burnout signals.
+117	GitHub	2020	Octoverse	Octoverse 2020	Geography maps; EU maintainer workload/capita.
+118	GitHub	2019	Octoverse	Octoverse 2019	80% of contributions from outside US.
+119	GitHub	2018	Octoverse	Octoverse 2018	96M repos; dormancy quantified.
+120	GitHub	2017	Octoverse	Octoverse 2017	Contribution-frequency skew.
+121	GitHub	2015	Octoverse	Octoverse 2015	Initial baseline 9.2M active repos.
+122	Stack Overflow	2024	Developer Survey	2024 Developer Survey	~74% contribute to OSS.
+123	Stack Overflow	2023	Developer Survey	2023 Developer Survey	Sentiment toward OSS employers positive.
+124	Stack Overflow	2022	Developer Survey	2022 Developer Survey	Post-COVID weekend OSS drop.
+125	Stack Overflow	2020	Developer Survey	2020 Developer Survey	65% of pros contribute >=1/yr.
+126	Stack Overflow	2018	Developer Survey	2018 Developer Survey	First OSS questions at scale.
+127	Eghbal	2016	Ford Foundation	Roads and Bridges	OSS as digital public infrastructure.
+128	Eghbal	2020	Stripe Press	Working in Public	Stadium projects most vulnerable.
+129	Grigorik	2012	Dataset	GH Archive	Canonical timeline dataset.
+130	Gousios Spinellis	2012	MSR	GHTorrent	Relational mirror of GitHub events.
+131	Katz	2018	Zenodo	Libraries.io Dataset	4.5M package dependency graph.
+132	Valiev Vasilescu Herbsleb	2018	FSE-alt	PyPI sustained activity	Network centrality + org backing + downstream.
+133	Corbet Kroah-Hartman	2017	LF Report	2017 Linux Kernel Development	Top 20 companies >60% of kernel commits.
+134	Corbet Kroah-Hartman	2020	LF Report	2020 Linux Kernel History	30-year retrospective; paid maintainership enables continuity.
+135	Kroah-Hartman	2021	LPC	Burned out kernel maintainers	Subsystem bus-factor dangerously low.
+136	Akamai	2024	Blog	CVE-2024-3094 Root Cause	Social engineering of lone burned-out maintainer.
+137	thesamesam	2024	Gist	xz-utils backdoor timeline	2+ years of pressure-campaign emails.
+138	Freund	2024	oss-security	Backdoor in xz/liblzma	Disclosure identifying takeover pathway.
+139	Collin	2022	xz-devel	Maintainer note on life	Burnout and inability to keep up.
+140	Apache	2021	CVE-2021-44228	Log4Shell	Widely-deployed lib maintained by 3 volunteers.
+141	Nagle testimony	2022	US Senate	Responding to Log4Shell	Critical infra dependent on volunteers.
+142	Williams	2016	The Register	left-pad incident	Single-maintainer action fragility.
+143	Tal	2018	Snyk	event-stream backdoor	Handoff to unknown contributor.
+144	Tarr	2018	GitHub	Statement on event-stream	Handed off after disengagement.
+145	Roth	2022	BleepingComputer	colors/faker sabotage	Protest sabotage.
+146	Squires	2022	GitHub	Statement on colors.js sabotage	Protest against corporate free-riding.
+147	Goggins Germonprez Lumbard	2021	CHAOSS	Contributor Absence/Elephant/Bus	Standardizes metrics.
+148	CHAOSS	2024	community	DEI and Sustainability Metrics Catalog	100+ community-validated metrics.
+149	Izquierdo-Cortazar Gonzalez-Barahona	2019	Bitergia	GrimoireLab/Bitergia Analytics	Industrial-scale CHAOSS pipeline.
+150	CNCF TOC	2023	cncf.io	CNCF Project Health Dashboard	Bus factor >=3 and release cadence as graduation gates.
+151	Mozilla	2019	mozilla.org	Open Source Archetypes	Which structures are resilient.
+152	Mozilla	2018	IHR	Internet Health Report 2018	Dependency concentration flagged.
+153	GitHub	2019	GH docs	Project Sustainability via Sponsors	Sponsors launch metrics.
+154	OSS Insight	2022	blog	OSS Highlights 2022	5B+ events; concentration distribution.
+155	OSS Insight	2022	blog	Bots booming	Bot-activity inflation biases metrics.
+156	OSS Insight	2023	blog	Unsung heroes	Profiles of hidden critical maintainers.
+157	Synopsys Black Duck	2024	OSSRA	2024 OSS Security and Risk	84% codebases have OSS vulns; 91% >=10 versions behind.
+158	Sonatype	2023	Report	9th State of Software Supply Chain	18.6% of projects have abandoned maintainers.
+159	Sonatype	2024	Report	10th State of Software Supply Chain	Supply-chain attacks +156% YoY.
+160	Endor Labs	2024	Report	State of Dependency Management	90%+ transitives unmaintained at some depth.
+161	Synopsys	2023	OSSRA	2023 OSS Security and Risk	89% codebases have OSS >4 years stale.
+162	Coelho et al.	2018	ICSE-SEIP	Identifying Unmaintained Projects in GitHub	Unmaintained = 12mo silent + no announcement; F1 0.84.
+163	Avelino Passos Hora Valente	2016	ICPC-alt	TF Estimation	Reproducible TF algorithm.
+164	Valiev Herbsleb Vasilescu	2018	ICSE-alt	PyPI dormancy	Median PyPI enters dormancy within 2 years.
+165	Decan Mens Grosjean	2019	EMSE-alt	Dependency network evolution	Dormancy rates differ 5x across ecosystems.
+166	Zerouali Mens Robles Gonzalez-Barahona	2019	MSR	Diversity of package popularity in npm	Popularity weakly predicts maintainer capacity.
+167	Constantinou Mens	2017	JSS-alt	RubyGems vs npm retention	Retention halves every ~12 months.
+168	Miller GitHub Sponsors	2022	GH Blog	Sponsors funding milestones	Sponsorship modestly reduces abandonment risk.
+169	Overney Meinicke Kaestner Vasilescu	2020	ICSE	OSS Donations empirical	Most projects receive <USD 100/mo.
+170	Shah	2006	Management Science	Motivation Governance Hybrid Forms in OSS	Shift from hobby to need-based motivation before exit.
+171	CHAOSS/Brasscom	2020	CHAOSS	Using CHAOSS Metrics to Predict Abandonment	Elephant Factor <=2 predicts abandonment within 18mo.
+172	GitHub	2022	GH Blog	Economics of open source	Paid vs volunteer ratios.
+173	SourceCred	2019	sourcecred.io	SourceCred Protocol	Algorithmic contribution-reward framework.
+174	Open Collective	2023	opencollective.com	Annual Transparency Report	Median collective <USD 2k/yr.
+175	GitHub Sponsors	2024	GH Blog	5-year Sponsors retrospective	Payout + retention effects.
+176	OpenSSF	2023	openssf.org	OpenSSF Scorecard	17 automated health checks.
+177	Harvard LISH	2020	LF Report	2020 FOSS Contributor Survey	49% paid; unpaid median 7 hrs/week.
+178	Robles Gonzalez-Barahona	2006	OSS Conf-alt	Contributor Turnover in Libre	>40% one-shot; turnover default.
+179	GH Archive + BigQuery	2018	Google Cloud	GitHub on BigQuery	Public dataset mirror.
+180	Raymond CHAOSS DEI WG	2022	CHAOSS	DEI Badging and Retention	Inclusion practices reduce turnover.
+201	Cox	1972	JRSS-B	Regression Models and Life-Tables	Cox PH foundational for time-to-abandonment.
+202	Kaplan Meier	1958	JASA	Nonparametric Estimation from Incomplete Observations	KM baseline survival curves.
+203	Wei	1992	Stats Med	The Accelerated Failure Time Model	AFT alternative when PH fails.
+204	Andersen Gill	1982	Annals Stats	Cox's Regression for Counting Processes	Recurrent events (dormancy then resurrection).
+205	Fine Gray	1999	JASA	Subdistribution Hazards for Competing Risk	Competing risks: abandonment vs migration vs fork.
+206	Therneau Grambsch	2000	Springer	Modeling Survival Data	Time-varying covariates and stratified Cox.
+207	Klein Moeschberger	2003	Springer	Survival Analysis	Censoring schemes for active repos.
+208	Samoladas Angelis Stamelos	2010	IST-alt	Survival of OSS Projects	Early Cox PH on SourceForge.
+209	Coelho Valente	2017	FSE-alt	Why Modern OSS Projects Fail	Qualitative causes.
+210	Avelino Passos Hora Valente	2016	ICPC-alt2	TF	TF via authorship concentration.
+211	Chen Guestrin	2016	KDD	XGBoost	Gradient-boosted trees baseline.
+212	Ke Meng Finley	2017	NeurIPS	LightGBM	Histogram-based GBDT.
+213	Dorogush Ershov Gulin	2018	arXiv	CatBoost	Ordered boosting for cats.
+214	Friedman	2001	Annals Stats	Greedy Function Approximation	GBM theoretical foundation.
+215	Prokhorenkova Gusev Vorobev	2018	NeurIPS	CatBoost unbiased boosting	Target-encoding bias analysis.
+216	Lundberg Lee	2017	NeurIPS	A Unified Approach to Interpreting Model Predictions	SHAP values.
+217	Lundberg Erion Chen	2020	Nature ML Intelligence	TreeSHAP	Fast exact Shapley for tree ensembles.
+218	Killick Fearnhead Eckley	2012	JASA	PELT	Optimal changepoint detection.
+219	Adams MacKay	2007	arXiv	Bayesian Online Changepoint Detection	BOCPD for streaming.
+220	Truong Oudre Vayatis	2020	Signal Processing	Offline Change Point Detection Review	ruptures Python package.
+221	Aminikhanghahi Cook	2017	KAIS	Survey of Time Series CPD	Broad CPD survey.
+222	Hawkes	1971	Biometrika	Self-Exciting Point Processes	Original Hawkes.
+223	Laub Taimre Pollett	2015	arXiv	Hawkes Processes	Tutorial with estimation.
+224	Mei Eisner	2017	NeurIPS	Neural Hawkes Process	Continuous-time LSTM for event streams.
+225	Du Dai Trivedi	2016	KDD	Recurrent Marked Temporal Point Processes	RMTPP.
+226	Zuo Jiang Li	2020	ICML	Transformer Hawkes Process	Attention-based TPP.
+227	Shchur Bilos Guennemann	2020	ICLR	Intensity-Free TPP	Log-normal mixture TPP.
+228	Chawla Bowyer Hall Kegelmeyer	2002	JAIR	SMOTE	Minority oversampling.
+229	He Bai Garcia Li	2008	IJCNN	ADASYN	Adaptive oversampling.
+230	Lin Goyal Girshick He Dollar	2017	ICCV	Focal Loss	Extreme imbalance.
+231	King Zeng	2001	Political Analysis	Logistic Regression in Rare Events	Prior-correction + weighting.
+232	Elkan	2001	IJCAI	Foundations of Cost-Sensitive Learning	Class weighting theory.
+233	Platt	1999	LM	Probabilistic Outputs for SVMs	Platt scaling.
+234	Zadrozny Elkan	2002	KDD	Isotonic regression calibration	Score-to-probability mapping.
+235	Niculescu-Mizil Caruana	2005	ICML	Calibration of Supervised Learners	GBDT needs isotonic for rare events.
+236	Guo Pleiss Sun Weinberger	2017	ICML	Calibration of Modern Neural Networks	Temperature scaling.
+237	Brier	1950	Monthly Weather Review	Brier score	Proper scoring rule.
+238	Saito Rehmsmeier	2015	PLoS ONE	PR plot vs ROC on imbalanced data	PR-AUC as primary metric.
+239	Davis Goadrich	2006	ICML	Relationship between PR and ROC Curves	PR dominance relation.
+240	Hanley McNeil	1982	Radiology	Meaning of Area under ROC	Classical AUC reference.
+241	Gama Zliobaite Bifet	2014	ACM CS	Concept Drift Adaptation Survey	Temporal validation essential.
+242	Lu Liu Dong	2019	IEEE TKDE	Concept Drift Review	Drift-aware retraining.
+243	Akiba Sano Yanase Ohta Koyama	2019	KDD	Optuna	TPE sampler + pruning.
+244	Li Jamieson DeSalvo Rostamizadeh Talwalkar	2018	JMLR	Hyperband	Successive halving.
+245	Bergstra Bengio	2012	JMLR	Random Search for Hyperparameters	Random beats grid for GBDT.
+246	Wooldridge	2010	MIT Press	Econometric Analysis of Panel Data	Fixed/random effects.
+247	Allison	2014	SAS	Event History and Survival Analysis	Discrete-time hazard via logistic.
+248	Singer Willett	2003	Oxford	Applied Longitudinal Data Analysis	Discrete-time hazard for weekly panels.
+249	Katz Meyer	1990	J Econometrics	Duration of Unemployment	Classical duration modeling.
+250	Ishwaran Kogalur Blackwell Lauer	2008	AOAS	Random Survival Forests	Non-parametric survival ensemble.
+251	Katzman Shaham Cloninger	2018	BMC MRM	DeepSurv	Neural Cox regression.
+252	Lee Zame Yoon van der Schaar	2018	AAAI	DeepHit	Deep competing-risks survival.
+253	Kvamme Borgan Scheel	2019	JMLR	pycox	Practical deep survival.
+254	Fernandez-Delgado Cernadas Barro Amorim	2014	JMLR	Hundreds of Classifiers?	Tree ensembles dominate.
+255	Grinsztajn Oyallon Varoquaux	2022	NeurIPS	Tree-Based Models on Tabular Data	GBDTs beat deep nets on tabular.
+256	Christ Braun Neuffer Kempa-Liehr	2018	Neurocomputing	tsfresh	Automated time-series features.
+257	Montero-Manso et al.	2020	IJF	FFORMA	Feature-based forecast averaging.
+258	Gini	1912	Studi Economico-Giuridici	Variability e Mutabilita	Origin of Gini coefficient.
+259	Shannon	1948	Bell Syst TJ	Mathematical Theory of Communication	Entropy basis.
+260	Newman	2003	SIAM Review	Structure and Function of Complex Networks	Network science primer.
+261	Bird Pattison DSouza Filkov Devanbu	2008	FSE	Latent Social Structure in OSS	Communication graph analysis.
+262	Perozzi Al-Rfou Skiena	2014	KDD	DeepWalk	Graph embeddings.
+263	Hamilton Ying Leskovec	2017	NeurIPS	GraphSAGE	Inductive graph embeddings.
+264	Decan Mens Constantinou	2018	MSR-alt	npm Security Vulnerabilities	Ecosystem abandonment risk.
+265	Valiev Vasilescu Herbsleb	2018	FSE-alt2	PyPI Ecosystem Survival	Closest methodological analogue.
+266	Miller Kaestner Vasilescu	2023	ICSE	Winging It: OSS Dependency Abandonment	Qualitative label-informing study.
+267	Hochreiter Schmidhuber	1997	Neural Computation	LSTM	Sequential commit-count modeling.
+268	Bai Kolter Koltun	2018	arXiv	TCN	TCN often beats LSTM on long sparse sequences.
+269	Lim Arik Loeff Pfister	2021	IJF	Temporal Fusion Transformers	Interpretable forecasting.
+270	Oreshkin Carpov Chapados Bengio	2020	ICLR	N-BEATS	Strong univariate forecasting baseline.
