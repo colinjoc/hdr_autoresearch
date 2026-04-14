@@ -1,3 +1,6 @@
+# ⚠ PAPER PAUSED — FAILED PHASE 2.75 REVIEW
+> **Do not ship.** Phase 2.75 (paper_review.md) identified blocking issues: E25 paired-bootstrap CI shows E17 margin over E11 is non-significant (delta −0.0003, CI [−0.0024,+0.0020]); E28 temporal-holdout collapsed ROC from 0.88 to 0.54. Resume requires denser temporal data (180d prior / 365d forward) before finalising. See `paper_review.md`.
+
 # Cohort Definition, Not Feature Engineering, Drives Abandonment Prediction on GitHub: A 23-Experiment HDR Study
 
 ## Abstract

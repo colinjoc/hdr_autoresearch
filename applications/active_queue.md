@@ -29,7 +29,7 @@
 | 17 | **complete** | E-4 | TOU non-shifters mechanism (75% don't shift) | 29/30 | E | 33 |
 | 18 | **complete** | EU-2 | Po Valley fog persistence + aerosol coupling | 29/30 | EU | 34 |
 | **REFRESH-3** | **complete** | — | 45 new candidates across 9 clusters; queue re-ranked | — | — | 35 |
-| 19 | **complete** | OSS-1 | What predicts open-source project abandonment? (GH Archive) | 30/30 | O | — |
+| 19 | **paused** | OSS-1 | Paused after Phase 2.75 — E28 temporal-holdout ROC 0.54 + E25 E17-vs-E11 n.s.; needs denser 180d prior / 365d forward data before resume | 30/30 | O | — |
 | 20 | queued | EU-29 | Predict where European aircraft lose GNSS — Baltic/Black Sea corridor | 30/30 | EU | — |
 | 21 | queued | ECON-1 | Do YC companies actually outperform non-YC at same stage? (Crunchbase) | 30/30 | O | — |
 | 22 | queued | ECON-2 | What predicts which housing markets crash first? | 30/30 | O | — |

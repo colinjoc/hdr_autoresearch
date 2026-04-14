@@ -22,3 +22,15 @@ E19	E11 + depth=8 (bigger trees for smaller cohort)	0.9667	0.9631	0.9698	0.8817	
 E20	E11 + log1p_stars + log1p_forks	0.9671	0.9635	0.9703	0.8833	0.1321	0.9910	43247	14415	11864	0.8230	RUN
 E21	Tightest: >=50 human commits (small elite cohort)	0.8611	0.8400	0.8802	0.7728	0.1934	1.0000	3396	1131	687	0.6074	RUN
 E22	E11 with all four derived ratios explicit	0.9672	0.9637	0.9703	0.8835	0.1316	0.9903	43247	14415	11864	0.8230	RUN
+E23a	E17 original (pre-permutation baseline)	0.9728	0.9709	0.9749	0.8605	0.1338	0.9854	0	32954	29152	0.8846	RUN_RV
+E23	Label permutation control (50 shuffles)	0.8848	0.8810	0.8879	0.5003	nan	nan	0	32954	29152	0.8846	CONTROL
+E24	Seed stability across 5 seeds (σ reported)	0.9750	0.9729	0.9759	0.8683	0.0047	0.0011	0	5	0	0.0000	DIAG
+E25	Paired ROC delta E17-E11: -0.0003 [-0.0024,+0.0020]; NS	0.0000	0.0000	0.0000	-0.0003	0.3800	0.0000	0	500	0	0.0000	DIAG
+E26	Relabel-on-E02: >=5 prior + fwd/prior<0.1	0.9728	0.9709	0.9749	0.8603	0.1338	0.9854	0	32954	29152	0.8846	RUN_RV
+E28	Temporal holdout: train 04-01/03 -> test 04-05 (E11 cohort)	0.7711	0.7614	0.7811	0.5376	0.1843	0.7312	0	12760	9700	0.7602	TEMPORAL
+E31	E17 + isotonic calibration (post-hoc)	0.9724	0.9704	0.9744	0.8607	0.0721	0.9854	0	32954	29152	0.8846	RUN_RV
+E32	E17 + 4 engagement ratios (response-time proxies)	0.9728	0.9708	0.9749	0.8604	0.1334	0.9851	0	32954	29152	0.8846	RUN_RV
+E33	E17 + 3 author-concentration features (truck-factor proxy)	0.9730	0.9712	0.9751	0.8612	0.1326	0.9854	0	32954	29152	0.8846	RUN_RV
+E35_E00	permute E00 (base_rate=0.946)	0.9463	0.9453	0.9473	0.5011	nan	nan	0	165648	156725	0.9461	CONTROL
+E35_E02	permute E02 (base_rate=0.876)	0.8759	0.8713	0.8805	0.4995	nan	nan	0	32954	28867	0.8760	CONTROL
+E35_E11	permute E11 (base_rate=0.823)	0.8234	0.8174	0.8307	0.4995	nan	nan	0	14415	11864	0.8230	CONTROL

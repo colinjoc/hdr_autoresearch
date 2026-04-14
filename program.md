@@ -5,6 +5,38 @@
 
 ---
 
+## Phase exit criteria (machine-checkable, BLOCKING)
+
+A phase is **complete** only when the named artifact exists on disk AND the
+named content marker is inside it. Summarising intent in another document
+does NOT satisfy an exit criterion. A task-tracker entry cannot be marked
+complete unless these are true.
+
+| Phase | Required artifact(s) in `applications/<project>/` | Content marker / rule |
+|---|---|---|
+| 0 | `papers.csv` + `literature_review.md` + `knowledge_base.md` + `research_queue.md` + `design_variables.md` | ≥200 citations in `papers.csv`; ≥100 hypotheses in `research_queue.md` |
+| 0.5 | `E00` row in `results.tsv` + `data_sources.md` | Real data only (no synthetic); seed-stable |
+| 1 | ≥4 model families in `results.tsv` + `tournament_results.csv` | Include a linear-model sanity check |
+| 2 | ≥20 rows in `results.tsv` with `status` ∈ {KEEP, REVERT} | Every KEEP ties to a commit and re-runs from cache |
+| 2.5 | Pairwise-interaction rows in `results.tsv` | Top-N near-miss features actually tested |
+| **2.75** | `paper_review.md` AND all reviewer-mandated experiments present in `results.tsv` with `status` in {RUN_RV, CONTROL, TEMPORAL, DIAG} | `paper_review.md` must be written by a **different sub-agent invocation** from the HDR author; "documented in §Limitations" is NOT a valid completion |
+| 3 | `paper.md` | References each KEEP experiment by ID |
+| **3.5** | `paper_review_signoff.md` | Must contain the literal string `NO FURTHER BLOCKING ISSUES`; written by a **different sub-agent invocation** from Phase 2.75 |
+| B | `phase_b_discovery.py` output in `results.tsv` or `discoveries/` | Actual inverse-design outputs, not more training runs |
+| Publish | `~/website/site/content/hdr/results/<slug>/index.md` | **Requires `paper_review_signoff.md` to exist in the project first.** Hugo build passes. |
+
+**Anti-pattern watchlist** (explicit — these were cut corners in prior runs):
+- Marking Phase 2.75 "complete" by inlining limitations into `paper.md §8`.
+  The whole point of Phase 2.75 is a **blind independent reviewer**; the author
+  cannot play both roles.
+- Publishing to the website before `paper_review_signoff.md` exists.
+- Claiming a "champion" on a random-split holdout without a temporal-split
+  confirmation (`status=TEMPORAL` in `results.tsv`).
+- Claiming framework novelty when hardware resolution is ≥10× below the
+  published frontier — call it replication, not a contribution.
+
+---
+
 ## Core Principle
 
 **The goal is DISCOVERY, not model-fitting.** A model is infrastructure. The novel result is what the model finds: new materials, new designs, new physical insights. If the HDR loop never gets past improving a regression score, it has failed.
