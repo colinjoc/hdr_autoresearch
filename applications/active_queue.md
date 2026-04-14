@@ -1,6 +1,6 @@
 # HDR Active Queue
 
-**Last updated**: 2026-04-14 (P21 ECON-1 complete — full HDR cycle incl. Phase 2.75 + 3.5 blind reviews; website summary published locally, awaiting commit/push approval)
+**Last updated**: 2026-04-14 (P22 ECON-2 complete — null finding on US metro housing-crash prediction; published)
 **Companion**: `pipeline.md` (216-candidate pool as of REFRESH-3)
 **Order**: strict series — one project at a time, dependencies enforced via task tracker
 
@@ -32,7 +32,7 @@
 | 19 | **paused** | OSS-1 | Paused after Phase 2.75 — E28 temporal-holdout ROC 0.54 + E25 E17-vs-E11 n.s.; needs denser 180d prior / 365d forward data before resume | 30/30 | O | — |
 | 20 | **paused** | EU-29 | Paused at Phase 0.5 — OpenSky academic creds + GPSJam tile endpoint required; see `gnss_jamming/BLOCKER.md` | 30/30 | EU | — |
 | 21 | **complete** | ECON-1 | YC-vs-non-YC on 2014-2019 batches via SEC Form D; null at +6 pp [−3, +15], with lookalike-placebo diagnosis of Form-D filing-habits bias | 30/30 | O | 76 |
-| 22 | queued | ECON-2 | What predicts which housing markets crash first? | 30/30 | O | — |
+| 22 | **complete** | ECON-2 | Housing-market crash prediction; null result — apparent 4.7× PR-AUC lift dissolves under metro-cluster bootstrap, block-permutation (p=0.49), and single-feature dominance check | 30/30 | O | 83 |
 | 23 | queued | W-20 | SWIO rapid-intensification cyclones (Gezani/Fytia) | 29/30 | W | — |
 | 24 | queued | EU-30 | Which European imports face biggest CBAM cost shock | 29/30 | EU | — |
 | 25 | queued | EU-31 | H5N1 bovine spillover — which EU dairy region next | 29/30 | EU | — |
