@@ -1,0 +1,45 @@
+timestamp	exp_id	description	n_treated	n_control	rate_treated	rate_control	risk_diff	rd_ci_lo	rd_ci_hi	roc_auc	pr_auc	brier	log_loss	n_train	n_test	status
+2026-04-14T10:50:50	E00a	Unconditional risk difference: P(follow-on raise | YC) - P(... | non-YC)	117	31724	0.2906	0.2914	-0.0008	-0.0789	+0.0841	nan	nan	nan	nan	0	0	BASELINE
+2026-04-14T10:50:50	E00b	Logistic[is_yc + log_offering + year_FE + quarter_FE], temporal split 2018-07-01	60	8324	0.1500	0.1024	+0.0476	-0.0382	+0.1464	0.3523	0.0777	0.1671	0.5222	23457	8384	BASELINE
+2026-04-14T10:55:16	E01-L1	Phase-1 tournament family=L1; 5 seeds; rolling-CV + temporal holdout	0	0	nan	nan	+nan	+nan	+nan	0.5842	0.1166	0.1554	nan	23457	8384	TOURNAMENT
+2026-04-14T10:55:18	E01-L2	Phase-1 tournament family=L2; 5 seeds; rolling-CV + temporal holdout	0	0	nan	nan	+nan	+nan	+nan	0.5659	0.1122	0.1791	nan	23457	8384	TOURNAMENT
+2026-04-14T10:55:32	E01-RF	Phase-1 tournament family=RF; 5 seeds; rolling-CV + temporal holdout	0	0	nan	nan	+nan	+nan	+nan	0.6055	0.1217	0.1460	nan	23457	8384	TOURNAMENT
+2026-04-14T10:55:37	E01-GB	Phase-1 tournament family=GB; 5 seeds; rolling-CV + temporal holdout	0	0	nan	nan	+nan	+nan	+nan	0.5952	0.1211	0.1490	nan	23457	8384	TOURNAMENT
+2026-04-14T10:55:43	E01-LB	Phase-1 tournament family=LB; 5 seeds; rolling-CV + temporal holdout	0	0	nan	nan	+nan	+nan	+nan	0.6003	0.1240	0.1504	nan	23457	8384	TOURNAMENT
+2026-04-14T13:15:27	E06-M0_null	Covariate ladder: M0_null — 1:5 PSM ATT	117	31724	0.2906	0.2914	-0.0008	-0.0765	+0.0851	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:27	E06-M1_basic	Covariate ladder: M1_basic — 1:5 PSM ATT	117	585	0.2906	0.2291	+0.0615	-0.0240	+0.1522	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:28	E06-M2_size	Covariate ladder: M2_size — 1:5 PSM ATT	117	585	0.2906	0.2735	+0.0171	-0.0701	+0.1077	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:28	E06-M3_ecosystem	Covariate ladder: M3_ecosystem — 1:5 PSM ATT	117	585	0.2906	0.2684	+0.0222	-0.0650	+0.1128	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:28	E06-M4_macro	Covariate ladder: M4_macro — 1:5 PSM ATT	117	585	0.2906	0.2684	+0.0222	-0.0650	+0.1128	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:28	E02	Primary: 1:5 PSM nearest-neighbour, M3 covariates	117	585	0.2906	0.2684	+0.0222	-0.0650	+0.1128	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:43	E06-M0_null	Covariate ladder: M0_null — 1:5 PSM ATT	117	31724	0.2906	0.2914	-0.0008	-0.0765	+0.0851	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:43	E06-M1_basic	Covariate ladder: M1_basic — 1:5 PSM ATT	117	585	0.2906	0.2291	+0.0615	-0.0240	+0.1522	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:43	E06-M2_size	Covariate ladder: M2_size — 1:5 PSM ATT	117	585	0.2906	0.2735	+0.0171	-0.0701	+0.1077	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:43	E06-M3_ecosystem	Covariate ladder: M3_ecosystem — 1:5 PSM ATT	117	585	0.2906	0.2684	+0.0222	-0.0650	+0.1128	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:44	E06-M4_macro	Covariate ladder: M4_macro — 1:5 PSM ATT	117	585	0.2906	0.2684	+0.0222	-0.0650	+0.1128	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:44	E02	Primary: 1:5 PSM nearest-neighbour, M3 covariates	117	585	0.2906	0.2684	+0.0222	-0.0650	+0.1128	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:15:45	E05	AIPW doubly-robust; LGBM PS + LGBM outcome	117	31724	0.2906	0.2914	-0.0473	-0.2448	+0.1394	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:17:41	E07-T2y	Outcome window 24mo; PSM ATT	117	585	0.2137	0.2205	-0.0068	-0.0838	+0.0735	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:19:26	E07-T3y	Outcome window 36mo; PSM ATT	117	585	0.2906	0.2427	+0.0479	-0.0393	+0.1351	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:21:12	E07-T5y	Outcome window 60mo; PSM ATT	117	585	0.2906	0.2684	+0.0222	-0.0650	+0.1094	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:22:57	E07-T7y	Outcome window 84mo; PSM ATT	117	585	0.2906	0.2684	+0.0222	-0.0650	+0.1094	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:22:58	E09-2014-2015	Era-specific PSM ATT 2014-2015	17	85	0.3529	0.4000	-0.0471	-0.2826	+0.2118	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:22:58	E09-2016-2017	Era-specific PSM ATT 2016-2017	34	170	0.5294	0.4176	+0.1118	-0.0706	+0.2941	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:22:58	E09-2018-2019	Era-specific PSM ATT 2018-2019	53	265	0.1887	0.1660	+0.0226	-0.0868	+0.1435	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:22:58	E10-Other_Technology	Sector-specific PSM ATT: Other Technology	92	460	0.3043	0.2717	+0.0326	-0.0696	+0.1370	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:22:58	E10-Biotechnology	Sector-specific PSM ATT: Biotechnology	12	60	0.1667	0.2000	-0.0333	-0.2500	+0.2167	nan	nan	nan	nan	0	0	HDR
+2026-04-14T13:22:59	E13	Placebo: fake-YC on sector/quarter-matched controls	117	31724	0.3077	0.2914	+0.0163	-0.0680	+0.1006	nan	nan	nan	nan	0	0	PLACEBO
+2026-04-14T13:23:00	E14	Randomization inference (1000 perms)	117	585	0.2906	0.2684	+0.0222	-0.0780	+0.0850	nan	nan	nan	nan	0	0	MANDATORY_M7
+2026-04-14T13:23:00	E16	E-value (VanderWeele-Ding) for primary ATT	117	585	0.2906	0.2684	+0.0222	+1.3822	+1.0828	nan	nan	nan	nan	0	0	MANDATORY_E2
+2026-04-14T13:34:35	RV01-M2_size	RV01 real ecosystem covariate set M2_size	117	585	0.2906	0.2735	+0.0171	-0.0701	+0.1077	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:34:35	RV01-M3_real	RV01 real ecosystem covariate set M3_real	116	580	0.2931	0.2328	+0.0603	-0.0310	+0.1517	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:34:35	RV01-M4_real	RV01 real ecosystem covariate set M4_real	116	580	0.2931	0.2500	+0.0431	-0.0448	+0.1328	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:37:43	RV03-T2y	Censoring-corrected T+2y (0% anchors dropped)	116	580	0.2155	0.2121	+0.0034	-0.0742	+0.0879	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:40:51	RV03-T3y	Censoring-corrected T+3y (0% anchors dropped)	116	580	0.2931	0.2414	+0.0517	-0.0363	+0.1414	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:43:56	RV03-T5y	Censoring-corrected T+5y (6% anchors dropped)	99	495	0.3131	0.3192	-0.0061	-0.1071	+0.0930	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:47:00	RV03-T7y	Censoring-corrected T+7y (33% anchors dropped)	51	255	0.4706	0.4118	+0.0588	-0.0902	+0.2039	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:47:00	RV05	Balance: max |SMD| post-match 0.250; common support 99.1%; drops 1	116	580	0.2931	0.2500	+0.2503	+0.9915	+1.0000	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:47:45	RV04	Within-stratum permutation test (300 perms)	116	580	0.2931	0.2500	+0.0431	-0.0781	+0.0885	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:49:33	RV07	Cox PH hazard ratio is_yc on time-to-next-raise (censored 2024-12-31)	117	31724	0.7858	0.1528	+0.7858	+0.5647	+1.0935	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:51:40	RV02	Fuzzy-expanded treated (n=136, match_rate=9.2%); PSM on M3_real	134	670	0.2836	0.2672	+0.0164	-0.0642	+0.0971	nan	nan	nan	nan	0	0	REVIEW
+2026-04-14T13:54:01	RV06-alt	RV06-alt lookalike placebo: top-n non-YC by PS vs remaining (Techstars scrape blocked on auth)	117	31607	0.0769	0.2922	-0.2153	-0.2596	-0.1645	nan	nan	nan	nan	0	0	REVIEW

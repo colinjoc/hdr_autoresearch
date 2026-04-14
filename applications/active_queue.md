@@ -1,6 +1,6 @@
 # HDR Active Queue
 
-**Last updated**: 2026-04-13 (REFRESH-3 done; 45 new candidates across 9 clusters added to pipeline.md)
+**Last updated**: 2026-04-14 (P21 ECON-1 complete — full HDR cycle incl. Phase 2.75 + 3.5 blind reviews; website summary published locally, awaiting commit/push approval)
 **Companion**: `pipeline.md` (216-candidate pool as of REFRESH-3)
 **Order**: strict series — one project at a time, dependencies enforced via task tracker
 
@@ -30,8 +30,8 @@
 | 18 | **complete** | EU-2 | Po Valley fog persistence + aerosol coupling | 29/30 | EU | 34 |
 | **REFRESH-3** | **complete** | — | 45 new candidates across 9 clusters; queue re-ranked | — | — | 35 |
 | 19 | **paused** | OSS-1 | Paused after Phase 2.75 — E28 temporal-holdout ROC 0.54 + E25 E17-vs-E11 n.s.; needs denser 180d prior / 365d forward data before resume | 30/30 | O | — |
-| 20 | queued | EU-29 | Predict where European aircraft lose GNSS — Baltic/Black Sea corridor | 30/30 | EU | — |
-| 21 | queued | ECON-1 | Do YC companies actually outperform non-YC at same stage? (Crunchbase) | 30/30 | O | — |
+| 20 | **paused** | EU-29 | Paused at Phase 0.5 — OpenSky academic creds + GPSJam tile endpoint required; see `gnss_jamming/BLOCKER.md` | 30/30 | EU | — |
+| 21 | **complete** | ECON-1 | YC-vs-non-YC on 2014-2019 batches via SEC Form D; null at +6 pp [−3, +15], with lookalike-placebo diagnosis of Form-D filing-habits bias | 30/30 | O | 76 |
 | 22 | queued | ECON-2 | What predicts which housing markets crash first? | 30/30 | O | — |
 | 23 | queued | W-20 | SWIO rapid-intensification cyclones (Gezani/Fytia) | 29/30 | W | — |
 | 24 | queued | EU-30 | Which European imports face biggest CBAM cost shock | 29/30 | EU | — |
