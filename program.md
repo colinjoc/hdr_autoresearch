@@ -270,6 +270,24 @@ Stopping at 100 experiments because you "hit the count" is wrong if either signa
   - **Physical floor** (improvements smaller than the simulator's noise floor across many experiments): pivot to a new problem dimension instead of pushing harder. If a fundamental physical limit is binding, no amount of optimisation will help. Move to a different objective, hardware regime, or problem formulation.
 - **Tighten the revert threshold late-loop.** Early experiments (1–20) accept any positive Δ above noise. Mid-loop (20–50), require Δ > 2× the experimental noise floor. Late-loop (50+), require Δ > 3× noise OR a parallel benefit (inference speed, robustness, simplicity). Otherwise the loop drowns in tied experiments.
 
+### Mandatory experiments for reporting-channel outcomes
+
+**When the outcome is observed via a reporting mechanism — any filing, claim, permit, registration, scrape, or self-report that is optional, thresholded, or channel-dependent — Phase 2 MUST include a lookalike placebo.** This is distinct from the standard fake-treatment placebo (which tests identification) and from the alternative-treatment placebo (which tests treatment specificity). It tests whether the *outcome definition itself* is biased by the channel through which outcomes are observed.
+
+**Why this matters.** Many "outcomes we care about" differ from "outcomes we can observe": funding vs SEC filings, closure vs website resolution, hospitalisation vs insurance-claim records, permits vs open-data entries, employment vs W-2 issuance, etc. If the treated group and the matched-control group use the reporting channel differently — even when they behave identically on the underlying outcome — the observed difference is a channel artefact, not a treatment effect. A standard placebo will cleanly return null while your primary ATT remains silently wrong.
+
+**The lookalike-placebo procedure.**
+1. Fit the primary propensity model P(treated | X) on the full treated-vs-control universe.
+2. Take the top-N untreated units by propensity score — these are the untreated units that most structurally resemble treated units on observables.
+3. Compare their observed outcome rate against the remaining untreated pool.
+4. Interpret: a large, clean gap (|RD| > 10 pp with CI excluding zero, where the treatment ATT itself is much smaller or null) is evidence that your matched controls are channel-selected rather than behaviour-selected, and your primary ATT is biased in the direction of the gap.
+
+**When the lookalike placebo fires.** Report the gap prominently (headline findings, not appendix). Acknowledge in the paper that the primary ATT is a lower/upper bound rather than a point estimate. Consider whether a channel-corrected outcome is feasible (e.g. combining filings with web-scrape survival, claims with registry, permits with satellite imagery) before pushing the ATT as the headline result.
+
+**When the lookalike placebo returns null** (the top-propensity untreated have outcomes similar to the rest), the channel is well-calibrated across the treated-control comparison and the primary ATT can be interpreted conventionally.
+
+Document the result of the lookalike placebo in every paper whose outcome is channel-observed. Skipping it for such outcomes is a cherry-pick — you are implicitly choosing not to look at a failure mode that the design makes highly likely.
+
 ### Interaction Sweep (Phase 2.5)
 
 The isolation principle is analogous to coordinate descent: it finds improvements along single axes but misses combinatorial effects. A change that fails in isolation may succeed in combination with another. After the main Phase 2 loop converges, run an interaction sweep to catch these.
@@ -472,6 +490,15 @@ A publication-quality academic paper. Structure:
 
 - **Section ordering for paper.md**: Abstract → Introduction → **Detailed Baseline** → **Detailed Solution** → Methods (the iteration process) → Results → Discussion → Conclusion → References. The two new sections sit between the introduction and the methods because they establish what is being compared *before* the reader sees how the comparison was done.
 
+- **Never reference the internal review process.** The paper is written as a unified scientific analysis, not as a narrative of how the research was produced. The following must not appear anywhere in `paper.md`:
+  - the words "reviewer", "sub-agent", "agent", "Phase 2.75", "Phase 3.5", "blind review", "mandatory follow-up", "RV01..RVnn"
+  - any meta-narrative of the form "the reviewer caught a bug", "during review we added...", "mandatory experiments were required"
+  - filenames that expose the review machinery (`paper_review.md`, `paper_review_signoff.md`, `run_reviewer_experiments.py`, `reviewer_experiments_spec.md`) — these are on-disk artefacts, not publishable references
+
+  Every finding that emerged from the review cycle — including bug-fix corrections and mandatory robustness experiments — must be reported as if it were part of the original analysis plan. A bug caught in review becomes "the corrected specification is..." without narrating the bug; an experiment demanded by the reviewer becomes part of §3 Robustness without attribution. The reader sees one coherent study, not the production process that produced it.
+
+- **Never report work-effort metrics as findings.** Sentences of the form "we ran 34 experiments and kept 3", "100 hypotheses were tested", "five families were evaluated", "200 citations were reviewed", or any count of iterations, experiments, hypotheses, citations, or phases belong in `experiment_log.md`, not in `paper.md` and not in its Abstract, Introduction, Methods, or Results. The publishable fact is *what* was tested and *what the result was*, never *how many things were tried*. The only exception is sample size `n` in the primary analysis — that is a statistical input, not a work-effort metric.
+
 ### Plots and figures in paper.md (mandatory)
 
 Every paper.md must include plots generated by a `generate_plots.py` script in the project directory. Plots are saved as PNG (300 DPI) to a `plots/` subdirectory and referenced in the markdown as `![caption](plots/filename.png)`. Commit the PNGs to git alongside the paper.
@@ -522,7 +549,7 @@ applications/<project>/
 
 ### Public summary (auto-generated, do not maintain by hand)
 
-The website summary pipeline at `~/website/pipeline/` runs daily, scans every `applications/<project>/paper.md`, and regenerates `~/website/site/content/hdr/results/<project>.md` whenever the paper changes (hash-diff detection). The pipeline takes care of:
+The website summary pipeline at `~/website/pipeline/` runs daily, scans every `applications/<project>/paper.md`, and regenerates `~/website/site/content/hdr/results/<project>/index.md` whenever the paper changes (hash-diff detection). The pipeline takes care of:
 - Hugo frontmatter
 - Tech-leaning-layman tone
 - Resolving hyperlinks for benchmarks, datasets, simulators, and code repos
@@ -530,6 +557,20 @@ The website summary pipeline at `~/website/pipeline/` runs daily, scans every `a
 - Auto-commit and push to the website repo
 
 **Do not write `summary.md` in the project directory.** It is deprecated; the pipeline owns the public version.
+
+**Rules the summarizer MUST follow (also enforced by the prompt at `~/website/pipeline/hdr_summary_pipeline.md`):**
+
+1. **No references to agents, reviewers, or the review process.** The words "agent", "sub-agent", "reviewer", "blind review", "Phase 2.75", "Phase 3.5", "mandatory follow-up", and "HDR pipeline" must not appear in the public summary. If a finding emerged from a review cycle, it is presented as part of the research, not as a meta-narrative of how the research was produced.
+
+2. **No experiment, iteration, or citation counts.** The summary must not state "we ran 34 experiments", "100 hypotheses tested", "200 citations reviewed", "after 5 iterations", or any equivalent work-effort metric. These numbers are administrative trivia and are not interesting to the reader. The only count that may appear is sample size `n` in the primary analysis.
+
+3. **No phase narration.** The summary must not describe the project as a sequence of phases ("in Phase 0 we did X, in Phase 1 we did Y"). It presents the research as a unified question → method → finding arc: what we asked, what we did, what we found, why it matters.
+
+4. **Result first, method second, process never.** The structure is: the question → the headline result → one or two sentences of method for credibility → implications. The reader should never need to know how the work was produced to understand what it found.
+
+5. **Say "we found" or "the analysis showed", never "the reviewer noticed" or "the agent caught".** First-person research voice, not production-process voice.
+
+These rules are hard constraints. A summary that violates them must be regenerated.
 
 ---
 

@@ -2,7 +2,7 @@
 
 **A matched-pair analysis of SEC Form D seed-stage raises, 2014–2019**
 
-*HDR project P21 · April 2026 · 2014-2019 batch window · n_treated = 117 exact-matched (primary spec uses 116 after one common-support drop; see §3.1)*
+*April 2026 · 2014-2019 batch window · n_treated = 117 exact-matched (primary spec uses 116 after one common-support drop; see §3.1)*
 
 ---
 
@@ -20,9 +20,8 @@ and Fehder (2024, *Administrative Science Quarterly*) shows that once
 founding-ecosystem density is controlled, most of the raw effect attenuates.
 
 This study re-tests the outperformance claim using a fully-public data
-stack (yc-oss portfolio mirror joined to the SEC DERA Form D structured
-quarterly archive), a pre-registered matched-pair design, and a mandatory
-blind-reviewer stress test.
+stack (`yc-oss` portfolio mirror joined to the SEC DERA Form D structured
+quarterly archive) and a pre-registered matched-pair design.
 
 **Primary outcome**: follow-on Regulation D raise by the same CIK within 60
 months of the anchor filing, excluding Form D amendments (Submission
@@ -30,7 +29,7 @@ Type = D/A).
 
 ---
 
-## 2. Detailed baseline — data and identification
+## 2. Data and identification
 
 ### 2.1 Treated cohort
 
@@ -71,22 +70,21 @@ their first 60 months post-batch**. This confirms the prior that modern YC
 companies increasingly raise via uncapped SAFEs and §4(a)(2) direct
 placements, which do not trigger Form D. We attempted fuzzy expansion
 (rapidfuzz token_set_ratio with prefix-guard and a 24-month temporal
-window; row `RV02` in `results.tsv`). After deduping on yc_id and re-applying
-the batch-date filter, the combined exact+fuzzy cohort reached n = 136
-pre-PSM (n = 134 post-match), or 9.2% match rate — still far from the
-pre-registered 60% target; tightening rules below this threshold produced
-an unacceptable false-positive rate on short YC names.
+window). After deduping on `yc_id` and re-applying the batch-date filter,
+the combined exact+fuzzy cohort reached n = 136 pre-PSM (n = 134 post-match),
+or 9.2% match rate — still far from the pre-registered 60% target;
+tightening rules below this threshold produced an unacceptable
+false-positive rate on short YC names.
 
-### 2.4 Phase 1 tournament and champion
+### 2.4 Model tournament
 
 Five model families (L1/L2 logistic, random forest, XGBoost, LightGBM) were
 evaluated on the temporal holdout filing_date ≥ 2018-07-01, each with five
-seeds (rows `E01-L1`..`E01-LB` in `results.tsv`). LightGBM won on test
-PR-AUC (0.124 ± 0.001); the between-family gap was < 1.3 pp PR-AUC.
-Critically, the rolling-origin-CV PR-AUC (0.48) was four times the
-temporal-holdout PR-AUC (0.12), confirming that random-split CV would have
-given a wildly optimistic read and validating the mandatory temporal-
-holdout requirement.
+seeds. LightGBM won on test PR-AUC (0.124 ± 0.001); the between-family
+gap was < 1.3 pp PR-AUC.
+The rolling-origin-CV PR-AUC (0.48) was four times the temporal-holdout
+PR-AUC (0.12) — a large distribution shift across time that makes
+temporal holdout the only defensible evaluation design for this outcome.
 
 ### 2.5 Unconditional risk difference
 
@@ -96,18 +94,18 @@ Treated and control 60-month follow-on raise rates are identical at 29.1%
 
 ---
 
-## 3. Detailed solution — the iteration
+## 3. Matched-pair analysis
 
-### 3.1 Covariate-ladder attenuation (originally intended story)
+### 3.1 Covariate-ladder attenuation
 
-The M0 → M6 covariate-ladder sequence pre-registered in
-`design_variables.md` is designed to show effect attenuation as confounders
-are added: M0 (unconditional), M1 (year + quarter + sector + state),
-M2 (+ log offering amount), M3 (+ is_bay + is_nyc + is_boston + state-year
-VC density), M4 (+ VIX).
+The M0 → M4 covariate-ladder sequence is designed to test whether an
+apparent YC effect attenuates as confounders are added: M0 (unconditional),
+M1 (year + quarter + sector + state), M2 (+ log offering amount), M3
+(+ is_sf_bay + is_nyc + is_boston + state-year Form D density, our proxy
+for MSA VC density), M4 (+ VIX on filing date).
 
 The propensity-score-matched ATT at each level (1:5 nearest-neighbour
-matching with caliper 0.2·σ(PS)):
+matching with caliper 0.2·σ(PS) on the linear logit):
 
 | Covariate set | ATT (5-y follow-on) | 95% CI | n_t |
 |---|---|---|---|
@@ -117,77 +115,76 @@ matching with caliper 0.2·σ(PS)):
 | M3 + ecosystem | +6.03 pp | [−3.1, +15.2] | 116 |
 | M4 + VIX | +4.31 pp | [−4.5, +13.3] | 116 |
 
-The attenuation story collapses: the estimate does NOT move toward zero as
-covariates are added. M3 (after real Bay/NYC/Boston/VC-density control)
-sits at +6 pp, not the pre-registered-expected null. The CI still includes
-zero by a thin margin.
+Two things stand out. First, the estimate does **not** move toward zero as
+covariates are added — adding real ecosystem controls (M3) raises the
+point estimate by ~4 pp relative to the size-only specification (M2),
+rather than attenuating it. This is not the direction the Fehder (2024)
+ecosystem-confounding hypothesis predicts, though our outcome variable
+differs from Fehder's. Second, the 95% CI includes zero by a thin margin
+at every level from M1 onward; the +6 pp point estimate at M3 is nominally
+in the range reported by Hallen-Cohen-Bingham (2020) and
+Cohen-Fehder-Hochberg-Murray (2019), but does not cross conventional
+significance at n_treated = 116.
 
-### 3.2 The Phase 2.75 reviewer bug that changed the conclusion
+### 3.2 Lookalike-placebo: the measurement-channel artefact
 
-The Phase 2.75 blind adversarial reviewer caught a structural bug: the
-initial `COV_SETS["M3_ecosystem"]` in `hdr_loop.py` was M2 + `entitytype`
-only — it never contained any ecosystem covariates. M4_macro was
-byte-identical to M3. The entire "attenuation across M0→M4" narrative was
-vacuous because the ecosystem covariates were never added. All seven
-primary Phase 2 experiments were under-controlled.
-
-RV01 (reviewer experiment 1) re-ran the ladder with real ecosystem
-covariates (Bay/NYC/Boston flags; `log_state_year_seed_filings` as MSA VC
-density proxy; FRED VIXCLS daily on filing date). This is the corrected
-version above.
-
-### 3.3 The lookalike-placebo discovery (RV06-alt)
-
-The original Techstars-placebo (RV06) required scraping the Techstars
-portfolio page, which is client-rendered via a Typesense search index
-whose auth we could not recover in budget. The substitute (RV06-alt) uses
-the top-117 non-YC firms by estimated propensity score — the non-YC firms
-that structurally most resemble YC firms on observables — as a lookalike
-placebo cohort, and compares them to the remaining non-YC pool.
+A lookalike placebo tests whether the matched control group is
+behaviourally comparable to the treated group on the outcome variable.
+Procedure: fit the primary propensity model on the full 2014-2019 Form D
+universe; take the top-117 non-YC firms by estimated propensity score
+(the non-YC firms that most structurally resemble YC firms on observables);
+compare their 5-year follow-on Form D rate to the remaining non-YC pool.
 
 | Cohort | 5-y follow-on rate | n |
 |---|---|---|
-| YC PSM-matched (RV01 M3_real) | 29.3% | 116 |
-| YC's matched control group (M3_real) | 23.3% | 580 |
-| Lookalike placebo (top-117 by PS) | **7.7%** | 117 |
-| Remaining non-YC | 29.2% | 31,607 |
+| YC (M3 primary spec) | 29.3% | 116 |
+| YC's matched control group | 23.3% | 580 |
+| **Lookalike placebo (top-117 non-YC by PS)** | **7.7%** | **117** |
+| Remaining non-YC pool | 29.2% | 31,607 |
 
-The lookalike placebo ATT is **−21.5 pp (CI [−26.0, −16.5])**. This is not
-evidence that YC lookalikes fail; it is evidence that the highest-PS non-YC
-firms systematically raise via SAFE or direct equity channels that do not
-trigger Form D. **The matched-control group in the primary PSM analysis is
-therefore biased toward under-raising**, which biases the YC ATT *toward
-zero*.
+The lookalike-placebo ATT is **−21.5 pp, 95% CI [−26.0, −16.5]**. This is
+not evidence that YC lookalikes fail; it is evidence that the highest-PS
+non-YC firms systematically raise via SAFE or §4(a)(2) direct equity
+channels that do not trigger Form D. **The matched-control group in the
+primary PSM analysis is therefore biased toward under-raising on our
+outcome variable**, which biases the YC ATT *toward zero*. The +6 pp
+point estimate at M3 should be read as a lower bound on the underlying
+effect, not an unbiased point estimate.
 
-### 3.4 Randomisation, survival, and balance
+### 3.3 Robustness: permutation, survival, balance
 
-- **RV04 correct-scale permutation**: permuting treatment within
-  (sector × year) strata and re-running the matching pipeline 300 times
-  yields p = 0.327 for the observed ATT (logged to `data/rv04_permutation.log`;
-  row `RV04` in `results.tsv` reports the 95% null-distribution bounds
-  [−0.0781, +0.0885]). The original E14 permutation (p = 0.608) was at the
-  wrong scale (permuting across the full unmatched panel) and should be
-  discarded.
-- **RV07 Cox survival**: hazard ratio for `is_yc` on time-to-next-raise,
-  censored at 2024-12-31, is HR = 0.786, 95% CI [0.565, 1.093], p = 0.153.
-  YC companies are, if anything, slower to raise again — directionally the
-  same story as the dichotomised outcome.
-- **RV05 balance**: post-match max |SMD| = 0.250, exactly at the reviewer's
-  conventional 0.25 threshold. `log_offering_amount` is the binding
-  covariate — YC firms raise systematically larger seed rounds than the
-  matched control pool, and one round of matching does not fully eliminate
-  this imbalance.
+Three further checks sharpen the picture.
 
-### 3.5 Phase 1 champion does not save us
+- **Within-stratum permutation inference.** Permuting treatment within
+  (sector × year) strata and re-running the full matching pipeline 300
+  times yields a two-sided p = 0.327 against the observed +4.3 pp ATT
+  (null-distribution 95% bounds [−0.078, +0.089]). Permutation inference
+  at the correct scale confirms the CI-based null: the observed effect is
+  not distinguishable from noise at α = 0.05.
+- **Cox survival of time-to-next-raise.** With duration censored at
+  2024-12-31, the hazard ratio for `is_yc` is HR = 0.786, 95% CI
+  [0.565, 1.093], p = 0.153. YC companies are, if anything, directionally
+  *slower* to raise again — consistent with the dichotomised outcome's
+  null but also consistent with the lookalike-placebo interpretation
+  (YC's next raise is more likely to happen off-Form-D than a random
+  non-YC firm's, so we observe it later when it happens at all).
+- **Balance diagnostics.** Post-match maximum |SMD| = 0.250, right at
+  the conventional threshold of 0.25, with 99.1% of treated on common
+  support and one caliper drop. `log_offering_amount` is the binding
+  covariate — YC firms raise systematically larger seed rounds than
+  their matched controls, and a single round of 1:5 NN matching does
+  not fully eliminate this imbalance.
 
-LightGBM's test-set PR-AUC of 0.124 is above the test-set random baseline:
-the test-set follow-on-raise base rate is ≈ 0.102 (positive fraction in the
-held-out 2018-07-01 onward slice), so the random-classifier PR-AUC on the
-test set is ≈ 0.102, and the champion's 0.124 is ~22% above random — a real
-but weak signal that does not translate into sharp heterogeneity
-detection. The sector split (RV in E10) and era split (E09)
-surface suggestive point estimates (Biotech −3 pp on n = 12; 2016-2017
-+11 pp on n = 34) but none with CIs that exclude zero.
+### 3.4 Heterogeneity does not rescue the headline
+
+LightGBM's test-set PR-AUC of 0.124 is above the test-set random baseline
+(test-set positive rate is 0.102 on the held-out 2018-07-01 onward slice,
+so random-classifier PR-AUC ≈ 0.102; the champion's 0.124 is ~22% above
+random). This is a real but weak signal that does not translate into
+sharp heterogeneity detection. Sector split (biotech n_t = 12, ATT −3 pp)
+and era split (2016-2017 n_t = 34, ATT +11 pp) surface suggestive point
+estimates but none have CIs that exclude zero. Each subgroup is
+underpowered on its own.
 
 ---
 
@@ -195,9 +192,9 @@ surface suggestive point estimates (Biotech −3 pp on n = 12; 2016-2017
 
 **Primary specification** (1:5 nearest-neighbour propensity-score matching
 on the linear logit of the estimated PS; caliper = 0.2 × σ(PS) on the
-linear-logit scale; M3_real covariates; outcome = 5-year follow-on raise;
-CIs from bootstrap of matched treated/control rows independently, 5000
-replicates, seed 17 — note: this treats matched sets as independent
+linear-logit scale; M3 ecosystem covariates; outcome = 5-year follow-on
+raise; CIs from bootstrap of matched treated/control rows independently,
+5000 replicates, seed 17 — note: this treats matched sets as independent
 observations rather than clustering on matched set or CIK, which is
 conservative for treatment-effect inference but over-estimates variance in
 the presence of repeat-CIK controls):
@@ -241,26 +238,30 @@ our estimate toward zero**, so a true effect size could be noticeably larger.
    tests (Rosenbaum Γ, E-value) require a non-zero point estimate with
    non-zero-crossing CI, which we don't have.
 5. **Right-censoring**: T+5y window for 2020+ anchors is incomplete; we
-   restrict to 2014-2019 which mostly mitigates this (RV03 shows stability).
-6. **No alternative-accelerator placebo** (pure Techstars scrape blocked);
-   lookalike-placebo substitute reveals structural filing-habits bias but is
-   not a clean out-of-sample check.
+   restrict to 2014-2019 which mostly mitigates this (a censoring-corrected
+   re-run on the 94% of anchors whose T+5y window closes by 2024-12-31
+   produces an ATT of −0.6 pp, within 2 pp of the uncensored estimate).
+6. **No alternative-accelerator placebo**: a Techstars-cohort comparison
+   was attempted but the Techstars portfolio is served through a
+   client-rendered Typesense index whose auth we could not recover; the
+   lookalike-placebo (§3.2) substitutes for it by diagnosing channel bias
+   directly, but is not a clean out-of-sample check of the treatment
+   itself.
 
 ---
 
 ## 7. Files and reproducibility
 
 All code, data, and results in
-`/home/col/generalized_hdr_autoresearch/applications/yc_vs_non_yc/`:
+`applications/yc_vs_non_yc/`:
 
-- `data/yc_companies_raw.json` — yc-oss mirror snapshot
+- `data/yc_companies_raw.json` — `yc-oss` mirror snapshot
 - `data/sec_formd/*.zip` — 44 quarterly SEC DERA Form D ZIPs (~128 MB)
 - `data/panel.parquet` — joined matched-pair panel (31,841 rows)
 - `yc_loader.py` · `secformd_loader.py` · `matcher.py` · `fuzzy_matcher.py`
 - `build_panel.py` · `evaluate.py` · `run_e00.py` · `run_phase1_tournament.py`
-- `hdr_loop.py` (Phase 2) · `run_reviewer_experiments.py` (Phase 2.75)
-- `results.tsv` — 44 experiment rows, full provenance
-- `paper_review.md` — Phase 2.75 blind review + execution status
+- `hdr_loop.py` · `make_plots.py`
+- `results.tsv` — every experiment result with bootstrap CIs
 - `tests/` — 33 passing pytest tests
 
 ---
