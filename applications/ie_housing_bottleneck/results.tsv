@@ -1,0 +1,52 @@
+id	phase	family	metric	value	status	seed	description	interaction
+E00	0.5	waterfall	completions	13362	KEEP	42	Baseline: 38000 perms, 35.2% yield, 13362 completions	
+T01_waterfall	1	T01_waterfall	yield	0.35163774999999997	KEEP	42	Simple stage-by-stage product	
+T02_sensitivity	1	T02_sensitivity	top_bottleneck_marginal	9780.516	KEEP	42	Partial derivative ranking	
+T03_toc	1	T03_toc	binding_constraint	completion	KEEP	42	Theory of Constraints: identify binding stage	
+T04_sem	1	T04_sem	weakest_path	comm_to_ccc	KEEP	42	Path model with stage coefficients	
+T05_montecarlo	1	T05_montecarlo	completions_p50	13238.8684783175	KEEP	42	Monte Carlo uncertainty propagation	
+T06_linear	1	T06_linear	yield_coefficient	0.35163774999999997	KEEP	42	Linear sanity check: completions = yield * permissions	
+E01	2	waterfall	effective_yield	0.60901975	KEEP	42	Opt-out 90% built	
+E02a	2	waterfall	completions	16878.611999999997	KEEP	42	Permissions = 48k	
+E02b	2	waterfall	completions	20394.9895	KEEP	42	Permissions = 58k	
+E02c	2	waterfall	completions	23911.366999999995	KEEP	42	Permissions = 68k	
+E03a	2	waterfall	delta_completions	2376.8571428571427	KEEP	42	ABP at 18wk (full counterfactual, uncapped)	
+E03b	2	waterfall	delta_completions	1188.4285714285713	KEEP	42	ABP at 30wk (half excess, approx)	
+E04	2	waterfall	delta_completions	1060.142857142857	KEEP	42	JR removed (35k-ceiling counterfactual)	
+E05	2	waterfall	delta_completions	701.3327499999996	KEEP	42	Lapse halved (9.5% -> 4.75%)	
+E06	2	waterfall	delta_annual_completions	0	KEEP	42	Construction duration halved (498d -> 249d)	
+E07_35k	2	waterfall	ceiling_status	not_binding	KEEP	42	Capacity ceiling = 35k	
+E07_40k	2	waterfall	ceiling_status	not_binding	KEEP	42	Capacity ceiling = 40k	
+E07_50k	2	waterfall	ceiling_status	not_binding	KEEP	42	Capacity ceiling = 50k	
+E08	2	waterfall	lda_additional	0.0	KEEP	42	LDA scaled 3x (additionality = 0)	
+E09	2	waterfall	delta_completions	8092.897857142858	KEEP	42	Combined: 58k perms + 40k cap + ABP speed	
+E10	2	waterfall	dublin_completions	5612.138489999999	KEEP	42	Dublin-only pipeline (42% share)	
+E11	2	waterfall	yield	0.76431775	KEEP	42	Apartment-only pipeline (large schemes, CCC 88.9%)	
+E12	2	waterfall	workforce_gap_pct	0.2	KEEP	42	Labour supply constraint (160k vs 200k needed)	
+E13_UK	2	waterfall	permissions_needed_at_yield	84166.66666666667	KEEP	42	If Ireland had UK yield (60%)	
+E13_NZ	2	waterfall	permissions_needed_at_yield	63125.0	KEEP	42	If Ireland had NZ yield (80%)	
+E13_NL	2	waterfall	permissions_needed_at_yield	56111.11111111111	KEEP	42	If Ireland had NL yield (90%)	
+E14	2	waterfall	completions_at_70k_35kcap	24614.642499999998	KEEP	42	Volume-capacity kink at 70k perms / 35k cap	
+E15	2	waterfall	eur_annual_holding_cost	131052562.41787122	KEEP	42	Commencement delay holding cost	
+E16	2	waterfall	opt_out_artefact_share	0.5346869712351945	KEEP	42	CCC non-filing decomposition	
+E17	2	waterfall	ie_duration_days	498	KEEP	42	Construction duration: IE 498d vs UK 365-540d vs NZ 360d	
+E18	2	waterfall	abp_share	0.15	KEEP	42	ABP handles ~15% of all permissions	
+E19	2	waterfall	completions	50000	KEEP	42	Full constraint removal (68k perms, 2% lapse, 80% CCC, 50k cap)	
+E20	2	waterfall	completions_gap	16323	KEEP	42	Permission gap to HFA target	
+P01	2.5	waterfall	interaction_effect	0	KEEP	42	permission_volume + capacity_ceiling	True
+P02	2.5	waterfall	interaction_effect	171	KEEP	42	lapse_reduction + ccc_improvement	True
+P03	2.5	waterfall	interaction_effect	185	KEEP	42	permission_volume + lapse_reduction	True
+P04	2.5	waterfall	interaction_effect	2574	KEEP	42	permission_volume + opt_out_credit	True
+B01	B	discovery	bottleneck_ranking	bottleneck_ranking.csv	KEEP	42	Bottleneck ranking by marginal units/yr	
+B02	B	discovery	policy_simulator	policy_package_simulator.csv	KEEP	42	Policy package simulator	
+R1_50	2.75	sensitivity	effective_yield	0.495	KEEP	42	R1: opt-out=50%, eff_comp=18796, perm_marg=4946, ccc_marg=3267, swap=False	
+R1_70	2.75	sensitivity	effective_yield	0.552	KEEP	42	R1: opt-out=70%, eff_comp=20969, perm_marg=5518, ccc_marg=3267, swap=False	
+R1_90	2.75	sensitivity	effective_yield	0.609	KEEP	42	R1: opt-out=90%, eff_comp=23143, perm_marg=6090, ccc_marg=3267, swap=False	
+R1_100	2.75	sensitivity	effective_yield	0.638	KEEP	42	R1: opt-out=100%, eff_comp=24229, perm_marg=6376, ccc_marg=3267, swap=False	
+R2	2.75	robustness	perm_rank1_fraction	1.0	KEEP	42	R2: Perm #1 in 100% of 5000 MC draws; CCC never outranks perm	
+R3	2.75	audit	revised_all_efficiency	5029.0	KEEP	42	R3: ABP/JR 100% overlap; combined eff revised from ~6100 to 5029	
+R4_permission_volume	2.75	bootstrap	marginal_ci_permission_volume	3492.0	KEEP	42	R4: permission_volume marginal=3492 95%CI=[3225,3769]	
+R4_ccc_filing_rate	2.75	bootstrap	marginal_ci_ccc_filing_rate	3242.0	KEEP	42	R4: ccc_filing_rate marginal=3242 95%CI=[2708,3788]	
+R4_permission_lapse	2.75	bootstrap	marginal_ci_permission_lapse	722.0	KEEP	42	R4: permission_lapse marginal=722 95%CI=[395,1091]	
+R4_abp_decision_time	2.75	bootstrap	marginal_ci_abp_decision_time	2526.0	KEEP	42	R4: abp_decision_time marginal=2526 95%CI=[2058,3200]	
+R4_judicial_review	2.75	bootstrap	marginal_ci_judicial_review	1127.0	KEEP	42	R4: judicial_review marginal=1127 95%CI=[918,1427]	

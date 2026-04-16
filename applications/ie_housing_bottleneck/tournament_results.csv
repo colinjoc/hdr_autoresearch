@@ -1,0 +1,7 @@
+family,description,metric,value
+T01_waterfall,Simple stage-by-stage product,yield,0.35163774999999997
+T02_sensitivity,Partial derivative ranking,top_bottleneck_marginal,9780.516
+T03_toc,Theory of Constraints: identify binding stage,binding_constraint,completion
+T04_sem,Path model with stage coefficients,weakest_path,comm_to_ccc
+T05_montecarlo,Monte Carlo uncertainty propagation,completions_p50,13238.8684783175
+T06_linear,Linear sanity check: completions = yield * permissions,yield_coefficient,0.35163774999999997

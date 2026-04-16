@@ -1,0 +1,211 @@
+id,authors,year,title,journal,theme,notes
+P001,Goldratt E.M. & Cox J.,1984,The Goal: A Process of Ongoing Improvement,North River Press,T1,Theory of Constraints founding text
+P002,Goldratt E.M.,1990,The Haystack Syndrome,North River Press,T1,Theory of Constraints measurement systems
+P003,Goldratt E.M.,1997,Critical Chain,North River Press,T1,TOC applied to project management
+P004,Dettmer H.W.,1997,Goldratt's Theory of Constraints: A Systems Approach to Continuous Improvement,ASQ Quality Press,T1,TOC systematic treatment
+P005,Cox J.F. & Schleier J.G.,2010,Theory of Constraints Handbook,McGraw-Hill,T1,Comprehensive TOC reference
+P006,Rahman S.,1998,Theory of constraints: A review of the philosophy and its applications,International Journal of Operations & Production Management,T1,TOC review article
+P007,Mabin V.J. & Balderstone S.J.,2003,The performance of the theory of constraints methodology,International Journal of Operations & Production Management,T1,TOC empirical meta-analysis
+P008,Watson K.J. et al.,2007,The evolution of a management philosophy: The theory of constraints,Journal of Operations Management,T1,TOC evolution review
+P009,Simatupang T.M. et al.,2004,Applying the theory of constraints to supply chain collaboration,Supply Chain Management,T1,TOC in supply chains
+P010,Gupta M.,2003,Constraints management: Recent advances and practices,International Journal of Production Research,T1,Constraints management review
+P011,Dixit A.K. & Pindyck R.S.,1994,Investment Under Uncertainty,Princeton University Press,T2,Real options theory for development timing
+P012,Titman S.,1985,Urban land prices under uncertainty,American Economic Review,T2,Option value of land
+P013,Cunningham C.R.,2006,House price uncertainty timing of development and vacant land prices,Journal of Urban Economics,T2,Development timing under uncertainty
+P014,Bar-Ilan A. & Strange W.C.,1996,Urban development with lags,Journal of Urban Economics,T2,Construction lags in urban models
+P015,Somerville C.T.,2001,Permits starts and completions: Structural relationships vs real options,Journal of Housing Economics,T2,Permit-to-completion pipeline
+P016,Mayer C.J. & Somerville C.T.,2000,Residential construction: Using the urban growth model to estimate housing supply,Journal of Urban Economics,T2,Housing supply estimation
+P017,Glaeser E. & Gyourko J.,2018,The economic implications of housing supply,Journal of Economic Perspectives,T2,Housing supply constraints overview
+P018,Saiz A.,2010,The geographic determinants of housing supply,Quarterly Journal of Economics,T2,Geography and housing supply elasticity
+P019,Paciorek A.,2013,Supply constraints and housing market dynamics,Journal of Urban Economics,T2,Regulatory constraints on supply
+P020,Gyourko J. & Molloy R.,2015,Regulation and housing supply,Handbook of Regional and Urban Economics,T2,Comprehensive regulation review
+P021,Malpezzi S. & Maclennan D.,2001,The long-run price elasticity of supply of new residential construction,Journal of Housing Economics,T2,Long-run supply elasticity
+P022,DiPasquale D. & Wheaton W.C.,1996,Urban Economics and Real Estate Markets,Prentice Hall,T2,Textbook: urban economics
+P023,Ball M.,2011,Planning delay and the responsiveness of English housing supply,Urban Studies,T2,Planning delay and UK housing
+P024,Meen G.,2005,On the economics of the Barker Review of housing supply,Housing Studies,T2,UK housing supply economics
+P025,Bramley G. & Watkins D.,2016,Housebuilding accessibility and affordability in Scotland,Housing Studies,T2,Scottish housing supply
+P026,Caldera A. & Johansson A.,2013,The price responsiveness of housing supply in OECD countries,Journal of Housing Economics,T2,International supply elasticity comparison
+P027,Vermeulen W. & Rouwendal J.,2007,Housing supply and land use regulation in the Netherlands,Tinbergen Institute Discussion Paper,T2,Dutch housing supply and regulation
+P028,Grimes A. & Aitken A.,2010,Housing supply responsiveness and its determinants: The case of New Zealand,Journal of Housing Economics,T2,NZ housing supply
+P029,OECD,2022,OECD Housing Policy Review: Ireland,OECD Publishing,T3,International assessment of Irish housing
+P030,Government of Ireland,2021,Housing for All: A New Housing Plan for Ireland,Department of Housing,T3,Official policy target: 50500/yr
+P031,ESRI,2023,ESRI Housing Model 2023,ESRI Research Series,T3,ESRI housing demand model
+P032,McQuinn K. & O'Connell B.,2024,The Irish housing market: An ESRI perspective,ESRI Working Paper,T3,ESRI housing market analysis
+P033,Duffy D. et al.,2014,Quarterly economic commentary: Housing supply in Ireland,ESRI,T3,Early housing supply analysis
+P034,Lyons R.,2021,Can taxes on construction help address Ireland's housing shortage?,Economic and Social Review,T3,Construction taxation analysis
+P035,O'Toole C. & Slaymaker R.,2021,Housing delivery in Ireland: A supply-side analysis,ESRI Special Article,T3,Supply-side decomposition
+P036,Housing Commission,2024,Final Report of the Housing Commission,Government of Ireland,T3,60000 live permissions estimate
+P037,SCSI,2022,The real cost of new apartment delivery 2022,SCSI Dublin,T3,Apartment construction costs
+P038,Norris M.,2016,Property finance and social housing in Ireland,Cambridge University Press,T3,Irish social housing system
+P039,Byrne M. & Norris M.,2018,Procyclical social housing and the crisis of Irish housing policy,Housing Policy Debate,T3,Procyclical housing provision
+P040,Kelly M.,2009,The Irish credit bubble,UCD Working Paper,T3,Credit-driven construction boom
+P041,Kitchin R. et al.,2012,Placing neoliberalism: The rise and fall of Ireland's Celtic Tiger,Environment and Planning A,T3,Celtic Tiger housing narrative
+P042,Hearne R.,2017,A home or a wealth generator? Inequality housing and the Irish crisis,Critical Social Policy,T3,Housing inequality in Ireland
+P043,DHLGH,2020,National Planning Framework: Project Ireland 2040,Government of Ireland,T3,Spatial planning framework
+P044,Simons G.,2019,Planning and Development Law 3rd ed.,Round Hall,T4,Irish planning law textbook
+P045,Hogan G. & Morgan D.G.,2010,Administrative Law in Ireland 4th ed.,Round Hall,T4,Administrative law including JR
+P046,de Blacam M.,2017,Judicial Review 3rd ed.,Bloomsbury Professional,T4,Judicial review practice
+P047,OPR,2022,Appendix-2: Breakdown of Determined JRs involving ABP,Office of the Planning Regulator,T4,SHD JR case list
+P048,Halliday S.,2004,Judicial Review and Compliance with Administrative Law,Hart Publishing,T4,JR impact on administrative behaviour
+P049,Planning and Development Act 2000,2000,S.I. No. 30/2000,Irish Statute Book,T4,Primary planning legislation
+P050,Planning and Development (Housing) and Residential Tenancies Act 2016,2016,Act No. 17 of 2016,Irish Statute Book,T4,SHD regime creation
+P051,Planning and Development (Large-scale Residential Development) Act 2021,2021,Act No. 40 of 2021,Irish Statute Book,T4,LRD regime creation
+P052,Planning and Development Act 2024,2024,Act No. 34 of 2024,Irish Statute Book,T4,PDA 2024 ACP creation
+P053,Indecon,2022,Organisational Capacity Review of An Bord Pleanala,Indecon for DHLGH,T4,ABP capacity review
+P054,Farrell R.,2022,Preliminary Report on Governance at An Bord Pleanala,Government of Ireland,T4,ABP governance crisis
+P055,Keith S. & O'Connor T.,2013,BCAR Impact Assessment,DECLG,T4,Building control regulations impact
+P056,NBCO,2023,NBCO Annual Report 2023,National Building Control Office,T4,Building control statistics
+P057,ABP,2024,An Bord Pleanala Annual Report 2024,An Bord Pleanala,T4,ABP 2024 statistics
+P058,ABP,2023,An Bord Pleanala Annual Report 2023,An Bord Pleanala,T4,ABP 2023 statistics
+P059,ABP,2022,An Bord Pleanala Annual Report 2022,An Bord Pleanala,T4,ABP 2022 statistics
+P060,ABP,2021,An Bord Pleanala Annual Report 2021,An Bord Pleanala,T4,ABP 2021 statistics
+P061,ABP,2020,An Bord Pleanala Annual Report 2020,An Bord Pleanala,T4,ABP 2020 statistics
+P062,ABP,2018,An Bord Pleanala Annual Report 2018,An Bord Pleanala,T4,ABP 2018 statistics
+P063,Kleinrock L.,1975,Queueing Systems Volume 1: Theory,Wiley,T5,Queueing theory textbook
+P064,Little J.D.C.,1961,A proof for the queueing formula L = lambda W,Operations Research,T5,Little's law
+P065,Kingman J.F.C.,1961,The single server queue in heavy traffic,Proceedings of the Cambridge Philosophical Society,T5,Heavy-traffic approximation
+P066,Erlang A.K.,1917,Solution of some problems in the theory of probabilities of significance in automatic telephone exchanges,Elektroteknikeren,T5,Foundational queueing theory
+P067,Jackson J.R.,1957,Networks of waiting lines,Operations Research,T5,Jackson network queueing
+P068,Whitt W.,2002,Stochastic-Process Limits,Springer,T5,Heavy-traffic limit theorems
+P069,Gross D. et al.,2008,Fundamentals of Queueing Theory 4th ed.,Wiley,T5,Queueing theory textbook
+P070,Hillier F.S. & Lieberman G.J.,2015,Introduction to Operations Research 10th ed.,McGraw-Hill,T5,Operations research textbook
+P071,Law A.M.,2015,Simulation Modeling and Analysis 5th ed.,McGraw-Hill,T5,Discrete-event simulation textbook
+P072,Oaxaca R.,1973,Male-female wage differentials in urban labor markets,International Economic Review,T5,Oaxaca decomposition method
+P073,Blinder A.S.,1973,Wage discrimination: Reduced form and structural estimates,Journal of Human Resources,T5,Blinder decomposition method
+P074,Kaplan E.L. & Meier P.,1958,Nonparametric estimation from incomplete observations,Journal of the American Statistical Association,T5,KM survival estimator
+P075,Cox D.R.,1972,Regression models and life-tables,Journal of the Royal Statistical Society Series B,T5,Cox proportional hazards
+P076,Ke G. et al.,2017,LightGBM: A highly efficient gradient boosting decision tree,NeurIPS,T5,Gradient boosting
+P077,Harter C. & Morris A.,2021,Permit-to-completion durations in the US housing market,Journal of Housing Economics,T5,US pipeline duration analysis
+P078,Leontief W.,1986,Input-Output Economics 2nd ed.,Oxford University Press,T6,Input-output analysis textbook
+P079,Miller R.E. & Blair P.D.,2009,Input-Output Analysis: Foundations and Extensions 2nd ed.,Cambridge University Press,T6,Modern I-O analysis textbook
+P080,CSO,2021,Supply and Use and Input-Output Tables for Ireland 2017,Central Statistics Office,T6,Irish I-O tables
+P081,Bon R.,2000,Economic Structure and Maturity: Collected Papers in Input-Output Modelling,Ashgate,T6,Construction I-O analysis
+P082,Gruneberg S.L. & Noble F.,2006,The Economics of the Modern Construction Firm,Palgrave Macmillan,T6,Construction firm economics
+P083,Ofori G.,1990,The Construction Industry: Aspects of its Economics and Management,Singapore University Press,T6,Construction sector economics
+P084,Ruddock L. & Lopes J.,2006,The construction sector and economic development,Construction Management and Economics,T6,Construction-economy linkage
+P085,De Haan J. et al.,2002,Construction economy and macro-economy: The Dutch experience,Construction Management and Economics,T6,Dutch construction economics
+P086,Thalmann P.,2006,Construction capacity and completion gaps,Swiss Journal of Economics and Statistics,T6,Construction capacity constraints
+P087,Proverbs D.G. et al.,1999,Achieving quality in building design by the prevention of defects,Quality Assurance,T6,Construction quality and duration
+P088,Egan J.,1998,Rethinking Construction,Department of Trade and Industry UK,T6,UK construction industry reform
+P089,Latham M.,1994,Constructing the Team,HMSO London,T6,UK construction industry review
+P090,ESRI,2024,Quarterly Economic Commentary Summer 2024,ESRI,T3,Latest ESRI housing outlook
+P091,CSO,2025,New Dwelling Completions StatBank NDA12,Central Statistics Office,T3,CSO completions data
+P092,CSO,2025,Planning Permissions Granted StatBank BHQ15,Central Statistics Office,T3,CSO permissions data
+P093,CSO,2025,Planning Permissions Granted StatBank BHQ16,Central Statistics Office,T3,CSO historical permissions
+P094,LDA,2023,Land Development Agency Annual Report 2023,Land Development Agency,T3,LDA delivery figures
+P095,Irish Times,2025,LDA cumulative delivery to end-2024,Irish Times September 2025,T3,LDA cumulative 2054 homes
+P096,Angrist J. & Pischke J.S.,2009,Mostly Harmless Econometrics,Princeton University Press,T5,Causal inference methods
+P097,Abadie A. et al.,2010,Synthetic control methods for comparative case studies,Journal of the American Statistical Association,T5,Synthetic control method
+P098,Imbens G.W. & Rubin D.B.,2015,Causal Inference for Statistics Social and Biomedical Sciences,Cambridge University Press,T5,Causal inference textbook
+P099,Pearl J.,2009,Causality: Models Reasoning and Inference 2nd ed.,Cambridge University Press,T5,Causal reasoning framework
+P100,Efron B. & Tibshirani R.,1993,An Introduction to the Bootstrap,Chapman & Hall,T5,Bootstrap methods
+P101,Saltelli A. et al.,2004,Sensitivity Analysis in Practice,Wiley,T5,Sensitivity analysis methods
+P102,Saltelli A. et al.,2008,Global Sensitivity Analysis: The Primer,Wiley,T5,Global sensitivity analysis
+P103,Morris M.D.,1991,Factorial sampling plans for preliminary computational experiments,Technometrics,T5,Morris screening method
+P104,Sobol I.M.,2001,Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimates,Mathematics and Computers in Simulation,T5,Sobol sensitivity indices
+P105,McKay M.D. et al.,1979,A comparison of three methods for selecting values of input variables in the analysis of output from a computer code,Technometrics,T5,Latin hypercube sampling
+P106,Hausman J.A.,1978,Specification tests in econometrics,Econometrica,T5,Hausman specification test
+P107,Arellano M. & Bond S.,1991,Some tests of specification for panel data,Review of Economic Studies,T5,Panel data methods
+P108,Wilson E.B.,1927,Probable inference the law of succession and statistical inference,Journal of the American Statistical Association,T5,Wilson confidence interval
+P109,Clopper C.J. & Pearson E.S.,1934,The use of confidence or fiducial limits illustrated in the case of the binomial,Biometrika,T5,Clopper-Pearson interval
+P110,Bollen K.A.,1989,Structural Equations with Latent Variables,Wiley,T7,SEM textbook
+P111,Pearl J.,2012,The causal foundations of structural equation modeling,Handbook of SEM,T7,Causal SEM foundations
+P112,Kline R.B.,2016,Principles and Practice of Structural Equation Modeling 4th ed.,Guilford Press,T7,SEM practice guide
+P113,Hoyle R.H.,2012,Handbook of Structural Equation Modeling,Guilford Press,T7,SEM handbook
+P114,Wright S.,1921,Correlation and causation,Journal of Agricultural Research,T7,Path analysis origins
+P115,Joreskog K.G.,1970,A general method for analysis of covariance structures,Biometrika,T7,Confirmatory factor analysis
+P116,Bentler P.M.,1990,Comparative fit indexes in structural models,Psychological Bulletin,T7,SEM fit indices
+P117,Hu L. & Bentler P.M.,1999,Cutoff criteria for fit indexes in covariance structure analysis,Structural Equation Modeling,T7,SEM fit criteria
+P118,Rubinstein R.Y. & Kroese D.P.,2017,Simulation and the Monte Carlo Method 3rd ed.,Wiley,T5,Monte Carlo methods
+P119,Robert C.P. & Casella G.,2004,Monte Carlo Statistical Methods 2nd ed.,Springer,T5,Statistical Monte Carlo
+P120,Metropolis N. & Ulam S.,1949,The Monte Carlo method,Journal of the American Statistical Association,T5,MC method founding paper
+P121,Helton J.C. & Davis F.J.,2003,Latin hypercube sampling and the propagation of uncertainty,Reliability Engineering and System Safety,T5,LHS uncertainty propagation
+P122,BIS,2013,UK Construction: An Economic Analysis of the Sector,Department for Business Innovation and Skills,T6,UK construction sector analysis
+P123,European Commission,2022,European Construction Sector Observatory: Ireland 2022,EC,T6,EU construction sector profile
+P124,CIF,2024,Construction Industry Federation Annual Review 2024,CIF Dublin,T6,Irish construction industry review
+P125,SOLAS,2023,National Skills Bulletin 2023,SOLAS,T6,Irish skills and labour market
+P126,DKM Consultants,2014,Review of Future Skills Needs in the Construction Sector,Expert Group on Future Skills Needs,T6,Construction sector skills needs
+P127,Ernst & Young,2023,Irish construction market overview,EY Ireland,T6,Construction market analysis
+P128,McGrath J.,2023,Construction sector employment and output 2020-2023,CSO Information Note,T6,CSO construction employment data
+P129,CSO,2024,Census of Building and Construction 2022,Central Statistics Office,T6,Construction census data
+P130,CSO,2024,Production in Building and Construction Index,Central Statistics Office,T6,Construction output index
+P131,Honohan P. & Walsh B.,2002,Catching up with the leaders: The Irish hare,Brookings Papers on Economic Activity,T3,Celtic Tiger economic analysis
+P132,Fitzgerald J.,2005,The Irish housing stock: Growth in number of vacant dwellings,ESRI Special Article,T3,Vacancy and construction boom
+P133,Lyons R.,2015,East west north south: Measuring housing supply in Ireland,Journal of the Statistical and Social Inquiry Society of Ireland,T3,Housing supply measurement
+P134,Morgenroth E.,2018,Prospects for Irish regions and counties: Scenarios and implications,ESRI Research Series,T3,Regional housing analysis
+P135,Drudy P.J. & Punch M.,2005,Out of Reach: Inequalities in the Irish Housing System,New Island Books,T3,Housing inequality
+P136,Fahey T. et al.,2004,Housing expenditures and income poverty in EU countries,Journal of Social Policy,T3,Housing and poverty
+P137,CSO,2024,New Dwelling Completions StatBank NDQ07,CSO Ireland,T3,CSO completions NDQ07
+P138,Geltner D.,2014,Commercial Real Estate Analysis and Investments 3rd ed.,MIT Press,T2,Real estate investment analysis
+P139,McGarity T.,1992,Some thoughts on deossifying the rulemaking process,Duke Law Journal,T4,Regulatory ossification
+P140,Mashaw J.L.,1985,Bureaucratic Justice: Managing Social Security Disability Claims,Yale University Press,T4,Administrative decision-making
+P141,Wilson J.Q.,1989,Bureaucracy: What Government Agencies Do and Why They Do It,Basic Books,T4,Bureaucratic behaviour theory
+P142,Parkinson C.N.,1957,Parkinson's Law,John Murray,T4,Bureaucratic expansion
+P143,Putter H. et al.,2007,Competing risks and multi-state models,Statistics in Medicine,T5,Multi-state survival models
+P144,Aalen O.O. et al.,2008,Survival and Event History Analysis,Springer,T5,Event history analysis textbook
+P145,Therneau T.M. & Grambsch P.M.,2000,Modeling Survival Data: Extending the Cox Model,Springer,T5,Extended Cox models
+P146,Hougaard P.,2000,Analysis of Multivariate Survival Data,Springer,T5,Multivariate survival analysis
+P147,Hilber C.A.L. & Vermeulen W.,2016,The impact of supply constraints on house prices in England,Economic Journal,T2,Supply constraints and prices
+P148,Glaeser E. et al.,2005,Why have housing prices gone up?,American Economic Review,T2,Housing price determinants
+P149,Quigley J.M. & Raphael S.,2005,Regulation and the high cost of housing in California,American Economic Review,T2,California housing regulation
+P150,Ihlanfeldt K.R.,2007,The effect of land use regulation on housing and land prices,Journal of Urban Economics,T2,Land use regulation effects
+P151,Turner M.A. et al.,2014,Land use regulation and welfare,Econometrica,T2,Welfare effects of regulation
+P152,Ganong P. & Shoag D.,2017,Why has regional income convergence in the US declined?,Journal of Urban Economics,T2,Housing regulation and mobility
+P153,Hsieh C.T. & Moretti E.,2019,Housing constraints and spatial misallocation,American Economic Journal,T2,Spatial misallocation from housing
+P154,Glaeser E. & Gyourko J.,2003,The impact of building restrictions on housing affordability,Federal Reserve Bank of NY Economic Policy Review,T2,Building restrictions review
+P155,Bertaud A. & Brueckner J.K.,2005,Analyzing building-height restrictions: Predicted impacts and welfare costs,Regional Science and Urban Economics,T2,Height restrictions analysis
+P156,Murphy L.,2020,The invisible land: The hidden force driving the UK's unequal economy,Institute for Public Policy Research,T2,Land and housing UK
+P157,Ryan-Collins J. et al.,2017,Rethinking the Economics of Land and Housing,Zed Books,T2,Land economics rethinking
+P158,Arnott R.,1987,Economic theory and housing,Handbook of Regional and Urban Economics,T2,Housing economic theory
+P159,Gallin J.,2008,The long-run relationship between house prices and rents,Real Estate Economics,T2,Price-rent dynamics
+P160,Whitehead C.M.E.,2007,Planning policies and affordable housing: England as a successful case study?,Housing Studies,T2,Planning and affordability
+P161,Galligan E.,2023,Planning and Environmental Law Review 2022,Irish Planning Institute,T4,Planning law developments
+P162,O'Broin K.,2023,Why is An Bord Pleanala taking so long?,Irish Times 12 October 2023,T4,ABP delay press analysis
+P163,Courts Service,2024,Courts Service Annual Report 2024,Courts Service of Ireland,T4,Court system statistics
+P164,Heather Hill Management Company v ABP,2022,Heather Hill judgment [2022] IESC 43,IESC,T4,Aarhus costs extension
+P165,Balz v ABP,2019,Balz judgment [2019] IESC 91,IESC,T4,ABP reason-giving standard
+P166,Connelly v ABP,2018,Connelly judgment [2018] IESC 31,IESC,T4,Inspector report requirements
+P167,Courts Service,2022,Practice Direction HC101: Planning and Environment List,High Court,T4,Planning court list creation
+P168,CSO,2025,Population and Migration Estimates PEA18,Central Statistics Office,T3,Migration statistics
+P169,SOLAS,2024,National Skills Bulletin 2024,SOLAS,T6,Updated skills analysis
+P170,DKM Consultants,2023,Demand for Housing in Ireland 2020-2040,DKM for DHLGH,T3,Housing demand projection
+P171,NERI,2023,Quarterly Economic Observer Spring 2023,Nevin Economic Research Institute,T3,Economic outlook including housing
+P172,Ronan Lyons,2023,The daft.ie Irish Rental Price Report Q4 2023,Daft.ie,T3,Rental market data
+P173,Goodbody,2023,Irish Housing Market Outlook 2024,Goodbody Stockbrokers,T3,Housing market forecast
+P174,PWC,2023,Irish Construction Market Monitor 2023,PricewaterhouseCoopers,T6,Construction market monitor
+P175,Davy,2023,Irish Housebuilding: Supply Constraints and Outlook,Davy Research,T6,Housebuilding outlook
+P176,ESRI,2024,Structural Housing Demand in Ireland,ESRI Research Bulletin 2024/03,T3,Structural demand estimate
+P177,CSO,2024,Labour Force Survey Construction Sector Q4 2024,Central Statistics Office,T6,Construction employment
+P178,World Bank,2019,Doing Business 2020: Economy Profile Ireland,World Bank Group,T3,International regulatory comparison
+P179,OECD,2020,Housing Taxation in OECD Countries,OECD Tax Policy Studies,T2,Housing taxation comparison
+P180,Hilber C.A.L.,2017,The economic implications of house price capitalisation: A synthesis,Real Estate Economics,T2,House price capitalisation review
+P181,Cheshire P. et al.,2015,Urban Economics and Urban Policy,Edward Elgar,T2,Urban economics textbook
+P182,O'Brien C. & Ryan L.,2023,The cost of building in Ireland vs Europe,SCSI Research,T6,International cost comparison
+P183,Eurostat,2024,Housing statistics: Building permits EU27,Eurostat,T2,EU building permit statistics
+P184,NZ Ministry of Business Innovation and Employment,2022,Building consents pipeline analysis,MBIE Research,T2,NZ pipeline comparison
+P185,UK DLUHC,2023,Housing supply: net additional dwellings statistics 2022-23,DLUHC,T2,UK housing pipeline
+P186,Centraal Bureau voor de Statistiek,2023,Verleende bouwvergunningen 2022,CBS Netherlands,T2,Dutch building permits
+P187,Irish Fiscal Advisory Council,2024,Fiscal Assessment Report November 2024,IFAC,T3,Fiscal assessment including housing
+P188,CSO,2024,Wholesale Price Index Construction Materials,Central Statistics Office,T6,Construction input prices
+P189,RICS,2023,Global Construction Monitor Q4 2023,Royal Institution of Chartered Surveyors,T6,Global construction outlook
+P190,Turner & Townsend,2023,International Construction Market Survey 2023,T&T,T6,International construction costs
+P191,Bardhan A. & Kroll C.A.,2007,Globalisation and the real estate industry,Working Paper University of California Berkeley,T2,Global real estate trends
+P192,Green R.K. et al.,2005,Metropolitan-specific estimates of the price elasticity of supply of housing and their sources,American Economic Review,T2,Metro supply elasticity
+P193,Andrews D. et al.,2011,Housing markets and structural policies in OECD countries,OECD Economics Department Working Paper,T2,Structural housing policy
+P194,Caldera Sanchez A. & Andrews D.,2011,To move or not to move: What drives residential mobility rates in the OECD?,OECD Economics Department Working Paper,T2,Residential mobility
+P195,Barker K.,2004,Review of Housing Supply: Delivering Stability,HM Treasury,T2,Barker Review UK housing
+P196,Miles D.,2004,The UK mortgage market: Taking a longer-term view,HM Treasury,T2,UK mortgage market review
+P197,Hilber C.A.L. & Robert-Nicoud F.,2013,On the origins of land use regulations: Theory and evidence,Journal of Urban Economics,T2,Land use regulation origins
+P198,Saks R.E.,2008,Job creation and housing construction: Constraints on metropolitan area employment growth,Journal of Urban Economics,T2,Employment-housing constraint
+P199,Albouy D. & Ehrlich G.,2018,Housing productivity and the social cost of land-use restrictions,Journal of Urban Economics,T2,Productivity costs of regulation
+P200,Glaeser E. et al.,2005,Why is Manhattan so expensive? Regulation and the rise in housing prices,Journal of Law and Economics,T2,Manhattan regulation costs
+P201,Quigley J.M. & Rosenthal L.A.,2005,The effects of land use regulation on the price of housing,Urban Studies,T2,Regulation price effects
+P202,Glaeser E.,2020,Urbanization and its discontents,Eastern Economic Journal,T2,Urbanisation challenges
+P203,Carozzi F. et al.,2024,The geography of housing affordability,Regional Science and Urban Economics,T2,Geography of affordability
+P204,Rosen S.,1974,Hedonic prices and implicit markets,Journal of Political Economy,T2,Hedonic price theory
+P205,Epple D. & Romano R.,1998,Competition between private and public schools vouchers and peer-group effects,American Economic Review,T5,Competition models
+P206,CSO,2024,Residential Property Price Index,Central Statistics Office,T3,House price index
+P207,Department of Finance,2024,Stability Programme Update April 2024,Department of Finance Ireland,T3,Fiscal outlook and housing
+P208,CBI,2024,Macro-Financial Review 2024:II,Central Bank of Ireland,T3,Financial stability and housing
+P209,Davy,2024,Irish Construction Sector: Labour Market Tightness,Davy Research Note,T6,Construction labour analysis
+P210,CIF,2023,Construction Employment Monitor Q4 2023,CIF,T6,Construction employment tracking
