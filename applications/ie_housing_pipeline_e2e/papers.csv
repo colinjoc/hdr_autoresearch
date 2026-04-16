@@ -1,0 +1,206 @@
+id,authors,year,title,journal,type,theme,notes
+1,Duffy D. et al.,2014,Quarterly Economic Commentary: Housing Supply in Ireland,ESRI,report,domain,Irish housing supply fundamentals
+2,McQuinn K. and O'Connell B.,2024,The Irish Housing Market: Assessment and Policy Implications,ESRI Working Paper,report,domain,Latest ESRI housing model
+3,ESRI,2023,ESRI Housing Model 2023: Projections and Analysis,ESRI Research Series,report,domain,Housing demand projections for Ireland
+4,Keith S. and O'Connor T.,2013,Building Control (Amendment) Regulations 2014: Impact Assessment,DECLG,report,domain,BCAR 2014 impact analysis
+5,NBCO,2023,National Building Control Office Annual Report 2023,NBCO,report,domain,BCMS system documentation
+6,Harter C. and Morris A.,2021,Permit-to-Completion Durations: Evidence from US Census Bureau Microdata,Journal of Housing Economics,article,phenomena,Bimodal permit-to-completion distributions
+7,Arkins S.,2016,Strategic Housing Development: Fast-Track Planning for Ireland,Irish Planning Institute,article,domain,SHD scheme description
+8,Oneil D.,2022,Review of the Strategic Housing Development Process,Housing Agency,report,domain,SHD retrospective evaluation
+9,Kaplan E.L. and Meier P.,1958,Nonparametric Estimation from Incomplete Observations,Journal of the American Statistical Association,article,methods,Kaplan-Meier estimator
+10,Cox D.R.,1972,Regression Models and Life-Tables,Journal of the Royal Statistical Society B,article,methods,Cox proportional hazards model
+11,Cox D.R.,1975,Partial Likelihood,Biometrika,article,methods,Partial likelihood theory
+12,Efron B.,1977,The Efficiency of Cox's Likelihood Function for Censored Data,Journal of the American Statistical Association,article,methods,Efron tie-handling method
+13,Wei L.J.,1992,The Accelerated Failure Time Model: A Useful Alternative to the Cox Regression Model in Survival Analysis,Statistics in Medicine,article,methods,AFT models
+14,Bagdonavicius V. and Nikulin M.,2002,Accelerated Life Models: Modeling and Statistical Analysis,Chapman & Hall/CRC,textbook,methods,AFT textbook
+15,Royston P. and Parmar M.K.B.,2002,Flexible Parametric Proportional-Hazards and Proportional-Odds Models for Censored Survival Data,Statistics in Medicine,article,methods,Generalised gamma
+16,Ke G. et al.,2017,LightGBM: A Highly Efficient Gradient Boosting Decision Tree,NeurIPS,article,methods,LightGBM framework
+17,Graf E. et al.,1999,Assessment and Comparison of Prognostic Classification Schemes for Survival Data,Statistics in Medicine,article,methods,Brier score for survival
+18,CSO,2025,BHQ15: Planning Permissions Granted for New Houses and Apartments,Central Statistics Office PxStat,dataset,domain,CSO permissions data
+19,CSO,2025,NDA12: New Dwelling Completions,Central Statistics Office PxStat,dataset,domain,CSO completions data
+20,CSO,2025,BHQ16: Planning Permissions Granted,Central Statistics Office PxStat,dataset,domain,CSO historical permissions
+21,LDA,2023,Land Development Agency Annual Report 2023,LDA,report,domain,LDA delivery figures
+22,Housing for All,2021,Housing for All: A New Housing Plan for Ireland,Government of Ireland,policy,domain,50500/yr target document
+23,Ball M.,2011,Planning Delay and the Responsiveness of English Housing Supply,Urban Studies,article,phenomena,UK planning delays and supply
+24,Barker K.,2004,Barker Review of Housing Supply,HM Treasury,report,domain,UK housing supply review
+25,Bramley G.,2013,Housing Market Models and Planning,Environment and Planning B,article,ml_opt,Housing market modeling approaches
+26,Cheshire P.,2018,Broken Market or Broken Policy? The Unintended Consequences of Restrictive Planning,National Institute Economic Review,article,domain,Planning policy effects on supply
+27,Glaeser E. and Gyourko J.,2003,The Impact of Building Restrictions on Housing Affordability,Federal Reserve Bank of New York Economic Policy Review,article,domain,Zoning and affordability
+28,Gyourko J. et al.,2008,A New Measure of the Local Regulatory Environment for Housing Markets,Urban Studies,article,domain,Wharton Residential Land Use Regulatory Index
+29,Hilber C.A.L. and Vermeulen W.,2016,The Impact of Supply Constraints on House Prices in England,Economic Journal,article,domain,Supply constraints and prices
+30,Mayo S. and Sheppard S.,2001,Housing Supply and the Effects of Stochastic Development Control,Journal of Housing Economics,article,phenomena,Stochastic planning delay model
+31,Mayer C.J. and Somerville C.T.,2000,Residential Construction: Using the Urban Growth Model to Estimate Housing Supply,Journal of Urban Economics,article,ml_opt,Urban growth housing supply model
+32,Murphy A.,2018,An Assessment of the House-Building Sector in Ireland,ESRI Working Paper,report,domain,Irish construction sector assessment
+33,O'Toole C. and Slaymaker R.,2021,Housing Delivery in Ireland: Trends and Constraints,ESRI Special Article,report,domain,Housing delivery constraints
+34,Davy,2015,Irish Residential Building Sector: Recovery Trajectory,Davy Research,report,domain,Construction recovery analysis
+35,Planning and Development Act,2000,Planning and Development Act 2000 (as amended),Government of Ireland,legislation,domain,Irish planning law
+36,S.I. No. 9,2014,Building Control (Amendment) Regulations 2014,Government of Ireland,legislation,domain,BCAR 2014 regulations
+37,Norris M. and Coates D.,2014,How Housing Killed the Celtic Tiger: The Irish Housing Boom and Bust,Cambridge Journal of Regions Economy and Society,article,domain,Celtic Tiger housing analysis
+38,Kitchin R. et al.,2012,Placing Neoliberalism: The Rise and Fall of Ireland's Celtic Tiger,Environment and Planning A,article,domain,Neoliberal housing policy Ireland
+39,Healy T.,2020,Housing Policy in Ireland: From Bust to Crisis,Administration,article,domain,Post-crash housing policy
+40,Byrne M.,2020,Generation Rent and the Financialization of Housing,Economic Geography,article,domain,Financialization and supply
+41,Kenny C.,2024,Housing Supply and Affordability in Ireland,Department of Finance,report,domain,Recent Dept Finance housing analysis
+42,Lyons R.,2021,The Daft.ie Rental Report Q4 2021,Daft.ie,report,domain,Irish rental market data
+43,OECD,2022,OECD Housing Policy Review: Ireland,OECD Publishing,report,domain,International housing policy comparison
+44,World Bank,2021,Housing Finance Across Countries,World Bank Policy Research Working Paper,report,cross_domain,International housing finance
+45,Grimes A. and Aitken A.,2010,Housing Supply Responsiveness and Efficiency: New Zealand's Story,Journal of Housing Economics,article,cross_domain,NZ housing supply elasticity
+46,Productivity Commission NZ,2012,Housing Affordability Inquiry,NZPC,report,cross_domain,NZ housing affordability
+47,Netherlands Ministry of Housing,2023,Housing Production in the Netherlands: Annual Report,MinBZK,report,cross_domain,Dutch housing supply metrics
+48,Vermeulen W. and Rouwendal J.,2007,Housing Supply and Land Use Regulation in the Netherlands,Tinbergen Institute Discussion Paper,article,cross_domain,Dutch planning and supply
+49,ABS,2023,Building Approvals Australia,Australian Bureau of Statistics,dataset,cross_domain,Australian building approval data
+50,Gurran N. and Bramley G.,2017,Urban Planning and the Housing Market: International Perspectives,Palgrave Macmillan,textbook,cross_domain,International planning-supply textbook
+51,Evans A.W.,2004,Economics and Land Use Planning,Blackwell,textbook,domain,Land use economics textbook
+52,O'Sullivan A.,2012,Urban Economics,McGraw-Hill,textbook,domain,Urban economics textbook
+53,DiPasquale D. and Wheaton W.C.,1996,Urban Economics and Real Estate Markets,Prentice Hall,textbook,domain,Real estate economics textbook
+54,Arnott R. and McMillen D.,2006,A Companion to Urban Economics,Wiley-Blackwell,textbook,domain,Urban economics handbook
+55,McDonald J.F. and McMillen D.P.,2011,Urban Economics and Real Estate: Theory and Policy,Wiley,textbook,domain,Urban economics theory
+56,Glaeser E.,2011,Triumph of the City,Penguin,textbook,domain,Cities and housing supply
+57,Quigley J. and Rosenthal L.,2005,The Effects of Land Use Regulation on the Price of Housing,Cityscape,article,domain,Land use regulation effects
+58,Saiz A.,2010,The Geographic Determinants of Housing Supply,Quarterly Journal of Economics,article,domain,Geography and supply elasticity
+59,Green R.K. et al.,2005,Metropolitan-Specific Estimates of the Price Elasticity of Supply of Housing,American Economic Review,article,domain,Housing supply elasticity
+60,Malpezzi S.,1996,Housing Prices Externalities and Regulation in US Metropolitan Areas,Journal of Housing Research,article,domain,Housing prices and regulation
+61,Malpezzi S. and Maclennan D.,2001,The Long-Run Price Elasticity of Supply of New Residential Construction,Journal of Housing Economics,article,domain,Long-run supply elasticity
+62,Caldera A. and Johansson A.,2013,The Price Responsiveness of Housing Supply in OECD Countries,Journal of Housing Economics,article,cross_domain,International supply responsiveness
+63,Andrews D. et al.,2011,Housing Markets and Structural Policies in OECD Countries,OECD Economics Department Working Paper,article,cross_domain,OECD housing structural policies
+64,Taltavull de La Paz P.,2014,New Housing Supply and Price Reactions,Journal of European Real Estate Research,article,phenomena,Supply-price dynamics
+65,Cameron G. and Muellbauer J.,2001,Earnings Inequality and the House Price Cycle,Scottish Journal of Political Economy,article,domain,Earnings and house prices
+66,Muellbauer J.,2018,Housing Credit and Consumer Expenditure,Jackson Hole Symposium,article,domain,Housing credit and consumption
+67,Bengtsson B. and Ruonavaara H.,2010,Introduction to the Special Issue: Path Dependence in Housing,Housing Theory and Society,article,cross_domain,Path dependence in housing
+68,Whitehead C.M.E.,2007,Planning Policies and Affordable Housing,Urban Studies,article,domain,Planning and affordability
+69,Monk S. and Whitehead C.M.E.,2010,Making Housing More Affordable: The Role of Intermediate Tenures,Wiley-Blackwell,textbook,domain,Affordable housing provision
+70,Scanlon K. et al.,2014,Social Housing in Europe,Wiley-Blackwell,textbook,cross_domain,European social housing
+71,Kemeny J.,1995,From Public Housing to the Social Market,Routledge,textbook,cross_domain,Housing tenure systems
+72,Malpass P.,2005,Housing and the Welfare State,Palgrave,textbook,cross_domain,Housing welfare state
+73,Stephens M.,2019,Social Rented Housing in the (DIS)United Kingdom,Urban Studies,article,cross_domain,UK social housing
+74,Czischke D. and Pittini A.,2007,Housing Europe 2007: Review of Social Cooperative and Public Housing,CECODHAS,report,cross_domain,European housing review
+75,Aedes,2022,Dutch Housing Associations in Facts and Figures,Aedes,report,cross_domain,Dutch housing production data
+76,Priemus H. and Dieleman F.,2002,Social Housing Policy in the European Union,Urban Studies,article,cross_domain,EU social housing policy
+77,Oxley M.,2004,Economics Planning and Housing,Palgrave Macmillan,textbook,domain,Planning economics textbook
+78,Adams D. and Watkins C.,2014,The Value of Planning,RTPI Research Report,report,domain,Planning value assessment
+79,Bramley G. and Watkins D.,2016,Housebuilding Accessibility and Affordability in Scotland,Housing Studies,article,cross_domain,Scottish housing supply
+80,Leishman C. et al.,2008,Scottish Housing in the 2010s: An Evidence Review,Scottish Government,report,cross_domain,Scottish housing evidence
+81,Tang B.S. et al.,2007,Property Prices and Planning Policies in Hong Kong,Urban Studies,article,cross_domain,Hong Kong planning-price interaction
+82,Hui E.C.M. et al.,2012,Housing Supply Dynamics in Hong Kong,Construction Management and Economics,article,cross_domain,HK supply dynamics
+83,Meen G.,2005,On the Economics of the Barker Review of Housing Supply,Housing Studies,article,domain,Economics of UK housing supply
+84,Meen G. and Andrew M.,2008,Planning for Housing in the Post-Barker Era,Oxford Review of Economic Policy,article,domain,Post-Barker planning reform
+85,Cheshire P. and Hilber C.A.L.,2008,Office Space Supply Restrictions in Britain,Economic Journal,article,domain,Supply restrictions and commercial property
+86,Hilber C.A.L. and Robert-Nicoud F.,2013,On the Origins of Land Use Regulations,Journal of Urban Economics,article,domain,Origins of land use regulation
+87,Ihlanfeldt K.R.,2007,The Effect of Land Use Regulation on Housing and Land Prices,Journal of Urban Economics,article,domain,Regulation and land prices
+88,Quigley J.,2007,Regulation and Property Values in the United States,Cityscape,article,domain,Regulation-property values link
+89,Manville M. and Shoup D.,2005,Parking People and Cities,Journal of Urban Planning and Development,article,cross_domain,Parking and housing supply
+90,Jackson K.,2016,Do Land Use Regulations Stifle Residential Development?,Journal of Urban Economics,article,domain,Regulations and development
+91,Gyourko J. and Molloy R.,2015,Regulation and Housing Supply,Handbook of Regional and Urban Economics,chapter,domain,Handbook chapter on regulation
+92,Molloy R.,2020,The Effect of Housing Supply Regulation on Housing Affordability,Regional Science and Urban Economics,article,domain,Regulation-affordability link
+93,Ganong P. and Shoag D.,2017,Why Has Regional Income Convergence in the US Declined?,Journal of Urban Economics,article,cross_domain,Housing supply and income convergence
+94,Hsieh C.T. and Moretti E.,2019,Housing Constraints and Spatial Misallocation,American Economic Journal: Macroeconomics,article,cross_domain,Housing constraints and productivity
+95,Glaeser E. and Gyourko J.,2018,The Economic Implications of Housing Supply,Journal of Economic Perspectives,article,domain,Housing supply economic implications
+96,Dixit A.K. and Pindyck R.S.,1994,Investment Under Uncertainty,Princeton University Press,textbook,real_options,Real options theory textbook
+97,McDonald R. and Siegel D.,1986,The Value of Waiting to Invest,Quarterly Journal of Economics,article,real_options,Option value of delay
+98,Titman S.,1985,Urban Land Prices Under Uncertainty,American Economic Review,article,real_options,Real options in land development
+99,Williams J.T.,1991,Real Estate Development as an Option,Journal of Real Estate Finance and Economics,article,real_options,Development timing option
+100,Cunningham C.R.,2006,House Price Uncertainty Timing of Development and Vacant Land Prices,Journal of Urban Economics,article,real_options,Development timing and uncertainty
+101,Somerville C.T.,2001,Permits Starts Completions: Structural Relationships versus Real Effects,Journal of Housing Economics,article,phenomena,Permits-starts-completions structure
+102,Mayer C.J. and Somerville C.T.,2000,Land Use Regulation and New Construction,Regional Science and Urban Economics,article,domain,Regulation and construction
+103,Glaeser E. et al.,2005,Why is Manhattan So Expensive?,Journal of Law and Economics,article,domain,NYC housing supply constraints
+104,Glaeser E. et al.,2005,Why Have Housing Prices Gone Up?,American Economic Review,article,domain,Housing price growth analysis
+105,Poterba J.,1984,Tax Subsidies to Owner-Occupied Housing: An Asset-Market Approach,Quarterly Journal of Economics,article,domain,Housing taxation model
+106,Case K.E. and Shiller R.J.,1989,The Efficiency of the Market for Single-Family Homes,American Economic Review,article,domain,Housing market efficiency
+107,Shiller R.J.,2015,Irrational Exuberance 3rd Edition,Princeton University Press,textbook,domain,Housing bubbles textbook
+108,Mian A. and Sufi A.,2009,The Consequences of Mortgage Credit Expansion,Quarterly Journal of Economics,article,domain,Credit expansion and housing
+109,Agarwal S. et al.,2014,Inconsistent Regulators: Evidence from Banking,Quarterly Journal of Economics,article,cross_domain,Regulatory inconsistency
+110,Davis M.A. and Palumbo M.G.,2008,The Price of Residential Land in Large US Cities,Journal of Urban Economics,article,domain,Land price decomposition
+111,Albouy D. et al.,2018,Housing Demand Housing Supply and Affordability,American Economic Review,article,domain,Supply-demand-affordability framework
+112,Gallin J.,2006,The Long-Run Relationship Between House Prices and Income,Real Estate Economics,article,domain,Income-price relationship
+113,Topel R. and Rosen S.,1988,Housing Investment in the United States,Journal of Political Economy,article,domain,Housing investment dynamics
+114,Murphy L.,2020,Performing Calculative Practices: Residual Land Valuation and Housing Development,Housing Studies,article,domain,Land valuation practices
+115,Hoesli M. and MacGregor B.D.,2000,Property Investment: Principles and Practice of Portfolio Management,Pearson,textbook,domain,Property investment textbook
+116,Barr J. and Cohen J.P.,2014,The Floor Area Ratio Gradient,Regional Science and Urban Economics,article,domain,FAR and development intensity
+117,Clark D.E. and Herrin W.E.,2000,The Impact of Public School Attributes on Home Sale Prices,Growth and Change,article,domain,Public services and house prices
+118,Brueckner J.K.,2000,Urban Sprawl: Diagnosis and Remedies,International Regional Science Review,article,domain,Urban sprawl analysis
+119,Arnott R.,1987,Economic Theory and Housing,Handbook of Regional and Urban Economics,chapter,domain,Housing economic theory
+120,Henderson J.V.,2003,The Urbanization Process and Economic Growth,Journal of Economic Growth,article,cross_domain,Urbanization and growth
+121,Bertaud A.,2018,Order Without Design: How Markets Shape Cities,MIT Press,textbook,cross_domain,Markets and urban form
+122,Chetty R. et al.,2016,The Effects of Exposure to Better Neighborhoods on Children,American Economic Review,article,cross_domain,Neighborhood effects
+123,Autor D. et al.,2014,Housing Market Spillovers: Evidence from the End of Rent Control,Journal of Political Economy,article,domain,Rent control spillovers
+124,Diamond R. et al.,2019,The Effects of Rent Control Expansion on Tenants Landlords and Inequality,American Economic Review,article,domain,Rent control effects
+125,Baum-Snow N.,2007,Did Highways Cause Suburbanization?,Quarterly Journal of Economics,article,cross_domain,Infrastructure and sprawl
+126,Rosenthal S.S. and Strange W.C.,2004,Evidence on the Nature and Sources of Agglomeration Economies,Handbook of Regional and Urban Economics,chapter,cross_domain,Agglomeration economies
+127,Glaeser E. and Ward B.,2009,The Causes and Consequences of Land Use Regulation,Journal of Urban Economics,article,domain,Land use regulation review
+128,Turner M.A. et al.,2014,Land Use Regulation and Welfare,Econometrica,article,domain,Welfare effects of regulation
+129,Gopinath G. et al.,2021,Dominant Currencies and External Adjustment,American Economic Review,article,cross_domain,Macro housing effects
+130,Jordà Ò. et al.,2015,Leveraged Bubbles,Journal of Monetary Economics,article,domain,Housing leverage and bubbles
+131,Reinhart C.M. and Rogoff K.S.,2009,This Time is Different,Princeton University Press,textbook,domain,Financial crises and housing
+132,Blackley D.M.,1999,The Long-Run Elasticity of New Housing Supply,Journal of Real Estate Finance and Economics,article,domain,Long-run supply elasticity
+133,Mayer C.,2011,Housing Bubbles: A Survey,Annual Review of Economics,article,domain,Housing bubble survey
+134,Wheaton W.C.,1999,Real Estate Cycles: Some Fundamentals,Real Estate Economics,article,domain,Real estate cycle theory
+135,DiPasquale D.,1999,Why Don't We Know More About Housing Supply?,Journal of Real Estate Finance and Economics,article,domain,Housing supply knowledge gaps
+136,Fingleton B. et al.,2019,Housing Supply and Urban House Prices,Urban Studies,article,domain,UK supply-price dynamics
+137,Leamer E.E.,2015,Housing Really Is the Business Cycle,Journal of Monetary Economics,article,domain,Housing and business cycles
+138,Paciorek A.,2013,Supply Constraints and Housing Market Dynamics,Journal of Urban Economics,article,domain,Supply constraints and dynamics
+139,Saks R.E.,2008,Job Creation and Housing Construction,Journal of Urban Economics,article,domain,Employment and construction
+140,Sinai T. and Waldfogel J.,2005,Do Low-Income Housing Subsidies Increase the Occupied Housing Stock?,Journal of Public Economics,article,domain,Housing subsidy effects
+141,Eriksen M.D. and Rosenthal S.S.,2010,Crowd Out Effects of Place-Based Subsidized Rental Housing,Journal of Public Economics,article,domain,Subsidy crowd-out
+142,Baum-Snow N. and Marion J.,2009,The Effects of Low Income Housing Tax Credit Developments on Neighborhoods,Journal of Public Economics,article,domain,LIHTC neighborhood effects
+143,Ellen I.G. and Voicu I.,2006,Nonprofit Housing and Neighborhood Spillovers,Journal of Policy Analysis and Management,article,domain,Nonprofit housing spillovers
+144,Schuetz J. et al.,2008,31 Flavors of Inclusionary Zoning,Journal of the American Planning Association,article,domain,Inclusionary zoning effects
+145,Been V. et al.,2019,Supply Skepticism: Housing Supply and Affordability,Housing Policy Debate,article,domain,Supply skepticism debate
+146,Lens M.C. and Monkkonen P.,2016,Do Strict Land Use Regulations Make Metropolitan Areas More Segregated by Income?,Journal of the American Planning Association,article,domain,Regulation and segregation
+147,Pendall R.,2000,Local Land Use Regulation and the Chain of Exclusion,Journal of the American Planning Association,article,domain,Exclusionary zoning
+148,Rothwell J. and Massey D.S.,2009,The Effect of Density Zoning on Racial Segregation,Urban Affairs Review,article,cross_domain,Zoning and segregation
+149,Pendall R. et al.,2006,Connecting Smart Growth Planning and Housing Affordability,Lincoln Institute of Land Policy,report,cross_domain,Smart growth and affordability
+150,Goetzmann W.N. and Ibbotson R.G.,1990,The Performance of Real Estate as an Asset Class,Journal of Applied Corporate Finance,article,domain,Real estate returns
+151,Lusht K.M.,2001,Real Estate Valuation: Principles and Applications,KML Publishing,textbook,domain,Real estate valuation textbook
+152,Geltner D. et al.,2014,Commercial Real Estate Analysis and Investments,OnCourse Learning,textbook,domain,Commercial real estate textbook
+153,Ling D.C. and Archer W.R.,2017,Real Estate Principles: A Value Approach,McGraw-Hill,textbook,domain,Real estate principles textbook
+154,Brueggeman W.B. and Fisher J.D.,2015,Real Estate Finance and Investments,McGraw-Hill,textbook,domain,Real estate finance textbook
+155,Erlang A.K.,1909,The Theory of Probabilities and Telephone Conversations,Nyt Tidsskrift for Matematik B,article,queueing,Original queueing theory
+156,Kleinrock L.,1975,Queueing Systems Volume I: Theory,Wiley,textbook,queueing,Queueing theory textbook
+157,Gross D. et al.,2008,Fundamentals of Queueing Theory,Wiley,textbook,queueing,Queueing fundamentals textbook
+158,Hillier F.S. and Lieberman G.J.,2015,Introduction to Operations Research,McGraw-Hill,textbook,queueing,OR textbook with queueing
+159,Ross S.M.,2014,Introduction to Probability Models,Academic Press,textbook,methods,Markov chain theory
+160,Lawless J.F.,2003,Statistical Models and Methods for Lifetime Data,Wiley,textbook,methods,Survival analysis textbook
+161,Hosmer D.W. et al.,2008,Applied Survival Analysis,Wiley,textbook,methods,Applied survival analysis
+162,Kalbfleisch J.D. and Prentice R.L.,2002,The Statistical Analysis of Failure Time Data,Wiley,textbook,methods,Failure time analysis textbook
+163,Klein J.P. and Moeschberger M.L.,2003,Survival Analysis: Techniques for Censored and Truncated Data,Springer,textbook,methods,Survival analysis techniques
+164,Collett D.,2015,Modelling Survival Data in Medical Research,Chapman & Hall/CRC,textbook,methods,Medical survival modeling
+165,Therneau T.M. and Grambsch P.M.,2000,Modeling Survival Data: Extending the Cox Model,Springer,textbook,methods,Extended Cox model textbook
+166,Davidson-Pilon C.,2019,lifelines: Survival Analysis in Python,Journal of Open Source Software,article,methods,Lifelines library
+167,scikit-learn developers,2023,scikit-learn: Machine Learning in Python,JMLR,article,methods,Scikit-learn framework
+168,Hastie T. et al.,2009,The Elements of Statistical Learning,Springer,textbook,methods,Statistical learning textbook
+169,James G. et al.,2013,An Introduction to Statistical Learning,Springer,textbook,methods,ISL textbook
+170,Friedman J.H.,2001,Greedy Function Approximation: A Gradient Boosting Machine,Annals of Statistics,article,methods,Gradient boosting theory
+171,Breiman L.,2001,Random Forests,Machine Learning,article,methods,Random forests
+172,Chen T. and Guestrin C.,2016,XGBoost: A Scalable Tree Boosting System,KDD,article,methods,XGBoost framework
+173,Efron B. and Tibshirani R.,1993,An Introduction to the Bootstrap,Chapman & Hall,textbook,methods,Bootstrap methods textbook
+174,Davison A.C. and Hinkley D.V.,1997,Bootstrap Methods and their Application,Cambridge University Press,textbook,methods,Bootstrap application textbook
+175,Putter H. et al.,2007,Tutorial in Biostatistics: Competing Risks and Multi-State Models,Statistics in Medicine,article,methods,Multi-state survival tutorial
+176,Andersen P.K. and Keiding N.,2002,Multi-state Models for Event History Analysis,Statistical Methods in Medical Research,article,methods,Multi-state model review
+177,Aalen O.O. et al.,2008,Survival and Event History Analysis,Springer,textbook,methods,Event history textbook
+178,Beyersmann J. et al.,2012,Competing Risks and Multistate Models with R,Springer,textbook,methods,Competing risks in R
+179,Prentice R.L. et al.,1978,The Analysis of Failure Times in the Presence of Competing Risks,Biometrics,article,methods,Competing risks analysis
+180,Fine J.P. and Gray R.J.,1999,A Proportional Hazards Model for the Subdistribution of a Competing Risk,Journal of the American Statistical Association,article,methods,Fine-Gray competing risks
+181,Law A.M.,2015,Simulation Modeling and Analysis,McGraw-Hill,textbook,methods,DES simulation textbook
+182,Banks J. et al.,2010,Discrete-Event System Simulation,Pearson,textbook,methods,DES textbook
+183,Robinson S.,2014,Simulation: The Practice of Model Development and Use,Palgrave Macmillan,textbook,methods,Simulation practice textbook
+184,Housing Agency,2021,Housing Need and Demand Assessment,Housing Agency Ireland,report,domain,Irish housing need assessment
+185,Housing Agency,2023,Summary of Social Housing Assessments 2023,Housing Agency Ireland,report,domain,Irish social housing waiting lists
+186,Approved Housing Bodies Regulatory Authority,2023,AHBRA Annual Report 2023,AHBRA,report,domain,AHB regulatory data
+187,National Oversight and Audit Commission,2023,NOAC Performance Indicators Report 2022,NOAC,report,domain,LA performance metrics
+188,Rebuilding Ireland,2016,Rebuilding Ireland: Action Plan for Housing and Homelessness,Government of Ireland,policy,domain,Pre-HFA housing policy
+189,An Bord Pleanála,2022,ABP Annual Report 2021,An Bord Pleanala,report,domain,Planning appeals board statistics
+190,Irish Times,2025,LDA Delivery: Cumulative Through End-2024,Irish Times,journalism,domain,LDA cumulative reporting
+191,Morgenroth E.,2018,Prospects for Irish Regions and Counties: Scenarios and Implications,ESRI Working Paper,report,domain,Regional housing demand
+192,Byrne M. and Norris M.,2018,Procyclical Social Housing and the Crisis of Irish Housing Policy,Housing Policy Debate,article,domain,Procyclical housing policy
+193,Byrne M.,2019,The Housing Crisis and the Need for a New Social Contract,Administration,article,domain,Housing crisis analysis
+194,Norris M.,2016,Property Finance and Social Housing: A History of the Irish System,Cambridge University Press,textbook,domain,Irish housing history
+195,Norris M. and Fahey T.,2011,From Asset Based Welfare to Welfare Housing?,Irish Journal of Sociology,article,domain,Asset-based welfare transition
+196,Fahey T. and Duffy D.,2007,The Housing Boom,Bentham Science Publishers,article,domain,Celtic Tiger housing boom
+197,Kelly M.,2007,On the Likely Extent of Falls in Irish House Prices,Quarterly Economic Commentary,article,domain,Pre-crash price forecast
+198,Kelly M.,2009,The Irish Credit Bubble,UCD Working Paper,article,domain,Irish credit bubble analysis
+199,Honohan P.,2009,Resolving Ireland's Banking Crisis,Economic and Social Review,article,domain,Banking crisis resolution
+200,Lane P.R.,2011,The Irish Crisis,IIIS Discussion Paper,article,domain,Irish economic crisis analysis
+201,Drudy P.J. and Punch M.,2005,Out of Reach: Inequalities in the Irish Housing System,New Island Books,textbook,domain,Irish housing inequality
+202,Drudy P.J.,2006,Housing in Ireland: Philosophy and Policy,JSSISI,article,domain,Irish housing philosophy
+203,Ahearne A. et al.,2005,House Prices and Fundamental Values: A Cross-Country Study,FEDS Working Paper,article,cross_domain,Cross-country house price fundamentals
+204,Meen G.,2001,Modelling Spatial Housing Markets: Theory Analysis and Policy,Springer,textbook,domain,Spatial housing markets textbook
+205,Cameron S.,2006,From Low Demand to Rising Aspirations: Housing Market Renewal within Regional and Neighbourhood Regeneration Policy,Housing Studies,article,cross_domain,Market renewal and regeneration

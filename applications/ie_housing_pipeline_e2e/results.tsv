@@ -1,0 +1,51 @@
+experiment_id	description	metric	value	ci_lower	ci_upper	n	status	interaction	notes
+E00	Overall pipeline yield: (1-lapse) × CCC_rate × CCC_to_occ, 2014-2019	yield_rate	0.3513	0.2794	0.3541	85565	BASELINE	False	seed=42; lapse=0.0949; ccc_rate=0.4086; s34=0.95
+T01	Binomial stage-by-stage attrition model	implied_yield	0.3513			85565	TOURNAMENT	False	s1_2=0.9051; s2_3=0.4086; s3_4=0.9500
+T02	Markov chain transition model (P→C→CCC→O)	markov_yield	0.3513			85565	TOURNAMENT	False	p_PC=0.9051; p_CD=0.4086; p_DO=0.9500
+T03	Cox multi-state survival model (comm→CCC)	cox_concordance	0.5			85545	TOURNAMENT	False	km_median_comm_ccc=infd; km_ccc_6yr=0.4086; cox_yield=0.3513
+T04	Discrete-event simulation calibrated to observed distributions	des_yield	0.352			10000	TOURNAMENT	False	des_median=848d; shape_pc=1.270; shape_cc=0.554
+T05	Logistic regression baseline (linear sanity check)	auc_5fold	0.7235			85565	TOURNAMENT	False	features=['is_dublin', 'apartment_flag', 'one_off_flag', 'shd_era']
+E01	Scheme-size stratified CCC rate	ccc_rate_range	0.1219-0.8889			85565	KEEP	False	1=0.1219(n=51931); 10-49=0.8656(n=10536); 2-9=0.6809(n=4855); 200+=0.8877(n=7507); 50-199=0.8889(n=10736)
+E02	LA-level CCC rate heterogeneity	ccc_rate_cv	0.4846			31	KEEP	False	range=[0.0816,0.6823]
+E03	One-off vs multi-unit CCC rate	ccc_gap	0.4312			85565	KEEP	False	oneoff=0.0771; multi=0.5082
+E04	Pre/post SHD CCC rate	ccc_gap	0.0645			85565	KEEP	False	pre=0.3683; post=0.4328
+E05	Pre/post COVID comm→CCC latency	median_gap_days	28.0			34960	KEEP	False	pre=484d; post=512d
+E06	Dublin vs non-Dublin CCC rate	ccc_gap	0.0809			85565	KEEP	False	dublin=0.4754; nondub=0.3945
+E07	Apartment vs dwelling CCC rate	ccc_gap	-0.4086			85565	KEEP	False	apt=0.0000; dwell=0.4086
+E08	AHB vs private CCC rate	ccc_gap	0.3187			85565	KEEP	False	ahb=0.7229; priv=0.4042
+E09	Section 42 extension proxy CCC rate	ccc_gap	0.2918			85565	KEEP	False	ext=0.6826; noext=0.3908
+E10	Inverse yield: permissions needed for HFA 50,500/yr	permissions_needed_per_yr	143733.7222			0	KEEP	False	yield=0.3513; gap=105734
+E11	Sensitivity: lapse rate halved (9.5% → 4.75%)	extra_completions_per_yr	699.9322			0	KEEP	False	new_yield=0.3698; delta=0.0184
+E12	LDA attribution netting (100% Tosaigh acquisition)	lda_share_2023	0.035			24316	KEEP	False	additionality=0; already in national denominator
+E13	CCC rate by grant year	rate_range	0.3563-0.4668			85565	KEEP	False	2014=0.3713; 2015=0.3807; 2016=0.3563; 2017=0.3726; 2018=0.4668; 2019=0.4486
+E14	Median total pipeline latency (perm→CCC) with CI	median_days	1096.0	1084.0	1105.0	34961	KEEP	False	IQR=[691,1710]
+E15	Opt-out vs non-opt-out CCC rate	ccc_gap	-0.5977			85565	KEEP	False	optout=0.0000; nonopt=0.5977
+E16	Perm-to-comm median by size stratum	medians	see notes			85565	KEEP	False	
+E17	Comm-to-CCC median by size stratum	medians	see notes			85565	KEEP	False	
+E18	CSO 2-year aggregate conversion cross-check	ratio_range	0.41-0.65			0	KEEP	False	aggregate population ratio, not cohort-tracked
+E19	Bootstrap 95% CI on CCC rate (stage 2→3)	ccc_rate_ci	[0.4053,0.4118]	0.4053	0.4118	85565	KEEP	False	
+E20	Perm-to-comm median with bootstrap CI	median_days	234.0	231.0	236.0	85428	KEEP	False	
+E21	Comm-to-CCC median with bootstrap CI	median_days	496.0	492.0	498.0	34960	KEEP	False	
+E22	Right-censoring sensitivity (-6mo)	ccc_rate_shifted	0.3991			85565	KEEP	False	delta=-0.0095
+E23	Fully mature 2014-2017 CCC rate	ccc_rate_mature	0.3697			47730	KEEP	False	9-12 years since grant; minimal right-censoring
+E24	Placebo test — shuffled CCC assignment	placebo_rate	0.4086			85565	REVERT	False	confirms rate is real
+E25	Multi-phase vs single-phase CCC rate	ccc_gap	0.582			85565	KEEP	False	multi=0.8543; single=0.2723
+E26	Yield under upper-bound lapse rate (27.4%)	yield_upper_lapse	0.2818			0	KEEP	False	lapse=0.274; yield_range=[0.2818,0.3513]
+E27	Yield using KM-estimated CCC rate at 6 years	yield_km	0.3513			0	KEEP	False	km_ccc_6yr=0.4086
+E28	CCC rate per grant year	rates	see notes			85565	KEEP	False	
+E29	Sensitivity: CCC→occupied = 1.0	yield_s34_1	0.3698			0	KEEP	False	delta=0.0185
+E30	DES with upper-bound lapse rate	des_yield_upper	0.2833			10000	KEEP	False	lapse=0.274
+E31	Sensitivity: CCC rate +10pp	extra_completions_per_yr	3267.411			0	KEEP	False	new_ccc_rate=0.5086; new_yield=0.4373
+E32	Sensitivity: permission volume to 60k/yr	completions_at_60k	21080.648			0	KEEP	False	yield=0.3513
+I01	Interaction: Dublin × Apartment CCC rate	interaction	see notes			85565	KEEP	True	
+I02	Interaction: Size × Dublin CCC rate	interaction	see notes			85565	KEEP	True	
+I03	Interaction: Year × Apartment CCC rate	interaction	see notes			85565	KEEP	True	
+B01	Phase B: pipeline yield by LA × size × type stratum	n_strata	136			136	KEEP	False	discoveries/pipeline_yield_by_stratum.csv
+B02	Phase B: permissions needed for HFA by scenario	n_scenarios	9			9	KEEP	False	discoveries/permissions_needed_for_hfa.csv
+R1	Build-yield estimate: assumes 90% of opt-out commenced projects are built	build_yield	0.5962			85565	KEEP	False	optout_share=0.3163; optout_build=0.90; nonopt_ccc=0.5977; ccc_yield=0.3513
+R2	Permissions needed for HFA under build-yield vs CCC-yield	perms_needed_build_yield	84711			0	KEEP	False	build_yield=0.5962; ccc_yield=0.3513; perms_ccc=143734
+R3	Stage 2→3 decomposition: opt-out regulatory vs genuine non-completion	optout_share_of_nonccc	0.5349			50602	KEEP	False	optout_nonccc=27068; nonopt_nonccc=23534; total_nonccc=50602
+R4	Yield CI with PL-4 cluster-bootstrap lapse [4.4%, 15.6%]	yield_rate	0.3513	0.3276	0.3711	0	KEEP	False	lapse_cb=[0.044,0.156]; yield_range=[0.3276,0.3711]
+R5	Cox champion downgraded: C=0.5 means no discrimination; Binomial is primary	cox_c_index	0.5			85545	KEEP	False	cox_yield=0.3513; binomial_yield=0.3513; difference=0.000001
+R6	Apartment flag audit: likely undercounts apartments	n_apt_flagged	0			85565	KEEP	False	apt_flagged=0; pct=0.0000; big_schemes_apt=0/18243
+R9	CCC-to-occupied cross-check: CSO completions / BCMS CCC units	ratio_range	see notes			0	KEEP	False	cross-check only; CSO and BCMS measure different things

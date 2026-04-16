@@ -1,0 +1,6 @@
+family,metric,value,notes
+T01_Binomial,implied_yield,0.35134413293987027,
+T02_Markov,markov_yield,0.35134413293987027,
+T03_Cox_MultiState,concordance,0.5,CHAMPION; yield=0.3513
+T04_DES,des_yield,0.352,
+T05_LogisticRegression,auc_5fold,0.7235211435670873,
