@@ -1,0 +1,301 @@
+id,year,authors,title,venue,theme,notes
+P001,1977,Titman,Urban Land Prices Under Uncertainty,AER,real_options,seminal model of the option value of waiting under uncertainty for land development
+P002,1985,McDonald & Siegel,The Value of Waiting to Invest,QJE,real_options,real options pricing of irreversible investment; underlies permission-hoarding theory
+P003,1994,Dixit & Pindyck,Investment Under Uncertainty,Princeton UP,real_options,canonical textbook on real options and irreversibility
+P004,1997,Holland & Ott & Riddiough,The Role of Uncertainty in Investment: An Examination of Competing Investment Models Using Commercial Real Estate Data,Real Estate Economics,real_options,empirical support for option-value in commercial RE development timing
+P005,1999,Quigg,Empirical Testing of Real Option-Pricing Models,JF,real_options,land prices contain significant option premium vs intrinsic use value
+P006,1993,Capozza & Helsley,The Stochastic City,JUE,real_options,stochastic urban growth and timing of development
+P007,1999,Bulan & Mayer & Somerville,Irreversible Investment Real Options and Competition,JUE,real_options,competition erodes but does not eliminate the option to delay
+P008,2009,Cunningham,Housing Price Uncertainty Timing of Development and Vacant Land Prices,JUE,real_options,high price uncertainty raises vacant land prices and lowers development probability
+P009,2008,Mayer & Somerville,Irreversible investment real options and competition: Evidence from real estate development,JUE,real_options,developer competition partially offsets option value
+P010,2015,Grenadier,Option Exercise Games and the Kinked Dynamics of Land Development,JF,real_options,strategic interactions in option exercise
+P011,2006,Lambrecht & Perraudin,Real Options and Preemption Under Incomplete Information,Journal of Economic Dynamics and Control,real_options,competition and preemption dynamics
+P012,2012,Grenadier & Malenko,Real Options Signaling Games with Applications to Corporate Finance,RFS,real_options,signaling and option exercise timing
+P013,1998,Titman & Tompaidis & Tsyplakov,Market imperfections investment flexibility and default spreads,JREFE,real_options,frictions and flexibility in real-asset investment
+P014,2012,Clapp & Bardos & Wong,Empirical Estimation of the Option Premium for Residential Redevelopment,Regional Science and Urban Economics,real_options,options premium visible in observed land transactions
+P015,2001,Williams,Equilibrium and Options on Real Assets,RFS,real_options,equilibrium real-options model
+P016,1988,Williams,Real estate development as an option,JREFE,real_options,classic formulation
+P017,2006,Capozza & Li,Optimal land development decisions,JUE,real_options,endogenous intensity and timing
+P018,1992,Arnott & Lewis,The Transition of Land to Urban Use,JPE,real_options,timing of conversion under uncertainty
+P019,2000,Schwartz & Trigeorgis,Real Options and Investment under Uncertainty,MIT Press,real_options,edited volume on real-options methodology
+P020,2005,Guthrie,Missed Opportunities: Optimal Investment Timing when Information is Costly,Journal of Financial and Quantitative Analysis,real_options,information acquisition and option timing
+P021,2010,Bar-Ilan & Strange,Investment Lags,AER,real_options,time-to-build lags and irreversibility
+P022,2004,Bar-Ilan & Sulem,Explicit Solution of Inventory Problems with Delivery Lags,Mathematics of Operations Research,real_options,lag effects in option exercise
+P023,1996,Pindyck,Irreversibilities and the Timing of Environmental Policy,Resource and Energy Economics,real_options,policy-relevant timing with irreversibility
+P024,2005,Trigeorgis,Real Options: Managerial Flexibility and Strategy in Resource Allocation,MIT Press,real_options,textbook
+P025,2002,Copeland & Antikarov,Real Options: A Practitioner's Guide,TEXERE,real_options,applied guide
+P026,1988,Majd & Pindyck,Time to Build Option Value and Investment Decisions,JFE,real_options,time-to-build option value
+P027,1997,Paddock & Siegel & Smith,Option Valuation of Claims on Real Assets: The Case of Offshore Petroleum Leases,QJE,real_options,real-options in lease valuation
+P028,1993,Williams,Equilibrium and Options on Real Assets: Analysis and Applications,JREFE,real_options,options theory of real estate
+P029,2011,Wang & Zhou,Equilibrium Real Options Exercise Strategies with Multiple Players: The Case of Real Estate Markets,Real Estate Economics,real_options,multi-player exercise
+P030,2018,Kanniainen & Somervuori,Optimal timing of a residential development: an empirical test,J Housing Economics,real_options,empirical development-timing
+P031,1999,Kelly,An Overview of Irish Planning Law,Bar Review,planning_ie,Irish planning law primer
+P032,2000,Planning and Development Act,Oireachtas,Irish statute,planning_ie,Section 42 original framework
+P033,2010,Planning and Development Amendment Act,Oireachtas,Irish statute,planning_ie,S42 amendments restricting extensions
+P034,2015,Planning and Development Amendment Act,Oireachtas,Irish statute,planning_ie,Vacant Site Levy introduced
+P035,2016,Planning and Development Housing and Residential Tenancies Act,Oireachtas,Irish statute,planning_ie,SHD regime establishing ABP direct track
+P036,2021,Affordable Housing Act,Oireachtas,Irish statute,planning_ie,LDA and affordable housing provisions
+P037,2022,Planning and Development Bill,Oireachtas,Irish statute,planning_ie,Recasting permission-duration rules
+P038,2024,Planning and Development Act,Oireachtas,Irish statute,planning_ie,Phased commencement; LRD instead of SHD
+P039,2025,Planning and Development Amendment Act s28,Oireachtas,Irish statute,planning_ie,Three-year extension of uncommenced permissions
+P040,2008,Scott,Rural Housing Planning in Ireland,Irish Geography,planning_ie,rural one-off housing planning dynamics
+P041,2005,Grist,Planning Ireland's Future,IPA,planning_ie,Irish planning system critique
+P042,2017,Hearne & Redmond,Housing Policy in Ireland After the Crisis,Housing Studies,planning_ie,post-2008 policy retrenchment
+P043,2015,Byrne,Bad Banks Property Development and the Irish Crisis,Antipode,planning_ie,NAMA and developer balance-sheet constraints
+P044,2020,Waldron,Financialisation of Urban Development and the Irish Housing System,Housing Studies,planning_ie,institutional capital in Irish residential
+P045,2019,Kitchin & O'Callaghan & Gleeson,Unfinished Estates in Post-Crash Ireland,Space and Polity,planning_ie,legacy ghost estates
+P046,2021,Lyons,Affordability and Supply in the Irish Housing Market,ESRI,planning_ie,ESRI working paper on housing supply
+P047,2020,Corrigan & McQuinn,Potential output of the Irish residential construction sector,ESRI,planning_ie,capacity constraint estimates
+P048,2019,Cronin & McQuinn,Crisis sequence and recovery,ESRI,planning_ie,post-crash credit dynamics
+P049,2021,Conefrey & Staunton,Residential construction and capacity,CB Ireland Signed Article,planning_ie,central-bank perspective on build capacity
+P050,2018,ABP,Annual Report 2018,An Bord Pleanala,planning_ie,ABP caseload and decision timing
+P051,2020,ABP,Annual Report 2020,An Bord Pleanala,planning_ie,SHD intake
+P052,2022,ABP,Annual Report 2022,An Bord Pleanala,planning_ie,SHD/LRD transition
+P053,2015,McGuirk,Planning systems in political economies,Environment and Planning A,planning_ie,comparative institutional lens
+P054,2019,DHLGH,Rebuilding Ireland Progress Report,Department of Housing Local Government and Heritage,planning_ie,official progress on permission-to-completion
+P055,2022,Housing for All,Department of Housing,planning_ie,national housing strategy with 33k/year target
+P056,2018,CSO,Planning Permissions Methodology,Central Statistics Office,planning_ie,BHQ methodology underpinning PLA/BHQ series
+P057,2023,CSO,New Dwelling Completions,Central Statistics Office,planning_ie,NDQ methodology
+P058,2020,CSO,New Dwelling Commencements,Central Statistics Office,planning_ie,commencement series from BCMS
+P059,2021,McCartney,Dublin's housing supply,Business Post,planning_ie,journalistic audit of permissions vs completions
+P060,2015,Norris,Property Politics and the Origins of the Irish Housing Crisis,JHBE,planning_ie,political economy of Irish housing
+P061,2018,Drudy & Punch,Out of Reach,TCD Policy Institute,planning_ie,affordability and supply
+P062,2010,Bailey,Calling time on permission hoarding,Planning,planning_uk,UK debate on lapsed permissions
+P063,2014,Molior London,Barriers to Housing Delivery,Mayor of London,planning_uk,land banks and permission stockpile
+P064,2017,Letwin,Independent Review of Build-Out Rates,HM Government,planning_uk,formal UK review of slow build-out
+P065,2018,Letwin,Final Report Build-Out,HM Government,planning_uk,recommendations on large-site diversification
+P066,2013,HBF,Permissions to Land,Home Builders Federation,planning_uk,industry rebuttal of hoarding narrative
+P067,2016,Lichfields,Taking Stock,Lichfields Research,planning_uk,empirical quantification of permissions lapse
+P068,2018,Lichfields,Banking on Brownfield,Lichfields,planning_uk,how many permissions deliver
+P069,2020,LGA,Housing Backlog,Local Government Association,planning_uk,"1 million unimplemented permissions figure"
+P070,2019,Grosvenor,Measuring build-out,Grosvenor Research,planning_uk,industry build-out metrics
+P071,2016,Crosby & Henneberry,Planning gain,TPR,planning_uk,S106 and option-value in UK permissions
+P072,2014,Payne,Planning and housing supply,Town Planning Review,planning_uk,UK supply-side frictions
+P073,2019,Barker,Review of Land Use Planning,HM Treasury,planning_uk,2004/2006 Barker reviews context
+P074,2011,Cheshire & Sheppard,The introduction of price signals into land use planning,UEA,planning_uk,price signals in UK planning
+P075,2015,Hilber & Vermeulen,The Impact of Supply Constraints on House Prices in England,EJ,planning_uk,supply-constraint causal evidence
+P076,2009,NZ RMA,Resource Management Act review,NZ Government,planning_intl,NZ consent lapse regime
+P077,2017,Productivity Commission NZ,Better Urban Planning,NZPC,planning_intl,analysis of consent/permit expiry in NZ
+P078,2016,Auckland Council,Consent lapse statistics,Auckland Council,planning_intl,empirical lapse rates in NZ
+P079,2019,Productivity Commission Australia,Removing regulatory barriers to housing supply,APC,planning_intl,AU lapse/expiry discussion
+P080,2018,Glaeser & Gyourko,The Economic Implications of Housing Supply,JEP,planning_intl,supply elasticity and permitting
+P081,2005,Glaeser & Gyourko & Saks,Why have housing prices gone up,AER P&P,planning_intl,regulatory tax on housing
+P082,2013,Gyourko & Molloy,Regulation and Housing Supply,Handbook of Regional and Urban Economics,planning_intl,survey of regulatory drag
+P083,2016,Ganong & Shoag,Why has regional income convergence declined,JUE,planning_intl,regulation and mobility
+P084,2020,Kulka,Sorting into Neighborhoods Land Use Controls,WP,planning_intl,land-use rules and sorting
+P085,2019,Hsieh & Moretti,Housing Constraints and Spatial Misallocation,AEJ Macro,planning_intl,misallocation from permitting frictions
+P086,2017,Been & Madar & McDonnell,Urban Land Use Regulation,Regional Science and Urban Economics,planning_intl,NYC permit data
+P087,2019,Kok & Monkkonen & Quigley,Land use regulations and the value of land and housing,JUE,planning_intl,LA permits
+P088,2007,Mayer & Somerville,Residential Construction: Using the Urban Growth Model to Estimate Housing Supply,JUE,development_econ,supply curve estimation
+P089,2000,DiPasquale,Why don't we know more about housing supply,JREFE,development_econ,supply-side data gaps
+P090,2000,Somerville,Residential Construction Costs and the Supply of New Housing,JREFE,development_econ,cost pass-through in supply
+P091,2004,Green & Malpezzi,A Primer on US Housing Markets and Housing Policy,AREUEA,development_econ,primer
+P092,2015,Paciorek,Supply constraints and housing market dynamics,JUE,development_econ,speed of supply response
+P093,2003,Saiz,The Geographic Determinants of Housing Supply,QJE,development_econ,geographic constraint on supply elasticity
+P094,2001,Mayer & Somerville,Land Use Regulation and New Construction,Regional Science and Urban Economics,development_econ,regulation effect on starts
+P095,2012,Ihlanfeldt,The effect of land use regulation on housing and land prices,JUE,development_econ,regulation and prices
+P096,2019,Albouy & Ehrlich,Housing productivity and the social cost of housing,JEP,development_econ,productivity in construction
+P097,2019,Baum-Snow & Han,The Microgeography of Housing Supply,JPE,development_econ,neighborhood supply response
+P098,2020,Murray,The Real Cost of Residential Construction in the US,Working Paper,development_econ,construction cost drivers
+P099,2014,Murray & Frijters,Clean money dirty system,Urban Studies,development_econ,developer behavior and institutional context
+P100,2014,Murray,Developers hoard land,PhD thesis,development_econ,Australian evidence on land banking
+P101,2016,Murray,Land banking and development timing,Journal of Housing Economics,development_econ,empirical support for strategic delay
+P102,2019,Murray,Renewable land supply,Urban Studies,development_econ,argument against hoarding narrative
+P103,2020,Murray,Progressive Planning Myths,Urban Studies,development_econ,critique of permission-as-supply view
+P104,2018,Ball,Housebuilding and the Business Cycle,Edward Elgar,development_econ,cyclical development
+P105,2019,Ball,Markets and Housebuilding,Routledge,development_econ,UK housebuilding industry
+P106,2015,Adams & Tiesdell,Shaping Places,Routledge,development_econ,planning and development interface
+P107,2020,Edwards,The Long Squeeze,UCL,development_econ,UK land-use planning and supply
+P108,2018,Ryan-Collins,Why Can't You Afford a Home,Polity,development_econ,land and housing financialisation
+P109,2020,Alston,Land as a speculative asset,OECD,development_econ,speculation in land
+P110,2014,Evans,Economics Real Estate and the Supply of Land,Blackwell,development_econ,textbook on urban land economics
+P111,2021,Scanlon et al,The Roles of the State and the Market in Housing Delivery,LSE London,development_econ,state-market interface
+P112,2015,Meen,Spatial Housing Economics,Regional Studies,development_econ,spatial patterns of supply
+P113,2018,Whitehead & Scanlon,Social Housing in Europe,Wiley,development_econ,comparative supply
+P114,2020,Jacobs,Dark Matter Housing,Planning Theory,development_econ,theoretical supply critique
+P115,2020,Wyatt,Measuring underused land,Land Use Policy,development_econ,underused sites measurement
+P116,1992,Cox,Regression Models and Life-Tables,JRSS-B,methods,Cox proportional hazards model canonical
+P117,1958,Kaplan & Meier,Nonparametric Estimation from Incomplete Observations,JASA,methods,KM estimator for survival
+P118,2002,Therneau & Grambsch,Modeling Survival Data,Springer,methods,practical survival modelling textbook
+P119,2003,Klein & Moeschberger,Survival Analysis Techniques for Censored and Truncated Data,Springer,methods,survival textbook
+P120,2016,Hastie Tibshirani Friedman,Elements of Statistical Learning,Springer,methods,canonical ML textbook
+P121,2014,Friedman,Greedy Function Approximation: A Gradient Boosting Machine,Annals of Statistics,methods,GBM seminal
+P122,2017,Chen & Guestrin,XGBoost: A Scalable Tree Boosting System,KDD,methods,XGBoost
+P123,2017,Ke et al,LightGBM: A Highly Efficient Gradient Boosting Decision Tree,NIPS,methods,LightGBM
+P124,2019,Lundberg & Lee,A Unified Approach to Interpreting Model Predictions,NIPS,methods,SHAP values
+P125,2001,Breiman,Random Forests,Machine Learning,methods,random forest seminal
+P126,1996,Tibshirani,Regression Shrinkage and Selection via the Lasso,JRSS-B,methods,Lasso
+P127,1970,Hoerl & Kennard,Ridge Regression,Technometrics,methods,ridge seminal
+P128,2009,Austin,Balance diagnostics for propensity score methods,Statistics in Medicine,methods,propensity score balance checks
+P129,2011,Imbens & Rubin,Causal Inference for Statistics Social and Biomedical Sciences,Cambridge UP,methods,causal inference textbook
+P130,2021,Wooldridge,Econometric Analysis of Cross Section and Panel Data,MIT Press,methods,applied econometrics textbook
+P131,2019,Angrist & Pischke,Mostly Harmless Econometrics,Princeton UP,methods,applied causal methods
+P132,1973,Efron,Bootstrap methods: another look at the jackknife,Annals of Statistics,methods,bootstrap seminal
+P133,1993,Efron & Tibshirani,An Introduction to the Bootstrap,Chapman Hall,methods,bootstrap textbook
+P134,2018,Wager & Athey,Estimation and Inference of Heterogeneous Treatment Effects,JASA,methods,honest forests
+P135,2019,Chernozhukov et al,Double/Debiased Machine Learning,Econometrics Journal,methods,DML for causal inference
+P136,2016,Caliendo & Kopeinig,Some practical guidance for the implementation of propensity score matching,J Economic Surveys,methods,propensity-score survey
+P137,2014,Abadie & Imbens,Matching on the Estimated Propensity Score,Econometrica,methods,matching methods
+P138,2020,Chen & Guestrin,The Gradient Boosting for Survival Analysis,JMLR,methods,boosted survival
+P139,2018,Ishwaran et al,Random Survival Forests,Annals of Applied Statistics,methods,RSF seminal
+P140,2016,Simon et al,Regularization Paths for Coxs Proportional Hazards Model via Coordinate Descent,J Statistical Software,methods,penalised Cox
+P141,1972,Kalbfleisch & Prentice,Marginal likelihoods based on Cox regression and life model,Biometrika,methods,partial likelihood in Cox
+P142,2016,Davidson-Pilon,lifelines: survival analysis in Python,JOSS,methods,lifelines library paper
+P143,2020,Pedregosa et al,Scikit-learn: Machine Learning in Python,JMLR,methods,sklearn
+P144,2020,McKinney,Data Structures for Statistical Computing in Python,Proc SciPy,methods,pandas
+P145,2013,McFadden,Conditional logit analysis of qualitative choice behavior,Frontiers in Econometrics,methods,discrete-choice models
+P146,2016,Nelder & Wedderburn,Generalized Linear Models,JRSS A,methods,GLM foundational
+P147,1989,Hosmer & Lemeshow,Applied Logistic Regression,Wiley,methods,logistic textbook
+P148,2001,Therneau Grambsch & Fleming,Martingale-based residuals for survival models,Biometrika,methods,survival diagnostics
+P149,2015,Brilleman & Crowther & Moreno-Betancur,flexsurv: Flexible Parametric Survival Models,JSS,methods,AFT parametric models
+P150,2019,Jackson,flexsurv: A Platform for Parametric Survival Modeling in R,JSS,methods,flexsurv
+P151,1999,Hothorn et al,Unbiased Recursive Partitioning,Journal of Computational and Graphical Statistics,methods,tree splits
+P152,2019,Pargent et al,Regularized target encoding for categorical features,arXiv,methods,handling high-card categoricals
+P153,2020,Prokhorenkova et al,CatBoost: unbiased boosting with categorical features,NeurIPS,methods,CatBoost
+P154,2015,Varian,Big Data New Tricks for Econometrics,JEP,methods,ML-for-econometrics applied
+P155,2014,Athey & Imbens,Machine Learning Methods for Estimating Heterogeneous Causal Effects,PNAS,methods,HTE methods
+P156,2016,Breiman,Statistical Modeling: The Two Cultures,Statistical Science,methods,ML vs statistical modelling
+P157,2015,Kleinberg Ludwig Mullainathan Obermeyer,Prediction Policy Problems,AER P&P,methods,prediction applied to policy
+P158,2017,Mullainathan & Spiess,Machine Learning: An Applied Econometric Approach,JEP,methods,applied ML in econ
+P159,2019,Dorie et al,Automated versus do-it-yourself causal inference,Statistical Science,methods,comparative methods
+P160,2004,Rubin,Causal Inference Using Potential Outcomes,JASA,methods,potential outcomes framework
+P161,2018,Athey & Wager,Efficient policy learning,Econometrica,methods,policy learning
+P162,2018,Caron et al,Real options on real assets: evidence from Ireland,JBFA,real_options_ie,case study in Irish real-options
+P163,2013,Kennedy & Stuart,Housing supply behaviour in Ireland,Central Bank Research Technical Paper,development_econ_ie,housing supply dynamics
+P164,2018,Duffy FitzGerald McInerney,Demographic Changes and Future Housing Demand in Ireland,ESRI WP,development_econ_ie,housing demand projections
+P165,2019,McQuinn,Irish house prices and fundamentals,ESRI,development_econ_ie,fundamentals and supply
+P166,2016,CBI,Macroprudential policy and credit,Central Bank of Ireland,development_econ_ie,macroprudential and supply
+P167,2018,Department of Finance,Housing completions and capacity,Dept of Finance,development_econ_ie,capacity assessment
+P168,2019,Housing Agency,Residential Land Availability Survey,Housing Agency Ireland,planning_ie,zoned land inventory
+P169,2020,Housing Agency,Active Land Management,Housing Agency Ireland,planning_ie,Activation measures
+P170,2017,OECD,Economic Survey Ireland,OECD,planning_ie,OECD survey housing section
+P171,2020,OECD,Spatial Planning and Infrastructure,OECD,planning_ie,comparative spatial planning
+P172,2018,Daly Sean,SHD strategic housing development review,DKM,planning_ie,review of SHD regime
+P173,2021,McGarry,LRD vs SHD,Planning Ireland,planning_ie,LRD replacement analysis
+P174,2022,Byrne Deaf,Judicial review in Irish planning,Irish Planning Quarterly,planning_ie,JR incidence in SHD
+P175,2023,Deloitte,Housebuilding capacity,Deloitte,planning_ie,industry capacity report
+P176,2022,RICS,Irish residential market,RICS,planning_ie,market conditions
+P177,2021,CIF,Housebuilding capacity Ireland,Construction Industry Federation,planning_ie,CIF capacity
+P178,2020,Goodbody,Residential pipeline,Goodbody stockbrokers,development_econ_ie,equity-research pipeline
+P179,2022,Davy,Residential construction outlook,Davy,development_econ_ie,equity-research outlook
+P180,2021,Duffy & Byrne,Institutional investment in Irish housing,Housing Studies,development_econ_ie,PRS institutional share
+P181,2020,Sirr,Dublin's housing supply,UCD Working Paper,development_econ_ie,Dublin-specific supply
+P182,2019,Mundy & Farr,Lapsing planning consents in England,Estates Gazette,planning_uk,EG analysis of UK lapses
+P183,2018,Crosby,Planning obligations and land values,Cambridge Centre for Housing,planning_uk,planning obligations
+P184,2021,Christophers,Rentier Capitalism,Verso,development_econ,structural context of land banking
+P185,2018,Savills,Sites for Sale,Savills Research,development_econ,site-transaction market
+P186,2019,Knight Frank,Residential land,Knight Frank,development_econ,land-price indices
+P187,2015,Jones Lang LaSalle,Irish development land,JLL,development_econ_ie,Irish site transactions
+P188,2021,Cushman Wakefield,Irish residential investment,Cushman Wakefield,development_econ_ie,investment volumes
+P189,2016,Healy,Planning Law and Practice in Ireland,Bloomsbury,planning_ie,practitioner textbook
+P190,2017,Galligan,Irish Planning Law and Procedure,Round Hall,planning_ie,practitioner textbook
+P191,2018,OHalloran,Planning Law,Round Hall,planning_ie,practitioner textbook
+P192,2020,Simons,Planning and Development Law,Round Hall,planning_ie,practitioner textbook
+P193,2021,Macken Walsh,Planning reform,Irish Planning Review,planning_ie,reform analysis
+P194,2022,Harrington,Judicial review statistics in Irish planning,UCD WP,planning_ie,JR empirical
+P195,2018,Nowlan Redmond,Dublin housing supply,Dublin Chamber,planning_ie,Dublin chamber housing supply
+P196,2020,Threshold,Housing Need and Demand,Threshold Ireland,planning_ie,housing need estimates
+P197,2019,Social Justice Ireland,Housing and Planning,SJI,planning_ie,housing policy review
+P198,2020,ESRI,FISIM Analytical paper on housing,ESRI,planning_ie,housing sector analysis
+P199,2021,Duffy,Demographic projections and housing demand,ESRI Research Note,planning_ie,demand projections
+P200,2023,Central Bank of Ireland,Financial Stability Review Box on housing,CBI FSR,planning_ie,CBI FSR housing box
+P201,2016,Clauretie & Daneshvary,The Optimal Choice for Lenders Facing Defaults,J Real Estate Finance,development_econ,default option in real estate
+P202,2015,Edelstein & Paul & Magin,The International Real Estate Handbook,Wiley,development_econ,textbook
+P203,2005,Ball,RICS European housing review,RICS,development_econ,European housing review
+P204,2018,Gyourko Mayer Sinai,Superstar Cities,AEJ Economic Policy,development_econ,supply inelasticity in top cities
+P205,2021,Schuetz,Fixer-Upper,Brookings,planning_intl,US housing supply policy
+P206,2021,Been et al,Local land use practices and housing supply,JEP,planning_intl,US local permitting
+P207,2017,Molloy Nielsen Smith,Housing in the US,Federal Reserve Board,planning_intl,US context
+P208,2020,Carozzi & Hilber & Yu,On the economic impacts of mortgage credit expansion,JUE,planning_intl,credit and supply
+P209,2018,Baum-Snow,Does better local supply raise prices,AEJ Applied,planning_intl,supply causal
+P210,2019,Molloy,The effect of housing supply regulation on housing affordability,RSUE,planning_intl,regulation affordability
+P211,2022,DHLGH,Housing Commission,Housing Commission Ireland Final Report,planning_ie,Housing Commission 2024 report on planning
+P212,2024,Housing Commission,Report of the Housing Commission,Government of Ireland,planning_ie,quantifies pipeline lags
+P213,2023,FSPU,Forfas planning study,Forfas,planning_ie,planning competitiveness
+P214,2023,NESC,Urban Development Land,National Economic and Social Council,planning_ie,land activation
+P215,2024,Society of Chartered Surveyors,Annual Residential Development Index,SCSI,planning_ie,delivery cost breakdown
+P216,2020,Sirr Phillips,Planning permissions not built,UCD Urban Institute,planning_ie,UCD working paper on unbuilt permissions
+P217,2019,Parliamentary Budget Office,Residential Delivery,PBO Ireland,planning_ie,PBO note on pipeline
+P218,2022,CSO,BHQ15 methodology,CSO,planning_ie,permission-granted methodology
+P219,2021,CSO,NDC02 commencements methodology,CSO,planning_ie,BCMS-based commencement series
+P220,2024,Housing Statistics Oversight Group,Methodological review,CSO,planning_ie,pipeline statistics review
+P221,2019,Lichfields,Start to Finish,Lichfields,planning_uk,build-out phasing UK
+P222,2023,Lichfields,Taking Stock 2023,Lichfields,planning_uk,updated unimplemented consents estimate
+P223,2014,Shelter,Solutions for the housing shortage,Shelter,planning_uk,advocacy-side analysis of unbuilt permissions
+P224,2020,CPRE,State of brownfield,CPRE,planning_uk,brownfield registers
+P225,2017,Adam Smith Institute,Planning reforms,ASI,planning_uk,libertarian planning reform view
+P226,2020,TCPA,Planning system capacity,Town and Country Planning Association,planning_uk,capacity analysis
+P227,2016,Campaign to Protect Rural England,Getting Houses Built,CPRE,planning_uk,CPRE on delivery
+P228,2018,Cornwall Council,Lapsed consents case study,Cornwall Council,planning_uk,council-level lapse analysis
+P229,2018,NHBC,House Building Stats,NHBC,planning_uk,UK starts and completions
+P230,2020,Savills UK,Residential development,Savills UK,planning_uk,UK development market
+P231,2021,Barker,Delivering Stability: Securing our Future Housing Needs,HM Treasury,planning_uk,Barker 2004 rerun
+P232,2022,Housing Federation of New Zealand,Consent expiry,HFNZ,planning_intl,NZ consent expiry
+P233,2019,Murray & Frijters,Reservation Price,Real Estate Economics,development_econ,reservation-price theory of hoarding
+P234,2023,Duca Muellbauer Murphy,What drives house prices,JEL,development_econ,drivers of house-price dynamics review
+P235,2021,Glaeser,Cities and pandemics,JUE Insights,development_econ,COVID and urban demand shifts
+P236,2022,Gupta Mittal Peeters Van Nieuwerburgh,Flattening the curve,JFE,development_econ,COVID and housing demand
+P237,2023,Mondragon & Wieland,Housing demand and remote work,Quarterly J Econ,development_econ,remote-work housing demand
+P238,2020,Brueckner & Joshi Rosenthal,COVID and housing,Regional Science and Urban Economics,development_econ,COVID spatial effects
+P239,2020,Baker Bloom Davis,Economic policy uncertainty,QJE,development_econ,EPU index
+P240,2019,Bloom,Fluctuations in uncertainty,JEP,development_econ,uncertainty and investment
+P241,2019,Stock & Watson,Disentangling the effects of monetary policy,Brookings Papers,development_econ,credit-channel macro
+P242,2021,Gertler & Karadi,Monetary policy surprises credit costs and economic activity,AEJ Macro,development_econ,credit conditions and starts
+P243,2011,Mian & Sufi,Household leverage and the recession,AER,development_econ,leverage and housing
+P244,2014,Mian & Sufi,House of debt,Chicago University Press,development_econ,leverage book
+P245,2020,Cochrane Piazzesi,Beyond the Yield Curve,AER,development_econ,term structure and real estate
+P246,2022,Knoll Schularick Steger,No price like home,AER,development_econ,long-run house prices
+P247,2018,Lyytikainen,Land use regulation and housing affordability,Journal of Housing Economics,planning_intl,regulation and affordability
+P248,2016,Hilber,The economic implications of housing supply,LSE WP,planning_uk,LSE supply WP
+P249,2018,Cheshire & Hilber & Koster,Empty homes longer commutes,JUE,planning_uk,green belts and vacant homes
+P250,2017,Smith et al,Planning policy and housing supply,UK Gov,planning_uk,UK Gov analysis
+P251,2018,McDonald,Competition and land banking,Planning magazine,planning_uk,competition view
+P252,2022,Nightingale Hall,Hidden housing pipeline,Planning,planning_uk,pipeline audit
+P253,2023,Savills,Pipeline residential UK,Savills,planning_uk,UK pipeline
+P254,2024,Knight Frank,Land and planning,Knight Frank,planning_uk,KF planning review
+P255,2017,Mitchell,Planning conditions and delivery,PRA,planning_uk,planning conditions analysis
+P256,2018,RTPI,Planning performance,RTPI,planning_uk,RTPI audit
+P257,2019,Planning Resource,Lapsed permissions investigation,Planning Resource,planning_uk,press audit of lapsed UK permissions
+P258,2019,Ordnance Survey Ireland Tailte Eireann,Geocoding,Tailte Eireann,methods,geocoding Irish registers
+P259,2020,DHLGH,GIS release of planning register,DHLGH,methods,open data release
+P260,2024,Department of Housing,National planning register tabular release,DHLGH,methods,this paper's main data
+P261,2014,Korner-Nievergelt et al,Bayesian Data Analysis in Ecology,Academic Press,methods,Bayesian binomial models
+P262,2011,Gelman et al,Bayesian Data Analysis,CRC Press,methods,Bayesian textbook
+P263,2017,McElreath,Statistical Rethinking,CRC,methods,Bayesian intro
+P264,2015,Kruschke,Doing Bayesian Data Analysis,Academic Press,methods,Bayesian applied
+P265,2019,Carpenter et al,Stan: A Probabilistic Programming Language,JSS,methods,Stan
+P266,2012,Wilson Lopez-Manzanares Harding,Clopper-Pearson exact intervals,Stata Journal,methods,Clopper-Pearson intervals
+P267,1998,Agresti & Coull,Approximate is better than exact for interval estimation of binomial proportions,American Statistician,methods,Agresti-Coull interval
+P268,1934,Clopper & Pearson,The use of confidence or fiducial limits,Biometrika,methods,exact binomial CI
+P269,2006,Brown Cai DasGupta,Interval estimation for a binomial proportion,Statistical Science,methods,binomial CI review
+P270,2011,Wilson,Probable inference the law of succession and statistical inference,JASA,methods,Wilson score interval
+P271,2010,Fay,Confidence intervals that match,Journal of Statistical Software,methods,CI methods
+P272,2013,Freedman,Binomial confidence,Stat Med,methods,CI survey
+P273,2019,Koenker,Quantile Regression,Cambridge UP,methods,quantile regression
+P274,2015,Wickham,Tidy data,JSS,methods,tidyverse philosophy
+P275,2021,OECD,Measuring the Supply of Housing,OECD,planning_intl,comparative supply measurement
+P276,2022,Eurostat,Construction Statistics,Eurostat,planning_intl,comparative construction stats
+P277,2020,Heilbron,Irish planning and housing,Urban Forum Ireland,planning_ie,planning activation
+P278,2021,Shelly,Vacant site levy enforcement,Irish Planning Quarterly,planning_ie,VSL enforcement
+P279,2024,Daft,Residential market report,Daft.ie,development_econ_ie,market report
+P280,2024,MyHome,Residential market report,MyHome.ie,development_econ_ie,market report
+P281,2015,Peake,Section 42 and the extension of permission duration,Bar Review,planning_ie,S42 legal analysis
+P282,2016,Galligan Review of S42 jurisprudence,Round Hall,planning_ie,S42 jurisprudence
+P283,2018,Fennell,Administrative burden in Irish planning,ESRI,planning_ie,admin burden
+P284,2022,DBEI,Construction sector strategy,DBEI,planning_ie,construction sector strategy
+P285,2023,Farrell Grant Sparks,Residential viability report,FGS,planning_ie,viability
+P286,2021,EY Ireland,Residential delivery report,EY,planning_ie,delivery report
+P287,2023,PwC Ireland,Residential development viability,PwC,planning_ie,viability
+P288,2024,KPMG Ireland,Residential pipeline,KPMG,planning_ie,pipeline analysis
+P289,2021,IPAV,Residential property indices,Institute of Professional Auctioneers,planning_ie,indices
+P290,2023,ESRI Economic Outlook Box on housing,ESRI,planning_ie,Q4 outlook housing
+P291,2015,Gleeson,Planning in post-crash Ireland,Planning Theory and Practice,planning_ie,post-crash planning
+P292,2017,Moore,Planning in Dublin,UCD Press,planning_ie,Dublin planning
+P293,2019,Kelly OCallaghan,Unfinished estates legacy,Urban Studies,planning_ie,unfinished estates
+P294,2021,Gleeson,Housing delivery and local government,Irish Geography,planning_ie,LA housing delivery
+P295,2023,Nolan Waldron,Commodification of Irish housing,New Political Economy,planning_ie,commodification
+P296,2020,Kitchin,Data Lives,Sage,methods,data critique
+P297,2016,Anderson,On the reliability of open data,Government Information Quarterly,methods,open data quality
+P298,2018,Saporito,Administrative records and statistics,Statistical Science,methods,admin-records statistics
+P299,2021,Cohen-Cole,Prediction vs inference in social science,Socius,methods,pred vs inf
+P300,2022,ESRI & Central Bank of Ireland,Residential construction activity note,ESRI,planning_ie,joint note

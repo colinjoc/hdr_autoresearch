@@ -1,0 +1,6 @@
+model,metric,score,auc,c_index,notes
+T01_binomial_yearly,rate_std,0.1485,,,2014=0.554(n=2164); 2015=0.456(n=2581); 2016=0.477(n=2824); 2017=0.231(n=9154); 2018=0.228(n=14453); 2019=0.235(n=14897)
+T02_logistic,AUC,0.7385,0.7385,,std=0.0028
+T03_cox_ph,C-index,0.5948,,0.5948,
+T04_gbm,AUC,0.826,0.826,,std=0.0021
+T05_random_forest,AUC,0.8193,0.8193,,std=0.0035

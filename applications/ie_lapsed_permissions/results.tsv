@@ -1,0 +1,77 @@
+experiment_id	description	metric	value	ci_lower	ci_upper	n	status	interaction	notes
+E00	Headline lapse rate (2014-2019 residential PERMISSION, desc+NRU filter, fuzzy match)	lapse_rate	0.2742	0.2701	0.2782	46073	BASELINE	False	seed=42; exact_match=27964; fuzzy_only=5478
+T01	Binomial per-year lapse rate	rate_std	0.1485			46073	TOURNAMENT	False	2014=0.554(n=2164); 2015=0.456(n=2581); 2016=0.477(n=2824); 2017=0.231(n=9154); 2018=0.228(n=14453); 2019=0.235(n=14897)
+T02	Logistic regression AUC	AUC_5fold	0.7385	0.7328	0.7441	46073	TOURNAMENT	False	
+T03	Cox PH C-index	C_index	0.5948			40671	TOURNAMENT	False	
+T04	GBM classifier AUC	AUC_5fold	0.826	0.8219	0.8301	46073	TOURNAMENT	False	
+T05	Random forest AUC	AUC_5fold	0.8193	0.8124	0.8262	46073	TOURNAMENT	False	
+E01	BCMS exact match rate	exact_match_rate	0.6069			46073	KEEP	False	fuzzy_rate=0.7258; fuzzy_only=5478
+E02	Fuzzy-match normalisation gain on lapse rate	delta_lapse	0.1189			46073	KEEP	False	lapse_exact=0.3931; lapse_fuzzy=0.2742
+E03	One-off vs multi-unit lapse rate	lapse_rate_multi	0.2731	0.269	0.2772	45311	KEEP	False	one_off_lapse=0.3360(n=762)
+E04	Outline Permission lapse rate	lapse_rate_outline	0.3814			451	KEEP	False	Outline not in main PERMISSION cohort
+E05	Retention lapse rate	lapse_rate_retention	0.3297			7019	KEEP	False	RETENTION backward-looking
+E06	Refused excluded from cohort	refused_count	73.0			73	KEEP	False	Correctly excluded
+E07	Dublin vs non-Dublin lapse	lapse_rate_dublin	0.4202	0.4107	0.4297	10332	KEEP	False	nondub=0.2319[0.2276,0.2364](n=35741); delta=0.1882
+E08	Pre-2017 vs 2017+ lapse	lapse_rate_pre2017	0.4919	0.4806	0.5031	7569	KEEP	False	post2017=0.2314[0.2272,0.2356](n=38504)
+E09	Size-stratified lapse rates	size_rates	0.1927			46073	KEEP	False	0_or_na=0.394(n=27488); 1=0.091(n=16423); 2-4=0.127(n=1461); 5-49=0.163(n=552); 50+=0.188(n=149)
+E10	LA top/bottom 5 lapse	la_range	0.2096	0.0	0.5656	30	KEEP	False	LOWEST: Carlow County Council=0.000(n=455); Laois County Council=0.000(n=810); Leitrim County Council=0.000(n=216); Galway City Council=0.000(n=526); Sligo County Council=0.000(n=581) | HIGHEST: Tipperary County Council=0.437(n=1332); Donegal County Council=0.489(n=1942); Dublin City Council=0.492(n=2559); Cork County Council=0.554(n=8512); Cork City Council=0.566(n=1158)
+E11	Post-expiry commencements (extension proxy)	post_expiry_share	0.0077			23201	KEEP	False	n_post_expiry=179
+E12	2019 vs pre-2019 lapse	lapse_2019	0.235			14897	KEEP	False	pre2019=0.2929(n=31176)
+E13	Appealed vs non-appealed lapse	lapse_appealed	0.4017			712	KEEP	False	not_appealed=0.2722(n=45361)
+E14	Apartment-heavy LA lapse (≥10 units)	mean_lapse	0.1243			478	KEEP	False	range=[0.000,0.500]
+E15	NRU>0 only (2017-2019) lapse rate	lapse_rate_nru	0.0949	0.0907	0.0992	18403	KEEP	False	NumResidentialUnits populated from 2017; cleaner residential filter
+E16	Lapse rate excl 2019 (right-censoring)	lapse_2014_2018	0.2929	0.2878	0.2979	31176	KEEP	False	delta_from_E00=0.0187
+E17	Weibull AFT fitted	AIC	432309.5			40671	KEEP	False	Weibull AFT converged with penalizer=0.1
+E18	Withdrawn excluded	withdrawn_count	5.0			5	KEEP	False	Already excluded from cohort
+E19	Normalisation sensitivity (Δlapse)	delta_lapse	0.1189			46073	KEEP	False	exact=0.3931; fuzzy=0.2742
+E20	BHQ15 cross-check (2019)	our_units_vs_cso	1.2972			18012	KEEP	False	our_nru=18012; bhq_house=6987.0; bhq_apt=6898.0; our_applications=14897
+E21_2014	2014 lapse rate	lapse_rate	0.5541	0.533	0.5749	2164	KEEP	False	
+E21_2015	2015 lapse rate	lapse_rate	0.4564	0.4373	0.4757	2581	KEEP	False	
+E21_2016	2016 lapse rate	lapse_rate	0.4766	0.4583	0.4951	2824	KEEP	False	
+E21_2017	2017 lapse rate	lapse_rate	0.2307	0.2222	0.2395	9154	KEEP	False	
+E21_2018	2018 lapse rate	lapse_rate	0.228	0.2212	0.2349	14453	KEEP	False	
+E21_2019	2019 lapse rate	lapse_rate	0.235	0.2283	0.2419	14897	KEEP	False	
+E22	Units-weighted lapse rate	lapse_unit_weighted	0.1788	0.1754	0.1823	46456	KEEP	False	app_weighted=0.2742; delta=-0.0953
+E23	Days-to-commence distribution	median_days	128.0	57.0	265.0	28040	KEEP	False	P25=57d P50=128d P75=265d P90=551d (0.4yr)
+E24	Desc-only vs NRU-flagged lapse (2017-2019)	lapse_desc_only	0.3563			20101	KEEP	False	nru_flagged=0.0949(n=18403); both=0.0938(n=17393)
+E25	Temporal GBM (train≤2017 test≥2018)	AUC_temporal	0.836			29350	KEEP	False	train_n=16723
+IX_size=0_or_na_dub=True	Interaction: size=0_or_na_dub=True	lapse_rate	0.4219	0.4121	0.4318	9599	KEEP	True	
+IX_size=0_or_na_dub=False	Interaction: size=0_or_na_dub=False	lapse_rate	0.3791	0.372	0.3862	17889	KEEP	True	
+IX_size=1_dub=True	Interaction: size=1_dub=True	lapse_rate	0.3872	0.3434	0.4328	452	KEEP	True	
+IX_size=1_dub=False	Interaction: size=1_dub=False	lapse_rate	0.0827	0.0785	0.0871	15971	KEEP	True	
+IX_size=2-4_dub=True	Interaction: size=2-4_dub=True	lapse_rate	0.4959	0.409	0.5831	123	KEEP	True	
+IX_size=2-4_dub=False	Interaction: size=2-4_dub=False	lapse_rate	0.0934	0.079	0.1102	1338	KEEP	True	
+IX_size=5-49_dub=True	Interaction: size=5-49_dub=True	lapse_rate	0.3636	0.2833	0.4523	121	KEEP	True	
+IX_size=5-49_dub=False	Interaction: size=5-49_dub=False	lapse_rate	0.1067	0.081	0.1394	431	KEEP	True	
+IX_size=50+_dub=True	Interaction: size=50+_dub=True	lapse_rate	0.2973	0.1749	0.4578	37	KEEP	True	
+IX_size=50+_dub=False	Interaction: size=50+_dub=False	lapse_rate	0.1518	0.097	0.2297	112	KEEP	True	
+IX_yr=2014_dub=True	Interaction: yr=2014_dub=True	lapse_rate	0.4574			1067	KEEP	True	
+IX_yr=2014_dub=False	Interaction: yr=2014_dub=False	lapse_rate	0.6481			1097	KEEP	True	
+IX_yr=2015_dub=True	Interaction: yr=2015_dub=True	lapse_rate	0.3362			1288	KEEP	True	
+IX_yr=2015_dub=False	Interaction: yr=2015_dub=False	lapse_rate	0.5762			1293	KEEP	True	
+IX_yr=2016_dub=True	Interaction: yr=2016_dub=True	lapse_rate	0.3829			1319	KEEP	True	
+IX_yr=2016_dub=False	Interaction: yr=2016_dub=False	lapse_rate	0.5588			1505	KEEP	True	
+IX_yr=2017_dub=True	Interaction: yr=2017_dub=True	lapse_rate	0.3652			1350	KEEP	True	
+IX_yr=2017_dub=False	Interaction: yr=2017_dub=False	lapse_rate	0.2075			7804	KEEP	True	
+IX_yr=2018_dub=True	Interaction: yr=2018_dub=True	lapse_rate	0.4364			2468	KEEP	True	
+IX_yr=2018_dub=False	Interaction: yr=2018_dub=False	lapse_rate	0.1851			11985	KEEP	True	
+IX_yr=2019_dub=True	Interaction: yr=2019_dub=True	lapse_rate	0.4736			2840	KEEP	True	
+IX_yr=2019_dub=False	Interaction: yr=2019_dub=False	lapse_rate	0.1788			12057	KEEP	True	
+IX_size=0_or_na_yr=2014	Interaction: size=0_or_na_yr=2014	lapse_rate	0.5595			2116	KEEP	True	
+IX_size=0_or_na_yr=2016	Interaction: size=0_or_na_yr=2016	lapse_rate	0.4799			2767	KEEP	True	
+IX_size=0_or_na_yr=2019	Interaction: size=0_or_na_yr=2019	lapse_rate	0.3588			7796	KEEP	True	
+IX_size=1_yr=2014	Interaction: size=1_yr=2014	lapse_rate	0.35			20	KEEP	True	
+IX_size=1_yr=2016	Interaction: size=1_yr=2016	lapse_rate	0.3143			35	KEEP	True	
+IX_size=1_yr=2019	Interaction: size=1_yr=2019	lapse_rate	0.0921			6209	KEEP	True	
+IX_size=50+_yr=2016	Interaction: size=50+_yr=2016	lapse_rate	0.3333			6	KEEP	True	
+IX_size=50+_yr=2019	Interaction: size=50+_yr=2019	lapse_rate	0.1613			62	KEEP	True	
+R1	Join-failure audit: simple vs complex app-number formats	match_rate_gap	0.356	0.5295	0.8855	46073	KEEP	False	simple_match=0.886(n=25409); complex_match=0.530(n=20664); corr(pct_simple,match)=0.675; audit: Cork County Council: 20/50 (40%) format-mismatch; Tipperary County Council: 0/50 (0%) format-mismatch; Donegal County Council: 0/50 (0%) format-mismatch
+R2	NRU>0 headline lapse rate (2017-2019, cleaned)	lapse_rate_nru_clean	0.0949	0.0907	0.0992	18403	KEEP	False	NRU>0 all years: 0.0969[0.0927,0.1012](n=18585)
+R3	DCC-specific format analysis and NRU>0 lapse	dcc_nru_lapse	0.4571	0.403	0.5123	315	KEEP	False	DCC_NRU>0=0.4571(n=315); DCC_slash=0.5000(n=2056); Cork_slash=0.5539(n=8512); DCC formats: slash=2056, web=503, other=0
+R4	Lapse rate excluding 2014-2015 (BCMS ramp-up)	lapse_2016_2019	0.2481	0.244	0.2523	41328	KEEP	False	2014-2015=0.5009; 2016=0.4766; 2016-2019_all=0.2481[0.2440,0.2523]; 2016-2019_NRU>0=0.0956[0.0914,0.0999](n=18460)
+R5	Cluster-bootstrap CIs on NRU>0 headline (clustered by LA)	lapse_rate_nru_cluster	0.0949	0.0439	0.1565	18403	KEEP	False	wilson=[0.0907,0.0992]; boot_width=0.1125; inflation=13.29x; n_boot=2000
+R6	GBM without LA/Dublin features (format-proxy removed)	AUC_no_la	0.7269	0.5828	0.826	46073	KEEP	False	full_AUC=0.8260; no_la_AUC=0.7269; nru_only_no_la_AUC=0.5828; AUC_drop=0.0991; feature_imp: has_nru=0.429; NumResidentialUnits=0.329; fi_requested=0.105; grant_year=0.079; one_off=0.021; shd_era=0.019; appealed=0.018
+R7	False-positive audit: description-matched 0_or_na band	fp_rate_conservative	0.15	0.15	0.34	200	KEEP	False	n=200; residential=94(47.0%); non_residential=30(15.0%); ambiguous=76(38.0%); conservative_fp=0.1500; liberal_fp=0.3400
+R8	Cork County format reconciliation	cork_revised_lapse	0.3258	0.5539		8512	KEEP	False	cork_total=8512; unmatched=4715(0.554); recovered=1942; revised_lapse=0.326; cork_NRU>0_lapse=nan(n=0); cork_contributes_4715_of_12631_total_unmatched (37.3%)
+R9	Validation of 0% lapse LAs (Carlow, Laois, Leitrim, Galway City, Sligo)	zero_la_validation	0.0			2588	KEEP	False	overall_rate=0.0000; pct_simple_format=100.0%; Carlow County Council: n=455, matched=455, lapse=0.000, pct_simple=100.0%, expired=455, expired_unmatched=0; Laois County Council: n=810, matched=810, lapse=0.000, pct_simple=100.0%, expired=798, expired_unmatched=0; Leitrim County Council: n=216, matched=216, lapse=0.000, pct_simple=100.0%, expired=215, expired_unmatched=0; Galway City Council: n=526, matched=526, lapse=0.000, pct_simple=100.0%, expired=525, expired_unmatched=0; Sligo County Council: n=581, matched=581, lapse=0.000, pct_simple=100.0%, expired=581, expired_unmatched=0
+R10	Revised Phase B strata (NRU>0 2017-2019 only, with reliability flags)	n_strata_reliable	72.0			18403	KEEP	False	"n_strata=87; n_unreliable=15; risk_summary={""DANGER"": {""strata"": 0, ""perms"": 0}, ""RISKY"": {""strata"": 2, ""perms"": 99}, ""MODERATE"": {""strata"": 9, ""perms"": 3538}, ""RELIABLE"": {""strata"": 30, ""perms"": 14186}}; unreliable_LAs: Cork County, Donegal, Tipperary"
