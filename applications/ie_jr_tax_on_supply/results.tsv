@@ -1,0 +1,65 @@
+experiment_id	family	description	metric	value	seed	status	notes
+E00	baseline	SHD-era JR cases 2018-2021: 16 cases, 5499 total units, 14/16 state losses	total_units_in_jr_cases	5499	0	BASELINE	loss_rate=87.5%
+T01	T01_accounting	Direct unit-months = sum(units * delay_months * outcome_weight)	direct_unit_months	105504.0	0	TOURNAMENT	No indirect component; pure observed delay.
+T02	T02_rd_proxy	RD proxy: SHD mean-weeks excess over NPA as JR-exposure premium	jr_exposure_premium_weeks	83	0	TOURNAMENT	From PL-3: SHD 124wk vs NPA 41wk in 2024. Confounded with SHD tail-clearing.
+T03	T03_queueing	Queueing: JR caseload as exogenous demand shock on rho	rho_jr_component	0.165	0	TOURNAMENT	JR equiv load=350, total disposed 2022=2115
+T04	T04_did	DiD: housing vs commercial ABP decision time change 2017-2024	did_excess_weeks	19	0	TOURNAMENT	Housing all-cases proxy; commercial delta ~5wk (SID stable except SHD/LRD).
+T05	T05_counterfactual	Counterfactual: completions gap under 18wk SOP scenario	total_units_shifted	16638	0	TOURNAMENT	Cumulative completions gap 2018-2024 under 18wk maintained SOP.
+TC	champion	Champion: T05 counterfactual simulation (most policy-relevant, incorporates direct + indirect channels)	champion	T05	0	KEEP	T01 accounting gives direct-only; T05 gives full picture incl throughput loss
+E01	direct_delay	Total direct JR delay (unit-months) for all 22 SHD JR cases	direct_unit_months	105504	0	KEEP	Quashed/conceded: full weight; refused/dismissed: 0.5x; upheld: 0.25x
+E02	direct_delay	Direct delay for 2018-2021 window only (clean, fully closed years)	direct_unit_months_2018_2021	88422	0	KEEP	16 cases in clean window
+E03	indirect_delay	Indirect delay (unit-months): lower=0, central=4652, upper=9305	indirect_unit_months_central	4652	0	KEEP	Lower=0% JR attribution, Central=25%, Upper=50%
+E04	counterfactual	Counterfactual completions gap 2018-2024: 16638 units	total_units_shifted	16638	0	KEEP	Cumulative gap under 18wk SOP counterfactual
+E05	geographic	Dublin concentration: 18/22 cases, 5041 units	dublin_share_units	5041/6546	0	KEEP	Dublin dominates SHD JR caseload
+E06	outcome_split	Quashed delay: 84618 unit-months; Conceded: 14532	quashed_vs_conceded_unit_months	Q=84618,C=14532	0	KEEP	Quashed cases dominate because more numerous and often larger schemes
+E07	temporal	Pre-HH (<=2021): 16 cases; Post-HH (>=2022): 6	cases_pre_post_hh	pre=16,post=6	0	KEEP	Post-Heather Hill cases are tail-clearing residuals
+E08	cost	Estimated holding cost of direct JR delay: EUR 52,752,000	holding_cost_eur	52752000	0	KEEP	EUR 500/unit/month (finance cost only, conservative)
+E09	cost	Construction cost inflation during delay: ~EUR 17,398,936	inflation_cost_eur	17398936	0	KEEP	7% annual construction inflation applied to delayed units
+E10	scope	SHD-only scope: all 22 cases are SHD by definition. LRD-era JR (n=2 decided) excluded per PL-2 honest null.	scope	SHD_only	0	KEEP	LRD decided JR count too small (n=2) for inclusion
+E11	sensitivity	Sensitivity to imputed units: low=85404, high=150204 (corrected R7d)	direct_unit_months_range	[85404, 150204]	0	KEEP	13 of 22 cases had imputed unit counts; range [85404, 150204] spans -19% to +42% of central
+E12	process	Avg delay: conceded=15mo, quashed=19mo	avg_delay_months_by_outcome	conceded=15,quashed=19	0	KEEP	Conceded cases often resolve faster than full hearings
+E13	queueing	JR component of utilisation rho: 0.165	rho_jr_component	0.165	0	KEEP	JR defense work = ~17% of ABP throughput capacity in peak year (2022)
+E14.2018	direct_delay_annual	Direct delay 2018: 1 cases, 6432 unit-months	direct_unit_months_2018	6432	0	KEEP	1 cases decided in 2018
+E14.2019	direct_delay_annual	Direct delay 2019: 2 cases, 5346 unit-months	direct_unit_months_2019	5346	0	KEEP	2 cases decided in 2019
+E14.2020	direct_delay_annual	Direct delay 2020: 10 cases, 58818 unit-months	direct_unit_months_2020	58818	0	KEEP	10 cases decided in 2020
+E14.2021	direct_delay_annual	Direct delay 2021: 3 cases, 17826 unit-months	direct_unit_months_2021	17826	0	KEEP	3 cases decided in 2021
+E14.2022	direct_delay_annual	Direct delay 2022: 6 cases, 17082 unit-months	direct_unit_months_2022	17082	0	KEEP	6 cases decided in 2022
+E14.2023	direct_delay_annual	Direct delay 2023: 0 cases, 0 unit-months	direct_unit_months_2023	0	0	KEEP	0 cases decided in 2023
+E14.2024	direct_delay_annual	Direct delay 2024: 0 cases, 0 unit-months	direct_unit_months_2024	0	0	KEEP	0 cases decided in 2024
+E15.2018	counterfactual_annual	Counterfactual 2018: obs=18072, cf=18767, gap=695	completions_gap_2018	695	0	KEEP	excess_weeks=5
+E15.2019	counterfactual_annual	Counterfactual 2019: obs=21241, cf=21894, gap=653	completions_gap_2019	653	0	KEEP	excess_weeks=4
+E15.2020	counterfactual_annual	Counterfactual 2020: obs=20676, cf=21471, gap=795	completions_gap_2020	795	0	KEEP	excess_weeks=5
+E15.2021	counterfactual_annual	Counterfactual 2021: obs=20433, cf=20747, gap=314	completions_gap_2021	314	0	KEEP	excess_weeks=2
+E15.2022	counterfactual_annual	Counterfactual 2022: obs=29851, cf=31687, gap=1836	completions_gap_2022	1836	0	KEEP	excess_weeks=8
+E15.2023	counterfactual_annual	Counterfactual 2023: obs=32695, cf=38731, gap=6036	completions_gap_2023	6036	0	KEEP	excess_weeks=24
+E15.2024	counterfactual_annual	Counterfactual 2024: obs=34177, cf=40486, gap=6309	completions_gap_2024	6309	0	KEEP	excess_weeks=24
+E16	size_split	Large (>300u): 7 cases, 3957 units; Small (<=300u): 15 cases, 2589 units	size_distribution	large=7,small=15	0	KEEP	A few very large schemes dominate the unit count
+E17	headline	Total JR tax: direct=105504 + indirect [0, 4652, 9305]	total_unit_months_with_bounds	[105504, 110156, 114809]	0	KEEP	Direct + indirect bounds
+P01	interaction	Dublin x quashed: 13 cases, 3643 units	dublin_quashed	13	0	KEEP	Dublin quashed cases are the core of direct delay
+P02	interaction	Large (>300u) x quashed: 4 cases	large_quashed	4	0	KEEP	Large quashed schemes have outsized unit-month impact
+P03.2020	interaction	2020 x large: 5 cases, 2764 units	year_2020_large	5	0	KEEP	2020 large-scheme JR concentration
+P03.2021	interaction	2021 x large: 1 cases, 657 units	year_2021_large	1	0	KEEP	2021 large-scheme JR concentration
+R1a	imputation_sensitivity	Imputation floor (all 13 imputed=100): direct unit-months	direct_unit_months_floor	85404	0	KEEP	9 stated cases=63804 um; 13 imputed at floor; imputed share=25.3%
+R1b	imputation_sensitivity	Imputation median (all 13 imputed=512): direct unit-months	direct_unit_months_median	174396	0	KEEP	Median of 9 stated cases=512u; imputed share=63.4%
+R1c	imputation_sensitivity	Current ad-hoc imputation: direct unit-months	direct_unit_months_adhoc	105504	0	KEEP	Imputed share=39.5%; range [85404, 174396] spans -19% to +65% of central
+R2	indirect_channel	Indirect channel 25% attribution is assumption not estimate	indirect_attribution_basis	assumption	0	KEEP	No regression/decomposition supports 25%; PL-3 caveat 11 says JR channel not identifiable at n=10
+R3a	endogenous_intake	Counterfactual with 0% intake boost (current)	cf_gap_0pct	16638	0	KEEP	Exogenous intake assumption
+R3b	endogenous_intake	Counterfactual with 10% intake boost	cf_gap_10pct	15806	0	KEEP	Faster ABP induces 10% more applications; feedback halves the excess reduction
+R3c	endogenous_intake	Counterfactual with 20% intake boost	cf_gap_20pct	14973	0	KEEP	Faster ABP induces 20% more applications; gap narrows by 10%
+R4a	holding_cost_sensitivity	Holding cost at EUR 500/unit/month (land finance only)	holding_cost_500	52752000	0	KEEP	Land share (~1/3) of 6% annual on EUR 300K unit
+R4b	holding_cost_sensitivity	Holding cost at EUR 1000/unit/month (land + part construction)	holding_cost_1000	105504000	0	KEEP	Land + partial construction finance
+R4c	holding_cost_sensitivity	Holding cost at EUR 1500/unit/month (full development finance)	holding_cost_1500	158256000	0	KEEP	Full 6% annual on EUR 300K unit cost
+R4d	holding_cost_sensitivity	Holding cost unweighted (full delay regardless of JR outcome)	holding_cost_unweighted_500	56829000	0	KEEP	113658 unweighted unit-months x EUR 500; developers pay finance cost regardless of outcome
+R5a	capacity_ceiling	Counterfactual with no construction ceiling (current)	cf_gap_no_ceiling	16638	0	KEEP	Assumes infinite construction capacity
+R5b	capacity_ceiling	Counterfactual with 35K annual completions ceiling	cf_gap_35k_ceiling	7421	0	KEEP	Gap halves under realistic capacity constraint; 2023-2024 capped
+R5c	capacity_ceiling	Counterfactual with 38K annual completions ceiling	cf_gap_38k_ceiling	13421	0	KEEP	Moderate capacity constraint still reduces gap by 19%
+R6a	jr_multiplier	JR case multiplier 3x: rho_jr_component	rho_jr_3x	0.071	0	KEEP	50 JRs x 3 = 150 case-equiv / 2115 disposed
+R6b	jr_multiplier	JR case multiplier 5x: rho_jr_component	rho_jr_5x	0.118	0	KEEP	50 JRs x 5 = 250 case-equiv / 2115 disposed
+R6c	jr_multiplier	JR case multiplier 7x (current): rho_jr_component	rho_jr_7x	0.165	0	KEEP	50 JRs x 7 = 350 case-equiv / 2115 disposed (assumption, no cited source)
+R6d	jr_multiplier	JR case multiplier 10x: rho_jr_component	rho_jr_10x	0.236	0	KEEP	50 JRs x 10 = 500 case-equiv / 2115 disposed
+R7a	reconciliation	Annual decomposition cross-check: E14.* sums to E01	annual_sum_check	105504	0	KEEP	6432+5346+58818+17826+17082=105504; matches E01
+R7b	reconciliation	Dublin case count: 18 of 22 (not 17 as in paper s5.6)	dublin_cases_corrected	18	0	KEEP	Paper s5.6 said 17; actual from data is 18; matches E05
+R7c	reconciliation	2018-2021 direct unit-months: 88422 (not 93708 as in paper s5.1)	e02_corrected	88422	0	KEEP	Paper s5.1 said 93708; E02 and E14.* sum both give 88422
+R7d	reconciliation	E11 sensitivity recomputed: [85404, 150204] not [90804, 150204] in results.tsv or [79704, 134304] in paper	e11_corrected_range	[85404, 150204]	0	KEEP	Low=all imputed at 100; high=all imputed at 400; prior values were inconsistent
+R7e	reconciliation	Stated cases (9) contribute 63804 unit-months not 67908 as in paper s5.8	stated_um_corrected	63804	0	KEEP	9 stated cases verified against case-level data
+R7f	reconciliation	2020 annual unit-months: 58818 (not 67434 as in paper s5.2)	e14_2020_corrected	58818	0	KEEP	Paper table was reverse-engineered; corrected to match case-level computation

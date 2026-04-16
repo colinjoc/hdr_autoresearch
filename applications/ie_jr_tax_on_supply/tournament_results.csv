@@ -1,0 +1,6 @@
+family,description,metric,value,notes
+T01_accounting,Direct unit-months = sum(units * delay_months * outcome_weight),direct_unit_months,105504.0,No indirect component; pure observed delay.
+T02_rd_proxy,RD proxy: SHD mean-weeks excess over NPA as JR-exposure premium,jr_exposure_premium_weeks,83,From PL-3: SHD 124wk vs NPA 41wk in 2024. Confounded with SHD tail-clearing.
+T03_queueing,Queueing: JR caseload as exogenous demand shock on rho,rho_jr_component,0.165,"JR equiv load=350, total disposed 2022=2115"
+T04_did,DiD: housing vs commercial ABP decision time change 2017-2024,did_excess_weeks,19,Housing all-cases proxy; commercial delta ~5wk (SID stable except SHD/LRD).
+T05_counterfactual,Counterfactual: completions gap under 18wk SOP scenario,total_units_shifted,16638,Cumulative completions gap 2018-2024 under 18wk maintained SOP.

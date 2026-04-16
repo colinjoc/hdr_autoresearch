@@ -1,0 +1,206 @@
+id,author,year,title,source,theme
+P001,"Geltner, D.",2014,Commercial Real Estate Analysis and Investments,MIT Press,cost_of_delay
+P002,"Brueggeman, W. & Fisher, J.",2015,Real Estate Finance and Investments,McGraw-Hill,cost_of_delay
+P003,"Mayer, C. & Somerville, C.T.",2000,Residential construction: using the urban growth model to estimate housing supply,Journal of Urban Economics,cost_of_delay
+P004,"Glaeser, E. & Gyourko, J.",2018,The economic implications of housing supply,Journal of Economic Perspectives,cost_of_delay
+P005,"Gyourko, J. & Molloy, R.",2015,Regulation and housing supply,Handbook of Regional and Urban Economics,cost_of_delay
+P006,"Glaeser, E., Gyourko, J. & Saks, R.",2005,Why is Manhattan so expensive? Regulation and the rise in housing prices,Journal of Law and Economics,cost_of_delay
+P007,"Hsieh, C.T. & Moretti, E.",2019,Housing constraints and spatial misallocation,American Economic Journal,cost_of_delay
+P008,"Murphy, A.",2018,A spatial analysis of the cost of housing in Ireland,ESRI Working Paper,cost_of_delay
+P009,Ronan Lyons,2021,Can taxes on construction and development help to address Irelands housing shortage?,Economic and Social Review,cost_of_delay
+P010,DHLGH,2021,Housing for All - A New Housing Plan for Ireland,Government of Ireland,cost_of_delay
+P011,SCSI,2022,The real cost of new apartment delivery,Society of Chartered Surveyors Ireland,cost_of_delay
+P012,SCSI,2023,Construction cost index update Q4 2023,SCSI,cost_of_delay
+P013,"Lydon, R. & McCarthy, Y.",2013,What lies beneath? Understanding recent trends in Irish mortgage arrears,Economic and Social Review,cost_of_delay
+P014,Central Bank of Ireland,2023,Macro-financial review 2023,CBI,cost_of_delay
+P015,"Kennedy, G. & McQuinn, K.",2024,Irish housing market update,Central Bank quarterly bulletin,cost_of_delay
+P016,"Duffy, D.",2020,The Irish housing market: developments and prospects,ESRI Special Article,cost_of_delay
+P017,"Aura, S. & Davidoff, T.",2008,Supply constraints and housing prices,Economics Letters,cost_of_delay
+P018,"Saiz, A.",2010,The geographic determinants of housing supply,Quarterly Journal of Economics,cost_of_delay
+P019,"Quigley, J.M. & Raphael, S.",2005,Regulation and the high cost of housing in California,American Economic Review P&P,cost_of_delay
+P020,"Green, R.K., Malpezzi, S. & Mayo, S.K.",2005,Metropolitan-specific estimates of the price elasticity of supply of housing,Journal of Housing Economics,cost_of_delay
+P021,"Halliday, S.",2004,Judicial Review and Compliance with Administrative Law,Hart Publishing,jr_admin
+P022,"Richardson, G. & Machin, D.",2000,Judicial review and tribunal decision making,Public Law,jr_admin
+P023,"Hertogh, M. & Halliday, S.",2004,Judicial Review and Bureaucratic Impact,Cambridge University Press,jr_admin
+P024,"Sunstein, C.",2002,The Cost-Benefit State,American Bar Foundation,jr_admin
+P025,"Mashaw, J.",1985,Bureaucratic Justice: Managing Social Security Disability Claims,Yale University Press,jr_admin
+P026,"Pierce, R.",2019,Judicial review of agency actions,Virginia Law Review,jr_admin
+P027,"Mendelson, N.",2009,Regulatory beneficiaries and informal agency policymaking,Cornell Law Review,jr_admin
+P028,"Wagner, W.",2010,"Administrative law, filter failure, and the crisis in administrative accountability",Duke Law Journal,jr_admin
+P029,"Thomas, R.",2011,Administrative Justice and Asylum Appeals,Hart Publishing,jr_admin
+P030,"Bondy, V. & Sunkin, M.",2009,The dynamics of judicial review litigation,Public Law Foundation,jr_admin
+P031,"Bondy, V., Platt, L. & Sunkin, M.",2015,The value and effects of judicial review,Public Law Project,jr_admin
+P032,"Harlow, C. & Rawlings, R.",2009,Law and Administration,Cambridge University Press,jr_admin
+P033,"Jowell, J. & Oliver, D.",2007,The Changing Constitution,Oxford University Press,jr_admin
+P034,"Cane, P.",2011,Administrative Tribunals and Adjudication,Hart Publishing,jr_admin
+P035,FDA,2020,Impact of litigation on drug approval timelines,FDA internal analysis,jr_admin
+P036,EPA,2018,Regulatory impact of judicial review on environmental permits,EPA Report,jr_admin
+P037,"Coglianese, C.",2002,Empirical analysis and administrative law,University of Illinois Law Review,jr_admin
+P038,"Seidenfeld, M.",2002,"Cognitive loafing, social conformity and judicial review",Cornell Law Review,jr_admin
+P039,"Shapiro, S.",2008,Ossification of environmental regulation,Wake Forest Law Review,jr_admin
+P040,"McGarity, T.",1992,Some thoughts on deossifying the rulemaking process,Duke Law Journal,jr_admin
+P041,"Hogan, G. & Morgan, D.G.",2010,Administrative Law in Ireland,Round Hall,irish_jr
+P042,"de Blacam, M.",2017,Judicial Review,Bloomsbury Professional,irish_jr
+P043,"Simons, G.",2019,Planning and Development Law (3rd ed.),Round Hall,irish_jr
+P044,"Galligan, E.",2023,Planning law and judicial review,Irish Jurist,irish_jr
+P045,"Arkins, E.",2019,Empirical analysis of planning JRs 2000-2018,Unpublished,irish_jr
+P046,OPR,2022,Appendix-2: Breakdown of Determined Judicial Reviews involving ABP 2012-2022,OPR,irish_jr
+P047,OPR,2024,Learning from Litigation Legal Bulletin 10,OPR,irish_jr
+P048,OPR,2025,Learning from Litigation Legal Bulletin 11,OPR,irish_jr
+P049,ABP,2020,Annual Report and Accounts 2020,An Bord Pleanala,irish_jr
+P050,ABP,2021,Annual Report and Accounts 2021,An Bord Pleanala,irish_jr
+P051,ABP,2022,Annual Report and Accounts 2022,An Bord Pleanala,irish_jr
+P052,ABP,2023,Annual Report and Accounts 2023,An Bord Pleanala,irish_jr
+P053,ABP,2024,Annual Report and Accounts 2024,An Bord Pleanala,irish_jr
+P054,Indecon,2022,Organisational Capacity Review of An Bord Pleanala,DHLGH,irish_jr
+P055,"Farrell, R.",2022,Preliminary Report on Governance at An Bord Pleanala,Government,irish_jr
+P056,Irish Times,2021,SHD judicial reviews: the numbers behind the headlines,Irish Times,irish_jr
+P057,Business Post,2021,Planning board legal costs double to EUR8.2m,Sunday Business Post,irish_jr
+P058,Heather Hill Management v ABP,2022,[2022] IESC 43,Supreme Court,irish_jr
+P059,Connelly v ABP,2018,[2018] IESC 31,Supreme Court,irish_jr
+P060,Balz v ABP,2019,[2019] IESC 91,Supreme Court,irish_jr
+P061,"OBroin, K.",2023,Why is An Bord Pleanala taking so long?,Irish Times,abp_capacity
+P062,Housing Commission,2023,Report on Housing Supply and Affordability,Gov of Ireland,abp_capacity
+P063,ACP,2025,Quarterly Planning Casework Statistics Q1 2025,An Coimisiun Pleanala,abp_capacity
+P064,ACP,2025,Quarterly Planning Casework Statistics Q3 2025,An Coimisiun Pleanala,abp_capacity
+P065,DHLGH,2022,Response to Indecon Review,DHLGH,abp_capacity
+P066,Oireachtas Committee,2022,Joint Committee on Housing examination of ABP,Oireachtas,abp_capacity
+P067,PDA 2024,2024,Planning and Development Act 2024 (No. 34 of 2024),Oireachtas,abp_capacity
+P068,Courts Service,2022,Practice Direction HC101 (Planning and Environment List),Courts Service,abp_capacity
+P069,"Dowling, M.",2022,ABP board-member crisis timeline,Housing Industry Ireland,abp_capacity
+P070,DHLGH,2024,Housing completions and starts quarterly bulletin,DHLGH,abp_capacity
+P071,"Kleinrock, L.",1975,Queueing Systems Volume 1: Theory,Wiley,queueing
+P072,"Little, J.D.C.",1961,A proof for the queueing formula L=lambda*W,Operations Research,queueing
+P073,"Kingman, J.F.C.",1961,The single server queue in heavy traffic,Proceedings Cambridge,queueing
+P074,"Whitt, W.",2002,Stochastic-Process Limits,Springer,queueing
+P075,"Gross, D. & Harris, C.M.",2008,Fundamentals of Queueing Theory,Wiley,queueing
+P076,"Shortle, J.F. et al.",2018,Fundamentals of Queueing Theory (5th ed.),Wiley,queueing
+P077,"Zhang, C.",2016,Queueing models for court caseload management,European J of OR,queueing
+P078,"Klein, R. & Rosenfeld, M.",2015,Court backlogs: a queueing analysis,OR Spectrum,queueing
+P079,"Parkinson, C.N.",1957,Parkinsons Law,John Murray,queueing
+P080,"Wilson, J.Q.",1989,Bureaucracy: What Government Agencies Do and Why They Do It,Basic Books,queueing
+P081,"Angrist, J. & Pischke, J.S.",2009,Mostly Harmless Econometrics,Princeton UP,counterfactual
+P082,"Angrist, J. & Pischke, J.S.",2014,Mastering Metrics,Princeton UP,counterfactual
+P083,"Imbens, G. & Rubin, D.",2015,Causal Inference for Statistics,Cambridge UP,counterfactual
+P084,"Card, D. & Krueger, A.",1994,Minimum wages and employment: a case study of the fast food industry,AER,counterfactual
+P085,"Abadie, A., Diamond, A. & Hainmueller, J.",2010,Synthetic control methods for comparative case studies,JASA,counterfactual
+P086,"Abadie, A.",2021,"Using synthetic controls: feasibility, data requirements, and methodological aspects",Journal of Economic Literature,counterfactual
+P087,"Athey, S. & Imbens, G.",2022,Design-based analysis in difference-in-differences settings,Econometrica,counterfactual
+P088,"Callaway, B. & SantAnna, P.",2021,Difference-in-differences with multiple time periods,Journal of Econometrics,counterfactual
+P089,"Goodman-Bacon, A.",2021,Difference-in-differences with variation in treatment timing,Econometrica,counterfactual
+P090,"de Chaisemartin, C. & DHaultfoeuille, X.",2020,Two-way fixed effects estimators with heterogeneous treatment effects,AER,counterfactual
+P091,"Bernal, J.L. et al.",2017,Interrupted time series regression for the evaluation of public health interventions,IJE,counterfactual
+P092,"Wagner, A.K. et al.",2002,Segmented regression analysis of interrupted time series studies,Journal of Clinical Pharmacy,counterfactual
+P093,"Oaxaca, R.",1973,Male-female wage differentials in urban labor markets,IER,counterfactual
+P094,"Blinder, A.S.",1973,Wage discrimination: reduced form and structural estimates,Journal of Human Resources,counterfactual
+P095,"Rosenbaum, P.",2002,Observational Studies,Springer,counterfactual
+P096,UK NSIP evaluation,2023,National Infrastructure Planning: Judicial Review Statistics,PINS,international
+P097,Dutch Council of State,2023,Annual Report 2022,Raad van State,international
+P098,"Booth, P.",2007,Land Use Planning and the Mediation of Urban Change,Routledge,international
+P099,"Cullingworth, B. & Nadin, V.",2015,Town and Country Planning in the UK (15th ed.),Routledge,international
+P100,National Audit Office,2019,Planning for new homes,NAO,international
+P101,OECD,2017,The Governance of Land Use in OECD Countries,OECD,international
+P102,"Barker, K.",2004,Review of Housing Supply,HM Treasury,international
+P103,"Hilber, C. & Vermeulen, W.",2016,The impact of supply constraints on house prices in England,Economic Journal,international
+P104,"Vermeulen, W. & van Ommeren, J.",2009,Does land use planning shape regional economies?,RUE,international
+P105,"Ball, M.",2011,Planning delay and the responsiveness of English housing supply,Urban Studies,international
+P106,"Cheshire, P. & Hilber, C.",2008,Office space supply restrictions in Britain,Economic Journal,international
+P107,"Bertaud, A. & Brueckner, J.",2005,Analyzing building-height restrictions: predicted impacts,Regional Science and Urban Economics,international
+P108,"Duranton, G. & Puga, D.",2020,Urban growth and its aggregate implications,Econometrica,international
+P109,"van der Vlist, A.",2020,Planning delays and housing prices in the Netherlands,ERES,international
+P110,Crisis-en-Herstelwet,2010,Crisis and Recovery Act (Netherlands),Dutch Government,international
+P111,CSO,2024,New Dwelling Completions StatBank NDQ07,CSO Ireland,cross_disciplinary
+P112,CSO,2023,Population and Migration Estimates,CSO Ireland,cross_disciplinary
+P113,ESRI,2024,Quarterly Economic Commentary,ESRI,cross_disciplinary
+P114,"Conefrey, T. et al.",2023,Housing supply and demand in Ireland,ESRI Research Bulletin,cross_disciplinary
+P115,"FitzGerald, J.",2005,The Irish housing boom,Economic and Social Review,cross_disciplinary
+P116,"Honohan, P.",2010,The Irish Banking Crisis,CBI,cross_disciplinary
+P117,"Kitchin, R.",2012,The real-time city? Big data and smart urbanism,GeoJournal,cross_disciplinary
+P118,"Norris, M. & Coates, D.",2014,How housing killed the Celtic Tiger,Housing Studies,cross_disciplinary
+P119,"Allen, K. & OBoyle, B.",2013,Austerity Ireland,Pluto Press,cross_disciplinary
+P120,"Firth, D.",1993,Bias reduction of maximum likelihood estimates,Biometrika,cross_disciplinary
+P121,"Wilson, E.B.",1927,"Probable inference, the law of succession, and statistical inference",JASA,cross_disciplinary
+P122,"Clopper, C. & Pearson, E.",1934,The use of confidence or fiducial limits,Biometrika,cross_disciplinary
+P123,"Fisher, R.A.",1935,The logic of inductive inference,JRSS,cross_disciplinary
+P124,"Cox, D.R.",1972,Regression models and life-tables,JRSS B,cross_disciplinary
+P125,"Kaplan, E.L. & Meier, P.",1958,Nonparametric estimation from incomplete observations,JASA,cross_disciplinary
+P126,"Niskanen, W.",1971,Bureaucracy and Representative Government,Aldine,cross_disciplinary
+P127,"Tullock, G.",1965,The Politics of Bureaucracy,Public Affairs Press,cross_disciplinary
+P128,"Allen, T.",2010,Time delay and construction disputes,Construction Management and Economics,cross_disciplinary
+P129,"Stumpf, S.",2000,Time value of money in construction disputes,ASCE Journal,cross_disciplinary
+P130,"Arditi, D. & Pattanakitchamroon, T.",2006,Selecting a delay analysis method,International J Project Management,cross_disciplinary
+P131,"McCaffer, R.",1975,Contract price forecasting and bidding techniques,Building Technology,cross_disciplinary
+P132,"Love, P. et al.",2014,Cost overruns in transportation infrastructure projects,Structure and Infrastructure Engineering,cross_disciplinary
+P133,"Flyvbjerg, B.",2003,Megaprojects and Risk,Cambridge UP,cross_disciplinary
+P134,"Cantarelli, C. et al.",2010,Cost overruns in large-scale transportation infrastructure projects,EJTP,cross_disciplinary
+P135,"Norris, M.",2016,"Property, Family and the Irish Welfare State",Palgrave Macmillan,cross_disciplinary
+P136,DHLGH,2022,Croí Cónaithe (Cities) Fund,Government of Ireland,cross_disciplinary
+P137,LDA,2023,Land Development Agency Annual Report,LDA,cross_disciplinary
+P138,Rebuilding Ireland,2016,Action Plan for Housing and Homelessness,Government of Ireland,cross_disciplinary
+P139,"O Riordain, S.",2020,The SHD Experiment,Irish Planning Institute Planner,cross_disciplinary
+P140,CIF,2023,Construction Sector Performance and Outlook 2023,Construction Industry Federation,cross_disciplinary
+P141,"Adler, M. & Gulland, J.",2003,"Tribunal users experiences, perceptions and expectations",Council on Tribunals,cross_disciplinary
+P142,"Sunkin, M.",2004,Conceptual Issues in Researching the Impact of JR,Public Law,cross_disciplinary
+P143,"Fredriksson, P. & Wollscheid, S.",2015,Impact of judicial review on environmental decision-making,OECD,cross_disciplinary
+P144,"Coglianese, C. & Kagan, R.",2007,Regulation and Regulatory Processes,Ashgate,cross_disciplinary
+P145,"Stewart, R.",2003,Administrative law in the 21st century,NYU Law Review,cross_disciplinary
+P146,"Malpezzi, S.",1996,"Housing prices, externalities, and regulation in U.S. metropolitan areas",Journal of Housing Research,cost_of_delay
+P147,"DiPasquale, D.",1999,Why dont we know more about housing supply?,Journal of Real Estate Finance and Economics,cost_of_delay
+P148,"Blackley, D.",1999,The long-run elasticity of new housing supply in the US,Journal of Real Estate Finance,cost_of_delay
+P149,"Mayer, C. & Somerville, T.",2000,Land use regulation and new construction,Regional Science and Urban Economics,cost_of_delay
+P150,"Glaeser, E. & Gyourko, J.",2003,The impact of building restrictions on housing affordability,FRBNY Economic Policy Review,cost_of_delay
+P151,"Paciorek, A.",2013,Supply constraints and housing market dynamics,Journal of Urban Economics,cost_of_delay
+P152,"Ihlanfeldt, K.",2007,The effect of land use regulation on housing and land prices,Journal of Urban Economics,cost_of_delay
+P153,"Zabel, J. & Dalton, M.",2011,The impact of minimum lot size regulations on house prices,Journal of Urban Economics,cost_of_delay
+P154,"Lutz, B.",2015,Quasi-experimental evidence on the connection between property taxes and residential capital investment,American Economic Journal,cost_of_delay
+P155,"Davidoff, T.",2016,Supply constraints are not valid instrumental variables for home prices because they are correlated with many demand factors,Critical Finance Review,cost_of_delay
+P156,Sweetman v ABP,2020,[2020] IESC 39 (substitute consent),Supreme Court,irish_jr
+P157,Grace v ABP,2017,[2017] IEHC (standing for environmental NGOs),High Court,irish_jr
+P158,Kelly v Minister for the Environment,2002,[2002] 4 IR 191 (residents associations standing),High Court,irish_jr
+P159,Klohn v An Bord Pleanala,2008,CJEU C-167/17 (costs rule),CJEU,irish_jr
+P160,An Taisce v An Bord Pleanala,2022,[2022] IEHC 84,High Court,irish_jr
+P161,Eco Advocacy CLG v ABP,2021,[2021] IEHC 610,High Court,irish_jr
+P162,Clonres CLG v ABP,2018,[2018] IEHC 473 (SHD first JR),High Court,irish_jr
+P163,ONeill v ABP,2020,[2020] IEHC 356 (SPPR3 height contravention),High Court,irish_jr
+P164,DCC v ABP Spencer Place,2020,[2020] IEHC 557 (SDZ jurisdiction),High Court,irish_jr
+P165,Highland Residents v ABP,2020,[2020] IEHC 622 (zoning),High Court,irish_jr
+P166,"Evans, A.",2004,"Economics, Real Estate and the Supply of Land",Blackwell,international
+P167,"Cheshire, P.",2018,Broken supply: housing in the UK,National Institute Economic Review,international
+P168,"Bramley, G.",2013,Housing supply requirements across Great Britain,Town Planning Review,international
+P169,"Monk, S. & Whitehead, C.",2010,Making Housing More Affordable: The Role of Intermediate Tenures,Wiley-Blackwell,international
+P170,"Muellbauer, J.",2012,When is a housing market overheated enough to threaten stability?,BIS Working Papers,international
+P171,"Scanlon, K. et al.",2014,Building New Homes: The Experience of Cities,LSE,international
+P172,"Morrison, N.",2003,Neighbourhoods and social cohesion: experiences from Europe,International Planning Studies,international
+P173,"Adams, D. & Watkins, C.",2014,The value of planning,RTPI,international
+P174,"Bramley, G. & Watkins, D.",2016,"Housebuilding, demographic change and affordability as outcomes",Housing Studies,international
+P175,"Stephens, M. et al.",2019,Social Housing in Europe,Wiley-Blackwell,international
+P176,"Erlang, A.K.",1909,The theory of probabilities and telephone conversations,Nyt Tidsskrift for Matematik,queueing
+P177,"Kendall, D.G.",1953,Stochastic processes occurring in the theory of queues,Annals of Mathematical Statistics,queueing
+P178,"Newell, G.F.",1982,Applications of Queueing Theory,Chapman and Hall,queueing
+P179,"Halfin, S. & Whitt, W.",1981,Heavy-traffic limits for queues with many exponential servers,Operations Research,queueing
+P180,"Cooper, R.",1981,Introduction to Queueing Theory (2nd ed.),Elsevier,queueing
+P181,"Heckman, J.",1979,Sample selection bias as a specification error,Econometrica,counterfactual
+P182,"Lalonde, R.",1986,Evaluating the econometric evaluations of training programs,AER,counterfactual
+P183,"Rubin, D.",1974,Estimating causal effects of treatments in randomized and nonrandomized studies,Journal of Educational Psychology,counterfactual
+P184,"Neyman, J.",1923,On the application of probability theory to agricultural experiments,Statistical Science (1990 translation),counterfactual
+P185,"Pearl, J.",2009,"Causality: Models, Reasoning, and Inference (2nd ed.)",Cambridge UP,counterfactual
+P186,"Robins, J.",1986,A new approach to causal inference in mortality studies,Mathematical Modelling,counterfactual
+P187,"Rosenbaum, P. & Rubin, D.",1983,The central role of the propensity score in observational studies,Biometrika,counterfactual
+P188,"Dehejia, R. & Wahba, S.",1999,Causal effects in nonexperimental studies,JASA,counterfactual
+P189,"Stuart, E.",2010,Matching methods for causal inference: a review and a look forward,Statistical Science,counterfactual
+P190,"Imai, K. et al.",2014,Covariate balancing propensity score,JRSS B,counterfactual
+P191,"Levin, R.",2007,Statutory interpretation and the balance of power in the administrative state,Georgetown Law Journal,jr_admin
+P192,"Bressman, L.",2005,How Mead has muddled judicial review of agency action,Vanderbilt Law Review,jr_admin
+P193,"Eskridge, W. & Baer, L.",2008,The continuum of deference,Georgetown Law Journal,jr_admin
+P194,"Miles, T. & Sunstein, C.",2006,Do judges make regulatory policy? An empirical investigation,University of Chicago Law Review,jr_admin
+P195,"Revesz, R.",1997,"Environmental regulation, ideology, and the DC Circuit",Virginia Law Review,jr_admin
+P196,"Strauss, P.",2006,On resegmenting the worlds of statute and common law,Supreme Court Review,jr_admin
+P197,"Noll, R.",1999,The economics and politics of the slowdown in regulatory reform,CSAB Working Paper,jr_admin
+P198,"Carpenter, D.",2002,"Groups, the media, agency waiting costs and FDA drug approval",AJPS,jr_admin
+P199,"Olson, M.",2004,Pharmaceutical policy change and the safety of new drugs,Journal of Law and Economics,jr_admin
+P200,"Yackee, S.",2006,Sweet-talking the fourth branch: the influence of interest group comments on agency rulemaking,Journal of Public Administration,jr_admin
+P201,"Autor, D.",2003,Outsourcing at will: the contribution of unjust dismissal doctrine,QJE,cross_disciplinary
+P202,"Djankov, S. et al.",2002,The regulation of entry,QJE,cross_disciplinary
+P203,"Botero, J. et al.",2004,The regulation of labor,QJE,cross_disciplinary
+P204,"Porta, R. et al.",1998,Law and finance,Journal of Political Economy,cross_disciplinary
+P205,"Acemoglu, D. & Johnson, S.",2005,Unbundling institutions,Journal of Political Economy,cross_disciplinary
