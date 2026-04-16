@@ -5,6 +5,43 @@
 
 ---
 
+## ⚠️ GLOBAL RULE — READ THIS BEFORE ANY PHASE ⚠️
+
+**EVERY phase defined in this document MUST be completed on EVERY project. NO EXCEPTIONS. NO "DESCRIPTIVE SHORTCUTS". NO "SKIP BECAUSE SIMPLE". NO "COMBINED WITH PREVIOUS PHASE".**
+
+For every project, the agent MUST produce ALL of the following artifacts on disk, in order, before the project can be declared complete:
+
+1. `papers.csv` (Phase 0)
+2. `literature_review.md` (Phase 0)
+3. `research_queue.md` (Phase 0)
+4. `knowledge_base.md` (Phase 0)
+5. `feature_candidates.md` + `design_variables.md` (Phase 0)
+6. `data_sources.md` + `E00` row in `results.tsv` (Phase 0.5)
+7. ≥4 model families in `tournament_results.csv` + `results.tsv` (Phase 1)
+8. ≥20 KEEP/REVERT experiments in `results.tsv` (Phase 2)
+9. Pairwise-interaction rows in `results.tsv` (Phase 2.5)
+10. `paper_review.md` with reviewer-mandated experiments executed (Phase 2.75)
+11. `paper.md` (Phase 3)
+12. `paper_review_signoff.md` with literal `NO FURTHER BLOCKING ISSUES` (Phase 3.5)
+13. `phase_b_discovery.py` output (Phase B)
+14. Website `index.md` at `~/website/site/content/hdr/results/<slug>/` (Publish, only after artifact 12 exists)
+
+**If any artifact is missing, the project is NOT complete. Publishing the website summary before artifact 12 exists is a retraction-grade failure.**
+
+**Compact ≠ skipped.** For simple descriptive projects, the lit review can use 4 themes instead of 7 and the tournament can be minimal (logistic regression + one baseline), but the STRUCTURE of every phase must exist on disk. Running a trivial phase is mandatory; skipping it is forbidden.
+
+**What counts as skipping (all forbidden):**
+- "This project is descriptive-only so skipping Phase 1 tournament" — FORBIDDEN
+- "Quick methodology clone of a previous project so no lit review needed" — FORBIDDEN
+- "Reviewer would have nothing to add on this simple analysis" — FORBIDDEN
+- "Tight on context budget so skipping reviewer" — FORBIDDEN
+- "Went straight from analysis to website" — FORBIDDEN
+- "Inlined reviewer concerns in the paper's limitations section" — FORBIDDEN
+
+**If an artifact cannot be created because of a genuine external blocker (credentials, missing data, broken tool), the project is PAUSED — not published. Pause with a written reason and move to the next project.**
+
+---
+
 ## Phase exit criteria (machine-checkable, BLOCKING)
 
 A phase is **complete** only when the named artifact exists on disk AND the
@@ -62,7 +99,19 @@ Reverse-engineer an existing AI-discovered or black-box solution. Identify which
 
 ## Phase 0: Literature Review
 
-**Do not skip. 200+ citations is the new minimum; aim for 300–500 if the field is large; 1000+ for truly cross-disciplinary projects.** A shallow Phase 0 is the most expensive shortcut to take in HDR — almost every project that has needed major mid-loop pivots traces the failure to incomplete lit review.
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE 0
+
+**Phase 0 is NOT complete and the project CANNOT proceed to Phase 0.5 unless ALL of these files exist on disk in `applications/<project>/`:**
+
+- [ ] `papers.csv` with ≥200 verified citations (no fabrications)
+- [ ] `literature_review.md` with 7 themes (or compact 4-theme version for descriptive-only projects), each theme section >1500 words
+- [ ] `research_queue.md` with ≥100 hypotheses (compact: ≥30) each with prior, mechanism, design variable, metric, baseline
+- [ ] `knowledge_base.md` with stylised facts + known pitfalls
+- [ ] `feature_candidates.md` and `design_variables.md`
+
+**Skipping Phase 0 or combining it with a previous project's Phase 0 is FORBIDDEN. If the project is a methodology clone, it still needs its own lit review — the substantive domain may differ even when the method is shared.**
+
+**Do not skip. 200+ citations is the minimum; aim for 300–500 if the field is large; 1000+ for truly cross-disciplinary projects.** A shallow Phase 0 is the most expensive shortcut to take in HDR — almost every project that has needed major mid-loop pivots traces the failure to incomplete lit review.
 
 ### Deliverables
 1. `literature_review.md` — 7 themes, 3000+ words each (was 2000)
@@ -104,6 +153,17 @@ When all three are satisfied, the lit review is "enough". Most projects will hit
 ---
 
 ## Phase 0.5: Baseline Audit
+
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE 0.5
+
+**Phase 0.5 is NOT complete and the project CANNOT proceed to Phase 1 unless ALL of these exist:**
+
+- [ ] `data_sources.md` listing every data source with direct URL, coverage, schema, smoke-test pass/fail
+- [ ] Downloaded real data in `data/raw/` or `data/` (NO synthetic data unless explicitly justified per the REAL DATA ONLY rule below)
+- [ ] `E00` row in `results.tsv` recording the baseline with seed, evaluation metric, numerical value
+- [ ] Seed-stable — re-running the baseline must produce the identical number
+
+**Skipping the `E00` baseline row is FORBIDDEN. Every project needs a numerical baseline against which improvement can be measured, even if the project is descriptive — in that case E00 is the "no-model climatology" line.**
 
 1. **Read all code** — find bugs, suboptimal defaults, unused features/design freedom
 2. **Decompose the score** — where does improvement effort have highest ROI?
@@ -179,6 +239,17 @@ Four cheap calibration runs before any HDR experiment. Each one is more valuable
 
 ## Phase 1: Tournament
 
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE 1
+
+**Phase 1 is NOT complete and the project CANNOT proceed to Phase 2 unless ALL of these exist:**
+
+- [ ] `tournament_results.csv` with ≥4 model families compared on the same task
+- [ ] At least one family is a **linear-model sanity check** (logistic regression, ridge, OLS)
+- [ ] Corresponding rows in `results.tsv` for each tournament entry
+- [ ] A clearly-stated winner (family + metric + value)
+
+**For descriptive-only projects**: the tournament is still mandatory. Compare the climatology baseline, a simple linear regression, a ridge-regularised linear model, and a gradient-boosted tree predicting the descriptive summary as a function of the base covariates. Four families, running through the same evaluation harness. Skipping the tournament because "the project doesn't use ML" is FORBIDDEN — the tournament establishes what floor the descriptive analysis is answering against.
+
 Compare 3-5 **fundamentally different** approaches (not hyperparameter variants) with ~5 experiments each on the same features/data. Record in `tournament_results.md`. Select 1-2 winners for the HDR loop.
 
 Re-run the tournament if the HDR loop plateaus (5+ consecutive reverts).
@@ -192,6 +263,15 @@ Re-run the tournament if the HDR loop plateaus (5+ consecutive reverts).
 ---
 
 ## Phase A → Phase B Bridge
+
+### ⚠️ MANDATORY CHECK BEFORE PHASE B
+
+**Phase A (Infrastructure) is NOT complete and the project CANNOT proceed to Phase B (Discovery) unless:**
+
+- [ ] Feature availability check run on 5-10 synthetic candidates spanning the design space (no feature defaults to placeholder)
+- [ ] Predictor returns scores in the same range on synthetic candidates as on training data
+- [ ] Stability/feasibility post-filter specified and implemented
+- [ ] Combinatorial template inventory for Phase B (≥3 template families documented)
 
 A common Phase A → Phase B failure: the predictor improves in training but cannot rank novel candidates because features it relies on are not available outside the training set. Catch this before scaling discovery.
 
@@ -215,6 +295,18 @@ For materials, designs, and any domain with a "physically realisable?" constrain
 ---
 
 ## Phase 2: The HDR Loop
+
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE 2
+
+**Phase 2 is NOT complete and the project CANNOT proceed to Phase 2.5 unless ALL of these exist:**
+
+- [ ] ≥20 rows in `results.tsv` with `status` ∈ {KEEP, REVERT} (compact bar; preferred target 100+)
+- [ ] Every KEEP experiment ties to a git commit
+- [ ] Every KEEP experiment re-runs deterministically from cache
+- [ ] `knowledge_base.md` updated after each KEEP with what was learned
+- [ ] `research_queue.md` updated with status changes on each experiment
+
+**For descriptive projects**: the 20+ experiments are variations of the descriptive analysis — bootstrap CIs on the headline, subset analyses (pre/post-COVID, large/small entities, sector-by-sector), placebo/shuffle tests, different outcome thresholds, different time windows. Each appears as a row in `results.tsv`. Skipping Phase 2 because "there is no model to iterate" is FORBIDDEN — every project has robustness dimensions that constitute Phase 2.
 
 **Run hundreds of experiments. The 20-experiment-loop pattern from the early HDR projects was too short.** A real HDR project should run **100 experiments minimum** in Phase 2 before declaring convergence, and projects with rich research queues should run **300–1000+** experiments. Each experiment is cheap if the evaluation harness is fast; the cost is in the per-experiment thinking (prior, mechanism, single change), not in the compute.
 
@@ -289,6 +381,16 @@ Stopping at 100 experiments because you "hit the count" is wrong if either signa
 Document the result of the lookalike placebo in every paper whose outcome is channel-observed. Skipping it for such outcomes is a cherry-pick — you are implicitly choosing not to look at a failure mode that the design makes highly likely.
 
 ### Interaction Sweep (Phase 2.5)
+
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE 2.5
+
+**Phase 2.5 is NOT complete and the project CANNOT proceed to Phase 2.75 unless:**
+
+- [ ] ≥1 pairwise-interaction experiment row in `results.tsv` tagged `interaction=True`
+- [ ] If ≥2 near-miss rejects exist: all N×(N-1)/2 pair combinations tested
+- [ ] Any synergistic pair documented in `knowledge_base.md`
+
+**If the Phase 2 experiments produced no near-miss rejects (within 1× noise of KEEP threshold), Phase 2.5 runs the minimum valid sweep: at least one interaction test between the top-2 KEEP experiments, to confirm they are additive or identify any conflict. Writing "no near-misses" and skipping is FORBIDDEN.**
 
 The isolation principle is analogous to coordinate descent: it finds improvements along single axes but misses combinatorial effects. A change that fails in isolation may succeed in combination with another. After the main Phase 2 loop converges, run an interaction sweep to catch these.
 
@@ -378,6 +480,22 @@ When the goal is to reverse-engineer an existing AI-discovered or black-box solu
 
 ## Phase 2.75: Adversarial Results Review
 
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE 2.75 — ZERO SHORTCUTS ALLOWED
+
+**Phase 2.75 is NOT complete and the project CANNOT proceed to Phase 3 (paper) unless ALL of these exist:**
+
+- [ ] `paper_review.md` written by a DIFFERENT sub-agent invocation (not the HDR author) — the reviewer file must be created by a fresh Agent call with no access to prior conversation
+- [ ] Every reviewer-mandated experiment appears in `results.tsv` with `status` ∈ {RUN_RV, CONTROL, TEMPORAL, DIAG}
+- [ ] `review_response.md` (or equivalent) explicitly addressing each reviewer finding with FIX / REBUT / ACKNOWLEDGE
+
+**Forbidden shortcuts, each of which has been observed in practice and each of which will require paper retraction:**
+- Skipping the reviewer entirely and writing a paper with "limitations" baked into §8 — FORBIDDEN
+- Self-reviewing ("I'll play the reviewer role") — FORBIDDEN; the reviewer must be a different sub-agent invocation
+- Running the reviewer but ignoring the mandated experiments — FORBIDDEN
+- Marking Phase 2.75 "complete" because the reviewer file exists but experiments are unrun — FORBIDDEN
+- "This is a descriptive analysis so a reviewer would have nothing to add" — FORBIDDEN; descriptive projects have real flaws (endpoint sensitivity, uncertainty, confounds) that a reviewer catches
+- "Short on context budget, will skip reviewer and run it later" — FORBIDDEN; pause the project instead
+
 **Mandatory. Do not skip. Do not combine with the HDR agent's own context.**
 
 After Phase 2.5 (interaction sweep) converges and before writing the paper, a **separate reviewer agent** audits the project. The reviewer must run in a fresh context with no access to the HDR agent's conversation history — it sees only the project artifacts on disk. Its job is to find flaws, not confirm quality.
@@ -450,6 +568,21 @@ applications/<project>/
 ---
 
 ## Phase 3: paper.md (the only writeup the project owns)
+
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE 3
+
+**Phase 3 is NOT complete and the project CANNOT proceed to Phase 3.5 unless:**
+
+- [ ] `paper.md` exists in `applications/<project>/`
+- [ ] Every KEEP experiment in `results.tsv` is referenced by its ID in `paper.md`
+- [ ] Abstract, Introduction, Detailed Baseline, Detailed Solution, Methods, Results, Discussion, Conclusion, References sections all present
+- [ ] ≥30 citations from `papers.csv` used inline
+- [ ] `generate_plots.py` exists and runs; `plots/` directory populated; paper references plots by filename
+- [ ] Three mandatory plots produced: predicted-vs-actual scatter, feature importance, headline-finding
+- [ ] No references to internal review process (words "reviewer", "sub-agent", etc. absent)
+- [ ] No work-effort metrics ("we ran 34 experiments", "200 citations reviewed") in the paper body
+
+**Writing paper.md from the website summary is FORBIDDEN — the paper is the canonical source and must have full technical depth. Copying the website index.md and calling it paper.md is a shortcut that violates the Detailed Baseline / Detailed Solution depth requirement.**
 
 After the review cycle is complete (reviewer sign-off obtained), produce a single deliverable: `paper.md`, a formal academic paper. This is the canonical source of truth for the project. The public-facing website summary is generated automatically by the website summary pipeline (`~/website/pipeline/`) directly from `paper.md` — projects no longer maintain their own `summary.md`.
 
@@ -572,9 +705,46 @@ The website summary pipeline at `~/website/pipeline/` runs daily, scans every `a
 
 These rules are hard constraints. A summary that violates them must be regenerated.
 
+### Craft rules — what makes a summary actually grab and hold a reader
+
+The hard constraints above stop a summary from being *bad*. The craft rules below are what move a summary from "follows the schema" to "a curious adult reads to the end and forwards the link". Apply them whenever the project's nature allows; not every section will fit every project.
+
+1. **Title as a question or a contested claim, not a description.** A title that asks "Did X actually do Y?" pulls a reader in; a title that names the technique does not. If the headline finding is a null result or a debunking, put the contest right in the title.
+
+2. **Open with public stakes, not method.** The first paragraph names the real-world actors who care: ministers, regulators, named agencies, public hearings, specific dated moments. The reader should know within three sentences what was at stake to whom. Method comes later.
+
+3. **The "naive finding first, then falsified" structure for null results and debunkings.** When the headline finding is "no, the obvious-looking effect isn't real", structure the body as: (a) what the naive look suggested — show the striking number that *would have been* the headline had the analysis stopped early; (b) what the proper test showed — walk the reader through the control or peer comparison that killed it; (c) a one-paragraph sanity check, typically a placebo, that reinforces. This gives the reader the satisfaction of seeing the alternative considered and rejected, rather than just being told the answer.
+
+4. **Plot captions are part of the narrative, not labels.** Each caption tells the reader what to *look at* and what it *means*: "Real X (black) versus synthetic X built from peer Y (red dashed). The two track each other closely all the way through the shock and beyond." Avoid captions that only restate axis labels. Three plots maximum, each load-bearing for the argument.
+
+5. **Name the alternative explanation when the headline collapses.** A null finding without a "what was actually going on?" paragraph leaves the reader unsatisfied. Identify the real mechanism (often: a broader cohort-wide effect, a confounder, a measurement artefact) and attribute it specifically.
+
+6. **Close with the transferable lesson.** The final short section is the methodological takeaway — abstracted from the project so a reader in an adjacent field gets value: "If you only compare X to its own past, ordinary cohort-wide events look like local Y." This is what gets the link forwarded.
+
+7. **Use named real-world actors throughout.** Concrete institutions (the antitrust regulator, the named legislative committee, the specific minister) give the writing texture and credibility. Avoid passive "it has been alleged that" — name who alleged it and when.
+
+8. **Conversational subheaders.** "What the first look suggested" beats "Initial Results"; "What was actually going on?" beats "Discussion"; "A second sanity check" beats "Robustness". Subheaders are signposts for a reader who is scanning.
+
+9. **For policy- or implication-relevant findings: a numerical implications section.** When a project has actionable policy or practical implications, add a section with specific numbers — magnitudes, costs, legal limits, comparison to known reference points — and rank options by directness. End with a one-sentence "bottom line" or scannable ranked list. Vague "this could inform policy" is filler; "the maximum legal cut is 31 cents per litre, costing approximately €X per year" is what readers need.
+
+10. **Specific-but-plain numbers throughout.** "About 17 cents per litre" is plain English. "z = +4.4σ above the pre-shock conditional residual" is not. Translate every statistical claim into a concrete unit a reader can picture, even if it loses some precision. Precision lives in `paper.md`; readability lives here.
+
+A summary that follows the hard constraints AND most of the craft rules above is the publication target. The pipeline summarizer prompt at `~/website/pipeline/hdr_summary_pipeline.md` enforces both layers.
+
 ---
 
 ## Phase 3.5: Adversarial Paper Review
+
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE 3.5 — PUBLICATION BLOCKER
+
+**Phase 3.5 is NOT complete and the project CANNOT proceed to Phase B or Publish unless ALL of these exist:**
+
+- [ ] `paper_review.md` for the paper (separate from the Phase 2.75 results review) written by a DIFFERENT sub-agent invocation
+- [ ] `paper_review_response.md` documenting the HDR agent's response to every finding
+- [ ] Any reviewer-mandated paper experiments present in `results.tsv` with `status` ∈ {RUN_RV, CONTROL, TEMPORAL, DIAG}
+- [ ] `paper_review_signoff.md` exists AND contains the literal string `NO FURTHER BLOCKING ISSUES` AND is written by a DIFFERENT sub-agent invocation from Phase 2.75
+
+**Publishing the website summary before `paper_review_signoff.md` contains `NO FURTHER BLOCKING ISSUES` is a retraction-grade failure.** A project that was published without reviewer sign-off must have the website summary retracted and the reviewer cycle run retroactively.
 
 **Mandatory. Do not skip. The paper must survive independent review before publication.**
 
@@ -636,6 +806,46 @@ applications/<project>/
 ### Only after sign-off
 
 The website summary pipeline should not publish a project until `paper_review_signoff.md` exists. A paper without reviewer sign-off is a draft, not a result.
+
+---
+
+## Phase B: Discovery
+
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE B
+
+**Phase B is NOT complete and the project CANNOT proceed to Publish unless ALL of these exist:**
+
+- [ ] `phase_b_discovery.py` in `applications/<project>/` — a standalone runnable script
+- [ ] `discoveries/` directory with Phase B outputs (novel candidates, Pareto fronts, inverse-design outputs, anomaly detections, or domain-specific equivalents)
+- [ ] `results.tsv` contains at least one row with `status=DISCOVERY` summarising the Phase B output
+- [ ] If Phase B involves a live monitor or detector: the JSON state file exists in `discoveries/`
+
+**Phase B is not "run more training experiments". It is "use the tool to explore the unknown". The output is a ranked list, a discovered candidate, a flagged anomaly, a Pareto front, or a specification for an extension — not just another row in the tournament.**
+
+**For descriptive-only projects**: Phase B is a rank-list / ranking output (e.g. "top 10 hospitals at risk next month", "which operators are worst-recovered") written to `discoveries/<project>_rankings.csv`. Skipping Phase B because "the project is descriptive" is FORBIDDEN — every project produces a forward-looking artifact.
+
+---
+
+## Phase Publish: Website Summary
+
+### ⚠️ MANDATORY ARTIFACTS AND GATING FOR PHASE PUBLISH
+
+**Publishing the website summary is NOT permitted unless ALL of these are true:**
+
+- [ ] `paper_review_signoff.md` exists in the project directory AND contains the literal string `NO FURTHER BLOCKING ISSUES`
+- [ ] `paper.md` exists and has been revised to incorporate all Phase 2.75 and Phase 3.5 mandated changes
+- [ ] Phase B output exists per the Phase B mandatory artifacts above
+- [ ] Hugo build passes locally with no errors
+- [ ] Website `index.md` at `~/website/site/content/hdr/results/<slug>/` conforms to the auto-generated summary style rules
+- [ ] Git commit to `~/website/site/` submodule and push to `colinjoc.github.io`
+
+**Publishing before `paper_review_signoff.md` contains `NO FURTHER BLOCKING ISSUES` is a retraction-grade failure. If this happens, the website summary must be retracted immediately and the reviewer cycle completed retroactively before republication.**
+
+**Forbidden shortcuts:**
+- Writing the website index.md before `paper.md` exists — FORBIDDEN
+- Writing the website index.md using the paper_draft.md (pre-reviewer) numbers — FORBIDDEN
+- Publishing when paper_review_signoff.md exists but `NO FURTHER BLOCKING ISSUES` is missing — FORBIDDEN
+- Using "I'll run the reviewer after publish" as a plan — FORBIDDEN (memory rule `feedback_no_phase_shortcuts.md`)
 
 ---
 

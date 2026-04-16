@@ -1,0 +1,14 @@
+{
+  "m22_full": 7.0,
+  "m25_full": 6.22,
+  "m22_persistent": 7.1,
+  "m25_persistent": 6.2,
+  "within_pp": -0.8999999999999995,
+  "entry_pp": 0.019999999999999574,
+  "exit_pp": 0.09999999999999964,
+  "total_pp_observed": -0.7800000000000002,
+  "total_pp_identity": -0.7800000000000002,
+  "n_firms_persistent": 623,
+  "n_firms_2022_only": 82,
+  "n_firms_2025_only": 935
+}

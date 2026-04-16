@@ -1,0 +1,7 @@
+experiment_id	commit	description	metric	value	seed	status	notes
+E00	phase0.5	LDA housing delivery 2018-2025 vs HFA 50,500/yr target (RETRO-REVISED)	lda_share_of_nda12_towns_2023	3.5%	0	BASELINE	2023 audited only; ca. 850 via Project Tosaigh acquisition
+E01-R1	retro-phase2.75	R1 control: restate 2023 LDA delivery to match LDA 2023 annual report verbatim	2023_delivery_ca850	850	0	KEEP	ca. 650 cost rental + ca. 200 affordable-for-sale, 100% Project Tosaigh, zero direct-build; replaces fabricated 854
+E02-R2	retro-phase2.75	R2 diagnostic: reconcile national denominator (NDA12 towns vs CSO all-Ireland)	2023_share_gap_between_denominators	2.6% vs 3.5%	0	KEEP	2023 delta = 0.9pp between NDA12 towns and CSO all-Ireland
+E03-R3	retro-phase2.75	R3 run-revise: pre-2023 breakdown downgraded to author estimate (dagger marked)	cum_through_end_2024_author_estimate	2054	0	KEEP	matches Irish Times Sep-2025 cumulative of ~2,054 by construction; not independently sourced
+E04-R4	retro-phase2.75	R4 control: share of national completions reported only for 2023 (audited/audited)	2023_share_audited_over_audited	3.5% (NDA12) / 2.6% (CSO)	0	KEEP	2024 and 2025 presented as ranges only; Project Tosaigh double-count caveat added
+E05-R5	retro-phase2.75	R5 diagnostic: forward target reconciliation from LDA 2023 report verbatim	verbatim_forward_target	8000_by_2028	0	KEEP	LDA 2023 report says '8,000 homes by 2028' and 'pipeline of over 10,000'; '14,000' not in report, dropped from analysis

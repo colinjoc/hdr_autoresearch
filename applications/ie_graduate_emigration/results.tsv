@@ -1,0 +1,9 @@
+experiment_id	commit	description	metric	value	seed	status	notes
+E00	phase0.5	Irish emigration 2020-2025 CSO PEA18 trajectory	emigration_2020_to_peak	50.9k → 83.0k (2012)	0	BASELINE	+63.1% peak growth
+E01-R1	phase2.75	Australia vs UK 2025 gap vs CSO PEA18 ±2-3k precision band	aus_minus_uk_2025_thousands	+0.9	0	CONFIRMED_WEAK	Gap +0.9k < precision band ±2.5k; tied within CI. Downgrade 'structural shift' to 'statistical tie; Aus at top in 2025 only'.
+E01-R2	phase2.75	Year-by-year Aus-UK gap 2023-2025	aus_minus_uk_by_year	2023:-9.9 2024:-4.6 2025:+0.9	0	CLAIM_REVISED	UK led by 9.9k (2023) and 4.6k (2024); Aus only ahead in 2025 (+0.9k). Paper's 'Since 2023 Australia has pulled ahead' is FALSE and must be rewritten.
+E02-R1	phase2.75	2024 → 2025 total emigration change	pct_change_2024_2025	-6.2%	0	RESOLVED	69.9k → 65.6k (-6.1%). 2025 figure is PEA18 provisional and subject to revision; one-year dip does not by itself establish the wave has peaked.
+E03-R1	phase2.75	Net migration and immigration 2020-2025	imm_em_net_2025	imm=125.3k em=65.6k net=+59.7k	0	CONTEXT_ADDED	Ireland remained NET-RECEIVING every year 2020-2025. Paper had +76k in the body — actual 2025 net is +59.7k (2024 was +79.3k).
+E04-R1	phase2.75	2012 post-war peak contextualisation	peak_ratio_2024_to_2012	83.0k (2012) vs 69.9k (2024) = 84.2%	0	CONFIRMED	Peak now annotated on emigration_trajectories.png and stated in paper §What we found.
+E05-R1	phase2.75	'Other (23)' aggregate as ranking limitation	other23_2025_thousands	11.1	0	LIMITATION_ADDED	11.1k across 23 unidentified countries rivals Aus/UK/EU14. Any single country inside Other-23 could rival top-4. Flagged as limitation in §What we cannot say.
+E06-R1	phase2.75	Title vs directory scope mismatch	scope	PEA18 all-ages; not graduate-specific	0	SCOPE_CLARIFIED	Directory slug ie_graduate_emigration retained for history; paper §1 now states that graduate-specific analysis requires HEA GOS and is out of scope.

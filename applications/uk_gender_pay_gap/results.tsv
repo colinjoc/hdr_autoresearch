@@ -1,0 +1,31 @@
+experiment_id	commit	description	metric	value	seed	status	notes
+E00	phase0.5	UK GPG 2017-2025 mandatory disclosure panel	n_employer_year_obs	93777	0	BASELINE	18785 unique employers
+E01	phase1	9-year median gender hourly pay gap trend	median_gap_2017_to_2025	9.30 → 8.11	0	KEEP	
+E02-M1-2017	phase2.75	Bootstrap 95% CI on 2017 population median gap	median_gap_2017	9.30 [9.00, 9.70]	20260415	RUN_RV	n=10570; 1000 bootstrap draws
+E02-M1-2025	phase2.75	Bootstrap 95% CI on 2025 population median gap	median_gap_2025	8.11 [7.80, 8.56]	20260415	RUN_RV	n=10789; 1000 bootstrap draws
+E02-M1-delta	phase2.75	Bootstrap 95% CI on 2025-minus-2017 population median delta	delta_2025_minus_2017_pp	-1.19 [-1.70, -0.57]	20260415	RUN_RV	excludes-zero
+E02-M1-within	phase2.75	Within-firm median delta (5259 firms 2017 & 2025) with CI	within_firm_median_delta_pp	-2.10 [-2.45, -1.90]	20260415	RUN_RV	n_pairs=5259; excludes-zero
+E02-M1-share	phase2.75	Share of firms narrowing their gap (within-firm panel) with CI	share_narrowed_pct	61.1 [59.8, 62.4]	20260415	RUN_RV	n_pairs=5259; >50 => significant majority
+E02-M1-late	phase2.75	Late-vs-on-time median gap difference with CI	late_minus_ontime_pp	-2.40 [-2.94, -1.80]	20260415	RUN_RV	n_late=5920; n_ontime=87857; excludes-zero
+E02-M2-strat	phase2.75	Size-weighted late-minus-ontime median gap difference (stratified)	late_minus_ontime_size_weighted_pp	-2.29	20260415	CONTROL	strata_used=7; naive raw was -2.40pp; see discoveries/late_vs_ontime_by_size.csv
+E02-M2-stratum-1000_to_4999	phase2.75	Late-minus-ontime median gap within size band '1000 to 4999'	diff_pp	-2.60	20260415	CONTROL	median_late=5.90; median_ontime=8.50
+E02-M2-stratum-20000_or_more	phase2.75	Late-minus-ontime median gap within size band '20,000 or more'	diff_pp	0.30	20260415	CONTROL	median_late=6.80; median_ontime=6.50
+E02-M2-stratum-250_to_499	phase2.75	Late-minus-ontime median gap within size band '250 to 499'	diff_pp	-2.70	20260415	CONTROL	median_late=7.30; median_ontime=10.00
+E02-M2-stratum-500_to_999	phase2.75	Late-minus-ontime median gap within size band '500 to 999'	diff_pp	-2.81	20260415	CONTROL	median_late=6.91; median_ontime=9.72
+E02-M2-stratum-5000_to_19999	phase2.75	Late-minus-ontime median gap within size band '5000 to 19,999'	diff_pp	-0.80	20260415	CONTROL	median_late=7.60; median_ontime=8.40
+E02-M2-stratum-Less_than_250	phase2.75	Late-minus-ontime median gap within size band 'Less than 250'	diff_pp	4.60	20260415	CONTROL	median_late=12.71; median_ontime=8.11
+E02-M2-stratum-Not_Provided	phase2.75	Late-minus-ontime median gap within size band 'Not Provided'	diff_pp	-0.30	20260415	CONTROL	median_late=9.80; median_ontime=10.10
+E02-M2-ols	phase2.75	OLS coef on SubmittedAfterDeadline with Size + Year FE	ols_coef_late_pp	-1.85 [-2.28, -1.43]	20260415	CONTROL	p=5.48e-18; n=93777; outcome=DiffMedianHourlyPercent
+E02-M3-a	phase2.75	OLS trend 2017-2025 no COVID dummy (slope pp/year)	slope_pp_per_year	-0.198 [-0.359, -0.037]	20260415	TEMPORAL	p=0.0228; n=9
+E02-M3-b	phase2.75	OLS trend excluding COVID years 2019-2021	slope_pp_per_year	-0.145 [-0.257, -0.033]	20260415	TEMPORAL	p=0.0227; n=6
+E02-M3-c	phase2.75	OLS trend with COVID dummy (2019-2021)	slope_pp_per_year	-0.152 [-0.240, -0.065]	20260415	TEMPORAL	p_slope=0.00542; covid_coef=0.90
+E02-M4a-EmployerName	phase2.75	Within-firm panel keyed on EmployerName	n_and_median_delta	n=5259; med_delta=-2.10	20260415	DIAG	share_narrowed=61.1%
+E02-M4a-CompanyNumber	phase2.75	Within-firm panel keyed on CompanyNumber	n_and_median_delta	n=6139; med_delta=-1.80	20260415	DIAG	share_narrowed=58.7%
+E02-M4a-EmployerId	phase2.75	Within-firm panel keyed on EmployerId	n_and_median_delta	n=7173; med_delta=-2.00	20260415	DIAG	share_narrowed=59.8%
+E02-M4b-best-O	phase2.75	SIC O (Public Administration) 2017→2025 median gap delta	delta_pp	-4.86	20260415	DIAG	2017=7.60; 2025=2.74; BEST-IMPROVING
+E02-M4b-best-J	phase2.75	SIC J (Info/Communication) 2017→2025 median gap delta	delta_pp	-4.00	20260415	DIAG	2017=18.00; 2025=14.00; BEST-IMPROVING
+E02-M4b-best-F	phase2.75	SIC F (Construction) 2017→2025 median gap delta	delta_pp	-3.91	20260415	DIAG	2017=24.95; 2025=21.04; BEST-IMPROVING
+E02-M4b-worst-N	phase2.75	SIC N (Admin/Support) 2017→2025 median gap delta	delta_pp	0.80	20260415	DIAG	2017=4.20; 2025=5.00; WORST-IMPROVING
+E02-M4b-worst-U	phase2.75	SIC U (Extraterritorial) 2017→2025 median gap delta	delta_pp	0.80	20260415	DIAG	2017=7.50; 2025=8.30; WORST-IMPROVING
+E02-M4b-worst-P	phase2.75	SIC P (Education) 2017→2025 median gap delta	delta_pp	12.75	20260415	DIAG	2017=10.15; 2025=22.90; WORST-IMPROVING
+E02-M5	phase2.75	Wilcoxon signed-rank on within-firm delta (5259 pairs)	wilcoxon_p_twosided	8.59e-98	20260415	RUN_RV	W=4213646; n=5259; one-sided p(delta<0)=4.29e-98

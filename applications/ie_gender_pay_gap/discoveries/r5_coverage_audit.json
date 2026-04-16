@@ -1,0 +1,4 @@
+{
+  "status": "NOT_EXECUTED",
+  "reason": "Coverage audit requires the CSO Business Demography (BIS-02) employer size-class table for 2024/2025 OR the IBEC >=150 member list, neither of which is checked into this repo and neither of which is reachable from this sandboxed cycle. Deferred to Phase B data pull; flagged in paper \u00a7Caveats."
+}

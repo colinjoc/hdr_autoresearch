@@ -1,0 +1,7 @@
+experiment_id	commit	description	metric	value	seed	status	notes
+E00	phase0.5	Irish housing permissions + completions pipeline 2012-2025	perm_2023_vs_comp_2025	41225→25237	0	BASELINE	SHD 2019-2021 permissions 60,605; Non-SHD 63,218
+E01-R1	phase2.75	R1 caveat: 2-yr conversion is aggregate T+2 ratio, not cohort-tracked	conv_2yr_2019	0.41	0	CAVEAT	Aggregate numerator/denominator mismatch; pre-2019 permissions feeding 2020-2021 completions not observed in BHQ15
+E02-R2	phase2.75	R2 pre-2019 context from BHQ16: 2016-2018 permissions and T+2 conversion	conv_2yr_pre2019	2016:0.86,2017:0.77,2018:0.54	0	CAVEAT	2016 perms 15,950, 2017 20,776, 2018 28,939; 2019-2025 plateau is ABOVE pre-2019 but 41%→65% rise is recovery from 2019-20 COVID trough, not above pre-COVID 77-86%
+E03-R3	phase2.75	R3 SHD vs non-SHD: scheme-count normalisation not possible from BHQ15	shd_nshd_units_2019_2021	60605/63218	0	CAVEAT	BHQ15 lacks scheme counts split by SHD/non-SHD; per-scheme productivity not computable; paper softened to descriptive note
+E04-R4	phase2.75	R4 commencement-notice middle stage is NOT in pipeline (CSO NHC01 unavailable via PxStat)	has_commencement_stage	False	0	CAVEAT	Paper retitled from 'pipeline' to 'permission vs completion comparison'; commencement notices are DoH not CSO, not ingested
+E05-LAG	phase2.75	Lag sensitivity 1/2/3-yr conversion ratios	conv_1_2_3yr_2019	0.41/0.41/0.59	0	ROBUSTNESS	2022 is the best year at every lag (71%/65%/74%); 2019-20 are the trough at every lag; ordering of years is robust to lag choice

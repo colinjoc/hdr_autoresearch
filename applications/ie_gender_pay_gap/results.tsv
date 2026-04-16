@@ -1,0 +1,10 @@
+experiment_id	commit	description	metric	value	seed	status	notes
+E00	phase0.5	paygap.ie IE GPG panel 2022-2025	n_employer_year_obs	3991	0	BASELINE	1712 unique companies
+E01	phase1	IE 4-year median gap trajectory	median_2022_to_2025	7.00 → 6.22 (-0.26 pp/yr)	0	KEEP	UK comparator: 9.30→8.11 at -0.15pp/yr
+E02-R1	phase2.75	threshold-invariant subsample (2022-reporters, proxy >=250)	median_2022_to_2025	7.00 -> 6.20 (-0.267 pp/yr)	20260415	KEEP	n per year: [705, 676, 648, 623]; isolates real narrowing from threshold phasing
+E03-R2a	phase2.75	bootstrap 95% CI IE full 2022-2025 annualised rate	pp_per_year_CI95	-0.260 [-0.603, +0.143]	20260415	KEEP	cluster-bootstrap over firms, 1000 reps
+E03-R2b	phase2.75	bootstrap 95% CI IE threshold-invariant 2022-2025 annualised rate	pp_per_year_CI95	-0.267 [-0.600, +0.100]	20260415	KEEP	cluster-bootstrap over firms, 1000 reps
+E04-R3	phase2.75	UK window-matched comparator (UK 2017-2020 matches IE 2022-2025 window length)	pp_per_year	UK 2017-2020 +0.233; UK 2017-2025 -0.149	0	KEEP	UK 2017-2020: 9.3% -> 10.0%; diminishing-returns-adjusted comparator
+E05-R4	phase2.75	population-change decomposition into within/entry/exit	pp_contribution	within -0.900; entry +0.020; exit +0.100; total -0.780	0	KEEP	persistent n=623; entrants=935; exiters=82
+E06-R5	phase2.75	paygap.ie coverage audit vs CSO/IBEC >=150 employee universe	coverage_rate	NOT_EXECUTED	0	DEFERRED	CSO BIS-02 and IBEC membership list not reachable in sandboxed cycle; flagged in §Caveats
+E07-R6	phase2.75	bootstrap 95% CI for every NACE-section median 2025	n_sections_with_n_lt_10	3	20260415	KEEP	flagged small-n sections: ['Real Estate Activites', 'Mining and Quarrying', 'Water Supply Sewerage Waste Management and Remediation Activities']
