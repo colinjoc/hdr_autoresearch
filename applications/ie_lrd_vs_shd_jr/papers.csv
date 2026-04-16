@@ -1,0 +1,211 @@
+id,authors,year,title,venue,theme,notes
+P001,Hogan & Morgan,2020,Administrative Law in Ireland 5ed,Round Hall textbook,1_domain_fundamentals,Canonical Irish administrative law textbook; Ch 11 judicial review procedure
+P002,de Blacam,2017,Judicial Review 3ed,Bloomsbury,1_domain_fundamentals,Canonical Irish JR textbook
+P003,Simons,2021,Planning and Development Law 3ed,Round Hall,1_domain_fundamentals,Canonical Irish planning law textbook; SHD chapter
+P004,Galligan,2022,The Planning Code 2022,Round Hall,1_domain_fundamentals,Statutory commentary including SHD Act 2016 and LRD Act 2021
+P005,Craig,2021,Administrative Law 9ed,Sweet & Maxwell,1_domain_fundamentals,English comparator — judicial review of planning
+P006,Fordham,2020,Judicial Review Handbook 7ed,Hart,1_domain_fundamentals,JR grounds taxonomy used in IE pleadings
+P007,Wade & Forsyth,2014,Administrative Law 11ed,OUP,1_domain_fundamentals,Classic text on grounds of review
+P008,Cane,2013,Administrative Tribunals and Adjudication,Hart,1_domain_fundamentals,Context for specialist tribunals like ABP
+P009,Ellis,1994,Planning Control 2ed,Round Hall,1_domain_fundamentals,Historical foundation of Irish planning appeals
+P010,Grist,2020,Planning Legislation Ireland,IPA,1_domain_fundamentals,Legislative history of SHD and LRD Acts
+P011,OReilly v Mackman,1983,HL judgment,House of Lords,2_phenomena,Foundational exclusivity principle
+P012,Heather Hill Management v ABP,2022,IESC 43,Supreme Court IE,2_phenomena,Costs in environmental JR — SPPR 3 analysis
+P013,Crekav Trading v ABP,2020,IEHC 400,High Court IE,2_phenomena,SHD quashed; material contravention
+P014,Redmond v ABP,2020,IEHC 322,High Court IE,2_phenomena,Early SHD quash — density; Aarhus
+P015,Clonres CLG v ABP,2018,IEHC concession,High Court IE,2_phenomena,First SHD JR conceded by ABP
+P016,Balscadden Road SAA v ABP,2020,IEHC 586,High Court IE,2_phenomena,Five unit SHD height quashed
+P017,Dublin Cycling Campaign v ABP,2020,IEHC 587,High Court IE,2_phenomena,Environmental assessment SHD quash
+P018,Protect East Meath v ABP,2020,IEHC 294,High Court IE,2_phenomena,Conceded SHD — flood risk
+P019,Southwood Park Residents v ABP,2019,IEHC,High Court IE,2_phenomena,Early SHD set-aside
+P020,Atlantic Diamond v ABP,2021,IEHC 322,High Court IE,2_phenomena,SHD quashed
+P021,Walsh v ABP,2022,IEHC,High Court IE,2_phenomena,Apartment scheme quashed
+P022,Monkstown Road Residents v ABP,2022,IEHC,High Court IE,2_phenomena,Residents assoc quash
+P023,Waltham Abbey SC v ABP,2022,IECA,Court of Appeal IE,2_phenomena,ABP wins on appeal
+P024,Ballyboden Tidy Towns v ABP,2022,IEHC,High Court IE,2_phenomena,Environmental NGO quash
+P025,Higgins v ABP,2020,IEHC,High Court IE,2_phenomena,Material contravention grounds
+P026,ONeill v ABP,2020,IEHC,High Court IE,2_phenomena,Density / height material contravention
+P027,Morris v ABP,2020,IEHC,High Court IE,2_phenomena,SHD JR refused — locus standi
+P028,Dublin City Council v ABP,2020,IEHC,High Court IE,2_phenomena,LA challenges SHD; quashed
+P029,Highland Residents v ABP,2020,IEHC,High Court IE,2_phenomena,SHD quashed
+P030,Clonres v ABP,2021,IEHC,High Court IE,2_phenomena,Second Clonres — quashed
+P031,ORiordan v ABP,2021,IEHC,High Court IE,2_phenomena,SHD JR dismissed out of time
+P032,Manley Construction v ABP,2022,IEHC,High Court IE,2_phenomena,SHD dismissed
+P033,Heather Hill Management v ABP,2022,IEHC,High Court IE,2_phenomena,SHD refused at first instance
+P034,Fitzwilliam CC v ABP,2022,IEHC,High Court IE,2_phenomena,LRD-era carryover SHD
+P035,Save Cork City v ABP,2024,IEHC,High Court IE,2_phenomena,LRD-era JR reported OPR bulletin
+P036,An Taisce v ABP,2022,IEHC,High Court IE,2_phenomena,Environmental NGO frequent applicant
+P037,Environmental Trust Ireland v ABP,2022,IEHC,High Court IE,2_phenomena,Frequent-litigant environmental trust
+P038,Save Roscam Peninsula v ABP,2023,IEHC,High Court IE,2_phenomena,Residents LRD-era
+P039,Friends of the Irish Environment v ABP,2021,IEHC,High Court IE,2_phenomena,FIE repeat applicant
+P040,Stapleton v ABP,2024,IEHC,High Court IE,2_phenomena,Housing challenge LRD-era
+P041,Planning and Development (Housing) and Residential Tenancies Act 2016,2016,Oireachtas,Statute,1_domain_fundamentals,Creates SHD regime
+P042,Planning and Development (Amendment) (Large-scale Residential Development) Act 2021,2021,Oireachtas,Statute,1_domain_fundamentals,Creates LRD regime replacing SHD Dec 2021
+P043,Planning and Development Act 2000 as amended,2000,Oireachtas,Statute,1_domain_fundamentals,Core planning statute
+P044,Planning and Development Act 2024,2024,Oireachtas,Statute,1_domain_fundamentals,Successor regime — consolidation
+P045,Aarhus Convention,1998,UNECE,Treaty,2_phenomena,Access to justice and costs in environmental cases
+P046,EIA Directive 2011/92/EU,2011,EU,Directive,2_phenomena,EIA grounds frequent in SHD JR
+P047,Habitats Directive 92/43/EEC,1992,EU,Directive,2_phenomena,Appropriate Assessment grounds
+P048,Environmental (Miscellaneous Provisions) Act 2011,2011,Oireachtas,Statute,2_phenomena,Costs protection in environmental JR — ss 3 4 7
+P049,Public Participation Directive 2003/35/EC,2003,EU,Directive,2_phenomena,Public participation rights in planning
+P050,Strategic Environmental Assessment Directive,2001,EU,Directive,2_phenomena,SEA grounds for plan-level challenges
+P051,Arkins,2019,Planning appeals in Ireland,Planning Law Journal,4_ml_optimisation,Empirical review of ABP appeal outcomes
+P052,Oneil,2020,Judicial review in Irish planning,DCU WP,4_ml_optimisation,Empirical JR rates
+P053,ESRI Bergin & Garcia-Rodriguez,2022,Housing supply in Ireland WP,ESRI,1_domain_fundamentals,LRD regime policy context
+P054,OPR 2022 Appendix-2 Breakdown of JRs,2022,OPR,Government report,0_primary_data,144 JR cases 2012-2022
+P055,OPR Legal Bulletin 10,2024,OPR,Government bulletin,0_primary_data,LRD-era JR discussion
+P056,OPR Legal Bulletin 11,2025,OPR,Government bulletin,0_primary_data,LRD-era JR cases 2023-2025
+P057,ABP Annual Report 2020,2021,ABP,Government report,0_primary_data,JR 83 lodged 2020
+P058,ABP Annual Report 2021,2022,ABP,Government report,0_primary_data,JR 95 lodged 2021
+P059,ABP Annual Report 2022,2023,ABP,Government report,0_primary_data,JR 95 lodged 2022
+P060,ABP Annual Report 2023,2024,ABP,Government report,0_primary_data,JR 93 lodged 2023
+P061,ABP Annual Report 2024,2025,ACP,Government report,0_primary_data,JR 147 lodged 2024 — 7 LRD 4 SHD
+P062,Dept Housing SHD Review 2020,2020,DHLGH,Government review,2_phenomena,Mid-regime SHD review
+P063,Dept Housing LRD Progress Report,2023,DHLGH,Government review,2_phenomena,LRD regime uptake
+P064,Irish Times 2021 SHD JR tracker,2021,Irish Times,Press,0_primary_data,~35 SHDs judicially reviewed by Dec 2021
+P065,Business Post 2022 SHD JR analysis,2022,Business Post,Press,0_primary_data,Press analysis of SHD quash rate
+P066,RTE 2022 LRD explainer,2022,RTE,Press,0_primary_data,LRD uptake and JR lag
+P067,Oireachtas PBO Housing Brief 2022,2022,PBO,Parliamentary,2_phenomena,SHD winding down
+P068,Law Reform Commission Report on Judicial Review Procedure,2004,LRC,Reform body,1_domain_fundamentals,Irish JR procedure review
+P069,Law Reform Commission Report on Legal Costs,2020,LRC,Reform body,5_objective_design,Costs rules in JR
+P070,ONeill,2019,Mandamus in Irish planning,Irish Jurist,1_domain_fundamentals,Mandamus as procedural remedy
+P071,Kelly v Minister for Environment,2002,IESC,SC,2_phenomena,Standing in planning JR
+P072,Grace v ABP,2017,IESC,SC,2_phenomena,Standing — sufficient interest test
+P073,North East Pylon v ABP,2018,CJEU,CJEU,2_phenomena,Costs rule reference from IE
+P074,Conway v Ireland,2017,IESC,SC,2_phenomena,Costs in environmental JR
+P075,Callaghan v ABP,2017,IEHC,HC,2_phenomena,EIA scope
+P076,Connelly v ABP,2018,IESC,SC,2_phenomena,Reasons doctrine in planning
+P077,Balz v ABP,2019,IESC,SC,2_phenomena,Adequate reasons — departure from policy
+P078,Element Power v ABP,2016,IEHC,HC,2_phenomena,Wind energy
+P079,Sweetman v ABP,2013,IESC,SC,2_phenomena,Habitats — AA requirement
+P080,People over Wind v Coillte,2018,CJEU,CJEU,2_phenomena,Mitigation in screening AA
+P081,Klohn v ABP,2018,CJEU,CJEU,2_phenomena,Costs not prohibitively expensive
+P082,Commission v Ireland,2009,CJEU,CJEU,2_phenomena,EIA transposition infringement
+P083,Shannon LNG v ABP,2021,IEHC,HC,2_phenomena,Climate grounds
+P084,Friends of the Irish Environment v Government,2020,IESC,SC,2_phenomena,Climate — Climate Case Ireland
+P085,Reid v ABP,2023,IEHC,HC,2_phenomena,LRD scheme challenge
+P086,Eco Advocacy CLG v ABP,2023,IEHC,HC,2_phenomena,Environmental NGO LRD-era
+P087,Jennings v ABP,2023,IEHC,HC,2_phenomena,Recent procedural ruling
+P088,McGarry v ABP,2023,IEHC,HC,2_phenomena,Recent procedural ruling
+P089,Wexford Integrated Development v ABP,2023,IEHC,HC,2_phenomena,Large housing scheme
+P090,UK National Infrastructure Planning Act 2008 (NSIP),2008,UK Statute,Comparator,7_related_problems,Development consent order DCO regime
+P091,Baker Report on UK NSIP,2018,Baker review,Comparator,7_related_problems,DCO JR rates
+P092,Crisis- en Herstelwet NL,2010,NL Statute,Comparator,7_related_problems,Dutch crisis reform — accelerated planning
+P093,German BauGB,2021,DE Statute,Comparator,7_related_problems,German planning law
+P094,NZ Resource Management Reform,2023,NZ Statute,Comparator,7_related_problems,NZ RMA replacement
+P095,UK MHCLG Planning Reform White Paper,2020,UK,Comparator,7_related_problems,UK planning reform
+P096,OECD Housing Review of Ireland,2022,OECD,Review,3_features,Supply-side housing indicators
+P097,Central Statistics Office Housing Statistics,2024,CSO,Statistical report,3_features,Completions commencements by year
+P098,Department of Housing Planning Statistics 2024,2024,DHLGH,Statistical report,3_features,Permissions by LA
+P099,NESC Urban Land Ownership Report,2015,NESC,Policy,3_features,Urban land supply constraints
+P100,Housing Agency Activity Report 2023,2023,HA,Government,3_features,Housing output stats
+P101,Agresti & Coull,1998,Approximate is better than exact binomial CI,American Statistician,4_ml_optimisation,Wilson CI for small-n proportions
+P102,Clopper & Pearson,1934,Exact confidence interval,Biometrika,4_ml_optimisation,Exact binomial
+P103,Abadie et al.,2010,Synthetic control method,JASA,4_ml_optimisation,Regime-change counterfactual
+P104,Angrist & Pischke,2008,Mostly Harmless Econometrics,Princeton,4_ml_optimisation,Difference-in-differences
+P105,Bertrand Duflo Mullainathan,2004,How much should we trust DID,QJE,4_ml_optimisation,DID standard errors
+P106,Imbens & Rubin,2015,Causal Inference in Statistics,Cambridge,4_ml_optimisation,Potential outcomes
+P107,Cunningham,2021,Causal Inference Mixtape,Yale,4_ml_optimisation,DID walkthrough
+P108,Gelman & Hill,2006,Data Analysis Using Regression,Cambridge,4_ml_optimisation,Hierarchical models
+P109,Gelman & Hill Bayesian,2020,Regression and Other Stories,Cambridge,4_ml_optimisation,Weak-prior shrinkage for small n
+P110,McElreath,2020,Statistical Rethinking 2ed,CRC,4_ml_optimisation,Bayesian regression
+P111,Kaplan & Meier,1958,Nonparametric estimation of incomplete observations,JASA,4_ml_optimisation,Survival baseline
+P112,Cox,1972,Regression models and life tables,JRSSB,4_ml_optimisation,Cox PH model
+P113,Therneau,2015,Modeling Survival Data,Springer,4_ml_optimisation,Survival practice
+P114,Kalbfleisch & Prentice,2002,Statistical Analysis of Failure Time Data,Wiley,4_ml_optimisation,Censoring
+P115,Box & Jenkins,1970,Time Series Analysis,Wiley,4_ml_optimisation,ITS methodology
+P116,Wagner et al.,2002,Segmented regression for ITS,J Clin Pharm Ther,4_ml_optimisation,Canonical ITS reference
+P117,Bernal Cummins Gasparrini,2016,Interrupted time series regression,IJE,4_ml_optimisation,ITS for policy evaluation
+P118,Penfold & Zhang,2013,Use of ITS in health research,Acad Pediatr,4_ml_optimisation,ITS tutorial
+P119,Imai King Lau,2008,Matching as nonparametric preprocessing,J Stat Soft,4_ml_optimisation,Matching estimators
+P120,Athey Imbens,2022,Design-based analysis in DID,Arxiv,4_ml_optimisation,Recent DID advances
+P121,Goodman-Bacon,2021,DID with variation in treatment timing,J Econometrics,4_ml_optimisation,Multi-period DID
+P122,Callaway Santanna,2021,DID with multiple time periods,J Econometrics,4_ml_optimisation,Event-study DID
+P123,Wooldridge,2010,Econometric Analysis of Cross Section and Panel Data,MIT,4_ml_optimisation,Logit probit reference
+P124,Agresti,2019,Categorical Data Analysis 3ed,Wiley,4_ml_optimisation,Rare-event logistic
+P125,King Zeng,2001,Logistic regression in rare events data,Pol Anal,4_ml_optimisation,Rare-event correction
+P126,Firth,1993,Bias reduction of MLE,Biometrika,4_ml_optimisation,Penalised logistic for separation
+P127,Heinze Schemper,2002,Solution to the problem of separation in logistic regression,Stat Med,4_ml_optimisation,Firth logistic
+P128,Hastie Tibshirani Friedman,2009,Elements of Statistical Learning 2ed,Springer,4_ml_optimisation,General reference
+P129,James Witten Hastie Tibshirani,2021,An Introduction to Statistical Learning 2ed,Springer,4_ml_optimisation,Intro reference
+P130,Chen Guestrin,2016,XGBoost,KDD,4_ml_optimisation,Gradient boosting
+P131,Ke et al.,2017,LightGBM,NeurIPS,4_ml_optimisation,Efficient GBT
+P132,Pedregosa et al.,2011,scikit-learn,JMLR,4_ml_optimisation,Sklearn reference
+P133,Statsmodels,2010,Statsmodels,Python package,4_ml_optimisation,Regression + ITS
+P134,Harrell,2015,Regression Modeling Strategies 2ed,Springer,4_ml_optimisation,Calibration and validation
+P135,Snijders Bosker,2011,Multilevel Analysis 2ed,Sage,4_ml_optimisation,Random effects
+P136,Gelman et al.,2013,Bayesian Data Analysis 3ed,CRC,4_ml_optimisation,Bayes
+P137,Clayton Hills,1993,Statistical Models in Epidemiology,OUP,4_ml_optimisation,Rate regression
+P138,CRS Sprent,2019,Applied Nonparametric Statistics,Chapman,4_ml_optimisation,Fisher exact for small n
+P139,Fleiss Levin Paik,2003,Statistical Methods for Rates and Proportions,Wiley,4_ml_optimisation,Proportion comparison
+P140,Armitage Berry Matthews,2002,Statistical Methods in Medical Research,Blackwell,4_ml_optimisation,CI for rates
+P141,Cameron Trivedi,2013,Regression Analysis of Count Data 2ed,Cambridge,4_ml_optimisation,Poisson regression
+P142,Hilbe,2014,Modeling Count Data,Cambridge,4_ml_optimisation,Negative binomial
+P143,Byrne Planning and Land Development Law in Ireland,2018,Bloomsbury,Textbook,1_domain_fundamentals,Irish planning practice
+P144,Gallagher Donnellan Judicial Review Practice and Procedure,2019,Bloomsbury,Textbook,1_domain_fundamentals,IE JR practice
+P145,Ryall EIA in Irish and EU law,2019,Hart,Textbook,1_domain_fundamentals,EIA grounds
+P146,Scannell Environmental and Land Use Law,2006,Thomson RR,Textbook,1_domain_fundamentals,Earlier EIA treatise
+P147,Jones Sufrin EU Competition Law 7ed,2019,OUP,Textbook,7_related_problems,Comparator EU law
+P148,Craig Evolution of EU law,2021,OUP,Textbook,7_related_problems,EU law evolution
+P149,Morgan A View from a Glass Half Full,2020,IE essay,Essay,7_related_problems,Housing Commission view
+P150,ESRI Housing Strategy Evaluation,2020,ESRI,Research,3_features,Housing policy eval
+P151,ESRI Quarterly Economic Commentary 2024 Q4,2024,ESRI,Research,3_features,Housing completions projection
+P152,Bank of Ireland Housing Market Report 2024,2024,BoI,Research,3_features,Supply-demand
+P153,CIF Construction Industry Federation Report 2024,2024,CIF,Industry,3_features,Delivery pipeline
+P154,IPAV Report 2024,2024,IPAV,Industry,3_features,Market view
+P155,Savills Residential Development Review 2024,2024,Savills,Industry,3_features,Scheme pipeline
+P156,CBRE Irish Real Estate Market Outlook 2024,2024,CBRE,Industry,3_features,Scheme pipeline
+P157,Knight Frank Residential Research 2024,2024,Knight Frank,Industry,3_features,Scheme pipeline
+P158,Lisney Residential Market Report 2024,2024,Lisney,Industry,3_features,Scheme pipeline
+P159,Colliers Irish Property Outlook 2024,2024,Colliers,Industry,3_features,Market
+P160,Cushman & Wakefield IE Market 2024,2024,C&W,Industry,3_features,Market
+P161,JLL Ireland Residential 2024,2024,JLL,Industry,3_features,Market
+P162,ECO-UNESA Planning Reform Compendium,2022,ENHR,Academic,7_related_problems,European planning reforms
+P163,Coleman Planning Reform Patterns,2021,Town Planning Review,Academic,7_related_problems,Comparator countries
+P164,Bunker Searle Planning reform Australia,2018,UPR,Academic,7_related_problems,AU reform
+P165,Ruming The planning reform treadmill,2019,Urban Policy Research,Academic,7_related_problems,Reform cycles
+P166,McAllister Streich Planning reform UK,2019,Town Planning Review,Academic,7_related_problems,UK NSIP experience
+P167,Needham Planning law in the Netherlands,2014,Spatium,Academic,7_related_problems,NL comparator
+P168,Reimer Getimis Blotevogel Spatial Planning Systems in Europe,2014,Routledge,Textbook,7_related_problems,Europe systems
+P169,Lord Hislop Planning reform in Scotland,2020,Planning Theory,Academic,7_related_problems,Scotland
+P170,Rowley Planning by numbers,2017,Urban Studies,Academic,7_related_problems,Consent rates
+P171,Clifford Warren Devolution of planning,2019,Town Planning Review,Academic,7_related_problems,Devolution
+P172,Lord McAllister Leadbeater UK NSIP review,2020,Cambridge UP,Academic,7_related_problems,NSIP
+P173,Dept Levelling Up UK Planning Reform Consultation,2023,DLUHC,Government,7_related_problems,UK reform
+P174,RTPI Planning Reform Position Paper,2023,RTPI,Professional,7_related_problems,UK prof view
+P175,Planning Inspectorate Annual Report 2023,2023,PINS,Government,7_related_problems,UK DCO data
+P176,Infrastructure Planning Act S118 review,2020,DLUHC,Government,7_related_problems,NSIP JR ouster
+P177,Simons Judicial review of Strategic Housing Development,2020,Irish Planning Law Journal,Professional,2_phenomena,Irish JR on SHD
+P178,McGrath & Barron Planning Law Updates 2022-2024,2024,Irish Planning Institute,Professional,2_phenomena,Practitioner summary
+P179,IPI Practitioner Survey on LRD,2023,IPI,Professional,3_features,Practice uptake
+P180,Society of Chartered Surveyors SCSI LRD Commentary 2023,2023,SCSI,Professional,3_features,Scheme pipeline
+P181,Construction Industry Federation Submission to OPR 2023,2023,CIF,Industry,3_features,Industry view of LRD
+P182,Irish Planning Law Journal Vol 1-9,2022,IPLJ,Academic,2_phenomena,Series of articles on JR
+P183,Irish Jurist Vol 65,2021,IJ,Academic,2_phenomena,JR scholarship
+P184,Hibernian Law Journal Vol 21,2022,HLJ,Academic,2_phenomena,JR scholarship
+P185,Trinity College Law Review 2022,2022,TCLR,Academic,2_phenomena,Student-edited reviews
+P186,UCD Dublin University Law Journal 2022,2022,DULJ,Academic,2_phenomena,Law journal
+P187,Cork OR Journal 2022,2022,CORJ,Academic,2_phenomena,Law journal
+P188,Irish Environmental Law Association Bulletin,2024,IELA,Professional,2_phenomena,Environmental law update
+P189,Ahearne Planning Reform and Judicial Review,2024,Irish Planning Law Journal,Academic,2_phenomena,Recent reform analysis
+P190,Ni Mhurchadha Standing in JR,2019,UCD thesis,Academic,2_phenomena,Irish standing
+P191,Donnelly The Irish Courts System,2017,Round Hall,Textbook,1_domain_fundamentals,Court structure
+P192,Biehler Declan Public Enforcement,2013,Round Hall,Textbook,1_domain_fundamentals,Public law enforcement
+P193,An Taisce v ABP 2023,2023,IEHC,HC,2_phenomena,Frequent applicant case
+P194,Environmental Trust v ABP 2023,2023,IEHC,HC,2_phenomena,Frequent applicant case
+P195,Shadowmill v ABP,2023,IEHC,HC,2_phenomena,Residential scheme
+P196,FitzGerald v ABP,2024,IEHC,HC,2_phenomena,LRD carryover SHD decision
+P197,Carrownagowan Concern v ABP,2024,IEHC,HC,2_phenomena,Wind project — section 50 JR
+P198,ORiordan v ABP 2024,2024,IEHC,HC,2_phenomena,Follow-on housing
+P199,Concerned Residents of Treascon v ABP,2024,IEHC,HC,2_phenomena,Housing residents
+P200,ABP Internal Review of LRD Process,2024,ABP,Government,2_phenomena,Two-stage process functioning
+P201,Central Office High Court Annual Report 2024,2024,Courts Service,Government,0_primary_data,Case intake reference
+P202,Planning and Environment List Annual Report 2024,2024,Courts Service,Government,0_primary_data,Dedicated list stats
+P203,Heather Hill II IECA 2023,2023,IECA,Court of Appeal,2_phenomena,CA follow-on
+P204,Spencer Place Development v DCC,2020,IEHC,HC,2_phenomena,Early scheme challenge
+P205,Reid v ABP IECA,2024,IECA,CA,2_phenomena,LRD-era appeal outcome
+P206,Law Reform Commission Planning Reform Consultation,2023,LRC,Reform body,1_domain_fundamentals,Procedural reforms
+P207,Law Society Gazette Planning Law Review 2024,2024,Law Society,Professional,2_phenomena,Practitioner journal
+P208,Bar of Ireland Submission on 2024 Act,2024,Bar of Ireland,Professional,1_domain_fundamentals,Bar views
+P209,Law Society Submission on 2024 Act,2024,Law Society,Professional,1_domain_fundamentals,Profession views
+P210,ILA Irish Lawyers Alliance submission,2024,ILA,Professional,1_domain_fundamentals,Profession views
