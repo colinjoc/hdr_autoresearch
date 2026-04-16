@@ -1,0 +1,24 @@
+{
+  "flags": {
+    "2015": {
+      "mean_weeks": "CHART_READOFF",
+      "sop_pct": "BAR_CHART_READOFF_FIG3_AR2018"
+    },
+    "2016": {
+      "mean_weeks": "CHART_READOFF",
+      "sop_pct": "BAR_CHART_READOFF_FIG3_AR2018"
+    },
+    "2017": {
+      "mean_weeks": "NARRATIVE_SINGLE_LINE_AR2018_p852",
+      "sop_pct": "NARRATIVE_SINGLE_LINE_AR2018_p787"
+    }
+  },
+  "t02_refit_2017_2024_mae": 0.43181818181818654,
+  "t02_refit_coefs": [
+    15.82,
+    -0.73,
+    5.82,
+    5.82,
+    17.09
+  ]
+}

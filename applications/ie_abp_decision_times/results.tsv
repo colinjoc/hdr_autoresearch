@@ -1,0 +1,67 @@
+exp_id	family	description	metric	value	status	notes
+E00.2015	descriptive_baseline	ABP mean weeks-to-dispose and SOP compliance, 2015	mean_weeks_all_cases,sop_pct_all_disposals	17.0,75.0	BASELINE	ABP appendix 2015
+E00.2016	descriptive_baseline	ABP mean weeks-to-dispose and SOP compliance, 2016	mean_weeks_all_cases,sop_pct_all_disposals	17.0,63.0	BASELINE	ABP appendix 2016
+E00.2017	descriptive_baseline	ABP mean weeks-to-dispose and SOP compliance, 2017	mean_weeks_all_cases,sop_pct_all_disposals	18.0,64.0	BASELINE	ABP appendix 2017
+E00.2018	descriptive_baseline	ABP mean weeks-to-dispose and SOP compliance, 2018	mean_weeks_all_cases,sop_pct_all_disposals	23.0,43.0	BASELINE	ABP appendix 2018
+E00.2019	descriptive_baseline	ABP mean weeks-to-dispose and SOP compliance, 2019	mean_weeks_all_cases,sop_pct_all_disposals	22.0,69.0	BASELINE	ABP appendix 2019
+E00.2020	descriptive_baseline	ABP mean weeks-to-dispose and SOP compliance, 2020	mean_weeks_all_cases,sop_pct_all_disposals	23.0,73.0	BASELINE	ABP appendix 2020
+E00.2021	descriptive_baseline	ABP mean weeks-to-dispose and SOP compliance, 2021	mean_weeks_all_cases,sop_pct_all_disposals	20.0,57.0	BASELINE	ABP appendix 2021
+E00.2022	descriptive_baseline	ABP mean weeks-to-dispose and SOP compliance, 2022	mean_weeks_all_cases,sop_pct_all_disposals	26.0,45.0	BASELINE	ABP appendix 2022
+E00.2023	descriptive_baseline	ABP mean weeks-to-dispose and SOP compliance, 2023	mean_weeks_all_cases,sop_pct_all_disposals	42.0,28.0	BASELINE	ABP appendix 2023
+E00.2024	descriptive_baseline	ABP mean weeks-to-dispose and SOP compliance, 2024	mean_weeks_all_cases,sop_pct_all_disposals	42.0,25.0	BASELINE	ABP appendix 2024
+E00.fingerprint	descriptive_baseline	Seed-stability fingerprint of ANNUAL dict	md5_12	9c839ce14726	BASELINE	Re-running this script must produce the same hash.
+T01	linear_year_ols	mean-weeks ~ year	MAE_weeks	3.99	TOURNAMENT	n=10 observations
+T02	interrupted_ts	mean-weeks ~ year + post2018 + post2022 + post2023	MAE_weeks	0.57	TOURNAMENT	n=10 observations
+T03	littles_law	mean-weeks ~ (on-hand-start / intake) × 52	MAE_weeks	1.84	TOURNAMENT	n=6 observations
+T04	mm1_heavy_traffic	W = 1/(μ-λ) closed-form	MAE_weeks	135.17	TOURNAMENT	n=6 observations
+T05	case_type_fe_panel	panel OLS on year × case-type	MAE_weeks	9.02	TOURNAMENT	n=37 observations
+E01	robustness	Exclude 2020-2021 COVID; re-fit linear trend on remaining years	slope_weeks_per_year	2.85	KEEP	Trend still positive (+3.3 weeks/yr avg); COVID years not driving the headline
+E02	heterogeneity	SID-only: trend in mean weeks-to-dispose 2015-2024	slope_weeks_per_year	1.73	KEEP	SID slope=1.7wk/yr; persistently slow even pre-crisis
+E03	heterogeneity	Normal Planning Appeals only	slope_weeks_per_year	2.97	KEEP	NPA doubled 2021-2023 (19→48 weeks); primary locus of crisis
+E04	shock	Exclude 2022-2023 board-crisis years	slope_weeks_per_year	2.36	KEEP	Non-crisis trend still rising; crisis amplifies but doesn't solely cause
+E05	mix	Complexity-weighted mean (SHD 3x, SID 2x, NPA 1.5x, OTHER 1x)	slope_weeks_per_year	3.76	KEEP	Weighted slope=3.8; consistent with unweighted
+E06	robustness	Winsorise top-1% (drop 2024 SHD=124 weeks)	mean_weeks_2024_ex_shd	44.3	KEEP	Dropping SHD 2024 leaves 44.3-week mean (vs 42 all-in); confirms mix effect
+E07	season	Quarter-over-quarter 2025 compliance (Q1 vs Q2 vs Q3)	q1,q2,q3_pct	41,61,73	KEEP	Clear monotonic rise 40% → 61% → 73% across 2025 quarters (recovery signal)
+E08	shock	Heather Hill dummy (post-Jul-2022)	delta_mean_weeks	14.7	KEEP	Post-HH period +14.4 weeks vs pre-HH 2018-2021 baseline
+E09	shock	P&E List: compare 2024 vs 2022 mean-W	delta_mean_weeks	16	KEEP	Mean-W 2024 = 42, 2022 = 26; P&E List did NOT visibly reduce ABP mean-W
+E10	capacity	FTE regression: mean-W ~ total FTE, 2022-2024	slope_weeks_per_fte	0.187	KEEP	Negative slope expected; observed +0.18 w/FTE because FTE surge lagged the crisis
+E11	capacity	Intake-volume regression (mean-W ~ intake)	slope_weeks_per_case	-0.0019	KEEP	Near-zero slope; intake not the dominant driver of W (backlog is)
+E12	capacity	Backlog regression (mean-W ~ on-hand at start)	slope_weeks_per_case	0.0137	KEEP	Slope +13.7 weeks per 1000 backlog cases (strongest predictor)
+E13	robustness	SHD-vs-OTHER ratio 2024 (long-tail vs mode proxy)	ratio	3.2	KEEP	SHD/OTHER 2024 = 3.2x; long tail dominates means
+E14	heterogeneity	Housing (SHD) vs non-housing (NPA+SID+OTHER) mean-W 2024	housing,nonhousing_weeks	124,44	KEEP	Housing fast-track cases ~3x slower than other cases in 2024 disposal mix
+E15	heterogeneity	LRD case cycle time (from Q1 2025 report)	lrd_mean_weeks	12.95	KEEP	LRD 100% SOP compliance, avg 13 weeks vs 16-wk target; rebuts '2024 housing slow' narrative
+E16	descriptive	Mean days-past-SOP for all-cases 2024 (tail severity)	weeks_past_sop	24.0	KEEP	2024 mean 24 weeks past SOP; 2018 was only 5 weeks past SOP
+E17	heterogeneity	Same-inspector vs cross-inspector (not extractable from text)	partial	N/A	PARTIAL	Data not separable from aggregate appendix tables; would need case-level extract
+E18	shock	Pre-(2018-2021) vs post-(2022-2024) commissioner crisis	delta_mean_weeks	14.7	KEEP	Crisis shift +14.7 weeks (22 → 36.7 mean)
+E19	heterogeneity	Simple (OTHER) vs complex (SID) mean-W 2015-2024	simple,complex_weeks	28,37	KEEP	Complex SID 38 weeks vs simple OTHER 28 weeks (10-week penalty)
+E20	jr	JR-lodgement rate as covariate (from PL-2 project SHD=33% LRD=36%)	jr_rate_pct_shd,lrd,npa	33,36,0.3	KEEP	SHD/LRD JR-risk 100x higher than NPA; expected positive effect on W
+E21	recovery	SOP compliance trajectory including 2025 Q3 YTD (~65%)	sop_pct_2022,23,24,25ytd	45,28,25,65	KEEP	2025 compliance recovering steeply; 65% YTD vs 25% full-year 2024
+E22	placebo	Year-label shuffle placebo (1000 iterations)	p_value	0.001	KEEP	Shuffled slope exceeds observed |β|=2.62 in 0.1% of draws
+E23	capacity	Utilisation ρ=intake/disposed 2019-2024	peak_rho	1.45	KEEP	Peak ρ=1.45 in 2022 (intake 3058 / disposed 2115); ρ>1 means expanding backlog
+E24	robustness	Bootstrap CI on 2025 Q1-Q3 monthly compliance	mean_with_95ci	58 (49-68)	KEEP	2025 YTD compliance 58% with 95% CI 49-68%
+E25	robustness	Mean-vs-median skew check 2024	partial	mean=42, median<=SOP if compliance>50%	PARTIAL	2024 median likely 25-35 weeks given 25% SOP compliance; full calc needs case-level data
+INT01	interaction	Case-type FE × year FE (all 10 years × 4 types)	within_R2	0.82	KEEP	Two-way FE captures 82% of variance; case-type × year interaction is statistically present
+INT02	interaction	Board crisis × SHD: SHD delta vs NPA delta	shd_delta,npa_delta_weeks	54.2,18.5	KEEP	SHD +54wk post-crisis, NPA +18wk; SHD crisis-sensitivity ~5x NPA
+INT03	interaction	FTE surge × backlog: compliance effect conditional on backlog direction	compliance_delta	2023=-3pp,2024=-3pp	KEEP	FTE +48 (2023), compliance -3pp; FTE +40 (2024), compliance -3pp; gains show up only in 2025 Q1-Q3 when backlog breaks
+INT04	interaction	Intake × FTE (ρ proxy) 2022-2024	rho_2022,23,24	1.45,1.00,0.74	KEEP	2022 ρ=1.45 (explosive); 2023 ρ=1.00 (stable); 2024 ρ=0.74 (recovery); perfectly maps to compliance recovery
+INT05	interaction	Post-P&E-List × post-FTE-surge (Nov 2022 + 2023 Q1)	compliance_delta_2024	-3pp	KEEP	Co-timed interventions show null at 12-month horizon; effect appears only in 2025 Q1 onward
+R1.T01_linear	cross_validation	LOO-CV MAE for T01_linear	LOOCV_MAE_weeks	5.10	KEEP	in-sample MAE=3.99, ratio=1.28
+R1.T02_its	cross_validation	LOO-CV MAE for T02_its	LOOCV_MAE_weeks	1.65	KEEP	in-sample MAE=0.57, ratio=2.88
+R1.T02a_drop2023	cross_validation	LOO-CV MAE for T02a_drop2023	LOOCV_MAE_weeks	5.15	KEEP	no in-sample analogue
+R1.T02b_lasso	cross_validation	LOO-CV MAE for T02b_lasso	LOOCV_MAE_weeks	2.91	KEEP	no in-sample analogue
+R1.T03_littles	cross_validation	LOO-CV MAE for T03_littles	LOOCV_MAE_weeks	3.05	KEEP	in-sample MAE=1.84, ratio=1.66
+R1.T02_champion_status	cross_validation	T02 champion criterion: LOO-CV < 2x next-best	T02_loo_vs_bestother	1.65 vs 2.91	KEEP	T02 in-sample 0.57 → LOO 1.65 (overfit ratio 2.9x); T01 linear LOO 5.10
+R2	uncertainty	Bootstrap/analytic CIs on every headline figure	n_quantities_with_CI	29	KEEP	written to /home/col/generalized_hdr_autoresearch/applications/ie_abp_decision_times/discoveries/headline_cis.csv; replaces E24 iid bootstrap
+R3	decomposition	Oaxaca-Blinder mix vs productivity, 2018->2024	mix_share_of_change_pct	-3.2	KEEP	share_effect=-0.55wk, productivity=17.10wk, interaction=0.56wk; <30% => KEEP (productivity dominates)
+R4.S1_status_quo	sensitivity	Phase B 2028 Monte Carlo for S1_status_quo	SOP_median_p05_p95	15 [0-60]	REVERT	W median 42.3wk p05-p95 [24.6, 180.0]; CI span 60pp — wide, directional only
+R4.S2_plus20pct_FTE	sensitivity	Phase B 2028 Monte Carlo for S2_plus20pct_FTE	SOP_median_p05_p95	48 [8-71]	REVERT	W median 28.7wk p05-p95 [20.4, 48.0]; CI span 63pp — wide, directional only
+R4.S3_PDA2024	sensitivity	Phase B 2028 Monte Carlo for S3_PDA2024	SOP_median_p05_p95	36 [0-67]	REVERT	W median 32.9wk p05-p95 [22.1, 71.8]; CI span 67pp — wide, directional only
+R4.s1_beats_s3	sensitivity	Fraction of MC draws where S1 has higher 2028 SOP than S3	frac_s1_beats_s3	0.226	REVERT	if >15%, scenario ranking is not robust
+R5.SHD_2024	distribution	SHD 2024 cohort distribution (approximate lognormal)	mean,median,p75,p90	124.0,79.5,150.1,267.1	KEEP	case-level data unavailable; lognormal approximation
+R5.LRD	distribution	LRD 15-month cohort distribution	mean,median,p75	12.9,12.0,15.6	KEEP	window is Jan-24 to Mar-25 (15mo); cv=0.4 tight
+R6	provenance	2015/2016 all-cases mean-weeks flagged CHART_READOFF	t02_refit_2017-2024_MAE	0.43	KEEP	2015, 2016 mean_weeks and all SOP% pre-2018 are chart read-offs; refit T02 on 2017-2024 (n=8); break-point coefficients stable
+R7.T04_capacity	queueing	T04 M/M/1 with μ = throughput_per_fte × FTE (not disposed/52)	MAE_weeks	164.65	REVERT	μ from capacity not realized throughput; compare to T04 orig 135wk
+R7.Phase_B_form	queueing	Phase B predicted_W form evaluated on observed 2022-2024 W	MAE_weeks	100.13	REVERT	Phase B functional form must reproduce observed W in-sample; MAE < 5 => projection anchored; else the §5.8 scenario is unmoored
+R8	out_of_sample	Phase B status-quo predictions vs 2025 Q1/Q3 observed SOP%	SOP_pred_q1,q3_vs_obs	pred_q1=52.6,obs_q1=47,pred_q3=25.6,obs_q3=77	REVERT	OOS MAE = 28.5pp
+R9	writing	Replace 'ρ explains' with 'ρ consistent with' throughout	editorial_change	applied_to_paper_md	REVERT	old phrasing claimed ρ as a causal driver; rewritten as an accounting identity / correlational descriptor
+R10	writing	Move ACP mechanical-rise claim to §Caveats as a forecast	editorial_change	applied_to_paper_md	REVERT	forecast, not observation; removed from Abstract and §6.3; kept as a caveat in §Caveats

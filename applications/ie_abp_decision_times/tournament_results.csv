@@ -1,0 +1,6 @@
+exp_id,family,description,MAE_weeks,n_obs
+T01,linear_year_ols,mean-weeks ~ year,3.99,10
+T02,interrupted_ts,mean-weeks ~ year + post2018 + post2022 + post2023,0.57,10
+T03,littles_law,mean-weeks ~ (on-hand-start / intake) × 52,1.84,6
+T04,mm1_heavy_traffic,W = 1/(μ-λ) closed-form,135.17,6
+T05,case_type_fe_panel,panel OLS on year × case-type,9.02,37

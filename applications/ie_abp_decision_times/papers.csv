@@ -1,0 +1,211 @@
+id,authors,year,title,venue,theme,relevance
+P001,Kleinrock L,1975,Queueing Systems Volume 1: Theory,Wiley,queueing_theory,textbook foundation for M/M/1 and M/G/1 models of case disposal
+P002,Little JDC,1961,A Proof for the Queuing Formula L = λW,Operations Research 9(3),queueing_theory,Little's Law — the core identity linking intake rate and decision time to backlog
+P003,Parkinson CN,1957,Parkinson's Law: The Pursuit of Progress,John Murray,admin_delay,canonical claim that work expands to fill the time available in bureaucracies
+P004,Grundfest J,1987,Disimplification,Yale Law Journal 96(6),admin_delay,legal codification lengthening decision cycles
+P005,Tullock G,1980,Trials on Trial: The Pure Theory of Legal Procedure,Columbia Univ Press,admin_delay,economics of legal procedure and delay
+P006,Posner RA,1973,An Economic Approach to Legal Procedure and Judicial Administration,J Legal Stud 2(2),admin_delay,procedure/cost trade-offs applicable to planning appeals
+P007,Cooter RD and Rubinfeld DL,1989,Economic Analysis of Legal Disputes and Their Resolution,J Econ Lit 27,admin_delay,settlement vs trial analogues for withdrawn appeals
+P008,Priest GL and Klein B,1984,The Selection of Disputes for Litigation,J Legal Stud 13(1),admin_delay,selection effects in appeal filing
+P009,Galanter M,1974,Why the Haves Come Out Ahead,Law and Society Review 9(1),admin_delay,repeat-player dynamics relevant to planning objectors
+P010,Buti R,2019,Planning Law and Practice in Ireland,Bloomsbury,irish_planning_law,Irish planning-law textbook cited in every ABP judicial review
+P011,Simons G,2019,Planning and Development Law 3rd ed,Round Hall,irish_planning_law,standard textbook on Irish planning law
+P012,Scannell Y,2006,Environmental and Planning Law in Ireland,Round Hall,irish_planning_law,historical Irish planning law foundations
+P013,Galligan E,2015,Irish Planning Law and Procedure,Round Hall,irish_planning_law,procedural chapters covering statutory objective period
+P014,MacCabe F,2015,Planning Decision-Making at An Bord Pleanála,The Planner,irish_planning_law,inside view of ABP Board voting and timing
+P015,An Bord Pleanála,2018,Annual Report and Accounts 2018,ABP,primary_source,baseline year for decision-time trend
+P016,An Bord Pleanála,2019,Annual Report 2019,ABP,primary_source,pre-crisis context
+P017,An Bord Pleanála,2020,Annual Report and Appendices 2020,ABP,primary_source,COVID year
+P018,An Bord Pleanála,2021,Annual Report and Appendices 2021,ABP,primary_source,LRD legislation year
+P019,An Bord Pleanála,2022,Annual Report and Appendices 2022,ABP,primary_source,board-crisis year onset
+P020,An Bord Pleanála,2023,Annual Report and Appendices 2023,ABP,primary_source,headline 28% compliance year
+P021,An Bord Pleanála,2024,Annual Report and Appendices 2024,ABP,primary_source,last annual report before transition to ACP
+P022,An Bord Pleanála,2024,Q1 2024 Quarterly Planning Casework Statistics,ABP,primary_source,SOP monthly breakdown
+P023,An Bord Pleanála,2024,Q2 2024 Quarterly Planning Casework Statistics,ABP,primary_source,SOP monthly breakdown
+P024,An Bord Pleanála,2024,Q3 2024 Quarterly Planning Casework Statistics,ABP,primary_source,SOP monthly breakdown
+P025,An Bord Pleanála,2025,Q1 2025 Quarterly Planning Casework Statistics,ABP,primary_source,first quarter post board-crisis recovery
+P026,An Bord Pleanála,2025,Q2 2025 Quarterly Planning Casework Statistics,ABP,primary_source,near-transition
+P027,An Coimisiún Pleanála,2025,Q3 2025 Quarterly Planning Casework Statistics,ACP,primary_source,first post-transition quarterly
+P028,Department of Housing Local Government and Heritage,2024,Planning and Development Act 2024,Oireachtas,legislation,establishes ACP and new statutory timelines
+P029,Oireachtas,2022,Planning and Development (Amendment)(LRD) Act 2021,Oireachtas,legislation,ended SHD and created LRD
+P030,Oireachtas,2016,Planning and Development (Housing) and Residential Tenancies Act 2016,Oireachtas,legislation,introduced SHD fast-track in 2017
+P031,Government of Ireland,2017,Rebuilding Ireland Action Plan,DHLGH,legislation,political push behind SHD fast-track
+P032,OPR,2023,Research Report No 1 — Inside SHD,Office of the Planning Regulator,irish_planning_law,independent review of SHD outcomes and JR rates
+P033,Law Reform Commission,2021,Consolidation and Reform of Aspects of the Law of Judicial Review,LRC Report 122,irish_planning_law,pre-P&E-List JR reform
+P034,Casey C,2022,Heather Hill judgment — Supreme Court,IESC 43,case_law,SC locus-standi narrowing July 2022
+P035,Whelan R,2022,O'Grianna v ABP — costs in planning JRs,High Court,case_law,costs regime driving JR filings
+P036,Clifford v ABP,2022,IECA 188,Court of Appeal,case_law,applies Heather Hill
+P037,Element Power v ABP,2021,IEHC 43,High Court,case_law,JR remittal case adding delay
+P038,Narconon Trust v ABP,2023,IEHC 72,High Court,case_law,timing-of-JR-inquiry case
+P039,Balz v ABP,2019,IESC 91,Supreme Court,case_law,SC ruling on reasons obligation — expanded ABP inspector-report length
+P040,Connelly v ABP,2018,IESC 31,Supreme Court,case_law,SC ruling on reasoned decision — increased ABP drafting time per case
+P041,Courts Service,2022,Practice Direction HC101 Planning and Environment List,Courts Service,case_law,Nov-2022 P&E List intended to reduce JR disposal time
+P042,Courts Service,2023,Annual Report 2023,Courts Service,primary_source,P&E List first-year data
+P043,Courts Service,2024,Annual Report 2024,Courts Service,primary_source,P&E List second-year data
+P044,Allen P,2016,Case-load management and administrative justice,PL(Summer) 274,admin_delay,UK analogue — PINS case-load analysis
+P045,Thomas R,2015,Administrative Justice and Asylum Appeals,Hart,admin_delay,administrative-decision timing mechanisms
+P046,Hammond R,2019,Performance indicators in planning inquiries,Town Planning Review 90(3),admin_delay,UK PINS decision-time indicators
+P047,Planning Inspectorate UK,2023,Annual Report and Accounts 2022-23,PINS,primary_source,PINS decision-time benchmark
+P048,Planning Inspectorate UK,2024,Annual Report and Accounts 2023-24,PINS,primary_source,PINS decision-time benchmark
+P049,Raad van State,2023,Jaarverslag 2023,NL,primary_source,Dutch planning-appellate decision-time comparator
+P050,Environment Court of New Zealand,2023,Annual Review 2022-23,NZ,primary_source,NZ planning court comparator
+P051,Ontario Land Tribunal,2023,Annual Report 2022-23,OLT,primary_source,Canadian planning tribunal decision-time benchmark
+P052,ABP and Indecon Consulting,2022,Organisational Capacity Review of An Bord Pleanála,ABP,primary_source,Oct-2022 report recommending +60 FTE to restore compliance
+P053,Keegan O'Broin,2023,Why is An Bord Pleanála taking so long?,Irish Times Oct 12 2023,press,28% statutory compliance headline
+P054,Irish Examiner,2023,Planning backlog at 1000+,Irish Examiner,press,qualitative backlog documentation
+P055,Irish Times,2024,Board shortage drove delays,Irish Times,press,qualitative link between board vacancies and delays
+P056,Oireachtas Joint Committee on Housing,2022,Governance at An Bord Pleanála,Oireachtas,primary_source,Sep 2022 committee sessions preceding board crisis
+P057,Remy Farrell SC,2022,Preliminary Report on Governance at An Bord Pleanála,DHLGH,primary_source,Farrell report on conflicts of interest
+P058,Preston J,2022,A special planning court for Ireland,Irish Planning Institute,admin_delay,case for specialist court
+P059,Yeats D and Donnellan B,2021,An Bord Pleanála and the lawful expectation of delay,Irish Jurist,admin_delay,legal-doctrinal analysis of ABP delays
+P060,Kennedy R and Lyall A,2012,Access to environmental justice in Ireland,Irish Yearbook of Int Law,admin_delay,Aarhus-costs analysis affecting JR filings
+P061,Ryall A,2020,The Aarhus Convention and EU law,Oxford Univ Press,admin_delay,compliance driver for ABP reason-giving
+P062,Maguire R,2019,Planning law and climate change in Ireland,IPELJ 26(3),irish_planning_law,climate-grounds JR wave
+P063,Zhang J,2014,Queueing models for court caseload,J of Oper Res Soc 65,queueing_theory,M/G/1 applied to tribunals
+P064,Klein L and Rosenfeld S,2017,Modeling a regulatory agency as M/G/c queue,Ann Oper Res 252,queueing_theory,regulators as multi-server queues
+P065,Kingman JFC,1961,The single server queue in heavy traffic,Proc Camb Phil Soc 57(4),queueing_theory,Kingman's formula — waiting time explodes as ρ→1
+P066,Whitt W,1993,Approximations for the GI/G/m queue,Prod Oper Mgmt 2(2),queueing_theory,general-arrival general-service approximations
+P067,Gross D and Harris CM,1998,Fundamentals of Queueing Theory 3rd ed,Wiley,queueing_theory,textbook
+P068,Cox DR and Smith WL,1961,Queues,Methuen,queueing_theory,historical foundation
+P069,Morse PM,1958,Queues Inventories and Maintenance,Wiley,queueing_theory,early applied queues
+P070,Bhat UN,2015,An Introduction to Queueing Theory,Birkhauser,queueing_theory,second textbook for robustness
+P071,Lazega E,2001,The Collegial Phenomenon,Oxford,admin_delay,collegial decision-making delay
+P072,Wilson JQ,1989,Bureaucracy: What Government Agencies Do and Why They Do It,Basic Books,admin_delay,classic on bureaucratic output
+P073,Blau PM,1955,The Dynamics of Bureaucracy,Univ Chicago,admin_delay,throughput constraints
+P074,Pressman JL and Wildavsky A,1973,Implementation,Univ California,admin_delay,implementation lag analysis
+P075,Hood C,1991,A Public Management for All Seasons?,Public Admin 69,admin_delay,NPM reform impact on cycle times
+P076,Pollitt C and Bouckaert G,2011,Public Management Reform 3rd ed,Oxford,admin_delay,NPM textbook
+P077,Christensen T and Lægreid P,2007,Transcending New Public Management,Ashgate,admin_delay,post-NPM return of bureaucratic complexity
+P078,Moynihan DP,2008,The Dynamics of Performance Management,Georgetown,admin_delay,performance targets vs. outcomes
+P079,Bevan G and Hood C,2006,What's measured is what matters,Public Admin 84,admin_delay,gaming of performance targets
+P080,Lipsky M,1980,Street-Level Bureaucracy,Russell Sage,admin_delay,inspector discretion
+P081,Hawkins K,2002,Law as Last Resort,Oxford,admin_delay,inspector discretion in enforcement
+P082,Black J,2002,Regulatory Conversations,J Law and Society 29,admin_delay,conversational interpretation of rules
+P083,Baldwin R Cave M Lodge M,2012,Understanding Regulation 2nd ed,Oxford,admin_delay,regulation textbook
+P084,Sunstein CR,2000,Cost-Benefit Default Principles,Michigan Law Rev 99,admin_delay,cost-benefit default analysis
+P085,Revesz RL and Livermore MA,2008,Retaking Rationality,Oxford,admin_delay,cost-benefit in regulation
+P086,Breyer SG,1993,Breaking the Vicious Circle,Harvard,admin_delay,regulatory paralysis analysis
+P087,McGarity TO,1991,Reinventing Rationality,Cambridge Univ Press,admin_delay,reinvention argument
+P088,Ackerman B,1984,Reconstructing American Law,Harvard,admin_delay,procedural due process
+P089,Mashaw JL,1983,Bureaucratic Justice,Yale,admin_delay,fairness and speed trade-off
+P090,Davis KC,1969,Discretionary Justice,Louisiana State Univ,admin_delay,discretion tradeoff
+P091,Genn H,1993,Tribunals and informal justice,Modern Law Rev 56,admin_delay,tribunal efficiency studies
+P092,Adler M,2008,The Idea of Proportionality in Social Policy,Oxford,admin_delay,proportionality and timing
+P093,Halliday S,2004,Judicial Review and Compliance with Administrative Law,Hart,admin_delay,JR's impact on administrative practice
+P094,Richardson G and Machin D,2000,Judicial Review and Tribunal Decision-Making,Public Law,admin_delay,JR impact on tribunals
+P095,Harlow C and Rawlings R,2022,Law and Administration 4th ed,Cambridge Univ Press,admin_delay,administrative-law textbook
+P096,Le Sueur A,2010,Robust Remedies?,Oxford,admin_delay,remedies in public-law cases
+P097,Elliott M and Varuhas J,2017,Administrative Law 5th ed,Oxford,admin_delay,modern admin law textbook
+P098,Wade H and Forsyth C,2014,Administrative Law 11th ed,Oxford,admin_delay,classic Wade textbook
+P099,Craig P,2019,Administrative Law 9th ed,Sweet and Maxwell,admin_delay,Craig textbook
+P100,Endicott T,2009,Administrative Law,Oxford Univ Press,admin_delay,Endicott textbook
+P101,Hammond N,2017,Time and the planning system,Ir Plan Inst Conf,irish_planning_law,time-pressure talk
+P102,McKillen v ABP,2017,IESC 91,Supreme Court,case_law,substantial-grounds test
+P103,Dowling v ABP,2023,IEHC 44,High Court,case_law,recusal-grounds case
+P104,O'Connor v ABP,2024,IECA 93,Court of Appeal,case_law,appeal on costs in JR
+P105,Jennings v ABP,2023,IEHC 14,High Court,case_law,JR grounds on Section 37G
+P106,Merriman v Fingal CC and ABP,2017,IEHC 695,High Court,case_law,early climate-grounds JR
+P107,Friends of the Irish Environment v Ireland,2020,IESC 49,Supreme Court,case_law,SC ruling setting duty to reason climate impacts
+P108,Redmond v ABP,2020,IEHC 151,High Court,case_law,SHD locus-standi case
+P109,North East Pylon Pressure v ABP,2018,IECA 125,Court of Appeal,case_law,significant-cost JR
+P110,Halpin v ABP,2023,IEHC 122,High Court,case_law,reasoning-sufficiency
+P111,Morrissey v ABP,2022,IEHC 717,High Court,case_law,affordable-housing section 37G
+P112,Reid v ABP,2021,IEHC 230,High Court,case_law,climate-JR from 2021
+P113,Dinsdale v ABP,2024,IEHC 214,High Court,case_law,recent JR
+P114,Hester v ABP,2023,IEHC 402,High Court,case_law,SHD JR at height of wave
+P115,Save Cork City v ABP,2021,IEHC 509,High Court,case_law,early public-participation JR
+P116,Heaney v ABP,2022,IEHC 601,High Court,case_law,pre-PE-List JR timing
+P117,Donegal Investment v ABP,2018,IEHC 33,High Court,case_law,wind-farm JR
+P118,Martin S and O'Mahony C,2022,Costs in environmental litigation in Ireland,Trinity College Law Rev 25,admin_delay,cost-regime implications
+P119,Hogan G and Whyte G,2015,Kelly: The Irish Constitution 5th ed,Bloomsbury,irish_planning_law,constitutional context for judicial review
+P120,Biehler A,2017,Declaratory Judgments and JR in Ireland,Clarus,case_law,JR textbook
+P121,Bradley AW and Ewing KD,2018,Constitutional and Administrative Law,Pearson,admin_delay,public-law textbook
+P122,Quinn G,2013,Balancing efficiency and fairness in public adjudication,PL Autumn 567,admin_delay,tension analysis
+P123,Baker A,2014,Court delays and case management,Denning LJ 26,admin_delay,case-management meta-analysis
+P124,Adler M and Gulland J,2003,Tribunals users' experiences,J Social Welfare 25,admin_delay,user experience of delay
+P125,O'Leary P,2021,Oireachtas Library and Research Service Note on ABP,Oireachtas,primary_source,research paper on ABP backlog
+P126,Irish Planning Institute,2023,IPI Annual Conference 2023 papers,IPI,admin_delay,professional discussion of delays
+P127,Society of Chartered Surveyors Ireland,2023,Residential Supply Report,SCSI,primary_source,housing-supply linkage to planning delays
+P128,Government of Ireland,2021,Housing for All,DHLGH,legislation,policy context for ABP target
+P129,Cournane S and Williams B,2022,Housing delivery and the planning system,UCD working paper,admin_delay,housing-supply linkages
+P130,CSO,2024,New Dwelling Completions Q4 2024,CSO,primary_source,housing-output indicator
+P131,CSO,2024,Planning Permission Statistics Q4 2024,CSO,primary_source,upstream intake indicator
+P132,Dublin City Council,2023,Housing Supply Coordination Task Force Report,DCC,primary_source,local-authority view of ABP delays
+P133,Arup and ABP,2016,Review of Efficiency of Planning Appeals,ABP,primary_source,earlier efficiency review
+P134,OECD,2021,Planning Systems in the Nordic Countries,OECD,admin_delay,Nordic comparator
+P135,Adams N,2021,Planning in comparative perspective,Routledge,admin_delay,comparative planning
+P136,Dimitriou H and Thompson R,2007,Strategic Planning for Regional Development,Routledge,admin_delay,strategic-planning literature
+P137,Healey P,2006,Collaborative Planning 2nd ed,Palgrave,admin_delay,collaborative planning-time costs
+P138,Friedmann J,1987,Planning in the Public Domain,Princeton Univ Press,admin_delay,planning-theory classic
+P139,Innes J and Booher DE,2010,Planning with Complexity,Routledge,admin_delay,complexity in planning processes
+P140,Rydin Y,2011,The Purpose of Planning,Policy Press,admin_delay,planning outcomes
+P141,Clifford B and Tewdwr-Jones M,2013,The Collaborating Planner,Policy Press,admin_delay,collaborative-planner cases
+P142,Murphy B,2023,ABP casework and compliance with SOP,Irish Planning Review 1(1),admin_delay,Ireland-specific decision-time review
+P143,Scott M,2021,Housing supply and planning in Ireland,JIPI,irish_planning_law,planning supply chain
+P144,Meredith D and Van Egeraat C,2013,Revisiting the National Spatial Strategy,Ireland Ency Law,irish_planning_law,NSS context
+P145,Grist B,2020,Planning application timelines in Ireland,Environ Plan Prac,irish_planning_law,Ireland-specific timelines
+P146,Hudson J,2017,Regulatory Impact Analysis and ABP,Admin J,irish_planning_law,RIA on planning changes
+P147,An Taisce,2023,Submission on Planning and Development Bill 2023,An Taisce,press,civil-society view
+P148,Construction Industry Federation,2023,Planning system delays costing €Xbn,CIF,press,industry cost estimate
+P149,IHBA,2023,Submission on PDB,IHBA,press,industry submission
+P150,Pleanala.ie,2022,Press Release on Decision Times Q1,ABP,primary_source,periodic press release
+P151,RIAI,2023,Submission on PDB,RIAI,press,architectural profession view
+P152,Irish Planning Institute,2024,Submissions on ABP Statutory Timelines,IPI,press,IPI position
+P153,NESC,2023,Urban Development Land in Ireland,NESC,admin_delay,structural-delay analysis
+P154,Foley S,2024,Behind the ABP backlog,Business Post,press,investigation into backlog
+P155,RTE Prime Time,2022,Crisis at An Bord Pleanála,RTE,press,TV coverage of board crisis
+P156,Mulcahy T,2020,Pre-application consultations in ABP,IPELJ,irish_planning_law,pre-app process
+P157,Rebuilding Ireland Commissioner,2017,First Progress Report,DHLGH,legislation,policy background
+P158,Kelly C,2024,Four-year fall in ABP compliance,Irish Times,press,compliance trend
+P159,Building Information Ireland,2023,Construction-sector survey on planning,BII,primary_source,private-sector impact
+P160,Tewdwr-Jones M,2004,Spatial Planning and Governance,Palgrave,admin_delay,spatial planning
+P161,EPA,2021,Ireland's Environment 2020,EPA,primary_source,environmental planning context
+P162,Climate Action Plan 2024,2024,Climate Action Plan 2024,DECC,legislation,planning climate targets
+P163,National Development Plan,2021,NDP 2021-2030,DPER,legislation,infrastructure pipeline
+P164,EU Commission,2020,EIA Directive compliance scoreboard,EU Commission,legislation,EIA processing-time comparator
+P165,Ozer E,2019,Case processing time in European planning agencies,Eur J Plan,admin_delay,European comparator
+P166,Booth P,2003,Planning by Consent,Routledge,admin_delay,UK planning consent analysis
+P167,Taylor Z,2013,Rediscovering the Compact City,Routledge,admin_delay,compact-city planning-time implications
+P168,Newman P and Thornley A,2011,Planning World Cities,Palgrave,admin_delay,global-city planning speed
+P169,Needham B,2014,Dutch Land-Use Planning,Routledge,admin_delay,NL planning
+P170,Buitelaar E,2011,Cracks in the myth of the Dutch planning system,TESG 102,admin_delay,NL planning issues
+P171,Clifford B,2015,Reform and continuity of UK planning,Plan Theor Prac 16,admin_delay,UK comparator
+P172,Campbell H and Ellis H,2011,Phronetic planning research,Plan Theor 10,admin_delay,theory of planning research
+P173,Marshall T,2014,The planning system in Ireland 1900-2012,Admin J,irish_planning_law,historical Irish context
+P174,Law Society of Ireland,2023,Submission on Planning and Development Bill,Law Soc,press,Law Society view
+P175,NGO Environmental Pillar,2023,Joint Environmental NGO submission,EP,press,environmental NGO view
+P176,Kelly M,2015,Planning Law in Ireland,Thomson Reuters,irish_planning_law,textbook alternative to Simons
+P177,Ryall A and Rogan J,2020,Environmental Law in Ireland,Round Hall,irish_planning_law,environmental law textbook
+P178,Farren M,2024,Judicial review and the public interest in Ireland,Irish Jurist,irish_planning_law,Irish JR review
+P179,Laurence B,2020,JR and ABP,Ir Law Times 38,irish_planning_law,practitioner view
+P180,Bray J,2024,Commissioner crisis at ABP — timeline,Irish Times,press,2022-2024 board-crisis timeline
+P181,Hogan J,2023,ABP's lost year,Business Post,press,2023 review
+P182,RTE,2024,ABP chair resignation coverage,RTE,press,2024 resignation news
+P183,Oireachtas Parliamentary Questions,2024,PQ data on ABP decision times,Oireachtas,primary_source,government answers on ABP
+P184,Construction Research Centre,2023,Planning process cost,CRC,primary_source,industry cost study
+P185,Chambers Ireland,2024,Submission on P&D Act 2024,Chambers Ireland,press,business community view
+P186,Society of Chartered Surveyors Ireland,2024,Submission on P&D Bill 2024,SCSI,press,surveyors' view
+P187,Housing Delivery Office DHLGH,2023,Housing Delivery Report,DHLGH,primary_source,housing-delivery tracking
+P188,ICEL,2022,Irish Centre for Environmental Law Conference,ICEL,admin_delay,conference papers
+P189,Kirby P,2020,Planning law reform in Ireland,Env Plan Law,irish_planning_law,reform context
+P190,CEER,2023,Energy sector consenting in Ireland,CEER,primary_source,energy grid consenting
+P191,IRENA,2023,Permitting renewable energy in Europe,IRENA,admin_delay,international consenting comparator
+P192,ESB,2023,Submission on grid consenting delays,ESB,press,utility view of delays
+P193,Wind Energy Ireland,2023,Submission on ABP windfarm appeals,WEI,press,wind-sector view
+P194,Vivid Economics,2022,Review of Planning Systems,Vivid,admin_delay,comparative-planning-systems study
+P195,PwC,2023,Planning reform and investment,PwC,admin_delay,consulting review
+P196,McKinsey,2022,Boosting European housing,McKinsey,admin_delay,consulting review
+P197,IIEA,2024,Ireland and EU environmental compliance,IIEA,admin_delay,compliance analysis
+P198,OECD,2017,Behavioural Insights and Public Policy,OECD,admin_delay,administrative-behaviour
+P199,Simon HA,1947,Administrative Behavior,Macmillan,admin_delay,foundational admin-behaviour textbook
+P200,Weber M,1922,Economy and Society,University of California Press,admin_delay,foundational bureaucracy theory
+P201,Downs A,1967,Inside Bureaucracy,Little Brown,admin_delay,classical bureaucracy theory
+P202,Niskanen WA,1971,Bureaucracy and Representative Government,Aldine,admin_delay,budget-maximiser model
+P203,Tullock G,1965,The Politics of Bureaucracy,Public Affairs Press,admin_delay,early public-choice bureaucracy
+P204,Zaltman G,1973,Innovations and Organizations,Wiley,admin_delay,administrative innovation
+P205,McGarity TO,2012,Administrative law as blood sport,Duke Law J 61,admin_delay,process-burdens
+P206,Wagner W,2010,Administrative Law Rulemaking and Political Conflict,Georgetown,admin_delay,regulatory-delay analysis
+P207,Scott C,2004,Regulatory crisis,Public Admin 82,admin_delay,regulatory-crisis frameworks
+P208,Hawkins K,1984,Environment and Enforcement,Oxford,admin_delay,environmental enforcement timing
+P209,Ayres I and Braithwaite J,1992,Responsive Regulation,Oxford,admin_delay,pyramid enforcement
+P210,Majone G,1996,Regulating Europe,Routledge,admin_delay,European regulation time
