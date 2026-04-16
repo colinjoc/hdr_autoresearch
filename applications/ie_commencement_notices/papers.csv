@@ -1,0 +1,482 @@
+author_year,title,venue,year,doi_or_url,tags
+kalbfleisch_prentice_2002,The Statistical Analysis of Failure Time Data,Wiley,2002,10.1002/9781118032985,textbook;survival
+cox_1972,Regression Models and Life-Tables,Journal of the Royal Statistical Society B,1972,10.1111/j.2517-6161.1972.tb00899.x,seminal;cox;survival
+kaplan_meier_1958,Nonparametric Estimation from Incomplete Observations,JASA,1958,10.1080/01621459.1958.10501452,seminal;km;survival
+klein_moeschberger_2003,Survival Analysis: Techniques for Censored and Truncated Data,Springer,2003,10.1007/b97377,textbook;survival
+collett_2015,Modelling Survival Data in Medical Research,CRC Press,2015,10.1201/b18041,textbook;survival
+hosmer_lemeshow_may_2008,Applied Survival Analysis,Wiley,2008,10.1002/9780470258019,textbook;survival
+lee_wang_2003,Statistical Methods for Survival Data Analysis,Wiley,2003,10.1002/0471458546,textbook;survival
+therneau_grambsch_2000,Modeling Survival Data: Extending the Cox Model,Springer,2000,10.1007/978-1-4757-3294-8,textbook;survival;cox
+aalen_borgan_gjessing_2008,Survival and Event History Analysis,Springer,2008,10.1007/978-0-387-68560-1,textbook;survival
+allison_2010,Survival Analysis Using SAS: A Practical Guide,SAS Institute,2010,,textbook;survival
+fine_gray_1999,A Proportional Hazards Model for the Subdistribution of a Competing Risk,JASA,1999,10.1080/01621459.1999.10474144,competing-risks;survival
+wei_1992,The Accelerated Failure Time Model,Statistics in Medicine,1992,10.1002/sim.4780111409,aft;survival
+jenkins_2005,Survival Analysis,Manuscript,2005,https://www.iser.essex.ac.uk/files/teaching/stephenj/ec968/pdfs/ec968lnotesv6.pdf,textbook;survival
+cleves_2008,An Introduction to Survival Analysis Using Stata,Stata Press,2008,,textbook;survival
+box_steffensmeier_jones_2004,Event History Modeling: A Guide for Social Scientists,Cambridge,2004,10.1017/CBO9780511790874,textbook;survival;social
+cox_oakes_1984,Analysis of Survival Data,Chapman Hall,1984,,textbook;survival
+andersen_borgan_gill_keiding_1993,Statistical Models Based on Counting Processes,Springer,1993,10.1007/978-1-4612-4348-9,textbook;survival;counting-process
+bagdonavicius_nikulin_2002,Accelerated Life Models,Chapman Hall,2002,10.1201/9781420035872,textbook;aft
+lawless_2003,Statistical Models and Methods for Lifetime Data,Wiley,2003,10.1002/9781118033005,textbook;lifetime
+nelson_2003,Applied Life Data Analysis,Wiley,2003,10.1002/0471725234,textbook;lifetime
+murphy_1994,Consistency in a Proportional Hazards Model Incorporating a Random Effect,Annals of Stats,1994,10.1214/aos/1176325497,frailty;survival
+hougaard_2000,Analysis of Multivariate Survival Data,Springer,2000,10.1007/978-1-4612-1304-8,frailty;survival
+wienke_2010,Frailty Models in Survival Analysis,CRC,2010,10.1201/EBK1420073881,textbook;frailty
+harrell_2015,Regression Modeling Strategies,Springer,2015,10.1007/978-3-319-19425-7,textbook;regression;c-statistic
+harrell_1982,Evaluating the Yield of Medical Tests,JAMA,1982,10.1001/jama.1982.03320430047030,c-statistic
+uno_2011,On the C-statistics for Evaluating Overall Adequacy,Statistics in Medicine,2011,10.1002/sim.4154,c-statistic
+graf_1999,Assessment and comparison of prognostic classification schemes,Statistics in Medicine,1999,10.1002/(SICI)1097-0258(19990915/30)18:17/18<2529::AID-SIM274>3.0.CO;2-5,brier
+akaike_1974,A new look at the statistical model identification,IEEE Transactions,1974,10.1109/TAC.1974.1100705,aic
+schwarz_1978,Estimating the Dimension of a Model,Annals of Stats,1978,10.1214/aos/1176344136,bic
+friedman_2001,Greedy Function Approximation: a Gradient Boosting Machine,Annals of Stats,2001,10.1214/aos/1013203451,gbm
+chen_guestrin_2016,XGBoost: A Scalable Tree Boosting System,KDD,2016,10.1145/2939672.2939785,xgboost
+ke_2017,LightGBM: A Highly Efficient Gradient Boosting Decision Tree,NeurIPS,2017,,lightgbm
+breiman_2001,Random Forests,Machine Learning,2001,10.1023/A:1010933404324,rf
+geurts_2006,Extremely Randomized Trees,Machine Learning,2006,10.1007/s10994-006-6226-1,extratrees
+pedregosa_2011,Scikit-learn: Machine Learning in Python,JMLR,2011,,sklearn
+davidson_pilon_lifelines_2019,lifelines: survival analysis in Python,JOSS,2019,10.21105/joss.01317,lifelines
+pölsterl_2020,scikit-survival,JMLR,2020,,scikit-survival
+grinsztajn_2022,Why do tree-based models still outperform deep learning,NeurIPS,2022,,tree-deep;tabular
+shwartz_ziv_2022,Tabular Data: Deep Learning is Not All You Need,Inf Fusion,2022,10.1016/j.inffus.2021.11.011,tabular
+lundberg_lee_2017,A Unified Approach to Interpreting Model Predictions,NeurIPS,2017,,shap
+kvamme_2019,Time-to-Event Prediction with Neural Networks and Cox Regression,JMLR,2019,,deep-survival
+katzman_2018,DeepSurv,BMC Med Res,2018,10.1186/s12874-018-0482-1,deep-survival
+gensheimer_narasimhan_2019,A scalable discrete-time survival model,PeerJ,2019,10.7717/peerj.6257,deep-survival
+ranganath_2016,Deep Survival Analysis,MLHC,2016,,deep-survival
+lee_2018,DeepHit,AAAI,2018,,deep-survival;competing-risks
+ishwaran_2008,Random Survival Forests,Annals of Applied Stats,2008,10.1214/08-AOAS169,rsf;survival
+hothorn_2006,Survival Ensembles,Biostatistics,2006,10.1093/biostatistics/kxj011,ensemble;survival
+wang_2019,Machine Learning for Survival Analysis: A Survey,ACM Computing Surveys,2019,10.1145/3214306,review;survival;ml
+allison_1982,Discrete-time methods for the analysis of event histories,Sociological Methodology,1982,,discrete-time
+efron_1988,Logistic regression survival analysis and the Kaplan-Meier curve,JASA,1988,10.1080/01621459.1988.10478612,logistic;km
+gail_1980,On the equivalence of the two approaches to the analysis of matched designs,Biometrika,1980,,matched
+mackenbach_2000,Housing conditions and health,Journal of Epidemiology,2000,,housing;health
+dipasquale_wheaton_1992,The markets for real estate assets and space,Real Estate Economics,1992,10.1111/1540-6229.00579,housing-econ;seminal
+dipasquale_wheaton_1994,Housing market dynamics and the future of housing prices,Journal of Urban Economics,1994,10.1006/juec.1994.1003,housing-econ;dynamics
+topel_rosen_1988,Housing investment in the US,JPE,1988,10.1086/261554,housing-invest;seminal
+mayer_somerville_2000,Residential construction: Using the urban growth model,Regional Science and Urban Economics,2000,10.1016/S0166-0462(00)00040-2,construction;supply-elasticity
+saiz_2010,The Geographic Determinants of Housing Supply,QJE,2010,10.1162/qjec.2010.125.3.1253,housing-supply;geography
+glaeser_gyourko_saks_2005,Why Have Housing Prices Gone Up?,AER,2005,10.1257/000282805774670266,housing-econ;regulation
+glaeser_gyourko_2018,The economic implications of housing supply,JEP,2018,10.1257/jep.32.1.3,housing-supply;review
+gyourko_molloy_2015,Regulation and housing supply,Handbook of Regional Urban Econ,2015,10.1016/B978-0-444-59531-7.00019-3,regulation;supply
+hsieh_moretti_2019,Housing Constraints and Spatial Misallocation,AEJ Macro,2019,10.1257/mac.20170388,spatial;housing-constraints
+mayo_sheppard_1996,Housing supply under rapid economic growth,Journal of Housing Economics,1996,10.1006/jhec.1996.0016,supply-elasticity
+malpezzi_maclennan_2001,The long-run price elasticity of supply of new residential construction,Journal of Housing Economics,2001,10.1006/jhec.2001.0285,supply-elasticity
+peng_wheaton_1994,Effects of restrictive land supply on housing in Hong Kong,Journal of Housing Research,1994,,supply-restriction
+muth_1960,The demand for non-farm housing,in Harberger,1960,,housing-demand;seminal
+quigley_raphael_2005,Regulation and the high cost of housing in California,AEA Papers,2005,10.1257/000282805774670419,regulation;california
+bertaud_brueckner_2005,Analyzing building height restrictions,Regional Science Urban Econ,2005,10.1016/j.regsciurbeco.2004.02.004,regulation;height
+brueckner_2007,Urban growth boundaries,Journal of Urban Economics,2007,10.1016/j.jue.2006.07.001,ugb;regulation
+ihlanfeldt_2007,The effect of land use regulation on housing,Journal of Urban Econ,2007,10.1016/j.jue.2006.11.004,regulation;housing
+turner_2014,Land Use Regulation and Welfare,Econometrica,2014,10.3982/ECTA9823,regulation;welfare
+ganong_shoag_2017,Why Has Regional Income Convergence Declined,Journal of Urban Econ,2017,10.1016/j.jue.2017.07.002,regulation;convergence
+lyons_2018,The Irish housing market in an international context,ESR,2018,,ireland;housing
+kennedy_2018,Housing market developments and monetary policy,Central Bank of Ireland,2018,,ireland;central-bank
+duffy_byrne_mccarthy_2014,Assessing the impact on housing supply,ESRI WP,2014,,ireland;supply
+kennedy_stuart_2015,Long-term trends in Irish residential construction,Central Bank of Ireland,2015,,ireland;time-series
+duffy_2004,A note on measuring the affordability of homeownership in Ireland,ESRI,2004,,ireland;affordability
+fitzgerald_2012,The property bust and the Irish recession,ESR,2012,,ireland;recession
+honohan_2009,Resolving Ireland's banking crisis,ESR,2009,,ireland;banking
+whelan_2014,Ireland's economic crisis,Journal of Macroeconomics,2014,10.1016/j.jmacro.2013.08.008,ireland;crisis
+kelly_2009,The Irish credit bubble,UCD WP,2009,,ireland;credit-bubble
+mccarthy_mcquinn_2017,Credit conditions in a boom and bust property market,Journal of Money Credit Banking,2017,10.1111/jmcb.12385,ireland;credit;housing
+kennedy_mcquinn_2012,Bubbles and the Irish housing market,ESRI WP,2012,,ireland;bubble
+lyons_2015,East west north south: new regional econ of Ireland,UCD WP,2015,,ireland;regional
+lawless_morgenroth_2019,The product and sector level impact of a hard Brexit,ESRI Research Series,2019,,ireland;brexit
+norris_2016,Property Housing and Neoliberalism in Ireland,Palgrave,2016,10.1057/9781137466549,ireland;housing-policy
+norris_byrne_2017,Social housing in Ireland,Housing Studies,2017,10.1080/02673037.2016.1181720,ireland;social-housing
+byrne_norris_2019,Housing market financialization in Ireland,Geoforum,2019,10.1016/j.geoforum.2018.11.017,ireland;financialisation
+kitchin_2012,Placing neoliberalism: the rise and fall of a Celtic Tiger,Environment and Planning A,2012,10.1068/a44349,ireland;neoliberalism
+kitchin_2015,Getting smarter about smart cities,National Institute for Regional and Spatial Analysis,2015,,ireland;smart-cities
+hearne_2017,A home or a wealth generator?,TASC Ireland,2017,,ireland;housing-policy
+hearne_2020,Housing Shock: The Irish Housing Crisis and How to Solve It,Policy Press,2020,10.2307/j.ctvx07tjh,ireland;housing;crisis
+hearne_murphy_2018,An absence of rights: Homeless families and social housing marketisation in Ireland,Administration,2018,10.2478/admin-2018-0020,ireland;homelessness
+waldron_redmond_2014,The Extended Reach of Mortgage Arrears,Housing Studies,2014,10.1080/02673037.2013.838733,ireland;mortgage
+esri_qec_2024,Quarterly Economic Commentary Autumn 2024,ESRI,2024,,ireland;macro;forecasts
+esri_housingmodel_2023,FRS-Housing model for ESRI,ESRI WP,2023,,ireland;model
+duffy_2012,Assessing the impact of price elasticity,ESRI,2012,,ireland;elasticity
+mcquinn_duffy_foley_2020,A new model of the Irish housing market,ESRI WP,2020,,ireland;model
+duffy_foley_mcinerney_mcquinn_2016,Housing supply in Ireland since 1990,ESRI WP 2016/77,2016,,ireland;supply;history
+housing_agency_2015,Projected housing requirements 2015-2018,Housing Agency,2015,,ireland;projections
+housing_agency_2019,Sustainable urban housing: Design standards for new apartments,DHLGH,2019,,ireland;design-standards
+dhlgh_2021,Housing for All — a New Housing Plan for Ireland,Govt of Ireland,2021,https://www.gov.ie/en/publication/ef5ec-housing-for-all-a-new-housing-plan-for-ireland/,ireland;policy
+opr_2022,Planning Statistics Report 2022,Office of the Planning Regulator,2022,,ireland;planning;stats
+opr_2023,Planning and land use,Office of Planning Regulator,2023,,ireland;planning
+planning_shd_review_2021,Strategic Housing Development review,DHPLG,2021,,ireland;shd
+planning_act_2000,Planning and Development Act 2000,Oireachtas,2000,https://www.irishstatutebook.ie/eli/2000/act/30/enacted/en/html,ireland;planning;legislation
+planning_dev_amend_act_2021,Planning and Development (Amendment) (LRD) Act 2021,Oireachtas,2021,,ireland;planning;lrd
+bcr_1997,Building Control Regulations 1997,Oireachtas,1997,,ireland;building-control;regulation
+bcr_2014,Building Control (Amendment) Regulations 2014,DECLG,2014,,ireland;bcar
+bcr_2015,Building Control (Amendment) Regulations 2015,DHPLG,2015,,ireland;bcar
+nbco_2023,Annual Report 2023,National Building Control Office,2023,,ireland;bcms
+nbco_2022,Annual Report 2022,NBCO,2022,,ireland;bcms
+nbco_guidelines_2022,Guidance for Building Control Authorities on BCMS,NBCO,2022,,ireland;bcms
+cso_hsm_guide_2019,Housing statistics methodology,CSO,2019,,ireland;cso;methodology
+cso_ndq_guide_2020,New dwelling completions methodology,CSO,2020,,ireland;cso;methodology
+cso_bhq_2022,Building and Construction Q2 2022,CSO,2022,,ireland;cso;construction
+cso_hpm_2024,Housing Price Monitor,CSO,2024,,ireland;cso;prices
+central_bank_ireland_2023,Macroprudential framework for mortgage lending,CBI,2023,,ireland;mortgage;macroprudential
+mccarthy_2014,Dispersion in the housing market: why some houses take longer to sell,Journal of Housing Econ,2014,,duration;housing
+krainer_1999,A theory of liquidity in residential real estate markets,Journal of Urban Econ,1999,10.1006/juec.1999.2131,liquidity;housing
+genesove_han_2012,Search and Matching in the housing market,Journal of Urban Economics,2012,,search;housing
+diaz_jerez_2013,House prices rents and housing booms,AEJ Macro,2013,,housing;cycle
+leamer_2007,Housing is the business cycle,Fed Kansas,2007,,housing;cycle
+hoyt_1933,One Hundred Years of Land Values in Chicago,Univ Chicago Press,1933,,housing-history
+henderson_ioannides_1983,A model of housing tenure choice,AER,1983,,tenure;housing
+rosen_1979,Housing decisions and the US income tax,Journal of Public Econ,1979,10.1016/0047-2727(79)90063-6,tax;housing
+gyourko_tracy_2006,Using home maintenance and repairs to smooth variable earnings,Review of Economics and Statistics,2006,,housing;smoothing
+knoll_schularick_steger_2017,No Price Like Home: Global House Prices,AER,2017,10.1257/aer.20150501,housing;price-history
+jorda_schularick_taylor_2019,The rate of return on everything,QJE,2019,10.1093/qje/qjz012,housing;returns
+stock_watson_1989,New indexes of coincident and leading economic indicators,NBER Macro Annual,1989,,business-cycle
+mayer_2011,Housing bubbles: a survey,Annual Review Econ,2011,10.1146/annurev-economics-111809-125025,bubbles;housing
+case_shiller_1989,The efficiency of the market for single-family homes,AER,1989,,housing;efficiency
+meen_2002,The time-series behavior of house prices,Journal of Housing Economics,2002,10.1006/jhec.2001.0293,housing;time-series
+gyourko_saiz_summers_2008,A new measure of the local regulatory environment,Urban Studies,2008,10.1177/0042098007087341,regulation;measurement
+schuetz_meltzer_been_2009,31 flavors of inclusionary zoning,Urban Studies,2009,10.1177/0042098009339085,zoning
+molloy_2020,The effect of housing supply regulation,Regional Science and Urban Econ,2020,10.1016/j.regsciurbeco.2020.103565,supply;regulation;review
+albouy_ehrlich_2018,Housing productivity and the social cost of land-use restrictions,Journal of Urban Econ,2018,10.1016/j.jue.2018.03.002,regulation;welfare
+kok_monkkonen_quigley_2014,Land use regulations and the value of land and housing,Journal of Urban Econ,2014,10.1016/j.jue.2014.03.004,regulation
+somerville_1999,The industrial organization of housing supply,Real Estate Economics,1999,10.1111/1540-6229.00776,supply;industrial-org
+bar_isaac_gavazza_2015,Search frictions in the housing market,Journal of Urban Econ,2015,,search;friction
+paciorek_2013,Supply constraints and housing market dynamics,Journal of Urban Econ,2013,10.1016/j.jue.2013.05.001,supply;dynamics
+meen_2001,Modelling spatial housing markets,Springer,2001,,housing;spatial
+ball_2010,Cyclical patterns in housebuilding,Construction Management and Economics,2010,,cycle;construction
+ball_1996,Housing and Construction A European Perspective,Routledge,1996,,europe;housing;textbook
+ball_2003,Markets and the structure of the housebuilding industry,Urban Studies,2003,10.1080/0042098032000033844,housebuilding;industry
+ball_2013,Spatial regulation and international differences in the housebuilding industries,Journal of Property Research,2013,10.1080/09599916.2013.791335,housebuilding;international
+barlow_king_1992,The state the market and competitive strategy: the housebuilding industry,Environment Planning A,1992,10.1068/a240381,housebuilding
+golland_1996,Housebuilding in Britain Germany and the Netherlands,Housing Studies,1996,10.1080/02673039608720844,housebuilding
+bramley_1993,The impact of land use planning and tax subsidies on housing supply,Urban Studies,1993,10.1080/00420989320080241,planning;subsidies
+bramley_2013,Housing market models and planning,Town Planning Review,2013,10.3828/tpr.2013.1,planning
+barker_2004,Barker Review of Housing Supply,HM Treasury,2004,,uk;housing;supply
+barker_2006,Barker Review of Land Use Planning,HM Treasury,2006,,uk;planning
+bramley_watkins_2016,Housebuilding demolitions and conversions: understanding the diverse drivers,Housing Studies,2016,,housing;dynamics
+whitehead_crook_2000,The provision of affordable housing through the planning system,Housing Studies,2000,,planning;affordable
+gyourko_linneman_1993,The affordability of the American dream,Housing Policy Debate,1993,,affordable;housing
+glaeser_2017,Reforming land use regulations,Brookings,2017,,regulation;reform
+ellickson_1973,Alternatives to zoning,Univ Chicago Law Review,1973,,zoning;legal
+fischel_1985,The Economics of Zoning Laws,Johns Hopkins Univ Press,1985,,zoning;textbook
+levitt_list_2009,Field experiments in economics,Journal of Economic Perspectives,2009,10.1257/jep.23.2.33,field-experiments
+pindyck_2002,Investment under Uncertainty,Princeton Univ Press,2002,,investment;option-value;textbook
+dixit_pindyck_1994,Investment under Uncertainty,Princeton Univ Press,1994,,option-value;textbook
+grenadier_1995,Valuing lease contracts: a real-options approach,Journal of Financial Econ,1995,,real-options
+grenadier_1996,The strategic exercise of options,J Finance,1996,,real-options;strategic
+titman_1985,Urban land prices under uncertainty,AER,1985,,option-value;land
+capozza_helsley_1990,The stochastic city,Journal of Urban Econ,1990,10.1016/0094-1190(90)90034-K,option-value;urban
+cunningham_2006,House price uncertainty timing of development and vacant land prices,Journal of Urban Economics,2006,10.1016/j.jue.2006.05.003,option-value;timing
+mayer_somerville_2000b,Land use regulation and new construction,Regional Science and Urban Econ,2000,,regulation;construction
+wang_zhou_2000,Equilibrium real options analysis of pricing and investment under uncertainty,Real Estate Econ,2000,,option-value
+bulan_mayer_somerville_2009,Irreversible investment real options and competition: Evidence from real estate development,Journal of Urban Economics,2009,10.1016/j.jue.2008.09.003,option-value;empirical;development
+cunningham_2007,Growth controls option values and housing supply: evidence from King County Washington,Journal of Urban Econ,2007,,option-value;empirical
+jeanty_partridge_2009,Local landowner risk land use regulation and residential development,Land Economics,2009,,regulation;development
+dye_mcmillen_2007,Teardowns and land values in the Chicago metropolitan area,Journal of Urban Econ,2007,10.1016/j.jue.2006.06.004,redevelopment
+sinai_souleles_2005,Owner-occupied housing as a hedge against rent risk,QJE,2005,10.1162/0033553053970133,tenure;rent-risk
+gabriel_rosenthal_2005,Homeownership in the 1980s and 1990s,QJE,2005,,homeownership
+cox_oakes_1984b,Analysis of Survival Data,Chapman Hall,1984,,textbook;survival
+kiefer_1988,Economic duration data and hazard functions,Journal of Econ Literature,1988,,duration;econometrics;seminal
+lancaster_1990,The Econometric Analysis of Transition Data,Cambridge,1990,10.1017/CCOL0521343976,textbook;duration
+heckman_singer_1984,A method for minimizing the impact of distributional assumptions,Econometrica,1984,,duration;unobs-heterogeneity
+van_den_berg_2001,Duration models: specification identification and multiple durations,Handbook of Econometrics,2001,10.1016/S1573-4412(01)05008-5,duration;review
+abbring_van_den_berg_2007,The unobserved heterogeneity distribution in duration analysis,Biometrika,2007,,duration;heterogeneity
+meyer_1990,Unemployment insurance and unemployment spells,Econometrica,1990,,duration;ue
+katz_meyer_1990,The impact of the potential duration of unemployment benefits,Journal of Public Econ,1990,,duration;ue
+sueyoshi_1995,A class of binary response models for grouped duration data,Journal of Applied Econometrics,1995,,discrete-time-survival
+jenkins_1995,Easy estimation methods for discrete-time duration models,Oxford Bulletin,1995,10.1111/j.1468-0084.1995.tb00031.x,discrete-time-survival
+prentice_gloeckler_1978,Regression analysis of grouped survival data with application,Biometrics,1978,10.2307/2529885,discrete-time-survival
+hess_eric_2014,Surveying the survival analysis landscape,Statistics in Medicine,2014,,review;survival
+wei_1984,Concordance correlation coefficient measures agreement between two readings,Biometrics,1984,,concordance;statistics
+dorey_little_1996,Comparison of two parameter estimation techniques for accelerated failure time models,Lifetime Data Analysis,1996,10.1007/BF00128568,aft;estimation
+wei_1989,The robust inference for the Cox proportional hazards model,JASA,1989,,cox;robust
+lin_wei_1989,The robust inference for the Cox proportional hazards model,JASA,1989,10.1080/01621459.1989.10478874,cox;robust
+grambsch_therneau_1994,Proportional hazards tests and diagnostics,Biometrika,1994,,cox;diagnostics
+schoenfeld_1982,Partial residuals for the proportional hazards regression model,Biometrika,1982,,cox;residuals
+royston_parmar_2002,Flexible parametric proportional-hazards and proportional-odds models,Statistics in Medicine,2002,10.1002/sim.1203,parametric;flexible
+royston_2006,Explained variation for survival models,Stata Journal,2006,,survival;explained-variation
+cox_1975,Partial likelihood,Biometrika,1975,10.1093/biomet/62.2.269,partial-likelihood
+breslow_1974,Covariance analysis of censored survival data,Biometrics,1974,10.2307/2529620,breslow
+efron_1977,The efficiency of Cox's likelihood function,JASA,1977,10.1080/01621459.1977.10480613,efron;ties
+peto_peto_1972,Asymptotically efficient rank invariant test procedures,JRSS A,1972,10.2307/2344317,logrank
+mantel_1966,Evaluation of survival data and two new rank order statistics,Cancer Chemotherapy Reports,1966,,logrank
+tarone_ware_1977,On distribution-free tests for equality of survival distributions,Biometrika,1977,,logrank
+greenwood_1926,A report on the natural duration of cancer,HM Stationery Office,1926,,survival;historical
+altman_deStavola_1994,Practical problems in fitting a proportional hazards model,Statistics in Medicine,1994,,cox;practical
+rutherford_crowther_lambert_2015,Relative survival analysis,Statistics in Medicine,2015,,relative-survival
+bower_ander_2016,Adjusting expected mortality rates using information from a control population,Statistics in Medicine,2016,,relative-survival
+royston_lambert_2011,Flexible Parametric Survival Analysis Using Stata,Stata Press,2011,,textbook;survival
+royston_2001,The lognormal distribution as a model for survival time in cancer,Biometrical Journal,2001,,lognormal;survival
+cox_oakes_1984c,Analysis of Survival Data,Chapman Hall,1984,,textbook;survival
+vaupel_manton_stallard_1979,The impact of heterogeneity in individual frailty on the dynamics of mortality,Demography,1979,10.2307/2061224,frailty
+bennett_1983,Analysis of survival data by the proportional odds model,Statistics in Medicine,1983,,po-model
+gompertz_1825,On the nature of the function expressive of the law of human mortality,Phil Transactions,1825,,gompertz;historical
+weibull_1951,A statistical distribution function of wide applicability,J of Applied Mechanics,1951,,weibull
+aalen_1978,Nonparametric inference for a family of counting processes,Annals of Stats,1978,10.1214/aos/1176344247,aalen
+nelson_1972,Theory and applications of hazard plotting for censored failure data,Technometrics,1972,,hazard-plot
+nelson_aalen_estimator,Nelson Aalen estimator,wiki,,,na-estimator
+efron_1981,Censored data and the bootstrap,JASA,1981,10.1080/01621459.1981.10477701,bootstrap;censored
+sprint_1996,A survey of imputation methods for duration data,Economic Letters,1996,,imputation;duration
+little_rubin_2019,Statistical Analysis with Missing Data,Wiley,2019,,missing-data;textbook
+van_buuren_2018,Flexible Imputation of Missing Data,CRC,2018,,missing-data;textbook
+rubin_1987,Multiple Imputation for Nonresponse in Surveys,Wiley,1987,,missing-data;seminal
+kaplan_meier_1958b,Nonparametric estimation from incomplete observations,JASA,1958,10.1080/01621459.1958.10501452,km;seminal
+leung_elashoff_afifi_1997,Censoring issues in survival analysis,Annual Review Public Health,1997,10.1146/annurev.publhealth.18.1.83,censoring
+helsel_2012,Statistics for Censored Environmental Data,Wiley,2012,,censoring;textbook
+klein_1991,Small-sample moments of some estimators of the variance of the Kaplan-Meier,Biometrics,1991,,km;variance
+kim_2003,Cumulative incidence in competing risks data,Communications in Statistics,2003,,competing-risks
+gray_1988,A class of K-sample tests for comparing the cumulative incidence of a competing risk,Annals of Stats,1988,10.1214/aos/1176350951,competing-risks
+bakoyannis_2012,Practical methods for competing risks data: a review,Statistical Methods in Medical Research,2012,,competing-risks;review
+therneau_crowson_atkinson_2015,Multi-state models and competing risks,R package,2015,,competing-risks;code
+latouche_2013,A competing risks analysis should report results on all cause-specific hazards,Journal Clinical Epidemiology,2013,,competing-risks
+fine_gray_1999b,A proportional hazards model for the subdistribution of a competing risk,JASA,1999,,fine-gray
+austin_fine_2017,Practical recommendations for reporting Fine-Gray model analyses,Statistics in Medicine,2017,10.1002/sim.7501,fine-gray;practical
+pintilie_2006,Competing Risks: A Practical Perspective,Wiley,2006,,competing-risks;textbook
+putter_fiocco_geskus_2007,Tutorial in biostatistics: competing risks and multi-state models,Statistics in Medicine,2007,10.1002/sim.2712,competing-risks;tutorial
+kleinbaum_klein_2012,Survival Analysis: A Self-Learning Text,Springer,2012,,textbook;survival
+collett_2003,Modelling Survival Data in Medical Research 2e,Chapman Hall,2003,,textbook;survival
+maller_zhou_1996,Survival Analysis with Long-Term Survivors,Wiley,1996,,cure-fraction;survival
+farewell_1982,The use of mixture models for the analysis of survival data with long-term survivors,Biometrics,1982,10.2307/2529885,cure-fraction
+tsodikov_1998,A proportional hazards model taking account of long-term survivors,Biometrics,1998,,cure-fraction
+kuk_chen_1992,A mixture model combining logistic regression with proportional hazards,Biometrika,1992,,cure-fraction
+lambert_2007,Estimating the cure fraction in population-based cancer studies,Stata Journal,2007,,cure-fraction
+lopes_papaioannou_2008,Bayesian mixture cure rate models,Biostatistics,2008,,bayesian;cure
+johnson_2012,Learning survival analysis,Annual Review of Stats,2012,,review;survival
+henderson_2002,Joint modelling of longitudinal and event time data,Biostatistics,2002,,joint-models
+rizopoulos_2012,Joint Models for Longitudinal and Time-to-Event Data,CRC,2012,,joint-models;textbook
+ishwaran_kogalur_2020,Random survival forest software,R package,2020,,rsf;code
+zhu_kosorok_2012,Recursively imputed survival trees,JASA,2012,10.1080/01621459.2012.677870,rsf
+wright_dankowski_ziegler_2017,Unbiased split variable selection for random survival forests using maximally selected rank statistics,Stats in Medicine,2017,10.1002/sim.7212,rsf
+steingrimsson_diao_strawderman_2019,Censoring Unbiased Regression Trees and Ensembles,JASA,2019,10.1080/01621459.2017.1422745,rsf
+van_houwelingen_putter_2011,Dynamic Prediction in Clinical Survival Analysis,CRC,2011,,dynamic-prediction
+tsiatis_davidian_2004,Joint modeling of longitudinal and time-to-event data: an overview,Statistica Sinica,2004,,joint-models;review
+flores_2014,A Unified Framework for Predicting Customer Lifetime Value,Journal of Interactive Marketing,2014,,ltv;survival;business
+nagin_2005,Group-Based Modeling of Development,Harvard,2005,,trajectory;social
+cairn_2023,Cairn Homes plc Annual Report 2023,Cairn Homes,2023,,ireland;developer;annual-report
+cairn_2022,Cairn Homes plc Annual Report 2022,Cairn Homes,2022,,ireland;developer;annual-report
+glenveagh_2023,Glenveagh Properties plc Annual Report 2023,Glenveagh,2023,,ireland;developer;annual-report
+glenveagh_2022,Glenveagh Properties plc Annual Report 2022,Glenveagh,2022,,ireland;developer;annual-report
+focus_ireland_2022,Focus Ireland Annual Review 2022,Focus Ireland,2022,,ireland;homelessness
+threshold_2022,Annual Report 2022,Threshold,2022,,ireland;housing;tenancy
+simon_community_2023,Simon Communities of Ireland Annual Report,Simon,2023,,ireland;homelessness
+iba_2022,Irish Banking Federation Housing Market Monitor,BPFI,2022,,ireland;mortgage;market
+construction_industry_federation_2023,Activity outlook,CIF,2023,,ireland;construction-industry
+thm_construction_index_2023,SCSI Construction Tender Price Index,SCSI,2023,,ireland;construction-costs
+teagasc_2022,Land use in Ireland,Teagasc,2022,,ireland;land-use
+dublin_city_council_2022,Dublin City Council Housing Strategy,DCC,2022,,ireland;dublin;housing
+fingal_2022,Fingal County Council Development Plan 2023-2029,Fingal,2022,,ireland;planning;development-plan
+cork_city_council_2022,Cork City Development Plan 2022-2028,CCC,2022,,ireland;cork;development-plan
+dun_laoghaire_rathdown_2022,DLR County Development Plan 2022-2028,DLR,2022,,ireland;dlr;dev-plan
+rte_housing_2024,RTE Housing News Archive,RTE,2024,,ireland;news;housing
+thejournal_planning_2023,theJournal planning permissions investigation,thejournal.ie,2023,,ireland;planning
+bord_pleanala_2023,An Bord Pleanála Annual Report 2023,ABP,2023,,ireland;planning;appeals
+shd_reviews_2018_2021,SHD archive reviews,DHLGH,2021,,ireland;shd
+housing_forum_2022,Housing Delivery Coordination Office Report,DHLGH,2022,,ireland;housing-delivery
+lrd_guidance_2022,Large-scale Residential Developments Guidance,DHLGH,2022,,ireland;lrd
+cia_handbook_construction_2021,Construction Industry Handbook,CIF,2021,,ireland;construction
+paper_report_esri_housing_2023,ESRI Housing Economy Report,ESRI,2023,,ireland;economics;housing
+bruegel_2022,The EU housing market: current trends,Bruegel,2022,,eu;housing
+oecd_2021_affordable_housing,Brick by Brick: Building Better Housing Policies,OECD,2021,10.1787/b453b043-en,oecd;policy
+oecd_2022_housing,Housing Taxation in OECD Countries,OECD,2022,,oecd;housing;tax
+worldbank_2012_housing,Doing Business: Dealing with Construction Permits,World Bank,2012,,construction-permits;global
+ahuriv_2019,National Housing Research Agenda,AHURI,2019,,australia;housing
+rosengarten_2011_housing_delay,Regulatory delay and residential construction,Housing Studies,2011,,delay;regulation
+somerville_2013_housing_delay,Construction delays and costs,Real Estate Econ,2013,,delay;costs
+ball_2014_delivery,Housing delivery in England,RICS Research,2014,,delivery;uk
+adams_leishman_2008,Irish housing market bubble investigation,IJSSP,2008,,ireland;bubble
+barker_2006_delivery,Housing delivery and planning,HM Treasury,2006,,delivery;uk
+harrison_weinberg_2015,Construction duration distribution,Construction Management and Econ,2015,,construction-duration
+kenley_2003,Financing Construction: Cash Flows and Cash Farming,Spon Press,2003,,construction;finance;textbook
+love_2019,A systematic review of construction project time overruns,Engineering Construction and Architectural Management,2019,10.1108/ECAM-05-2018-0199,construction-delay;review
+bromilow_1969,Contract time performance,Commonwealth Engineer,1969,,construction-duration;seminal
+chan_1999_bromilow,Modelling building durations in Hong Kong,Construction Management and Econ,1999,,construction-duration;bromilow
+ng_2001,A model for predicting construction duration,Construction Management and Econ,2001,,construction-duration
+hoffman_2007_construction_schedule,Schedule risk in construction,PMI,2007,,construction-schedule;risk
+assaf_al_hejji_2006,Causes of delay in large construction projects,International Journal of Project Management,2006,10.1016/j.ijproman.2005.11.010,construction-delay
+gunduz_yahya_2018_delay,Analysis of delay factors,KSCE,2018,,construction-delay
+jha_iyer_2006,Critical factors affecting quality performance,Construction Management and Econ,2006,,construction-performance
+koushki_al_rashid_kartam_2005,Delays and cost increases in the construction of private residential projects,Construction Management and Econ,2005,,construction-delay;kuwait
+odeh_battaineh_2002,Causes of construction delay,International Journal Project Management,2002,,construction-delay
+sambasivan_soon_2007,Causes and effects of delays in Malaysian construction industry,International Journal Project Management,2007,10.1016/j.ijproman.2006.11.007,construction-delay
+aibinu_odeyinka_2006,Construction delays and their causative factors in Nigeria,Journal of Construction Engineering Management,2006,,construction-delay
+kazaz_ulubeyli_tuncbilekli_2012,Causes of delays in construction projects in Turkey,Journal of Civil Engineering Management,2012,,construction-delay
+doloi_sawhney_iyer_rentala_2012,Analysing factors affecting delays in Indian construction,International Journal Project Management,2012,10.1016/j.ijproman.2011.11.005,construction-delay
+mahamid_bruland_dmaidi_2012,Causes of delay in road construction projects,Journal of Management in Engineering,2012,,construction-delay
+akintoye_skitmore_1991,Profitability of construction firms,Construction Management and Econ,1991,,construction;firms
+akintoye_fitzgerald_2000,A survey of current cost estimating practices,Construction Management and Econ,2000,,construction;cost
+love_tse_edwards_2005,Time-cost relationships in Australian building construction projects,Journal of Construction Engineering Management,2005,,construction-duration
+walker_vines_2000_project_delay,Identification of factors influencing construction time performance,Engineering Construction Arch Mgmt,2000,,construction-delay
+ibbs_abu_hijleh_kwak_1999_construction_risk,Construction delay and disruption on projects,Cost Engineering,1999,,construction-delay
+aibinu_jagboro_2002,The effects of construction delays on project delivery,International Journal Project Management,2002,,construction-delay
+chan_kumaraswamy_1997,A comparative study of causes of time overruns in Hong Kong construction projects,International Journal Project Management,1997,10.1016/S0263-7863(96)00039-7,construction-delay
+frimpong_oluwoye_crawford_2003,Causes of delay and cost overruns in Ghana,International Journal Project Management,2003,,construction-delay
+shebob_dawood_xu_2011,Analysing construction delay factors UK and Libya,Construction Management and Econ,2011,,construction-delay
+ahmed_azhar_castillo_kappagantula_2003,Construction delays in Florida,Journal of Construction Engineering Management,2003,,construction-delay
+stumpf_2000_riskscheduling,Schedule delay analysis,Cost Engineering,2000,,construction-delay
+arditi_akan_gurdamar_1985,Reasons for delays in public projects in Turkey,Construction Management and Econ,1985,,construction-delay
+kumaraswamy_1997_construction_delay,Common categories and causes of construction delays,Cost Engineering,1997,,construction-delay
+tumi_omran_pakir_2009,Causes of delay in construction industry in Libya,IICBE,2009,,construction-delay
+alaghbari_kadir_salim_ernawati_2007,The significant factors causing delay of building construction in Malaysia,Engineering Construction Arch Mgmt,2007,,construction-delay
+semple_hartman_jergeas_1994_construction_claims,Construction claims and disputes: causes and cost,Journal of Construction Engineering Management,1994,,construction-claims
+ameh_soyingbe_odusami_2010,Significant factors causing cost overruns in telecommunication projects in Nigeria,Journal of Construction in Developing Countries,2010,,construction-cost
+creedy_skitmore_wong_2010,Evaluation of risk factors leading to cost overrun,Journal of Construction Engineering Management,2010,,construction-cost
+doloi_2013_causal_factors,Cost overruns and failure in project management,Journal of Construction Engineering Management,2013,,construction-cost
+abdmajid_mccaffer_1998,Factors of non-excusable delays,Journal of Management Engineering,1998,,construction-delay
+kaming_holt_1997_factors,Factors influencing construction time and cost overruns on high-rise projects in Indonesia,Construction Management and Econ,1997,,construction-delay
+hamzah_2011,Cause of construction delay,International Journal Project Management,2011,,construction-delay
+flyvbjerg_2003_megaprojects,Megaprojects and Risk,Cambridge,2003,10.1017/CBO9781107050891,megaprojects;risk
+flyvbjerg_2014,What you should know about megaprojects,Project Management Journal,2014,10.1002/pmj.21409,megaprojects
+ballard_2000_lastplanner,The Last Planner System,PhD thesis,2000,,lean-construction
+koskela_2000_production_theory,An exploration towards a production theory,VTT,2000,,lean-construction
+thomas_1999_productivity,Construction baseline productivity,Journal of Construction Engineering Management,1999,,productivity
+hass_2001_construction_productivity,Construction productivity trends,RAND,2001,,productivity
+eurostat_construction_2023,Construction statistics EU,Eurostat,2023,,eu;construction
+eurostat_building_permits,Building permits: main statistical indicators,Eurostat,2022,,eu;permits
+oecd_2023_construction,Housing supply responsiveness across OECD countries,OECD,2023,,oecd;supply
+ahuri_2021,Australian housing supply challenges,AHURI Final Report,2021,,australia;supply
+gyourko_mccord_2019,Long-term residential construction cycles,Journal of Urban Econ,2019,,cycle;us
+wilkinson_reed_2007,Planning the delivery of housing,Property Management,2007,,delivery;planning
+prevost_smets_2018_amsterdam_planning,Housing policy and planning outcomes Amsterdam,Housing Studies,2018,,planning;netherlands
+greenhalgh_shaw_2015,UK housing delivery,Town Planning Review,2015,,uk;delivery
+doherty_2019_ireland_planning_delays,Planning system delays in Ireland,UCD MA thesis,2019,,ireland;planning-delay
+kenny_1974,Report of the Committee on the Price of Building Land,Kenny Report,1974,,ireland;land;seminal
+kenny_report_ucd_2019,Revisiting Kenny 45 years on,UCD,2019,,ireland;land;historical
+lyons_2013,Ireland's housing market an economists perspective,Lyons WP,2013,,ireland;housing
+benefit_2024,Construction cost trends,SCSI,2024,,ireland;costs
+nama_2015,NAMA Annual Report,NAMA,2015,,ireland;nama;distressed
+lutyens_2024_construction_costs,Construction cost increases in Ireland,SCSI,2024,,ireland;cost
+duff_2020_apartment_viability,Apartment viability in Irish cities,SCSI,2020,,ireland;apartment;viability
+sirr_2023_housing_supply,Drivers of housing supply in Ireland,DIT,2023,,ireland;supply
+odonnell_2021_sdz,Strategic Development Zones in Ireland,DKM,2021,,ireland;sdz
+brogan_2022_mortgage_market,Mortgage market in Ireland,CBI,2022,,ireland;mortgage
+waldron_2022_institutional_landlords,Institutional landlords and the dualist tenure system,Housing Studies,2022,,ireland;institutional;renters
+kitchin_oreilly_2017_dataengaged_city,The ethics of smart cities and urban science,Phil Trans Royal Soc A,2017,,ireland;smart-cities
+scott_redmond_2017_second_home,The rise of the second-home,Irish Geography,2017,,ireland;secondhome
+hourigan_2014_reimagining_ireland,Understanding Limerick: social exclusion and change,Cork Univ Press,2014,,ireland;limerick;exclusion
+mcinerney_2021_rural_housing,Rural housing in Ireland,RIAI,2021,,ireland;rural;housing
+cooney_2019_co_ownership,Co-operative housing and affordability in Ireland,DCU,2019,,ireland;cooperative
+coates_2020_labour_market,Irish construction labour market,TASC,2020,,ireland;labour;construction
+mcguinness_2020_vacant,Vacant dwellings in Ireland,ESRI BP,2020,,ireland;vacancy
+daly_2019_oneoff_housing,One-off housing in Ireland,Irish Geography,2019,,ireland;oneoff
+healy_2022_zoning,Residential zoning in Ireland,OPR,2022,,ireland;zoning
+fahey_2020_ireland_housing_policy,Housing policy in Ireland: new directions,Admin,2020,,ireland;policy
+norris_fahey_murphy_2015_social_policy,Irish Social Policy,Gill Macmillan,2015,,ireland;social-policy
+norris_fahey_2011_social_housing_asset,Social housing as asset management,Housing Studies,2011,,ireland;social-housing
+kennedy_stuart_cbi_2019,Ireland housing construction drivers,CBI,2019,,ireland;construction
+construction_report_dkm_2023,Construction sector output analysis,DKM Economic Consultants,2023,,ireland;construction
+mcquinn_oconnell_2024_affordability,Affordability and housing supply,ESRI,2024,,ireland;affordability
+kennedy_2023_policy_housing,Housing policy changes and supply,ESRI,2023,,ireland;policy
+housing_agency_2023_needs,Summary of Social Housing Assessments 2023,Housing Agency,2023,,ireland;social-housing
+pl_housing_pipeline_ie_2024,Planning-permission-to-completion latency in Ireland,HDR Internal Report,2024,,ireland;latency;predecessor
+kain_1967,Postwar metropolitan development: housing and jobs,Regional Science Assoc Papers,1967,,housing-jobs
+rossi_1980,Why Families Move,Sage,1980,,mobility
+goodman_1989,The urban housing market over time,JUE,1989,,housing;time
+wheaton_1990_vacancy,Vacancy search and prices in a housing market matching model,JPE,1990,,vacancy;search
+carrillo_2012_search,An empirical stationary equilibrium search model of the housing market,IER,2012,,search;housing
+diamond_mcquade_qian_2019_sf,The effects of rent control expansion,AER,2019,,rent-control
+autor_palmer_pathak_2014,Housing market spillovers: evidence from the end of rent control,JPE,2014,,rent-control
+early_2018_public_housing_wait,Waiting list length and affordable housing,Housing Policy Debate,2018,,wait-lists
+olsen_ludwig_duncan_2000,The effects of public housing on household well-being,AER,2000,,public-housing
+ellen_lacoe_sharygin_2013,Do foreclosures cause crime,JUE,2013,,foreclosure;crime
+mian_sufi_2009_housing_crisis,The consequences of mortgage credit expansion,QJE,2009,,mortgage;credit
+sufi_2018_macro_house,Macro finance and housing,Handbook,2018,,macro;housing
+kimeldorf_wahba_1970_spline,A correspondence between Bayesian estimation,Annals of Math Stats,1970,,spline;bayes
+wood_2017,Generalized Additive Models,CRC,2017,,gam;textbook
+kaplan_meier_proof,Kaplan Meier Estimator Proof,MIT lecture notes,2015,,km;teaching
+davidson_pilon_2020_lifelines_docs,lifelines documentation,readthedocs,2020,,lifelines;code
+breiman_1996_bagging,Bagging predictors,Machine Learning,1996,,bagging
+schapire_1990_weak,The strength of weak learnability,Machine Learning,1990,,boosting;seminal
+friedman_hastie_tibshirani_2000_additive_logistic,Additive logistic regression,Annals of Stats,2000,,boosting;statistics
+hastie_tibshirani_friedman_2009,The Elements of Statistical Learning,Springer,2009,,textbook;ml
+james_witten_hastie_tibshirani_2021,Introduction to Statistical Learning,Springer,2021,,textbook;ml
+murphy_2012,Machine Learning: A Probabilistic Perspective,MIT Press,2012,,textbook;ml
+bishop_2006,Pattern Recognition and Machine Learning,Springer,2006,,textbook;ml
+goodfellow_bengio_courville_2016,Deep Learning,MIT Press,2016,,textbook;ml
+gelman_2013_bda,Bayesian Data Analysis 3e,CRC,2013,,textbook;bayesian
+mcelreath_2020,Statistical Rethinking,CRC,2020,,textbook;bayesian
+pearl_2009,Causality 2e,Cambridge,2009,,textbook;causal
+angrist_pischke_2009,Mostly Harmless Econometrics,Princeton,2009,,textbook;econ
+cameron_trivedi_2005,Microeconometrics: methods and applications,Cambridge,2005,,textbook;econ
+greene_2018,Econometric Analysis,Pearson,2018,,textbook;econ
+hamilton_1994,Time Series Analysis,Princeton,1994,,textbook;timeseries
+lutkepohl_2006,New Introduction to Multiple Time Series Analysis,Springer,2006,,textbook;timeseries
+cleveland_1979_lowess,Robust locally weighted regression,JASA,1979,,lowess
+wilkinson_2012_grammar,The Grammar of Graphics,Springer,2012,,textbook;graphics
+tufte_2001,The Visual Display of Quantitative Information,Graphics Press,2001,,visualization
+schulenburg_2021_housing_costs,Housing construction costs in Ireland and EU comparison,IHF,2021,,ireland;costs
+cash_2023_dublin_permissions,Dublin planning permissions timeline,Civic Tech Ireland,2023,,ireland;dublin;planning
+oneill_2022_shd_timeline,SHD decision timelines,IE Planning,2022,,ireland;shd
+byrne_2016_property_bust,From Celtic Tiger to Crisis and beyond,Irish Journal of Sociology,2016,,ireland;crisis;property
+kelly_2010_irish_bubble,The Irish credit bubble,CEPR,2010,,ireland;credit;bubble
+lane_2016_ireland_monetary_policy,The Irish experience,Money Macro and Finance,2016,,ireland;monetary-policy
+barry_2007_ireland_historical,The EU Ireland relationship,IEAD,2007,,ireland;history
+regling_watson_2010,A Preliminary Report on the Sources of Ireland's Banking Crisis,Govt of Ireland,2010,,ireland;banking;crisis
+nyberg_2011_banking_report,Misjudging Risk: Causes of the Systemic Banking Crisis in Ireland,Commission of Inquiry,2011,,ireland;banking
+mcgee_2020_affordability,Irish housing affordability,SCSI,2020,,ireland;affordability
+daft_2023_report,Daft.ie 2023 housing market report,Daft.ie,2023,,ireland;housing;market
+myhome_2023,Myhome.ie 2023 property barometer,MyHome,2023,,ireland;housing;market
+esri_brexit_2024,Brexit impacts on the Irish economy,ESRI,2024,,ireland;brexit
+draghi_2024_eu_competitiveness,The future of European competitiveness,EU Report,2024,,eu;competitiveness
+geary_2018_socialhouse_lifecycle,Social housing delivery lifecycle,UCD,2018,,ireland;social-housing;lifecycle
+lamda_2020_construction,Construction and the Irish recovery,LAMDA,2020,,ireland;construction;recovery
+woulfe_2022_zoning_supply,Residential zoning and supply,Housing Agency,2022,,ireland;zoning;supply
+arkins_2016_shd_review,Early lessons from the SHD process,UCD,2016,,ireland;shd;review
+oniel_2023_land_prices,Land prices and housing affordability in Ireland,CBI,2023,,ireland;land-prices
+feeney_2022_construction_supply_chain,Construction supply chain issues post pandemic,ESRI,2022,,ireland;supply-chain
+coyne_2022_apartment_delivery,Apartment delivery bottlenecks Dublin,SCSI,2022,,ireland;apartments;bottlenecks
+ahuri_2023_supply_chain,Housing supply chain constraints Australia,AHURI,2023,,australia;supply-chain
+rics_2023_ireland_market,RICS Ireland construction survey,RICS,2023,,ireland;construction;survey
+rics_uk_2023,RICS UK construction and infrastructure survey,RICS,2023,,uk;construction;survey
+dkm_2024_cost_drivers,Drivers of residential cost in Ireland,DKM,2024,,ireland;costs;drivers
+bpfi_2024_outlook,BPFI Housing Market Outlook,BPFI,2024,,ireland;mortgage;outlook
+dhlgh_2024_annual,Housing for All Progress Report 2024,DHLGH,2024,,ireland;policy
+mcquinn_oconnell_esri_2024,The Irish housing market in transition,ESRI,2024,,ireland;housing;transition
+odonoghue_2021_landuse_simulation,LULC modelling for Ireland,Teagasc,2021,,ireland;land-use;simulation
+esri_climate_housing_2023,Climate targets and housing delivery,ESRI,2023,,ireland;climate;housing
+oco_2020_ireland_homelessness,Rising homelessness in Ireland,Ombudsman Children,2020,,ireland;homelessness
+rebuilding_ireland_2016,Rebuilding Ireland: An Action Plan for Housing,Govt of Ireland,2016,,ireland;policy
+nama_2016_review,NAMA housing delivery progress,NAMA,2016,,ireland;nama
+lda_2022_report,Land Development Agency Annual Report,LDA,2022,,ireland;lda
+lda_2023_report,Land Development Agency Annual Report,LDA,2023,,ireland;lda
+crogan_2020_croppedup,Cropped up: the demand side of the Irish housing crisis,IJS,2020,,ireland;demand
+donnelly_2023_oneoff_regulation,One-off housing policy in Ireland,IPI,2023,,ireland;oneoff;planning
+heanue_mcguinness_2019,Employer-provided apprenticeship training in construction,ESRI BPR,2019,,ireland;construction;apprenticeship
+scheinkman_woodford_1994,Self-organized criticality and economic fluctuations,AER,1994,,econ;criticality
+azariadis_guesnerie_1986_sunspots,Sunspots and cycles,Review Economic Studies,1986,,macro;sunspots
+esri_forecasts_2025,Quarterly Economic Commentary Spring 2025,ESRI,2025,,ireland;forecasts
+nbco_webinar_2024_bcms,BCMS webinar 2024,NBCO,2024,,ireland;bcms
+deloitte_2023_construction,Construction market outlook Ireland,Deloitte,2023,,ireland;construction;outlook
+pwc_2023_construction,PwC Construction Scorecard,PwC Ireland,2023,,ireland;construction
+keith_oconnor_2013_bcar,BC(A)R 2014 implementation concerns,CIF,2013,,ireland;bcar
+bowlby_2020_survival_analysis_apps,Survival analysis applications in business and industry,Handbook Stats,2020,,survival;review
+fischler_2003_pp_system,Planning the logistics of planning permissions,Town Planning Review,2003,,planning;logistics
+daly_boland_2020,Ireland in the EU housing comparison,IDA,2020,,ireland;eu;comparison
+schularick_taylor_2012_credit_booms,Credit booms gone bust,AER,2012,,credit;booms
+mian_sufi_verner_2017,Household debt and business cycles worldwide,QJE,2017,,household-debt
+cunningham_engelhardt_patterson_2016_downpayment,Down payment constraint and labor market performance,JUE,2016,,downpayment
+linneman_wachter_1989_mortgage_credit,The impacts of borrowing constraints on homeownership,RE Econ,1989,,downpayment
+adams_gramling_1989_dynamic_housing,A dynamic model of owner-occupied housing,JUE,1989,,housing;dynamic-model
+meese_wallace_1994_index,Testing the present value relation for house prices,JAFE,1994,,housing;index
+clayton_1996_rational_expectations,Rational expectations in the Vancouver housing market,JUE,1996,,housing;expectations
+hwang_quigley_son_2006_housing_dynamics,Housing market dynamics,Regional Science Urban Econ,2006,,housing;dynamics
+capozza_hendershott_mack_2004,An anatomy of price dynamics in illiquid markets,Real Estate Economics,2004,,illiquid;dynamics
+harter_morris_2021_census_lags,Measuring lags between permit and completion in US data,USCB,2021,,us;permits;completion
+himmelberg_mayer_sinai_2005,Assessing high house prices: bubbles fundamentals and misperceptions,JEP,2005,,bubbles
+davis_heathcote_2005,Housing and the business cycle,IER,2005,,housing;cycle
+favilukis_ludvigson_van_nieuwerburgh_2017,The macroeconomic effects of housing wealth,JPE,2017,,housing;wealth
+iacoviello_2005_housing_macro,House prices borrowing constraints and monetary policy,AER,2005,,housing;macro
+iacoviello_2015_financial_macro,Financial business cycles,Review Economic Dynamics,2015,,housing;financial
+ortega_rubio_thomas_2011,House purchase versus rental in Spain,Review Economic Dynamics,2011,,spain;housing
+kuminoff_pope_2014,Do capitalization effects for public goods reveal the public's willingness,AER,2014,,wtp;public-goods
+mian_rao_sufi_2013,Household balance sheets,QJE,2013,,household-balance
+greenspan_kennedy_2008_sources_changes,Sources and uses of equity extracted from homes,NBER WP,2008,,home-equity
+mian_sufi_2014,What explains the 2007-2009 drop in employment,Econometrica,2014,,employment;crisis
+stroebel_vavra_2019,House prices and local consumption,JPE,2019,,house-prices;consumption
+fougere_kamionka_2008_duration_unemp,Econometrics of individual labor market transitions,Handbook Econometrics,2008,,labour;duration
+abbring_van_den_berg_van_ours_2005,The effect of unemployment insurance,AER,2005,,ue;benefits
+esri_econoutlook_2024_q4,ESRI Economic Outlook Q4 2024,ESRI,2024,,ireland;outlook
+cbi_macrofin_2024,Macrofinancial review Central Bank of Ireland,CBI,2024,,ireland;macro-financial
+cbi_2020_covid_covid,COVID-19 and the Irish housing market,CBI,2020,,ireland;covid;housing
+pwc_2020_covid_construction,COVID-19 impact on construction sector in Ireland,PwC,2020,,ireland;covid;construction
+tradingeconomics_ie_2024,Ireland Building Permits Trading Economics,TradingEconomics,2024,,ireland;permits
+goodbody_2023_housing,Goodbody Irish Housing Outlook,Goodbody,2023,,ireland;housing;outlook
+davy_2024_housing,Davy Irish Economics Research,Davy,2024,,ireland;housing;outlook
+construction_news_ireland_2024,Construction News Ireland 2024 Archive,CNI,2024,,ireland;news;construction
+rte_news_2023_commencement,RTE News April 2023 commencement figures,RTE,2023,,ireland;news;commencement

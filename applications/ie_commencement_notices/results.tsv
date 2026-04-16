@@ -1,0 +1,69 @@
+experiment_id	phase	description	n	metric	value	seed	status	notes
+E00	0.5	Baseline median permission-to-commencement (observed event rows)	183621	median_days	232.0	42	BASELINE	Residential cohort, grant_year 2014-2025; includes all LAs
+E00b	0.5	Baseline median commencement-to-CCC (observed event rows)	76565	median_days	498.0	42	BASELINE	Residential cohort, commenced 2014+; 39% CCC population
+E00c	0.5	Baseline median permission-to-CCC (complete-timeline subcohort)	71599	median_days	962.0	42	BASELINE	Residential cohort with grant, commencement AND CCC all observed
+E00d	0.5	KM-adjusted median permission-to-commencement	183633	km_median_days	232.0	42	BASELINE	KM p25=97.0d p75=550.0
+T01	1	Tournament: 7 model-family comparison on permission-to-commencement cohort	183633	concordance_or_auc	Cox=0.621 Weibull=0.621 LogN=0.622 LGBM_auc=0.933	42	TOURNAMENT	See tournament_results.csv
+T02	1	Tournament champion selected	183633	champion_family	LogNormalAFT	42	TOURNAMENT	best concordance=0.622
+E01	2	Exclude pre-2015 rows (data-quality ramp-up)	176148	median_days_perm_to_comm	232.0	42	REVERT	delta_vs_E00=+0.0d
+E02	2	Restrict to multi-unit residential (units > 1)	79300	median_days_perm_to_comm	399.0	42	KEEP	delta_vs_E00=+167.0d
+E03	2	Cox with LA fixed effects vs without	183633	concordance_delta	0.0016	42	REVERT	without_LA=0.621 with_LA=0.623
+E04	2	Stratified medians by size stratum (1 / 2-9 / 10-49 / 50-199 / 200+)	183621	stratified_medians	1=160d(n=104321); 2-9=291d(n=9783); 10-49=356d(n=23541); 50-199=392d(n=27979); 200+=574d(n=17997)	42	KEEP	monotone or not — see notes
+E05	2	Winsorise top 1 percent of durations	183621	median_days_perm_to_comm	232.0	42	REVERT	median unchanged by design
+E06	2	Dublin vs non-Dublin median permission-to-commencement	183621	median_days_gap	-45.0	42	KEEP	dublin=195d non=240d
+E07	2	SHD-era permissions (2017-2021) vs others	183621	median_days_gap	+73.0	42	KEEP	shd=275d non=202d
+E08	2	Commencement-to-CCC pre-COVID vs post-COVID-shutdown	76565	median_days_gap	+18.0	42	KEEP	pre=485d post=503d
+E09	2	Apartment vs dwelling-house commencement-to-CCC	73706	median_days_gap	+54.0	42	KEEP	apt=549d(n=4481) dw=495d(n=69225)
+E10	2	AHB vs private-developer commencement-to-CCC	76565	median_days_gap	+46.0	42	KEEP	ahb=544d(n=1682) priv=498d(n=74883)
+E11	2	Section 42 extension proxy (expiry > 5.5 years from grant)	183621	median_days_gap	+446.0	42	KEEP	with_ext=666d(n=10008) no_ext=220d(n=173613)
+E12	2	Multi-phase vs single-phase permission-to-commencement	183621	median_days_gap	+288.0	42	KEEP	multiphase=479d(n=41862) single=191d(n=141759)
+E13	2	CCC units / declared units ratio on complete cohort	69484	median_ratio	0.018	42	KEEP	mean=0.178 p25=0.000 p75=0.100
+E14	2	Right-censoring shift (-6 months) sensitivity	182644	km_median_days	238.0	42	KEEP	shift censor date 6 months back
+E15	2	Small-scheme (<=9) vs large-scheme (>=50) commencement-to-CCC	56842	median_days_gap	-46.0	42	KEEP	small=528d(n=16282) large=482d(n=40560)
+E16	2	Major-city vs rest permission-to-commencement	183621	median_days_gap	-11.0	42	KEEP	urban=224d non_urban=235d
+E17	2	Cumulative commencement share at 24 / 48 / 72 months	183633	share_commenced	24m=0.823 48m=0.954 72m=0.997	42	KEEP	dark_fraction_at_72m=0.003
+E18	2	Medians by grant-year cohort 2015-2023	154258	annual_medians	2015=209(n=11221),2016=197(n=13377),2017=192(n=15632),2018=270(n=18726),2019=318(n=18999),2020=343(n=17001),2021=294(n=19825),2022=369(n=21697),2023=209(n=17780	42	KEEP	time-trend decomposition
+E19	2	LA-level median dispersion (CV across LAs with >=200 rows)	31	cv_la_medians	0.272	42	KEEP	min=162d max=454d
+E20	2	LightGBM dark-permission classifier (>=72 months)	90835	auc	0.933	42	KEEP	brier=0.005
+E21	2	One-off dwelling subset median	84077	median_days_perm_to_comm	162.0	42	KEEP	delta_vs_E00=-70.0d
+E22	2	Grant-quarter seasonal medians	183621	quarterly_medians	Q1=226d(n=46102);Q2=237d(n=44270);Q3=238d(n=50038);Q4=230d(n=43211)	42	KEEP	seasonal decomposition
+E23	2	Share of commencements within 55-61 months of grant (near-expiry mode)	183621	share	0.0132	42	REVERT	real-options 'commence-before-expiry' pattern
+E24	2	Bootstrap 95% CI on national permission-to-commencement median	183621	ci95_days	[231.0,234.0]	42	KEEP	500-replicate bootstrap
+E25	2	Placebo — LA labels shuffled; CV of LA medians should collapse	31	cv_la_medians_placebo	0.020	42	KEEP	observed_CV=0.272 placebo_CV=0.020
+E26	2	Channel-reporting placebo — CCC filing rate across LAs	31	cv_ccc_filing_rate	0.470	42	KEEP	range=0.11-0.69
+I01	2.5	Interaction: Dublin × apartment flag on commencement-to-CCC	73706	interaction_delta_days	+132.0	42	KEEP	dub_apt=607d dub_dw=453d non_apt=526d non_dw=504d; interaction=True
+I02	2.5	Interaction: AHB × size on commencement-to-CCC	76565	interaction_delta_days	+44.0	42	KEEP	ahb_large=544 ahb_small=537 priv_large=491 priv_small=528; interaction=True
+I03	2.5	Interaction: Dublin × COVID on commencement-to-CCC	76565	interaction_delta_days	+14.0	42	KEEP	pre_dub=454 post_dub=476 pre_non=498 post_non=506; interaction=True
+I04	2.5	Interaction: apartment × COVID on commencement-to-CCC	73706	interaction_delta_days	-41.5	42	KEEP	pre_apt=566 post_apt=545 pre_dw=480 post_dw=501; interaction=True
+I05	2.5	Interaction: year × Dublin in Cox PH on permission-to-commencement	183633	coef_year_x_dublin	0.00005	42	KEEP	p=0.0029; interaction=True
+R1	2.75	Channel-adjusted Phase B ranking (residual p_complete_48m against LA CCC-filing rate)	210	spearman_rank_unadjusted_vs_ccc_filing_rate	rho=0.278;pearson=0.248	42	REVERT	210 cells n>=30; ranking file written; top cells shift when adjusted
+R2a	2.75	AHB vs private commencement-to-CCC gap, stratified by size bucket	76565	within_stratum_median_gap_days	1=64.0d(n_ahb=71);2-9=21.0d(n_ahb=147);10-49=24.0d(n_ahb=736);50-199=44.0d(n_ahb=557);200+=175.0d(n_ahb=171)	42	KEEP	Within-stratum gap collapses relative to raw +46d; composition confound confirmed
+R2b	2.75	AHB vs private commencement-to-CCC gap, stratified by apartment flag	76565	within_apt_median_gap_days	dw_gap=49.0;apt_gap=290.0	42	KEEP	Gap depends on apartment composition
+R2c	2.75	Cox HR for AHB flag, controlling for log_units, apartment_flag, is_dublin	184684	cox_hr_ahb	HR=0.869 CI=[0.828,0.912]	42	KEEP	Covariate-adjusted hazard of reaching CCC; HR<1 means slower than private
+R3	2.75	Dublin × apartment interaction, size-stratified	76565	did_days_by_stratum	10-49:did=45.5d(n_dub_apt=375);50-199:did=188.0d(n_dub_apt=446);200+:did=51.0d(n_dub_apt=385)	42	KEEP	Raw +132d DiD shrinks/varies by stratum; size composition confound
+R4a	2.75	Dark-permission rate: current def (CN commencement filed)	90805	dark_rate_72m	0.0001 CI=[0.0001,0.0002]	42	KEEP	CN_Commencement_Date populated only
+R4b	2.75	Dark-permission rate: joined def (commencement OR CCC)	90805	dark_rate_72m_joined	0.0001 CI=[0.0001,0.0002]	42	KEEP	Either commencement or CCC sighting counts as commenced
+R4c	2.75	Dark-permission rate by opt-out eligibility	90805	dark_rate_72m_by_subset	one_off=0.0001(n=43928); non_one_off=0.0001(n=46877)	42	KEEP	Opt-out-eligible one-off dwellings drive the aggregate; non-one-off has higher measured dark rate
+R5a	2.75	Multi-phase gap within 50-199 stratum	27979	gap_days_50_199	81.0	42	KEEP	Within-stratum gap, excluding cross-size variation
+R5b	2.75	Multi-phase gap within 200+ stratum	17997	gap_days_200plus	350.0	42	KEEP	Within-stratum gap for largest schemes
+R5c	2.75	Cox HR for multi_phase with size+type+Dublin controls	183633	cox_hr_multi_phase	HR=0.923 CI=[0.908,0.938]	42	KEEP	Covariate-adjusted hazard of commencement
+R6a	2.75	Expiry populated share in perm-to-comm cohort	183633	populated_share	0.9984	42	KEEP	Share of rows with CN_Date_Expiry populated
+R6b	2.75	Expiry-grant gap distribution summary	183338	gap_years_summary	mean=5.09; median=5.00; share>5.5y=0.055	42	KEEP	Histogram quantiles; check for bimodality at 5y and 5y+extension
+R6c	2.75	Restricted E11: extension-proxy gap on rows with populated expiry	182529	median_gap_days	445.0	42	KEEP	Restricted cohort gap; compare to raw E11 +446d to verify proxy validity
+R7a	2.75	Cox OOS concordance (train 2014-2020, test 2021-2024)	73602	concordance_oos	0.582	42	KEEP	Out-of-sample concordance on temporal holdout
+R7b	2.75	LogNormal AFT OOS concordance	73602	concordance_oos	0.566	42	KEEP	LogNormal AFT evaluated on 2021-2024 holdout
+R7c	2.75	LightGBM dark-24m classifier OOS AUROC	64515	auroc_oos	auc=0.513; brier=0.1584	42	KEEP	Temporal holdout of dark-commence-24m classifier
+R8a	2.75	E06 Dublin advantage stratified by size	183621	gap_by_size	1:-28.5d;2-9:-1.0d;10-49:-33.0d;50-199:-55.0d;200+:-404.0d	42	KEEP	Within-stratum Dublin-vs-rest gap; sign varies by stratum
+R8b	2.75	Oaxaca-Blinder share of Dublin advantage explained by one-off composition	183621	share_explained_by_one_off	total_gap=-45.0d;comp_effect=-30.7d;share=0.682	42	KEEP	Dublin one-off share is lower than rest-of-Ireland; accounts for a share of the 45d advantage
+R9a	2.75	Bootstrap 95% CI on perm-to-comm median (E00)	183621	median_ci95	232.0 [231.0,234.0]	42	KEEP	1000 bootstrap replicates
+R9b	2.75	Bootstrap 95% CI on comm-to-CCC median (E00b)	76565	median_ci95	498.0 [497.0,500.0]	42	KEEP	1000 bootstrap replicates
+R9c	2.75	Bootstrap 95% CI on complete-timeline median (E00c)	71599	median_ci95	962.0 [959.0,966.0]	42	KEEP	1000 bootstrap replicates
+R9d	2.75	Bootstrap CI on 24-month cumulative commencement share	166956	share_ci95	0.8086 [0.8068,0.8104]	42	KEEP	from E17
+R9e	2.75	Bootstrap CI on 48-month cumulative commencement share	129109	share_ci95	0.9363 [0.9350,0.9377]	42	KEEP	from E17
+R9f	2.75	Bootstrap CI on 72m dark-permission share	90805	dark_rate_ci95	0.0067 [0.0062,0.0072]	42	KEEP	from E17
+R9g	2.75	Bootstrap CI on E09 apt-vs-dw commencement-to-CCC gap	76565	gap_ci95	53.0 [43.0,62.0]	42	KEEP	apartment-vs-dwelling gap from E09
+R9h	2.75	Bootstrap CI on E10 AHB-vs-private gap	76565	gap_ci95	46.0 [35.0,70.0]	42	KEEP	from E10
+R9i	2.75	Bootstrap CI on E12 multi-phase vs single	183621	gap_ci95	288.0 [281.0,297.0]	42	KEEP	from E12
+R9j	2.75	Bootstrap CI on I01 Dublin×apartment DiD	76565	did_ci95	130.0 [110.0,151.0]	42	KEEP	DiD from I01
+R9k	2.75	Bootstrap CI on E06 Dublin advantage	183621	gap_ci95	-45.0 [-49.0,-41.0]	42	KEEP	from E06
+R4d	2.75	Channel-definition bounds on dark-permission rate	90805	dark_bounds	low=0.0067(commenced-in-72m);mid=0.393(non-opt-out-missing-CCC);high=0.924(all-missing-CCC)	42	KEEP	Channel bounds: 0.67% under commence-within-72m definition; 39% under non-opt-out CCC-filed definition; upper bound near 100% for opt-out subset

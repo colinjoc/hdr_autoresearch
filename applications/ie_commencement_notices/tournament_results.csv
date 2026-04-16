@@ -1,0 +1,8 @@
+family,concordance,aic,brier,notes
+KaplanMeier,0.5,,,median=232d
+CoxPH,0.6212766357199615,974867.449657823,,penalizer=0.01
+WeibullAFT,0.6212229336775577,691877.278043585,,
+LogNormalAFT,0.6222209755048571,690626.0256773557,,
+GeneralizedGamma_univariate,,697446.3545334315,,univariate
+LightGBM_dark_classifier,,,0.004660692858888076,AUROC=0.933
+Logistic_dark_classifier,,,0.006831619996923378,AUROC=0.696

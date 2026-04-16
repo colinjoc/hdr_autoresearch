@@ -1,0 +1,422 @@
+{
+  "R1": {
+    "spearman_rho": 0.2782107078384726,
+    "spearman_p": 4.339761573774727e-05,
+    "pearson_r": 0.24845055882050127,
+    "n_cells": 210,
+    "top15_adjusted": [
+      {
+        "LA_clean": "Offaly County Council",
+        "size_bucket": "200+",
+        "type_flag": "dwelling",
+        "N": 89,
+        "p_complete_48m": 0.898876404494382,
+        "p_complete_48m_adj": 0.5052594392785654
+      },
+      {
+        "LA_clean": "Leitrim County Council",
+        "size_bucket": "10-49",
+        "type_flag": "dwelling",
+        "N": 128,
+        "p_complete_48m": 0.859375,
+        "p_complete_48m_adj": 0.4976342862938961
+      },
+      {
+        "LA_clean": "Clare County Council",
+        "size_bucket": "50-199",
+        "type_flag": "dwelling",
+        "N": 506,
+        "p_complete_48m": 0.9150197628458498,
+        "p_complete_48m_adj": 0.4907798559355183
+      },
+      {
+        "LA_clean": "Kilkenny County Council",
+        "size_bucket": "50-199",
+        "type_flag": "dwelling",
+        "N": 369,
+        "p_complete_48m": 0.8617886178861789,
+        "p_complete_48m_adj": 0.4644841534465362
+      },
+      {
+        "LA_clean": "Cork County Council",
+        "size_bucket": "50-199",
+        "type_flag": "apartment",
+        "N": 95,
+        "p_complete_48m": 0.8947368421052632,
+        "p_complete_48m_adj": 0.4291373418102373
+      },
+      {
+        "LA_clean": "Kilkenny County Council",
+        "size_bucket": "200+",
+        "type_flag": "dwelling",
+        "N": 101,
+        "p_complete_48m": 0.8118811881188119,
+        "p_complete_48m_adj": 0.41457672367916926
+      },
+      {
+        "LA_clean": "Dublin City Council",
+        "size_bucket": "50-199",
+        "type_flag": "dwelling",
+        "N": 426,
+        "p_complete_48m": 0.7887323943661971,
+        "p_complete_48m_adj": 0.410807193729686
+      },
+      {
+        "LA_clean": "Wicklow County Council",
+        "size_bucket": "200+",
+        "type_flag": "apartment",
+        "N": 37,
+        "p_complete_48m": 0.8648648648648649,
+        "p_complete_48m_adj": 0.3931208910162274
+      },
+      {
+        "LA_clean": "Wicklow County Council",
+        "size_bucket": "200+",
+        "type_flag": "dwelling",
+        "N": 298,
+        "p_complete_48m": 0.8557046979865772,
+        "p_complete_48m_adj": 0.3839607241379397
+      },
+      {
+        "LA_clean": "Carlow County Council",
+        "size_bucket": "50-199",
+        "type_flag": "dwelling",
+        "N": 225,
+        "p_complete_48m": 0.7244444444444444,
+        "p_complete_48m_adj": 0.35089206792066513
+      },
+      {
+        "LA_clean": "Limerick City and County Council",
+        "size_bucket": "50-199",
+        "type_flag": "dwelling",
+        "N": 811,
+        "p_complete_48m": 0.7632552404438965,
+        "p_complete_48m_adj": 0.3480597488405468
+      },
+      {
+        "LA_clean": "Galway County Council",
+        "size_bucket": "50-199",
+        "type_flag": "dwelling",
+        "N": 708,
+        "p_complete_48m": 0.6892655367231638,
+        "p_complete_48m_adj": 0.3210317624390862
+      },
+      {
+        "LA_clean": "Cork City Council",
+        "size_bucket": "50-199",
+        "type_flag": "dwelling",
+        "N": 1436,
+        "p_complete_48m": 0.8544568245125348,
+        "p_complete_48m_adj": 0.31473045983707126
+      },
+      {
+        "LA_clean": "Kilkenny County Council",
+        "size_bucket": "10-49",
+        "type_flag": "apartment",
+        "N": 34,
+        "p_complete_48m": 0.7058823529411765,
+        "p_complete_48m_adj": 0.30857788850153384
+      },
+      {
+        "LA_clean": "South Dublin County Council",
+        "size_bucket": "50-199",
+        "type_flag": "dwelling",
+        "N": 1506,
+        "p_complete_48m": 0.8034528552456839,
+        "p_complete_48m_adj": 0.308389370017479
+      }
+    ]
+  },
+  "R2": {
+    "stratified_by_size": {
+      "1": {
+        "n_ahb": 71,
+        "n_priv": 9681,
+        "ahb_med": 611.0,
+        "priv_med": 547.0,
+        "gap_days": 64.0
+      },
+      "2-9": {
+        "n_ahb": 147,
+        "n_priv": 6383,
+        "ahb_med": 525.0,
+        "priv_med": 504.0,
+        "gap_days": 21.0
+      },
+      "10-49": {
+        "n_ahb": 736,
+        "n_priv": 18987,
+        "ahb_med": 535.0,
+        "priv_med": 511.0,
+        "gap_days": 24.0
+      },
+      "50-199": {
+        "n_ahb": 557,
+        "n_priv": 24574,
+        "ahb_med": 544.0,
+        "priv_med": 500.0,
+        "gap_days": 44.0
+      },
+      "200+": {
+        "n_ahb": 171,
+        "n_priv": 15258,
+        "ahb_med": 625.0,
+        "priv_med": 450.0,
+        "gap_days": 175.0
+      }
+    },
+    "stratified_by_apartment": {
+      "dwelling": {
+        "n_ahb": 1677,
+        "n_priv": 70407,
+        "ahb_med": 544.0,
+        "priv_med": 495.0,
+        "gap_days": 49.0
+      },
+      "apartment": {
+        "n_ahb": 5,
+        "n_priv": 4476,
+        "ahb_med": 839.0,
+        "priv_med": 549.0,
+        "gap_days": 290.0
+      }
+    },
+    "cox_hr_ahb": 0.8692810415289532,
+    "cox_ci_low": 0.828395897291563,
+    "cox_ci_high": 0.9121840555128953
+  },
+  "R3": {
+    "10-49": {
+      "dub_apt_med": 631.0,
+      "dub_dw_med": 520.5,
+      "non_apt_med": 569.0,
+      "non_dw_med": 504.0,
+      "n_dub_apt": 375,
+      "n_dub_dw": 2538,
+      "n_non_apt": 688,
+      "n_non_dw": 16122,
+      "did_days": 45.5
+    },
+    "50-199": {
+      "dub_apt_med": 679.0,
+      "dub_dw_med": 452.0,
+      "non_apt_med": 551.0,
+      "non_dw_med": 512.0,
+      "n_dub_apt": 446,
+      "n_dub_dw": 5085,
+      "n_non_apt": 653,
+      "n_non_dw": 18947,
+      "did_days": 188.0
+    },
+    "200+": {
+      "dub_apt_med": 527.0,
+      "dub_dw_med": 412.0,
+      "non_apt_med": 526.0,
+      "non_dw_med": 462.0,
+      "n_dub_apt": 385,
+      "n_dub_dw": 3220,
+      "n_non_apt": 502,
+      "n_non_dw": 11322,
+      "did_days": 51.0
+    }
+  },
+  "R4": {
+    "eligible_n": 90805,
+    "dark_current_def": 0.00013215131325372553,
+    "dark_current_ci95": [
+      6.607565662686277e-05,
+      0.00020923957931828774
+    ],
+    "dark_joined_def": 0.00013215131325372553,
+    "dark_joined_ci95": [
+      6.607565662686277e-05,
+      0.00020923957931828774
+    ],
+    "dark_one_off": 0.0001365871425970111,
+    "n_one_off": 43928,
+    "dark_non_one_off": 0.00012799453889966728,
+    "n_non_one_off": 46877,
+    "ccc_rate_opt_out": 0.0,
+    "ccc_rate_non_opt_out": 0.6073142452252891,
+    "dark_bound_low_channel_non_opt": 0.3926857547747109,
+    "dark_bound_high_channel_opt_out": 1.0
+  },
+  "R5": {
+    "by_size": {
+      "10-49": {
+        "multi_med": 378.0,
+        "single_med": 349.0,
+        "n_multi": 5983,
+        "n_single": 17558,
+        "gap_days": 29.0
+      },
+      "50-199": {
+        "multi_med": 444.0,
+        "single_med": 363.0,
+        "n_multi": 16693,
+        "n_single": 11286,
+        "gap_days": 81.0
+      },
+      "200+": {
+        "multi_med": 583.0,
+        "single_med": 233.0,
+        "n_multi": 17338,
+        "n_single": 659,
+        "gap_days": 350.0
+      }
+    },
+    "cox_hr_multi_phase": 0.922608071782714,
+    "cox_ci": [
+      0.9079109997616563,
+      0.9375430569098457
+    ]
+  },
+  "R6": {
+    "populated_share": 0.9983935349310854,
+    "histogram_summary": {
+      "n_populated": 183338,
+      "populated_share": 0.9983935349310854,
+      "mean_years": 5.08724558672371,
+      "median_years": 4.996577686516085,
+      "p25_years": 4.996577686516085,
+      "p75_years": 4.999315537303217,
+      "share_gt_5_5y": 0.054667170663029126,
+      "share_exact_5y": 0.8512388997540279
+    },
+    "restricted_gap_days": 445.0,
+    "restricted_n_with": 9979,
+    "restricted_n_without": 172550
+  },
+  "R7": {
+    "cox_oos_c": 0.5815821541909747,
+    "aft_oos_c": 0.5659597892739257,
+    "lgbm_oos_auc": 0.5131442393959463,
+    "lgbm_oos_brier": 0.15835257969676275,
+    "n_train": 102441,
+    "n_test": 73602
+  },
+  "R8": {
+    "raw_gap_days": -45.0,
+    "by_size": {
+      "1": {
+        "dub_med": 138.0,
+        "non_med": 166.5,
+        "n_dub": 21823,
+        "n_non": 82498,
+        "gap": -28.5
+      },
+      "2-9": {
+        "dub_med": 290.0,
+        "non_med": 291.0,
+        "n_dub": 2209,
+        "n_non": 7574,
+        "gap": -1.0
+      },
+      "10-49": {
+        "dub_med": 330.0,
+        "non_med": 363.0,
+        "n_dub": 3427,
+        "n_non": 20114,
+        "gap": -33.0
+      },
+      "50-199": {
+        "dub_med": 346.0,
+        "non_med": 401.0,
+        "n_dub": 6057,
+        "n_non": 21922,
+        "gap": -55.0
+      },
+      "200+": {
+        "dub_med": 246.0,
+        "non_med": 650.0,
+        "n_dub": 4568,
+        "n_non": 13429,
+        "gap": -404.0
+      }
+    },
+    "dub_one_off_share": 0.34313622518643,
+    "non_one_off_share": 0.4879102908538722,
+    "comp_effect_days": -30.692101921497752,
+    "unexplained_days": -14.307898078502248,
+    "share_explained": 0.6820467093666167
+  },
+  "R9": {
+    "E00_perm_to_comm": {
+      "median": 232.0,
+      "ci95": [
+        231.0,
+        234.0
+      ]
+    },
+    "E00b_comm_to_ccc": {
+      "median": 498.0,
+      "ci95": [
+        497.0,
+        500.0
+      ]
+    },
+    "E00c_perm_to_ccc": {
+      "median": 962.0,
+      "ci95": [
+        959.0,
+        966.0
+      ]
+    },
+    "share_24m": {
+      "value": 0.808602266465416,
+      "ci95": [
+        0.8067634586358082,
+        0.8104183138072307
+      ]
+    },
+    "share_48m": {
+      "value": 0.9362554120936573,
+      "ci95": [
+        0.9349615441216337,
+        0.937680564484273
+      ]
+    },
+    "dark_72m": {
+      "value": 0.006695666538186207,
+      "ci95": [
+        0.006178073894609337,
+        0.007246297010076508
+      ]
+    },
+    "E09": {
+      "gap_days": 53.0,
+      "ci95": [
+        43.0,
+        62.0
+      ]
+    },
+    "E10": {
+      "gap_days": 46.0,
+      "ci95": [
+        35.0,
+        70.0
+      ]
+    },
+    "E12": {
+      "gap_days": 288.0,
+      "ci95": [
+        281.0,
+        297.0
+      ]
+    },
+    "I01": {
+      "did_days": 130.0,
+      "ci95": [
+        110.0,
+        151.0
+      ]
+    },
+    "E06": {
+      "gap_days": -45.0,
+      "ci95": [
+        -49.0,
+        -41.0
+      ]
+    }
+  }
+}
