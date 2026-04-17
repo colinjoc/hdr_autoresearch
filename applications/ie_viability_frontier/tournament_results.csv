@@ -1,0 +1,6 @@
+id,status,metric,value,description,seed,commit,interaction,notes
+T01,KEEP,national_weighted_margin_pct,-0.3121,T01 Simple residual appraisal per county,42,tournament,False,Residual method: 0/18 counties viable
+T02,KEEP,R2,0.9159,T02 OLS regression: margin ~ sale_price + land_cost + dev_contributions,42,tournament,False,Linear model R2=0.916; sale price coeff strongest predictor
+T03,KEEP,mean_breakeven_gap_eur,126512.0,T03 Threshold model: break-even sale price minus current price,42,tournament,False,"Average gap €126,512; range €18,199 to €187,443"
+T04,KEEP,mc_pct_viable,38.5,T04 Monte Carlo: % of 10k simulations where margin > 0,42,tournament,False,"Mean margin -6.6%, 90% CI [-37.4%, 17.6%], 38.5% viable"
+T05,KEEP,n_clusters,3.0,T05 Spatial model: k-means clustering of counties by viability features,42,tournament,False,"3 clusters: margins -77.7%, -43.5%, -10.8%"

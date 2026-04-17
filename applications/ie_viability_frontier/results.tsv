@@ -1,0 +1,30 @@
+id	status	metric	value	description	seed	commit	interaction	notes
+E00	KEEP	national_weighted_margin_pct	-0.312	National weighted-average viability margin at default parameters	42	baseline	False	Baseline: 1/18 counties marginal, 17/18 unviable at median RZLPA02 land prices and Buildcost CCG H1 2025 construction costs
+T01	KEEP	national_weighted_margin_pct	-0.3121	T01 Simple residual appraisal per county	42	tournament	False	Residual method: 0/18 counties viable
+T02	KEEP	R2	0.9159	T02 OLS regression: margin ~ sale_price + land_cost + dev_contributions	42	tournament	False	Linear model R2=0.916; sale price coeff strongest predictor
+T03	KEEP	mean_breakeven_gap_eur	126512.0	T03 Threshold model: break-even sale price minus current price	42	tournament	False	Average gap €126,512; range €18,199 to €187,443
+T04	KEEP	mc_pct_viable	38.5	T04 Monte Carlo: % of 10k simulations where margin > 0	42	tournament	False	Mean margin -6.6%, 90% CI [-37.4%, 17.6%], 38.5% viable
+T05	KEEP	n_clusters	3.0	T05 Spatial model: k-means clustering of counties by viability features	42	tournament	False	3 clusters: margins -77.7%, -43.5%, -10.8%
+E01	KEEP	dublin_nondublin_gap_pp	0.3435	E01 Dublin vs non-Dublin viability gap	42	phase2	False	Dublin margin -3.1%, non-Dublin weighted -37.5%, gap 34.3%
+E02	KEEP	apartment_vs_house_margin_gap	0.3634	E02 Apartment (75sqm, 100u/ha) vs house (110sqm, 40u/ha) viability	42	phase2	False	Apartment margin 5.1%, house margin -31.2%
+E03	KEEP	part_v_impact_pp	-0.0598	E03 Part V at 20%: impact on national weighted margin	42	phase2	False	Part V reduces margin by 6.0%pp; with Part V: -37.2%
+E04	KEEP	land_sensitivity_spread_pp	0.0342	E04 Land cost sensitivity ±25%	42	phase2	False	At -25%: -29.5%, base: -31.2%, +25%: -32.9%
+E05	KEEP	construction_sensitivity_spread_pp	0.3039	E05 Construction cost sensitivity ±15%	42	phase2	False	At -15%: -16.0%, base: -31.2%, +15%: -46.4%; larger impact than land ±25%
+E06	KEEP	finance_rate_sensitivity_pp	0.1544	E06 Finance rate sensitivity: 5% vs 10% vs 15%	42	phase2	False	At 5%: -28.1%, 10%: -35.8%, 15%: -43.6%
+E07	KEEP	dev_contrib_spread_pp	0.0563	E07 Development contribution variation: €10k vs actual vs €25k	42	phase2	False	€10k: -29.4%, actual: -31.2%, €25k: -35.0%
+E08	KEEP	margin_trajectory_range_pp	0.7417	E08 Viability margin trajectory 2015-2025	42	phase2	False	Best year: 2025 (-31.2%), worst: 2019 (-105.4%)
+E09	KEEP	counties_viable_at_reduced_costs	3.0	E09 Counties that become viable under reduced cost scenarios	42	phase2	False	Low cost only: 3 viable; low land: 1; both: 3 (Co. Meath, Co. Dublin, Co. Kildare)
+E10	KEEP	viability_apprate_correlation	0.9075	E10 Correlation between viability margin and application rate per hectare	42	phase2	False	Pearson r = 0.907; positive → higher viability → more applications
+E11	KEEP	rural_one_off_margin_pct	-0.0988	E11 One-off rural house viability (self-build, no profit margin)	42	phase2	False	Rural self-build: margin -9.9%, total cost €307,664
+E12	KEEP	scale_effect_spread_pp	0.1161	E12 Site size economies of scale (10 vs 200 units)	42	phase2	False	10 units: -7.1%, 40: -3.3%, 100: 0.6%, 200: 4.5%
+E13	KEEP	starter_vs_family_gap_pp	0.1019	E13 Starter home (78sqm) vs family home (115sqm) viability	42	phase2	False	Starter: 10.4%, family: 0.2%
+E14	KEEP	cost_rental_subsidy_pct	0.0	E14 Cost rental viability at €1,200/month rent	42	phase2	False	Capitalised value €320,000, gap €0, subsidy 0.0% of cost
+E15	KEEP	hfa_cap_margin_pct_dublin	-0.0873	E15 Viability at Housing for All price caps	42	phase2	False	Dublin cap: -8.7%, Cork etc: -25.8%, Other: -36.9%, Rural: -50.4%
+E16	KEEP	construction_cost_cagr_2015_2024	0.0548	E16 Construction cost inflation CAGR 2015-2024 from BEA04	42	phase2	False	Construction value index CAGR = 5.5% p.a.
+E17	KEEP	margin_squeeze_2020_2025_pp	0.0875	E17 Developer margin squeeze 2020-2025	42	phase2	False	Approx 2020 margin: -40.0%, 2025: -31.2%, squeeze: 8.7%
+E18	KEEP	avg_breakeven_premium_pct	0.5541	E18 Average break-even sale price premium needed over current median	42	phase2	False	Avg premium needed: 55.4%; range 3.8% to 115.1%
+E19	KEEP	stranded_hectares	6580.0	E19 Hectares of zoned residential land in unviable areas	42	phase2	False	6580 ha stranded of 6580 ha total (100.0%)
+E20	KEEP	stranded_units	263200.0	E20 Potential housing units stranded on unviable land	42	phase2	False	263,200 potential units on unviable zoned land at 40 units/ha
+E21	KEEP	counties_viable_combined_policy	4.0	E21 Combined policy: no Part V, no dev contrib, 15% cost reduction, 15% margin	42	phase2	False	4/18 counties viable; weighted margin -9.2%
+E22	KEEP	counties_viable_at_realistic_density	1.0	E22 Counties viable at achievable density (≤200 u/ha)	42	phase2	False	1/18 achievable; densities needed: Co. Laois: 999, Co. Leitrim: 999, Co. Limerick: 999, Co. Meath: 999, Co. Monaghan: 999
+INT01	KEEP	synergy_pp	0.0	INT01 Interaction: 15% cost reduction × 60 u/ha density	42	phase2.5	True	Cost alone: +15.2%, density alone: +2.3%, combined: +17.5%, synergy: +0.0%

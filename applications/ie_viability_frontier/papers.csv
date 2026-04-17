@@ -1,0 +1,226 @@
+id,type,authors,year,title,journal,relevance,theme
+1,textbook,"Wyatt, P.",2013,"Property Valuation (2nd ed.)","Wiley-Blackwell",Residual method theory and practice,1
+2,textbook,"Isaac, D. and O'Leary, J.",2012,"Property Valuation Principles (3rd ed.)","Palgrave Macmillan",Valuation fundamentals including residual method,1
+3,textbook,"Baum, A. et al.",2021,"Property Investment Appraisal (4th ed.)","Wiley-Blackwell",Investment appraisal and development economics,1
+4,textbook,"Scarrett, D. and Osborn, S.",2014,"Property Valuation: The Five Methods (2nd ed.)","Routledge",Five methods of property valuation,1
+5,textbook,"Millington, A.",2013,"An Introduction to Property Valuation (7th ed.)","Routledge",UK property valuation introduction,1
+6,textbook,"Ball, M. et al.",1998,"The Economics of Commercial Property Markets","Routledge",Real estate market economics,1
+7,textbook,"Harvey, J. and Jowsey, E.",2004,"Urban Land Economics (6th ed.)","Palgrave Macmillan",Urban land markets and pricing,1
+8,textbook,"DiPasquale, D. and Wheaton, W.",1996,"Urban Economics and Real Estate Markets","Prentice Hall",Urban economics framework for real estate,1
+9,textbook,"McDonald, J. and McMillen, D.",2010,"Urban Economics and Real Estate (2nd ed.)","Wiley",Economic analysis of urban land markets,1
+10,textbook,"O'Sullivan, A.",2019,"Urban Economics (9th ed.)","McGraw-Hill",Urban land use and housing markets,1
+11,review,"Crosby, N. and Wyatt, P.",2016,"Financial viability appraisals for site-specific planning decisions in England","Environment and Planning C",Critical review of viability in UK planning,2
+12,review,"Crosby, N. et al.",2013,"Fit for Planning? An Evaluation of Development Viability Appraisal Models in the UK","Environment and Planning B",Evaluation of viability models in planning,2
+13,review,"McAllister, P. et al.",2013,"Viability and the Planning System: The Relationship between Development Viability, Land Values and Affordable Housing","Journal of Property Research",Relationship between viability and affordable housing,2
+14,review,"Henneberry, J. and Crosby, N.",2019,"Development viability appraisals: The impact of uncertainty","Journal of Property Research",Uncertainty in viability appraisals,2
+15,review,"Coleman, C. et al.",2013,"Planning, Viability and the Provision of Affordable Housing","Planning Practice & Research",Planning viability and affordable housing provision,2
+16,review,"Byrne, M.",2020,"Generation rent and the financialization of housing: a comparative exploration","Housing Studies",Housing financialization and affordability,2
+17,review,"Norris, M. and Byrne, M.",2015,"A New Political Economy of Housing","Critical Housing Analysis",Political economy of Irish housing,2
+18,review,"Kitchin, R. et al.",2012,"Placing Neoliberalism: The Rise and Fall of Ireland's Celtic Tiger","Environment and Planning A",Irish economic boom-bust context,2
+19,review,"Honohan, P.",2010,"The Irish Banking Crisis: Regulatory and Financial Stability Policy 2003-2008","Central Bank of Ireland",Irish banking crisis and property market,2
+20,review,"Kelly, M.",2009,"The Irish Credit Bubble","UCD Centre for Economic Research WP",Credit-driven property bubble in Ireland,2
+21,review,"SCSI",2023,"The Real Cost of New Housing Delivery 2023","SCSI Report",Comprehensive cost breakdown for Irish housing,2
+22,review,"Central Bank of Ireland",2023,"Rising Construction Costs and the Residential Real Estate Market","Financial Stability Note",Construction cost impact on housing market,2
+23,review,"Housing Commission",2022,"Report on Ireland's Housing System","Government of Ireland",Systemic review of Irish housing,2
+24,review,"Lyons, R.",2015,"Housing Supply in Ireland since 1990","National Economic and Social Council",Long-run housing supply dynamics,2
+25,review,"RICS",2019,"Assessing Viability in Planning under the NPPF","RICS Guidance Note",Standard guidance for viability assessment,2
+26,review,"RICS",2019,"Valuation of Development Property","RICS Guidance Note",Residual method professional standard,2
+27,review,"Savills",2024,"Ireland Development Land Market Review","Savills Research",Irish development land market analysis,2
+28,review,"CBRE",2024,"Ireland Construction Cost Monitor","CBRE Research",Construction cost benchmarking Ireland,2
+29,review,"EY-Euroconstruct",2024,"Ireland Construction Forecast 2024-2027","EY Report",Construction sector outlook,2
+30,review,"Cushman & Wakefield",2025,"Irish Living Investor Survey 2025","C&W Report",Residential investment market Ireland,2
+31,result,"McQuinn, K. and O'Connell, B.",2024,"Economic Policy Issues in the Irish Housing Market","Central Bank Quarterly Bulletin",Housing supply economics and policy levers,3
+32,result,"Duffy, D. et al.",2016,"Property Prices and Mortgage Credit in Ireland","ESRI Research Note",Credit-price nexus in Irish property,3
+33,result,"Lyons, R.",2019,"Can Housing Supply Explain Irish Property Prices?","Journal of the Statistical and Social Inquiry Society",Supply constraints and Irish prices,3
+34,result,"McCartney, J.",2012,"Short and Long-Run Rent Adjustment in the Dublin Office Market","Journal of Property Research",Dublin commercial property cycles,3
+35,result,"Blackwell, J.",1988,"A Review of Housing Policy","National Economic and Social Council",Historical Irish housing policy,3
+36,result,"Drudy, P. and Punch, M.",2005,"Out of Reach: Inequalities in the Irish Housing System","TASC New Island",Housing inequality in Ireland,3
+37,result,"Norris, M.",2016,"Property, Family and the Irish Welfare State","Palgrave Macmillan",Property ownership as welfare in Ireland,3
+38,result,"Kitchin, R. et al.",2015,"Housing in Ireland: From Crisis to Crisis","NIRSA Working Paper",Housing crisis evolution in Ireland,3
+39,result,"Byrne, M.",2019,"The political economy of the 'residential turn'","Economy and Society",Institutional investment in Irish housing,3
+40,result,"Roche, M.",2001,"The Rise in House Prices in Dublin","Economic and Social Review",Dublin house price drivers,3
+41,result,"Kenny, G.",1999,"Modelling the Demand and Supply Sides of the Housing Market","Economic Modelling",Housing demand-supply model Ireland,3
+42,result,"Conefrey, T. and Fitz Gerald, J.",2010,"Managing Housing Bubbles in Regional Economies","National Institute Economic Review",Regional housing bubble management,3
+43,result,"Murphy, A.",2018,"Land and housing: understanding the dynamics","Journal of Statistical and Social Inquiry Society of Ireland",Land-housing nexus in Ireland,3
+44,result,"Addison-Smyth, D. and McQuinn, K.",2010,"Quantifying revenue from the Irish housing market","Central Bank Research Technical Paper",Revenue from housing activity,3
+45,result,"O'Brien, E.",2018,"The cost of Irish housing","Central Bank Economic Letter",Cost analysis of Irish housing,3
+46,result,"Mahon, E.",2024,"Capacity constraints and Ireland's housing supply","Oireachtas Library & Research Service",Labour and capacity constraints,3
+47,result,"Allen, K. and O'Boyle, B.",2013,"Austerity Ireland: The Failure of Irish Capitalism","Pluto Press",Post-crisis austerity and construction,3
+48,result,"Sirr, L.",2014,"Renting in Ireland: The Social, Voluntary and Private Sectors","IPA",Rental sector analysis Ireland,3
+49,result,"Goodbody",2024,"Residential Land Availability Report","Dept of Housing",7911 hectares of zoned residential land,3
+50,result,"Department of Environment",2014,"Residential Land Availability Survey","Government of Ireland",17434 hectares historical baseline,3
+51,result,"Fingal County Council",2024,"RZLT Map Annual Report","FCC",3519 hectares Fingal zoned land,3
+52,result,"CSO",2024,"Residential Property Price Index (HPM09)","Central Statistics Office",Monthly RPPI by region,3
+53,result,"CSO",2024,"Residentially Zoned Land Prices (RZLPA02)","Central Statistics Office",County-level land price data,3
+54,result,"CSO",2024,"Building and Construction Production Index (BEA04)","Central Statistics Office",Construction production index,3
+55,result,"CSO",2024,"New Dwelling Completions by County","Central Statistics Office",Housing completion statistics,3
+56,result,"Buildcost.ie",2025,"Construction Cost Guide H1 2025","Buildcost",EUR/sqm by region and house type,3
+57,result,"SCSI",2025,"Tender Price Index H1 2025","SCSI",1.5% semi-annual tender price inflation,3
+58,result,"Government of Ireland",2021,"Housing for All: A New Housing Plan for Ireland","Government Publications",50500 annual target and policy framework,3
+59,result,"Healey, P.",1991,"Models of the development process","Journal of Property Research",Development process models typology,4
+60,result,"Adams, D. and Tiesdell, S.",2013,"Shaping Places: Urban Planning, Design and Development","Routledge",Planning and development interaction,4
+61,result,"Gore, T. and Nicholson, D.",1991,"Models of the land development process","Environment and Planning A",Event-sequence models of development,4
+62,result,"Ball, M.",1998,"Institutions in British Property Research","Urban Studies",Institutional structures of property,4
+63,result,"Guy, S. and Henneberry, J.",2000,"Understanding Urban Development Processes","Urban Studies",Socio-institutional development process,4
+64,result,"Tiesdell, S. and Adams, D.",2004,"Design Matters: Major House Builders and the Design Challenge of Brownfield Development Contexts","Journal of Urban Design",Design in development viability,4
+65,result,"Evans, A.",2004,"Economics, Real Estate and the Supply of Land","Blackwell",Land supply economics,4
+66,result,"Cheshire, P. and Sheppard, S.",2005,"The Introduction of Price Signals into Land Use Planning Decision-Making","Urban Studies",Price signals and planning,4
+67,result,"Barker, K.",2004,"Review of Housing Supply: Final Report","HM Treasury",Barker review housing supply UK,4
+68,result,"Hilber, C. and Vermeulen, W.",2016,"The Impact of Supply Constraints on House Prices in England","Economic Journal",Planning constraints and house prices,4
+69,result,"Cheshire, P.",2018,"Broken supply; why what we've tried hasn't worked","National Institute Economic Review",Why supply-side policies fail,4
+70,result,"Glaeser, E. and Gyourko, J.",2003,"The Impact of Building Restrictions on Housing Affordability","FRBNY Economic Policy Review",Regulation and housing costs,4
+71,result,"Quigley, J. and Raphael, S.",2005,"Regulation and the High Cost of Housing in California","American Economic Review",Regulatory cost of housing,4
+72,result,"Saiz, A.",2010,"The Geographic Determinants of Housing Supply","Quarterly Journal of Economics",Geographic constraints on supply,4
+73,result,"Malpezzi, S.",1996,"Housing Prices, Externalities, and Regulation","Journal of Housing Research",Housing regulation cost framework,4
+74,result,"Gyourko, J. et al.",2008,"A New Measure of the Local Regulatory Environment for Housing Markets","Urban Studies",Wharton Residential Land Use Regulatory Index,4
+75,result,"Vermeulen, W. and van Ommeren, J.",2009,"Does Land Use Planning Shape Regional Economies?","Journal of Housing Economics",Land use planning and regional economics,4
+76,result,"White, M.",1986,"Property Taxation and Urban Spatial Development","University of Michigan Working Paper",Property tax and development incentives,4
+77,result,"O'Flaherty, B.",2005,"City Economics","Harvard University Press",Urban economic fundamentals,4
+78,result,"Arnott, R.",1987,"Economic Theory and Housing","Handbook of Regional and Urban Economics",Theoretical housing economics,4
+79,result,"Ricardo, D.",1817,"On the Principles of Political Economy and Taxation","John Murray",Ricardian rent theory,1
+80,result,"von Thunen, J.H.",1826,"The Isolated State","Pergamon Press (1966 translation)",Land rent and location theory,1
+81,result,"Alonso, W.",1964,"Location and Land Use","Harvard University Press",Bid-rent theory urban land,1
+82,result,"Muth, R.",1969,"Cities and Housing","University of Chicago Press",Urban housing market theory,1
+83,result,"Mills, E.",1972,"Studies in the Structure of the Urban Economy","Johns Hopkins Press",Urban structure and land values,1
+84,result,"Wheaton, W.",1974,"A Comparative Static Analysis of Urban Spatial Structure","Journal of Economic Theory",Comparative statics of urban form,1
+85,method,"Crosby, N., Devaney, S. and Wyatt, P.",2018,"Residual Land Values: Measuring Performance and Investigating Viability","IPF Research Report",Methodology for residual land value measurement,5
+86,method,"Healey, P. et al.",2002,"Development Cycles and Urban Regeneration","RICS Research",Development cycle measurement methods,5
+87,method,"Henneberry, J.",1999,"Convergence and Difference in Regional Office Development Cycles","Urban Studies",Methods for analyzing property cycles,5
+88,method,"Case, K. and Shiller, R.",1989,"The Efficiency of the Market for Single-Family Homes","American Economic Review",Repeat-sales method for property,5
+89,method,"Bailey, M. et al.",1963,"A Regression Method for Real Estate Price Index Construction","Journal of the American Statistical Association",Hedonic price index methodology,5
+90,method,"Rosen, S.",1974,"Hedonic Prices and Implicit Markets","Journal of Political Economy",Hedonic pricing theory,5
+91,method,"Gallin, J.",2006,"The Long-Run Relationship between House Prices and Income","Real Estate Economics",Price-income ratio methodology,5
+92,method,"Meen, G.",2002,"The Time-Series Behavior of House Prices","Journal of Housing Economics",Time series methods for house prices,5
+93,method,"Cameron, G. and Muellbauer, J.",1998,"The Housing Market and Regional Commuting and Migration Choices","Scottish Journal of Political Economy",Regional housing market modelling,5
+94,method,"Capozza, D. et al.",2004,"Determinants of Real House Price Dynamics","Journal of Housing Economics",Dynamic house price determinants,5
+95,method,"Glaeser, E. et al.",2008,"Housing Supply and Housing Bubbles","Journal of Urban Economics",Supply-side bubble analysis,5
+96,method,"Abraham, J. and Hendershott, P.",1996,"Bubbles in Metropolitan Housing Markets","Journal of Housing Research",Bubble detection methodology,5
+97,method,"Malpezzi, S.",1999,"A Simple Error Correction Model of House Prices","Journal of Housing Economics",ECM for house prices,5
+98,method,"Holly, S. et al.",2010,"A Spatio-Temporal Model of House Prices in the US","Journal of Econometrics",Spatial econometric methods for housing,5
+99,method,"Pesaran, M. and Shin, Y.",1998,"An Autoregressive Distributed Lag Modelling Approach","Econometrics and Economic Theory in the 20th Century",ARDL cointegration approach,5
+100,method,"Johansen, S.",1988,"Statistical Analysis of Cointegration Vectors","Journal of Economic Dynamics and Control",Cointegration testing methodology,5
+101,method,"Engle, R. and Granger, C.",1987,"Co-integration and Error Correction","Econometrica",ECM framework,5
+102,method,"Hansen, B.",1999,"Threshold Effects in Non-Dynamic Panels","Journal of Econometrics",Threshold regression methodology,5
+103,method,"Hansen, B.",2000,"Sample Splitting and Threshold Estimation","Econometrica",Threshold model estimation,5
+104,method,"Metropolis, N. et al.",1953,"Equation of State Calculations by Fast Computing Machines","Journal of Chemical Physics",Monte Carlo method foundation,5
+105,method,"Hertz, D.",1964,"Risk Analysis in Capital Investment","Harvard Business Review",Monte Carlo risk analysis,5
+106,method,"French, N. and Gabrielli, L.",2004,"The Uncertainty of Valuation","Journal of Property Investment & Finance",Monte Carlo in property valuation,5
+107,method,"Kelliher, C. and Mahoney, L.",2000,"Using Monte Carlo Simulation to Improve Long-Term Investment Decisions","Appraisal Journal",Monte Carlo in investment decisions,5
+108,method,"Pyle, D.",1999,"Data Preparation for Data Mining","Morgan Kaufmann",Data preparation methodology,5
+109,method,"Anselin, L.",1988,"Spatial Econometrics: Methods and Models","Kluwer Academic",Spatial econometric methods,5
+110,method,"LeSage, J. and Pace, R.",2009,"Introduction to Spatial Econometrics","CRC Press",Spatial regression models,5
+111,method,"Anselin, L.",2003,"Spatial Externalities, Spatial Multipliers, and Spatial Econometrics","International Regional Science Review",Spatial spillover methods,5
+112,result,"Duca, J. et al.",2010,"Housing Markets and the Financial Crisis of 2007-2009","Journal of Financial Economics",Financial crisis and housing markets,3
+113,result,"Glaeser, E.",2013,"A Nation of Gamblers: Real Estate Speculation and American History","American Economic Review",Speculation in real estate,3
+114,result,"Shiller, R.",2015,"Irrational Exuberance (3rd ed.)","Princeton University Press",Asset bubbles and behavioral economics,3
+115,result,"Piketty, T.",2014,"Capital in the Twenty-First Century","Harvard University Press",Wealth inequality and housing,3
+116,result,"Muellbauer, J. and Murphy, A.",2008,"Housing Markets and the Economy: The Assessment","Oxford Review of Economic Policy",Housing-economy interaction,3
+117,result,"Meen, G.",2005,"On the Economics of the Barker Review of Housing Supply","Housing Studies",Economics of UK housing supply,3
+118,result,"Whitehead, C.",2007,"Planning Policies and Affordable Housing","Housing Studies",Planning and affordability nexus,3
+119,result,"Bramley, G.",2007,"The Sudden Rediscovery of Housing Supply as a Key Policy Challenge","Housing Studies",Housing supply policy challenge,3
+120,result,"Bramley, G. and Watkins, C.",2016,"Housebuilding, Demographic Change and Affordability","Journal of the Royal Statistical Society",Supply-demographic-affordability link,3
+121,result,"Leishman, C. and Bramley, G.",2005,"A Local Housing Market Model with Spatial Interaction","Journal of the Royal Statistical Society",Local housing market modelling,3
+122,result,"Gibb, K.",2009,"Housing Studies and the Role of Economic Theory","Housing Theory and Society",Economic theory in housing,3
+123,result,"Gibb, K. and O'Sullivan, A.",2010,"Housing Supply and Housing Policy","Urban Studies",Housing supply economics and policy,3
+124,result,"Monk, S. et al.",2013,"International Review of Land Supply and Planning Systems","Joseph Rowntree Foundation",International comparison of land supply,3
+125,result,"Monk, S. and Whitehead, C.",2010,"Making Housing More Affordable","Wiley",Affordable housing policy mechanisms,3
+126,result,"Morrison, N. and Burgess, G.",2014,"Inclusionary Housing Policy in England","Housing Studies",Inclusionary housing and viability,3
+127,result,"Crook, A. et al.",2016,"Planning Gain: Providing Infrastructure and Affordable Housing","Wiley-Blackwell",Developer contributions UK evidence,3
+128,result,"Dunse, N. et al.",2013,"Urban Land Economics and the National Housing Crisis","Urban Studies",Urban land economics and housing,3
+129,result,"Ball, M.",2010,"Communities, Neighbourhoods and Locality-Based Social Capital","Urban Studies",Community and housing development,3
+130,result,"Ball, M.",2011,"Planning Delay and the Responsiveness of English Housing Supply","Urban Studies",Planning system delays and supply,3
+131,result,"Adams, D. et al.",2009,"Shaping Places: Urban Planning, Design and Development","Routledge",UK planning and development shape,3
+132,result,"Murphy, L.",2020,"Performing Calculative Practices: Residual Land Values in Property Development","Environment and Planning A",Performativity of viability appraisals,3
+133,result,"Christophers, B.",2014,"Wild Dragons in the City: Urban Political Economy, Affordable Housing Development and the Performative World-Making of Economic Models","International Journal of Urban and Regional Research",Political economy of viability models,3
+134,result,"McAllister, P.",2017,"The Calculative Turn in Land Value Capture","Environment and Planning A",Viability and land value capture,3
+135,result,"Crosby, N. and Henneberry, J.",2016,"Financialisation, the Valuation of Investment Property and the Urban Built Environment in the UK","Urban Studies",Valuation and financialization,3
+136,result,"Colenutt, B.",2020,"The Property Lobby: The Hidden Reality Behind the Housing Crisis","Policy Press",Property interests and housing crisis,3
+137,result,"Healey, P.",1992,"An Institutional Model of the Development Process","Journal of Property Research",Institutional development model,4
+138,result,"Davy",2025,"Ireland Needs 93,000 New Homes Per Year to 2031","Davy Research",Housing demand projection Ireland,3
+139,result,"DHLGH",2022,"Residential Zoned Land Tax: Impact Assessment","Department of Housing",RZLT impact analysis,3
+140,result,"Revenue Commissioners",2025,"Update on Residential Zoned Land Tax","Revenue.ie",RZLT implementation data,3
+141,result,"BIS",2021,"Macroprudential policies to mitigate housing market risks: Ireland","CGFS Papers No 69",Macroprudential housing policy Ireland,3
+142,result,"Central Bank of Ireland",2022,"Mortgage Measures Framework Review","CBI",LTI/LTV framework review,3
+143,result,"Central Bank of Ireland",2025,"Targeted Changes to Mortgage Measures","CBI Press Release",Updated mortgage lending rules,3
+144,result,"Arcadis",2025,"Ireland Market View Q3 2025","Arcadis Insights",Construction market outlook Ireland,3
+145,result,"DHLGH",2025,"Delivering Homes Building Communities 2025-2030","Government of Ireland",New housing action plan,3
+146,result,"Social Justice Ireland",2025,"Analysis: Delivering Homes Building Communities","SJI",Policy critique of housing plan,3
+147,result,"Conefrey, T. et al.",2013,"The Housing Market in Ireland: New Data Sources","Central Bank Quarterly Bulletin",Housing data infrastructure Ireland,3
+148,result,"Lyons, R.",2021,"Daft.ie House Price Report Q4 2021","Daft.ie Research",House price indices methodology,3
+149,result,"Duffy, D.",2014,"A Method for Estimating the Demand for Housing in Ireland","ESRI Working Paper",Housing demand estimation Ireland,3
+150,result,"Bergin, A. et al.",2018,"COSMO: A New Regional Economic Model for Ireland","ESRI Working Paper",Regional economic modelling Ireland,3
+151,cross,"Letwin, O.",2018,"Independent Review of Build Out Rates","MHCLG",Build-out rates and land banking UK,6
+152,cross,"Carozzi, F. et al.",2020,"Cheap and Cheerful? The Effectiveness of Planning Obligations in England","Journal of Urban Economics",Planning obligations effectiveness,6
+153,cross,"Whitehead, C. et al.",2015,"Understanding the Local Impact of New Residential Development","LSE London",Impact of new development,6
+154,cross,"Burgess, G. et al.",2017,"Affordable Housing through Section 106","Cambridge Centre for Housing & Planning Research",Section 106 affordable housing UK,6
+155,cross,"Gallent, N. and Ciaffi, D.",2014,"Community Action and Planning","Policy Press",Community planning and development,6
+156,cross,"Oxley, M.",2004,"Economics, Planning and Housing","Palgrave Macmillan",International housing policy comparison,6
+157,cross,"Stephens, M. et al.",2010,"Housing Policy in the EU","Urban Research & Practice",EU comparative housing policy,6
+158,cross,"Czischke, D. and Gruis, V.",2007,"Managing Social Rental Housing in the EU","European Journal of Housing Policy",Social housing management EU,6
+159,cross,"Haffner, M. et al.",2009,"Bridging the Gap Between Social and Market Rented Housing","IOS Press",Tenure comparison EU,6
+160,cross,"Elsinga, M. and Lind, H.",2013,"The Effect of EU Legislation on Rental Systems in Sweden and the Netherlands","Housing Studies",EU regulation and rental markets,6
+161,cross,"Tobin, J.",1969,"A General Equilibrium Approach to Monetary Theory","Journal of Money Credit and Banking",Tobin's Q for investment theory,7
+162,cross,"Hayashi, F.",1982,"Tobin's Marginal q and Average q","Econometrica",Q-theory of investment applied,7
+163,cross,"Dixit, A. and Pindyck, R.",1994,"Investment Under Uncertainty","Princeton University Press",Real options theory for development,7
+164,cross,"Titman, S.",1985,"Urban Land Prices Under Uncertainty","American Economic Review",Real options for land development,7
+165,cross,"Quigg, L.",1993,"Empirical Testing of Real Option-Pricing Models","Journal of Finance",Real options in real estate,7
+166,cross,"Cunningham, C.",2006,"House Price Uncertainty and the Decision to Build","Real Estate Economics",Uncertainty and development timing,7
+167,cross,"Williams, J.",1991,"Real Estate Development as an Option","Journal of Real Estate Finance and Economics",Option value of development land,7
+168,cross,"Capozza, D. and Li, Y.",1994,"The Intensity and Timing of Investment: The Case of Land","American Economic Review",Land investment timing decisions,7
+169,cross,"Holland, A. et al.",2000,"The Determinants of UK Business Cycles","Economic Journal",Business cycle and construction,7
+170,cross,"Barras, R.",2009,"Building Cycles: Growth and Instability","Wiley-Blackwell",Construction cycles theory,7
+171,result,"Murphy, A. and McQuinn, K.",2004,"Explaining the Rise in Irish House Prices 1996-2002","Central Bank Research Technical Paper",Irish house price modelling,3
+172,result,"Malzubris, J.",2008,"Ireland's Housing Market: Bubble Trouble","European Commission Economic Papers",Irish housing bubble analysis,3
+173,result,"Connor, G. et al.",2012,"The US and Irish Credit Crises: Their Distinctive Differences","Journal of International Money and Finance",Comparative credit crisis analysis,3
+174,result,"Lane, P.",2011,"The Irish Crisis","IIIS Discussion Paper",Irish crisis macroeconomic analysis,3
+175,result,"Honohan, P. and Walsh, B.",2002,"Catching Up With the Leaders: The Irish Hare","Brookings Papers on Economic Activity",Celtic Tiger economics,3
+176,result,"FitzGerald, J.",2005,"The Irish Housing Stock: Growth in Number of Vacant Dwellings","ESRI Quarterly Economic Commentary Special Articles",Vacancy and oversupply post-boom,3
+177,result,"Duffy, D. et al.",2005,"How Does the Tax System Affect Housing?","ESRI Working Paper",Tax policy and housing Ireland,3
+178,result,"NESC",2004,"Housing in Ireland: Performance and Policy","NESC Report No 112",Housing policy framework Ireland,3
+179,result,"Department of Finance",2025,"Ireland's Housing Crisis to Last Another 15 Years","DoF Analysis",Long-term supply deficit forecast,3
+180,result,"Housing Agency",2021,"Part V Information and Resources","Housing Agency",Part V guidance and implementation,3
+181,result,"SCSI",2025,"Real Costs of New Apartment Delivery 2025","SCSI Report",Apartment delivery cost analysis,3
+182,method,"Efron, B. and Tibshirani, R.",1993,"An Introduction to the Bootstrap","Chapman & Hall",Bootstrap confidence interval methods,5
+183,method,"Box, G. and Jenkins, G.",1976,"Time Series Analysis: Forecasting and Control","Holden-Day",ARIMA methodology,5
+184,method,"Hamilton, J.",1994,"Time Series Analysis","Princeton University Press",Time series econometrics,5
+185,method,"Hastie, T. et al.",2009,"The Elements of Statistical Learning (2nd ed.)","Springer",Machine learning methods overview,5
+186,method,"Breiman, L.",2001,"Random Forests","Machine Learning",Random forest methodology,5
+187,method,"Friedman, J.",2001,"Greedy Function Approximation: A Gradient Boosting Machine","Annals of Statistics",Gradient boosting methodology,5
+188,method,"Chen, T. and Guestrin, C.",2016,"XGBoost: A Scalable Tree Boosting System","KDD Proceedings",XGBoost implementation,5
+189,method,"Tibshirani, R.",1996,"Regression Shrinkage and Selection via the Lasso","Journal of the Royal Statistical Society B",Lasso regression methodology,5
+190,method,"Hoerl, A. and Kennard, R.",1970,"Ridge Regression: Biased Estimation for Nonorthogonal Problems","Technometrics",Ridge regression methodology,5
+191,result,"Fingal County Council",2024,"Development Contribution Scheme 2021-2025","FCC",Development contributions €28k/unit,3
+192,result,"Dublin City Council",2024,"Development Contribution Scheme","DCC",DCC development contribution rates,3
+193,result,"Cork County Council",2024,"Development Contribution Scheme","CCC",Cork development contributions,3
+194,result,"ESRI",2023,"Quarterly Economic Commentary","ESRI",Economic outlook and construction sector,3
+195,result,"CSO",2025,"Population and Migration Estimates","Central Statistics Office",Population growth driving demand,3
+196,result,"Eurostat",2024,"House Price Index EU","Eurostat",International price comparison,3
+197,result,"Turner and Townsend",2024,"International Construction Market Survey","Turner & Townsend",International construction cost comparison,3
+198,result,"World Bank",2024,"Doing Business: Construction Permits","World Bank",International regulatory comparison,3
+199,cross,"Glaeser, E. and Ward, B.",2009,"The Causes and Consequences of Land Use Regulation","Journal of Urban Economics",Regulatory constraints analysis,7
+200,cross,"Autor, D.",2003,"Outsourcing at Will: The Contribution of Unjust Dismissal Doctrine","Quarterly Journal of Economics",Diff-in-diff methodology example,7
+201,cross,"Brueckner, J.",2011,"Lectures on Urban Economics","MIT Press",Urban economics textbook,1
+202,result,"Lyons, R.",2017,"Can Economic Incentives Stimulate Housing Supply?","SSRN Working Paper",Supply elasticity in Ireland,3
+203,result,"Byrne, M. and Norris, M.",2018,"Procyclical Social Housing and the Crisis of Irish Housing Policy","Housing Policy Debate",Procyclical social housing Ireland,3
+204,result,"O'Callaghan, C. and Lawton, P.",2016,"Temporary Spaces of Community-Led Urban Activism in Ireland","Cambridge Journal of Regions Economy and Society",Urban activism and planning,3
+205,result,"Hearne, R.",2020,"Housing Shock: The Irish Housing Crisis and How to Solve It","Policy Press",Irish housing crisis analysis,3
+206,result,"Mercille, J.",2015,"The Political Economy and Media Coverage of the European Economic Crisis","Routledge",Media and housing crisis narrative,3
+207,result,"Regan, A. and Brazys, S.",2018,"Celtic Phoenix or Leprechaun Economics?","Journal of European Public Policy",Post-crisis Irish recovery,3
+208,result,"Kemeny, J.",1995,"From Public Housing to the Social Market","Routledge",Housing tenure systems theory,6
+209,result,"Malpass, P.",2005,"Housing and the Welfare State","Palgrave",Housing welfare state interaction,6
+210,result,"Ronald, R.",2008,"The Ideology of Home Ownership","Palgrave",Homeownership ideology,6
+211,cross,"Autor, D. et al.",2014,"Housing Market Spillovers","Journal of Finance",Housing spillover effects,7
+212,cross,"Mian, A. and Sufi, A.",2009,"The Consequences of Mortgage Credit Expansion","Quarterly Journal of Economics",Credit expansion and housing,7
+213,cross,"Mian, A. et al.",2013,"Household Balance Sheets, Consumption, and the Economic Slump","Quarterly Journal of Economics",Household balance sheet effects,7
+214,cross,"Adelino, M. et al.",2015,"House Prices, Collateral, and Self-Employment","Journal of Financial Economics",Housing collateral effects,7
+215,result,"National Competitiveness Council",2024,"Costs of Doing Business in Ireland","NCC",Business cost benchmarking,3
+216,result,"Engineering Ireland",2024,"Engineers Ireland Infrastructure Report","EI",Infrastructure capacity assessment,3
+217,result,"Irish Water",2024,"Capital Investment Plan","Uisce Eireann",Water infrastructure constraints,3
+218,result,"EirGrid",2024,"Grid Development Strategy","EirGrid",Electricity infrastructure constraints,3
+219,result,"Transport Infrastructure Ireland",2024,"National Roads Programme","TII",Transport infrastructure investment,3
+220,result,"An Bord Pleanala",2024,"Annual Report","ABP",Planning decisions analysis,3
+221,result,"OPR",2024,"Annual Report","Office of the Planning Regulator",Planning system oversight,3
+222,result,"EPA",2024,"Water Quality in Ireland","EPA",Environmental constraints on development,3
+223,cross,"Arnott, R. and Stiglitz, J.",1979,"Aggregate Land Rents, Expenditure on Public Goods","Quarterly Journal of Economics",Henry George theorem,7
+224,cross,"George, H.",1879,"Progress and Poverty","Robert Schalkenbach Foundation",Land value taxation theory,7
+225,cross,"Mirrlees, J. et al.",2011,"Tax by Design: The Mirrlees Review","Oxford University Press",Optimal land taxation,7
