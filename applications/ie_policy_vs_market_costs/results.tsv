@@ -1,0 +1,76 @@
+exp_id	name	metric	value	status	notes	interaction
+E00	Baseline: Dublin 3-bed semi cost stack	total_dev_cost	591929.4700	KEEP	policy_share=16.4%, viable_counties=0/26	False
+E01	VAT reduced to 9% (UK-equivalent rate)	counties_viable	0	KEEP	saving_per_unit=EUR15,035, counties=0/26	False
+E02	Part V halved (20% to 10%)	counties_viable	0	KEEP	saving_per_unit=EUR10,000, counties=0/26	False
+E03	Dev contributions halved across all LAs	counties_viable	0	KEEP	saving_per_unit=EUR12,500, counties=0/26	False
+E04	Dev contributions equalised to lowest LA (EUR 6k)	counties_viable	0	KEEP	saving_per_unit=EUR19,000, counties=0/26	False
+E05	BCAR compliance halved	counties_viable	0	KEEP	saving_per_unit=EUR2,750, counties=0/26	False
+E06	Planning fees zeroed (all fees waived)	counties_viable	0	KEEP	saving_per_unit=EUR1,500, counties=0/26	False
+E07	ALL policy costs halved	counties_viable	3	KEEP	saving_per_unit=EUR49,303, counties=3/26	False
+E08	ALL policy costs zeroed	counties_viable	4	KEEP	saving_per_unit=EUR97,106, counties=4/26	False
+E09	Best single lever: VAT zeroed	counties_viable	3	KEEP	best_lever=VAT zeroed, counties=3/26	False
+E10	Dublin 2-bed apartment baseline	viability_margin	-0.0345	KEEP	cost=EUR465,536, sale=EUR450,000, gap=EUR15,536	False
+E11	Commuter 3-bed semi baseline	viability_margin	-0.1454	KEEP	total=EUR481,076, sale=EUR420,000, policy_share=15.8%	False
+E12	Regional 3-bed semi baseline	viability_margin	-0.3158	KEEP	total=EUR460,514, sale=EUR350,000, policy_share=15.0%	False
+E13	Rural 3-bed semi baseline	viability_margin	-0.4684	KEEP	total=EUR411,162, sale=EUR280,000, policy_share=14.0%	False
+E13	Margin compressed to 10%: Wicklow	viability_margin	-0.0020	KEEP	old_total=EUR502,839, new_total=EUR480,976	False
+E13	Margin compressed to 10%: Dublin	viability_margin	-0.0294	KEEP	old_total=EUR591,929, new_total=EUR566,193	False
+E13	Margin compressed to 10%: Kildare	viability_margin	-0.0366	KEEP	old_total=EUR498,514, new_total=EUR476,840	False
+E13	Margin compressed to 10%: Meath	viability_margin	-0.0878	KEEP	old_total=EUR477,631, new_total=EUR456,864	False
+E13	Margin compressed to 10%: Cork	viability_margin	-0.1431	KEEP	old_total=EUR478,035, new_total=EUR457,251	False
+E14	Finance reduced to 5%: Wicklow	viability_margin	-0.0223	KEEP	old_finance=EUR32,389, new_finance=EUR20,243	False
+E14	Finance reduced to 5%: Dublin	viability_margin	-0.0502	KEEP	old_finance=EUR38,128, new_finance=EUR23,830	False
+E14	Finance reduced to 5%: Kildare	viability_margin	-0.0576	KEEP	old_finance=EUR32,110, new_finance=EUR20,069	False
+E14	Finance reduced to 5%: Meath	viability_margin	-0.1097	KEEP	old_finance=EUR30,765, new_finance=EUR19,228	False
+E14	Finance reduced to 5%: Cork	viability_margin	-0.1662	KEEP	old_finance=EUR30,791, new_finance=EUR19,245	False
+E15	Land at CPO agricultural price (EUR 15k/ha)	counties_viable	2	KEEP	agricultural_land_per_unit=EUR429, counties=2/26	False
+E16	Modular construction -20% hard costs	counties_viable	3	KEEP	counties=3/26	False
+E17	Modular + VAT halved + Part V halved	counties_viable	4	KEEP	counties=4/26	False
+E18	Viability gap fund: per-unit subsidy needed	median_gap_per_unit	144289.3100	KEEP	avg=EUR132,145, min=EUR22,839, max=EUR225,873	False
+E19	Part V cross-subsidy: dublin	cross_subsidy_per_unit	13819.6800	KEEP	pv_loss=EUR11,056, per_market_unit=EUR13,820	False
+E19	Part V cross-subsidy: commuter	cross_subsidy_per_unit	3418.1900	KEEP	pv_loss=EUR2,735, per_market_unit=EUR3,418	False
+E19	Part V cross-subsidy: regional	cross_subsidy_per_unit	0	KEEP	pv_loss=EUR0, per_market_unit=EUR0	False
+E19	Part V cross-subsidy: rural	cross_subsidy_per_unit	0	KEEP	pv_loss=EUR0, per_market_unit=EUR0	False
+E20	Part V social housing delivery estimate	estimated_units_per_year	2123.1000	KEEP	completions=30330, theoretical_pv=6066, effective_est=2123	False
+E21	Policy share: 3bed_semi Dublin	policy_share	0.1640	KEEP	policy_share=16.4%	False
+E21	Policy share: 2bed_apt Dublin	policy_share	0.1882	KEEP	policy_share=18.8%	False
+E21	Policy share: 4bed_detached Dublin	policy_share	0.1491	KEEP	policy_share=14.9%	False
+E21	Policy share: 3bed_terrace Dublin	policy_share	0.1775	KEEP	policy_share=17.8%	False
+E22	Policy share: 3bed_semi dublin	policy_share	0.1640	KEEP	policy_share=16.4%	False
+E22	Policy share: 3bed_semi commuter	policy_share	0.1583	KEEP	policy_share=15.8%	False
+E22	Policy share: 3bed_semi regional	policy_share	0.1496	KEEP	policy_share=15.0%	False
+E22	Policy share: 3bed_semi rural	policy_share	0.1404	KEEP	policy_share=14.0%	False
+E23	Hard cost share: 3bed_semi dublin	hard_cost_share	0.5040	KEEP	hard=EUR298,320, total=EUR591,929	False
+E23	Hard cost share: 3bed_semi commuter	hard_cost_share	0.5383	KEEP	hard=EUR258,940, total=EUR481,076	False
+E23	Hard cost share: 3bed_semi regional	hard_cost_share	0.5585	KEEP	hard=EUR257,180, total=EUR460,514	False
+E23	Hard cost share: 3bed_semi rural	hard_cost_share	0.5749	KEEP	hard=EUR236,390, total=EUR411,162	False
+E24	Component: materials (MARKET)	eur_value	134244.0000	KEEP	share=22.7%	False
+E24	Component: labour (MARKET)	eur_value	119328.0000	KEEP	share=20.2%	False
+E24	Component: developer_margin (MARKET)	eur_value	77208.1900	KEEP	share=13.0%	False
+E24	Component: land (MARKET)	eur_value	45369.4000	KEEP	share=7.7%	False
+E24	Component: vat (POLICY)	eur_value	45105.9800	KEEP	share=7.6%	False
+E24	Component: site_works (MARKET)	eur_value	44748.0000	KEEP	share=7.6%	False
+E24	Component: finance (MARKET)	eur_value	38127.5000	KEEP	share=6.4%	False
+E24	Component: professional_fees (MARKET)	eur_value	35798.4000	KEEP	share=6.0%	False
+E24	Component: dev_contributions (POLICY)	eur_value	25000	KEEP	share=4.2%	False
+E24	Component: part_v (POLICY)	eur_value	20000	KEEP	share=3.4%	False
+E24	Component: bcar (POLICY)	eur_value	5500	KEEP	share=0.9%	False
+E24	Component: planning_fees (POLICY)	eur_value	1500	KEEP	share=0.3%	False
+E25	Dublin viability: 3bed_semi	viability_margin	-0.0762	KEEP		False
+E25	Dublin viability: 2bed_apt	viability_margin	-0.0345	KEEP		False
+E25	Dublin viability: 4bed_detached	viability_margin	0.0131	KEEP		False
+E25	Dublin viability: 3bed_terrace	viability_margin	-0.0072	KEEP		False
+E26	Interaction: VAT zeroed + Part V zeroed	counties_viable	3	KEEP	VAT_alone=3, PartV_alone=0, combined=3, additive_pred=3	True
+E27	Interaction: VAT zeroed + Dev contribs zeroed	counties_viable	3	KEEP	VAT_alone=3, DC_alone=0, combined=3	True
+E28	Radical reform: modular + CPO land + all policy zeroed	counties_viable	9	KEEP	counties=9/26	False
+E29	Subsidy of EUR 25,000 per unit	counties_viable	1	KEEP	subsidy=EUR25,000, counties=1/26	False
+E29	Subsidy of EUR 50,000 per unit	counties_viable	3	KEEP	subsidy=EUR50,000, counties=3/26	False
+E29	Subsidy of EUR 75,000 per unit	counties_viable	4	KEEP	subsidy=EUR75,000, counties=4/26	False
+E29	Subsidy of EUR 100,000 per unit	counties_viable	6	KEEP	subsidy=EUR100,000, counties=6/26	False
+E29	Subsidy of EUR 125,000 per unit	counties_viable	9	KEEP	subsidy=EUR125,000, counties=9/26	False
+E29	Subsidy of EUR 150,000 per unit	counties_viable	15	KEEP	subsidy=EUR150,000, counties=15/26	False
+E29	Subsidy of EUR 175,000 per unit	counties_viable	23	KEEP	subsidy=EUR175,000, counties=23/26	False
+E29	Subsidy of EUR 200,000 per unit	counties_viable	24	KEEP	subsidy=EUR200,000, counties=24/26	False
+E30	National viability gap fund cost (33k units/yr target)	total_annual_cost	4360788211.1538	KEEP	avg_gap=EUR132,145 x 33,000 = EUR4,360,788,211	False
+E31	50% pass-through: VAT zeroed	counties_viable	0	KEEP	counties=0/26, pass_through=50%	False
+E31	50% pass-through: All policy zeroed	counties_viable	3	KEEP	counties=3/26, pass_through=50%	False

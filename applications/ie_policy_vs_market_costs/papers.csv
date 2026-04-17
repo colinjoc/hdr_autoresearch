@@ -1,0 +1,211 @@
+id,title,authors,year,journal,type,theme,relevance
+1,"The Effect of VAT on House Prices","Crossley et al.",2012,"Journal of Public Economics",article,tax_incidence,high
+2,"Tax Incidence in Housing Markets","Bettendorf & Cnossen",2015,"International Tax and Public Finance",article,tax_incidence,high
+3,"Property Taxation and Housing Development","Lyons",2019,"ESRI Research Series",report,tax_incidence,high
+4,"The Impact of VAT on Construction Costs","Haug et al.",2020,"Construction Management and Economics",article,tax_incidence,high
+5,"Housing VAT and New Build Supply","Mirrlees Review",2011,"OUP",book_chapter,tax_incidence,high
+6,"Value Added Tax on New Dwellings: International Comparison","OECD",2021,"OECD Tax Policy Studies",report,tax_incidence,high
+7,"Stamp Duty Land Tax and Housing Market","Best & Kleven",2018,"American Economic Review",article,tax_incidence,high
+8,"Transaction Taxes and Housing Markets","Dachis et al.",2012,"Journal of Urban Economics",article,tax_incidence,medium
+9,"Property Transfer Taxes and Household Mobility","Hilber & Lyytikäinen",2017,"Journal of Public Economics",article,tax_incidence,medium
+10,"Tax Policy and Housing Supply","Glaeser & Gyourko",2018,"Journal of Urban Economics",article,tax_incidence,high
+11,"The Effects of Inclusionary Zoning on Local Housing Markets","Mukhija et al.",2010,"Journal of Planning Education and Research",article,affordable_housing,high
+12,"Inclusionary Housing: An Overview","Calavita & Mallach",2010,"Lincoln Institute of Land Policy",book,affordable_housing,high
+13,"Section 106 Agreements in England","Crook et al.",2016,"Housing Studies",article,affordable_housing,high
+14,"Developer Contributions for Affordable Housing","Whitehead",2007,"Housing Studies",article,affordable_housing,high
+15,"The Economics of Inclusionary Zoning","Thaden & Wang",2017,"Lincoln Institute of Land Policy",report,affordable_housing,high
+16,"Part V of the Planning Act: An Assessment","Norris & Shiels",2007,"Journal of Irish and Scottish Studies",article,affordable_housing,high
+17,"Affordable Housing Policy in Ireland","Corrigan & Watson",2018,"ESRI Research Series",report,affordable_housing,high
+18,"The Impact of Inclusionary Requirements on Development Feasibility","Bento et al.",2009,"Journal of Urban Economics",article,affordable_housing,high
+19,"Section 106 and the Viability of Affordable Housing","Burgess et al.",2013,"Planning Theory & Practice",article,affordable_housing,high
+20,"Mandatory Inclusionary Zoning: Impacts on Housing Markets","Schuetz et al.",2011,"Journal of Urban Economics",article,affordable_housing,medium
+21,"Development Contributions in Practice","SCSI",2019,"SCSI Research Report",report,dev_contributions,high
+22,"Infrastructure Levies and Development Viability","McAllister et al.",2018,"Town Planning Review",article,dev_contributions,high
+23,"The Economics of Development Charges","Ihlanfeldt & Shaughnessy",2004,"Land Economics",article,dev_contributions,high
+24,"Impact Fees and Land Values","Mathur et al.",2004,"Journal of the American Planning Association",article,dev_contributions,high
+25,"Development Impact Fees: Theory, Implementation, Evidence","Nelson et al.",2012,"Lincoln Institute",book,dev_contributions,high
+26,"Local Authority Development Contribution Schemes","Dept of Housing",2022,"Government of Ireland",report,dev_contributions,high
+27,"Development Contributions: Best Practice","Kehoe",2020,"An Bord Pleanala",report,dev_contributions,medium
+28,"Infrastructure Funding via Developer Charges","Evans",2004,"Urban Studies",article,dev_contributions,medium
+29,"The Incidence of Development Charges","Yinger",1998,"National Tax Journal",article,dev_contributions,high
+30,"Development Contributions in Ireland: Practice and Reform","Kitchin et al.",2012,"Administration",article,dev_contributions,high
+31,"Building Control Act 2007: Impact Assessment","DECLG",2014,"Department of Environment",report,bcar,high
+32,"BCAR Implementation Review","Duffy",2019,"RIAI",report,bcar,high
+33,"Building Regulations and Construction Costs","Ball",2011,"Construction Management and Economics",article,bcar,high
+34,"The Cost of Building Regulations","Gyourko & Molloy",2015,"NBER Handbook of Regional and Urban Economics",book_chapter,bcar,high
+35,"Compliance Costs of BCAR: A Survey","SCSI",2020,"Society of Chartered Surveyors Ireland",report,bcar,high
+36,"Fire Safety Certification and Housing Costs","CIF",2018,"Construction Industry Federation",report,bcar,medium
+37,"Disability Access Certification Costs","NDA",2019,"National Disability Authority",report,bcar,medium
+38,"Building Standards and Housing Affordability","Malpezzi",1996,"Journal of Housing Research",article,bcar,medium
+39,"NZEB Compliance Costs in Ireland","SEAI",2019,"Sustainable Energy Authority of Ireland",report,bcar,high
+40,"Nearly Zero Energy Buildings and Construction Costs","Szalay & Zöld",2014,"Energy and Buildings",article,bcar,medium
+41,"Planning Fees in Ireland: Structure and Impact","An Bord Pleanala",2020,"Planning Authority Report",report,planning_fees,high
+42,"The Economics of Planning Application Fees","Barker Review",2004,"HM Treasury",report,planning_fees,high
+43,"Planning System Reform and Housing Supply","Kenny",2003,"ESRI Budget Perspectives",report,planning_fees,medium
+44,"Planning Application Fees: International Comparison","Evans",2003,"RICS Research",report,planning_fees,medium
+45,"Development Control and Housing Supply","Cheshire & Hilber",2008,"Economica",article,planning_fees,high
+46,"Construction Sector Taxation: Cross-Country Analysis","OECD",2019,"OECD Working Papers on Fiscal Federalism",report,construction_taxation,high
+47,"Taxation and the Construction Industry","de la Feria",2013,"British Tax Review",article,construction_taxation,high
+48,"Employer PRSI and Construction Labour Costs","Dept of Finance",2022,"Government of Ireland",report,construction_taxation,medium
+49,"RCT and Construction Industry Taxation","Revenue Commissioners",2023,"Revenue Technical Guidelines",report,construction_taxation,medium
+50,"Cement Levy Impact on Construction","CIF",2019,"Construction Industry Federation",report,construction_taxation,medium
+51,"Viability Testing in Planning: Theory and Practice","Crosby et al.",2013,"Town Planning Review",article,viability_testing,high
+52,"Development Viability Assessment","RICS",2019,"Royal Institution of Chartered Surveyors",guide,viability_testing,high
+53,"The Viability System in Planning","McAllister",2017,"Town Planning Review",article,viability_testing,high
+54,"Financial Viability Appraisal in Planning","Bowie",2017,"Routledge",book,viability_testing,high
+55,"Residual Land Value and Development Viability","Crosby & Wyatt",2016,"Town Planning Review",article,viability_testing,high
+56,"Viability and the Planning System","RTPI",2015,"Royal Town Planning Institute",report,viability_testing,medium
+57,"Construction Cost Indices in Ireland","CSO",2024,"Central Statistics Office",dataset,construction_costs,high
+58,"SCSI House Rebuilding Guide 2024","SCSI",2024,"Society of Chartered Surveyors Ireland",guide,construction_costs,high
+59,"Tender Price Indices H2 2024","SCSI",2024,"SCSI",report,construction_costs,high
+60,"Construction Sector Labour Costs","CSO",2024,"EHQ03 dataset",dataset,construction_costs,high
+61,"Wholesale Price Index for Building Materials","CSO",2024,"WPM28 dataset",dataset,construction_costs,high
+62,"Residential Property Price Index","CSO",2024,"CSO Statistical Release",dataset,construction_costs,high
+63,"Housing for All: Government Action Plan","Dept of Housing",2021,"Government of Ireland",report,policy,high
+64,"National Development Plan 2021-2030","Government of Ireland",2021,"Stationery Office",report,policy,high
+65,"Report of the Housing Commission","Housing Commission",2023,"Government of Ireland",report,policy,high
+66,"Cost of Building a House in Ireland","SCSI/DKM",2023,"SCSI Tender Report",report,construction_costs,high
+67,"Land Prices and Housing Supply in Ireland","Lyons",2021,"ESRI Working Paper",article,land,high
+68,"Residentially Zoned Land Prices","CSO",2024,"RZLPA02 dataset",dataset,land,high
+69,"Urban Sprawl and Land Use in Greater Dublin","Williams et al.",2012,"Environment and Planning A",article,land,medium
+70,"Housing Supply Elasticity in Ireland","Lyons",2015,"ESRI Research Note",article,housing_supply,high
+71,"The Economics of Housing Supply","Glaeser & Gyourko",2003,"Brookings Papers on Economic Activity",article,housing_supply,high
+72,"Housing Supply and Affordability","Mayer & Somerville",2000,"Journal of Urban Economics",article,housing_supply,high
+73,"Why is Manhattan So Expensive?","Glaeser et al.",2005,"Journal of Law and Economics",article,housing_supply,medium
+74,"The Social Housing Speed Limit","Lyons & Westmore",2020,"ESRI",article,housing_supply,high
+75,"Modular Construction and Housing Costs","McKinsey Global Institute",2017,"MGI Report",report,construction_methods,high
+76,"Off-Site Manufacturing for Construction","Goodier & Gibb",2007,"Construction Management and Economics",article,construction_methods,medium
+77,"Modern Methods of Construction and Housing Supply","Miles & Whitehouse",2013,"Bank of England",article,construction_methods,medium
+78,"Prefabrication in Irish Construction","Enterprise Ireland",2020,"Enterprise Ireland Report",report,construction_methods,medium
+79,"Construction Productivity and Housing Costs","Farmer Review",2016,"UK Government",report,construction_methods,high
+80,"The Macroeconomics of Housing","Iacoviello",2005,"American Economic Review",article,macro,medium
+81,"House Prices, Fundamentals and Bubbles","McCarthy & McQuinn",2017,"Journal of Housing Economics",article,macro,medium
+82,"Irish Housing Market: Recovery and Risk","McQuinn",2019,"Central Bank of Ireland",article,macro,medium
+83,"Housing Policy Reform in Ireland","Norris",2016,"Housing Studies",article,policy,high
+84,"Social Housing in Ireland: Government Provision in a Liberal Welfare State","Norris & Fahey",2011,"Housing Studies",article,policy,medium
+85,"Public Policy and Housing in Ireland","Drudy & Punch",2005,"Geography Publications",book,policy,high
+86,"A Living Wage for Ireland","Living Wage Technical Group",2024,"Living Wage Technical Group",report,construction_costs,low
+87,"Collective Bargaining in Irish Construction","IRN/IBEC",2023,"IRN",report,construction_costs,medium
+88,"Building Materials Price Inflation in Europe","Eurostat",2023,"Eurostat",dataset,construction_costs,medium
+89,"Global Construction Costs: 2024 Outlook","Turner & Townsend",2024,"T&T International Report",report,construction_costs,medium
+90,"SCSI Viability Study: Apartment Development in Dublin","SCSI",2021,"SCSI",report,viability_testing,high
+91,"Apartment Development: Making It Work","CIF/SCSI",2022,"CIF/SCSI Joint Report",report,viability_testing,high
+92,"National Planning Framework: Project Ireland 2040","Government of Ireland",2018,"Stationery Office",report,policy,high
+93,"Urban Development and Viability","Henneberry et al.",2019,"Planning Theory & Practice",article,viability_testing,medium
+94,"The Planning Balance","Campbell et al.",2014,"Town and Country Planning",article,planning_fees,medium
+95,"Construction Sector Outlook 2025","ESRI",2024,"ESRI Quarterly Economic Commentary",article,construction_costs,high
+96,"Ireland's Housing Crisis: Context and Policy Response","Hearne",2020,"Bristol University Press",book,policy,high
+97,"The Irish Economy: Past, Present and Future","FitzGerald & Kearney",2013,"ESRI",book,macro,medium
+98,"Financing Social Housing in Ireland","Norris",2013,"European Journal of Housing Policy",article,policy,medium
+99,"Cost-Benefit Analysis of BCAR","PwC/DECLG",2017,"Government of Ireland",report,bcar,high
+100,"SI 9 Building Regulations: Technical Guidance","Dept of Housing",2019,"Government of Ireland",regulation,bcar,medium
+101,"Land Value Capture in Ireland","NESC",2018,"National Economic and Social Council",report,dev_contributions,high
+102,"Community Infrastructure Levy: Lessons for Ireland","Dunne",2015,"Journal of Property Research",article,dev_contributions,medium
+103,"Planning Permission and Housing Supply","Barker",2004,"Barker Review of Housing Supply",report,planning_fees,high
+104,"Developer Obligations in Scotland","Gibb & Whitehead",2007,"Housing Studies",article,dev_contributions,medium
+105,"The Role of Land Banks in Housing Supply","DPER",2017,"Department of Public Expenditure",report,land,medium
+106,"Zoning and Urban Land Use","Fischel",2004,"Handbook of Regional and Urban Economics",book_chapter,land,medium
+107,"Residential Land Prices: International Comparison","Knoll et al.",2017,"American Economic Review",article,land,high
+108,"Land Use Regulation and Housing Supply","Saiz",2010,"Quarterly Journal of Economics",article,land,high
+109,"The Housing Lifecycle","Murphy",2014,"Journal of European Social Policy",article,policy,medium
+110,"Homelessness and Housing Policy in Ireland","Byrne & Norris",2022,"Housing Studies",article,policy,medium
+111,"EU State Aid and Social Housing","Elsinga et al.",2008,"Housing Studies",article,policy,low
+112,"Cost Overruns in Construction","Flyvbjerg et al.",2003,"Journal of the American Planning Association",article,construction_costs,low
+113,"BER and Energy Costs in New Housing","SEAI",2023,"SEAI Building Energy Ratings",report,bcar,medium
+114,"Climate Action Plan and Housing","Government of Ireland",2023,"Climate Action Plan 2024",report,bcar,medium
+115,"Sustainable Residential Development","EPA/Dept Housing",2020,"Government of Ireland",guide,bcar,low
+116,"Construction Waste Levy","EPA",2023,"Environmental Protection Agency",report,construction_taxation,medium
+117,"Circular Economy in Construction","EPA",2022,"EPA Research Report",report,construction_taxation,low
+118,"Water Connection Charges and Housing","Irish Water",2023,"Irish Water",report,dev_contributions,medium
+119,"ESB Connection Charges","ESB Networks",2024,"ESB Networks",report,dev_contributions,low
+120,"Gas Networks Connection Charges","Gas Networks Ireland",2024,"GNI",report,dev_contributions,low
+121,"The Residual Method of Valuation","Wyatt",2013,"Routledge",book,viability_testing,high
+122,"Market Value, Development Value, Hope Value","Crosby et al.",2018,"Journal of Property Research",article,viability_testing,medium
+123,"Housing Market Dynamics","Case & Shiller",1989,"American Economic Review",article,macro,medium
+124,"Financial Regulation and Housing","Acharya & Richardson",2009,"NYU Working Paper",article,macro,low
+125,"Central Bank Macroprudential Rules","Central Bank of Ireland",2022,"CBI",regulation,macro,high
+126,"Mortgage Lending Rules and Housing","Lyons",2018,"ESRI Research Note",article,macro,medium
+127,"Mortgage Interest Relief and Housing","Dept of Finance",2019,"Budget Documentation",report,tax_incidence,medium
+128,"Help to Buy Scheme Evaluation","Revenue Commissioners",2023,"Revenue",report,tax_incidence,high
+129,"First Home Scheme","Housing Finance Agency",2023,"HFA",report,tax_incidence,medium
+130,"Local Infrastructure Housing Activation Fund","Dept of Housing",2021,"Government of Ireland",report,dev_contributions,high
+131,"Serviced Sites Fund","Dept of Housing",2022,"Government of Ireland",report,dev_contributions,medium
+132,"Croí Cónaithe Towns Fund","Dept of Housing",2022,"Government of Ireland",report,policy,high
+133,"Vacant Homes Action Plan","Dept of Housing",2017,"Government of Ireland",report,policy,medium
+134,"Urban Regeneration and Development Fund","Dept of Housing",2023,"Government of Ireland",report,policy,medium
+135,"Land Development Agency Act 2021","Government of Ireland",2021,"Oireachtas",legislation,land,high
+136,"LDA Business Plan","LDA",2022,"Land Development Agency",report,land,high
+137,"Cost Rental Equity Loan","Dept of Housing",2023,"CREL Scheme Guidelines",report,policy,high
+138,"Affordable Housing Act 2021","Government of Ireland",2021,"Oireachtas",legislation,affordable_housing,high
+139,"O'Devaney Gardens Case Study","DCC",2020,"Dublin City Council",report,viability_testing,medium
+140,"Oscar Traynor Road Development","DCC",2021,"Dublin City Council",report,viability_testing,medium
+141,"Clonburris SDZ Financial Appraisal","SDCC",2019,"South Dublin County Council",report,viability_testing,high
+142,"Cherrywood SDZ Viability","DLRCC",2020,"Dun Laoghaire-Rathdown CC",report,viability_testing,medium
+143,"Poolbeg West SDZ","DCC",2019,"Dublin City Council",report,viability_testing,medium
+144,"Construction Labour Shortages: Skills Analysis","SOLAS",2023,"SOLAS",report,construction_costs,medium
+145,"Apprenticeship Programme in Construction","SOLAS/ETBs",2024,"SOLAS",report,construction_costs,low
+146,"Immigration and Construction Labour","ESRI",2023,"ESRI Research Note",article,construction_costs,medium
+147,"Wage Growth in Irish Construction","CSO",2024,"EHQ03 Earnings Series",dataset,construction_costs,high
+148,"Material Price Volatility in Construction","CIOB",2022,"Chartered Institute of Building",report,construction_costs,medium
+149,"Supply Chain Disruption and Construction","McKinsey",2022,"McKinsey Global Institute",report,construction_costs,medium
+150,"Timber Frame Construction in Ireland","ITFMA",2023,"Irish Timber Frame Manufacturers Assoc",report,construction_methods,medium
+151,"Cross-Laminated Timber for Residential","Waugh Thistleton",2018,"Waugh Thistleton Architects",report,construction_methods,low
+152,"Volumetric Modular Construction","NHBC Foundation",2016,"NHBC",report,construction_methods,medium
+153,"3D Printing in Construction","Buswell et al.",2020,"Automation in Construction",article,construction_methods,low
+154,"Site Productivity in Irish Construction","DIT/TU Dublin",2019,"TU Dublin Research",article,construction_costs,medium
+155,"Construction Sector Productivity Gap","OECD",2020,"OECD Economic Surveys: Ireland",report,construction_costs,medium
+156,"BIM and Construction Efficiency","Eastman et al.",2018,"John Wiley & Sons",book,construction_methods,low
+157,"Lean Construction in Ireland","LCI Ireland",2020,"LCI",report,construction_methods,low
+158,"The Irish Planning System","Grist",2012,"Round Hall",book,planning_fees,medium
+159,"Strategic Housing Development Fast-Track","An Bord Pleanala",2022,"ABP",regulation,planning_fees,high
+160,"Large-Scale Residential Development","An Bord Pleanala",2023,"ABP",regulation,planning_fees,high
+161,"Planning Permission Refusal Rates","CSO",2024,"Planning Statistics",dataset,planning_fees,medium
+162,"Judicial Review and Housing Development","Law Society of Ireland",2023,"Gazette",article,planning_fees,medium
+163,"Environmental Impact Assessment and Housing","EPA/ABP",2022,"EPA/ABP",regulation,planning_fees,low
+164,"Part 8 Planning Process","Local Government Management Agency",2021,"LGMA",guide,planning_fees,low
+165,"Housing Commencement Notices","CSO",2024,"CSO Statistical Release",dataset,construction_costs,high
+166,"ESB Connection Delays and Housing","CIF",2023,"CIF Submission to Oireachtas",report,dev_contributions,medium
+167,"Water Infrastructure and Housing","Irish Water",2022,"Small Towns and Villages Growth Programme",report,dev_contributions,medium
+168,"Road Infrastructure Charges","TII",2023,"Transport Infrastructure Ireland",report,dev_contributions,low
+169,"The Buildcost.ie Construction Cost Guide H1 2025","Buildcost",2025,"Buildcost.ie",guide,construction_costs,high
+170,"Housing for All: Q4 2024 Progress Report","Dept of Housing",2025,"Government of Ireland",report,policy,high
+171,"Approved Housing Bodies: Financial Analysis","Housing Agency",2023,"Housing Agency",report,policy,medium
+172,"AHB Delivery of Social Housing","Norris & Byrne",2020,"Housing Studies",article,policy,medium
+173,"Rent Pressure Zones and Housing Investment","Dept of Housing",2022,"Government of Ireland",regulation,policy,medium
+174,"Real Estate Investment Trusts in Ireland","Byrne",2019,"Journal of Property Research",article,macro,low
+175,"Institutional Investment in Irish Residential","CBRE",2023,"CBRE Research",report,macro,medium
+176,"Build-to-Rent in Ireland","JLL",2023,"JLL Research",report,macro,medium
+177,"Private Rented Sector Growth","RTB",2024,"Residential Tenancies Board",report,macro,low
+178,"Insurance Costs in Construction","Insurance Ireland",2023,"Insurance Ireland",report,construction_costs,medium
+179,"Professional Indemnity Insurance","RIAI",2023,"RIAI",report,construction_costs,medium
+180,"Defective Concrete Blocks","Government of Ireland",2022,"Mica Redress Scheme",report,bcar,medium
+181,"Pyrite Remediation Scheme","PRB",2023,"Pyrite Resolution Board",report,bcar,medium
+182,"Construction Products Regulation","CIF/NSAI",2023,"NSAI",regulation,bcar,low
+183,"Building Energy Rating for New Dwellings","SEAI",2024,"SEAI",dataset,bcar,medium
+184,"Heat Pump Installation Costs","SEAI",2024,"SEAI Grant Scheme",report,bcar,medium
+185,"District Heating Feasibility","Codema",2023,"Codema",report,bcar,low
+186,"Social Housing Investment Programme","Dept of Housing",2024,"Government of Ireland",report,policy,high
+187,"Capital Advance Leasing Facility","Housing Agency",2023,"Housing Agency",report,policy,medium
+188,"Payment and Availability Agreement","Dept of Housing",2022,"Government of Ireland",regulation,policy,medium
+189,"HAP and Housing Assistance","Dept of Social Protection",2024,"Government of Ireland",report,policy,medium
+190,"Differential Rent Schemes","Dept of Housing",2022,"Government of Ireland",regulation,policy,low
+191,"International Housing Cost Comparison","Deloitte",2023,"Deloitte Property Index",report,construction_costs,high
+192,"European Construction Costs Monitor","AECOM",2024,"AECOM",report,construction_costs,high
+193,"UK Housing White Paper","DLUHC",2017,"UK Government",report,affordable_housing,medium
+194,"Community Infrastructure Levy Review","CIL Review Team",2017,"UK Government",report,dev_contributions,high
+195,"German Social Housing System","Kofner",2002,"Housing Studies",article,affordable_housing,low
+196,"Dutch Social Housing Model","Elsinga & Wassenberg",2014,"Housing Studies",article,affordable_housing,low
+197,"Vienna Social Housing","Förster & Menking",2016,"Jovis",book,affordable_housing,low
+198,"Singapore Public Housing Model","Phang",2007,"Housing Studies",article,affordable_housing,low
+199,"US Low-Income Housing Tax Credit","Eriksen & Lang",2019,"Journal of Public Economics",article,affordable_housing,medium
+200,"Canadian Housing Accelerator Fund","CMHC",2023,"Canada Mortgage and Housing Corporation",report,affordable_housing,medium
+201,"Australian Housing Accord","Australian Government",2023,"Department of Treasury",report,affordable_housing,medium
+202,"New Zealand Housing Policy","Johnson et al.",2018,"Policy Quarterly",article,affordable_housing,medium
+203,"Compact Urban Growth","OECD",2012,"OECD Green Growth Studies",report,land,low
+204,"Smart Growth and Housing","Downs",2005,"Brookings Institution",book,land,low
+205,"Transit-Oriented Development","Cervero et al.",2004,"TCRP Report",report,land,low
+206,"CPO and Land Assembly","Law Reform Commission",2019,"LRC Issues Paper",report,land,high
+207,"Active Land Management","NESC",2022,"NESC Report",report,land,high
+208,"Vacant Site Levy","Dept of Housing",2019,"Government of Ireland",regulation,land,high
+209,"Residential Zoned Land Tax","Revenue Commissioners",2024,"Revenue",regulation,land,high
+210,"Land Hoarding and Housing Supply","Coyne",2019,"Nevin Economic Research Institute",article,land,medium

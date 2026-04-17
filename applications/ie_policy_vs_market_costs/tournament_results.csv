@@ -1,0 +1,6 @@
+family,description,metric,value,winner,notes
+T01_share_decomposition,Policy/market split by county,policy_share_range,13.0%-16.4%,False,Simple decomposition; policy share stable across locations
+T02_sensitivity,Partial derivative of viability w.r.t. each policy cost,counties_viable_delta,"VAT=3, PartV=0, DC=0, BCAR=0, Planning=0",True,VAT is the only single lever that flips any county; champion family
+T03_scenario_model,What-if: each policy cost halved or zeroed,counties_viable,"halved=3, zeroed=4",False,Even zeroing ALL policy costs makes only 4/26 viable
+T04_break_even,What reduction makes each county viable,gap_per_unit_median,"EUR 144,289",False,Median gap far exceeds total policy cost per unit (~EUR 70-100k)
+T05_international,Ireland vs UK/DE/FR/NL policy burden,qualitative_ranking,mid-table,False,UK zero-rates VAT; DE/FR charge 19%/10%; Ireland at 13.5% is middling
