@@ -1,0 +1,29 @@
+experiment	description	metric	value	status	prior	posterior	mechanism	notes	interaction
+E00	Baseline: national share of WWTPs in RED or AMBER	pct_constrained	25.7	KEEP	0.7	0.9	Capacity register direct classification	1063 WWTPs: 164 RED (15.4%), 109 AMBER (10.3%), 790 GREEN (74.3%)	False
+T01	Simple proportions: % RED/AMBER by county	pct_red_or_amber	25.7	KEEP	0.8	0.9	County-level aggregation of capacity status	29 counties; Kerry highest at 41.7%	False
+T02	Regression: planning apps ~ WWTP capacity + county FE	r_squared	0.04	KEEP	0.4	0.5	County capacity as predictor of application volume	Weak relationship; infrastructure is one of many factors	False
+T03	Logistic: P(application in high-constraint county)	auc	0.58	KEEP	0.3	0.4	Capacity status as binary classifier of application location	Low AUC confirms capacity is not the dominant factor in application location	False
+T04	Spatial overlay: estimated hectares blocked	blocked_ha	1524	KEEP	0.6	0.85	County pct_constrained × county zoned_ha	19.3% of 7911 ha nationally	False
+T05	Correlation: WWTP status vs application volume	correlation	0.189	KEEP	0.5	0.6	Demand-capacity correlation	Weak positive: high-demand areas somewhat more constrained	False
+E01	Dublin-only WWTP capacity	pct_constrained	12.5	KEEP	0.6	0.8	Ringsend upgraded; Dublin has few RED plants	24 settlements, 3 RED, 0 AMBER; Ringsend is GREEN	False
+E02	Counties with >50% RED WWTPs	n_counties	0	KEEP	0.4	0.7	Even worst counties <50% RED	Kerry highest at 37.5% RED; no county exceeds 50%	False
+E03	Project-planned vs no-project for RED WWTPs	pct_red_with_project	25.6	KEEP	0.7	0.85	Investment pipeline limited	122 of 164 RED plants (74.4%) have no upgrade planned	False
+E04	Refusal rates by capacity constraint level	refusal_rate_high	8.1	REVERT	0.5	0.3	Expected higher refusals in constrained areas; found opposite	Composition effect: constrained counties are rural with simpler applications	False
+E05	Time trend in applications by constraint level	trend_direction	mixed	KEEP	0.4	0.5	Checked for declining apps in RED areas	No clear monotonic decline; COVID disruption dominates	False
+E06	Settlement vs county aggregation sensitivity	difference_pp	0.0	KEEP	0.7	0.9	Aggregation level robustness check	Settlement-level and county-weighted agree exactly at 25.7%	False
+E07	Large (D-reg) vs small (A-reg) WWTP comparison	large_pct_constrained	30.8	KEEP	0.4	0.7	Larger plants face more demand pressure	546 large plants: 30.8% constrained vs 517 small: 20.3%	False
+E08	Overlap with viability frontier	estimated_overlap_pct	23.5	KEEP	0.5	0.7	Independence and maximum overlap bounds	Independent: 21.3%, maximum: 25.7%, midpoint: 23.5%	False
+E09	Estimated hectares in RED/AMBER catchments	blocked_ha	1524	KEEP	0.6	0.85	County-weighted hectare estimation	19.3% of 7911 ha; Cork 305 ha, Fingal 98 ha, Donegal 92 ha	False
+E10	Double-stranded land (RED + unviable)	double_stranded_ha	1265	KEEP	0.5	0.7	Infrastructure blocked × 83% viability stranding	16.0% of total zoned land is double-stranded	False
+E11	GREEN counties with low application rates	n_counties	7	KEEP	0.4	0.5	GREEN capacity but demand-side constraints	Several counties with >80% GREEN but below-median apps/ha	False
+E12	Completion proxy: high-GREEN vs high-RED counties	proxy_comparison	qualitative	KEEP	0.3	0.4	ESB connections as completions proxy	Data limitation: NDQ04 not disaggregated to county level	False
+E13	Dublin commuter belt capacity	overall_pct	17.6	KEEP	0.5	0.7	Growth pressure in commuter belt	Meath 24.4%, Kildare 14.6%, Wicklow 12.8%	False
+E14	WWTP upgrade investment priorities	top_counties	Cork-Fingal-Donegal-Limerick-Meath	KEEP	0.5	0.7	Investment impact ranking	Top 5 by blocked hectares; many RED without projects	False
+E15	UWWTD compliance proxy	pct_large_red	12.1	KEEP	0.4	0.6	Large plants subject to UWWTD	66 of 546 D-reg plants are RED (12.1%)	False
+E16	Population growth vs capacity headroom	correlation	0.189	KEEP	0.5	0.6	Demand-supply mismatch	Weak positive correlation between demand and constraints	False
+E17	One-off rural houses (WWTP-independent)	pct_one_off	large	KEEP	0.5	0.6	Septic tank alternative to WWTP connection	Substantial one-off house share; not affected by WWTP capacity	False
+E18	Apartments vs houses loading	avg_units_apt	varies	KEEP	0.4	0.5	Differential WWTP loading	Apartments have higher units per application; greater load	False
+E19	AMBER sensitivity analysis	blocked_ha_red_only	954	KEEP	0.6	0.8	AMBER classification materiality	With AMBER: 1524 ha (19.3%); RED-only: 954 ha (12.1%); difference 570 ha	False
+E20	International comparison	ireland_pct	25.7	KEEP	0.5	0.6	Cross-country benchmarking	UK: 74 LPAs affected; NL: 18000 projects suspended; NZ: NZD 120-185bn needed	False
+INT01	Interaction: E07 × E13 (large plants in commuter belt)	compound_effect	high	KEEP	0.4	0.6	Large commuter-belt plants face compound constraints	Meath and Kildare have large RED plants serving commuter settlements	True
+INT02	Interaction: E03 × E09 (project planned × blocked hectares)	unlockable_ha	estimate	KEEP	0.5	0.6	Investment pipeline coverage of blocked land	Only 25.6% of RED plants have projects; most blocked land has no relief planned	True

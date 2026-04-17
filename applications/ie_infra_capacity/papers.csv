@@ -1,0 +1,226 @@
+id,authors,year,title,journal,theme,relevance,notes
+1,Uisce Éireann,2024,Wastewater Treatment Capacity Register,water.ie,1,5,Primary data source; 1063 WWTPs with GREEN/AMBER/RED status
+2,Uisce Éireann,2025,Strategic Funding Plan 2025-2029,water.ie,1,5,EUR 10.3bn investment plan for water infrastructure
+3,Uisce Éireann,2025,Accelerated Growth Programme,water.ie,1,5,Programme to unlock housing through infrastructure investment
+4,European Commission,2024,Recast Urban Wastewater Treatment Directive 2024/3019,Official Journal EU,2,5,New compliance obligations for member states by July 2027
+5,EPA Ireland,2024,Urban Waste Water Treatment in 2023,EPA.ie,2,5,Annual compliance monitoring report
+6,EPA Ireland,2023,Focus on Urban Waste Water Treatment 2022,EPA.ie,2,4,Identifies non-compliant agglomerations
+7,Dept of Housing,2024,Housing for All - Action Plan Update,gov.ie,1,5,National housing policy with 33000/yr target
+8,Dept of Housing,2025,Programme for Government Housing Targets,gov.ie,1,5,Revised target to 300000 homes including 50000/yr
+9,CSO Ireland,2024,Planning Permissions Quarterly BHQ01,cso.ie,3,5,Planning permission statistics by local authority
+10,CSO Ireland,2024,ESB Connections Quarterly NDQ04,cso.ie,3,5,Housing completions proxy via electricity connections
+11,Goodbody,2021,Analysis of Zoned Residential Land in Ireland,goodbody.ie,1,5,7911 ha zoned residential nationally
+12,ESRI,2023,Quarterly Economic Commentary - Housing Supply,ESRI.ie,1,4,Analysis of housing supply constraints
+13,ESRI,2022,Infrastructure and Housing Supply in Ireland,ESRI Research Series,1,5,Relationship between infrastructure investment and housing output
+14,Morgenroth E,2018,Prospects for Irish Regions and Counties,ESRI Research Series 70,3,4,Regional economic projections and infrastructure needs
+15,National Competitiveness Council,2023,Costs of Doing Business 2023,NCC.ie,1,4,Infrastructure as competitiveness factor
+16,NESC,2024,Water Quality and Planning,NESC Secretariat Papers,2,4,Policy integration of water and planning systems
+17,Natural England,2022,Nutrient Neutrality Generic Methodology NECR459,naturalengland.org.uk,4,5,UK comparator: nutrient neutrality blocking 145000 homes
+18,House of Commons Library,2023,Nutrient Neutrality and Housing Development CBP-9850,parliament.uk,4,5,UK Parliamentary briefing on housing blocks
+19,POST Parliament UK,2024,Changes to Nutrient Neutrality in England,POST-PN-0755,4,4,Policy evolution of nutrient neutrality
+20,Home Builders Federation UK,2024,Nutrient Neutrality - Four Years of Government Failure,hbf.co.uk,4,4,Industry perspective on UK housing blocks
+21,RIVM Netherlands,2020,Nitrogen and PFAS as Societal Issues in the Netherlands,rivm.nl,4,5,Dutch nitrogen crisis impact on construction
+22,Council of State Netherlands,2019,PAS Ruling - Nitrogen Deposition,raadvanstate.nl,4,5,Landmark ruling suspending 18000 construction projects
+23,Colliers Netherlands,2023,Netherlands Misses 23000 Homes Due to Nitrogen Ruling,colliers.com,4,4,Quantified housing impact of Dutch nitrogen crisis
+24,De Brauw Blackstone,2024,Landmark Ruling: Construction Exemption Annulled,debrauw.com,4,4,Legal analysis of Dutch nitrogen construction ban
+25,Infrastructure NZ,2023,Three Waters Reform,infrastructure.org.nz,4,4,NZ nationwide water infrastructure overhaul
+26,IWA Publishing,2025,Three Waters Reform in New Zealand,Water Policy 27(12),4,5,Academic analysis of NZ governance reform
+27,Te Waihanga,2023,Special Report: Waters Reform in New Zealand,tewaihanga.govt.nz,4,4,NZ infrastructure investment requirements NZD 120-185bn over 30 years
+28,DIA New Zealand,2024,Water Services Reform Programme,dia.govt.nz,4,4,Government reform programme documentation
+29,Glaeser E and Gyourko J,2018,The Economic Implications of Housing Supply,J Economic Perspectives 32(1),1,5,Canonical paper on housing supply constraints
+30,Saiz A,2010,The Geographic Determinants of Housing Supply,Quarterly J Economics 125(3),1,5,Physical and regulatory constraints on housing supply
+31,Hilber C and Vermeulen W,2016,The Impact of Supply Constraints on House Prices in England,Economic J 126(591),1,5,Planning constraints and house prices
+32,Cheshire P et al,2015,Urban Economics and Urban Policy,Edward Elgar,1,5,Textbook on planning constraints and housing markets
+33,Bramley G,2013,Housing Supply Requirements across Great Britain,Town Planning Review 84(5),1,4,Infrastructure-led housing supply methodology
+34,Barker K,2004,Review of Housing Supply,HM Treasury,1,5,Landmark UK review linking planning/infrastructure to housing
+35,Barker K,2006,Barker Review of Land Use Planning,HM Treasury,1,4,Follow-up on infrastructure and planning reform
+36,Muellbauer J and Murphy A,2008,Housing Markets and the Economy,OECD Economics,1,4,Housing supply elasticity and infrastructure
+37,Ball M,2011,Planning Delay and the Responsiveness of English Housing Supply,Urban Studies 48(2),1,4,Planning system delays including infrastructure requirements
+38,Monk S et al,2013,International Review of Land Supply and Planning Systems,Joseph Rowntree Foundation,1,4,Comparative international review of planning systems
+39,Fingleton B et al,2019,Housing Supply Constraints and Neighbourhood Turnover,J Regional Science 59(2),3,3,Spatial dynamics of constrained housing markets
+40,Combes P et al,2019,The Costs of Agglomeration: House and Land Prices in French Cities,Rev Econ Studies 86(4),3,3,Agglomeration costs including infrastructure
+41,Gyourko J et al,2008,A New Measure of the Local Regulatory Environment for Housing Markets,Urban Studies 45(3),1,4,Wharton Residential Land Use Regulatory Index
+42,Turner M et al,2014,Land Use Regulation and Welfare,Econometrica 82(4),1,4,Welfare effects of land use regulation
+43,Quigley J and Raphael S,2005,Regulation and the High Cost of Housing in California,American Economic Review 95(2),1,4,Infrastructure requirements driving housing costs
+44,Green R et al,2005,Metropolitan-Specific Estimates of the Price Elasticity of Supply of Housing,American Economic Review 95(2),1,3,Supply elasticity variation across metros
+45,Ihlanfeldt K,2007,The Effect of Land Use Regulation on Housing and Land Prices,J Urban Economics 61(3),3,3,Direct and indirect effects of regulation
+46,Jackson K,2016,Do Land Use Regulations Stifle Residential Development?,J Urban Economics 91,3,3,Empirical test of regulation on development
+47,Kok N et al,2014,Land Use Regulations and the Value of Land and Housing,J Urban Economics 81,3,3,Capitalisation of regulations into land values
+48,Ganong P and Shoag D,2017,Why Has Regional Income Convergence in the US Declined?,J Urban Economics 102,3,3,Housing supply constraints blocking convergence
+49,Hsieh C and Moretti E,2019,Housing Constraints and Spatial Misallocation,American Economic J 11(2),1,5,Macroeconomic costs of housing supply constraints
+50,European Commission,2022,Urban Wastewater Treatment Directive 91/271/EEC,EUR-Lex,2,5,Original directive establishing treatment standards
+51,European Commission,2024,Proposal for Recast UWWTD,COM(2022)541,2,4,Proposed revisions to the directive
+52,CJEU,2019,Case C-427/17 Commission v Ireland,CJEU Reports,2,5,Court ruling finding Ireland in breach of UWWTD for 28 agglomerations
+53,European Environment Agency,2023,Urban Waste Water Treatment in Europe,EEA Report,2,4,EU-wide compliance assessment
+54,EEA,2022,Waterbase - UWWTD Agglomerations and Treatment Plants,EEA Data,2,4,Pan-European WWTP database
+55,OECD,2023,Financing Water: Investing in Sustainable Growth,OECD Environment Policy Papers,2,4,Investment frameworks for water infrastructure
+56,OECD,2021,Managing Water Sustainably is Key to the Future of Food and Agriculture,OECD,2,3,Water management and sustainable development
+57,World Bank,2022,What the Future Has in Store: A New Paradigm for Water Storage,World Bank,2,3,Global water infrastructure investment needs
+58,EIB,2024,Irish Water Infrastructure Development,EIB Projects,1,4,EUR loan for Uisce Éireann capital investment
+59,Ringsend WWTP,2025,Upgrade Completion - Capacity for 2.4M PE,water.ie,1,5,Major Dublin infrastructure milestone
+60,Dublin Drainage Project,2025,Greater Dublin Drainage Settlement,water.ie,1,5,Critical Dublin wastewater capacity project - operational by 2032
+61,CRU,2024,Uisce Éireann Revenue Control 3,CRU.ie,1,4,Regulatory framework for water investment
+62,CRU,2023,Water Services Strategic Plan Monitoring,CRU.ie,1,4,Regulatory oversight of investment delivery
+63,National Planning Framework,2018,Project Ireland 2040,gov.ie,1,5,National spatial strategy with infrastructure alignment
+64,Eastern and Midland Regional Assembly,2019,Regional Spatial and Economic Strategy,EMRA,3,4,Regional planning with infrastructure requirements
+65,Southern Regional Assembly,2020,Regional Spatial and Economic Strategy,SRA,3,3,Regional planning framework
+66,Northern and Western Regional Assembly,2020,RSES,NWRA,3,3,Regional planning for less-developed regions
+67,An Bord Pleanála,2023,Annual Report,ABP.ie,3,4,Planning appeals data including infrastructure objections
+68,OPR,2024,Office of the Planning Regulator Annual Report,OPR.ie,3,4,Planning system oversight
+69,OPR,2023,Review of Zoning Provisions in Development Plans,OPR.ie,1,4,National review of zoning consistency
+70,IGEES,2023,Spending Review: Capital Investment in Water Services,gov.ie,1,4,Government evaluation of water capital spending
+71,DPER,2024,National Development Plan Review,gov.ie,1,4,Infrastructure investment tracking
+72,Irish Fiscal Advisory Council,2024,Fiscal Assessment Report,IFAC.ie,1,3,Public finance context for infrastructure investment
+73,Honohan P and Walsh B,2002,Catching Up with the Leaders: The Irish Hare,Brookings Papers,3,3,Historical context of Irish infrastructure catch-up
+74,FitzGerald J,2005,The Irish Housing Stock: Growth in Number of Vacant Dwellings,QEC Special Article ESRI,3,3,Historical housing supply dynamics
+75,Lyons R,2023,Daft.ie Annual Rental Report,Daft.ie,1,3,Housing market context
+76,Lyons R,2021,The Daft.ie House Price Report,Daft.ie,1,3,Price effects of housing supply constraints
+77,Kenny G,1999,Modelling the Demand and Supply Sides of the Housing Market,Economic Modelling 16(3),3,3,Irish housing market model
+78,McQuinn K and O'Reilly G,2008,Assessing the Role of Income and Interest Rates in Determining House Prices,J Economic Modelling 25(3),3,3,Irish house price determinants
+79,Duffy D et al,2016,Residential Construction Activity in Ireland,QEC Research Notes ESRI,1,4,Construction activity and infrastructure linkages
+80,Byrne M,2020,Generation Rent and the Financialisation of Housing,Housing Theory and Society 37(4),3,3,Institutional context of Irish housing
+81,Norris M and Byrne M,2024,Housing Policy in Ireland,Policy Press,1,5,Textbook on Irish housing policy including infrastructure
+82,Kitchin R et al,2012,Placing Neoliberalism: The Rise and Fall of Ireland's Celtic Tiger,Environment and Planning A 44(6),3,3,Political economy of Irish development
+83,Hearne R,2020,Housing Shock: The Irish Housing Crisis,Policy Press,1,4,Analysis of Irish housing crisis causes
+84,Irish Water (now Uisce Éireann),2015,Water Services Strategic Plan,water.ie,1,4,Original strategic plan for water services
+85,Irish Water,2018,National Wastewater Sludge Management Plan,water.ie,2,3,Sludge management planning
+86,Dept of Environment,2015,Water Services Policy Statement,gov.ie,2,3,Government water services policy
+87,Dept of Housing,2021,Water Services Guidelines for Planning Authorities,gov.ie,1,5,Critical link between planning and water infrastructure
+88,S&P Global,2024,Uisce Éireann Credit Rating,S&P,1,3,Creditworthiness assessment for infrastructure investment
+89,IBEC,2024,Infrastructure Investment Report,IBEC.ie,1,3,Business perspective on infrastructure deficits
+90,CIF,2024,Infrastructure Deficit Report,CIF.ie,1,4,Construction industry perspective on infrastructure gaps
+91,Society of Chartered Surveyors Ireland,2023,Real Cost of New Housing Delivery,SCSI.ie,1,4,Cost analysis including infrastructure levies
+92,Thames Water,2024,Thames Tideway Tunnel Project,tideway.london,4,4,Major UK sewer infrastructure project GBP 4.3bn
+93,Ofwat,2024,PR24 Final Determinations,ofwat.gov.uk,4,3,UK water sector investment framework
+94,Ofwat,2023,Water Company Performance Report,ofwat.gov.uk,4,3,UK water utility performance assessment
+95,Environment Agency UK,2023,Event Duration Monitoring,environment-agency.gov.uk,4,3,UK sewage overflow monitoring
+96,DEFRA,2023,Plan for Water,gov.uk,4,3,UK government water strategy
+97,Scottish Water,2023,Strategic Plan,scottishwater.co.uk,4,3,Scottish water infrastructure planning
+98,Northern Ireland Water,2023,Price Control,uregni.gov.uk,4,3,NI water investment framework
+99,Welsh Water,2023,Water Resources Management Plan,dwrcymru.com,4,3,Welsh water planning
+100,Watercare NZ,2023,Asset Management Plan,watercare.co.nz,4,3,Auckland water infrastructure planning
+101,Stats NZ,2023,Building Consents Survey,stats.govt.nz,4,3,NZ construction data
+102,Productivity Commission NZ,2024,A Fair Chance for All,productivity.govt.nz,4,3,Housing affordability and infrastructure
+103,Rijkswaterstaat,2023,Water Management in the Netherlands,rijkswaterstaat.nl,4,3,Dutch water management context
+104,PBL Netherlands,2023,Netherlands Housing Market Outlook,pbl.nl,4,3,Dutch housing supply analysis
+105,Vermeulen W and van Ommeren J,2009,Does Land Use Planning Shape Regional Economies?,Tinbergen Institute,3,3,Dutch planning and economic effects
+106,Francke M and van de Minne A,2020,Land Use Regulation and Housing Market Dynamics,J Housing Economics 49,3,3,Regulation effects on housing dynamics
+107,Meen G,2005,On the Economics of the Barker Review of Housing Supply,Housing Studies 20(6),1,4,Economic analysis of UK housing supply
+108,Pryce G,2013,Housing Subcategories and the Duration Analysis Approach,Urban Studies 50(14),3,3,Methodological advances in housing analysis
+109,Andrews D et al,2011,Housing Markets and Structural Policies in OECD Countries,OECD Economics Dept WP 836,1,5,Cross-country comparative of housing supply constraints
+110,Caldera A and Johansson A,2013,The Price Responsiveness of Housing Supply in OECD Countries,J Housing Economics 22(3),1,5,Housing supply elasticity international comparison
+111,Cuerpo C et al,2014,Drivers of Housing Price Cycles in Selected Euro Area Countries,European Economy,3,3,Housing cycle drivers in eurozone
+112,ECB,2023,Financial Stability Review - Housing Markets,ECB,3,3,Euro area housing market assessment
+113,IMF,2024,Ireland Article IV Consultation,IMF Country Report,1,3,International assessment of Irish housing market
+114,World Bank,2023,Connecting to Water and Sanitation,Doing Business,2,3,International comparison of utility connections
+115,UN-Habitat,2022,World Cities Report,UN-Habitat,2,3,Global urbanisation and infrastructure
+116,McKinsey,2016,Bridging Global Infrastructure Gaps,McKinsey Global Institute,2,3,Global infrastructure investment deficit
+117,Aschauer D,1989,Is Public Expenditure Productive?,J Monetary Economics 23,2,5,Seminal paper on public infrastructure and productivity
+118,Gramlich E,1994,Infrastructure Investment: A Review Essay,J Economic Literature 32(3),2,5,Canonical review of infrastructure economics
+119,Esfahani H and Ramirez M,2003,Institutions Infrastructure and Economic Growth,J Development Economics 70(2),2,4,Infrastructure and growth nexus
+120,Calderón C and Servén L,2004,The Effects of Infrastructure Development on Growth and Income Distribution,World Bank Policy Research WP 3400,2,4,Infrastructure development and growth
+121,Agénor P,2010,A Theory of Infrastructure-led Development,J Economic Dynamics and Control 34(5),2,5,Theoretical framework for infrastructure-led development
+122,Romp W and de Haan J,2007,Public Capital and Economic Growth: A Critical Survey,Perspektiven der Wirtschaftspolitik 8(S1),2,4,Review of public capital productivity
+123,Pereira A and Andraz J,2013,On the Economic Effects of Public Infrastructure Investment,J Economic Development 38(4),2,4,Infrastructure investment multipliers
+124,Bom P and Ligthart J,2014,What Have We Learned from Three Decades of Research on the Productivity of Public Capital?,J Economic Surveys 28(5),2,5,Meta-analysis of public capital productivity
+125,Arrow K and Kurz M,1970,Public Investment the Rate of Return and Optimal Fiscal Policy,Johns Hopkins University Press,2,4,Foundational theory of public investment
+126,Munnell A,1990,Why Has Productivity Growth Declined? Productivity and Public Investment,New England Economic Review,2,4,Infrastructure and productivity relationship
+127,Morrison C and Schwartz A,1996,State Infrastructure and Productive Performance,American Economic Review 86(5),2,4,State-level infrastructure effects
+128,Fernald J,1999,Roads to Prosperity? Assessing the Link between Public Capital and Productivity,American Economic Review 89(3),2,4,Causal identification of infrastructure effects
+129,Duranton G and Turner M,2012,Urban Growth and Transportation,Review of Economic Studies 79(4),3,4,Transport infrastructure and urban growth
+130,Donaldson D,2018,Railroads of the Raj,American Economic Review 108(4-5),3,3,Infrastructure and economic development
+131,Banerjee A et al,2020,On the Road: Access to Transportation Infrastructure and Economic Growth in China,J Development Economics 145,3,3,Transport infrastructure effects
+132,Jedwab R and Moradi A,2016,The Permanent Effects of Transportation Revolutions in Poor Countries,Review of Economics and Statistics 98(2),3,3,Long-run infrastructure effects
+133,Flyvbjerg B,2009,Survival of the Unfittest: Why the Worst Infrastructure Gets Built,Oxford Review of Economic Policy 25(3),2,4,Infrastructure project selection pathology
+134,Flyvbjerg B et al,2003,Megaprojects and Risk,Cambridge University Press,2,3,Infrastructure megaproject cost overruns
+135,Helm D,2010,Infrastructure and Infrastructure Finance: The Role of the Government and the Private Sector in the Current World,EIB Papers 15(2),2,3,Infrastructure financing frameworks
+136,Engel E et al,2014,The Economics of Public-Private Partnerships,Cambridge University Press,2,3,PPP infrastructure delivery
+137,Blanc-Brude F et al,2009,Valuing Infrastructure Equity in Greenfield PPPs,OECD Transport Forum,2,3,Infrastructure asset valuation
+138,Weber B and Alfen H,2010,Infrastructure as an Asset Class: Investment Strategy Project Finance and PPP,Wiley,2,3,Infrastructure investment frameworks
+139,Inderst G,2010,Infrastructure as an Asset Class,EIB Papers 15(1),2,3,Institutional investment in infrastructure
+140,Wagenvoort R et al,2010,Infrastructure Finance in Europe,EIB Papers 15(1),2,3,European infrastructure financing
+141,Bivens J,2017,The Potential Macroeconomic Benefits from Increasing Infrastructure Investment,EPI Report,2,3,Macroeconomic case for infrastructure spending
+142,DeLong J and Summers L,2012,Fiscal Policy in a Depressed Economy,Brookings Papers on Economic Activity,2,3,Infrastructure fiscal multipliers
+143,Owyang M et al,2013,Are Government Spending Multipliers Greater during Periods of Slack?,American Economic Review 103(3),2,3,State-dependent multipliers
+144,Regan M and Love P,2022,Infrastructure Delivery through PPPs in Anglophone Countries,Infrastructure 7(3),2,3,Cross-country PPP delivery
+145,Hammami M et al,2006,Determinants of Public-Private Partnerships in Infrastructure,IMF Working Paper,2,3,Factors driving PPP adoption
+146,Blanc-Brude F and Makovsek D,2013,Construction Risk in Infrastructure Project Finance,EDHEC Risk Institute,2,3,Construction risk in infrastructure
+147,Metcalfe R et al,2023,The Economics of Water Quality,Annual Review of Resource Economics,2,4,Economic framework for water quality management
+148,Olmstead S,2010,The Economics of Water Quality,Review of Environmental Economics and Policy 4(1),2,4,Water quality economics review
+149,Keiser D and Shapiro J,2019,Consequences of the Clean Water Act,Quarterly J Economics 134(1),2,5,Landmark evaluation of water regulation effects
+150,Greenstone M and Gallagher J,2008,Does Hazardous Waste Matter? Evidence from the Housing Market,Quarterly J Economics 123(3),2,3,Environmental quality and housing values
+151,Duflo E et al,2013,Truth-telling by Third-party Auditors and the Response of Polluting Firms,Quarterly J Economics 128(4),2,3,Environmental regulation and compliance
+152,Sigman H,2002,International Spillovers and Water Quality in Rivers,American Economic Review 92(4),2,3,Transboundary water quality
+153,Pattanayak S et al,2005,Water Quality Effects of Environmental Regulation,J Environmental Management 76(3),2,3,Regulatory effects on water quality
+154,Albouy D et al,2016,Housing Demand Expenditure and Investments,NBER Working Paper 22607,1,3,Housing demand fundamentals
+155,Davis M and Ortalo-Magné F,2011,Household Expenditures Housing Demand and the Response to Buyer Assistance Programs,American Economic J 3(3),1,3,Housing demand and policy
+156,Glaeser E and Ward B,2009,The Causes and Consequences of Land Use Regulation,J Urban Economics 65(3),1,4,Causal analysis of land use regulation
+157,Brueckner J,2000,Urban Sprawl: Diagnosis and Remedies,International Regional Science Review 23(2),3,3,Urban growth management
+158,Brueckner J,2011,Lectures on Urban Economics,MIT Press,1,5,Textbook on urban economics including infrastructure
+159,O'Sullivan A,2012,Urban Economics,McGraw-Hill,1,5,Textbook covering urban infrastructure economics
+160,McDonald J and McMillen D,2011,Urban Economics and Real Estate,Wiley,1,4,Textbook on urban economics
+161,DiPasquale D and Wheaton W,1996,Urban Economics and Real Estate Markets,Prentice Hall,1,4,Foundational textbook on housing markets
+162,Arnott R,1987,Economic Theory and Housing,Handbook of Regional and Urban Economics,1,4,Theoretical foundations of housing economics
+163,Henderson J,1974,The Sizes and Types of Cities,American Economic Review 64(4),3,3,City size and infrastructure thresholds
+164,Fujita M et al,1999,The Spatial Economy: Cities Regions and International Trade,MIT Press,3,3,Spatial economics textbook
+165,Krugman P,1991,Increasing Returns and Economic Geography,J Political Economy 99(3),3,3,New economic geography foundations
+166,Davis D and Weinstein D,2002,Bones Bombs and Break Points: Geography of Economic Activity,American Economic Review 92(5),3,3,Persistence of spatial economic patterns
+167,Rappaport J,2005,How Does Labor Mobility Affect Income Convergence?,J Urban Economics 58(3),3,3,Labor mobility and housing constraints
+168,Saks R,2008,Job Creation and Housing Construction,J Labor Economics 26(2),1,4,Labor market effects of housing supply constraints
+169,Mian A and Sufi A,2014,House of Debt,University of Chicago Press,3,3,Housing and macroeconomic stability
+170,Case K and Shiller R,1989,The Efficiency of the Market for Single-Family Homes,American Economic Review 79(1),3,3,Housing market efficiency
+171,Leamer E,2015,Housing IS the Business Cycle,Proc Fed Reserve Bank KC,3,3,Housing and economic cycles
+172,Wheaton W,1999,Real Estate Cycles: Some Fundamentals,Real Estate Economics 27(2),3,3,Real estate cycle theory
+173,DKM Economic Consultants,2019,Construction Sector Performance and Prospects,DPER Ireland,1,3,Irish construction sector analysis
+174,SCSI,2024,Annual Construction Cost Review,SCSI.ie,1,3,Construction cost trends
+175,BRG,2024,Annual Review of Construction Costs,BRG.ie,1,3,Infrastructure construction costs
+176,Fingleton B,2008,Housing Supply Land and Planning,Oxford Review of Economic Policy 24(1),1,4,Planning and housing supply interface
+177,Gallent N et al,2019,Introduction to Rural Planning,Routledge,3,3,Rural planning including water services
+178,Healey P,2006,Collaborative Planning,Palgrave,3,3,Planning theory
+179,Adams D and Tiesdell S,2013,Shaping Places: Urban Planning Design and Development,Routledge,3,3,Urban planning processes
+180,Dunse N et al,2013,Urban Land Economics,Palgrave,3,3,Urban land market theory
+181,Evans A,2004,Economics and Land Use Planning,Blackwell,3,4,Economics of land use planning
+182,Cheshire P and Sheppard S,2002,The Welfare Economics of Land Use Planning,J Urban Economics 52(2),1,4,Welfare analysis of planning
+183,Mayo S and Sheppard S,2001,Housing Supply and the Effects of Stochastic Development Control,J Housing Economics 10(2),1,3,Stochastic planning permission effects
+184,White M and Allmendinger P,2003,Land-use Planning and the Housing Market,Urban Studies 40(5-6),1,4,Planning-housing market interface
+185,Monk S and Whitehead C,2010,Making Housing More Affordable,Wiley-Blackwell,1,3,Housing affordability and planning
+186,Crook T and Whitehead C,2019,Capturing Land Value,Wiley-Blackwell,1,3,Land value capture and infrastructure
+187,Oxley M,2004,Economics Planning and Housing,Palgrave,3,3,International housing and planning
+188,Bramley G et al,1995,Planning the Market and Private Housebuilding,UCL Press,1,4,Interaction between planning and private housing
+189,Bramley G and Watkins D,2016,Housebuilding Planning and Community Action,Wiley-Blackwell,1,3,Community engagement in housing development
+190,Gallent N and Tewdwr-Jones M,2007,Decent Homes for All,Routledge,3,3,Housing policy perspectives
+191,Malpass P and Murie A,1999,Housing Policy and Practice,Macmillan,3,3,Housing policy textbook
+192,Stephens M et al,2005,The Evolution of European Housing Policy,European Housing Review,4,3,EU housing policy evolution
+193,Whitehead C,2007,Planning Policies and Affordable Housing,Oxford Review Economic Policy 23(1),1,4,Affordable housing and planning
+194,Mullins D and Murie A,2006,Housing Policy in the UK,Palgrave,4,3,UK housing policy including infrastructure
+195,Ball M,2010,The UK Private Rented Sector as a Source of Affordable Accommodation,Joseph Rowntree Foundation,4,3,UK rental market
+196,Malpezzi S and Maclennan D,2001,The Long-Run Price Elasticity of Supply of New Residential Construction in the United States and the United Kingdom,J Housing Economics 10(3),1,4,Long-run supply elasticity comparison
+197,Mayo S and Angel S,1993,Housing: Enabling Markets to Work,World Bank Policy Paper,2,3,International housing market enabling
+198,Angel S,2000,Housing Policy Matters,Oxford University Press,2,3,International housing policy
+199,UN-Habitat,2016,Urbanization and Development: Emerging Futures,World Cities Report,2,3,Global urbanisation challenges
+200,World Bank,2015,Water and Sanitation Program,World Bank,2,3,Global WASH infrastructure
+201,Komives K et al,2005,Water Electricity and the Poor,World Bank,2,3,Pro-poor infrastructure provision
+202,Foster V and Briceño-Garmendia C,2010,Africa's Infrastructure: A Time for Transformation,World Bank,2,3,Infrastructure deficit in developing countries
+203,Estache A,2006,Infrastructure: A Survey of Recent and Upcoming Issues,World Bank,2,3,Infrastructure policy survey
+204,Progress Ireland,2025,Ireland's Poor Water Infrastructure Puts a Hard Cap on National Growth,progressireland.substack.com,1,4,Analysis of water infrastructure as growth constraint
+205,RTE News,2025,New Housing Targets Present Challenges for Uisce Éireann,rte.ie,1,4,35000 vs 50000 homes capacity gap
+206,Selfbuild Ireland,2025,New Homes Threatened by Capacity Constraints,selfbuild.ie,1,4,Reporting on water/wastewater capacity impact
+207,The Journal.ie,2025,Private Wastewater Supplies for Housing Delivery,thejournal.ie,1,4,Policy response allowing private WWTPs
+208,Irish Times,2025,What Next for Uisce Éireann,irishtimes.com,1,3,Reporting on infrastructure investment needs
+209,Highland Radio,2025,Falcarragh Housing Developments in Jeopardy,highlandradio.com,1,3,Local case study of development blocks
+210,Works in Progress,2023,Upzoning New Zealand,worksinprogress.co,4,3,NZ planning reform including infrastructure
+211,Hilber C,2017,The Economic Implications of House Price Capitalisation: A Survey,Real Estate Economics 45(4),1,4,Price capitalisation of planning constraints
+212,Duranton G and Puga D,2015,Urban Land Use,Handbook of Regional and Urban Economics Vol 5,3,4,Comprehensive review of urban land use
+213,Gyourko J and Molloy R,2015,Regulation and Housing Supply,Handbook of Regional and Urban Economics Vol 5,1,5,Definitive review of regulation effects on housing supply
+214,Albouy D and Ehrlich G,2018,Housing Productivity and the Social Cost of Land-Use Restrictions,J Urban Economics 107,1,4,Productivity effects of housing constraints
+215,Howard G and Liebersohn J,2021,Why is the Rent So Darn High?,J Urban Economics 124,1,3,Housing costs and regulation
+216,Baum-Snow N,2007,Did Highways Cause Suburbanization?,Quarterly J Economics 122(2),3,3,Infrastructure and suburbanisation
+217,Green R,2015,Introduction to Mortgages and Mortgage Backed Securities,Academic Press,3,3,Housing finance textbook
+218,Poterba J,1984,Tax Subsidies to Owner-Occupied Housing,Quarterly J Economics 99(4),3,3,User cost of housing
+219,Rosen H,1979,Housing Decisions and the US Income Tax,J Public Economics 11(1),3,3,Tax and housing decisions
+220,Glaeser E,2011,Triumph of the City,Penguin,1,4,Urban economics popular text
+221,Moretti E,2012,The New Geography of Jobs,Houghton Mifflin,3,3,Spatial economics of employment
+222,Florida R,2017,The New Urban Crisis,Basic Books,3,3,Urban inequality and housing
+223,Schiller R,2015,Irrational Exuberance 3rd edition,Princeton University Press,3,3,Housing market behaviour
+224,Mian A and Sufi A,2009,The Consequences of Mortgage Credit Expansion,Quarterly J Economics 124(4),3,3,Credit expansion and housing
+225,EC Representation Ireland,2024,Commission Calls on Ireland to Comply with UWWTD,ec.europa.eu,2,4,Infringement proceedings against Ireland

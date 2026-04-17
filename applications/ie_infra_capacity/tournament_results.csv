@@ -1,0 +1,6 @@
+family,experiment,description,metric,value,rank,notes
+proportions,T01,Simple proportions: % RED/AMBER by county,pct_red_or_amber,25.7,1,Direct descriptive statistic; transparent and reproducible
+regression,T02,OLS: planning apps ~ WWTP capacity + county FE,r_squared,0.04,3,Very low explanatory power; infrastructure is one of many factors
+logistic,T03,Logistic: P(app in high-constraint county),auc,0.58,4,Near-chance AUC; capacity status alone does not predict application location
+spatial_overlay,T04,County-weighted hectare estimation,blocked_ha,1524,2,Most policy-relevant; translates capacity status into hectares of blocked land
+correlation,T05,Pearson: WWTP status vs application volume,correlation,0.189,5,Weak positive; confirms relationship but not strong enough for prediction
