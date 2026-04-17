@@ -1,0 +1,49 @@
+experiment_id	description	metric	value	status	prior	posterior	mechanism	interaction	notes	timestamp
+E00	Baseline: national residential application intensity	apps_per_ha_per_year	2.7192	KEEP			Simple ratio of annual residential permission applications to total zoned land area	False	mean_annual=21512, zoned_ha=7911	2026-04-17T20:00:39.514868
+T01	Simple ratio: apps/zoned hectare by region	regional_dispersion_MAD	0.7989	KEEP			Direct ratio of residential applications to Goodbody zoned land by NUTS region	False		2026-04-17T20:00:39.519201
+T02	Panel regression: OLS with year FE	R_squared	0.4989	KEEP			Linear model: apps ~ zoned_ha + land_price + sale_price + population + year_FE	False		2026-04-17T20:00:39.691013
+T02b	Panel regression: Ridge with year FE	R_squared	0.4989	KEEP			Ridge regression (alpha=1.0) on same features	False		2026-04-17T20:00:39.691022
+T03	Survival: KM median decision lag (residential)	median_days	63.0	KEEP			Time from application filing to grant decision as deterrent proxy	False		2026-04-17T20:00:40.766716
+T03b	Survival: Cox PH on decision lag	concordance_index	0.5301	KEEP			Cox proportional hazards: lag ~ dublin + multi_unit + apartment	False		2026-04-17T20:00:40.766737
+T04	Logistic: P(high intensity) ~ zoned_ha + pop + land_price	AUC	0.9232	KEEP			Binary classification of LA-years as above/below median application intensity	False		2026-04-17T20:00:40.773888
+T05	Spatial: Moran's I on application intensity by LA	Morans_I	0.3702	KEEP			Spatial autocorrelation test: are high-intensity LAs clustered geographically?	False	p=0.0040, z=5.5530	2026-04-17T20:00:41.498200
+E01_East_Midlands	Regional rate: East+Midlands	apps_per_ha_per_year	3.0948	KEEP	0.7	0.85	Regional decomposition of application intensity by Goodbody region	False		2026-04-17T20:00:41.499669
+E01_Northern_Western	Regional rate: Northern+Western	apps_per_ha_per_year	1.6284	KEEP	0.7	0.85	Regional decomposition of application intensity by Goodbody region	False		2026-04-17T20:00:41.499718
+E01_Southern	Regional rate: Southern	apps_per_ha_per_year	3.6494	KEEP	0.7	0.85	Regional decomposition of application intensity by Goodbody region	False		2026-04-17T20:00:41.499757
+E02	Dublin vs non-Dublin application intensity	dublin_rate	0.6063	KEEP	0.6	0.8	Higher land prices and demand in Dublin should drive higher application intensity	False	nondub_rate=5.76, ratio=0.11	2026-04-17T20:00:41.501065
+E03	Pre/post RZLT announcement (2022) on application volume	pct_change	-7.0548	KEEP	0.5	0.4	RZLT tax threat should incentivize landowners to develop or sell, increasing applications	False	pre=22182, post=20617, t=0.92, p=0.401	2026-04-17T20:00:41.504219
+E04	Land price correlation with application rate	national_median_price_per_ha	571235.0	KEEP	0.6	0.5	Higher land prices proxy for demand, but also increase development cost (ambiguous)	False		2026-04-17T20:00:41.505477
+E05	Sale price to construction cost viability ratio	viability_ratio	1.258	KEEP	0.7	0.75	Development only proceeds when sale price exceeds construction + land + profit margin	False		2026-04-17T20:00:41.505496
+E06	One-off vs multi-unit application split	oneoff_pct	43.8201	KEEP	0.6	0.7	One-off housing dominates applications but contributes fewer units per hectare	False	oneoff=11197/yr, multi=1688/yr	2026-04-17T20:00:41.606779
+E07	Apartment vs house application split	apartment_pct	9.9843	KEEP	0.5	0.6	Apartment applications deliver higher density but face greater regulatory complexity	False		2026-04-17T20:00:41.679405
+E08	Pre/post COVID application volume	pct_change	14.7726	KEEP	0.7	0.6	COVID lockdowns disrupted construction and planning; expect decline then rebound	False		2026-04-17T20:00:41.681631
+E09	Seasonal pattern in residential applications	seasonality_ratio	1.7093	KEEP	0.6	0.7	Construction is seasonal; applications cluster in spring/early summer	False	peak=12, trough=1, chi2=2424.7, p=0.0000	2026-04-17T20:00:41.987197
+E10	LA approval rate vs application intensity	pearson_r	-0.0722	KEEP	0.5	0.4	If an LA frequently refuses, developers may avoid it → lower application intensity	False		2026-04-17T20:00:41.991084
+E11	Zoned land stock decline 2014-2024	consumed_ha	9523.0	KEEP	0.8	0.9	Land was either developed, rezoned, or disqualified over the decade	False	annual_rate=952ha/yr, years_remaining=8	2026-04-17T20:00:41.991102
+E12	Application intensity per 1000 population by LA	national_mean_per_1000	4.5234	KEEP	0.5	0.6	Population-normalised rate removes size effect to compare genuine planning activity	False		2026-04-17T20:00:41.994081
+E13	Correlation between zoned land area and applications filed	pearson_r	0.0218	KEEP	0.7	0.8	More zoned land should correlate with more applications (supply-side)	False		2026-04-17T20:00:41.997656
+E14	Fingal case study: application intensity on 3,519 ha	fingal_apps_per_ha	0.0842	KEEP	0.5	0.4	Fingal has the largest zoned land stock — is it converting at a different rate?	False	annual_apps=296, ratio_to_national=0.03	2026-04-17T20:00:41.998237
+E15	Time trend in annual residential applications	slope_apps_per_yr	1508.0091	KEEP	0.6	0.65	Housing crisis should drive increasing applications over time	False		2026-04-17T20:00:41.998835
+E16	Decision lag as deterrent to applications	pearson_r	0.1446	KEEP	0.4	0.35	Longer decision times may deter applications (uncertainty cost)	False		2026-04-17T20:00:42.245817
+E17	Infrastructure proxy (one-off rate) vs application intensity	pearson_r	-0.0041	KEEP	0.5	0.45	LAs with higher one-off rates may have less serviced zoned land	False		2026-04-17T20:00:42.321569
+E18	Regulatory burden (refusal rate) vs application intensity	pearson_r	0.0755	KEEP	0.5	0.5	Higher regulatory burden (proxied by refusal rate) may deter applications	False		2026-04-17T20:00:42.325715
+E19	Interaction: land_price × approval_rate	R_squared	0.4166	KEEP	0.4	0.35	Development viability depends on both price signal and regulatory probability	True		2026-04-17T20:00:42.328559
+E20	International comparison: Ireland vs UK vs NZ application rates	ireland_vs_uk_ratio	13.596	KEEP	0.5	0.5	Higher ratio suggests either greater demand concentration or narrower zoning definition	False		2026-04-17T20:00:42.328578
+E21	Bootstrap 95% CI on E00 intensity	ci_lower	2.5868	KEEP	0.8	0.85	Uncertainty quantification on headline metric	False	ci=[2.59, 2.94], point=2.72	2026-04-17T20:00:42.439150
+E22	Implied years to exhaust zoned land stock at current rate	years_to_exhaust	19.491	KEEP	0.6	0.7	Stock-flow model: remaining zoned land / annual conversion rate	False		2026-04-17T20:00:42.439175
+E23	LA ranking by application intensity (apps/ha/yr)	max_intensity	5.8954	KEEP	0.7	0.8	Rank-ordering reveals which LAs activate zoned land fastest	False	range=[0.08, 5.90]	2026-04-17T20:00:42.442999
+E24	Residential units per application	mean_units_per_app	2.7814	KEEP	0.5	0.6	Average application size determines how many apps needed per hectare of zoned land	False		2026-04-17T20:00:42.472588
+E25	Trend in large scheme applications (50+ units)	slope_per_year	10.1091	KEEP	0.5	0.55	Large schemes deliver most units per hectare; trend matters for capacity utilization	False		2026-04-17T20:00:42.476256
+E26	Quarterly volatility in residential applications	coefficient_of_variation	0.1342	KEEP	0.5	0.55	High volatility suggests market-cycle sensitivity; low volatility suggests structural constraint	False		2026-04-17T20:00:42.709334
+E27	Capacity utilization: units filed / potential units	annual_pct	8.5943	KEEP	0.5	0.6	What fraction of theoretical zoned capacity enters the planning pipeline each year?	False		2026-04-17T20:00:42.772060
+E28	Application concentration (Herfindahl index) across LAs	HHI	0.0491	KEEP	0.5	0.5	Highly concentrated applications suggest bottlenecks in specific LAs	False		2026-04-17T20:00:42.773097
+E29	Year-over-year growth rate distribution	mean_yoy_pct	39.5601	KEEP	0.5	0.5	Growth trend and stability of application pipeline	False		2026-04-17T20:00:42.773802
+E30	Weekday filing distribution	weekday_concentration	0.2293	KEEP	0.5	0.6	Planning offices receive applications on business days; weekend filings may indicate online systems	False		2026-04-17T20:00:42.990865
+INT01	Interaction: Dublin × RZLT (DiD)	did_estimate	1358.9167	KEEP	0.4	0.45	Did RZLT announcement differentially affect Dublin vs rest?	True		2026-04-17T20:00:42.992559
+INT02	Interaction: large_scheme × region	east_midlands_share	0.0	KEEP	0.5	0.5	Large schemes may cluster in high-demand regions	True		2026-04-17T20:00:43.048586
+INT03	Interaction: approval_rate × population → intensity	pearson_r	0.0391	KEEP	0.4	0.4	Large LAs with high approval rates may have highest intensity	True		2026-04-17T20:00:43.051896
+DISCOVERY	Phase B: LA intensity rankings and activation scenarios	scenarios_count	7.0	DISCOVERY			Counterfactual scenarios for zoned land activation	False	See discoveries/	2026-04-17T20:12:50+02:00
+EXP_C1	Robustness: E00 with pure PERMISSION filter (excl retention/consequent/extension)	apps_per_ha_per_year	2.6733	KEEP			Exclude RETENTION PERMISSION, PERMISSION CONSEQUENT, EXTENSION OF DURATION from app count	False	annual_pure_perm=21148, excluded_pct=3.6%	2026-04-17T20:23:40.114750
+EXP_A1	Robustness: E00 excluding Fingal (denominator mismatch concern)	apps_per_ha_per_year	4.8304	KEEP			Fingal 3519ha likely uses broader RZLT scope than Goodbody residential-only definition	False	excl_fingal_annual=21215, excl_fingal_zoned=4392ha	2026-04-17T20:23:40.114750
+EXP_B1	Robustness: E13 correlation excluding Fingal outlier	pearson_r_excl_fingal	0.6415	KEEP			Fingal outlier (3519ha RZLT scope) drives r from 0.64 to 0.02	False	with_fingal_r=0.0218, p_excl=0.0002	2026-04-17T20:23:40.114750
+EXP_D1	Robustness: partial correlation approval_rate vs intensity controlling for population	partial_pearson_r	-0.0649	KEEP			Controls for urbanization confound in approval-rate-as-deterrent hypothesis	False	simple_r=-0.0722, partial_p=0.7334	2026-04-17T20:23:40.114750
