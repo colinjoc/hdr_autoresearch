@@ -1,0 +1,211 @@
+id,authors,year,title,journal,theme,relevance
+1,Bon R,1992,"The future of international construction: secular patterns of growth and decline",Habitat International,domain_fundamentals,Seminal work on construction sector growth patterns
+2,Ruddock L & Lopes J,2006,"The construction sector and economic development: the 'Bon curve'",Construction Management and Economics,domain_fundamentals,Construction share of GDP across development stages
+3,Hillebrandt PM,2000,"Economic Theory and the Construction Industry",Macmillan (textbook),domain_fundamentals,Textbook on construction economics fundamentals
+4,Myers D,2016,"Construction Economics: A New Approach",Routledge (textbook),domain_fundamentals,Modern construction economics textbook
+5,Ive GJ & Gruneberg SL,2000,"The Economics of the Modern Construction Sector",Macmillan (textbook),domain_fundamentals,Industry structure and market analysis
+6,Ofori G,1990,"The Construction Industry: Aspects of its Economics and Management",Singapore University Press (textbook),domain_fundamentals,Construction industry economics in developing countries
+7,Ball M,1988,"Rebuilding Construction: Economic Change in the British Construction Industry",Routledge (textbook),domain_fundamentals,Structural analysis of construction industry
+8,Turin DA,1973,"The Construction Industry: Its Economic Significance and Its Role in Development",UCERG,domain_fundamentals,Classic study of construction sector role
+9,Pietroforte R & Gregori T,2003,"An input-output analysis of the construction sector in highly developed economies",Construction Management and Economics,input_output,IO analysis comparing US EU Japan construction
+10,Bon R & Pietroforte R,1990,"Historical comparison of construction sectors in the United States and Japan",Construction Management and Economics,input_output,Cross-country IO comparison of construction
+11,Gundes S,2011,"Exploring the dynamics of the Turkish construction industry using input-output analysis",Construction Management and Economics,input_output,IO methodology applied to construction
+12,Lean CS,2001,"Empirical tests to discern linkages between construction and other economic sectors",Construction Management and Economics,input_output,Forward and backward linkages
+13,Park T et al,2011,"Estimating construction cost using input-output multipliers",Journal of Construction Engineering and Management,input_output,IO multipliers for cost estimation
+14,Wong JM et al,2008,"A critical review of forecasting models for construction labour demand",Journal of Financial Management of Property and Construction,labour_market,Review of labour demand forecasting models
+15,Dainty ARJ et al,2004,"Improving employee resourcing within construction organizations",Engineering Construction and Architectural Management,labour_market,Workforce planning in construction
+16,Loosemore M et al,2003,"Human Resource Management in Construction Projects",Spon Press,labour_market,HRM approaches in construction
+17,SOLAS,2024,"National Skills Bulletin 2024",SOLAS Ireland,labour_market,Skills shortage identification Ireland
+18,SOLAS,2023,"National Skills Bulletin 2023",SOLAS Ireland,labour_market,Construction labour shortage analysis
+19,CIOB,2022,"Industry Insights Report: Skills Shortages",Chartered Institute of Building,labour_market,UK/Ireland construction skills analysis
+20,CSO,2025,"Earnings Hours and Employment Costs Survey Q2 2025",Central Statistics Office Ireland,labour_market,Primary data source for labour costs
+21,Briscoe G,1988,"The Economics of the Construction Industry",Mitchell (textbook),labour_market,Labour market analysis textbook
+22,Green SD,2011,"Making Sense of Construction Improvement",Wiley-Blackwell,labour_market,Industry improvement and workforce
+23,Construction Industry Federation,2024,"Construction Sector Outlook 2024",CIF Ireland,labour_market,Industry outlook including labour
+24,Agapiou A et al,1998,"The role of labour in the UK construction industry",Construction Management and Economics,labour_market,Labour cost determinants
+25,Ng ST et al,2004,"A methodology for selection of best postponement strategy in construction",Engineering Construction and Architectural Management,labour_market,Labour allocation strategy
+26,Shahandashti SM & Ashuri B,2013,"Forecasting engineering news-record construction cost index using multivariate time series",Journal of Construction Engineering and Management,materials_prices,ENR cost index forecasting
+27,Ashuri B & Lu J,2010,"Time series analysis of ENR construction cost index",Journal of Construction Engineering and Management,materials_prices,Time series analysis of construction costs
+28,Hwang S,2009,"Dynamic regression models for prediction of construction costs",Journal of Construction Engineering and Management,materials_prices,Regression models for cost prediction
+29,Xu JH & Moon S,2013,"Stochastic forecast of construction cost index using a cointegrated VAR model",Journal of Management in Engineering,materials_prices,VAR model for cost forecasting
+30,Moon S & Chi S,2024,"Forecasting construction material prices using macroeconomic indicators of trading partners",Journal of Management in Engineering,materials_prices,International price transmission
+31,Cao Y et al,2024,"Modeling inflation transmission among different construction materials",Journal of Construction Engineering and Management,materials_prices,Inflation transmission networks
+32,Dong C et al,2020,"Cost index predictions for construction engineering based on LSTM neural networks",Advances in Civil Engineering,materials_prices,ML-based cost index prediction
+33,El-Adaway IH et al,2019,"Estimation and prediction of construction cost index using neural networks time series and regression",Alexandria Engineering Journal,materials_prices,Multi-method cost prediction
+34,Elfahham Y,2019,"Estimation and prediction of construction cost index using neural networks",Alexandria Engineering Journal,materials_prices,Neural network cost forecasting
+35,Zhang R et al,2024,"A survey of data-driven construction materials price forecasting",Buildings,materials_prices,Review of ML for materials price
+36,CSO,2024,"Wholesale Price Index for Building and Construction Materials WPM28",Central Statistics Office Ireland,materials_prices,Primary data source
+37,Eurostat,2024,"Construction Cost Index",Eurostat,materials_prices,EU harmonised construction cost index
+38,Turner & Townsend,2025,"Global Construction Market Intelligence 2025",Turner & Townsend,materials_prices,Global construction cost benchmarking
+39,RICS,2024,"RICS Building Cost Information Service",RICS,materials_prices,UK/Ireland cost data service
+40,ENR,2024,"Engineering News-Record Construction Cost Index",ENR,materials_prices,US construction cost index benchmark
+41,Sato T & Hino M,2005,"A causal analysis of the relationship between the Japanese construction investment",Construction Management and Economics,materials_prices,Investment-price relationship
+42,Oladinrin OT et al,2012,"Materials price indices and building cost indices",Journal of Building Performance,materials_prices,Price index construction methodology
+43,Ng ST et al,2000,"A simulation model for optimizing the concession period of public-private partnership",Construction Management and Economics,materials_prices,Simulation of construction costs
+44,SEAI,2019,"NZEB in Domestic Buildings",Sustainable Energy Authority of Ireland,regulation,NZEB implementation guidance
+45,DEHLG,2019,"Technical Guidance Document Part L - Conservation of Fuel and Energy - Dwellings",Department of Housing Ireland,regulation,Part L 2019 regulation text
+46,DEHLG,2019,"Technical Guidance Document Part F - Ventilation",Department of Housing Ireland,regulation,Part F 2019 regulation text
+47,IGBC,2023,"Building a Net Zero Ireland",Irish Green Building Council,regulation,Net zero building pathway
+48,Rogan F et al,2021,"Impact assessment of Part L NZEB on construction costs",SEAI,regulation,NZEB cost impact assessment
+49,European Parliament,2010,"Directive 2010/31/EU on the Energy Performance of Buildings (recast)",Official Journal EU,regulation,EPBD requiring NZEB
+50,European Parliament,2024,"Directive 2024/1275 on the Energy Performance of Buildings (recast)",Official Journal EU,regulation,Updated EPBD
+51,BCAR,2014,"Building Control (Amendment) Regulations SI 9 of 2014",Irish Statute Book,regulation,BCAR certification requirements
+52,NSAI,2019,"SR 54:2019+A1:2020 Code of Practice for Accessible Buildings",NSAI,regulation,Accessibility regulation costs
+53,Boardman B,2007,"Examining the carbon agenda via the 40% House scenario",Building Research & Information,regulation,Regulatory carbon targets
+54,Lowe R,2007,"Technical options and strategies for decarbonizing UK housing",Building Research & Information,regulation,Decarbonisation cost analysis
+55,Oreszczyn T & Lowe R,2010,"Challenges for energy and buildings research: a UK perspective",Building Research & Information,regulation,Energy regulation challenges
+56,Ekins P & Lees E,2008,"The impact of EU policies on energy use in and the evolution of the UK built environment",Energy Policy,regulation,EU policy cost impact
+57,DHLGH,2021,"Housing for All: A New Housing Plan for Ireland",Department of Housing Ireland,regulation,Government housing plan
+58,SCSI,2024,"Tender Price Index H2 2024",Society of Chartered Surveyors Ireland,regulation,Tender price inflation data
+59,SCSI,2025,"Tender Price Index H1 2025",Society of Chartered Surveyors Ireland,regulation,Latest tender price data
+60,SCSI,2025,"House Rebuilding Guide 2025",Society of Chartered Surveyors Ireland,regulation,Regional rebuilding costs
+61,Buildcost,2025,"Construction Cost Guide H1 2025",Buildcost.ie,regulation,Trade-level cost data
+62,Buildcost,2024,"Construction Cost Guide H2 2024",Buildcost.ie,regulation,Trade-level cost data
+63,Ball M et al,2000,"Housing Investment: Long Run International Trends and Volatility",Housing Studies,price_cycles,Long-run construction investment cycles
+64,Barras R,2009,"Building Cycles: Growth and Instability",Wiley-Blackwell (textbook),price_cycles,Construction cycle theory
+65,Grebler L & Burns LS,1982,"Construction cycles in the United States since World War II",Real Estate Economics,price_cycles,US construction cycles
+66,Kling JL & McCue TE,1991,"Stylized facts about industrial building construction",Journal of Real Estate Finance and Economics,price_cycles,Construction industry cycles
+67,Chau KW & Walker A,1988,"The measurement of total factor productivity of the Hong Kong construction industry",Construction Management and Economics,price_cycles,Productivity measurement
+68,de Haan J & Diewert WE,2013,"Hedonic regression methods in construction price indexes",Handbook of Residential Property Price Indices,price_cycles,Price index methodology
+69,Somerville CT,1999,"Residential construction costs and the supply of new housing",Journal of Real Estate Finance and Economics,price_cycles,Cost-supply relationship
+70,Glaeser EL & Gyourko J,2003,"The impact of building restrictions on housing affordability",Economic Policy Review,price_cycles,Regulatory costs in housing
+71,Gyourko J & Saiz A,2006,"Construction costs and the supply of housing structure",Journal of Regional Science,price_cycles,Construction cost elasticity
+72,Green RK,1997,"Follow the leader: how changes in residential and non-residential investment predict changes in GDP",Real Estate Economics,price_cycles,Construction leading indicator
+73,Akintoye A & Skitmore M,1994,"Models of UK private sector quarterly construction demand",Construction Management and Economics,price_cycles,Demand modelling
+74,Tse RYC & Ganesan S,1997,"Causal relationship between construction flows and GDP",Construction Management and Economics,price_cycles,Construction-GDP nexus
+75,Lopes J et al,2011,"Construction in the economy and its role in socio-economic development",New Perspectives on Construction in Developing Countries,price_cycles,Construction development role
+76,World Steel Association,2024,"Steel Statistical Yearbook 2024",World Steel,materials_prices,Global steel production data
+77,FAO,2024,"FAOSTAT Forestry Production and Trade",Food and Agriculture Organization,materials_prices,Global timber trade data
+78,CEMBUREAU,2024,"Activity Report 2024",European Cement Association,materials_prices,European cement market data
+79,IEA,2024,"Global Status Report for Buildings and Construction 2024",International Energy Agency,regulation,Building energy use globally
+80,McKinsey,2020,"The next normal in construction",McKinsey Global Institute,domain_fundamentals,Construction productivity analysis
+81,World Economic Forum,2016,"Shaping the Future of Construction",WEF,domain_fundamentals,Construction industry transformation
+82,Barbosa F et al,2017,"Reinventing Construction Through a Productivity Revolution",McKinsey,domain_fundamentals,Construction productivity gap
+83,Farmer M,2016,"The Farmer Review of the UK Construction Labour Model",UK Government,labour_market,Construction labour model review
+84,OECD,2023,"Housing Policy in Ireland",OECD,domain_fundamentals,Irish housing policy analysis
+85,Central Bank of Ireland,2023,"Rising construction costs and the residential real estate market in Ireland",Financial Stability Notes,domain_fundamentals,Construction cost impact on housing
+86,Lyons R,2021,"Three Institutional Proposals for Irish Housing",Journal of the Statistical and Social Inquiry Society of Ireland,domain_fundamentals,Irish housing institutional analysis
+87,O'Toole F,2022,"Irish construction costs in European context",ESRI Working Paper,domain_fundamentals,Cross-country construction cost comparison
+88,Duffy D et al,2016,"Quarterly Economic Commentary Autumn 2016",ESRI,domain_fundamentals,Irish economic outlook
+89,Roche MJ,2001,"The rise in house prices in Dublin",Economic and Social Review,domain_fundamentals,Dublin house price analysis
+90,Honohan P & Walsh B,2002,"Catching up with the leaders: the Irish hare",Brookings Papers on Economic Activity,domain_fundamentals,Irish economic growth
+91,Kelly R & McQuinn K,2014,"On the hook for impaired bank lending",Research Technical Paper,domain_fundamentals,Banking and construction nexus
+92,Kitchin R et al,2012,"Placing neoliberalism: the rise and fall of Ireland's Celtic Tiger",Environment and Planning A,domain_fundamentals,Celtic Tiger construction boom
+93,Norris M & Coates D,2014,"How housing killed the Celtic Tiger",Cambridge Journal of Regions Economy and Society,domain_fundamentals,Construction and economic crash
+94,Bai J & Perron P,1998,"Estimating and testing linear models with multiple structural changes",Econometrica,methodology,Structural break detection methodology
+95,Bai J & Perron P,2003,"Computation and analysis of multiple structural change models",Journal of Applied Econometrics,methodology,Multiple break point estimation
+96,Chow GC,1960,"Tests of equality between sets of coefficients in two linear regressions",Econometrica,methodology,Chow test for structural breaks
+97,Jolliffe IT,2002,"Principal Component Analysis",Springer (textbook),methodology,PCA methodology textbook
+98,Stock JH & Watson MW,2002,"Forecasting using principal components from a large number of predictors",Journal of the American Statistical Association,methodology,Factor models in economics
+99,Hamilton JD,1994,"Time Series Analysis",Princeton University Press (textbook),methodology,Time series methodology textbook
+100,Dickey DA & Fuller WA,1979,"Distribution of the estimators for autoregressive time series with a unit root",Journal of the American Statistical Association,methodology,Unit root testing
+101,Granger CWJ,1969,"Investigating causal relations by econometric models and cross-spectral methods",Econometrica,methodology,Granger causality
+102,Engle RF & Granger CWJ,1987,"Co-integration and error correction: representation estimation and testing",Econometrica,methodology,Cointegration methodology
+103,Andrews DWK,1993,"Tests for parameter instability and structural change with unknown change point",Econometrica,methodology,Unknown breakpoint testing
+104,Hansen BE,2001,"The new econometrics of structural change: dating breaks in U.S. labor productivity",Journal of Economic Perspectives,methodology,Structural break dating
+105,Perron P,1989,"The great crash the oil price shock and the unit root hypothesis",Econometrica,methodology,Breaks and unit roots
+106,Zivot E & Andrews DWK,1992,"Further evidence on the great crash the oil-price shock and the unit-root hypothesis",Journal of Business & Economic Statistics,methodology,Break-adjusted unit root test
+107,Lütkepohl H,2005,"New Introduction to Multiple Time Series Analysis",Springer (textbook),methodology,VAR/VECM textbook
+108,Sims CA,1980,"Macroeconomics and reality",Econometrica,methodology,VAR methodology
+109,Diebold FX & Yilmaz K,2009,"Measuring financial asset return and volatility spillovers with application to global equity markets",Economic Journal,methodology,Spillover methodology
+110,Pesaran MH & Shin Y,1998,"Generalized impulse response analysis in linear multivariate models",Economics Letters,methodology,Impulse response functions
+111,Leamer EE,2007,"Housing IS the business cycle",NBER Working Paper,price_cycles,Housing as cyclical driver
+112,Davis MA & Heathcote J,2005,"Housing and the business cycle",International Economic Review,price_cycles,Housing cycle analysis
+113,Iacoviello M,2005,"House prices borrowing constraints and monetary policy in the business cycle",American Economic Review,price_cycles,Housing financial accelerator
+114,Kiyotaki N & Moore J,1997,"Credit cycles",Journal of Political Economy,price_cycles,Credit cycle theory
+115,Bernanke BS et al,1999,"The financial accelerator in a quantitative business cycle framework",Handbook of Macroeconomics,price_cycles,Financial accelerator model
+116,Case KE & Shiller RJ,1989,"The efficiency of the market for single-family homes",American Economic Review,price_cycles,Housing market efficiency
+117,Wheaton WC,1999,"Real estate cycles: some fundamentals",Real Estate Economics,price_cycles,Real estate cycle theory
+118,DiPasquale D & Wheaton WC,1994,"Housing market dynamics and the future of housing prices",Journal of Urban Economics,price_cycles,Housing price dynamics
+119,Malpezzi S & Maclennan D,2001,"The long-run price elasticity of supply of new residential construction in the United States and the United Kingdom",Journal of Housing Economics,price_cycles,Supply elasticity
+120,Saiz A,2010,"The geographic determinants of housing supply",Quarterly Journal of Economics,price_cycles,Geographic constraints on supply
+121,Glaeser EL et al,2008,"Housing supply and housing bubbles",Journal of Urban Economics,price_cycles,Supply constraints and bubbles
+122,DKM Economic Consultants,2018,"Review of Delivered Cost of Housing",Department of Housing Ireland,domain_fundamentals,Irish housing cost breakdown
+123,Davy,2024,"Ireland requires 93000 new homes per year to 2031",Davy Research,domain_fundamentals,Housing demand forecast
+124,Murphy A,2018,"The causes of Ireland's housing shortage",Central Bank of Ireland,domain_fundamentals,Housing shortage analysis
+125,McCartney J & Walsh J,2014,"The relationship between housing finance and housing supply",Journal of the Statistical and Social Inquiry Society,domain_fundamentals,Housing finance-supply nexus
+126,Kemeny J,1995,"From Public Housing to the Social Market",Routledge,domain_fundamentals,Housing system theory
+127,Malpass P,2005,"Housing and the Welfare State",Palgrave,domain_fundamentals,Housing welfare state nexus
+128,Fitzpatrick Associates,2022,"Analysis of construction costs for residential development",Housing Commission Ireland,domain_fundamentals,Official cost analysis
+129,BNP Paribas Real Estate,2024,"Ireland Construction Market Report",BNP Paribas,domain_fundamentals,Market report
+130,JLL,2024,"Irish Construction Index",JLL Ireland,domain_fundamentals,Construction activity index
+131,Horgan-Jones J & Kelly O,2024,"Construction sector capacity constraints",Irish Times,labour_market,Journalistic capacity analysis
+132,IBEC,2024,"Construction Sector Overview 2024",Irish Business and Employers Confederation,labour_market,Employer perspective
+133,CIF,2024,"Annual Report 2024",Construction Industry Federation,labour_market,Industry federation report
+134,Kantar,2024,"SCSI Annual Construction Survey",SCSI/Kantar,labour_market,Industry sentiment survey
+135,Expert Group on Future Skills Needs,2022,"Skills for Construction",EGFSN,labour_market,Skills needs assessment
+136,Forfás,2013,"Ireland's Construction Sector: Outlook and Strategic Plan to 2015",Forfás,labour_market,Pre-recovery sector plan
+137,National Competitiveness Council,2024,"Competitiveness Scorecard 2024",NCC Ireland,labour_market,Cost competitiveness
+138,Egan J,1998,"Rethinking Construction",UK Department of Environment,domain_fundamentals,Construction industry reform
+139,Latham M,1994,"Constructing the Team",HMSO,domain_fundamentals,Procurement reform
+140,Wolstenholme A,2009,"Never Waste a Good Crisis",Constructing Excellence,domain_fundamentals,Post-crisis construction reform
+141,Flanagan R & Jewell C,2005,"Whole Life Appraisal for Construction",Blackwell (textbook),domain_fundamentals,Life cycle costing textbook
+142,Best R & de Valence G,2002,"Design and Construction: Building in Value",Butterworth-Heinemann,domain_fundamentals,Value in construction
+143,Mansfield NR et al,1994,"Causes of delay and cost overruns in Nigerian construction projects",International Journal of Project Management,domain_fundamentals,Cost overrun causes
+144,Flyvbjerg B et al,2002,"Underestimating costs in public works projects",Journal of the American Planning Association,domain_fundamentals,Cost underestimation
+145,Love PED et al,2004,"Construction cost performance in highway projects",Journal of Infrastructure Systems,domain_fundamentals,Cost performance analysis
+146,Rowlinson S & Walker A,1995,"The Construction Industry in Hong Kong",Longman,domain_fundamentals,Industry structure comparison
+147,Fellows R & Liu A,2015,"Research Methods for Construction",Wiley-Blackwell (textbook),methodology,Construction research methods
+148,Wing CK et al,1998,"An exploration of the relationship between construction costs and economic activity",Construction Management and Economics,price_cycles,Cost-economy relationship
+149,Ofori G,2012,"Developing the Construction Industry in Ghana",Universities Press,domain_fundamentals,Developing country construction
+150,Langston C,2012,"Validation of the environmental choice model using a lifecycle assessment approach",Construction Management and Economics,regulation,Environmental regulation impact
+151,Cole RJ,1999,"Energy and greenhouse gas emissions associated with the construction of alternative structural systems",Building and Environment,regulation,Embodied energy in construction
+152,Thormark C,2006,"The effect of material choice on the total energy need and recycling potential of a building",Building and Environment,regulation,Material choice energy impact
+153,Dixit MK et al,2010,"Identification of parameters for embodied energy measurement",Energy and Buildings,regulation,Embodied energy parameters
+154,Ibn-Mohammed T et al,2013,"Operational vs. embodied emissions in buildings",Renewable and Sustainable Energy Reviews,regulation,Operational vs embodied carbon
+155,Sartori I & Hestnes AG,2007,"Energy use in the life cycle of conventional and low-energy buildings",Energy and Buildings,regulation,Life cycle energy analysis
+156,Anderson J et al,2009,"Incorporated and Operational Carbon in New Build Housing",BRE,regulation,Carbon in housing construction
+157,Pan W,2010,"Relationships between air-tightness and its influencing factors of post-2006 new-build dwellings in the UK",Building and Environment,regulation,Airtightness standards
+158,Monahan J & Powell JC,2011,"An embodied carbon and energy analysis of modern methods of construction in housing",Energy and Buildings,regulation,MMC carbon analysis
+159,Giesekam J et al,2014,"The greenhouse gas emissions and mitigation options for materials used in UK construction",Energy and Buildings,regulation,Construction material emissions
+160,AECOM,2022,"Construction Cost Guide Ireland 2022",AECOM,domain_fundamentals,Industry cost guide
+161,Linesight,2024,"Ireland Quarterly Construction Cost Report Q4 2024",Linesight,domain_fundamentals,Quarterly cost tracking
+162,Mitchell McDermott,2024,"Irish Construction Insights",Mitchell McDermott,domain_fundamentals,Industry analysis
+163,Gardiner & Theobald,2024,"International Construction Cost Survey",G&T,domain_fundamentals,International comparison
+164,EC Harris,2013,"International Construction Costs Report",EC Harris,domain_fundamentals,Historical international comparison
+165,Murphy L,2014,"Houston We've Got a Problem: The Role of International Benchmarking in Irish Housing Policy",International Journal of Housing Policy,domain_fundamentals,International housing cost comparison
+166,Williams B et al,2016,"Estimating the value of land in urban areas",Journal of Property Research,domain_fundamentals,Land cost component
+167,Kenny G,1999,"Modelling the demand and supply sides of the housing market",Economic Modelling,price_cycles,Irish housing demand model
+168,McQuinn K,2004,"A model of the Irish housing sector",Central Bank of Ireland Research Technical Paper,price_cycles,Irish housing model
+169,Conefrey T & FitzGerald J,2010,"Managing housing bubbles in regional economies under EMU",ESRI Working Paper,price_cycles,EMU housing policy
+170,Addison-Smyth D & McQuinn K,2010,"Quantifying revenue windfalls from the Irish housing market",Economic and Social Review,price_cycles,Housing revenue analysis
+171,National Treasury Management Agency,2024,"Information Memorandum Ireland",NTMA,domain_fundamentals,Sovereign economic data
+172,Department of Public Expenditure,2024,"National Development Plan Annual Report",DPER,domain_fundamentals,Public capital investment
+173,Irish Fiscal Advisory Council,2024,"Fiscal Assessment Report",IFAC,domain_fundamentals,Fiscal policy assessment
+174,Crosby N et al,2018,"Will automated valuation models dehumanise property tax",Property Management,methodology,Automated valuation methods
+175,BCIS,2024,"BCIS Online",Building Cost Information Service,materials_prices,UK construction cost database
+176,Davis Langdon,2019,"Spon's Construction Cost Guide 2019",Taylor & Francis,materials_prices,Standard cost reference
+177,Rawlinsons,2024,"Australian Construction Handbook",Rawlinsons,materials_prices,International cost reference
+178,RSMeans,2024,"RSMeans Data Construction Cost Estimating",Gordian,materials_prices,US cost data reference
+179,World Bank,2024,"World Development Indicators Construction",World Bank,domain_fundamentals,Cross-country construction data
+180,IMF,2024,"Global Housing Watch",International Monetary Fund,price_cycles,Global housing price tracking
+181,BIS,2024,"Property price statistics",Bank for International Settlements,price_cycles,International property prices
+182,OECD,2024,"Affordable Housing Database",OECD,domain_fundamentals,Housing affordability data
+183,UN Habitat,2024,"World Cities Report 2024",United Nations,domain_fundamentals,Global housing challenges
+184,Eurostat,2024,"House Price Index",Eurostat,price_cycles,EU house price indices
+185,Costello G & Watkins C,2002,"Towards a system of local house price indices",Housing Studies,methodology,Local price index methodology
+186,Silver M,2016,"How to Better Measure Hedonic Residential Property Price Indexes",IMF Working Paper,methodology,Hedonic price methodology
+187,Hill RJ,2013,"Hedonic price indexes for residential housing",Journal of Economic Surveys,methodology,Price index survey
+188,Diewert WE et al,2015,"Decompositions of a House Price Index into Land and Structures Components",Econometric Reviews,methodology,Price decomposition methodology
+189,de Haan J,2010,"Hedonic price indexes: a comparison of imputation Jevons and time-dummy hedonic approaches",Revue d'Économie Industrielle,methodology,Price index comparison
+190,Coulson NE & McMillen DP,2008,"Estimating time space and time-space real estate price models",Real Estate Economics,methodology,Spatial price models
+191,Kennedy G & McQuinn K,2011,"Why are Irish house prices still falling",Central Bank Economic Letters,domain_fundamentals,Irish house price analysis
+192,Lyons R,2019,"Can we use residential building permissions to estimate housing supply",Journal of the Statistical and Social Inquiry Society,domain_fundamentals,Irish housing supply proxy
+193,McCord M et al,2014,"Understanding rental prices in the UK",Journal of Financial Management of Property and Construction,domain_fundamentals,Rental market analysis
+194,Stevenson S,2008,"Modelling housing market fundamentals",Housing Studies,price_cycles,Housing fundamental models
+195,Abraham JM & Hendershott PH,1996,"Bubbles in metropolitan housing markets",Journal of Housing Research,price_cycles,Housing bubble identification
+196,Mayer CJ & Somerville CT,2000,"Residential construction: using the urban growth model to estimate housing supply",Journal of Urban Economics,price_cycles,Housing supply estimation
+197,Pheng LS & Chuan QT,2006,"Environmental factors and work performance of project managers in the construction industry",International Journal of Project Management,labour_market,Workforce productivity factors
+198,Loosemore M & Andonakis N,2007,"Barriers to implementing OHS reforms – the experiences of small subcontractors",International Journal of Project Management,labour_market,Small firm compliance costs
+199,Lingard H & Francis V,2009,"Managing Work-Life Balance in Construction",Spon Press,labour_market,Construction work-life balance
+200,Dainty ARJ et al,2007,"The reality of sustainable construction education",Engineering Sustainability,labour_market,Workforce sustainability
+201,BEC,2024,"Bi-monthly Construction Index",Business and Employers Confederation Ireland,materials_prices,Real-time cost tracking
+202,AIB,2024,"AIB Construction Sector Outlook",Allied Irish Banks,domain_fundamentals,Banking perspective on construction
+203,BOI,2024,"Bank of Ireland Property Report",Bank of Ireland,domain_fundamentals,Property market analysis
+204,Savills,2024,"Irish Research Quarterly Q4 2024",Savills Ireland,domain_fundamentals,Property market research
+205,CBRE,2024,"Ireland Construction Report",CBRE,domain_fundamentals,Commercial construction analysis
+206,Cushman & Wakefield,2024,"Irish Market Report",C&W,domain_fundamentals,Market conditions
+207,Knight Frank,2024,"Irish Residential Market Review",Knight Frank,domain_fundamentals,Residential market analysis
+208,ESRI,2024,"Quarterly Economic Commentary Winter 2024",ESRI,domain_fundamentals,Macroeconomic outlook
+209,CBI,2024,"Quarterly Bulletin Q4 2024",Central Bank of Ireland,domain_fundamentals,Financial stability assessment
+210,Duffy D & Morley C,2023,"Construction sector output and employment projections",ESRI Research Note,domain_fundamentals,Sector projections

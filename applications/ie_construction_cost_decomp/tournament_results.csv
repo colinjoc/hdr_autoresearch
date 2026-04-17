@@ -1,0 +1,6 @@
+experiment_id,description,metric,value,status,notes,prior,mechanism,interaction
+T01,CAGR ranking of 39 material sub-indices,cagr_spread_std_pct,2.7052,KEEP,Top: 65162 (11.3%); Bottom: 66162 (0.3%),,,
+T02,Variance decomposition: material contribution to All-Materials index,top5_var_contribution_share,12.4465,KEEP,Top-5 materials explain 1244.6% of index variance,,,
+T03,PCA on 39 material series: latent factor count,n_components_90pct_var,3,KEEP,"PC1=82.4%, 3 for 90%, 5 for 95%",,,
+T04,Linear regression: All-Materials ~ top-5 contributing materials,r_squared,0.993229,KEEP,"Regressors: ['67161', '65162', '651', '66161', '65']; R²=0.9932",,,
+T05,Structural break detection (Chow test) at COVID/Ukraine,covid_break_p_value,0.000000,KEEP,COVID p=0.000000; Ukraine p=0.000000,,,

@@ -1,0 +1,31 @@
+experiment_id	description	metric	value	status	prior	mechanism	interaction	notes
+E00	Baseline: WPM28 40-material panel parsed, CAGRs computed	all_materials_cagr_pct	3.9898	KEEP				40 materials x 117 months; labour CAGR=4.03%
+T01	CAGR ranking of 39 material sub-indices	cagr_spread_std_pct	2.7052	KEEP				Top: 65162 (11.3%); Bottom: 66162 (0.3%)
+T02	Variance decomposition: material contribution to All-Materials index	top5_var_contribution_share	12.4465	KEEP				Top-5 materials explain 1244.6% of index variance
+T03	PCA on 39 material series: latent factor count	n_components_90pct_var	3	KEEP				PC1=82.4%, 3 for 90%, 5 for 95%
+T04	Linear regression: All-Materials ~ top-5 contributing materials	r_squared	0.993229	KEEP				Regressors: ['67161', '65162', '651', '66161', '65']; R²=0.9932
+T05	Structural break detection (Chow test) at COVID/Ukraine	covid_break_p_value	0.000000	KEEP				COVID p=0.000000; Ukraine p=0.000000
+E01	Concrete/cement trajectory 2015-2024	avg_cement_cagr_pct	5.2113	KEEP	70%	Cement is a non-tradeable commodity with high transport costs; local demand driven		Cement=6.83%; Ready mixed mortar and concrete=4.79%; Concrete blocks and bricks=4.01%
+E02	Structural steel trajectory 2015-2024	avg_steel_cagr_pct	5.3093	KEEP	60%	Steel is globally traded; prices driven by Chinese production + EU energy costs		
+E03	Timber trajectory 2015-2024	avg_timber_cagr_pct	3.5486	KEEP	65%	COVID lumber spike + subsequent oversupply; Scandinavian supply chains		
+E04	Insulation trajectory 2015-2024 (NZEB regulatory driver)	insulation_cagr_pct	2.3074	KEEP	75%	NZEB (Part L 2019) mandated higher insulation standards; demand shock		
+E05	Electrical fittings trajectory (heat pump/solar transition)	avg_electrical_cagr_pct	2.2219	KEEP	70%	Heat pump mandate + solar PV requirements increase electrical component demand		
+E06	HVAC trajectory 2015-2024	hvac_cagr_pct	2.0405	KEEP	65%	Heat pump transition replacing gas boilers; component complexity increases		
+E07	Plumbing/sanitary trajectory 2015-2024	plumbing_cagr_pct	4.0817	KEEP	50%	Sanitary ware largely imported; exchange rate and shipping cost dependent		
+E08	Glass trajectory 2015-2024 (triple glazing NZEB requirement)	glass_cagr_pct	0.4762	KEEP	60%	NZEB requires triple glazing; glass is energy-intensive to manufacture		
+E09	Construction labour cost per hour trajectory 2015-2025	labour_hourly_cagr_pct	4.0330	KEEP	80%	Tight labour market post-2018; SOLAS skills shortages; wage pressure		
+E10	Average weekly paid hours in construction (productivity proxy)	weekly_hrs_change_pct	-1.1050	KEEP	55%	Reduced hours may indicate shift to contract/gig work or regulatory limits		
+E11	Employment count vs residential output (labour productivity)	employment_change_pct	103.1507	KEEP	60%	If employment grows faster than output, productivity is declining		Output change: 8.92%
+E12	Materials vs labour: which grew faster 2015-2024?	materials_minus_labour_cagr_pp	-0.0432	KEEP	50%	If labour outpaces materials, the cost mix shifts toward labour dominance		
+E13	COVID impact window (2020-2021) on key materials	all_materials_covid_peak_pct	16.0377	KEEP	85%	Supply chain disruption + construction site closures + demand surge on reopening		
+E14	Ukraine/energy impact (2022-2023) on key materials	all_materials_ukraine_peak_pct	17.2830	KEEP	80%	Energy price spike → energy-intensive materials (steel, glass, cement) surge		
+E15	Post-crisis trajectory (2024) — are costs mean-reverting?	all_materials_post_peak_reversion_pct	-0.7539	KEEP	55%	Post-shock: some materials revert (steel, timber), others ratchet (concrete, insulation)		
+E16	Buildcost.ie trade-level decomposition for residential	semi_detached_mid_cost_eur_sqm	1975	KEEP	70%	Services (mech+elec) dominate at ~24% of hard cost; envelope second at ~16%		
+E17	Share of total cost by trade (from buildcost guides)	largest_trade_share	14.0	KEEP	65%	Mechanical services largest single trade; driven by NZEB complexity		Mech 14%, Frame 12%, Elec 10%, Ext Walls 10%, Prelim 10%
+E18	Weighted contribution: material inflation x share of cost	total_weighted_contribution_pp	2.4888	KEEP	60%	High-share trades with high inflation dominate total cost growth		
+E19	Top-5 materials contributing >50% of total inflation	top5_share_of_abs_cagr	24.8683	KEEP	70%	Concentration risk: few materials drive most of the cost movement		Structural steel fabricated metal=8.20%; Structural steel=7.78%; Plaster=7.58%; Cement=6.83%; Precast concrete=6.28%
+E20	Regulatory-driven cost additions (NZEB, BCAR, Part L)	insulation_excess_inflation_pp	4.1500	KEEP	75%	NZEB mandates higher insulation, triple glazing, heat pumps; raises demand for those materials		Insulation=+4.15pp; Glass=+3.60pp; HVAC=+2.25pp; Electrical=+5.11pp
+I02	Interaction: COVID impact x energy-intensity of material	t_statistic	-1.2407	KEEP		Energy-intensive materials have different supply chain disruption dynamics	True	EI mean=10.6%, NE mean=32.8%, p=0.2697
+E21	Difference-in-differences: NZEB vs control materials, pre/post Nov 2019	did_nzeb_effect_pp	-4.0200	KEEP		NZEB group excess (+3.53pp) vs control group excess (+7.55pp); DiD=-4.02pp		Control group (cement, steel, plaster, blocks) had MORE excess inflation than NZEB group
+E22	E20 recomputed using CAGR instead of simple percentage change	insulation_excess_cagr_pp	3.8600	KEEP		CAGR corrects for compounding; reduces excess estimates by 0.3-0.6pp vs simple method		Insulation=+3.86pp; Glass=+3.59pp; HVAC=+2.12pp; Electrical=+4.56pp (all lower than E20)
+E23	BEA04 volume index vs physical completions for productivity analysis	completions_change_pct	139.0	KEEP		BEA04 volume index is deflated by construction prices; +9% vs completions +139%		Value index +48%, volume +9%, deflator +36%. Completions+139% vs employment+103% suggests flat/positive productivity
