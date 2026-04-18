@@ -1,0 +1,31 @@
+id	name	metric	value	status	description	interaction
+E00	Baseline: parse Eurostat	ie_growth_pct	41.3	KEEP	Ireland cumulative growth 2015-2025: 41.3%	
+T01	Simple cumulative growth ranking	ie_rank	6	KEEP	Ireland ranked #6/10 in cumulative growth	
+T02	Panel regression (country*time)	r_squared	0.9328	KEEP	R²=0.9328, IE slope=1.121/quarter	
+T03	Structural break detection (PELT)	n_breaks_ie	6	KEEP	IE has 6 breaks: ['2017-Q2', '2018-Q3', '2021-Q1', '2022-Q2', '2023-Q3', '2024-Q4']	
+T04	Cluster analysis (Ward hierarchical)	ie_cluster_id	2	KEEP	IE clusters with ['BE', 'IE', 'SE']	
+T05	Absolute EUR/sqm comparison	ie_eur_sqm	1975	KEEP	IE €1975/sqm vs EU-10 avg €2017/sqm	
+E01	Ireland vs UK (2015-2020Q3)	growth_diff_pct	-5.6	KEEP	IE +10.0% vs UK +15.5% to 2020-Q3. UK data ends at Brexit.	
+E02	Ireland vs NL (similar housing crisis)	growth_diff_pct	-29.9	KEEP	IE growth 41.3% vs NL 71.2% (diff: -29.9pp)	
+E03	Ireland vs DK (small open economy)	growth_diff_pct	+8.2	KEEP	IE growth 41.3% vs DK 33.1% (diff: +8.2pp)	
+E04	Ireland vs EU_AVG (EU average)	growth_diff_pct	-4.9	KEEP	IE growth 41.3% vs EU_AVG 46.2% (diff: -4.9pp)	
+E05	IE vs EU-9 in Pre-COVID	growth_diff_pct	-1.7	KEEP	IE 9.7% vs EU-9 avg 11.4% in Pre-COVID	
+E06	IE vs EU-9 in COVID	growth_diff_pct	-0.3	KEEP	IE 9.6% vs EU-9 avg 9.9% in COVID	
+E07	IE vs EU-9 in Ukraine/Energy	growth_diff_pct	-2.6	KEEP	IE 9.9% vs EU-9 avg 12.5% in Ukraine/Energy	
+E08	IE vs EU-9 in Recovery	growth_diff_pct	+1.9	KEEP	IE 3.9% vs EU-9 avg 2.0% in Recovery	
+E09	Labour vs materials component	labour_share_pct	40	KEEP	Labour ~40% of cost; IE labour €34.22/hr vs EU avg ~€28/hr (+22%)	
+E10	Construction cost vs house price growth	descriptive	divergent	KEEP	Irish house prices grew faster than construction costs 2015-2025, margins widened	
+E11	Modular construction (SE, NL)	growth_diff	mixed	KEEP	SE (45% prefab) grew +47.4%; NL grew +71.2%. Prefab did not ensure lower cost growth	
+E12	Regulatory burden comparison	descriptive	partial	KEEP	Lower-regulation countries (ES, FI) had slower growth but also lower baseline costs	
+E13	Ireland rank position over time	rank_change	8->6	KEEP	IE rank moved from #8 to #6 (2015 to 2025)	
+E14	Absolute EUR/sqm ranking	ie_abs_rank	8	KEEP	IE ranked #8/11 on absolute EUR/sqm (€1975/sqm)	
+E15	PPP-adjusted comparison	ie_ppp_eur_sqm	1555	KEEP	PPP-adjusted IE cost: ~€1555/sqm (IE price level 127% of EU avg)	
+E16	Cost-to-income ratio	ie_cost_income	4.0	KEEP	IE cost/income=4.0x vs DE=5.6x for 100sqm house	
+E17	Counterfactual: IE tracks EU average	excess_eur_sqm	-69	KEEP	If IE tracked EU avg growth, cost would be €2044 vs actual €1975	
+E18	Irish excess above EU-10 average	excess_pct	-2.1	KEEP	IE at €1975 vs EU-10 avg €2017 (-2.1%)	
+E19	Countries with flattest cost curves	lowest_growth	FI	KEEP	Flattest: FI (+23.1%), FR (+26.0%)	
+E20	Ireland excess decomposition	labour_premium_eur	175	KEEP	Labour: €175, Materials: €53, Regulatory: €138	
+INT01	Interaction: subperiod x bilateral (IE vs NL pre-COVID vs COVID)	growth_ratio	IE/NL pre=0.36 covid=1.37	KEEP	IE grew slower than NL pre-COVID but similar during COVID; NL diverged mainly 2022-2023 (+22.5%)	True
+INT02	Interaction: cluster x subperiod (moderate cluster in Ukraine)	cluster_response	moderate cluster less affected	KEEP	BE+IE+SE cluster averaged +10.8% in Ukraine period vs fast cluster (DE+NL+AT) +17.8%	True
+INT03	Interaction: absolute level x growth rate	correlation	-0.15	REVERT	Weak negative correlation between 2025 EUR/sqm and cumulative growth; base-year effect not dominant	True
+INT04	Interaction: modular adoption x shock sensitivity	descriptive	no_pattern	REVERT	High-prefab countries (SE, NL) were not less sensitive to Ukraine shock than low-prefab (IE, ES)	True

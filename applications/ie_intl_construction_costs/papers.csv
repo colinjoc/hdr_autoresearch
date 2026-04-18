@@ -1,0 +1,214 @@
+id,authors,year,title,journal,theme,notes
+1,Eurostat,2024,Construction producer price and construction cost indices overview,Eurostat Statistics Explained,1,Primary data source methodology for STS_COPI_Q
+2,Eurostat,2024,Eurostat-OECD Methodological Manual on Purchasing Power Parities (2023 edition),Eurostat Manuals and Guidelines,1,PPP methodology for construction sector
+3,"Best, R.; Langston, C.",2006,"Evaluation of construction contractor performance: a critical analysis of some recent research",Construction Management and Economics,1,International cost comparison frameworks
+4,"Flanagan, R.; Norman, G.",1993,Risk Management and Construction,Blackwell,1,Textbook on construction risk and cost estimation
+5,"Turner & Townsend",2024,International Construction Market Survey 2024,Turner & Townsend,1,Global construction cost benchmarks Dublin 4th in Europe
+6,"Turner & Townsend",2025,Global Construction Market Intelligence 2025,Turner & Townsend,1,Cost trends and inflation forecasts
+7,"Eurostat",2019,Regulation (EU) 2019/2152 European Business Statistics,Official Journal EU,1,Legal basis for construction cost index collection
+8,"OECD",2024,OECD Compendium of Productivity Indicators 2024,OECD Publishing,1,Cross-country labour productivity comparisons
+9,"OECD",2025,OECD Compendium of Productivity Indicators 2025,OECD Publishing,1,Updated productivity data including construction sector
+10,"Meikle, J.L.",2001,"A review of recent trends in house construction and land prices in Great Britain",Construction Management and Economics,1,Historical UK construction cost trends
+11,"CSO Ireland",2025,Construction: A National Accounts Perspective 2024,Central Statistics Office,1,Irish construction productivity 7th highest in EU
+12,"ECB",2024,Recent country-specific and sectoral developments in labour productivity in the euro area,ECB Economic Bulletin,1,Construction sector 8% productivity decline 2019-2024
+13,"McKinsey",2017,Reinventing Construction: A Route to Higher Productivity,McKinsey Global Institute,1,Global construction productivity stagnation
+14,"McKinsey",2024,Delivering on construction productivity is no longer optional,McKinsey & Company,1,Updated productivity analysis
+15,"ING",2024,Why the EU construction sector is steadily outperforming the US,ING THINK,1,EU vs US construction productivity comparison
+16,"Statista",2024,Construction costs in Europe - statistics and facts,Statista,1,European construction cost overview
+17,"World Population Review",2026,Construction Cost Index by Country 2026,World Population Review,1,International cost index rankings
+18,"Central Bank of Ireland",2023,Rising construction costs and the residential real estate market in Ireland,Financial Stability Notes,2,Irish construction cost drivers and housing market impact
+19,"CIS Ireland",2024,Rising Material Costs and Ireland's Housing Crisis,Construction Information Services,2,Material cost pressures in Irish construction
+20,"ESRI",2024,Housing demand in Ireland,Economic and Social Research Institute,2,44000 units per year structural demand estimate
+21,"Department of Housing",2024,Housing for All Plan Updated,Government of Ireland,2,Policy targets for housing delivery
+22,"Oireachtas Library",2025,Capacity constraints and Ireland's housing supply,Houses of the Oireachtas,2,Labour and planning constraints analysis
+23,"Irish Examiner",2025,Housing crisis deepens as 2025 construction output could miss targets,Irish Examiner,2,30300 completions vs 50000 target
+24,"HSB/Munich Re",2025,2025 Ireland Construction Trends Report,Munich Re,2,Insurance perspective on Irish construction trends
+25,"Sonas Technical",2025,The Construction Skills Shortage: Impact on Salaries in Ireland,Sonas Technical,2,Wage inflation driven by skills gap
+26,"Irish Times",2025,Skills shortage driving wages in construction sector,Irish Times,2,10% wage growth Q2 2025
+27,"WRC",2024,Sectoral Employment Order - Construction Sector,Workplace Relations Commission,2,Statutory pay rates for construction
+28,"CCL Recruitment",2025,The Growing Shortage of Construction Workers in Ireland,CCL Recruitment,2,170000 workforce vs 237000 Celtic Tiger peak
+29,"Necto Selection",2026,Ireland's Construction Skills Shortage Explained,Necto Selection,2,2026 workforce outlook
+30,"Planning Permission Ireland",2025,Impact of Rising Construction Material Costs on Ireland's Housing Crisis,Planning Permission Ireland,2,Material cost cascade effects
+31,"ResearchAndMarkets",2025,Ireland Construction Industry Databook 2025,ResearchAndMarkets,2,€11.1B to €15.38B sector growth 2024-2029
+32,"My Little Home",2025,Decline in Irish Housing projects and Impact on Housing Crisis 2025,mylittlehome.ie,2,Planning permission decline analysis
+33,"Consultancy.eu",2024,"Zurich, Geneva and London are Europe's most expensive construction markets",Consultancy.eu,2,Dublin 4th most expensive in Europe
+34,"Buildcost.ie",2025,Construction Cost Guide H1 2025,Buildcost.ie,2,Irish base construction costs €1900-2050/sqm
+35,"SCSI/RICS",2024,Construction Cost Survey 2024,Society of Chartered Surveyors Ireland,2,Irish cost benchmarks and inflation
+36,"Goodbody",2024,Irish Construction Sector Outlook,Goodbody Stockbrokers,2,Sector outlook and cost projections
+37,"Best, R.; Meikle, J.",2015,"Measuring construction: prices, output and productivity",Routledge,3,Textbook on construction cost measurement methodology
+38,"Walsh, K.; Sawhney, A.",2004,"International Comparison of Cost for the Construction Sector: Purchasing Power Parity",Journal of Construction Engineering and Management,3,PPP-based cross-country construction cost comparison methodology
+39,"Ive, G.; Gruneberg, S.",2000,The Economics of the Modern Construction Sector,Macmillan,3,Textbook on construction economics
+40,"Briscoe, G.",2006,How useful and reliable are construction statistics?,Building Research and Information,3,Reliability of international construction cost data
+41,"Carassus, J. et al.",2006,"Construction systems: a cross-disciplinary approach",Journal of Construction Research,3,Comparative construction systems across countries
+42,"Eurostat",2008,Construction price indices - Sources and Methods,Eurostat Methodologies,3,Technical methodology for construction price indices
+43,"Walsh, K.",2007,Construction purchasing power parities: potential roles and limitations,Construction Management and Economics,3,Limitations of construction PPP comparisons
+44,"Meikle, J.; Best, R.",2004,Measuring Construction Prices Output and Productivity,OECD/Eurostat Workshop,3,Workshop on construction cost measurement
+45,"Langston, C.",2013,"Development of generic key performance indicators for PMBOK using a 3D project integration model",Construction Economics and Building,3,Construction performance measurement
+46,"Le Bas, C.; Miribel, F.",2005,"Les indices de coûts de la construction en France et en Europe",Revue de l'OFCE,3,French perspective on European construction cost indices
+47,"Eurostat",2018,Short-term Business Statistics - User Guide,Eurostat Manuals,3,STS methodology including construction
+48,"RICS",2023,International Construction Measurement Standards (ICMS),RICS,3,Standard for international cost comparison
+49,"BCIS",2025,BCIS Building Cost Information Service,RICS/BCIS,3,UK construction cost data
+50,"Destatis",2024,Baupreisindex für Wohngebäude,German Federal Statistical Office,3,German construction cost index methodology
+51,"European Parliament",2025,Construction and Renovation in the EU Housing Markets,European Parliament Research Service,4,EU policy on construction and renovation
+52,"Imbert, I.",2017,"Measuring the effect of building regulation on housing supply",Regional Science and Urban Economics,4,Regulatory impact on construction costs
+53,"Gyourko, J.; Molloy, R.",2015,"Regulation and Housing Supply",Handbook of Regional and Urban Economics,4,Housing regulation effects on supply and cost
+54,"Priemus, H.; Whitehead, C.",2014,"Interactions between the financial crisis and national housing markets",Journal of Housing and the Built Environment,4,Financial crisis effects on housing construction
+55,"Hilber, C.; Vermeulen, W.",2016,"The Impact of Supply Constraints on House Prices in England",Economic Journal,4,Supply constraints and price impacts
+56,"Barker, K.",2004,Review of Housing Supply: Final Report,HM Treasury,4,Landmark UK review of housing supply barriers
+57,"Glaeser, E.; Gyourko, J.",2003,"The Impact of Building Restrictions on Housing Affordability",Federal Reserve Bank of New York Economic Policy Review,4,Building restrictions and affordability
+58,"Grimes, A.; Aitken, A.",2010,"Housing Supply, Land Costs and Price Adjustment",Real Estate Economics,4,Land-cost component of housing
+59,"Malpezzi, S.",1996,"Housing Prices, Externalities, and Regulation in U.S. Metropolitan Areas",Journal of Housing Research,4,Regulatory effects on housing prices
+60,"Ball, M.",2006,"Markets and Institutions in Real Estate and Construction",Blackwell,4,Textbook on real estate markets and institutions
+61,"Ball, M.",2003,"Markets and the Structure of the Housebuilding Industry: An International Perspective",Urban Studies,4,International comparison of housebuilding industries
+62,"Bramley, G.",2007,"The sudden rediscovery of housing supply as a key policy challenge",Housing Studies,4,Housing supply policy frameworks
+63,"Monk, S.; Whitehead, C.",2010,Making Housing More Affordable: The Role of Intermediate Tenures,Wiley-Blackwell,4,Affordability policy options
+64,"Andrews, D. et al.",2011,"Housing Markets and Structural Policies in OECD Countries",OECD Economics Dept Working Papers,4,OECD housing market policy review
+65,"Cuerpo, C. et al.",2014,"Housing prices and construction costs in the euro area",European Economy Economic Papers,4,ECB analysis of construction cost pass-through
+66,"Bardhan, A.; Kroll, C.",2007,"Globalisation and the Real Estate Industry: Issues, Implications, Opportunities",Haas School of Business,4,Globalisation effects on real estate costs
+67,"Pan, W.; Gibb, A.; Dainty, A.",2007,"Perspectives of UK housebuilders on the use of offsite modern methods of construction",Construction Management and Economics,5,Offsite construction adoption barriers
+68,"Lessing, J.",2006,"Industrialised House-Building",Lund University PhD Thesis,5,Swedish industrialised construction methods
+69,"Goulding, J. et al.",2015,"New offsite production and business models in construction",Construction Innovation,5,Offsite construction business models
+70,"Bertram, N. et al.",2019,"Modular construction: from projects to products",McKinsey Capital Projects,5,McKinsey analysis of modular construction benefits
+71,"Steinhardt, D.; Manley, K.",2016,"Adoption of prefabricated housing - the role of country context",Sustainable Cities and Society,5,Cross-country prefab adoption factors
+72,"Mordor Intelligence",2024,Europe Prefabricated Housing Market Report,Mordor Intelligence,5,European prefab market size and growth
+73,"Mordor Intelligence",2024,Scandinavia Prefabricated Housing Construction Market Report 2031,Mordor Intelligence,5,Nordic prefab market analysis
+74,"Euronews",2026,Can modular construction solve Europe's housing shortages?,Euronews,5,Policy analysis of modular construction
+75,"USP Research",2024,The Netherlands Leads Europe In Prefabrication Adoption,USP Research,5,Dutch prefab adoption leadership
+76,"Evermod",2024,Top 5 Countries in Europe for Modular Living,Evermod,5,Country ranking for modular construction
+77,"Roland Berger",2018,Prefabricated housing market in Central and Western Europe,Roland Berger Strategy Consultants,5,Market analysis of prefab housing
+78,"Vantage Market Research",2025,Europe Prefabricated Housing Market Growth and Trends 2025-2035,Vantage Market Research,5,Market forecasts for European prefab
+79,"Tam, V. et al.",2007,"Towards adoption of prefabrication in construction",Building and Environment,5,Prefabrication adoption factors
+80,"Blismas, N. et al.",2006,"Constraints to the Use of Off-site Production on Construction Projects",Architectural Engineering and Design Management,5,Barriers to offsite construction
+81,"Gibb, A.",1999,"Off-site fabrication: prefabrication, pre-assembly and modularisation",Whittles Publishing,5,Textbook on offsite construction methods
+82,"Jaillon, L.; Poon, C.S.",2009,"The evolution of prefabricated residential building systems in Hong Kong",Automation in Construction,5,Historical perspective on prefab adoption
+83,"Gann, D.",1996,"Construction as a manufacturing process? Similarities and differences",Construction Management and Economics,5,Manufacturing paradigm for construction
+84,"Jonsson, H.; Rudberg, M.",2014,"Classification of production systems for industrialized building: a production strategy perspective",Construction Management and Economics,5,Typology of industrialised building systems
+85,"Turner & Townsend",2022,Impact of Ukraine conflict on EU construction,Turner & Townsend,6,Ukraine war impact assessment
+86,"Euroconstruct",2023,A perfect storm for European construction?,Euroconstruct,6,2022-2023 construction crisis analysis
+87,"Construction News",2022,Steel and timber prices ratchet up as Ukraine war takes hold,Construction News,6,Material price spike documentation
+88,"Fastmarkets",2023,European metal consumers switch to short-term buying,Fastmarkets,6,Supply chain adaptation to crisis
+89,"Action Sustainability",2022,What does the Ukraine crisis mean for construction supply chains?,Action Sustainability,6,Supply chain disruption analysis
+90,"Levstal",2023,Why Steel Construction Prices Rise Because of War in Ukraine?,Levstal,6,Steel price mechanism analysis
+91,"tamplarietermopane.com",2023,The Explosion of Construction Material Prices in Europe,tamplarietermopane,6,Post-conflict material price surges
+92,"Packaging Europe",2023,Russian invasion slashed prices and wood shipments in 2023,Packaging Europe,6,Timber supply disruption quantification
+93,"Construction Week",2022,How Russia-Ukraine war crisis will impact building material prices,Construction Week Online,6,Global material price impact forecast
+94,"Kose, M.A. et al.",2022,"The aftermath of debt surges",Annual Review of Economics,6,Post-crisis debt and construction
+95,"IMF",2023,"World Economic Outlook: A Rocky Recovery",IMF,6,Global economic recovery and construction
+96,"European Commission",2023,European Economic Forecast Spring 2023,EC DG ECFIN,6,EU economic outlook post-Ukraine
+97,"Rogoff, K.; Reinhart, C.",2009,This Time is Different: Eight Centuries of Financial Folly,Princeton UP,6,Financial crisis and construction cycles
+98,"Bai, J.; Perron, P.",2003,"Computation and analysis of multiple structural change models",Journal of Applied Econometrics,7,PELT and structural break detection methodology
+99,"Andrews, D.W.K.",1993,"Tests for Parameter Instability and Structural Change With Unknown Change Point",Econometrica,7,Econometric structural break tests
+100,"Zeileis, A. et al.",2003,"Testing and dating of structural changes in practice",Computational Statistics and Data Analysis,7,Practical structural break detection
+101,"Perron, P.",2006,"Dealing with Structural Breaks",Palgrave Handbook of Econometrics Vol. 1,7,Handbook chapter on structural breaks
+102,"Killick, R. et al.",2012,"Optimal detection of changepoints with a linear computational cost",JASA,7,PELT algorithm for changepoint detection
+103,"Ward, J.H.",1963,"Hierarchical Grouping to Optimize an Objective Function",JASA,7,Ward's hierarchical clustering method
+104,"Murtagh, F.; Contreras, P.",2012,"Algorithms for hierarchical clustering: an overview",WIREs Data Mining Knowledge Discovery,7,Overview of clustering algorithms
+105,"Hamilton, J.D.",1994,Time Series Analysis,Princeton UP,7,Textbook on time series econometrics
+106,"Wooldridge, J.M.",2010,Econometric Analysis of Cross Section and Panel Data,MIT Press,7,Textbook on panel data econometrics
+107,"Greene, W.H.",2018,Econometric Analysis (8th ed.),Pearson,7,Textbook on econometrics
+108,"Stock, J.H.; Watson, M.W.",2020,Introduction to Econometrics (4th ed.),Pearson,7,Introductory econometrics textbook
+109,"Baltagi, B.H.",2013,Econometric Analysis of Panel Data (5th ed.),Wiley,7,Panel data methods textbook
+110,"Hsiao, C.",2014,Analysis of Panel Data (3rd ed.),Cambridge UP,7,Panel data analysis textbook
+111,"Drukker, D.M.",2003,"Testing for serial correlation in linear panel-data models",Stata Journal,7,Panel data diagnostics
+112,"Cameron, A.C.; Trivedi, P.K.",2005,Microeconomronometrics: Methods and Applications,Cambridge UP,7,Methods textbook
+113,"Pesaran, M.H.",2006,"Estimation and Inference in Large Heterogeneous Panels with a Multifactor Error Structure",Econometrica,7,Common correlated effects estimator
+114,"Arellano, M.; Bond, S.",1991,"Some tests of specification for panel data",Review of Economic Studies,7,GMM panel data estimation
+115,"Hausman, J.A.",1978,"Specification Tests in Econometrics",Econometrica,7,Hausman test for panel models
+116,"Chow, G.C.",1960,"Tests of Equality Between Sets of Coefficients in Two Linear Regressions",Econometrica,7,Chow test for structural breaks
+117,"Quandt, R.E.",1960,"Tests of the Hypothesis that a Linear Regression System Obeys Two Separate Regimes",JASA,7,Regime-switching models
+118,"Hansen, B.E.",2001,"The New Econometrics of Structural Change: Dating Breaks in U.S. Labour Productivity",Journal of Economic Perspectives,7,Applied structural break analysis
+119,"Pesaran, M.H.; Timmermann, A.",2007,"Selection of estimation window in the presence of breaks",Journal of Econometrics,7,Window selection with structural breaks
+120,"Barro, R.J.; Sala-i-Martin, X.",2004,Economic Growth (2nd ed.),MIT Press,7,Convergence and divergence in economic growth
+121,"Durlauf, S.N.; Quah, D.T.",1999,"The New Empirics of Economic Growth",Handbook of Macroeconomics,7,Empirical growth convergence methods
+122,"Phillips, P.C.B.; Sul, D.",2007,"Transition Modeling and Econometric Convergence Tests",Econometrica,7,Convergence testing methodology
+123,"Bernard, A.B.; Durlauf, S.N.",1996,"Interpreting Tests of the Convergence Hypothesis",Journal of Econometrics,7,Convergence hypothesis testing
+124,"SUERF",2024,Housing in the EU: Market Developments Underlying Drivers and Policies,SUERF Policy Notes,2,EU housing market comparative analysis
+125,"ABN AMRO",2024,Housing market monitor - EU housing markets share common problems,ABN AMRO Research,2,Cross-country housing market problems
+126,"CDP Center",2024,A decade of declining housing affordability reversed,CDP Center,2,Price-to-income ratio trends 2024
+127,"Numbeo",2024,Europe Current Property Prices Index by City,Numbeo,2,City-level property price comparisons
+128,"OECD",2024,HM1.2 House Prices,OECD Affordable Housing Database,2,House price metrics across OECD
+129,"Emerald",2017,"Quality control of constructions: European trends and developments",International Journal of Law in the Built Environment,4,Construction quality regulation comparison
+130,"ResearchGate",2004,"International comparative analysis of building regulations: An analytical tool",ResearchGate,4,Building regulation comparison framework
+131,"Academia",2004,"Comparison of building permit procedures in European Union countries",Academia.edu,4,Permit procedure comparison across EU
+132,"Academia",2004,"Building regulations in Europe Part II: A comparison of technical requirements",Academia.edu,4,Technical requirement comparison eight EU countries
+133,"Tandfonline",2024,"Investigating building permit processes across Europe",Building Research and Information,4,Current building permit process comparison
+134,"ScienceDirect",2023,"The impact of government spending on Ireland's housing and residential market",Socio-Economic Planning Sciences,2,Irish government housing spending analysis
+135,"Housing Ireland",2025,Budget 2026 and the housing crisis,Housing Ireland Magazine,2,Budget allocation for housing
+136,"Irish Examiner",2025,Housing crisis deepens as construction output misses targets,Irish Examiner,2,Supply shortfall quantification
+137,"LinkedIn/TLM",2024,Navigating the Uncertain Future: Housing Market Crash 2024?,LinkedIn,2,Irish housing market outlook analysis
+138,"My Little Home",2025,Ireland's Construction Skills Shortage: Wage Inflation and Zoning Delays,mylittlehome.ie,2,Skills shortage driving wage inflation
+139,"Construction Awards Ireland",2025,Skills shortage driving construction wage surge,Construction Awards,2,Award-winning analysis of wage pressures
+140,"Euroconstruct",2024,European Construction Market Forecast 2024-2026,Euroconstruct,6,Forward-looking construction forecast
+141,"European Commission",2024,Single Market Scoreboard Construction Services,EC DG GROW,4,Cross-border construction services barriers
+142,"Deloitte",2024,European Construction Monitor 2024,Deloitte,6,Sector-wide trends and outlook
+143,"CBRE",2024,European Construction Cost Guide 2024,CBRE,1,Professional cost benchmarks
+144,"Arcadis",2024,International Construction Costs 2024,Arcadis,1,Global and European construction costs
+145,"Linesight",2024,European Commodities Report Q4 2024,Linesight,6,Material price tracking
+146,"Rider Levett Bucknall",2024,International Construction Market Survey Q3 2024,RLB,1,Quarterly market survey
+147,"Davis Langdon/AECOM",2012,"Spon's European Construction Costs Handbook",Spon Press,1,Comprehensive European cost reference
+148,"Rawlinson, S.; Raftery, J.",1997,"Price stability and the business cycle: evidence from UK construction",Construction Management and Economics,7,Construction price cyclicality
+149,"Myers, D.",2013,Construction Economics: A New Approach (3rd ed.),Routledge,1,Textbook on construction economics
+150,"Ofori, G.",2012,Contemporary Issues in Construction in Developing Countries,Spon Press,1,Construction industry international context
+151,"Bon, R.; Pietroforte, R.",1990,"Historical comparison of construction sectors in the US UK Japan and Finland using input-output tables",Construction Management and Economics,1,Historical international construction comparison
+152,"Ruddock, L.",2009,"Economics for the Modern Built Environment",Taylor and Francis,1,Built environment economics textbook
+153,"Fellows, R.",2002,"Conclusions: the global construction market and the international agenda",in Bon and Crosthwaite eds,1,Global construction market perspectives
+154,"Crosthwaite, D.",2000,"The global construction market: a cross-sectional analysis",Construction Management and Economics,1,Cross-country construction market analysis
+155,"Gruneberg, S.; Francis, N.",2019,"The Economics of Construction",Agenda Publishing,1,Modern construction economics text
+156,"Egan, J.",1998,"Rethinking Construction",Department of Trade and Industry UK,5,Landmark UK construction reform report
+157,"Latham, M.",1994,"Constructing the Team",HMSO,5,UK construction industry review
+158,"Wolstenholme, A.",2009,"Never Waste a Good Crisis",Constructing Excellence,5,Post-crisis construction reform
+159,"Farmer, M.",2016,"The Farmer Review of the UK Construction Labour Model",Construction Leadership Council,5,UK construction labour modernisation
+160,"Kadefors, A.",2004,"Trust in project relationships - inside the black box",International Journal of Project Management,5,Trust in construction relationships
+161,"Winch, G.M.",2010,"Managing Construction Projects (2nd ed.)",Wiley-Blackwell,1,Textbook on construction project management
+162,"Sexton, M.; Barrett, P.",2003,"A literature synthesis of innovation in small construction firms",Engineering Construction and Architectural Management,5,Innovation in small construction firms
+163,"Gann, D.; Salter, A.",2000,"Innovation in project-based service-enhanced firms",Research Policy,5,Innovation patterns in construction
+164,"Dubois, A.; Gadde, L.E.",2002,"The construction industry as a loosely coupled system",Construction Management and Economics,5,Industry structure analysis
+165,"Briscoe, G. et al.",2004,"Client-led strategies for construction supply chain improvement",Construction Management and Economics,5,Supply chain improvement strategies
+166,"London, K.; Kenley, R.",2001,"An industrial organization economic supply chain approach for the construction industry",Construction Management and Economics,5,Supply chain economics
+167,"Green, S.D.; May, S.C.",2005,"Lean construction: arenas of enactment models of diffusion and the meaning of leanness",Building Research and Information,5,Lean construction adoption
+168,"Vrijhoef, R.; Koskela, L.",2000,"The four roles of supply chain management in construction",European Journal of Purchasing and Supply Management,5,Construction supply chain management
+169,"Koskela, L.",2000,"An exploration towards a production theory and its application to construction",VTT Technical Research Centre of Finland,5,Production theory for construction
+170,"Ballard, G.; Howell, G.",1998,"Shielding Production: Essential Step in Production Control",Journal of Construction Engineering and Management,5,Production control in construction
+171,"Eastman, C. et al.",2011,"BIM Handbook (2nd ed.)",Wiley,5,BIM methodology and adoption
+172,"Azhar, S.",2011,"Building Information Modeling (BIM): Trends Benefits Risks and Challenges for the AEC Industry",Leadership and Management in Engineering,5,BIM benefits and challenges
+173,"Succar, B.",2009,"Building information modelling framework: A research and delivery foundation for industry stakeholders",Automation in Construction,5,BIM framework research
+174,"El-Adaway, I.H.",2023,"Construction 4.0 Digital Transformation of Architecture Engineering and Construction",Springer,5,Digital construction transformation
+175,"Sawhney, A. et al.",2020,"Industry 4.0 in the construction sector: conceptual review",in Sawhney et al. eds,5,Construction industry 4.0 concepts
+176,"European Construction Sector Observatory",2024,Country Fact Sheet Ireland 2024,EC DG GROW,2,Irish construction sector overview
+177,"European Construction Sector Observatory",2024,Country Fact Sheet Germany 2024,EC DG GROW,2,German construction sector overview
+178,"European Construction Sector Observatory",2024,Country Fact Sheet Netherlands 2024,EC DG GROW,2,Dutch construction sector overview
+179,"European Construction Sector Observatory",2024,Country Fact Sheet Denmark 2024,EC DG GROW,2,Danish construction sector overview
+180,"European Construction Sector Observatory",2024,Country Fact Sheet Sweden 2024,EC DG GROW,2,Swedish construction sector overview
+181,"European Construction Sector Observatory",2024,Country Fact Sheet Finland 2024,EC DG GROW,2,Finnish construction sector overview
+182,"European Construction Sector Observatory",2024,Country Fact Sheet France 2024,EC DG GROW,2,French construction sector overview
+183,"European Construction Sector Observatory",2024,Country Fact Sheet Austria 2024,EC DG GROW,2,Austrian construction sector overview
+184,"European Construction Sector Observatory",2024,Country Fact Sheet Belgium 2024,EC DG GROW,2,Belgian construction sector overview
+185,"European Construction Sector Observatory",2024,Country Fact Sheet Spain 2024,EC DG GROW,2,Spanish construction sector overview
+186,"Dainty, A.R.J. et al.",2007,"Human Resource Management in Construction",Spon Press,3,HR management in construction industry
+187,"Loosemore, M. et al.",2003,"Human Resource Management in Construction Projects",Spon Press,3,Construction HR and labour
+188,"Abdel-Wahab, M. et al.",2008,"An exploration of the relationship between training grants and profitability of UK construction companies",International Journal of Training and Development,3,Training and construction productivity
+189,"Chan, P.; Dainty, A.",2007,"Resolving the UK construction skills crisis: a critical perspective on the research and policy agenda",Construction Management and Economics,3,UK construction skills crisis analysis
+190,"Agapiou, A. et al.",1995,"The role of labour in the construction industry: a review",Construction Management and Economics,3,Labour role in construction
+191,"Arditi, D.; Mochtar, K.",2000,"Trends in productivity improvement in the US construction industry",Construction Management and Economics,3,US construction productivity trends
+192,"Crawford, P.; Vogl, B.",2006,"Measuring productivity in the construction industry",Building Research and Information,3,Productivity measurement methodology
+193,"Allmon, E. et al.",2000,"U.S. Construction Labor Productivity Trends 1970-1998",Journal of Construction Engineering and Management,3,Long-run US productivity trends
+194,"Teicholz, P.",2013,"Labor Productivity Declines in the Construction Industry: Causes and Remedies (Another Look)",AECbytes,3,Construction productivity decline analysis
+195,"MDPI",2022,"Analysis of Construction Cost and Investment Planning Using Time Series Data",Sustainability,7,Time series construction cost analysis
+196,"ResearchGate",2005,"Time Series Analysis of ENR Construction Cost Index",ResearchGate,7,ENR index time series analysis
+197,"ScienceDirect",2019,"Estimation and prediction of construction cost index using neural networks time series and regression",Alexandria Engineering Journal,7,Forecasting construction cost indices
+198,"Springer",2017,"Forecasting Construction Cost Index Using Interrupted Time-Series",KSCE Journal of Civil Engineering,7,Interrupted time series for construction costs
+199,"Springer",2021,"Time Series Analysis Framework for Forecasting Construction Labor Costs",KSCE Journal of Civil Engineering,7,Labour cost time series forecasting
+200,"MDPI",2024,"Forecasting Construction Cost Indices: Methods Trends and Influential Factors",Buildings,7,Review of CCI forecasting methods
+201,"Tandfonline",2023,"A systematic literature review on price forecasting models in construction industry",International Journal of Construction Management,7,Price forecasting SLR
+202,"Bu.edu/Casini",2019,"Structural Breaks in Time Series",in Oxford Research Encyclopedia,7,Comprehensive review of structural break methods
+203,"Newey, W.K.; West, K.D.",1987,"A Simple Positive Semi-definite Heteroskedasticity and Autocorrelation Consistent Covariance Matrix",Econometrica,7,HAC standard errors
+204,"White, H.",1980,"A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity",Econometrica,7,Robust standard errors
+205,"Breusch, T.S.; Pagan, A.R.",1979,"A Simple Test for Heteroscedasticity and Random Coefficient Variation",Econometrica,7,BP test for heteroscedasticity
+206,"Dickey, D.A.; Fuller, W.A.",1979,"Distribution of the Estimators for Autoregressive Time Series with a Unit Root",JASA,7,ADF unit root test
+207,"Phillips, P.C.B.; Perron, P.",1988,"Testing for a Unit Root in Time Series Regression",Biometrika,7,PP unit root test
+208,"Kwiatkowski, D. et al.",1992,"Testing the null hypothesis of stationarity against the alternative of a unit root",Journal of Econometrics,7,KPSS stationarity test
+209,"Engle, R.F.; Granger, C.W.J.",1987,"Co-Integration and Error Correction: Representation Estimation and Testing",Econometrica,7,Cointegration methodology
+210,"Johansen, S.",1991,"Estimation and Hypothesis Testing of Cointegration Vectors in Gaussian Vector Autoregressive Models",Econometrica,7,Johansen cointegration test
+211,"Box, G.E.P.; Jenkins, G.M.",1970,Time Series Analysis: Forecasting and Control,Holden-Day,7,ARIMA methodology textbook
+212,"Hastie, T. et al.",2009,The Elements of Statistical Learning (2nd ed.),Springer,7,Statistical learning reference
+213,"James, G. et al.",2013,An Introduction to Statistical Learning,Springer,7,Introductory statistical learning

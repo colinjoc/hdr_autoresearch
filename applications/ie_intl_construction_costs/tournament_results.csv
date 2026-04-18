@@ -1,0 +1,7 @@
+family,model,metric,value,description,winner
+T01_Simple_Ranking,Cumulative growth ranking,ie_rank_of_10,6,Simple rank of cumulative % growth 2015-2025,no
+T02_Panel_Regression,OLS country-fixed-effects with time interaction,r_squared,0.9328,Linear panel model; IE slope 1.121/quarter significantly below DE/NL,yes
+T03_Structural_Break,PELT changepoint detection (L2 cost),n_breaks_ie,6,Identifies regime shifts; common breaks at 2021-Q1 and 2022-Q2,no
+T04_Cluster_Analysis,Ward hierarchical clustering (k=3),ie_cluster,BE+IE+SE,Groups countries by trajectory shape; IE in mid-growth cluster,no
+T05_Absolute_Level,EUR/sqm anchored comparison,ie_abs_rank_of_11,8,Ireland EUR 1975/sqm ranked #8 of 11; below EU-10 average,no
+T02_Panel_Regression,Ridge regularised panel regression,r_squared,0.9315,Ridge with alpha=1.0; similar to OLS confirming robust coefficients,no
