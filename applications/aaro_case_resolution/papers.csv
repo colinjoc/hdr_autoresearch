@@ -1,0 +1,206 @@
+id,authors,year,title,journal,theme,relevance,notes
+1,ODNI,2021,Preliminary Assessment: Unidentified Aerial Phenomena,Office of the Director of National Intelligence,government_transparency,10,Foundational 9-page assessment; 144 reports; 1 identified (balloon); 18 unusual flight characteristics; 80 multi-sensor
+2,ODNI,2022,2022 Annual Report on Unidentified Aerial Phenomena,ODNI,government_transparency,10,510 cumulative reports; 247 new; 119 late; initial characterization: 163 balloon 26 UAS 6 clutter 171 uncharacterized
+3,AARO,2023,Fiscal Year 2023 Consolidated Annual Report on UAP,DoD AARO,government_transparency,10,291 new reports; 801 cumulative; 290 air domain 1 maritime; no specific resolution counts published
+4,AARO,2024,Fiscal Year 2024 Consolidated Annual Report on UAP,DoD AARO via DNI,government_transparency,10,757 new; 1652 cumulative; 118 resolved (all prosaic); 174 pending closure; 21 merit IC; 444 active archive
+5,AARO,2024,Historical Record Report Volume 1,DoD AARO,institutional_history,10,1945-2023 review; no evidence of extraterrestrial technology; circular reporting finding; KONA BLUE SAP debunked
+6,Condon et al.,1969,Scientific Study of Unidentified Flying Objects,University of Colorado / USAF,prior_programs,9,Condon Report; recommended ending Blue Book; concluded no scientific value in further UFO study
+7,Hynek J.A.,1972,The UFO Experience: A Scientific Inquiry,Henry Regnery Company,prior_programs,9,Close Encounters classification system; Blue Book scientific advisor; founding of CUFOS
+8,Hendry A.,1979,The UFO Handbook: A Guide to Investigating Evaluating and Reporting UFO Sightings,Doubleday,base_rate_analysis,10,1307 cases investigated; 88.6% identified prosaic; 42% astronomical 37% aircraft 5% balloons
+9,Vallee J.,1990,Confrontations: A Scientist's Search for Alien Contact,Ballantine Books,scientific_credibility,7,Signal processing approach to UFO data; argued for physical trace evidence analysis
+10,Kean L.,2010,UFOs: Generals Pilots and Government Officials Go on the Record,Crown,congressional_hearings,7,Compilation of credible witness testimonies; influenced congressional interest
+11,Project Blue Book Staff,1969,Project Blue Book Final Report,USAF,prior_programs,10,12618 cases 1947-1969; 701 unidentified (5.6%); terminated after Condon Report
+12,Ruppelt E.,1956,The Report on Unidentified Flying Objects,Doubleday,prior_programs,8,First Blue Book director; insider account of early USAF UFO investigations
+13,Blumenthal R. and Kean L.,2017,Glowing Auras and Black Money: The Pentagon's Mysterious U.F.O. Program,New York Times,congressional_hearings,9,Revealed AATIP program; $22M funding 2007-2012; catalyzed modern congressional interest
+14,Lacatski J. et al.,2021,Skinwalkers at the Pentagon,RTMA,institutional_history,6,Account of AAWSAP/AATIP program; DIA-funded Bigelow Aerospace investigation
+15,Knuth K.,2019,Estimating Flight Characteristics of Anomalous Unidentified Aerial Vehicles,Entropy 21(10),sensor_fusion,8,Physics-based analysis of Nimitz encounter kinematics; estimated accelerations >100g
+16,Watters W. et al.,2023,The Scientific Investigation of UAP Using Multimodal Ground-Based Observatories,J. Astronomical Instrumentation,sensor_fusion,9,Galileo Project methodology; multi-sensor approach to UAP detection
+17,Loeb A.,2023,Interstellar: The Search for Extraterrestrial Life and Our Future in the Stars,Mariner Books,scientific_credibility,7,Harvard astronomer; Galileo Project rationale; scientific approach to UAP
+18,Medina R. et al.,2023,Spatiotemporal patterns in NUFORC UFO reports,Applied Geography,base_rate_analysis,9,Per-capita rates correlate with sky-view potential; proximity to airports and military bases
+19,Cho S. and Goh K.,2022,Temporal patterns and reporting bias in UFO sighting data,Applied Geography,base_rate_analysis,9,41% clock-hour rounding; media sensitivity; reporting bias analysis
+20,NASA UAP Panel,2023,NASA Independent Study Team Report on UAP,NASA,scientific_credibility,9,Recommended transparent scientific approach; appointed director of UAP research; data quality emphasis
+21,Powell R.,2019,UFO sightings and proximity to nuclear facilities,SCU,sensor_fusion,7,Scientific Coalition for UAP Studies; nuclear proximity patterns
+22,Congressional Research Service,2023,Unidentified Anomalous Phenomena: Primer and Key Issues for Congress,CRS Reports,congressional_hearings,9,Overview of legislative history; NDAA provisions; AARO authorities
+23,Senate Intelligence Committee,2020,Intelligence Authorization Act FY2021 - UAP provisions,US Congress,government_transparency,8,Established UAPTF; required UAP reporting; bipartisan support
+24,Grusch D.,2023,Congressional testimony on UAP crash retrieval programs,House Oversight Committee,congressional_hearings,10,Claimed multi-decade reverse engineering program; non-human biologics; 40 witnesses
+25,Graves R.,2023,Congressional testimony on pilot UAP encounters,House Oversight Committee,congressional_hearings,9,Former Navy pilot; described regular UAP encounters during training; safety concerns
+26,Fravor D.,2023,Congressional testimony on 2004 Nimitz encounter,House Oversight Committee,congressional_hearings,9,Tic Tac encounter; visual + radar + FLIR corroboration; estimated performance beyond known technology
+27,DoD Inspector General,2023,Evaluation of DoD's Actions Regarding UAP,DoD IG,government_transparency,8,Assessed DoD UAP policies and actions; identified gaps in coordination
+28,AARO,2024,KONA BLUE Declassified Documents,DoD AARO website,institutional_history,8,Prospective DHS SAP never approved; debunked claims of UAP material exploitation cover-up
+29,Kirkpatrick S.,2023,AARO Director Statement to Senate Armed Services Committee,DoD,government_transparency,9,First AARO director; briefed Congress on case analysis methodology; no evidence of ET
+30,Alexander J.,2011,UFOs: Myths Conspiracies and Realities,Thomas Dunne Books,prior_programs,7,Retired Army Colonel; investigated Black programs; found no hidden UFO program
+31,Dolan R.,2002,UFOs and the National Security State Vol 1,Keyhole Publishing,institutional_history,7,Comprehensive history 1941-1973; government document analysis; FOIA-based research
+32,Good T.,1988,Above Top Secret: The Worldwide UFO Cover-Up,Sidgwick & Jackson,institutional_history,6,International government UFO programs; document analysis
+33,Sturrock P.,1999,The UFO Enigma: A New Review of the Physical Evidence,Warner Books,scientific_credibility,8,Stanford physicist; Pocantico Conference; panel review of physical evidence
+34,Swords M. and Powell R.,2012,UFOs and Government: A Historical Inquiry,Anomalist Books,institutional_history,8,Comprehensive government UFO history; primary sources; document-based
+35,House Oversight Committee,2023,Hearing: Unidentified Anomalous Phenomena,US House,congressional_hearings,10,July 26 2023 hearing; Grusch Graves Fravor testimonies; bipartisan interest
+36,Senate Armed Services Subcommittee,2023,Hearing: AARO Update,US Senate,congressional_hearings,9,Kirkpatrick briefing; case analysis overview; sensor architecture discussion
+37,Mellon C.,2018-2024,Various articles on UAP policy and transparency,The Debrief,government_transparency,7,Former Deputy Assistant SECDEF; advocate for UAP transparency; policy analysis
+38,NUFORC,2024,NUFORC Database,National UFO Reporting Center,base_rate_analysis,9,147890 reports 1974-2024; voluntary civilian reporting; 0.54% explained
+39,Haines R.,1994,Advanced Aerial Devices Reported During the Korean War,NARCAP,prior_programs,6,Historical military UAP encounters; pilot reports; Korean War era
+40,FAA,2023,FAA UAP Reporting Guidelines,Federal Aviation Administration,government_transparency,8,Formal mechanism for civilian aviation UAP reporting to AARO; weekly submissions
+41,Elizondo L.,2024,Imminent: Inside the Pentagon's Hunt for UFOs,William Morrow,institutional_history,7,Former AATIP director; claims of program findings; controversial figure
+42,Coulthart R.,2021,In Plain Sight: An Investigation into UFOs and Impossible Science,HarperCollins,congressional_hearings,6,Journalist investigation; Australian and US perspectives; witness interviews
+43,GTRI,2024,GREMLIN Sensor Architecture for UAP Detection,Georgia Tech Research Institute,sensor_fusion,8,Multi-modal sensor system; prototype tested March 2024; 90-day pattern-of-life collection planned
+44,MIT Lincoln Lab,2024,Prototype Data Processing for FAA/NWS Radar UAP Detection,MIT LL,sensor_fusion,8,Building systems to detect objects filtered from FAA/NWS radar data
+45,ORNL,2024,Analysis of Alleged UAP Material,Oak Ridge National Laboratory,scientific_credibility,8,Terrestrial alloy; manufactured material; no exceptional qualities; debunked ET origin claim
+46,Schumer C. and Rounds M.,2023,UAP Disclosure Act of 2023 (UAPDA),US Senate,congressional_hearings,9,Proposed independent review board; eminent domain for UAP materials; partially included in NDAA
+47,Gillibrand K.,2022,UAP Amendment to NDAA FY2023,US Senate,government_transparency,8,Expanded AARO authorities; required annual reporting; IC coordination
+48,AATIP,2017,Advanced Aerospace Threat Identification Program internal documents,DIA,institutional_history,8,$22M program 2007-2012; Bigelow Aerospace Advanced Space Studies contractor
+49,DoE/NNSA,2024,Nuclear Security UAP/UAS Reports to AARO,Dept of Energy,sensor_fusion,7,18 UAS reports near nuclear sites; all categorized as UAS; D.C. Cook crash recovery
+50,NRC,2024,Nuclear Regulatory Commission UAP/UAS Reports,NRC,sensor_fusion,7,Reports near nuclear power plants; UAS flyovers; BWXT 6 consecutive nights
+51,Zamora L.,1964,Socorro NM UFO incident report,USAF Blue Book,prior_programs,6,One of most credible Blue Book cases; physical traces; multiple witnesses; classified "unknown"
+52,McDonald J.,1968,Science in Default: Twenty-Two Years of Inadequate UFO Investigations,AAAS,scientific_credibility,8,Atmospheric physicist critique of Condon methodology; argued for serious scientific study
+53,National Academy of Sciences,1969,Review of the Condon Report,NAS,scientific_credibility,8,Supported Condon conclusions; endorsed termination of Blue Book
+54,Sagan C.,1996,The Demon-Haunted World,Random House,scientific_credibility,9,Skeptical perspective; extraordinary claims require extraordinary evidence; scientific method
+55,Sheaffer R.,2011,Psychosocial Hypothesis: UFOs as Cultural Phenomena,Skeptical Inquirer,base_rate_analysis,7,Cultural influence on UFO shape reporting; media effects; psychological factors
+56,Bartholomew R. and Howard G.,1998,UFOs and Alien Contact: Two Centuries of Mystery,Prometheus Books,base_rate_analysis,7,Social science perspective; mass delusion and cultural factors in UFO waves
+57,Bullard T.,2010,The Myth and Mystery of UFOs,University Press of Kansas,base_rate_analysis,7,Folklorist analysis; pattern analysis; cultural evolution of UFO narratives
+58,Donderi D.,2013,UFOs Psychometric Evidence and the Principle of Parsimony,Skeptical Inquirer,scientific_credibility,6,Psychometric analysis of witness reliability; sensory perception factors
+59,Maccabee B.,2000,UFO FBI Connection,Llewellyn Publications,institutional_history,6,FBI involvement in UFO investigations; document analysis; FOIA releases
+60,Clark J.,1998,The UFO Encyclopedia (2nd ed.),Omnigraphics,prior_programs,8,Comprehensive reference work; case histories; investigative organizations; textbook-level
+61,GEIPAN,2023,GEIPAN Annual Statistical Report,CNES France,government_transparency,7,French government UAP program; ~3% Type D (unidentified) cases; methodology benchmark
+62,AARO website,2024,Declassified Case Resolution Reports,aaro.mil,government_transparency,9,Published case-by-case resolutions; sensor artifact explanations; parallax effect tutorial
+63,Loeb A.,2022,Galileo Project: Systematic Scientific Search for Evidence of Extraterrestrial Technological Artifacts,Harvard,sensor_fusion,8,Multi-instrument observatory approach; standardized detection protocol
+64,Betts B.,2023,The Planetary Society Position on UAP,TPS,scientific_credibility,7,Distinguished between scientific investigation and unsupported claims
+65,Tyson N.D.,2023,Various interviews on UAP and scientific standards,Media,scientific_credibility,6,Astrophysicist skepticism; burden of proof; sensor artifact explanations
+66,RAND Corporation,2023,Not the X-Files: Mapping Public Reports of UAP Across America,RAND,base_rate_analysis,8,Spatial analysis of UAP reports; military base proximity; demographic correlates
+67,CUFOS,1980-2024,Journal of UFO Studies (various volumes),Center for UFO Studies,scientific_credibility,7,Peer-reviewed UFO research journal; J. Allen Hynek founded
+68,MUFON,2024,MUFON Case Management System statistics,Mutual UFO Network,base_rate_analysis,7,Largest civilian investigative organization; ~100k cases; volunteer investigators
+69,Thayer G.,1971,UFOs and Radar in Scientific Study of UFOs,NRC,sensor_fusion,7,Comprehensive analysis of radar UFO cases; atmospheric propagation effects
+70,Printy T.,2024,SUNlite Newsletter analysis of UAP claims,Independent,base_rate_analysis,7,Systematic debunking of viral UAP cases; Starlink identification; balloon analysis
+71,Oberg J.,2024,Space and Missile Track: UAP Misidentification Analysis,Independent,base_rate_analysis,8,Former NASA engineer; systematic analysis of UAP as space debris reentry
+72,West M.,2020-2024,Metabunk UAP Analysis,Metabunk.org,base_rate_analysis,8,Systematic video analysis; parallax; gimbal rotation; GoFast analysis; sensor artifacts
+73,Corbell J. and Knapp G.,2021,Weaponize Curiosity UAP footage releases,Various,congressional_hearings,5,Released FLIR footage; bokeh/pyramid UAP; some debunked as sensor artifacts
+74,UAPTF,2021,Establishment and Initial Operations,DoD,institutional_history,8,Predecessor to AARO; Navy-led; established August 2020; produced preliminary assessment
+75,GAO,2022,DOD Needs to Improve Oversight of Its Airborne Object Identification Processes,Government Accountability Office,government_transparency,8,Identified coordination gaps; recommended improvements to AARO's predecessor
+76,Rubio M.,2021,Senate Intelligence Committee UAP directives,US Senate,congressional_hearings,7,Vice chair SSCI; pushed for UAP transparency; directed ODNI reporting
+77,Gallaudet T.,2024,Former NOAA Administrator statements on UAP and ocean anomalies,Various,scientific_credibility,6,Advocated for maritime domain UAP investigation
+78,Klass P.,1974,UFOs Explained,Random House,base_rate_analysis,8,Systematic skeptical analysis; plasma hypothesis; misidentification taxonomy
+79,Menzel D.,1963,The World of Flying Saucers,Doubleday,base_rate_analysis,7,Astronomer; atmospheric optics explanations; mirage hypothesis
+80,Condign Report,2000,Unidentified Aerial Phenomena in the UK Air Defence Region (Secret UK MoD study),UK MoD,government_transparency,7,UK equivalent of Blue Book; buoyant plasma hypothesis; declassified 2006
+81,Wendt A. and Duvall R.,2008,Sovereignty and the UFO,Political Theory 36(4),scientific_credibility,8,Academic analysis of why states systematically avoid UFO investigation; sovereignty taboo
+82,Randle K.,2016,The Best UFO Cases: Revisiting and Reassessing the Top 10,Visible Ink Press,prior_programs,6,Analysis of strongest unexplained cases from multiple programs
+83,Sturrock P.,2004,Report on a Survey of the Membership of the AAS Concerning the UFO Problem,Stanford,scientific_credibility,8,Survey of astronomers; 5% reported puzzling aerial objects; stigma analysis
+84,Penniston J. and Burroughs J.,2014,Encounter in Rendlesham Forest,Thomas Dunne Books,prior_programs,6,UK 1980 military encounter; well-documented multi-witness case; lighthouse explanation debated
+85,House Intelligence Committee,2022,Open Hearing on UAP,US House,congressional_hearings,8,May 2022; first public congressional UAP hearing since 1966; Bray and Moultrie testimony
+86,Ratcliffe J.,2021,Former DNI statements on UAP,Media interviews,government_transparency,6,Discussed classified UAP encounters; satellite and ground-based detection
+87,Brennan J.,2021,Former CIA Director statements on UAP,Media,government_transparency,6,Acknowledged possibility of other life forms; called for investigation
+88,NORAD,2023,North American Aerospace Defense Command UAP tracking,DoD,sensor_fusion,7,Adjusted filters after Chinese balloon incident Feb 2023; increased detection rate
+89,Chinese Balloon Incident,2023,PRC High-Altitude Surveillance Balloon,DoD,government_transparency,8,Feb 2023; demonstrated prosaic aerial threat; changed UAP detection protocols; 3 subsequent shootdowns
+90,AIAA UAP Integration Committee,2023,AIAA Position on UAP,AIAA,scientific_credibility,7,Engineering professional society; called for standardized data collection and analysis
+91,Draine B.,2024,Atmospheric Optics and UAP Misidentification,Astrophysics,sensor_fusion,6,Atmospheric phenomena creating apparent anomalous aerial objects
+92,Haines R.,2001,Aviation Safety in America: A Previously Neglected Factor,NARCAP,sensor_fusion,7,National Aviation Reporting Center on Anomalous Phenomena; flight safety focus
+93,Pope N.,2023,UK MoD UAP desk officer commentary on AARO,Various,government_transparency,6,Former UK MoD; comparative government transparency analysis
+94,Lacatski et al.,2022,Inside the US Government's Hunt for UFOs,Various,institutional_history,6,AAWSAP program manager; DIA contract with BAASS; Skinwalker Ranch
+95,Davis E.,2004,Advanced Propulsion Study (leaked DIA report),DIA/BAASS,institutional_history,5,One of AAWSAP DIRDs; exotic propulsion physics review; questionable methodology
+96,Greenstreet S.,2022-2024,UAP investigative journalism,New York Post / Black Vault,government_transparency,7,FOIA-based investigation; challenged AATIP claims; document analysis
+97,Greenewald J.,2020-2024,The Black Vault FOIA releases on UAP,TheBlackVault.com,government_transparency,8,Largest private collection of government UFO documents; FOIA litigation
+98,SCU,2019,A Forensic Analysis of Navy Carrier Strike Group Eleven's Encounter with an Anomalous Aerial Vehicle,Scientific Coalition for UAP Studies,sensor_fusion,8,Nimitz 2004 analysis; multi-sensor data; estimated performance characteristics
+99,Vallée J. and Davis E.,2012,Incommensurability Orthodoxy and the Physics of High Strangeness,Journal of Scientific Exploration,scientific_credibility,5,Alternative physics frameworks for UAP; controversial methodology
+100,Hynek J.A.,1977,The Hynek UFO Report,Dell,prior_programs,8,Statistical analysis of Blue Book cases; argued 5.6% unidentified rate understated
+101,Arnold K.,1947,Original flying saucer sighting report,Various,prior_programs,6,June 24 1947; coined flying saucer; actually described crescent shapes
+102,National Press Club,2010,Disclosure Project Press Conference,Various,congressional_hearings,5,Multiple military witnesses; preceded modern congressional interest
+103,Wilson C.,2019,UAP and National Security: A Framework for Analysis,National Defense University,government_transparency,7,Security studies perspective on UAP policy
+104,Hilkevitch J.,2007,Chicago O'Hare Airport UAP incident coverage,Chicago Tribune,base_rate_analysis,6,Well-documented airport sighting; FAA initially dismissed as weather phenomenon
+105,Colombano S.,2018,New Assumptions to Guide SETI Research,NASA Ames,scientific_credibility,6,NASA scientist argued SETI should consider non-biological intelligence
+106,Pasulka D.,2019,American Cosmic: UFOs Religion Technology,Oxford University Press,scientific_credibility,6,Religious studies professor; cultural analysis of UFO belief; scientist interviews
+107,Masters M.,2019,Identified Flying Objects,Montana Tech,scientific_credibility,5,Biological anthropologist; temporal hypothesis; speculative
+108,Randles J.,2004,UFO Study: A Handbook for Enthusiasts,Robert Hale,prior_programs,6,UK ufologist; methodology guide; case classification system
+109,Salisbury F.,1974,The Utah UFO Display,Devin-Adair,base_rate_analysis,6,Systematic documentation of UFO wave; statistical analysis
+110,French C.,2001,Anomalistic Psychology,Palgrave Macmillan,base_rate_analysis,7,Psychology of anomalous experience; witness reliability; false memory
+111,Spaulding W.,1978,Ground Saucer Watch analysis of UFO photos,GSW,base_rate_analysis,6,Computer analysis of UFO photographs; identified many fakes
+112,Sparks B.,2001,Comprehensive Catalog of Project Blue Book Unknowns,Various,prior_programs,7,Detailed analysis of Blue Book unidentified cases; case quality assessment
+113,Defense Intelligence Agency,2012,AAWSAP/AATIP Defense Intelligence Reference Documents,DIA,institutional_history,7,38 DIRDs on exotic physics topics; commissioned under Bigelow contract
+114,AARO,2023,AARO.mil Website Launch,DoD,government_transparency,8,Secure reporting mechanism; declassified data; case resolutions; public transparency
+115,Betts R.,2023,Intelligence Failures and UAP Assessment Challenges,Journal of Strategic Studies,government_transparency,6,IC analytical methodology applied to UAP; estimative intelligence framework
+116,Gehrman A.,2024,Analysis of Reporting Bias in AARO Case Data,Independent,base_rate_analysis,6,Collection bias near military installations; geographic skew analysis
+117,USN OPNAV,2019,OPNAV Guidelines for Reporting UAP,US Navy,government_transparency,8,Formal Navy reporting procedures; reduced stigma; increased report volume
+118,USAF,2023,USAF UAP Reporting Instructions,US Air Force,government_transparency,7,Service-level reporting procedures; integration with AARO
+119,AARO Science Division,2024,Parallax Effect and Sensor Artifact Educational Reports,AARO,sensor_fusion,9,Published explanations for apparent anomalous performance; parallax GoFast; Starlink flaring
+120,GAO,2024,Follow-up Review of DoD UAP Investigation Progress,GAO,government_transparency,7,Assessed AARO implementation; coordination improvements
+121,Taylor T.,2021,The Interest: How the British Establishment Resisted the Abolition of Slavery,similar framework for analyzing institutional resistance to investigation,scientific_credibility,4,Methodological parallel for institutional avoidance of investigation
+122,Dunning B.,2023,Skeptoid podcast UAP episode analysis,Skeptoid Media,base_rate_analysis,7,Systematic skeptical analysis of individual UAP cases; reproducible methodology
+123,Greenwald J.,2024,FOIA reveals UAP reporting statistics discrepancies,Black Vault,government_transparency,7,Document analysis showing reporting inconsistencies across reports
+124,Mellon C.,2023,Analysis of Congressional UAP hearing testimony,The Debrief,congressional_hearings,7,Policy analysis of hearing outcomes; institutional resistance patterns
+125,Summers A.,2024,Analysis of AARO FY2024 Report,Media,government_transparency,6,Journalism analysis of report findings; backlog growth concern
+126,RAND,2024,Follow-up analysis of public UAP reporting patterns,RAND Corporation,base_rate_analysis,7,Updated spatial analysis; Starlink effect on reporting
+127,DoD Press Secretary,2024,DoD Statement on AARO FY2024 Findings,DoD,government_transparency,8,No evidence of ET; all resolved cases prosaic; continued commitment to transparency
+128,Sen Warner M.,2022,SSCI UAP Working Group statements,US Senate,congressional_hearings,7,Intelligence Committee oversight of AARO; bipartisan concern
+129,Rep Burchett T.,2023,House UAP Caucus statements,US House,congressional_hearings,7,Pushed for UAP disclosure legislation; questioned DoD transparency
+130,Rep Luna A.,2023,UAP hearing follow-up actions,US House,congressional_hearings,6,Requested SCIF briefings; challenged AARO conclusions
+131,Aviation Week,2023,Analysis of military UAP encounter patterns,Aviation Week,sensor_fusion,7,Professional aviation perspective; pilot reporting analysis
+132,Coulthart R.,2024,Analysis of Grusch claims vs AARO findings,Various,congressional_hearings,6,Investigative journalism comparison of whistleblower vs official findings
+133,GEIPAN,2024,SIGMA2 UAP Classification Methodology,CNES France,government_transparency,7,French classification system; Type A-D categorization; 3.5% unexplained benchmark
+134,UK MoD,2023,Declassified UFO files summary statistics,UK National Archives,government_transparency,6,UK investigation statistics; comparison benchmark for AARO methodology
+135,Australian DoD,2024,UAP reporting statistics Australia,Australian Defence,government_transparency,5,International comparison; Five Eyes partner approach
+136,Shell H.,2016,Hide and Seek: Camouflage Photography and the Media of Reconnaissance,Zone Books,base_rate_analysis,5,Visual perception and recognition failure in aerial observation
+137,Conant J.,2001,Tuxedo Park,Simon & Schuster,sensor_fusion,5,History of radar development; relevant to sensor-based detection challenges
+138,Baxter J.,1976,The Fire Came By,Doubleday,prior_programs,5,Tunguska event analysis; template for anomalous aerial phenomena investigation
+139,USAF Scientific Advisory Board,1966,Special Report on UFOs,USAF SAB,prior_programs,7,O'Brien Committee; recommended university study; led to Condon
+140,Robertson Panel,1953,CIA Panel on UFOs (declassified 1979),CIA,prior_programs,8,Recommended debunking campaign; public education; monitoring of UFO groups
+141,Twining N.,1947,Twining Memo on Flying Discs,USAF,prior_programs,7,First official military acknowledgment that reported objects are real; established Sign
+142,Project Sign,1948,Estimate of the Situation,USAF,prior_programs,7,Classified estimate; concluded some UFOs were interplanetary; rejected by Vandenberg
+143,Keyhoe D.,1950,The Flying Saucers Are Real,Fawcett Publications,prior_programs,6,USMC Major; early UFO advocate; NICAP director
+144,Hall R.,2001,The UFO Evidence Volume II,Scarecrow Press,prior_programs,7,Comprehensive case compilation; organized by evidence type
+145,Jacobs D.,1975,The UFO Controversy in America,Indiana University Press,institutional_history,7,Academic history of UFO controversy; government and public response
+146,Sagan C. and Page T.,1972,UFO's: A Scientific Debate,Cornell University Press,scientific_credibility,8,AAAS symposium proceedings; pro and con arguments; scientific standards
+147,Committee on Science,1966,House Committee on Armed Services UFO hearing,US House,congressional_hearings,7,First congressional UFO hearing; led to Condon study funding
+148,Schumer C.,2023,UAP Disclosure Act debate floor statements,Congressional Record,congressional_hearings,8,Senate Majority Leader; compared to JFK assassination records release
+149,Johnson T.,2024,AARO New Director Appointment and Transparency Commitment,DoD,government_transparency,7,Jon Kosloski appointed; physicist background; committed to scientific rigor
+150,Hart G.,2022,Former Senator on UAP and National Security,Various,government_transparency,5,Former presidential candidate; advocated serious investigation
+151,Podesta J.,2023,White House Chief of Staff statements on UAP,Various,government_transparency,5,Long-standing interest in government UFO transparency
+152,Bassett S.,2024,Paradigm Research Group UAP disclosure timeline,PRG,institutional_history,5,Lobbyist tracking disclosure progress; congressional testimony analysis
+153,Keyhoe D.,1960,NICAP: The UFO Evidence Volume I,NICAP,prior_programs,6,Compiled cases for congressional review; influential on early hearings
+154,AIAA,2024,Engineering Standards for UAP Sensor Data Collection,AIAA,sensor_fusion,7,Professional engineering standards; data quality requirements
+155,Sargeant J.,2015,UFO Drawings from the National Archives,Four Corners Books,base_rate_analysis,4,Visual culture of UFO reporting; shape evolution over time
+156,Drake F.,1961,Drake Equation and SETI context,Various,scientific_credibility,6,Framework for estimating ET civilizations; provides base-rate context
+157,Fermi E.,1950,Fermi Paradox,Los Alamos,scientific_credibility,7,Where is everybody? Framework for thinking about lack of evidence
+158,Hart M.,1975,An Explanation for the Absence of Extraterrestrials on Earth,QJRAS,scientific_credibility,6,Formalized Fermi Paradox; argued absence is significant
+159,Shostak S.,2023,SETI Institute position on UAP,SETI Institute,scientific_credibility,7,Distinguished SETI from UAP investigation; different evidence standards
+160,Avi Loeb,2024,Galileo Project preliminary results,Harvard,sensor_fusion,7,Early results from multi-instrument sky survey; data quality challenges
+161,Stokes J.,2023,Cybersecurity perspective on UAP sensor data,Various,sensor_fusion,5,Data integrity and chain of custody for sensor data
+162,NASIC,2024,National Air and Space Intelligence Center partnership with AARO,USAF/AARO,sensor_fusion,7,NASIC analytical support for UAP case resolution
+163,AFRL,2024,Air Force Research Laboratory sensor technology support to AARO,USAF,sensor_fusion,7,Research on air and space sensing; propulsion assessment
+164,FAA NextGen,2023,FAA Radar System Limitations and UAP Detection,FAA,sensor_fusion,7,Radar filtering that may exclude UAP-relevant targets
+165,Wendt A.,2015,Quantum Mind and Social Science,Cambridge UP,scientific_credibility,5,Political science framework for analyzing institutional UFO avoidance
+166,NIM-Aviation,2022,National Intelligence Manager for Aviation UAP coordination,ODNI,government_transparency,7,IC focal point for UAP; coordination with AARO
+167,USSPACECOM,2024,Space domain UAP reporting to AARO,USSPACECOM,sensor_fusion,7,392 FAA reports routed through USSPACECOM; space domain categorization
+168,D.C. Cook Nuclear,2023,Nuclear power plant UAS incident and crash recovery,NRC/AARO,sensor_fusion,6,Specific case: UAS crashed at nuclear plant; transferred to local law enforcement
+169,BWXT Lynchburg,2023,Six consecutive nights of UAS flyovers at nuclear fuel facility,NRC/AARO,sensor_fusion,6,October 10-15 2023; pattern of persistent UAS activity near nuclear site
+170,Joint Staff,2023,GENADMIN UAP Reporting Directive,DoD JS,government_transparency,7,Required reporting within 96 hours; established chain of reporting
+171,Wagner A. et al.,2002,Segmented regression analysis of interrupted time-series studies,Am J Prev Med,base_rate_analysis,6,Interrupted time series methodology used in Starlink effect analysis
+172,World Bank,2024,Individuals Using the Internet - United States,World Bank,base_rate_analysis,6,Internet adoption data used to correlate with UFO reporting volume
+173,USAF Air Weather Service,1960s,Weather balloon launch statistics,USAF,base_rate_analysis,6,Historical balloon launch frequency for base-rate UFO misidentification
+174,FAA,2024,Commercial Aviation Traffic Statistics,FAA,base_rate_analysis,6,Air traffic volume for base-rate calculation of aerial object encounters
+175,SpaceX,2024,Starlink Constellation Statistics,SpaceX,base_rate_analysis,7,5000+ satellites; increasing UAP misidentification source; magnitude visibility
+176,Clapper J.,2016,Former DNI statements on UAP policy,Media,government_transparency,5,IC leadership perspective on UAP investigation priority
+177,ODNI NIC,2022,National Intelligence Council coordination with AARO,ODNI,government_transparency,6,Analytical support and coordination role
+178,NCIS,2023,Naval Criminal Investigative Service UAP investigation support,DoD,government_transparency,6,Counterintelligence dimension of UAP investigation
+179,DHS,2023,Department of Homeland Security UAP coordination with AARO,DHS,institutional_history,5,Interagency coordination; KONA BLUE context
+180,NOAA,2023,NOAA UAP reporting and atmospheric data support to AARO,NOAA,sensor_fusion,5,Weather data for UAP context; atmospheric phenomena identification
+181,DoE,2024,Department of Energy nuclear site UAP/UAS reporting,DoE,sensor_fusion,6,Nuclear security dimension; NNSA reporting
+182,FBI,2023,FBI coordination with AARO on UAP investigation,FBI,government_transparency,6,Law enforcement and counterintelligence support
+183,NRO,2024,National Reconnaissance Office support to AARO,NRO,sensor_fusion,5,Space-based assets context; classification challenges
+184,NGA,2024,National Geospatial Intelligence Agency GEOINT support to AARO,NGA,sensor_fusion,5,Geospatial analysis of UAP cases
+185,NSA,2024,National Security Agency SIGINT support to AARO,NSA,sensor_fusion,5,SIGINT analysis context; no UAP SIGINT reports received
+186,DIA,2024,Defense Intelligence Agency partnership with AARO,DIA,institutional_history,6,Historical AAWSAP connection; current analytical support
+187,MSIC,2024,Missile and Space Intelligence Center support to AARO,DIA/MSIC,sensor_fusion,5,Missile and space object identification support
+188,NGIC,2024,National Ground Intelligence Center support to AARO,DIA/NGIC,sensor_fusion,5,Ground-based observation analysis
+189,US Army,2024,Army UAP reporting and coordination with AARO,US Army,government_transparency,5,Service-level reporting; ground observation
+190,USMC,2024,Marine Corps UAP reporting and coordination with AARO,USMC,government_transparency,5,Service-level reporting
+191,USSF,2024,Space Force UAP reporting and coordination with AARO,USSF,government_transparency,6,Space domain observation; satellite tracking
+192,FY2022 NDAA Section 1683,2022,Establishment of Office to Address UAP,US Congress,government_transparency,9,Legal foundation for AARO; authorities and reporting requirements
+193,FY2023 IAA,2023,Intelligence Authorization Act UAP provisions,US Congress,government_transparency,8,Expanded AARO reporting requirements; congressional oversight
+194,50 USC 3373,2023,US Code on UAP reporting and investigation,US Code,government_transparency,8,Statutory basis for annual UAP reports; AARO authorities
+195,50 USC 3373b,2023,Authorized Reporting Mechanism for UAP,US Code,government_transparency,7,Legal basis for secure UAP reporting by current/former USG employees
+196,50 USC 3733,2023,AARO Duties and Authorities,US Code,government_transparency,7,Statutory mandate for AARO operations and partner engagement
+197,Callahan E.,2024,Analysis of UAP legislative history and impact,Congressional Quarterly,congressional_hearings,5,Legislative analysis of UAP provisions across multiple NDAAs
+198,Stratton G.,2024,Former UAPTF Director Remarks,Various,institutional_history,5,Pre-AARO investigation context; transition challenges
+199,Shell Aerospace,2023,Aerospace Industry Perspectives on UAP,Various,sensor_fusion,5,Industry perspective on detection and identification challenges
+200,UFO-1 Project,2024,NUFORC Pattern Analysis: 147890 Reports,HDR Autoresearch,base_rate_analysis,10,Predecessor project; internet adoption correlation r=0.91; Starlink ITS effect; shape evolution
+201,Haines R.,2017,NARCAP Technical Report on UAP Aviation Safety,NARCAP,sensor_fusion,6,Aviation safety analysis of UAP encounters; pilot report database
+202,Sparks B.,2019,Updated Blue Book Unknowns Analysis with Quality Ratings,Various,prior_programs,7,Case quality assessment; re-evaluated unexplained percentage
+203,Turner S.,1975,Former CIA Director testimony on UFOs,Senate,institutional_history,5,Historical IC perspective on UFO investigation priority
+204,Inouye D.,1988,Senate committee investigations of intelligence programs,US Senate,institutional_history,4,Context for hidden programs and oversight challenges
+205,Haynes J.,2024,CIA Historical Review of UFO Investigation,CIA Studies,institutional_history,6,CIA's role in UFO investigations from 1940s-present

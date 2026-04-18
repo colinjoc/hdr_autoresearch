@@ -1,0 +1,49 @@
+id	experiment	metric	value	status	prior	posterior	notes	interaction
+E00	Baseline: extract all quantitative figures from AARO FY2024 + ODNI 2022	resolution_rate	0.177	KEEP	-	-	292/1652 cumulative resolution rate (118 formal + 174 pending); all prosaic	False
+E01	Resolution-rate time series across all reports	resolution_rate_trend	declining	KEEP	0.7	0.9	Blue Book 94.4% -> ODNI 2021 0.7% -> ODNI 2022 38.2% -> AARO FY2024 17.7%; but comparison misleading due to different investigation depths	False
+E02	Backlog growth model: intake vs resolution	intake_resolution_ratio	2.6	KEEP	0.85	0.95	58.2/month intake vs 22.5/month resolution; backlog infinite time to clear; cumulative open = 1360	False
+E03	Data-insufficiency as primary driver of low resolution	archive_fraction	0.587	KEEP	0.85	0.95	444/757 archived for insufficient data; this is THE finding -- low resolution rate = data gap, not anomaly	False
+E04	100% prosaic resolution among resolved cases	prosaic_pct	1.0	KEEP	0.9	0.95	All 292 resolved/pending cases are prosaic (balloons, birds, UAS, satellites, aircraft)	False
+E05	IC-merit cases as fraction of intake	ic_merit_fraction	0.028	KEEP	0.6	0.7	21/757 = 2.8%; consistent with GEIPAN 3.5% Type D and Blue Book 5.6% unidentified	False
+E06	FAA channel effect on FY2024 volume	faa_fraction	0.518	KEEP	0.7	0.85	392/757 from FAA; new channel opened during period; explains majority of volume increase	False
+E07	Prior-period catch-up inflation	catchup_fraction	0.359	KEEP	0.7	0.85	272/757 from 2021-2022; headline intake inflated by historical backlog	False
+E08	Current-period intake rate (excluding catch-up)	adjusted_intake_rate	37.3	KEEP	0.75	0.85	485 reports in 13 months = 37.3/month; lower than headline 58.2/month	False
+E09	Blue Book base-rate comparison	blue_book_id_rate	0.944	KEEP	0.9	0.95	12618 cases; 94.4% identified; 5.6% unidentified; 22-year investigation program	False
+E10	Hendry base-rate comparison	hendry_id_rate	0.886	KEEP	0.9	0.95	1307 cases; 88.6% identified; personal investigation; 42% astronomical, 37% aircraft, 5% balloons	False
+E11	GEIPAN base-rate comparison	geipan_type_d	0.035	KEEP	0.6	0.7	3.5% Type D (unidentified after thorough investigation); French program benchmark	False
+E12	Bayesian posterior: P(anomalous|unresolved)	posterior_anomalous	0.082	KEEP	0.7	0.85	5% prior -> 8.2% posterior; LR=1.7; modest update because P(unresolved|prosaic)=0.587 is high	False
+E13	Bayesian sensitivity: prior = 1%	posterior_at_1pct	0.017	KEEP	0.8	0.9	Even very low prior gives very low posterior	False
+E14	Bayesian sensitivity: prior = 10%	posterior_at_10pct	0.159	KEEP	0.8	0.9	Even generous prior keeps posterior well below 20%	False
+E15	Bayesian sensitivity: prior = 20%	posterior_at_20pct	0.299	KEEP	0.8	0.9	At unrealistically high 20% prior, posterior is still under 30%	False
+E16	NUFORC vs AARO: explanation rate comparison	nuforc_explained_rate	0.005	KEEP	0.95	0.95	0.54% NUFORC vs 17.7% AARO; different investigation models; not comparable	False
+E17	NUFORC vs AARO: shape category overlap	shape_overlap	qualitative_match	KEEP	0.7	0.8	Both dominated by lights/orbs; NUFORC orb rising trend consistent with AARO morphology	False
+E18	NUFORC vs AARO: Starlink effect	starlink_presence	both_datasets	KEEP	0.8	0.9	AARO explicitly resolves to Starlink; NUFORC ITS formation shift p<0.001	False
+E19	NUFORC vs AARO: geographic bias comparison	bias_pattern	collection_bias	KEEP	0.75	0.85	AARO near military; NUFORC near population/infrastructure; both reporting-channel driven	False
+E20	Air domain dominance	air_fraction	0.935	KEEP	0.95	0.95	708/757 = 93.5% air domain; consistent with sensor availability	False
+E21	Zero transmedium reports	transmedium_count	0	KEEP	0.7	0.85	Definitional category exists but zero reports; undermines transmedium hypothesis	False
+E22	Nuclear site reports: 100% UAS	nuclear_uas_pct	1.0	KEEP	0.95	0.95	18/18 categorized as UAS by NNSA/NRC; no exotic technology	False
+E23	BWXT 6-night pattern: organized not random	bwxt_pattern	consecutive	KEEP	0.7	0.8	October 10-15 2023; deliberate surveillance pattern; not random	False
+E24	Flight safety low risk	safety_fraction	0.007	KEEP	0.85	0.9	5/757 = 0.66% with flight safety concerns; low risk	False
+E25	Formal vs pending resolution rate sensitivity	rate_range	0.071_to_0.177	KEEP	0.8	0.9	118/1652=7.1% formal only; 292/1652=17.7% including pending; sensitive to counting	False
+E26	East Asian Seas regional resolution rate	east_asia_rate	0.40	KEEP	0.9	0.9	40/100 = 40%; exceeds overall 17.7%; better data quality in theater	False
+E27	Middle East regional resolution rate	middle_east_rate	0.228	KEEP	0.85	0.9	13/57 = 22.8%; also exceeds overall; sensor coverage effect	False
+E28	Grusch claims vs AARO historical report	contradiction	direct	KEEP	0.9	0.95	AARO found no evidence; attributes claims to circular reporting	False
+E29	Congressional testimony testability	testability	limited	KEEP	0.8	0.85	Kinematic claims need classified data; reverse-engineering claims binary (no evidence)	False
+E30	No SIGINT/GEOINT/MASINT detection	national_platforms	0	KEEP	0.7	0.8	Zero reports from national technical collection; no technological signature detected	False
+E31	Cumulative trend: accelerating intake	trend_model	accelerating	KEEP	0.7	0.8	144->510->801->1652; driven by channel openings not organic growth	False
+E32	Morphology insufficient vs archive insufficient correlation	insufficient_correlation	consistent	KEEP	0.6	0.7	22.4% morphology insufficient consistent with 58.7% data insufficient	False
+E33	Resolution taxonomy completeness	taxonomy_gap	sensor_artifact_missing	REVERT	0.3	0.4	"Sensor artifact" not a separate AARO category; folded into prosaic categories	False
+E34	AARO IC-merit 2.8% vs GEIPAN Type D 3.5% benchmark	residual_comparison	convergent	KEEP	0.65	0.8	Convergent residual fractions despite different methodologies; robust finding	False
+E35	Pending-closure batch effect on next report	projected_rate_next	higher	KEEP	0.7	0.8	174+243 pending -> next report will show higher cumulative resolution rate	False
+T01	Tournament: Resolution-rate trending (linear model)	trend_r2	0.72	KEEP	-	-	Linear regression on resolution rates across periods; declining trend	False
+T02	Tournament: Backlog growth model (exponential)	growth_fit	exponential	KEEP	-	-	Intake growing faster than resolution; exponential backlog accumulation	False
+T03	Tournament: Base-rate comparison (cross-program)	convergence	3_to_6_pct	KEEP	-	-	Historical programs converge on 3-6% residual unidentified when investigation is thorough	False
+T04	Tournament: Bayesian posterior model	posterior_range	0.02_to_0.30	KEEP	-	-	Prior sensitivity 1-20% -> posterior 1.7-29.9%; data-insufficiency dominates	False
+T05	Tournament: NUFORC comparison (descriptive)	comparison_valid	channel_dependent	KEEP	-	-	Rates not comparable; patterns (shapes, geography, Starlink) are comparable	False
+E36	Interaction: Channel x Geography	faa_geographic	different_clusters	KEEP	0.6	0.7	FAA reports from commercial routes; military from operating areas	True
+E37	Interaction: Data-quality x Resolution	quality_resolution	strong_positive	KEEP	0.8	0.9	Higher data quality -> higher resolution rate (East Asian Seas 40% vs overall 17.7%)	True
+E38	Interaction: Prior x Data-insufficiency in Bayesian model	prior_x_insufficiency	insufficiency_dominates	KEEP	0.8	0.9	High P(unresolved|prosaic) dilutes prior signal across all prior values	True
+RV_BAYES_LIKELIHOOD	Bayesian sensitivity across P(unresolved|anomalous) = {0.5,0.7,0.8,0.9,1.0}	posterior_range_at_5pct_prior	0.043_to_0.082	RUN_RV	0.7	0.85	At P(unres|anom)=0.5 posterior drops to 4.3% (below prior); at 1.0 it is 8.2%; full 2D surface computed across prior x likelihood	False
+CONTROL_BACKLOG_RATIO	Backlog ratio with/without prior-period catch-up	adjusted_ratio	1.66	CONTROL	0.85	0.95	Unadjusted 2.6x includes 272 catch-up reports; adjusted (current-period only) 37.3/22.5 = 1.66x; both reported	False
+DIAG_SELECTION_BIAS	Selection-bias diagnostic: resolution rate among data-sufficient cases only	data_sufficient_resolution_rate	0.242	DIAG	0.8	0.9	292/1208 = 24.2% among data-sufficient cases; 100% prosaic applies to only 17.7% of total caseload; 895 cases neither resolved nor archived	False
+DISCOVERY	Phase B: Structured data extraction + resolution taxonomy	discovery_output	2_csvs	DISCOVERY	-	-	aaro_structured_data.csv (78 rows) + resolution_taxonomy.csv (8 categories)	False

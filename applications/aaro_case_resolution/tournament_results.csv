@@ -1,0 +1,6 @@
+family,model,task,metric,value,rank,notes
+linear_trend,OLS regression on resolution rates,resolution_rate_by_period,R2,0.72,2,Declining trend across periods; but comparison across programs is apples-to-oranges
+exponential_backlog,Exponential growth model for case backlog,backlog_projection,intake_resolution_ratio,2.6,1,Best model for backlog: intake 2.6x resolution capacity; backlog growing indefinitely
+cross_program_baseline,Base-rate comparison across Blue Book/Hendry/GEIPAN/AARO,residual_unidentified_pct,convergence_range,3_to_6,1,Strongest finding: thorough investigation consistently yields 3-6% residual
+bayesian_posterior,Bayesian model with sensitivity analysis,posterior_anomalous,posterior_at_5pct_prior,0.082,2,Informative but dominated by data-insufficiency base rate
+nuforc_comparison,Descriptive comparison with NUFORC patterns,pattern_overlap,qualitative,high,3,Rates not comparable; patterns (shapes geography Starlink) converge across datasets
