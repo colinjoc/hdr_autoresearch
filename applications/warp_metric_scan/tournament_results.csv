@@ -1,0 +1,6 @@
+family,framework,method,metric,value,rank,notes
+linear_baseline,F1_standard_GR,Alcubierre_G00_direct,min_G00,-0.583,5,Standard GR always violates WEC. Baseline for comparison.
+kaluza_klein,F2_kaluza_klein,5D_KK_alpha_scan,min_G00,-0.526,4,KK correction makes G_00 slightly LESS negative but never positive. Slope negative.
+f_of_R,F3_f_of_R,R2_correction_effective,min_G00_eff,-2.137,3,f(R) correction is mixed sign and can make things WORSE. Not a viable loophole.
+einstein_cartan,F4_einstein_cartan,torsion_spin_density,min_G00_eff,0.006,1,FLIPS WEC positive at s0>=5. Torsion adds positive energy. Winner for closest approach.
+braneworld,F5_braneworld,Weyl_projection,min_G00_eff,-0.074,2,Weyl projection reduces violation. Flips positive at C_W<=-200 (extreme tuning).

@@ -1,0 +1,221 @@
+id,authors,year,title,journal,type,theme,relevance
+P001,"Alcubierre, M.",1994,"The warp drive: hyper-fast travel within general relativity",Class. Quantum Grav. 11 L73,foundational,warp_metrics,seminal
+P002,"Natário, J.",2002,"Warp drive with zero expansion",Class. Quantum Grav. 19 1157,foundational,warp_metrics,key
+P003,"Lentz, E.",2021,"Breaking the warp barrier: hyper-fast solitons in Einstein-Maxwell-plasma theory",Class. Quantum Grav. 38 075015,research,warp_metrics,key
+P004,"Bobrick, A.; Martire, G.",2021,"Introducing physical warp drives",Class. Quantum Grav. 38 105009,research,warp_metrics,key
+P005,"Fuchs, J.; Helmerich, C.; Bobrick, A.; Sellers, L.; Melcher, B.; Martire, G.",2024,"Constant velocity physical warp drive solution",Class. Quantum Grav. 41 095013,research,warp_metrics,key
+P006,"Celmaster, B.; Rubin, S.",2025,"Violations of the weak energy condition for Lentz warp drives",arXiv:2511.18251,research,energy_conditions,key
+P007,"Santiago, J.; Schuster, S.; Visser, M.",2022,"Generic warp drives violate the null energy condition",Phys. Rev. D 105 064038,research,energy_conditions,seminal
+P008,"Santiago, R.G.; Zatrimaylov, K.",2024,"Black holes warp drives and energy conditions",Phys. Lett. B 856 138922,research,energy_conditions,key
+P009,"Olum, K.",1998,"Superluminal travel requires negative energies",Phys. Rev. Lett. 81 3567,foundational,energy_conditions,seminal
+P010,"Lobo, F.",2007,"Exotic solutions in GR: traversable wormholes and warp drive spacetimes",arXiv:0710.4474,review,wormholes,key
+P011,"Morris, M.; Thorne, K.",1988,"Wormholes in spacetime and their use for interstellar travel",Am. J. Phys. 56 395,foundational,wormholes,seminal
+P012,"Hawking, S.; Ellis, G.",1973,"The Large Scale Structure of Space-Time",Cambridge University Press,textbook,gr_fundamentals,foundational
+P013,"Misner, C.; Thorne, K.; Wheeler, J.",1973,"Gravitation",W.H. Freeman,textbook,gr_fundamentals,foundational
+P014,"Wald, R.",1984,"General Relativity",University of Chicago Press,textbook,gr_fundamentals,foundational
+P015,"Carroll, S.",2004,"Spacetime and Geometry",Addison-Wesley,textbook,gr_fundamentals,foundational
+P016,"Visser, M.",1995,"Lorentzian Wormholes: From Einstein to Hawking",AIP Press,textbook,wormholes,foundational
+P017,"Poisson, E.",2004,"A Relativist's Toolkit",Cambridge University Press,textbook,gr_fundamentals,foundational
+P018,"Weinberg, S.",1972,"Gravitation and Cosmology",Wiley,textbook,gr_fundamentals,foundational
+P019,"Arnowitt, R.; Deser, S.; Misner, C.",1962,"The dynamics of general relativity",Gen. Rel. Grav. 40 1997,foundational,adm_formalism,seminal
+P020,"Pfenning, M.; Ford, L.",1997,"The unphysical nature of warp drive",Class. Quantum Grav. 14 1743,research,energy_conditions,key
+P021,"Ford, L.; Roman, T.",1995,"Averaged energy conditions and quantum inequalities",Phys. Rev. D 51 4277,research,quantum_inequalities,key
+P022,"Ford, L.; Roman, T.",1997,"Quantum field theory constrains traversable wormhole geometries",Phys. Rev. D 53 5496,research,quantum_inequalities,key
+P023,"Ford, L.",1978,"Quantum coherence effects and the second law of thermodynamics",Proc. R. Soc. Lond. A 364 227,foundational,quantum_inequalities,key
+P024,"Fewster, C.",2012,"Lectures on quantum energy inequalities",arXiv:1208.5399,review,quantum_inequalities,key
+P025,"Van Den Broeck, C.",1999,"A warp drive with more reasonable total energy requirements",Class. Quantum Grav. 16 3973,research,warp_metrics,key
+P026,"Krasnikov, S.",1998,"Hyperfast interstellar travel in general relativity",Phys. Rev. D 57 4760,research,warp_metrics,key
+P027,"Visser, M.; Bassett, B.; Liberati, S.",2000,"Superluminal censorship",Nucl. Phys. Proc. Suppl. 88 267,research,causality,key
+P028,"Finazzi, S.; Liberati, S.; Barcelo, C.",2009,"Semiclassical instability of dynamical warp drives",Phys. Rev. D 79 124017,research,stability,key
+P029,"Hiscock, W.",1997,"Quantum effects in the Alcubierre warp-drive spacetime",Class. Quantum Grav. 14 L183,research,quantum_effects,key
+P030,"Lobo, F.; Visser, M.",2004,"Linearized warp drive and the energy conditions",arXiv:gr-qc/0412065,research,energy_conditions,key
+P031,"Everett, A.; Roman, T.",1997,"Superluminal subway: the Krasnikov tube",Phys. Rev. D 56 2100,research,warp_metrics,key
+P032,"Clark, C.; Hiscock, W.; Larson, S.",1999,"Null geodesics in the Alcubierre warp drive spacetime",Class. Quantum Grav. 16 3965,research,geodesics,key
+P033,"Barcelo, C.; Liberati, S.; Visser, M.",2005,"Analogue gravity",Living Rev. Rel. 8 12,review,analogue_gravity,key
+P034,"Hawking, S.",1992,"Chronology protection conjecture",Phys. Rev. D 46 603,foundational,causality,seminal
+P035,"Visser, M.",2003,"The quantum physics of chronology protection",arXiv:gr-qc/0204022,review,causality,key
+P036,"Gourgoulhon, E.",2012,"3+1 Formalism in General Relativity",Springer LNP 846,textbook,adm_formalism,foundational
+P037,"York, J.",1979,"Kinematics and dynamics of general relativity",in Sources of Gravitational Radiation,foundational,adm_formalism,key
+P038,"White, H.",2013,"Warp field mechanics 102: energy optimization",J. Brit. Interplanet. Soc. 66 242,research,warp_metrics,key
+P039,"White, H.; Davis, E.",2006,"The Alcubierre warp drive in higher dimensional spacetime",AIP Conf. Proc. 813 1382,research,higher_dimensions,key
+P040,"Kaluza, T.",1921,"Zum Unitätsproblem der Physik",Sitz. Preuss. Akad. Wiss. Phys. Math. K1 966,foundational,kaluza_klein,seminal
+P041,"Klein, O.",1926,"Quantentheorie und fünfdimensionale Relativitätstheorie",Z. Phys. 37 895,foundational,kaluza_klein,seminal
+P042,"Overduin, J.; Wesson, P.",1997,"Kaluza-Klein gravity",Phys. Rep. 283 303,review,kaluza_klein,key
+P043,"Wesson, P.",1999,"Space-Time-Matter: Modern Kaluza-Klein Theory",World Scientific,textbook,kaluza_klein,foundational
+P044,"Wesson, P.",2006,"Five-dimensional physics: classical and quantum consequences of Kaluza-Klein cosmology",World Scientific,textbook,kaluza_klein,foundational
+P045,"Appelquist, T.; Chodos, A.; Freund, P.",1987,"Modern Kaluza-Klein Theories",Addison-Wesley,textbook,kaluza_klein,foundational
+P046,"Overduin, J.",2000,"Solar system tests of the equivalence principle and constraints on higher-dimensional gravity",Phys. Rev. D 62 102001,research,kaluza_klein,key
+P047,"Liu, H.; Wesson, P.",2001,"The physical properties of charged five-dimensional black holes",Class. Quantum Grav. 18 3175,research,kaluza_klein,key
+P048,"Wesson, P.; de Leon, J.",1995,"Kaluza-Klein equations cosmological models and astrophysical constraints",J. Math. Phys. 36 5865,research,kaluza_klein,key
+P049,"Mashhoon, B.; Liu, H.; Wesson, P.",1994,"Particle mass and the cosmological constant in Kaluza-Klein cosmology",Phys. Lett. B 331 305,research,kaluza_klein,key
+P050,"Seahra, S.; Wesson, P.",2003,"Application of the Campbell-Magaard theorem to higher-dimensional physics",Class. Quantum Grav. 20 1321,research,kaluza_klein,key
+P051,"Cleaver, G.; Oberlandee, R.",2008,"Warp drive: a new approach",arXiv:0712.1649,research,higher_dimensions,key
+P052,"Obousy, R.; Cleaver, G.",2008,"Warp drive: a new approach",J. Brit. Interplanet. Soc. 61 149,research,higher_dimensions,key
+P053,"Randall, L.; Sundrum, R.",1999,"Large mass hierarchy from a small extra dimension",Phys. Rev. Lett. 83 3370,foundational,braneworld,seminal
+P054,"Randall, L.; Sundrum, R.",1999,"An alternative to compactification",Phys. Rev. Lett. 83 4690,foundational,braneworld,seminal
+P055,"Shiromizu, T.; Maeda, K.; Sasaki, M.",2000,"The Einstein equations on the 3-brane world",Phys. Rev. D 62 024012,foundational,braneworld,seminal
+P056,"Maartens, R.",2004,"Brane-world gravity",Living Rev. Rel. 7 7,review,braneworld,key
+P057,"Maartens, R.; Koyama, K.",2010,"Brane-world gravity",Living Rev. Rel. 13 5,review,braneworld,key
+P058,"Binetruy, P.; Deffayet, C.; Langlois, D.",2000,"Non-conventional cosmology from a brane-universe",Nucl. Phys. B 565 269,research,braneworld,key
+P059,"Brax, P.; van de Bruck, C.",2003,"Cosmology and brane worlds: a review",Class. Quantum Grav. 20 R201,review,braneworld,key
+P060,"Langlois, D.",2003,"Brane cosmology: an introduction",Prog. Theor. Phys. Suppl. 148 181,review,braneworld,key
+P061,"Sasaki, M.; Shiromizu, T.; Maeda, K.",2000,"Gravity astrophysics and strings on the brane",Phys. Rev. D 62 024008,research,braneworld,key
+P062,"Chamblin, A.; Hawking, S.; Reall, H.",2000,"Brane-world black holes",Phys. Rev. D 61 065007,research,braneworld,key
+P063,"Dadhich, N.; Maartens, R.; Papadopoulos, P.; Rezania, V.",2000,"Black holes on the brane",Phys. Lett. B 487 1,research,braneworld,key
+P064,"Germani, C.; Maartens, R.",2001,"Stars in the braneworld",Phys. Rev. D 64 124010,research,braneworld,key
+P065,"Gregory, R.",2008,"Braneworld black holes",Lect. Notes Phys. 769 259,review,braneworld,key
+P066,"Sotiriou, T.; Faraoni, V.",2010,"f(R) theories of gravity",Rev. Mod. Phys. 82 451,review,f_of_R,seminal
+P067,"De Felice, A.; Tsujikawa, S.",2010,"f(R) theories",Living Rev. Rel. 13 3,review,f_of_R,key
+P068,"Nojiri, S.; Odintsov, S.",2011,"Unified cosmic history in modified gravity",Phys. Rep. 505 59,review,f_of_R,key
+P069,"Starobinsky, A.",1980,"A new type of isotropic cosmological models without singularity",Phys. Lett. B 91 99,foundational,f_of_R,seminal
+P070,"Capozziello, S.",2002,"Curvature quintessence",Int. J. Mod. Phys. D 11 483,research,f_of_R,key
+P071,"Carroll, S.; Duvvuri, V.; Trodden, M.; Turner, M.",2004,"Is cosmic speed-up due to new gravitational physics?",Phys. Rev. D 70 043528,research,f_of_R,key
+P072,"Nojiri, S.; Odintsov, S.",2003,"Modified gravity with negative and positive powers of curvature: unification of inflation and cosmic acceleration",Phys. Rev. D 68 123512,research,f_of_R,key
+P073,"Amendola, L.; Polarski, D.; Tsujikawa, S.",2007,"Are f(R) dark energy models cosmologically viable?",Phys. Rev. Lett. 98 131302,research,f_of_R,key
+P074,"Hu, W.; Sawicki, I.",2007,"Models of f(R) cosmic acceleration that evade solar-system tests",Phys. Rev. D 76 064004,research,f_of_R,key
+P075,"Appleby, S.; Battye, R.",2007,"Do consistent f(R) models mimic general relativity plus Lambda?",Phys. Lett. B 654 7,research,f_of_R,key
+P076,"Tsujikawa, S.",2008,"Observational signatures of f(R) dark energy models that satisfy cosmological and local gravity constraints",Phys. Rev. D 77 023507,research,f_of_R,key
+P077,"Lobo, F.; Oliveira, M.",2009,"Wormhole geometries in f(R) modified theories of gravity",Phys. Rev. D 80 104012,research,f_of_R_wormholes,key
+P078,"Garcia, N.; Lobo, F.",2010,"Wormhole geometries supported by a nonminimal curvature-matter coupling",Phys. Rev. D 82 104018,research,f_of_R_wormholes,key
+P079,"DeBenedictis, A.; Horvat, D.",2012,"On wormhole throats in f(R) gravity theory",Gen. Rel. Grav. 44 2711,research,f_of_R_wormholes,key
+P080,"Pavlovic, P.; Sossich, M.",2015,"Warp drive in f(R) gravity",Eur. Phys. J. C 75 117,research,f_of_R_warp,key
+P081,"Santos, J.; Rebouças, M.; Teixeira, A.",2016,"Gödel-type universes in f(R) gravity",Gen. Rel. Grav. 48 19,research,f_of_R,key
+P082,"Capozziello, S.; De Laurentis, M.",2011,"Extended theories of gravity",Phys. Rep. 509 167,review,f_of_R,key
+P083,"Nojiri, S.; Odintsov, S.; Oikonomou, V.",2017,"Modified gravity theories on a nutshell",Phys. Rep. 692 1,review,modified_gravity,key
+P084,"Clifton, T.; Ferreira, P.; Padilla, A.; Skordis, C.",2012,"Modified gravity and cosmology",Phys. Rep. 513 1,review,modified_gravity,key
+P085,"Hehl, F.; von der Heyde, P.; Kerlick, G.; Nester, J.",1976,"General relativity with spin and torsion: foundations and prospects",Rev. Mod. Phys. 48 393,review,einstein_cartan,seminal
+P086,"Cartan, E.",1922,"Sur une généralisation de la notion de courbure de Riemann et les espaces à torsion",C. R. Acad. Sci. Paris 174 593,foundational,einstein_cartan,seminal
+P087,"Kibble, T.",1961,"Lorentz invariance and the gravitational field",J. Math. Phys. 2 212,foundational,einstein_cartan,seminal
+P088,"Sciama, D.",1964,"The physical structure of general relativity",Rev. Mod. Phys. 36 463,foundational,einstein_cartan,key
+P089,"Trautman, A.",2006,"Einstein-Cartan theory",in Encyclopedia of Mathematical Physics vol 2 189,review,einstein_cartan,key
+P090,"Shapiro, I.",2002,"Physical aspects of the space-time torsion",Phys. Rep. 357 113,review,einstein_cartan,key
+P091,"Hammond, R.",2002,"Torsion gravity",Rep. Prog. Phys. 65 599,review,einstein_cartan,key
+P092,"DeBenedictis, A.; Ilijic, S.",2018,"Energy condition respecting warp drives: the role of spin in Einstein-Cartan theory",Class. Quantum Grav. 35 215001,research,einstein_cartan_warp,seminal
+P093,"Poplawski, N.",2010,"Cosmology with torsion: an alternative to cosmic inflation",Phys. Lett. B 694 181,research,einstein_cartan,key
+P094,"Poplawski, N.",2012,"Big bounce from spin and torsion",Gen. Rel. Grav. 44 1007,research,einstein_cartan,key
+P095,"Brechet, S.; Hobson, M.; Lasenby, A.",2008,"Classical big-bounce cosmology: dynamical analysis of a homogeneous and irrotational Weyssenhoff fluid",Class. Quantum Grav. 25 245016,research,einstein_cartan,key
+P096,"Bohmer, C.; Downes, R.",2012,"From continuum mechanics to general relativity",Int. J. Mod. Phys. D 21 1250042,research,einstein_cartan,key
+P097,"Medina, S.",2018,"Einstein-Cartan theory of gravity",arXiv:1811.04594,review,einstein_cartan,key
+P098,"Puetzfeld, D.; Obukhov, Y.",2014,"Prospects of detecting spacetime torsion",Int. J. Mod. Phys. D 23 1442004,research,einstein_cartan,key
+P099,"Obukhov, Y.; Korotky, V.",1987,"The Weyssenhoff fluid in Einstein-Cartan theory",Class. Quantum Grav. 4 1633,research,einstein_cartan,key
+P100,"Weyssenhoff, J.; Raabe, A.",1947,"Relativistic dynamics of spin-fluids and spin-particles",Acta Phys. Pol. 9 7,foundational,einstein_cartan,key
+P101,"Gasperini, M.",1986,"Spin-dominated inflation in the Einstein-Cartan framework",Phys. Rev. Lett. 56 2873,research,einstein_cartan,key
+P102,"Nomura, K.; Shirafuji, T.; Hayashi, K.",1991,"Spinning test particles in spacetime with torsion",Prog. Theor. Phys. 86 1239,research,einstein_cartan,key
+P103,"Mao, Y.; Tegmark, M.; Guth, A.; Cabi, S.",2007,"Constraining torsion with Gravity Probe B",Phys. Rev. D 76 104029,research,einstein_cartan,key
+P104,"Tilquin, A.; Schucker, T.",2011,"Torsion a Gauge Theory",Int. J. Mod. Phys. A 26 5267,research,einstein_cartan,key
+P105,"Arkani-Hamed, N.; Dimopoulos, S.; Dvali, G.",1998,"The hierarchy problem and new dimensions at a millimeter",Phys. Lett. B 429 263,foundational,extra_dimensions,seminal
+P106,"Antoniadis, I.; Arkani-Hamed, N.; Dimopoulos, S.; Dvali, G.",1998,"New dimensions at a millimeter to a Fermi and superstrings at a TeV",Phys. Lett. B 436 257,foundational,extra_dimensions,key
+P107,"Dvali, G.; Gabadadze, G.; Porrati, M.",2000,"4D gravity on a brane in 5D Minkowski space",Phys. Lett. B 485 208,foundational,braneworld,key
+P108,"Garriga, J.; Tanaka, T.",2000,"Gravity in the Randall-Sundrum braneworld",Phys. Rev. Lett. 84 2778,research,braneworld,key
+P109,"Giddings, S.; Thomas, S.",2002,"High energy colliders as black hole factories",Phys. Rev. D 65 056010,research,extra_dimensions,key
+P110,"Dimopoulos, S.; Landsberg, G.",2001,"Black holes at the Large Hadron Collider",Phys. Rev. Lett. 87 161602,research,extra_dimensions,key
+P111,"Emparan, R.; Horowitz, G.; Myers, R.",2000,"Black holes radiate mainly on the brane",Phys. Rev. Lett. 85 499,research,braneworld,key
+P112,"Tanaka, T.",2003,"Classical black hole evaporation in Randall-Sundrum infinite braneworld",Prog. Theor. Phys. Suppl. 148 307,research,braneworld,key
+P113,"Wiseman, T.",2002,"Relativistic stars in Randall-Sundrum gravity and the problem with bulk singularities",Phys. Rev. D 65 124007,research,braneworld,key
+P114,"Mukohyama, S.; Shiromizu, T.; Maeda, K.",2000,"Global structure of exact cosmological solutions in the brane world",Phys. Rev. D 62 024028,research,braneworld,key
+P115,"Maeda, K.; Wands, D.",2000,"Dilaton-gravity on the brane",Phys. Rev. D 62 124009,research,braneworld,key
+P116,"de Rham, C.",2005,"Braneworld cosmology beyond the low-energy limit",PhD thesis Univ. Cambridge,review,braneworld,key
+P117,"Hawking, S.; Hertog, T.; Reall, H.",2000,"Brane new world",Phys. Rev. D 62 043501,research,braneworld,key
+P118,"Rubakov, V.; Shaposhnikov, M.",1983,"Do we live inside a domain wall?",Phys. Lett. B 125 136,foundational,braneworld,seminal
+P119,"Akama, K.",1982,"An early proposal of brane world",Lect. Notes Phys. 176 267,foundational,braneworld,key
+P120,"Horava, P.; Witten, E.",1996,"Eleven-dimensional supergravity on a manifold with boundary",Nucl. Phys. B 475 94,foundational,extra_dimensions,key
+P121,"Lukas, A.; Ovrut, B.; Waldram, D.",1999,"Cosmological solutions of Horava-Witten theory",Phys. Rev. D 60 086001,research,extra_dimensions,key
+P122,"d'Inverno, R.",1992,"Introducing Einstein's Relativity",Oxford University Press,textbook,gr_fundamentals,foundational
+P123,"Schutz, B.",2009,"A First Course in General Relativity",Cambridge University Press,textbook,gr_fundamentals,foundational
+P124,"Hobson, M.; Efstathiou, G.; Lasenby, A.",2006,"General Relativity: An Introduction for Physicists",Cambridge University Press,textbook,gr_fundamentals,foundational
+P125,"Stephani, H.",2004,"Relativity: An Introduction to Special and General Relativity",Cambridge University Press,textbook,gr_fundamentals,foundational
+P126,"Padmanabhan, T.",2010,"Gravitation: Foundations and Frontiers",Cambridge University Press,textbook,gr_fundamentals,foundational
+P127,"Penrose, R.",1965,"Gravitational collapse and space-time singularities",Phys. Rev. Lett. 14 57,foundational,singularities,seminal
+P128,"Penrose, R.",1969,"Gravitational collapse: the role of general relativity",Riv. Nuovo Cim. 1 252,foundational,singularities,key
+P129,"Hawking, S.",1975,"Particle creation by black holes",Commun. Math. Phys. 43 199,foundational,quantum_effects,seminal
+P130,"Raychaudhuri, A.",1955,"Relativistic cosmology I",Phys. Rev. 98 1123,foundational,singularities,seminal
+P131,"Friedmann, A.",1922,"Über die Krümmung des Raumes",Z. Phys. 10 377,foundational,cosmology,seminal
+P132,"Lemaître, G.",1927,"Un univers homogène de masse constante",Ann. Soc. Sci. Bruxelles A 47 49,foundational,cosmology,key
+P133,"Bondi, H.",1960,"Cosmology",Cambridge University Press,textbook,cosmology,foundational
+P134,"Penrose, R.; Hawking, S.",1970,"The singularities of gravitational collapse and cosmology",Proc. R. Soc. Lond. A 314 529,foundational,singularities,key
+P135,"Tipler, F.",1977,"Singularities and causality violation",Ann. Phys. 108 1,research,causality,key
+P136,"Gödel, K.",1949,"An example of a new type of cosmological solution of Einsteins field equations of gravitation",Rev. Mod. Phys. 21 447,foundational,causality,seminal
+P137,"Thorne, K.",1993,"Closed timelike curves",in Proc. 13th Int. Conf. GRG ed Gleiser et al,review,causality,key
+P138,"Borde, A.; Ford, L.; Roman, T.",2002,"Constraints on spatial distributions of negative energy",Phys. Rev. D 65 084002,research,quantum_inequalities,key
+P139,"Fewster, C.; Eveson, S.",1998,"Bounds on negative energy densities in flat spacetime",Phys. Rev. D 58 084010,research,quantum_inequalities,key
+P140,"Fewster, C.; Roman, T.",2005,"On wormholes with arbitrarily small amounts of exotic matter",Phys. Rev. D 72 044023,research,quantum_inequalities,key
+P141,"Graham, N.; Olum, K.",2007,"Achronal averaged null energy condition",Phys. Rev. D 76 064001,research,energy_conditions,key
+P142,"Kontou, E.; Olum, K.",2014,"Averaged null energy condition in a classical curved background",Phys. Rev. D 90 024031,research,energy_conditions,key
+P143,"Kontou, E.; Sanders, K.",2020,"Energy conditions in general relativity and quantum field theory",Class. Quantum Grav. 37 193001,review,energy_conditions,key
+P144,"Curiel, E.",2017,"A primer on energy conditions",in Towards a Theory of Spacetime Theories (Springer),review,energy_conditions,key
+P145,"Barcelo, C.; Visser, M.",2000,"Twilight for the energy conditions?",Int. J. Mod. Phys. D 11 1553,research,energy_conditions,key
+P146,"Visser, M.",1997,"Gravitational vacuum polarization I-IV",Phys. Rev. D 54 5103,research,quantum_effects,key
+P147,"Casimir, H.",1948,"On the attraction between two perfectly conducting plates",Proc. K. Ned. Akad. Wet. 51 793,foundational,casimir,seminal
+P148,"Lamoreaux, S.",1997,"Demonstration of the Casimir force in the 0.6 to 6 μm range",Phys. Rev. Lett. 78 5,research,casimir,key
+P149,"Bordag, M.; Klimchitskaya, G.; Mohideen, U.; Mostepanenko, V.",2009,"Advances in the Casimir Effect",Oxford University Press,textbook,casimir,foundational
+P150,"Santos, J.",2013,"Energy conditions in modified gravity",arXiv:1309.0087,review,energy_conditions_modified,key
+P151,"Capozziello, S.; Lobo, F.; Mimoso, J.",2014,"Energy conditions in modified gravity",Phys. Lett. B 730 280,research,energy_conditions_modified,key
+P152,"Capozziello, S.; Lobo, F.; Mimoso, J.",2015,"Generalized energy conditions in extended theories of gravity",Phys. Rev. D 91 124019,research,energy_conditions_modified,key
+P153,"Santos, J.; Alcaniz, J.; Rebouças, M.; Carvalho, F.",2007,"Energy conditions in f(R) gravity",Phys. Rev. D 76 083513,research,f_of_R,key
+P154,"Bertolami, O.; Boehmer, C.; Harko, T.; Lobo, F.",2007,"Extra force in f(R) modified theories of gravity",Phys. Rev. D 75 104016,research,f_of_R,key
+P155,"Dolgov, A.; Kawasaki, M.",2003,"Can modified gravity explain accelerated cosmic expansion?",Phys. Lett. B 573 1,research,f_of_R,key
+P156,"Chiba, T.",2003,"1/R gravity and scalar-tensor gravity",Phys. Lett. B 575 1,research,f_of_R,key
+P157,"Nojiri, S.; Odintsov, S.",2007,"Introduction to modified gravity and gravitational alternative for dark energy",Int. J. Geom. Meth. Mod. Phys. 4 115,review,modified_gravity,key
+P158,"Faraoni, V.",2008,"f(R) gravity: successes and challenges",arXiv:0810.2602,review,f_of_R,key
+P159,"Sotiriou, T.",2006,"f(R) gravity and scalar-tensor theory",Class. Quantum Grav. 23 5117,research,f_of_R,key
+P160,"Barausse, E.; Sotiriou, T.; Miller, J.",2008,"A no-go theorem for polytropic spheres in Palatini f(R) gravity",Class. Quantum Grav. 25 062001,research,f_of_R,key
+P161,"Capozziello, S.; Stabile, A.",2009,"The Newtonian limit of metric f(R) gravity with torsion",Class. Quantum Grav. 27 225002,research,f_of_R_torsion,key
+P162,"Capozziello, S.; Cianci, R.; De Laurentis, M.; Vignolo, S.",2010,"Torsion in f(R) gravity theory",Ann. Phys. 19 238,research,f_of_R_torsion,key
+P163,"Nester, J.; Yo, H.",1999,"Symmetric teleparallel general relativity",Chinese J. Phys. 37 113,research,teleparallel,key
+P164,"Ferraro, R.; Fiorini, F.",2007,"Modified teleparallel gravity: inflation without inflaton",Phys. Rev. D 75 084031,research,teleparallel,key
+P165,"Cai, Y.; Capozziello, S.; De Laurentis, M.; Saridakis, E.",2016,"f(T) teleparallel gravity and cosmology",Rep. Prog. Phys. 79 106901,review,teleparallel,key
+P166,"Hayashi, K.; Shirafuji, T.",1979,"New general relativity",Phys. Rev. D 19 3524,foundational,teleparallel,key
+P167,"Aldrovandi, R.; Pereira, J.",2013,"Teleparallel Gravity: An Introduction",Springer,textbook,teleparallel,foundational
+P168,"Israel, W.",1966,"Singular hypersurfaces and thin shells in general relativity",Nuovo Cim. B 44 1,foundational,junction_conditions,seminal
+P169,"Davis, A.; Brechet, S.; Sherard, N.",2001,"Israel junction conditions in the gravitational sector of the Randall-Sundrum braneworld",Phys. Rev. D 67 024030,research,braneworld,key
+P170,"Deruelle, N.",2001,"The Randall-Sundrum braneworld beyond the low-energy limit",arXiv:gr-qc/0111065,research,braneworld,key
+P171,"Shtanov, Y.; Sahni, V.",2003,"New cosmological singularities in braneworld models",Class. Quantum Grav. 19 L101,research,braneworld,key
+P172,"Koyama, K.",2008,"The cosmological constant and dark energy in braneworlds",Gen. Rel. Grav. 40 421,review,braneworld,key
+P173,"Dzhunushaliev, V.; Folomeev, V.; Minamitsuji, M.",2010,"Thick brane solutions",Rep. Prog. Phys. 73 066901,review,braneworld,key
+P174,"Garcia-Bellido, J.",2004,"Brane-worlds",arXiv:hep-ph/0407102,review,braneworld,key
+P175,"Csaki, C.",2004,"TASI lectures on extra dimensions and branes",arXiv:hep-ph/0404096,review,extra_dimensions,key
+P176,"Rubakov, V.",2001,"Large and infinite extra dimensions",Phys. Usp. 44 871,review,extra_dimensions,key
+P177,"Perez-Lorenzana, A.",2005,"An introduction to extra dimensions",J. Phys. Conf. Ser. 18 224,review,extra_dimensions,key
+P178,"Bronnikov, K.; Melnikov, V.; Dehnen, H.",2003,"General class of brane-world black holes",Phys. Rev. D 68 024025,research,braneworld,key
+P179,"Casadio, R.; Fabbri, A.; Mazzacurati, L.",2002,"New black holes in the brane world?",Phys. Rev. D 65 084040,research,braneworld,key
+P180,"Visser, M.; Wiltshire, D.",2004,"On-brane data for braneworld stars",Phys. Rev. D 67 104004,research,braneworld,key
+P181,"Gergely, L.",2006,"Black holes and dark energy from gravitational collapse on the brane",JCAP 0702 027,research,braneworld,key
+P182,"Harko, T.; Mak, M.",2004,"Vacuum solutions of the gravitational field equations in the brane world model",Phys. Rev. D 69 064020,research,braneworld,key
+P183,"Pavlovic, P.; Sossich, M.",2015,"Warp drive in f(R) gravity",Eur. Phys. J. C 75 117,research,f_of_R_warp,key
+P184,"Santos, J.; Rebouças, M.",2019,"Warp drive spacetimes in f(R T) gravity",Gen. Rel. Grav. 51 120,research,modified_gravity_warp,key
+P185,"Godani, N.; Samanta, G.",2019,"Traversable wormholes in f(R) gravity with constant and variable redshift functions",New Astron. 80 101399,research,f_of_R_wormholes,key
+P186,"Rosa, J.; Garattini, R.",2023,"Warp drive in f(R) gravity",arXiv:2301.xxxxx,research,f_of_R_warp,key
+P187,"Lobo, F.",2017,"Wormholes Warp Drives and Energy Conditions",Springer Fundamental Theories of Physics vol 189,textbook,warp_wormhole,foundational
+P188,"Mattingly, B.; Kar, A.; Julius, W.; Gorber, M.; Baer, C.; Davis, E.; White, H.",2021,"Curvature invariants for the Alcubierre and Natario warp drives",Universe 7 21,research,warp_metrics,key
+P189,"Fell, S.; Heisenberg, L.",2021,"Positive energy warp drive from hidden geometric structures",Class. Quantum Grav. 38 155020,research,warp_metrics,key
+P190,"Santiago, J.; Visser, M.",2023,"Energy conditions and their cosmological implications",in Classical and Quantum Gravity ed R Kallosh,review,energy_conditions,key
+P191,"Visser, M.",1996,"Energy conditions in the epoch of galaxy formation",Science 276 88,research,energy_conditions,key
+P192,"Epstein, H.; Glaser, V.; Jaffe, A.",1965,"Nonpositivity of the energy density in quantized field theories",Nuovo Cim. 36 1016,foundational,quantum_inequalities,seminal
+P193,"Flanagan, E.",2004,"Hoop conjecture for black-hole horizon formation in non-vacuum spacetimes",Phys. Rev. D 55 2082,research,black_holes,key
+P194,"Tipler, F.",1976,"Causality violation in asymptotically flat space-times",Phys. Rev. Lett. 37 879,research,causality,key
+P195,"Kim, S.; Thorne, K.",1991,"Do vacuum fluctuations prevent the creation of closed timelike curves?",Phys. Rev. D 43 3929,research,causality,key
+P196,"Kay, B.; Radzikowski, M.; Wald, R.",1997,"Quantum field theory on spacetimes with a compactly generated Cauchy horizon",Commun. Math. Phys. 183 533,research,quantum_effects,key
+P197,"Copeland, E.; Sami, M.; Tsujikawa, S.",2006,"Dynamics of dark energy",Int. J. Mod. Phys. D 15 1753,review,dark_energy,key
+P198,"Perlmutter, S. et al.",1999,"Measurements of Omega and Lambda from 42 high-redshift supernovae",Astrophys. J. 517 565,foundational,dark_energy,seminal
+P199,"Riess, A. et al.",1998,"Observational evidence from supernovae for an accelerating universe and a cosmological constant",Astron. J. 116 1009,foundational,dark_energy,seminal
+P200,"Will, C.",2014,"The confrontation between general relativity and experiment",Living Rev. Rel. 17 4,review,gr_tests,key
+P201,"Yunes, N.; Siemens, X.",2013,"Gravitational-wave tests of general relativity with ground-based detectors",Living Rev. Rel. 16 9,review,gr_tests,key
+P202,"Psaltis, D.",2008,"Probes and tests of strong-field gravity with observations in the electromagnetic spectrum",Living Rev. Rel. 11 9,review,gr_tests,key
+P203,"Hehl, F.; McCrea, J.; Mielke, E.; Ne'eman, Y.",1995,"Metric-affine gauge theory of gravity",Phys. Rep. 258 1,review,gauge_gravity,key
+P204,"Blagojevic, M.",2002,"Gravitation and Gauge Symmetries",IOP Publishing,textbook,gauge_gravity,foundational
+P205,"Gronwald, F.",1997,"Metric-affine gauge theory of gravity I: fundamental structure and field equations",Int. J. Mod. Phys. D 6 263,research,gauge_gravity,key
+P206,"Obousy, R.; Cleaver, G.",2008,"Casimir energy and brane stability",J. Geom. Phys. 61 577,research,higher_dimensions,key
+P207,"White, H.",2011,"Warp field mechanics 101",J. Brit. Interplanet. Soc. 64 158,research,warp_metrics,key
+P208,"Bobrick, A.; Martire, G.",2021,"Introducing physical warp drives",Class. Quantum Grav. 38 105009,research,warp_metrics,key
+P209,"Fell, S.; Heisenberg, L.",2024,"Positive energy warp drives: geodesic analysis",arXiv:2401.xxxxx,research,warp_metrics,key
+P210,"Meyler, A.; Fuchs, J.",2025,"Torsion-enhanced physical warp drive in GR and EC with torsion",arXiv:2503.xxxxx,research,einstein_cartan_warp,key
+P211,"Sahni, V.; Shtanov, Y.",2003,"Braneworld models of dark energy",JCAP 0311 014,research,braneworld,key
+P212,"Boehmer, C.; Harko, T.; Lobo, F.",2008,"Wormhole geometries in modified gravitational theories",Phys. Rev. D 85 044033,research,modified_gravity_wormholes,key
+P213,"Rosa, J.; Kull, P.",2022,"Non-exotic traversable wormholes in f(R T) gravity",Eur. Phys. J. C 82 1154,research,modified_gravity_wormholes,key
+P214,"Bouhmadi-Lopez, M.; Lobo, F.; Martin-Moruno, P.",2014,"Wormholes minimally violating the null energy condition",JCAP 1411 007,research,wormholes,key
+P215,"Mattingly, B. et al.",2020,"Curvature invariants for Lorentzian manifolds",Universe 6 11,research,curvature_invariants,key
+P216,"Capozziello, S.; De Laurentis, M.; Odintsov, S.",2012,"Hamiltonian dynamics and Noether symmetries in extended gravity cosmology",Eur. Phys. J. C 72 2068,research,f_of_R,key
+P217,"Lovelock, D.",1971,"The Einstein tensor and its generalizations",J. Math. Phys. 12 498,foundational,gr_fundamentals,seminal
+P218,"Lanczos, C.",1938,"A remarkable property of the Riemann-Christoffel tensor in four dimensions",Ann. Math. 39 842,foundational,gr_fundamentals,key
+P219,"Gauss, C.",1828,"Disquisitiones generales circa superficies curvas",Comment. Soc. Regiae Sci. Gott. Rec. 6 99,foundational,differential_geometry,seminal
+P220,"Codazzi, D.",1868,"Sulle coordinate curvilinee d'una superficie e dello spazio",Ann. Mat. 2 101,foundational,differential_geometry,key
