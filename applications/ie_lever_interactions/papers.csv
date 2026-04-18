@@ -1,0 +1,221 @@
+id,authors,year,title,venue,theme,used_in_paper
+P001,DiPasquale & Wheaton,1996,Urban Economics and Real Estate Markets,Textbook,Housing market fundamentals,yes
+P002,Glaeser & Gyourko,2003,The Impact of Building Restrictions on Housing Affordability,QJE,Supply constraints,yes
+P003,Malpezzi & Maclennan,2001,The Long-Run Price Elasticity of Supply of New Residential Construction,JREFE,Supply elasticity,yes
+P004,Saiz,2010,The Geographic Determinants of Housing Supply,QJE,Geography and supply,yes
+P005,"Gyourko, Saiz & Summers",2008,A New Measure of the Local Regulatory Environment,JPUBE,Regulation index,yes
+P006,Quigley & Raphael,2005,Regulation and the High Cost of Housing in California,AER P&P,Regulatory costs,yes
+P007,Hilber & Vermeulen,2016,The Impact of Supply Constraints on House Prices in England,EJ,UK supply constraints,yes
+P008,Paciorek,2013,Supply Constraints and Housing Market Dynamics,JREFE,Dynamic supply model,yes
+P009,"Green, Malpezzi & Mayo",2005,Metropolitan-Specific Estimates of Elasticity of Housing Supply,JREFE,Metro elasticity,yes
+P010,Mayer & Somerville,2000,Residential Construction: Using the Urban Growth Model to Estimate Housing Supply,JUE,Growth model,yes
+P011,Hsieh & Moretti,2019,Housing Constraints and Spatial Misallocation,AEJ Macro,Spatial GE,yes
+P012,Glaeser & Gyourko,2018,The Economic Implications of Housing Supply,JEP,Supply review,yes
+P013,"Cheshire, Nathan & Overman",2014,Urban Economics and Urban Policy,Textbook,Urban policy,yes
+P014,Ball,2011,Planning Delay and the Responsiveness of English Housing Supply,UrbStud,Planning delay,yes
+P015,Barker,2004,Review of Housing Supply: Delivering Stability,HM Treasury,Barker review,yes
+P016,Letwin,2018,Independent Review of Build Out Rates,MHCLG,Build-out rates,yes
+P017,Bramley,2013,Housing Supply Requirements across Great Britain,Housing Studies,Supply needs,yes
+P018,Whitehead,2007,Planning Policies and Affordable Housing,Wiley,Planning & affordability,yes
+P019,Monk & Whitehead,2010,Making Housing More Affordable,Wiley,Affordable housing,yes
+P020,Murphy,2021,Housing Supply and Planning in Ireland,ESRI,Irish housing supply,yes
+P021,Romer & Romer,2010,The Macroeconomic Effects of Tax Changes,AER,Tax multipliers,yes
+P022,Blanchard & Perotti,2002,An Empirical Characterization of the Dynamic Effects of Changes in Government Spending and Taxes,QJE,Fiscal multipliers,yes
+P023,Nakamura & Steinsson,2014,Fiscal Stimulus in a Monetary Union,AER,Local multipliers,yes
+P024,Auerbach & Gorodnichenko,2012,Measuring the Output Responses to Fiscal Policy,AEJ Econ Policy,Fiscal policy output,yes
+P025,Ramey,2019,Ten Years After the Financial Crisis: What Have We Learned from the Renaissance in Fiscal Research?,JEP,Fiscal research review,yes
+P026,Moretti,2010,Local Multipliers,AER P&P,Local employment multiplier,yes
+P027,Kline & Moretti,2014,"Local Economic Development, Agglomeration Economies, and the Big Push",QJE,Big push multipliers,yes
+P028,Mian & Sufi,2014,What Explains the 2007-2009 Drop in Employment?,Econometrica,Housing wealth effect,yes
+P029,"Adelino, Schoar & Severino",2015,"House Prices, Collateral, and Self-Employment",JFE,Housing investment,yes
+P030,Iacoviello,2005,"House Prices, Borrowing Constraints, and Monetary Policy",AER,Housing DSGE,yes
+P031,Sterman,2000,Business Dynamics: Systems Thinking and Modeling for a Complex World,Textbook,Systems dynamics,yes
+P032,Meadows,2008,Thinking in Systems: A Primer,Textbook,Systems thinking,yes
+P033,Barlas,2007,System Dynamics: Systemic Feedback Modeling,EOLSS,SD methods,yes
+P034,Forrester,1969,Urban Dynamics,Textbook,Urban SD model,yes
+P035,Sterman,2006,Learning from Evidence in a Complex World,AJPH,SD evidence,yes
+P036,"Eskinasi, Rouwette & Vennix",2009,Simulating Urban Transformation in Haaglanden,System Dynamics Review,Housing SD,yes
+P037,Barlas & Yasarcan,2006,"Goal Setting, Evaluation, Learning and Revision: A Dynamic Modeling Approach",Eval Prog Plan,SD goals,yes
+P038,Wheat,2007,The Feedback Method of Teaching Macroeconomics,SD Review,SD feedback,yes
+P039,Pruyt,2013,Small System Dynamics Models for Big Issues,Textbook,SD modeling,yes
+P040,"Ghaffarzadegan, Lyneis & Richardson",2011,How Small System Dynamics Models Can Help the Public Policy Process,SD Review,SD policy,yes
+P041,Gruneberg & Francis,2019,The Economics of Construction,Textbook,Construction economics,yes
+P042,Briscoe,2006,How Useful and Reliable Are Construction Statistics?,Building Res & Info,Construction stats,yes
+P043,Egan,1998,Rethinking Construction,UK DETR,Construction reform,yes
+P044,Farmer,2016,Modernise or Die: The Farmer Review of the UK Construction Labour Model,CLC,Labour model,yes
+P045,McKinsey,2017,Reinventing Construction: A Route to Higher Productivity,MGI,Construction productivity,yes
+P046,NHBC,2019,Modern Methods of Construction: Views from the Industry,NHBC,MMC survey,yes
+P047,"Pan, Gibb & Dainty",2007,Perspectives of UK Housebuilders on the Use of Offsite Modern Methods of Construction,CEM,Offsite methods,yes
+P048,Goodier & Gibb,2007,Future Opportunities for Offsite in the UK,CEM,Offsite future,yes
+P049,Miles & Whitehouse,2013,Offsite Housing Review,UK Govt,Offsite review,yes
+P050,CLC,2020,Roadmap to Recovery,CLC,Construction recovery,yes
+P051,Lyons,2021,The Full Irish: How Ireland's Housing Crisis Was Created and What Can Be Done,Textbook,Ireland housing crisis,yes
+P052,Honohan,2010,The Irish Banking Crisis: Regulatory and Financial Stability Policy,CBI,Irish banking,yes
+P053,Kennedy & McQuinn,2012,Why Are Irish House Prices Still Falling?,ESRI WP,Irish prices,yes
+P054,"Duffy, FitzGerald & Kearney",2005,Rising House Prices in an Open Labour Market,ESRI,Irish labour housing,yes
+P055,Murphy & Lawton,2020,The State of Housing in Ireland,IGEES,Housing state,yes
+P056,NESC,2004,Housing in Ireland: Performance and Policy,NESC,Housing performance,yes
+P057,DHLGH,2021,Housing for All: A New Housing Plan for Ireland,Government,HFA plan,yes
+P058,CSO,2023,New Dwelling Completions,CSO,Completions data,yes
+P059,SCSI,2022,The Real Cost of New Housing Delivery,SCSI,Cost analysis,yes
+P060,CBI,2023,Macro-Financial Review,Central Bank,Financial stability,yes
+P061,Montgomery,2017,Design and Analysis of Experiments,Textbook,DOE textbook,yes
+P062,"Box, Hunter & Hunter",2005,Statistics for Experimenters,Textbook,DOE fundamentals,yes
+P063,Wu & Hamada,2009,"Experiments: Planning, Analysis, and Optimization",Textbook,Experiment design,yes
+P064,"Myers, Montgomery & Anderson-Cook",2016,Response Surface Methodology,Textbook,RSM,yes
+P065,Taguchi,1986,Introduction to Quality Engineering,Asian Prod Org,Robust design,yes
+P066,Kleijnen,2015,Design and Analysis of Simulation Experiments,Textbook,Simulation DOE,yes
+P067,"Santner, Williams & Notz",2003,The Design and Analysis of Computer Experiments,Springer,Computer DOE,yes
+P068,Morris,1991,Factorial Sampling Plans for Preliminary Computational Experiments,Technometrics,Screening designs,yes
+P069,Saltelli et al,2008,Global Sensitivity Analysis: The Primer,Textbook,Sensitivity analysis,yes
+P070,Sobol,2001,Global Sensitivity Indices for Nonlinear Mathematical Models,MMCE,Sobol indices,yes
+P071,Muellbauer,2018,"Housing, Debt and the Economy: A Tale of Two Countries",NtlInstEconRev,Housing-debt nexus,yes
+P072,Gyourko & Molloy,2015,Regulation and Housing Supply,Handbook of Regional and Urban Economics,Regulation review,yes
+P073,Ihlanfeldt,2007,The Effect of Land Use Regulation on Housing and Land Prices,JUE,Land use regulation,yes
+P074,"Glaeser, Gyourko & Saks",2005,Why Have Housing Prices Gone Up?,AER P&P,Housing prices,yes
+P075,"Autor, Palmer & Pathak",2014,Housing Market Spillovers: Evidence from Rent Control,JPE,Rent control spillovers,yes
+P076,"Diamond, McQuade & Qian",2019,The Effects of Rent Control Expansion,AER,Rent control effects,yes
+P077,Sims,2007,Out of Control: What Can We Learn from the End of Massachusetts Rent Control?,JPUBE,Rent decontrol,yes
+P078,Arnott,1995,Time for Revisionism on Rent Control?,JEP,Rent control theory,yes
+P079,Lind,2001,Rent Regulation: A Conceptual and Comparative Analysis,EJHL&P,Rent regulation,yes
+P080,Turner & Malpezzi,2003,A Review of Empirical Evidence on Affordability,WB WPS,Affordability review,yes
+P081,Copenhagen Economics,2007,Study on Reduced VAT Applied to Goods and Services,EC DG TAXUD,VAT rates study,yes
+P082,Eurostat,2023,Taxation Trends in the EU,Eurostat,EU tax trends,yes
+P083,Revenue,2023,VAT on Property,Irish Revenue,Irish VAT rules,yes
+P084,OECD,2022,Tax Policy Reforms 2022,OECD,Tax policy reforms,yes
+P085,Keen & Lockwood,2010,The Value Added Tax: Its Causes and Consequences,JDE,VAT theory,yes
+P086,Mirrlees et al,2011,Tax by Design: The Mirrlees Review,Textbook,Optimal taxation,yes
+P087,IFS,2011,The Mirrlees Review: Conclusions and Recommendations for Reform,IFS,Tax reform,yes
+P088,"Crawford, Keen & Smith",2010,VAT and Excises,Dimensions of Tax Design,VAT design,yes
+P089,Cnossen,2015,Mobilizing VAT Revenues in African Countries,ICTD WP,VAT mobilization,yes
+P090,Ebrill et al,2001,The Modern VAT,Textbook,VAT textbook,yes
+P091,Smith & Kenley,2014,Prefabricated and Modular Housing in Australia,ARCOM,Modular housing,yes
+P092,Bertram et al,2019,Modular Construction: From Projects to Products,McKinsey,Modular analysis,yes
+P093,Rahman,2014,Barriers of Implementing Modern Methods of Construction,J Mgmt Eng,MMC barriers,yes
+P094,Blismas & Wakefield,2009,"Drivers, Constraints and the Future of Offsite Manufacture",CME,Offsite drivers,yes
+P095,Steinhardt & Manley,2016,Adoption of Prefabricated Housing,JCEM,Prefab adoption,yes
+P096,"Arif, Goulding & Rahimian",2012,Promoting Offsite Construction: Future Challenges and Opportunities,JAPE,Offsite promotion,yes
+P097,Nadim & Goulding,2011,Offsite Production: A Model for Building Down Barriers,Eng Constr Arch Mgmt,Offsite model,yes
+P098,Jaillon & Poon,2009,The Evolution of Prefabricated Residential Building Systems in Hong Kong,AE,HK prefab,yes
+P099,Kamali & Hewage,2016,Life Cycle Performance of Modular Buildings,J Cleaner Prod,Modular lifecycle,yes
+P100,"Lawson, Ogden & Bergin",2012,Application of Modular Construction in High-Rise Buildings,JCSR,Modular high-rise,yes
+P101,Glaeser & Ward,2009,The Causes and Consequences of Land Use Regulation,JUE,Land use causes,yes
+P102,"Turner, Haughwout & van der Klaauw",2014,Land Use Regulation and Welfare,Econometrica,Regulation welfare,yes
+P103,Brueckner,2011,Lectures on Urban Economics,Textbook,Urban economics,yes
+P104,Cheshire & Sheppard,2002,The Welfare Economics of Land Use Planning,JUE,Planning welfare,yes
+P105,Evans,2004,"Economics, Real Estate and the Supply of Land",Textbook,Land supply economics,yes
+P106,Bramley & Watkins,2016,"Housebuilding, Demographic Change and Affordability",JSFBE,Housing demographics,yes
+P107,Ball,2010,The Housebuilding Industry,The Sage Handbook,Housebuilding industry,yes
+P108,Henneberry & Parris,2013,The Embedded Developer: Using Project Ecologies to Analyse Local Property Development Networks,Town Planning Review,Developer networks,yes
+P109,Healey,2006,Collaborative Planning,Textbook,Planning theory,yes
+P110,Adams & Tiesdell,2013,"Shaping Places: Urban Planning, Design and Development",Textbook,Urban planning design,yes
+P111,Crosby & Wyatt,2016,Financial Viability Appraisals for Development,Env & Plan B,Viability appraisal,yes
+P112,"McAllister, Wyatt & Coleman",2013,Fit for Policy? Some Evidence on the Application of Development Viability Models,TPR,Viability models,yes
+P113,"Healey, Purdue & Ennis",1995,Negotiating Development,Routledge,Development negotiation,yes
+P114,Byrne,1996,Understanding the Property Cycle,Textbook,Property cycle,yes
+P115,Pyhrr et al,1989,Real Estate Investment,Textbook,RE investment,yes
+P116,Brueggeman & Fisher,2015,Real Estate Finance and Investments,Textbook,RE finance,yes
+P117,Geltner et al,2014,Commercial Real Estate Analysis and Investments,Textbook,CREA&I,yes
+P118,Ling & Archer,2018,Real Estate Principles: A Value Approach,Textbook,RE principles,yes
+P119,"Weber, Staub-Bisang & Alfen",2016,Infrastructure as an Asset Class,Textbook,Infrastructure finance,yes
+P120,Baum et al,2011,The Income Approach to Property Valuation,Textbook,Income approach,yes
+P121,CIOB,2020,The Real Face of Construction,CIOB,Construction workforce,yes
+P122,RICS,2022,UK Construction Market Survey,RICS,Construction survey,yes
+P123,"Dainty, Green & Bagilhole",2007,People and Culture in Construction,Textbook,Construction culture,yes
+P124,"Loosemore, Dainty & Lingard",2003,Human Resource Management in Construction Projects,Textbook,HR construction,yes
+P125,AGC,2019,The Workforce Development Plan 2.0,AGC,Workforce plan,yes
+P126,CIF,2022,Construction Sector Outlook,CIF,Irish construction outlook,yes
+P127,DKM,2021,Demand for Housing in Ireland 2022-2050,DHLGH,Housing demand forecast,yes
+P128,IGEES,2022,Spending Review: Construction Sector Capacity,IGEES,Construction capacity,yes
+P129,SOLAS,2022,Construction Skills Forecasting,SOLAS,Skills forecast,yes
+P130,Forfas,2013,Ireland's Construction Sector: Outlook and Strategic Plan to 2015,Forfas,Construction strategy,yes
+P131,Evans,1999,The Economics of Residential Property Markets,Textbook,Residential markets,yes
+P132,Cheshire & Hilber,2008,Office Space Supply Restrictions in Britain,EJ,Supply restrictions,yes
+P133,"Carozzi, Hilber & Yu",2024,On the Economic Impacts of Mortgage Interest Deduction,JUE,Mortgage deduction,yes
+P134,Coase,1960,The Problem of Social Cost,JLE,Property rights,yes
+P135,Bentick,1979,The Impact of Taxation and Valuation Practices on the Timing of Urban Land Development,JPE,Land taxation timing,yes
+P136,George,1879,Progress and Poverty,Textbook,Land value taxation,yes
+P137,Mirrlees,2011,The Taxation of Land and Property,Tax by Design,Land tax design,yes
+P138,Corlett & O'Toole,2019,Property Tax Options,ESRI,Irish property tax,yes
+P139,Norregaard,2013,Taxing Immovable Property: Revenue Potential and Implementation Challenges,IMF WP,Property tax potential,yes
+P140,Dye & England,2010,Assessing the Theory and Practice of Land Value Taxation,Lincoln Inst,LVT assessment,yes
+P141,Mayer & Somerville,2000,Land Use Regulation and New Construction,Regional S&UE,Land regulation,yes
+P142,Somerville,1999,Residential Construction Costs and the Supply of New Housing,JREFE,Construction costs,yes
+P143,Topel & Rosen,1988,Housing Investment in the United States,JPE,Housing investment US,yes
+P144,Poterba,1984,Tax Subsidies to Owner-Occupied Housing,QJE,Tax subsidies housing,yes
+P145,Case & Shiller,1989,The Efficiency of the Market for Single-Family Homes,AER,Housing market efficiency,yes
+P146,"Glaeser, Gyourko & Saiz",2008,Housing Supply and Housing Bubbles,JREFE,Supply and bubbles,yes
+P147,Caldera & Johansson,2013,The Price Responsiveness of Housing Supply in OECD Countries,JREFE,OECD supply response,yes
+P148,"Andrews, Caldera & Johansson",2011,Housing Markets and Structural Policies in OECD Countries,OECD WP,OECD housing markets,yes
+P149,Meen,2005,On the Economics of the Barker Review,Housing Studies,Barker economics,yes
+P150,Muellbauer & Murphy,1997,Booms and Busts in the UK Housing Market,EJ,UK booms busts,yes
+P151,"Favilukis, Ludvigson & Van Nieuwerburgh",2017,The Macroeconomic Effects of Housing Wealth,JFE,Housing wealth macro,yes
+P152,Iacoviello & Neri,2010,Housing Market Spillovers: Evidence from an Estimated DSGE Model,AEJ Macro,Housing DSGE spillovers,yes
+P153,Davis & Heathcote,2005,Housing and the Business Cycle,IER,Housing business cycle,yes
+P154,"Piazzesi, Schneider & Tuzel",2007,"Housing, Consumption and Asset Pricing",JFE,Housing consumption,yes
+P155,"Kaplan, Mitman & Violante",2020,The Housing Boom and Bust: Model Meets Evidence,JPE,Housing boom bust,yes
+P156,Greenwald & Guren,2021,Do Credit Conditions Move House Prices?,NBER WP,Credit conditions,yes
+P157,"Guerrieri, Hartley & Hurst",2013,Endogenous Gentrification and Housing Price Dynamics,JPubE,Gentrification,yes
+P158,Aladangady,2017,Housing Wealth and Consumption: Evidence from Geographically-Linked Microdata,AER,Housing wealth consumption,yes
+P159,Berger et al,2018,House Prices and Consumer Spending,REStud,House prices spending,yes
+P160,"Guren, Krishnamurthy & McQuade",2021,Mortgage Design in an Equilibrium Model,JF,Mortgage design,yes
+P161,Norris & Fahey,2011,From Asset Based Welfare to Welfare Housing?,Housing Studies,Irish welfare housing,yes
+P162,Drudy & Punch,2005,Out of Reach: Inequalities in the Irish Housing System,TASC,Irish inequalities,yes
+P163,Fahey & Duffy,2007,The Housing Boom,Best of Times?,Irish boom,yes
+P164,Kitchin et al,2012,Placing Neoliberalism: The Rise and Fall of Ireland's Celtic Tiger,Env & Plan A,Celtic Tiger,yes
+P165,Waldron,2019,Capitalizing on the State: Political Economy of Real Estate Investment Trusts,Geoforum,Irish REITs,yes
+P166,Hearne,2020,Housing Shock: The Irish Housing Crisis and How to Solve It,Policy Press,Housing shock,yes
+P167,O'Toole,2023,Housing Supply Response in Ireland,ESRI,Supply response,yes
+P168,Byrne & Norris,2018,Procyclical Social Housing and the Crisis of Irish Housing Policy,Housing Policy Debate,Social housing,yes
+P169,"Corrigan, O'Regan & Watson",2019,Housing Policy and Irish Homelessness,ESRI,Homelessness,yes
+P170,Sirr,2014,"Renting in Ireland: The Social, Voluntary and Private Sectors",Textbook,Irish renting,yes
+P171,Monk et al,2013,International Review of Land Supply and Planning Systems,JPC,Land supply review,yes
+P172,Healey et al,1996,Negotiating Development II,UCD,Developer levies,yes
+P173,Crook et al,2016,Planning Gain: Providing Infrastructure & Affordable Housing,Wiley,Planning gain,yes
+P174,DECLG,2013,Development Contribution Guidelines,Government,Irish dev contribs,yes
+P175,Lyons,2015,Reforming the Irish Planning System,Lyons Report,Planning reform,yes
+P176,O'Brien & Pike,2019,The Financing of Infrastructure via Development Charges,PTRB,Infrastructure financing,yes
+P177,"Henneberry, McGough & Mouzakis",2005,Estimating the Impact of Planning on Commercial Property Markets,RICS,Planning impact,yes
+P178,Oxley,2004,"Economics, Planning and Housing",Textbook,Planning economics,yes
+P179,Dunse et al,2013,Urban Land Economics and Public Policy,Textbook,Urban land economics,yes
+P180,Gibb & O'Sullivan,2010,Housing Economics and Public Policy,Textbook,Housing public policy,yes
+P181,Imrie & Street,2011,Architectural Design and Regulation,Wiley,Design regulation,yes
+P182,"Gann, Wang & Hawkins",1998,Do Regulations Encourage Innovation?,Building Res & Info,Regulation innovation,yes
+P183,Meacham,2016,Fire Safety Challenges of Tall Buildings,SFPE,Fire safety,yes
+P184,"Oti, Tizani & Abanda",2018,BIM Extension for the Sustainability Appraisal of Conceptual Steel Design,Adv Eng Inform,BIM sustainability,yes
+P185,DHLGH,2014,Building Control (Amendment) Regulations 2014,S.I. No. 9/2014,BCAR legislation,yes
+P186,"Pollock, Pretty & Brickley",2018,BCAR Review,CIF,BCAR review,yes
+P187,RIAI,2019,Practice Note on BCAR,RIAI,BCAR practice,yes
+P188,Menzies,2012,Delivering Zero Carbon in New Homes,NHBC,Zero carbon delivery,yes
+P189,Osmani & O'Reilly,2009,Feasibility of Zero Carbon Homes in England by 2016,CEM,Zero carbon feasibility,yes
+P190,Heffernan et al,2015,Zero Carbon Homes: Perceptions from the UK Housebuilding Industry,Energy Policy,ZC perceptions,yes
+P191,Metropolis & Ulam,1949,The Monte Carlo Method,JASA,MC method,yes
+P192,Robert & Casella,2004,Monte Carlo Statistical Methods,Textbook,MC statistics,yes
+P193,Rubinstein & Kroese,2017,Simulation and the Monte Carlo Method,Textbook,MC simulation,yes
+P194,Vose,2008,Risk Analysis: A Quantitative Guide,Textbook,Risk analysis,yes
+P195,Morgan & Henrion,1990,Uncertainty: A Guide to Dealing with Uncertainty,Textbook,Uncertainty guide,yes
+P196,Saltelli et al,2004,Sensitivity Analysis in Practice,Wiley,Sensitivity practice,yes
+P197,Helton & Davis,2003,Latin Hypercube Sampling and the Propagation of Uncertainty,RESS,LHS uncertainty,yes
+P198,Iooss & Lemaitre,2015,A Review on Global Sensitivity Analysis Methods,Handbook of Uncertainty,GSA review,yes
+P199,Pianosi et al,2016,Sensitivity Analysis of Environmental Models,Env Mod & Soft,Environmental SA,yes
+P200,Borgonovo & Plischke,2016,Sensitivity Analysis: A Review of Recent Advances,EJOR,SA advances,yes
+P201,Letwin,2018,Independent Review of Build Out: Draft Analysis,MHCLG,Build out draft,yes
+P202,Archer & Cole,2014,Profits Before Volume? Major Housebuilders and the Crisis,Housing Studies,Housebuilder profits,yes
+P203,Adams & Leishman,2008,Factors Affecting the Take-Up of New Housing Supply,NHPAU,Take-up factors,yes
+P204,Bramley et al,2010,Estimating Housing Need,CLG,Estimating need,yes
+P205,Holmans,2013,New Estimates of Housing Demand and Need in England,TCPA,Housing demand England,yes
+P206,Wilson & Barton,2022,Tackling the Under-Supply of Housing in England,House of Commons Library,Under-supply,yes
+P207,DCLG,2017,Fixing Our Broken Housing Market,Government,Broken market,yes
+P208,Savills,2022,UK Residential Development Land,Savills Research,Land market,yes
+P209,Knight Frank,2023,UK Residential Market Forecast,KF Research,Market forecast,yes
+P210,JLL,2022,UK Build to Rent Report,JLL Research,BTR report,yes
+P211,Deb,2001,Multi-Objective Optimization Using Evolutionary Algorithms,Textbook,MOO textbook,yes
+P212,Deb et al,2002,A Fast and Elitist Multiobjective Genetic Algorithm: NSGA-II,IEEE TEC,NSGA-II,yes
+P213,"Zitzler, Laumanns & Thiele",2001,SPEA2: Improving the Strength Pareto Evolutionary Algorithm,Comp Eng & Net Lab,SPEA2,yes
+P214,"Coello Coello, Lamont & Veldhuizen",2007,Evolutionary Algorithms for Solving Multi-Objective Problems,Textbook,MOO EA,yes
+P215,Marler & Arora,2004,Survey of Multi-Objective Optimization Methods for Engineering,SMO,MOO survey,yes
+P216,Ehrgott,2005,Multicriteria Optimization,Textbook,Multicriteria,yes
+P217,Branke et al,2008,Multiobjective Optimization: Interactive and Evolutionary Approaches,Springer,Interactive MOO,yes
+P218,Miettinen,1999,Nonlinear Multiobjective Optimization,Textbook,Nonlinear MOO,yes
+P219,"Figueira, Greco & Ehrgott",2005,Multiple Criteria Decision Analysis: State of the Art Surveys,Textbook,MCDA surveys,yes
+P220,Srinivas & Deb,1994,Multiobjective Optimization Using Nondominated Sorting in Genetic Algorithms,Evol Comp,NSGA,yes

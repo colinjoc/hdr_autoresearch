@@ -1,0 +1,6 @@
+model,description,metric,value,notes
+T01_additive,Sum of individual effects,gross_completions_all_max,268210,Linear sanity check: over-predicts
+T02_multiplicative,Product of multipliers,gross_completions_all_max,3719471,Wildly over-predicts: compounding artifact
+T03_systems_dynamics,Feedback loop model,gross_completions_all_max,258144,Ground truth model; captures ceiling
+T04_full_factorial,"104,976 combinations",best_capped_completions,52500,Winner: exact enumeration of all interactions
+T05_monte_carlo,"10k draws, uncertainty",CI_width,14533,95% CI on everything package

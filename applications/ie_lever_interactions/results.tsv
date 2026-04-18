@@ -1,0 +1,97 @@
+experiment_id	description	status	cost_reduction_pct	viability_margin_pct	gross_completions	hard_completions	soft_completions	capacity_ceiling	ceiling_binding	interaction	notes
+E00	Baseline: no levers	KEEP	0.0	-3.1	35000	35000	35000	35000	True	False	Calibrated 35k baseline
+E01_25	Duration -25%	KEEP	2.77	-0.33	43808	35000	43386	35000	True	False	
+E01_33	Duration -33%	KEEP	3.65	0.55	46627	35000	45902	35000	True	False	
+E01_50	Duration -50%	KEEP	5.53	2.43	52616	35000	51005	35000	True	False	
+E02_10	Modular -10%	KEEP	5.3	2.2	51880	35000	50395	35000	True	False	
+E02_20	Modular -20%	KEEP	10.6	7.5	68761	35000	63301	35000	True	False	
+E02_30	Modular -30%	KEEP	15.9	12.8	85641	35000	74276	35000	True	False	
+E03_v9	VAT 9.0%	KEEP	3.96	0.86	47628	35000	46778	35000	True	False	
+E03_v0	VAT 0.0%	KEEP	11.89	8.79	72883	35000	66142	35000	True	False	
+E03b	Part V abolished	KEEP	3.88	0.78	47342	35000	46529	35000	True	False	
+E03c	Dev contribs zeroed	KEEP	3.0	-0.1	44555	35000	44060	35000	True	False	
+E03d	BCAR abolished	KEEP	1.5	-1.6	39778	35000	39651	35000	True	False	
+E03e	Land CPO agricultural	KEEP	16.2	13.1	86597	35000	74848	35000	True	False	
+E03f	Finance rate 3%	KEEP	6.32	3.22	55133	35000	53056	35000	True	False	
+E03g	Developer margin 6%	KEEP	9.0	5.9	63665	35000	59631	35000	True	False	
+E03h	Workforce +50%	KEEP	0.0	-3.1	35000	35000	35000	52500	False	False	
+E04	Duration-50% + Modular-30%	KEEP	21.43	18.33	103258	35000	84105	35000	True	True	
+E05	Duration-50% + VAT 0%	KEEP	17.43	14.33	90500	35000	77136	35000	True	True	
+E06	Modular-30% + VAT 0%	KEEP	27.79	24.69	123525	35000	93787	35000	True	True	
+E07	Duration-50%+Modular-30%+VAT 0%	KEEP	33.33	30.23	141141	35000	101069	35000	True	True	
+E08	Triple + Part V abolished	KEEP	37.2	34.1	153483	35000	105650	35000	True	False	
+E09	Triple + CPO agricultural	KEEP	49.53	46.43	192738	35000	117961	35000	True	False	
+E10	Politically feasible	KEEP	15.47	12.37	84265	35000	73443	35000	True	False	
+E11	Radical but achievable	KEEP	49.22	46.12	191765	35000	117691	35000	True	False	
+E12	Everything package	KEEP	70.06	66.96	258144	52500	167810	52500	True	False	
+E13	Marginal interaction: workforce largest	KEEP	0.0	-3.1	35000	35000	35000	35000	True	False	Workforce enables all cost levers
+E14	45-pair interaction matrix computed	KEEP	0.0	-3.1	35000	35000	35000	35000	True	True	See interaction_matrix.csv
+E15	50,500 requires WF >=1.44x	KEEP	0.0	-3.1	35000	35000	35000	50500	False	False	
+E16	MC on everything: CI [159903, 174436]	KEEP	70.06	66.96	258144	52500	167810	52500	True	False	
+E17	Time-to-target: 2.3-3.0 years	KEEP	0.0	-3.1	35000	35000	35000	35000	True	False	
+E18	Absorption: not binding below 60k/yr	KEEP	0.0	-3.1	35000	35000	35000	35000	True	False	
+E19	GE: margin compression ~11% at 50.5k	KEEP	0.0	-3.1	35000	35000	35000	35000	True	False	
+E20	Pareto frontier: 7 non-dominated 3-lever combos	KEEP	0.0	-3.1	35000	35000	35000	35000	True	False	
+E21	Sensitivity: r=0.5 -> completions lower	KEEP	0.0	-3.1	35000	35000	35000	35000	True	False	
+E22	Sensitivity: build-yield CI -> ±5%	KEEP	0.0	-3.1	35000	35000	35000	35000	True	False	
+E23	Everything minus CPO	KEEP	53.86	50.76	206547	52500	149577	52500	True	False	
+E24	Everything minus workforce	KEEP	70.06	66.96	258144	35000	133081	35000	True	False	
+E25	Everything minus BCAR	KEEP	68.56	65.46	253366	52500	166292	52500	True	False	
+E26	Feasible + WF 1.2	KEEP	15.47	12.37	84265	42000	77184	42000	True	False	
+E27	Radical + WF 1.5	KEEP	49.22	46.12	191765	52500	143491	52500	True	False	
+E28	Interaction: Modular×Workforce	KEEP	15.9	12.8	85641	52500	81926	52500	True	True	Synergy: +7,650
+E29	Interaction: LandCPO×Workforce	KEEP	16.2	13.1	86597	52500	82677	52500	True	True	Synergy: +7,829
+E30	Interaction: Modular×LandCPO	KEEP	32.1	29.0	137238	35000	99536	35000	True	True	Redundancy: -14,588
+RV01_SOLAS_5k_yr1	WF ramp SOLAS_5k year 1: mult=1.031	RUN_RV	70.1	67.0	258144	36094	135650	36094			WF +5000 workers, mult 1.031
+RV01_SOLAS_5k_yr2	WF ramp SOLAS_5k year 2: mult=1.062	RUN_RV	70.1	67.0	258144	37188	138157	37188			WF +10000 workers, mult 1.062
+RV01_SOLAS_5k_yr3	WF ramp SOLAS_5k year 3: mult=1.094	RUN_RV	70.1	67.0	258144	38281	140606	38281			WF +15000 workers, mult 1.094
+RV01_SOLAS_5k_yr4	WF ramp SOLAS_5k year 4: mult=1.125	RUN_RV	70.1	67.0	258144	39375	142998	39375			WF +20000 workers, mult 1.125
+RV01_SOLAS_5k_yr5	WF ramp SOLAS_5k year 5: mult=1.156	RUN_RV	70.1	67.0	258144	40469	145334	40469			WF +25000 workers, mult 1.156
+RV01_SOLAS_5k_yr6	WF ramp SOLAS_5k year 6: mult=1.188	RUN_RV	70.1	67.0	258144	41562	147616	41562			WF +30000 workers, mult 1.188
+RV01_SOLAS_5k_yr7	WF ramp SOLAS_5k year 7: mult=1.219	RUN_RV	70.1	67.0	258144	42656	149846	42656			WF +35000 workers, mult 1.219
+RV01_SOLAS_5k_yr8	WF ramp SOLAS_5k year 8: mult=1.250	RUN_RV	70.1	67.0	258144	43750	152025	43750			WF +40000 workers, mult 1.250
+RV01_SOLAS_5k_yr9	WF ramp SOLAS_5k year 9: mult=1.281	RUN_RV	70.1	67.0	258144	44844	154155	44844			WF +45000 workers, mult 1.281
+RV01_SOLAS_5k_yr10	WF ramp SOLAS_5k year 10: mult=1.312	RUN_RV	70.1	67.0	258144	45938	156238	45938			WF +50000 workers, mult 1.312
+RV01_optimistic_10k_yr1	WF ramp optimistic_10k year 1: mult=1.062	RUN_RV	70.1	67.0	258144	37188	138157	37188			WF +10000 workers, mult 1.062
+RV01_optimistic_10k_yr2	WF ramp optimistic_10k year 2: mult=1.125	RUN_RV	70.1	67.0	258144	39375	142998	39375			WF +20000 workers, mult 1.125
+RV01_optimistic_10k_yr3	WF ramp optimistic_10k year 3: mult=1.188	RUN_RV	70.1	67.0	258144	41562	147616	41562			WF +30000 workers, mult 1.188
+RV01_optimistic_10k_yr4	WF ramp optimistic_10k year 4: mult=1.250	RUN_RV	70.1	67.0	258144	43750	152025	43750			WF +40000 workers, mult 1.250
+RV01_optimistic_10k_yr5	WF ramp optimistic_10k year 5: mult=1.312	RUN_RV	70.1	67.0	258144	45938	156238	45938			WF +50000 workers, mult 1.312
+RV01_optimistic_10k_yr6	WF ramp optimistic_10k year 6: mult=1.375	RUN_RV	70.1	67.0	258144	48125	160266	48125			WF +60000 workers, mult 1.375
+RV01_optimistic_10k_yr7	WF ramp optimistic_10k year 7: mult=1.438	RUN_RV	70.1	67.0	258144	50312	164120	50312			WF +70000 workers, mult 1.438
+RV01_optimistic_10k_yr8	WF ramp optimistic_10k year 8: mult=1.500	RUN_RV	70.1	67.0	258144	52500	167810	52500			WF +80000 workers, mult 1.500
+RV01_optimistic_10k_yr9	WF ramp optimistic_10k year 9: mult=1.500	RUN_RV	70.1	67.0	258144	52500	167810	52500			WF +80000 workers, mult 1.500
+RV01_optimistic_10k_yr10	WF ramp optimistic_10k year 10: mult=1.500	RUN_RV	70.1	67.0	258144	52500	167810	52500			WF +80000 workers, mult 1.500
+RV01_unprecedented_20k_yr1	WF ramp unprecedented_20k year 1: mult=1.125	RUN_RV	70.1	67.0	258144	39375	142998	39375			WF +20000 workers, mult 1.125
+RV01_unprecedented_20k_yr2	WF ramp unprecedented_20k year 2: mult=1.250	RUN_RV	70.1	67.0	258144	43750	152025	43750			WF +40000 workers, mult 1.250
+RV01_unprecedented_20k_yr3	WF ramp unprecedented_20k year 3: mult=1.375	RUN_RV	70.1	67.0	258144	48125	160266	48125			WF +60000 workers, mult 1.375
+RV01_unprecedented_20k_yr4	WF ramp unprecedented_20k year 4: mult=1.500	RUN_RV	70.1	67.0	258144	52500	167810	52500			WF +80000 workers, mult 1.500
+RV01_unprecedented_20k_yr5	WF ramp unprecedented_20k year 5: mult=1.500	RUN_RV	70.1	67.0	258144	52500	167810	52500			WF +80000 workers, mult 1.500
+RV01_unprecedented_20k_yr6	WF ramp unprecedented_20k year 6: mult=1.500	RUN_RV	70.1	67.0	258144	52500	167810	52500			WF +80000 workers, mult 1.500
+RV01_unprecedented_20k_yr7	WF ramp unprecedented_20k year 7: mult=1.500	RUN_RV	70.1	67.0	258144	52500	167810	52500			WF +80000 workers, mult 1.500
+RV01_unprecedented_20k_yr8	WF ramp unprecedented_20k year 8: mult=1.500	RUN_RV	70.1	67.0	258144	52500	167810	52500			WF +80000 workers, mult 1.500
+RV01_unprecedented_20k_yr9	WF ramp unprecedented_20k year 9: mult=1.500	RUN_RV	70.1	67.0	258144	52500	167810	52500			WF +80000 workers, mult 1.500
+RV01_unprecedented_20k_yr10	WF ramp unprecedented_20k year 10: mult=1.500	RUN_RV	70.1	67.0	258144	52500	167810	52500			WF +80000 workers, mult 1.500
+RV02_dim_0	Dim-returns WF +0: eff_cap=35000 vs linear=35000	RUN_RV	70.1	67.0	258144	35000	133081	35000			Diminishing returns: +0 workers, eff_cap=35000, linear=35000
+RV02_dim_20000	Dim-returns WF +20000: eff_cap=39125 vs linear=39375	RUN_RV	70.1	67.0	258144	39125	142456	39125			Diminishing returns: +20000 workers, eff_cap=39125, linear=39375
+RV02_dim_40000	Dim-returns WF +40000: eff_cap=42826 vs linear=43750	RUN_RV	70.1	67.0	258144	42826	150188	42826			Diminishing returns: +40000 workers, eff_cap=42826, linear=43750
+RV02_dim_60000	Dim-returns WF +60000: eff_cap=46193 vs linear=48125	RUN_RV	70.1	67.0	258144	46193	156718	46193			Diminishing returns: +60000 workers, eff_cap=46193, linear=48125
+RV02_dim_80000	Dim-returns WF +80000: eff_cap=49289 vs linear=52500	RUN_RV	70.1	67.0	258144	49289	162338	49289			Diminishing returns: +80000 workers, eff_cap=49289, linear=52500
+RV02_dim_120000	Dim-returns WF +120000: eff_cap=54843 vs linear=61250	RUN_RV	70.1	67.0	258144	54843	171589	54843			Diminishing returns: +120000 workers, eff_cap=54843, linear=61250
+RV03_tanh_k0.5_everything	Tanh elasticity k=0.5 everything: soft=91702 vs linear=167810	RUN_RV	70.1	67.0	98585	52500	91702	52500			Tanh k=0.5, app_mult=2.82, linear_soft=167810
+RV03_tanh_k0.5_feasible	Tanh elasticity k=0.5 feasible: soft=68437 vs linear=73443	RUN_RV	15.5	12.4	76335	35000	68437	35000			Tanh k=0.5, app_mult=2.18, linear_soft=73443
+RV03_tanh_k1.0_everything	Tanh elasticity k=1.0 everything: soft=66106 vs linear=167810	RUN_RV	70.1	67.0	66850	52500	66106	52500			Tanh k=1.0, app_mult=1.91, linear_soft=167810
+RV03_tanh_k1.0_feasible	Tanh elasticity k=1.0 feasible: soft=59942 vs linear=73443	RUN_RV	15.5	12.4	64087	35000	59942	35000			Tanh k=1.0, app_mult=1.83, linear_soft=73443
+RV03_tanh_k2.0_everything	Tanh elasticity k=2.0 everything: soft=50925 vs linear=167810	RUN_RV	70.1	67.0	50925	50925	50925	52500			Tanh k=2.0, app_mult=1.45, linear_soft=167810
+RV03_tanh_k2.0_feasible	Tanh elasticity k=2.0 feasible: soft=49542 vs linear=73443	RUN_RV	15.5	12.4	50860	35000	49542	35000			Tanh k=2.0, app_mult=1.45, linear_soft=73443
+RV04_ge_baseline	GE correction baseline: 35000 -> 35000 (price drop 0.0%)	RUN_RV	0.0	-3.1	35000	35000	35000	35000			GE corrected: orig_soft=35000, price_drop=0.0%, eff_cr=0.0%
+RV04_ge_feasible	GE correction feasible: 73443 -> 35000 (price drop 219.7%)	RUN_RV	0	-3.1	35000	35000	35000	35000			GE corrected: orig_soft=73443, price_drop=219.7%, eff_cr=0.0%
+RV04_ge_feasible_wf12	GE correction feasible_wf12: 77184 -> 35000 (price drop 241.0%)	RUN_RV	0	-3.1	35000	35000	35000	42000			GE corrected: orig_soft=77184, price_drop=241.0%, eff_cr=0.0%
+RV04_ge_radical_wf15	GE correction radical_wf15: 143491 -> 35000 (price drop 619.9%)	RUN_RV	0	-3.1	35000	35000	35000	52500			GE corrected: orig_soft=143491, price_drop=619.9%, eff_cr=0.0%
+RV04_ge_everything	GE correction everything: 167810 -> 35000 (price drop 758.9%)	RUN_RV	0	-3.1	35000	35000	35000	52500			GE corrected: orig_soft=167810, price_drop=758.9%, eff_cr=0.0%
+RV05_decompose	Mod×CPO interaction: gross=0, soft=-14588, ceiling_artifact=-14588	RUN_RV	0	0	0	0	-14588	35000			Gross interaction=0 (should be ~0 for linear model), soft interaction=-14588, difference=-14588 is ceiling artifact
+RV06_Land_CPO_x_Workforce	MC interaction Land CPO × Workforce: 7846 [6812, 8782]	RUN_RV	0	0	7846	6812	8782	0			95% CI: [6812, 8782], includes_zero=False
+RV06_Modular_x_Workforce	MC interaction Modular × Workforce: 7650 [6624, 8586]	RUN_RV	0	0	7650	6624	8586	0			95% CI: [6624, 8586], includes_zero=False
+RV06_VAT_x_Workforce	MC interaction VAT × Workforce: 5282 [4549, 5969]	RUN_RV	0	0	5282	4549	5969	0			95% CI: [4549, 5969], includes_zero=False
+RV06_Modular_x_Land_CPO	MC interaction Modular × Land CPO: -14526 [-16625, -12435]	RUN_RV	0	0	-14526	-16625	-12435	0			95% CI: [-16625, -12435], includes_zero=False
+RV06_VAT_x_Land_CPO	MC interaction VAT × Land CPO: -11732 [-13499, -9869]	RUN_RV	0	0	-11732	-13499	-9869	0			95% CI: [-13499, -9869], includes_zero=False
