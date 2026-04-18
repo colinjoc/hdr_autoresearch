@@ -1,0 +1,6 @@
+family,framework,description,metrics_evaluated,discriminating_power,winner,notes
+T01,Energy-condition taxonomy,"Classify all metrics by NEC/WEC/SEC/DEC satisfaction",32,High,Yes,"Clear separation: superluminal violate NEC; subluminal Fell-Heisenberg satisfies all 4"
+T02,Alcubierre parameter-space exploration,"Map (v R sigma) to M_exotic for Alcubierre family",24,Medium,No,"Confirms scaling but does not distinguish between proposals"
+T03,Quantum inequality bounds,"Apply Ford-Roman QI to constrain all proposals",8,High,Yes,"Most restrictive single constraint; forces Planck-thickness walls"
+T04,Observational-constraint framework,"GW and cosmic-ray constraints on exotic metrics",5,Low,No,"Null results only; uninformative at current sensitivity"
+T05,Fell-Heisenberg boundary analysis,"Map subluminal-to-superluminal EC transition",4,High,Yes,"Identifies v~0.1c as EC boundary for demonstrated geometry"

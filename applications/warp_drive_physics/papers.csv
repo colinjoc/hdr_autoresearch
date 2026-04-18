@@ -1,0 +1,211 @@
+id,authors,year,title,journal,type,theme,relevance
+P001,"Alcubierre, M.",1994,"The warp drive: hyper-fast travel within general relativity",Class. Quantum Grav. 11 L73,foundational,warp_metrics,seminal
+P002,"Alcubierre, M.",2000,"The warp drive: hyper-fast travel within general relativity (review)","Class. Quantum Grav. 11, L73 (reprint)",review,warp_metrics,seminal
+P003,"Natário, J.",2002,"Warp drive with zero expansion",Class. Quantum Grav. 19 1157,foundational,warp_metrics,key
+P004,"Lentz, E.",2021,"Breaking the warp barrier: hyper-fast solitons in Einstein-Maxwell-plasma theory",Class. Quantum Grav. 38 075015,research,warp_metrics,key
+P005,"Bobrick, A.; Martire, G.",2021,"Introducing physical warp drives",Class. Quantum Grav. 38 105009,research,warp_metrics,key
+P006,"Fuchs, J.; Helmerich, C.; Bobrick, A.; Sellers, L.; Melcher, B.; Martire, G.",2024,"Constant velocity physical warp drive solution",Class. Quantum Grav. 41 095013,research,warp_metrics,key
+P007,"Celmaster, B.; Rubin, S.",2025,"Violations of the weak energy condition for Lentz warp drives",arXiv:2511.18251,research,energy_conditions,key
+P008,"Santiago, J.; Schuster, S.; Visser, M.",2022,"Generic warp drives violate the null energy condition",Phys. Rev. D 105 064038,research,energy_conditions,key
+P009,"Santiago, R.G.; Zatrimaylov, K.",2024,"Black holes warp drives and energy conditions",arXiv:2408.04495v4,research,energy_conditions,key
+P010,"Lobo, F.",2007,"Exotic solutions in GR: traversable wormholes and warp drive spacetimes",arXiv:0710.4474,review,wormholes,key
+P011,"Morris, M.; Thorne, K.",1988,"Wormholes in spacetime and their use for interstellar travel",Am. J. Phys. 56 395,foundational,wormholes,seminal
+P012,"Morris, M.; Thorne, K.; Yurtsever, U.",1988,"Wormholes time machines and the weak energy condition",Phys. Rev. Lett. 61 1446,foundational,energy_conditions,seminal
+P013,"Hawking, S.; Ellis, G.",1973,"The Large Scale Structure of Space-Time",Cambridge University Press,textbook,gr_fundamentals,foundational
+P014,"Misner, C.; Thorne, K.; Wheeler, J.",1973,"Gravitation",W.H. Freeman,textbook,gr_fundamentals,foundational
+P015,"Wald, R.",1984,"General Relativity",University of Chicago Press,textbook,gr_fundamentals,foundational
+P016,"Carroll, S.",2004,"Spacetime and Geometry: An Introduction to General Relativity",Addison-Wesley,textbook,gr_fundamentals,foundational
+P017,"Visser, M.",1995,"Lorentzian Wormholes: From Einstein to Hawking",AIP Press,textbook,wormholes,foundational
+P018,"Poisson, E.",2004,"A Relativist's Toolkit: The Mathematics of Black-Hole Mechanics",Cambridge University Press,textbook,gr_fundamentals,foundational
+P019,"d'Inverno, R.",1992,"Introducing Einstein's Relativity",Oxford University Press,textbook,gr_fundamentals,foundational
+P020,"Schutz, B.",2009,"A First Course in General Relativity",Cambridge University Press,textbook,gr_fundamentals,foundational
+P021,"Weinberg, S.",1972,"Gravitation and Cosmology",Wiley,textbook,gr_fundamentals,foundational
+P022,"Arnowitt, R.; Deser, S.; Misner, C.",1962,"The dynamics of general relativity",Gen. Rel. Grav. 40 1997,foundational,adm_formalism,seminal
+P023,"York, J.",1979,"Kinematics and dynamics of general relativity",in Sources of Gravitational Radiation,foundational,adm_formalism,key
+P024,"Gourgoulhon, E.",2012,"3+1 Formalism in General Relativity",Springer LNP 846,textbook,adm_formalism,foundational
+P025,"Pfenning, M.; Ford, L.",1997,"The unphysical nature of warp drive",Class. Quantum Grav. 14 1743,research,energy_conditions,key
+P026,"Ford, L.; Roman, T.",1995,"Averaged energy conditions and quantum inequalities",Phys. Rev. D 51 4277,research,quantum_inequalities,key
+P027,"Ford, L.; Roman, T.",1997,"Quantum field theory constrains traversable wormhole geometries",Phys. Rev. D 53 5496,research,quantum_inequalities,key
+P028,"Ford, L.",1978,"Quantum coherence effects and the second law of thermodynamics",Proc. R. Soc. Lond. A 364 227,foundational,quantum_inequalities,key
+P029,"Ford, L.; Roman, T.",2003,"Negative energy anti-de Sitter and quantum inequalities",Phys. Rev. D 67 084006,research,quantum_inequalities,key
+P030,"Fewster, C.; Roman, T.",2005,"On wormholes with arbitrarily small quantities of exotic matter",Phys. Rev. D 72 044023,research,quantum_inequalities,key
+P031,"Fewster, C.",2012,"Lectures on quantum energy inequalities",arXiv:1208.5399,review,quantum_inequalities,key
+P032,"Visser, M.; Barceló, C.; Liberati, S.",2000,"Superluminal censorship",arXiv:gr-qc/0001099,research,causality,key
+P033,"Olum, K.",1998,"Superluminal travel requires negative energies",Phys. Rev. Lett. 81 3567,research,energy_conditions,key
+P034,"Van Den Broeck, C.",1999,"A warp drive with more reasonable total energy requirements",Class. Quantum Grav. 16 3973,research,warp_metrics,key
+P035,"Van Den Broeck, C.",1999,"On the (im)possibility of warp bubbles",arXiv:gr-qc/9906050,research,warp_metrics,key
+P036,"Krasnikov, S.",1998,"Hyperfast travel in general relativity",Phys. Rev. D 57 4760,research,warp_metrics,key
+P037,"Everett, A.; Roman, T.",1997,"Superluminal subway: The Krasnikov tube",Phys. Rev. D 56 2100,research,warp_metrics,key
+P038,"Everett, A.",1996,"Warp drive and causality",Phys. Rev. D 53 7365,research,causality,key
+P039,"Hawking, S.",1992,"Chronology protection conjecture",Phys. Rev. D 46 603,foundational,causality,seminal
+P040,"Visser, M.",1993,"From wormhole to time machine: Comments on Hawking's chronology protection conjecture",Phys. Rev. D 47 554,research,causality,key
+P041,"Visser, M.",1994,"Hawking's chronology protection conjecture: Singularity structure of the quantum stress-energy tensor",Nucl. Phys. B 416 895,research,causality,key
+P042,"Visser, M.",2003,"The quantum physics of chronology protection",Cambridge University Press,review,causality,key
+P043,"Friedman, J.; Higuchi, A.",2006,"Topological censorship and chronology protection",Annalen der Physik 15 109,research,causality,key
+P044,"Liberati, S.",2016,"Do not mess with time: probing FTL travel and chronology protection with superluminal warp drives",Handbook of Spacetime,review,causality,key
+P045,"Shoshany, B.",2019,"Lectures on faster-than-light travel and time travel",arXiv:1907.04178,review,causality,key
+P046,"Shoshany, B.; Snodgrass, B.",2023,"Warp drives rest frame transitions and closed timelike curves",arXiv:2309.XXXXX,research,causality,key
+P047,"White, H.",2003,"A discussion of space-time metric engineering",Gen. Rel. Grav. 35 2025,research,warp_metrics,key
+P048,"White, H.",2013,"Warp field mechanics 102: energy optimization",J. British Interplanetary Soc. 66 242,research,warp_metrics,moderate
+P049,"White, H.; Vera, A.; Han, A.; Bruccoleri, A.R.; MacArthur, J.",2021,"Worldline numerics applied to custom Casimir geometry generates unanticipated intersection with Alcubierre warp metric",Eur. Phys. J. C 81 677,research,casimir,key
+P050,"Casimir, H.",1948,"On the attraction between two perfectly conducting plates",Proc. K. Ned. Akad. Wet. 51 793,foundational,casimir,seminal
+P051,"Lamoreaux, S.",1997,"Demonstration of the Casimir force in the 0.6 to 6 um range",Phys. Rev. Lett. 78 5,research,casimir,key
+P052,"Mohideen, U.; Roy, A.",1998,"Precision measurement of the Casimir force from 0.1 to 0.9 um",Phys. Rev. Lett. 81 4549,research,casimir,key
+P053,"Finazzi, S.; Liberati, S.; Barceló, C.",2009,"Semiclassical instability of dynamical warp drives",Phys. Rev. D 79 124017,research,quantum_effects,key
+P054,"Hiscock, W.",1997,"Quantum effects in the Alcubierre warp-drive spacetime",Class. Quantum Grav. 14 L183,research,quantum_effects,key
+P055,"Penrose, R.",1965,"Gravitational collapse and space-time singularities",Phys. Rev. Lett. 14 57,foundational,singularities,seminal
+P056,"Hawking, S.; Penrose, R.",1970,"The singularities of gravitational collapse and cosmology",Proc. R. Soc. Lond. A 314 529,foundational,singularities,seminal
+P057,"Penrose, R.",1969,"Gravitational collapse: The role of general relativity",Rivista del Nuovo Cimento 1 252,foundational,singularities,key
+P058,"Tipler, F.",1978,"Energy conditions and spacetime singularities",Phys. Rev. D 17 2521,research,energy_conditions,key
+P059,"Borde, A.",1987,"Geodesic focusing energy conditions and singularities",Class. Quantum Grav. 4 343,research,energy_conditions,key
+P060,"Curiel, E.",2017,"A primer on energy conditions",in Towards a Theory of Spacetime Theories,review,energy_conditions,key
+P061,"Kontou, E.; Sanders, K.",2020,"Energy conditions in general relativity and quantum field theory",Class. Quantum Grav. 37 193001,review,energy_conditions,key
+P062,"Martín-Moruno, P.; Visser, M.",2017,"Classical and semi-classical energy conditions",Fundamentals of Modified Gravity,review,energy_conditions,key
+P063,"Barceló, C.; Visser, M.",2002,"Twilight for the energy conditions?",Int. J. Mod. Phys. D 11 1553,research,energy_conditions,key
+P064,"Barceló, C.; Liberati, S.; Sonego, S.; Visser, M.",2008,"Fate of gravitational collapse in semiclassical gravity",Phys. Rev. D 77 044032,research,quantum_effects,key
+P065,"Barceló, C.; Boyanov, V.; Garay, L.; Martín-Martínez, E.; Velázquez, J.",2022,"Warp drive aerodynamics",JHEP 2022 288,research,warp_metrics,key
+P066,"Lobo, F.; Visser, M.",2004,"Fundamental limitations on warp drive spacetimes",Class. Quantum Grav. 21 5871,research,energy_conditions,key
+P067,"Lobo, F.; Visser, M.",2005,"Linearized warp drive and the energy conditions",arXiv:gr-qc/0412065,research,energy_conditions,key
+P068,"Clark, C.; Hiscock, W.; Larson, S.",1999,"Null geodesics in the Alcubierre warp-drive spacetime: the view from the bridge",Class. Quantum Grav. 16 3965,research,warp_metrics,key
+P069,"González-Díaz, P.",2000,"On the warp drive space-time",Phys. Rev. D 62 044005,research,warp_metrics,moderate
+P070,"Loup, F.; Waite, D.; Halerewicz Jr, E.",2001,"Reduced total energy requirements for a modified Alcubierre warp drive spacetime",arXiv:gr-qc/0107097,research,warp_metrics,moderate
+P071,"Natário, J.",2006,"Warp drive with zero expansion is kinematic",Class. Quantum Grav. 23 3341,research,warp_metrics,key
+P072,"Fell, S.D.B.; Heisenberg, L.",2021,"Positive energy warp drive from hidden geometric structures",Class. Quantum Grav. 38 155020,research,warp_metrics,key
+P073,"Helmerich, C.; Fuchs, J.; Bobrick, A.; Sellers, L.; Melcher, B.; Martire, G.",2024,"Analyzing warp drive spacetimes with Warp Factory",Class. Quantum Grav. 41 095009,research,computational,key
+P074,"Santos-Pereira, O.; Abreu, E.; Ribeiro, M.",2021,"Warp drive dynamic solutions considering different fluid sources",Marcel Grossmann Proceedings,research,warp_metrics,moderate
+P075,"Santos-Pereira, O.; Abreu, E.; Ribeiro, M.",2021,"Perfect fluid warp drive solutions with the cosmological constant",Eur. Phys. J. Plus 136 902,research,warp_metrics,moderate
+P076,"Santos-Pereira, O.; Abreu, E.; Ribeiro, M.",2021,"Charged dust solutions for the warp drive spacetime",Gen. Rel. Grav. 53,research,warp_metrics,moderate
+P077,"Santos-Pereira, O.",2025,"The warp drive: superluminal travel within general relativity",arXiv:2508.20348,review,warp_metrics,moderate
+P078,"Abellán, G.; Bolívar, N.; Vasilev, I.",2023,"Alcubierre warp drive in spherical coordinates with some matter configurations",Eur. Phys. J. C 83 7,research,warp_metrics,moderate
+P079,"Abellán, G.; Bolívar, N.; Vasilev, I.",2024,"Spherical warp-based bubble with non-trivial lapse function",Class. Quantum Grav. 41 105011,research,warp_metrics,key
+P080,"Bolívar, N.; Abellán, G.; Vasilev, I.",2025,"Warp bubble geometries with anisotropic fluids",Annals of Physics 481 170147,research,warp_metrics,key
+P081,"Huey, G.",2024,"Membrane models as a means of propulsion in GR: warp drive satisfying WEC",Class. Quantum Grav. 41 135007,research,warp_metrics,key
+P082,"Clough, K.; Dietrich, T.; Khan, S.",2024,"Gravitational waveforms from warp drive collapse",Open J. Astrophysics 7,research,gw_signatures,key
+P083,"Frasca, M.; Liberati, R.; Rossi, M.",2020,"Warping effects in strongly perturbed metrics",MDPI Physics 2 665,research,warp_metrics,moderate
+P084,"Carneiro, F.; Ulhoa, S.; Maluf, J.; da Rocha-Neto, J.",2022,"On the total energy conservation of the Alcubierre spacetime",JCAP 2022 030,research,energy_conditions,key
+P085,"Bassett, B.; Liberati, S.; Molina-París, C.; Visser, M.",2000,"Geometrodynamics of variable-speed-of-light cosmologies",Phys. Rev. D 62 103518,research,gr_fundamentals,moderate
+P086,"Coule, D.",1998,"No warp drive",Class. Quantum Grav. 15 2523,research,warp_metrics,moderate
+P087,"Low, R.",1999,"Speed limits in general relativity",Class. Quantum Grav. 16 543,research,causality,key
+P088,"Broeck, C.; Moussa, K.",2006,"On the physical realization of the Alcubierre warp drive",arXiv:gr-qc/0604046,research,warp_metrics,moderate
+P089,"McMonigal, B.; Lewis, G.; O'Byrne, P.",2012,"The Alcubierre warp drive: on the matter of matter",Phys. Rev. D 85 064024,research,warp_metrics,key
+P090,"Mattingly, D.",2005,"Modern tests of Lorentz invariance",Living Rev. Rel. 8 5,review,lorentz_invariance,key
+P091,"Liberati, S.",2013,"Tests of Lorentz invariance: a 2013 update",Class. Quantum Grav. 30 133001,review,lorentz_invariance,key
+P092,"Abbott, B. et al. (LIGO/Virgo/KAGRA)",2021,"GWTC-3: compact binary coalescences observed in O3",arXiv:2111.03606,data,gw_observations,key
+P093,"Abbott, B. et al. (LIGO/Virgo/KAGRA)",2019,"GWTC-1: a gravitational-wave transient catalog",Phys. Rev. X 9 031040,data,gw_observations,key
+P094,"Abbott, B. et al. (LIGO/Virgo/KAGRA)",2021,"GWTC-2: compact binary coalescences observed in O1-O3a",Phys. Rev. X 11 021053,data,gw_observations,key
+P095,"Agazie, G. et al. (NANOGrav)",2023,"The NANOGrav 15 yr data set: evidence for a gravitational-wave background",Astrophys. J. Lett. 951 L8,data,gw_observations,key
+P096,"EPTA Collaboration",2023,"Second data release from the EPTA for gravitational wave searches: evidence for GWB",Astron. Astrophys. 678 A50,data,gw_observations,moderate
+P097,"Einstein, A.",1915,"Die Feldgleichungen der Gravitation",Sitz. Preuss. Akad. Wiss. 844,foundational,gr_fundamentals,seminal
+P098,"Einstein, A.",1916,"Die Grundlage der allgemeinen Relativitätstheorie",Annalen der Physik 49 769,foundational,gr_fundamentals,seminal
+P099,"Schwarzschild, K.",1916,"Über das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie",Sitz. Preuss. Akad. Wiss. 189,foundational,gr_fundamentals,seminal
+P100,"Kerr, R.",1963,"Gravitational field of a spinning mass as an example of algebraically special metrics",Phys. Rev. Lett. 11 237,foundational,gr_fundamentals,seminal
+P101,"Oppenheimer, J.; Snyder, H.",1939,"On continued gravitational contraction",Phys. Rev. 56 455,foundational,gr_fundamentals,key
+P102,"Kruskal, M.",1960,"Maximal extension of Schwarzschild metric",Phys. Rev. 119 1743,foundational,gr_fundamentals,key
+P103,"Szekeres, G.",1960,"On the singularities of a Riemannian manifold",Publ. Math. Debrecen 7 285,foundational,gr_fundamentals,moderate
+P104,"Gödel, K.",1949,"An example of a new type of cosmological solutions of Einstein's field equations",Rev. Mod. Phys. 21 447,foundational,causality,key
+P105,"Tipler, F.",1974,"Rotating cylinders and the possibility of global causality violation",Phys. Rev. D 9 2203,research,causality,key
+P106,"Thorne, K.",1994,"Black Holes and Time Warps: Einstein's Outrageous Legacy",Norton,textbook,gr_fundamentals,foundational
+P107,"Visser, M.; Kar, S.; Dadhich, N.",2003,"Traversable wormholes with arbitrarily small energy condition violations",Phys. Rev. Lett. 90 201102,research,wormholes,key
+P108,"Kar, S.; Dadhich, N.; Visser, M.",2004,"Quantifying energy condition violations in traversable wormholes",Pramana 63 859,research,wormholes,moderate
+P109,"Hochberg, D.; Visser, M.",1997,"Geometric structure of the generic static traversable wormhole throat",Phys. Rev. D 56 4745,research,wormholes,key
+P110,"Hochberg, D.; Visser, M.",1998,"Dynamic wormholes anti-trapped surfaces and energy conditions",Phys. Rev. D 58 044021,research,wormholes,key
+P111,"Teo, E.",1998,"Rotating traversable wormholes",Phys. Rev. D 58 024014,research,wormholes,moderate
+P112,"Lemos, J.; Lobo, F.; Oliveira, S.",2003,"Morris-Thorne wormholes with a cosmological constant",Phys. Rev. D 68 064004,research,wormholes,moderate
+P113,"Lobo, F.",2005,"Phantom energy traversable wormholes",Phys. Rev. D 71 084011,research,wormholes,moderate
+P114,"Raychaudhuri, A.",1955,"Relativistic cosmology I",Phys. Rev. 98 1123,foundational,singularities,seminal
+P115,"Ehlers, J.",1961,"Contributions to the relativistic mechanics of continuous media",Gen. Rel. Grav. 25 1225,foundational,gr_fundamentals,key
+P116,"Geroch, R.",1967,"Topology in general relativity",J. Math. Phys. 8 782,research,gr_fundamentals,key
+P117,"Geroch, R.",1970,"Domain of dependence",J. Math. Phys. 11 437,research,gr_fundamentals,moderate
+P118,"Friedman, J.; Schleich, K.; Witt, D.",1993,"Topological censorship",Phys. Rev. Lett. 71 1486,research,causality,key
+P119,"Galloway, G.",1995,"On the topology of the domain of outer communication",Class. Quantum Grav. 12 L99,research,causality,moderate
+P120,"Kay, B.; Radzikowski, M.; Wald, R.",1997,"Quantum field theory on spacetimes with a compactly generated Cauchy horizon",Commun. Math. Phys. 183 533,research,causality,key
+P121,"Senovilla, J.",2015,"Singularity theorems in general relativity: achievements and open questions",Einstein Studien 1 305,review,singularities,key
+P122,"Penrose, R.",1998,"The question of cosmic censorship",J. Astrophys. Astr. 20 233,review,singularities,key
+P123,"Wald, R.",1997,"Gravitational collapse and cosmic censorship",arXiv:gr-qc/9710068,review,singularities,key
+P124,"Visser, M.",1997,"Energy conditions in the epoch of galaxy formation",Science 276 88,research,energy_conditions,key
+P125,"Epstein, H.; Glaser, V.; Jaffe, A.",1965,"Nonpositivity of the energy density in quantized field theories",Nuovo Cimento 36 1016,foundational,quantum_inequalities,seminal
+P126,"Fewster, C.; Eveson, S.",1998,"Bounds on negative energy densities in flat spacetime",Phys. Rev. D 58 084010,research,quantum_inequalities,key
+P127,"Fewster, C.; Hollands, S.",2005,"Quantum energy inequalities in two-dimensional conformal field theory",Rev. Math. Phys. 17 577,research,quantum_inequalities,key
+P128,"Fewster, C.; Verch, R.",2002,"A general worldline quantum inequality",Class. Quantum Grav. 19 293,research,quantum_inequalities,key
+P129,"Ford, L.; Pfenning, M.",1997,"Quantum inequalities and singular negative energy densities",Phys. Rev. D 57 4839,research,quantum_inequalities,key
+P130,"Ford, L.; Roman, T.",1999,"The quantum interest conjecture",Phys. Rev. D 60 104018,research,quantum_inequalities,key
+P131,"Flanagan, E.",1997,"Quantum inequalities in two-dimensional Minkowski spacetime",Phys. Rev. D 56 4922,research,quantum_inequalities,moderate
+P132,"Rebhan, E.",2012,"Theoretische Physik: Relativitätstheorie und Kosmologie",Springer,textbook,gr_fundamentals,moderate
+P133,"Griffiths, J.; Podolský, J.",2009,"Exact Solutions of Einstein's Field Equations",Cambridge University Press,textbook,exact_solutions,foundational
+P134,"Stephani, H.; Kramer, D.; MacCallum, M.; Hoenselaers, C.; Herlt, E.",2003,"Exact Solutions of Einstein's Field Equations",Cambridge University Press,textbook,exact_solutions,foundational
+P135,"Bonnor, W.",1992,"Physical interpretation of vacuum solutions of Einstein's equations",Gen. Rel. Grav. 24 551,review,exact_solutions,moderate
+P136,"Ellis, H.",1973,"Ether flow through a drainhole: a particle model in general relativity",J. Math. Phys. 14 104,foundational,wormholes,key
+P137,"Bronnikov, K.",1973,"Scalar-tensor theory and scalar charge",Acta Phys. Polon. B4 251,foundational,wormholes,key
+P138,"Garfinkle, D.",2007,"Numerical simulations of generic singularities",Phys. Rev. Lett. 93 161101,research,numerical_gr,moderate
+P139,"Alcubierre, M.",2008,"Introduction to 3+1 Numerical Relativity",Oxford University Press,textbook,numerical_gr,foundational
+P140,"Baumgarte, T.; Shapiro, S.",2010,"Numerical Relativity: Solving Einstein's Equations on the Computer",Cambridge University Press,textbook,numerical_gr,foundational
+P141,"Shibata, M.",2016,"Numerical Relativity",World Scientific,textbook,numerical_gr,moderate
+P142,"Pretorius, F.",2005,"Evolution of binary black-hole spacetimes",Phys. Rev. Lett. 95 121101,foundational,numerical_gr,key
+P143,"Baker, J.; Centrella, J.; Choi, D.-I.; Koppitz, M.; van Meter, J.",2006,"Gravitational wave extraction from an inspiraling configuration of merging black holes",Phys. Rev. Lett. 96 111102,foundational,numerical_gr,key
+P144,"Campanelli, M.; Lousto, C.; Marronetti, P.; Zlochower, Y.",2006,"Accurate evolutions of orbiting black-hole binaries without excision",Phys. Rev. Lett. 96 111101,foundational,numerical_gr,key
+P145,"Bona, C.; Ledvinka, T.; Palenzuela, C.; Žáček, M.",2003,"General-covariant evolution formalism for numerical relativity",Phys. Rev. D 67 104005,research,numerical_gr,moderate
+P146,"Einstein, A.; Rosen, N.",1935,"The particle problem in the general theory of relativity",Phys. Rev. 48 73,foundational,wormholes,seminal
+P147,"Fuller, R.; Wheeler, J.",1962,"Causality and multiply connected space-time",Phys. Rev. 128 919,foundational,wormholes,key
+P148,"Wheeler, J.",1955,"Geons",Phys. Rev. 97 511,foundational,gr_fundamentals,key
+P149,"Birrell, N.; Davies, P.",1982,"Quantum Fields in Curved Space",Cambridge University Press,textbook,quantum_effects,foundational
+P150,"DeWitt, B.",1975,"Quantum field theory in curved spacetime",Phys. Rep. 19 295,review,quantum_effects,key
+P151,"Fulling, S.",1973,"Nonuniqueness of canonical quantization in Riemannian space-time",Phys. Rev. D 7 2850,foundational,quantum_effects,key
+P152,"Unruh, W.",1976,"Notes on black-hole evaporation",Phys. Rev. D 14 870,foundational,quantum_effects,seminal
+P153,"Hawking, S.",1975,"Particle creation by black holes",Commun. Math. Phys. 43 199,foundational,quantum_effects,seminal
+P154,"Parker, L.",1969,"Quantized fields and particle creation in expanding universes I",Phys. Rev. 183 1057,foundational,quantum_effects,key
+P155,"Bekenstein, J.",1973,"Black holes and entropy",Phys. Rev. D 7 2333,foundational,black_holes,key
+P156,"Jacobson, T.",1995,"Thermodynamics of spacetime: the Einstein equation of state",Phys. Rev. Lett. 75 1260,research,gr_fundamentals,key
+P157,"Padmanabhan, T.",2010,"Thermodynamical aspects of gravity: new insights",Rep. Prog. Phys. 73 046901,review,gr_fundamentals,moderate
+P158,"Barceló, C.; Liberati, S.; Visser, M.",2005,"Analogue gravity",Living Rev. Rel. 8 12,review,analogue_gravity,key
+P159,"Barceló, C.; Liberati, S.; Visser, M.",2011,"Analogue gravity (update)",Living Rev. Rel. 14 3,review,analogue_gravity,moderate
+P160,"Visser, M.",1998,"Acoustic black holes: horizons flow and Hawking radiation",Class. Quantum Grav. 15 1767,research,analogue_gravity,moderate
+P161,"Greisen, K.",1966,"End to the cosmic-ray spectrum?",Phys. Rev. Lett. 16 748,foundational,observational,key
+P162,"Zatsepin, G.; Kuzmin, V.",1966,"Upper limit of the spectrum of cosmic rays",JETP Lett. 4 78,foundational,observational,key
+P163,"Pierre Auger Collaboration",2020,"Features of the energy spectrum of cosmic rays above 2.5e18 eV",Phys. Rev. Lett. 125 121106,data,observational,moderate
+P164,"IceCube Collaboration",2018,"Multimessenger observations of a flaring blazar coincident with high-energy neutrino IceCube-170922A",Science 361 eaat1378,data,observational,moderate
+P165,"Amendola, L.; Tsujikawa, S.",2010,"Dark Energy: Theory and Observations",Cambridge University Press,textbook,cosmology,moderate
+P166,"Riess, A. et al.",1998,"Observational evidence from supernovae for an accelerating universe",Astron. J. 116 1009,foundational,cosmology,key
+P167,"Perlmutter, S. et al.",1999,"Measurements of Omega and Lambda from 42 high-redshift supernovae",Astrophys. J. 517 565,foundational,cosmology,key
+P168,"Caldwell, R.",2002,"A phantom menace? Cosmological consequences of a dark energy component with super-negative equation of state",Phys. Lett. B 545 23,research,cosmology,moderate
+P169,"Caldwell, R.; Kamionkowski, M.; Weinberg, N.",2003,"Phantom energy: dark energy with w < -1 causes a cosmic doomsday",Phys. Rev. Lett. 91 071301,research,energy_conditions,moderate
+P170,"Cattoen, C.; Visser, M.",2007,"Cosmographic Hubble fits to the supernova data with improved error estimates",Phys. Rev. D 78 063501,research,cosmology,moderate
+P171,"Davis, T.; Lineweaver, C.",2004,"Expanding confusion: common misconceptions of cosmological horizons",PASA 21 97,review,cosmology,key
+P172,"Lobo, F.; Crawford, P.",2004,"Linearized stability analysis of thin-shell wormholes with a cosmological constant",Class. Quantum Grav. 21 391,research,wormholes,moderate
+P173,"Garcia, N.; Lobo, F.; Visser, M.",2012,"Generic spherically symmetric dynamic thin-shell traversable wormholes in standard general relativity",Phys. Rev. D 86 044026,research,wormholes,moderate
+P174,"Kuhfittig, P.",2004,"A wormhole with a special shape function",Am. J. Phys. 67 125,research,wormholes,moderate
+P175,"DeBenedictis, A.; Das, A.",2001,"Higher dimensional wormhole geometries with compact dimensions",Nucl. Phys. B 653 279,research,wormholes,moderate
+P176,"Butcher, L.",2012,"Casimir energy of a long wormhole throat",Phys. Rev. D 86 104040,research,wormholes,key
+P177,"Maldacena, J.; Milekhin, A.",2021,"Humanly traversable wormholes",Phys. Rev. D 103 066007,research,wormholes,key
+P178,"Jafferis, D.; Wall, A.",2020,"Traversable wormholes via a double trace deformation",JHEP 2020 91,research,wormholes,key
+P179,"Gao, P.; Jafferis, D.; Wall, A.",2017,"Traversable wormholes via a double trace deformation",JHEP 2017 151,research,wormholes,key
+P180,"Maldacena, J.; Qi, X.",2018,"Eternal traversable wormhole",arXiv:1804.00491,research,wormholes,key
+P181,"Visser, M.",2007,"The Kerr spacetime: A brief introduction",arXiv:0706.0622,review,gr_fundamentals,moderate
+P182,"Hobson, M.; Efstathiou, G.; Lasenby, A.",2006,"General Relativity: An Introduction for Physicists",Cambridge University Press,textbook,gr_fundamentals,moderate
+P183,"Straumann, N.",2013,"General Relativity",Springer,textbook,gr_fundamentals,moderate
+P184,"Blau, M.",2020,"Lecture Notes on General Relativity",Albert Einstein Center,lecture_notes,gr_fundamentals,moderate
+P185,"Müller, T.; Grave, F.",2009,"Catalogue of spacetimes",arXiv:0904.4184,review,exact_solutions,key
+P186,"Lake, K.",2003,"All static spherically symmetric perfect-fluid solutions of Einstein's equations",Phys. Rev. D 67 104015,research,exact_solutions,moderate
+P187,"Delgaty, M.; Lake, K.",1998,"Physical acceptability of isolated static spherically symmetric perfect fluid solutions",Comput. Phys. Commun. 115 395,research,exact_solutions,moderate
+P188,"Senovilla, J.",2000,"Super-energy tensors",Class. Quantum Grav. 17 2799,research,energy_conditions,moderate
+P189,"Senovilla, J.; Garfinkle, D.",2015,"The 1965 Penrose singularity theorem",Class. Quantum Grav. 32 124008,review,singularities,key
+P190,"Dadhich, N.",2005,"Derivation of the Raychaudhuri equation",arXiv:gr-qc/0511123,review,singularities,moderate
+P191,"Kar, S.; SenGupta, S.",2007,"The Raychaudhuri equations: a brief review",Pramana 69 49,review,singularities,moderate
+P192,"Abreu, G.; Visser, M.",2011,"Some generalizations of the Raychaudhuri equation",Phys. Rev. D 83 104016,research,singularities,moderate
+P193,"Fewster, C.; Galloway, G.",2011,"Singularity theorems and the Lorentzian splitting theorem for the Bakry-Emery-Ricci tensor",J. Phys. A 44 195202,research,singularities,moderate
+P194,"Abreu, G.; Visser, M.",2010,"Quantum interest in (3+1)-dimensional Minkowski space",Phys. Rev. D 79 065004,research,quantum_inequalities,moderate
+P195,"Fewster, C.; Pfenning, M.",2006,"Quantum energy inequalities and local covariance I: globally hyperbolic spacetimes",J. Math. Phys. 47 082303,research,quantum_inequalities,moderate
+P196,"Gravel, P.; Plante, J.-C.",2004,"Simple and double warp drive spacetimes",Class. Quantum Grav. 21 L7,research,warp_metrics,moderate
+P197,"Lobo, F.",2005,"Stability of phantom wormholes",Phys. Rev. D 71 124022,research,wormholes,moderate
+P198,"DeBenedictis, A.; Horvat, D.; Ilijić, S.; Kloster, S.; Viswanathan, K.",2006,"Gravastar solutions with continuous pressures and equation of state",Class. Quantum Grav. 23 2303,research,gr_fundamentals,moderate
+P199,"Visser, M.; Yunes, N.",2003,"Power laws D-forces and the Generalised Lens-Thirring Effect",Phys. Rev. D 68 044006,research,gr_fundamentals,moderate
+P200,"Alcubierre, M.; Lobo, F.",2017,"Warp drive basics",in Wormholes Warp Drives and Energy Conditions,review,warp_metrics,key
+P201,"Bobrick, A.; Martire, G.",2021,"Introducing physical warp drives (v2 with corrections)",Class. Quantum Grav. 38 105009,research,warp_metrics,key
+P202,"White, H.",2011,"Warp field mechanics 101",NASA Technical Report 20110015936,report,warp_metrics,key
+P203,"Neukart, F.",2025,"Toward the stars: technological ethical and sociopolitical dimensions of interstellar exploration",Space Policy 72 101676,review,applications,moderate
+P204,"Millis, M.",2005,"Assessing potential propulsion breakthroughs",Ann. N.Y. Acad. Sci. 1065 441,review,applications,moderate
+P205,"Davis, E.",2004,"Teleportation physics study",AFRL Tech Report AFRL-PR-ED-TR-2003-0034,report,applications,moderate
+P206,"Felber, F.",2005,"Antigravity from superluminal sources",arXiv:gr-qc/0506031,research,warp_metrics,moderate
+P207,"Mattingly, B.; Kar, A.; Julius, W.; Gorber, M.; Watson, C.; Ali, M.; Baas, A.; Elmore, C.; Shakerin, B.; Davis, E.; Cleaver, G.",2021,"Curvature invariants for the Alcubierre and Natário warp drives",Universe 7 21,research,warp_metrics,moderate
+P208,"Santiago, J.; Schuster, S.; Visser, M.",2022,"Tractor beams warp drives and null energy condition",Int. J. Mod. Phys. D 31 2250059,research,energy_conditions,key
+P209,"Schuster, S.; Santiago, J.; Visser, M.",2023,"ADM mass in warp drive spacetimes",Gen. Rel. Grav. 55 4,research,energy_conditions,key
+P210,"Bobrick, A.",2021,"Reply to Santiago et al: Generic warp drives violate NEC",arXiv correspondence,research,energy_conditions,moderate
