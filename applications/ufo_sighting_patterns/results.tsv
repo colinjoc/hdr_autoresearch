@@ -1,0 +1,66 @@
+experiment_id	description	metric	value	status	interaction	notes
+E00	Baseline annual count 1990-2024	peak_year	2014	KEEP	False	total=138945; peak_count=8797
+T01	STL time-series decomposition	seasonal_amplitude	244.7	KEEP	False	trend_peak=2014-04-01 00:00:00; residual_std=80.0
+T02	DBSCAN spatial clustering	n_clusters	60	KEEP	False	eps=0.5; min_samples=20; noise_frac=0.026
+T03	LDA topic model (10 topics)	n_topics	10	KEEP	False	20k sample; 5000 features
+T04	Logistic classifier (see tournament)	F1	see_tournament	KEEP	False	Covered in tournament; logistic regression with class_weight=balanced
+T05	Poisson regression: count ~ log(pop)	deviance_explained	0.5729	KEEP	False	AIC=47344.0
+T_Logistic_Regression	Tournament: Logistic Regression	F1	0.1024	KEEP	False	std=0.0032
+T_Ridge_Classifier	Tournament: Ridge Classifier	F1	0.0431	KEEP	False	std=0.0006
+T_Random_Forest	Tournament: Random Forest	F1	0.0319	KEEP	False	std=0.0284
+T_XGBoost	Tournament: XGBoost	F1	0.331	KEEP	False	std=0.0168
+E01	Annual trend analysis	CAGR_growth_phase	0.1436	KEEP	False	peak_year=2014; peak_count=8797
+E02	Day-of-week pattern	weekend_weekday_ratio	1.1955	KEEP	False	chi2=1724.1; p=0.00e+00
+E03	Hour-of-day pattern	peak_hour	21	KEEP	False	night_day_ratio=4.39
+E04	Seasonal pattern	summer_winter_ratio	1.597	KEEP	False	peak_month=Jul
+E05	Shape evolution over time	disk_decline_pct	4.4	KEEP	False	disk_1990s=10.3%; disk_2020s=5.9%
+E06	Duration distribution	median_duration_sec	180.0	KEEP	False	mean=647; IQR=30-600
+E07	US state per-capita sighting rate	top_state_rate_per_100k	94.6	KEEP	False	top_state=WA
+E08	Military base proximity	near_base_fraction_50km	0.0605	KEEP	False	n_near=4858; n_far=75473
+E09	Airport proximity	near_airport_fraction_30km	0.1165	KEEP	False	n_near=9357
+E10	Launch site proximity	near_launch_fraction_100km	0.0124	KEEP	False	
+E11	Starlink era formation sighting rate	formation_rate_ratio	1.07	KEEP	False	pre=15.1/mo; post=16.2/mo
+E12	Satellite/ISS text mentions	satellite_mention_count	6817	KEEP	False	iss=2333; meteor=10267
+E13	Explanation field analysis	explained_fraction	0.0054	KEEP	False	top_type=Starlink; n_explained=803
+E14	Reporting lag	median_lag_days	1.9	KEEP	False	same_day_frac=0.402
+E15	Observer count	single_observer_fraction	0.3688	KEEP	False	
+E16	Country comparison	us_canada_percapita_ratio	2.49	KEEP	False	
+E17	Urban vs rural spatial density	median_sightings_per_cell	22	KEEP	False	
+E18	Media event correlation	analysis_type	descriptive	KEEP	False	Media events show variable correlation with monthly counts
+E19	Shape-by-time-of-day interaction	chi2_shape_night	2047.4	KEEP	False	p=0.00e+00; dof=5
+E20	Text length vs explanation	median_text_explained	409.0	KEEP	False	unexplained_median=684; MWU_p=0.0000
+E21	Holiday spikes	july4_spike_ratio	1.67	KEEP	False	nye_ratio=2.83; halloween_ratio=1.36
+E22	Clock-hour rounding bias	rounding_rate	0.3866	KEEP	False	expected=0.0167; over_rep=23.2x
+E23	Bootstrap CI on peak year	peak_year_modal	2014	KEEP	False	CI=2014-2014
+E24	Permutation test day-of-week	perm_p	1.0	KEEP	False	chi2=1819.6
+E25	Pre/post COVID sighting rate	covid_ratio	1.074	KEEP	False	
+E26	Drone mention trend	drone_rate_2024	0.0746	KEEP	False	
+E27	Shape-duration interaction	formation_median_sec	180.0	KEEP	False	
+E28	Explanation type by shape	analysis	descriptive	KEEP	False	
+E29	Text length trend over time	trend	see_notes	KEEP	False	1995_median=0; latest_median=453
+INT01	Formation x time-of-day x Starlink era	post_starlink_night_shift	-0.1007	KEEP	True	pre=0.684; post=0.583
+INT02	July 4 x shape distribution	fireball_spike_jul4	0.0573	KEEP	True	Fireball fraction elevated on July 4
+INT03	Weekend x summer interaction	chi2_weekend_summer	61.2	KEEP	True	p=5.14e-15
+DISC01	Top-50 sighting hotspots	n_hotspots	50	KEEP	False	discoveries/sighting_hotspots.csv
+DISC02	Starlink monthly impact	formation_rate_ratio	1.25	KEEP	False	discoveries/starlink_impact.csv
+E30	Internet adoption correlation (growth 1990-2014)	pearson_r	0.9075	KEEP	False	p=3.91e-10; spearman_rho=0.9492; full_period_r=0.7220
+E30	Internet adoption correlation (growth 1990-2014)	pearson_r	0.9075	KEEP	False	p=3.91e-10; spearman_rho=0.9492; full_period_r=0.7220
+E31	Starlink ITS (formation fraction)	intercept_shift_p	0.0	KEEP	False	shift=0.0634; abs_ratio=1.30; frac_ratio=1.23
+E31	Starlink ITS (formation fraction)	intercept_shift_p	0.0	KEEP	False	shift=0.0634; abs_ratio=1.30; frac_ratio=1.23
+E32	Overdispersion: Poisson vs NB	dispersion_ratio	719.3	KEEP	False	poisson_aic=47344; nb_aic=909; nb_coef=0.7338
+E32	Overdispersion: Poisson vs NB	dispersion_ratio	719.3	KEEP	False	poisson_aic=47344; nb_aic=909; nb_coef=0.7338
+E33	Cultural indicators (text mention vs shape)	saucer_disk_r	0.9095	KEEP	False	p=0.0000; orb_orb_r=0.9604
+E34	State-level formation (Starlink era)	latitude_formation_r	-0.0372	KEEP	False	p=0.7977; top_state=WY
+E30	Internet adoption correlation (growth 1990-2014)	pearson_r	0.9075	KEEP	False	p=3.91e-10; spearman_rho=0.9492; full_period_r=0.7220
+E31	Starlink ITS (formation fraction)	intercept_shift_p	0.0	KEEP	False	shift=0.0634; abs_ratio=1.30; frac_ratio=1.23
+E32	Overdispersion: Poisson vs NB	dispersion_ratio	719.3	KEEP	False	poisson_aic=47344; nb_aic=909; nb_coef=0.7338
+E33	Cultural indicators (text mention vs shape)	saucer_disk_r	0.9095	KEEP	False	p=0.0000; orb_orb_r=0.9604
+E34	State-level formation (Starlink era)	latitude_formation_r	-0.0372	KEEP	False	p=0.7977; top_state=WY
+E30	Internet adoption correlation (growth 1990-2014)	pearson_r	0.9075	KEEP	False	p=3.91e-10; spearman_rho=0.9492; full_period_r=0.7220
+E30	Internet adoption correlation (growth 1990-2014)	pearson_r	0.9075	KEEP	False	p=3.91e-10; spearman_rho=0.9492; full_period_r=0.7220
+E31	Starlink ITS (formation fraction)	intercept_shift_p	0.0	KEEP	False	shift=0.0634; abs_ratio=1.30; frac_ratio=1.23
+E31	Starlink ITS (formation fraction)	intercept_shift_p	0.0	KEEP	False	shift=0.0634; abs_ratio=1.30; frac_ratio=1.23
+E32	Overdispersion: Poisson vs NB	dispersion_ratio	719.3	KEEP	False	poisson_aic=47344; nb_aic=909; nb_coef=0.7338
+E32	Overdispersion: Poisson vs NB	dispersion_ratio	719.3	KEEP	False	poisson_aic=47344; nb_aic=909; nb_coef=0.7338
+E33	Cultural indicators (text mention vs shape)	saucer_disk_r	0.9095	KEEP	False	p=0.0000; orb_orb_r=0.9604
+E34	State-level formation (Starlink era)	latitude_formation_r	-0.0372	KEEP	False	p=0.7977; top_state=WY
