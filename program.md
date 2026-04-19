@@ -15,9 +15,9 @@ For every project, the agent MUST produce ALL of the following artifacts on disk
 2. `literature_review.md` (Phase 0)
 3. `research_queue.md` (Phase 0)
 4. `knowledge_base.md` (Phase 0)
-5. `feature_candidates.md` + `design_variables.md` (Phase 0)
-6. `data_sources.md` + `E00` row in `results.tsv` (Phase 0.5)
-7. ≥4 model families in `tournament_results.csv` + `results.tsv` (Phase 1)
+5. `feature_candidates.md` + `design_variables.md` (Phase 0) — for Option D: `design_variables.md` lists ansatz families and their free parameters
+6. `data_sources.md` + `E00` row in `results.tsv` (Phase 0.5) — for Option D: `data_sources.md` lists CAS libraries/versions and reference results; `E00` is the baseline framework
+7. ≥4 model families in `tournament_results.csv` + `results.tsv` (Phase 1) — for Option D: ≥3 mathematical frameworks including the textbook baseline
 8. ≥20 KEEP/REVERT experiments in `results.tsv` (Phase 2)
 9. Pairwise-interaction rows in `results.tsv` (Phase 2.5)
 10. `paper_review.md` with reviewer-mandated experiments executed (Phase 2.75)
@@ -52,8 +52,8 @@ complete unless these are true.
 | Phase | Required artifact(s) in `applications/<project>/` | Content marker / rule |
 |---|---|---|
 | 0 | `papers.csv` + `literature_review.md` + `knowledge_base.md` + `research_queue.md` + `design_variables.md` | ≥200 citations in `papers.csv`; ≥100 hypotheses in `research_queue.md` |
-| 0.5 | `E00` row in `results.tsv` + `data_sources.md` | Real data only (no synthetic); seed-stable |
-| 1 | ≥4 model families in `results.tsv` + `tournament_results.csv` | Include a linear-model sanity check |
+| 0.5 | `E00` row in `results.tsv` + `data_sources.md` | Real data only (no synthetic); seed-stable. Option D: CAS versions + textbook reproduction |
+| 1 | ≥4 model families in `results.tsv` + `tournament_results.csv` | Include a linear-model sanity check. Option D: ≥3 mathematical frameworks including textbook baseline |
 | 2 | ≥20 rows in `results.tsv` with `status` ∈ {KEEP, REVERT} | Every KEEP ties to a commit and re-runs from cache |
 | 2.5 | Pairwise-interaction rows in `results.tsv` | Top-N near-miss features actually tested |
 | **2.75** | `paper_review.md` AND all reviewer-mandated experiments present in `results.tsv` with `status` in {RUN_RV, CONTROL, TEMPORAL, DIAG} | `paper_review.md` must be written by a **different sub-agent invocation** from the HDR author; "documented in §Limitations" is NOT a valid completion |
@@ -94,6 +94,24 @@ Optimise **[OBJECTIVE]** by modifying **[DESIGN VARIABLES]** evaluated via **[SI
 
 ### Option C: Decomposition-Based
 Reverse-engineer an existing AI-discovered or black-box solution. Identify which components and parameters carry the win, which are optimisation artifacts, and what physical mechanism explains the performance. Use **systematic ablation** of the existing solution rather than forward search over a design space. Appropriate when a published result needs interpretation, not improvement. The Phase 2 loop runs in a different rhythm — see "Phase 2 Variant: Decomposition Loop" below.
+
+### Option D: Symbolic/Analytical
+Derive, verify, or classify **mathematical expressions** using a Computer Algebra System (CAS) as the evaluation oracle. Appropriate when the primary question is about the structural properties of equations — whether they satisfy constraints, what parameter regimes yield desired behaviour, what the minimal mathematical structure is that produces a result. The evaluation oracle is a CAS (SymPy, SageMath, Cadabra, EinsteinPy, Mathematica), not a dataset or a physics simulator.
+
+**Objective:** Establish whether **[MATHEMATICAL STRUCTURE]** satisfies **[CONSTRAINT SET]** under **[PARAMETER REGIME]**, and identify the minimal structure and parameter bounds that achieve it.
+
+**When to use Option D (not B):**
+- The primary output is a symbolic expression, classification, or proof — not a numerical optimum
+- The "evaluation" is constraint satisfaction (does this expression have property X?), not optimisation (what value of X minimises Y?)
+- The search space is qualitatively different mathematical frameworks, not continuous parameters of a single framework
+- The result includes analytical bounds, sign conditions, or symmetry classifications, not just a best-performing design
+
+**When to use Option B instead:**
+- The mathematical expression is fixed and you are sweeping continuous parameters to optimise a scalar objective
+- The evaluation is purely numerical (a physics simulator that happens to solve equations)
+- The result is a ranked design or Pareto front, not a structural insight about the mathematics
+
+The Phase 1 tournament, Phase 2 loop, and Phase B discovery all run in different rhythms for Option D — see the corresponding variant sections below.
 
 ---
 
@@ -174,6 +192,19 @@ When all three are satisfied, the lit review is "enough". Most projects will hit
 
 ### Simulation Realism (Option B only)
 Before optimising, verify: all dominant physics included, hardware constraints enforced, sufficient resolution, validated against published results, dissipation/noise modeled, constraint violations reported.
+
+### Symbolic Verification (Option D only)
+
+Before starting the HDR loop, verify the CAS pipeline is trustworthy:
+
+1. **Reproduce a textbook result.** Pick a known analytical result from the literature (a solved metric, a known energy condition, a published bound) and verify the pipeline reproduces it exactly. This is the Option D equivalent of "reproduce published SOTA" — if the CAS gives wrong answers on known cases, everything downstream is suspect.
+2. **Grid convergence test.** When symbolic expressions are evaluated numerically on a grid (e.g., checking energy conditions at spatial points), run at 3 resolutions (e.g., 50/100/200 points) and verify the result changes by <1%. Record the convergence check in `results.tsv` as `E00_convergence`.
+3. **Simplification sanity check.** Verify that `simplify()` or equivalent does not silently drop terms. Compare the full unsimplified expression evaluated at 5 test points against the simplified version. Disagreements > machine epsilon indicate a CAS bug or an invalid simplification assumption.
+4. **Dimension/unit consistency.** For physics problems, verify that every term in every equation has consistent dimensions. A CAS will happily add meters to seconds. Catch this before the loop starts.
+
+**Baseline for Option D:** The `E00` row in `results.tsv` records the baseline mathematical framework (typically the textbook/standard result) with its constraint satisfaction status. Example: `E00 | Alcubierre metric, standard GR | min(G00) = -0.583 | WEC_violated | KEEP | baseline`.
+
+**Data sources for Option D:** `data_sources.md` lists the CAS libraries (with versions), any published symbolic results being reproduced, and references to the mathematical formulations being tested. There may be no "dataset" in the traditional sense — the "data" is the mathematical structure itself. This is acceptable; the synthetic-data prohibition does not apply to Option D because the expressions under study are the primary objects, not proxies for missing measurements.
 
 ### Use Published Simulators and Datasets — DO NOT BUILD YOUR OWN
 
@@ -259,6 +290,53 @@ Re-run the tournament if the HDR loop plateaus (5+ consecutive reverts).
 - **Bagging beats boosting for small N.** When the tournament includes a task with N < 400 training examples, ExtraTrees / Random Forest typically beats XGBoost / LightGBM by 5–10%. The boosters overfit. Test bagging explicitly on small tasks.
 - **Per-task model selection is mandatory.** Do not pick one model family for the whole project. Different tasks have different optimal model families, featurizers, and target transforms. Capture per-task winners in a decision table after the tournament — one-size-fits-all trades wins on ~50% of tasks.
 - **Hard thresholds beat soft blends for bimodal targets.** When a target has a sharp physical boundary (metal ↔ nonmetal, stable ↔ unstable, present ↔ absent), use a two-stage classifier→regressor with a hard threshold, not a soft probability blend. Soft blends consistently lose.
+
+### Phase 1 Variant: Framework Tournament (Option D)
+
+For symbolic/analytical projects, the tournament compares **mathematical frameworks**, not ML model families. The question is not "which algorithm fits best?" but "which mathematical structure best satisfies the target constraints?"
+
+**Procedure:**
+1. **Identify ≥3 fundamentally different mathematical frameworks** from the Phase 0 literature review. These must be structurally distinct (different field equations, different symmetry groups, different dimensionality), not parameter variants of the same framework. Include the **textbook/standard framework as the baseline** (analogous to the linear-model sanity check).
+2. **For each framework**, implement the symbolic expression in `ansatz.py` (or `src/metric_ansatze.py` or equivalent), compute all derived quantities (tensors, constraints, conservation laws), and evaluate the target constraint set.
+3. **Record in `tournament_results.csv`**: framework name, constraint satisfaction (yes/no/partial), margin (how far from satisfaction), computational cost (CAS wall time), expression complexity (term count or leaf count of the simplified expression).
+4. **Select 1-2 winner frameworks** for the Phase 2 HDR loop. The winner is the framework with the best constraint satisfaction margin, or (if multiple frameworks satisfy constraints) the simplest one.
+
+**Example (warp drive):**
+| Framework | min(G₀₀) | WEC satisfied? | Expression complexity |
+|-----------|-----------|---------------|----------------------|
+| F1: Standard GR (baseline) | -0.583 | No | 12 terms |
+| F2: Kaluza-Klein 5D | -0.526 | No | 38 terms |
+| F3: f(R) = R + αR² | -2.138 | No (worse) | 24 terms |
+| F4: Einstein-Cartan | +0.006 | Yes (at s₀=5) | 18 terms |
+
+**The linear-model sanity check equivalent:** The textbook/standard framework (e.g., standard GR for gravity problems, flat-space QFT for particle problems) must always be included. If a modified framework cannot beat the standard one on the target constraint, the modification is not useful.
+
+**Option D code structure:**
+```
+applications/<project>/
+├── src/
+│   ├── ansatze.py            # Parameterised mathematical structures (metrics, Hamiltonians, ansätze)
+│   │                         # Each function returns: expression, coordinates, parameters, framework ID
+│   ├── field_equations.py    # Derived quantities: tensors, curvatures, conservation laws, etc.
+│   ├── constraints.py        # Constraint checkers: energy conditions, positivity, unitarity, symmetry
+│   └── __init__.py
+├── run_experiments.py        # Orchestrates: pick ansatz → compute derived quantities → check constraints → record
+├── tests/                    # TDD: one test per framework reproducing a textbook result
+├── results.tsv
+├── knowledge_base.md         # Accumulated symbolic facts (sign conditions, limiting cases, mechanism classifications)
+├── research_queue.md
+├── literature_review.md
+├── papers.csv
+├── design_variables.md       # Ansatz families and their free parameters
+├── data_sources.md           # CAS library versions, reference results, mathematical formulations
+├── tournament_results.csv
+├── paper.md
+├── generate_plots.py
+├── plots/
+└── discoveries/              # Minimal structures, analytical bounds, solution family classifications
+```
+
+`ansatze.py` is the Option D equivalent of `strategy.py` — it is the **only file modified during the Phase 2 HDR loop** (plus `constraints.py` if new constraint types are added). `field_equations.py` and `run_experiments.py` are infrastructure, fixed after Phase 1.
 
 ---
 
@@ -475,6 +553,61 @@ When the goal is to reverse-engineer an existing AI-discovered or black-box solu
 - **Cross-validate decomposition against an independent source.** Differentiable simulators and step-based simulators can disagree on internal scales. Verify the dominant mechanism on both before publishing the interpretation.
 - **Survey the family, don't extrapolate from one solution.** After decomposing the best solution, decompose 3–5 others from the same family. They may use distinct mechanisms (e.g. signal amplification vs noise suppression). The "explanation" of the AI's discovery may be plural.
 - **Verify the simplified design reaches or beats the original.** A successful decomposition produces a minimal design that, after re-optimising 1–2 free parameters, matches or exceeds the original AI-discovered performance. If it doesn't, you removed something essential.
+
+### Phase 2 Variant: Symbolic Analysis Loop (for Option D projects)
+
+When the evaluation oracle is a CAS rather than a dataset or simulator, the HDR loop runs with a different vocabulary but the same discipline. Replace steps 1–8 above with:
+
+```
+1. Pick structure to test          ← ansatz modification, coupling term, boundary condition, symmetry constraint
+2. State prior                     ← probability that this structure satisfies the target constraint
+3. Articulate mechanism            ← mathematical reasoning: WHY would this term/structure produce the desired property?
+                                     (sign argument, symmetry argument, dimensional argument, limiting-case argument)
+4. Implement ONE symbolic change   ← modify ansatz.py or equivalent; git commit BEFORE evaluating
+5. Evaluate symbolically           ← compute derived quantities via CAS → check constraint set → grid-evaluate if needed
+6. Record results                  ← append to results.tsv (see schema below)
+7. Update beliefs                  ← KEEP (constraint improved or satisfied) or REVERT (no improvement or regression)
+8. Update knowledge                ← knowledge_base.md gains a symbolic fact; research_queue.md updated
+```
+
+#### Option D results schema
+
+Option D experiments produce hybrid results — symbolic expressions AND numerical evaluations. The `results.tsv` schema is extended:
+
+```
+experiment_id | description | constraint | margin | status | symbolic_result | notes
+E00           | Alcubierre, std GR | WEC | -0.583 | KEEP | G00 = -(dv/dx)²f² < 0 always | baseline
+E01           | +torsion, s0=1 | WEC | -0.412 | REVERT | correction has right sign but too small | need s0 >> 1
+E02           | +torsion, s0=5 | WEC | +0.006 | KEEP | H00 dominates G00 at s0>4.3 | critical threshold found
+```
+
+**Key columns:**
+- `constraint`: the target mathematical property being checked (WEC, NEC, unitarity, positivity, convergence, symmetry class, etc.)
+- `margin`: numerical distance from constraint satisfaction. Positive = satisfied, negative = violated. For binary constraints (symmetry yes/no), use 1/0.
+- `symbolic_result`: the key symbolic expression or classification from this experiment. Keep it to one line; put the full derivation in `knowledge_base.md`.
+
+#### Symbolic-mode rules
+
+- **Sign arguments before parameter sweeps.** Before scanning parameter ranges, check whether the modification has the *right sign* to improve the target constraint. A correction term with the wrong sign will never help, regardless of parameter values. The warp drive f(R) framework failed this test — the correction amplified WEC violation regardless of the coupling constant. Catching wrong-sign terms symbolically saves dozens of numerical experiments.
+
+- **Limiting cases as free theorems.** Every new ansatz should be evaluated in at least two limiting cases (e.g., weak-field, flat-space, zero-coupling, infinite-coupling). If the expression doesn't reduce to the expected result in a known limit, the implementation has a bug. These are free sanity checks — the CAS does them instantly.
+
+- **Simplification is an experiment, not just cleanup.** After a KEEP result, explicitly simplify the winning expression and record the simplified form as a separate experiment. Often the simplified form reveals the *essential mathematical mechanism* — which terms actually matter and which are along for the ride. Example: "the torsion correction reduces to H₀₀ ∝ s₀² |∇f|² in the thin-wall limit" is a discovery that the full expression obscures.
+
+- **Expression complexity as a secondary metric.** Track the term count (or SymPy `count_ops()`) of each expression. Between two frameworks that both satisfy the constraint, prefer the simpler one. Complexity is measured after simplification. This is the symbolic equivalent of Occam's razor.
+
+- **Cross-validate symbolic results numerically.** Every symbolic KEEP must be spot-checked by numerical evaluation at ≥5 test points (not just the grid used during evaluation). CAS simplification can silently drop terms, introduce branch cuts, or assume variable signs. Numerical cross-validation catches these.
+
+- **Parameter-regime mapping after structural search.** Once a framework is confirmed to satisfy the target constraint for at least one parameter value, map the full parameter regime: scan the key parameters and record the boundary where constraint satisfaction flips. This boundary (a curve or surface in parameter space) is a primary result of Option D projects.
+
+#### Phase B for Option D: Analytical Discovery
+
+Phase B for symbolic projects produces one or more of these artifacts:
+
+1. **Minimal sufficient structure.** Strip the winning framework down to the fewest terms that still satisfy the target constraint. This is the symbolic equivalent of "inverse design" — what is the simplest mathematics that works?
+2. **Analytical bounds.** Derive closed-form expressions for the parameter regime where the constraint is satisfied. Example: "WEC requires s₀ > 4.3 √(v/c) for bubble velocity v."
+3. **Classification of solution families.** If multiple frameworks satisfy the constraint, classify them by the mathematical mechanism (sign flip via torsion vs. sign flip via bulk geometry vs. sign flip via higher-order curvature). This survey of the solution space is the highest-value Phase B output.
+4. **Conjectures and proof sketches.** If the numerical parameter scans suggest a general pattern (e.g., "all frameworks satisfying WEC require a topological correction"), state it as a conjecture with supporting evidence and record it in `knowledge_base.md`.
 
 ---
 
@@ -823,6 +956,8 @@ The website summary pipeline should not publish a project until `paper_review_si
 **Phase B is not "run more training experiments". It is "use the tool to explore the unknown". The output is a ranked list, a discovered candidate, a flagged anomaly, a Pareto front, or a specification for an extension — not just another row in the tournament.**
 
 **For descriptive-only projects**: Phase B is a rank-list / ranking output (e.g. "top 10 hospitals at risk next month", "which operators are worst-recovered") written to `discoveries/<project>_rankings.csv`. Skipping Phase B because "the project is descriptive" is FORBIDDEN — every project produces a forward-looking artifact.
+
+**For Option D (symbolic/analytical) projects**: Phase B produces one or more of: (1) minimal sufficient mathematical structure, (2) closed-form analytical bounds on constraint-satisfying parameter regimes, (3) classification of solution families by mathematical mechanism, (4) conjectures with proof sketches. See "Phase B for Option D: Analytical Discovery" in the Phase 2 Variant section. The output lives in `discoveries/` as markdown files with embedded LaTeX equations, plus any generated plots of parameter-regime boundaries.
 
 ---
 
