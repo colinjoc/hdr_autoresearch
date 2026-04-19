@@ -9,22 +9,26 @@
 
 **EVERY phase defined in this document MUST be completed on EVERY project. NO EXCEPTIONS. NO "DESCRIPTIVE SHORTCUTS". NO "SKIP BECAUSE SIMPLE". NO "COMBINED WITH PREVIOUS PHASE".**
 
+Every project is classified as either **website-target** (default — output is the HDR website summary) or **publication-target** (output is a manuscript to be submitted to a named journal). Publication-target projects have two additional mandatory phases (−0.5 and 0.25) that catch novelty and venue problems *before* the expensive Phase 0 / Phase 2 compute runs. Website-target projects skip both and go straight to Phase 0.
+
 For every project, the agent MUST produce ALL of the following artifacts on disk, in order, before the project can be declared complete:
 
-1. `papers.csv` (Phase 0)
-2. `literature_review.md` (Phase 0)
-3. `research_queue.md` (Phase 0)
-4. `knowledge_base.md` (Phase 0)
-5. `feature_candidates.md` + `design_variables.md` (Phase 0) — for Option D: `design_variables.md` lists ansatz families and their free parameters
-6. `data_sources.md` + `E00` row in `results.tsv` (Phase 0.5) — for Option D: `data_sources.md` lists CAS libraries/versions and reference results; `E00` is the baseline framework
-7. ≥4 model families in `tournament_results.csv` + `results.tsv` (Phase 1) — for Option D: ≥3 mathematical frameworks including the textbook baseline
-8. ≥20 KEEP/REVERT experiments in `results.tsv` (Phase 2)
-9. Pairwise-interaction rows in `results.tsv` (Phase 2.5)
-10. `paper_review.md` with reviewer-mandated experiments executed (Phase 2.75)
-11. `paper.md` (Phase 3)
-12. `paper_review_signoff.md` with literal `NO FURTHER BLOCKING ISSUES` (Phase 3.5)
-13. `phase_b_discovery.py` output (Phase B)
-14. Website `index.md` at `~/website/site/content/hdr/results/<slug>/` (Publish, only after artifact 12 exists)
+1. `proposal.md` + `scope_check.md` (Phase −0.5) — **publication-target projects only**
+2. `papers.csv` (Phase 0)
+3. `literature_review.md` (Phase 0)
+4. `research_queue.md` (Phase 0)
+5. `knowledge_base.md` (Phase 0)
+6. `feature_candidates.md` + `design_variables.md` (Phase 0) — for Option D: `design_variables.md` lists ansatz families and their free parameters
+7. `publishability_review.md` (Phase 0.25) — **publication-target projects only**
+8. `data_sources.md` + `E00` row in `results.tsv` (Phase 0.5) — for Option D: `data_sources.md` lists CAS libraries/versions and reference results; `E00` is the baseline framework
+9. ≥4 model families in `tournament_results.csv` + `results.tsv` (Phase 1) — for Option D: ≥3 mathematical frameworks including the textbook baseline
+10. ≥20 KEEP/REVERT experiments in `results.tsv` (Phase 2)
+11. Pairwise-interaction rows in `results.tsv` (Phase 2.5)
+12. `paper_review.md` with reviewer-mandated experiments executed (Phase 2.75)
+13. `paper.md` (Phase 3)
+14. `paper_review_signoff.md` with literal `NO FURTHER BLOCKING ISSUES` (Phase 3.5)
+15. `phase_b_discovery.py` output (Phase B)
+16. Website `index.md` at `~/website/site/content/hdr/results/<slug>/` (Publish, only after artifact 14 exists)
 
 **If any artifact is missing, the project is NOT complete. Publishing the website summary before artifact 12 exists is a retraction-grade failure.**
 
@@ -51,7 +55,9 @@ complete unless these are true.
 
 | Phase | Required artifact(s) in `applications/<project>/` | Content marker / rule |
 |---|---|---|
+| **−0.5** (publication-target only) | `proposal.md` + `scope_check.md` | `scope_check.md` ends with literal `VERDICT: PROCEED`; written by a **different sub-agent invocation** from the HDR author |
 | 0 | `papers.csv` + `literature_review.md` + `knowledge_base.md` + `research_queue.md` + `design_variables.md` | ≥200 citations in `papers.csv`; ≥100 hypotheses in `research_queue.md` |
+| **0.25** (publication-target only) | `publishability_review.md` | All five checklist sections answered; ends with literal `VERDICT: PROCEED`; written by a **different sub-agent invocation** from Phase −0.5 |
 | 0.5 | `E00` row in `results.tsv` + `data_sources.md` | Real data only (no synthetic); seed-stable. Option D: CAS versions + textbook reproduction |
 | 1 | ≥4 model families in `results.tsv` + `tournament_results.csv` | Include a linear-model sanity check. Option D: ≥3 mathematical frameworks including textbook baseline |
 | 2 | ≥20 rows in `results.tsv` with `status` ∈ {KEEP, REVERT} | Every KEEP ties to a commit and re-runs from cache |
@@ -115,6 +121,98 @@ The Phase 1 tournament, Phase 2 loop, and Phase B discovery all run in different
 
 ---
 
+## Phase −0.5: Scope Check (publication-target projects only)
+
+### When this phase applies
+
+This phase applies only to projects whose intended primary output is a **journal submission**, not the HDR website. Classify the project at ideation:
+
+- **Website-target projects** (default): primary output is `~/website/site/content/hdr/results/<slug>/`. Phase −0.5 and Phase 0.25 do NOT run. Most HDR projects are in this category.
+- **Publication-target projects**: primary output is a manuscript to be submitted to a named journal. The website summary is still produced, but it is secondary. Phase −0.5 and Phase 0.25 are MANDATORY.
+
+If the project is publication-target, state this in `proposal.md` on the first line:
+
+```
+**Target**: publication — primary venue: [journal name], fallback venue: [journal name]
+```
+
+If no journal is named, the project is not publication-target. Run it as website-target. A publication can always be spun out of a finished website-target project later, at which point Phase −0.5 and Phase 0.25 are run retroactively against the finished work before a submission is drafted.
+
+### Why this phase exists
+
+The Phase 2.75 and 3.5 reviewers catch *internal consistency* problems: does the abstract match §2.3, is the validation described in enough detail, are all references cited in the text. They do NOT catch *novelty weakness* or *venue mismatch*, because by that point the researcher has committed to a framing and a body of experiments. Phase −0.5 catches a different class of problem — "this idea cannot survive real peer review" — while the cost of a redirect is still a rewrite of one page.
+
+A retroactive audit found that the most expensive projects on this methodology were not the ones that produced null results. They were the ones that produced interesting results in formats no journal would accept — synthesis papers pitched as novel derivations, unfalsifiable headline claims dressed as measurements, and bounds whose headline depended on parameters with unknown values.
+
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE −0.5
+
+**Phase −0.5 is NOT complete and the project CANNOT proceed to Phase 0 unless ALL of these exist:**
+
+- [ ] `proposal.md` (one page, structure below) in `applications/<project>/`
+- [ ] `scope_check.md` written by a **different sub-agent invocation** from the HDR author — must be a fresh Agent call with no access to prior conversation
+- [ ] `scope_check.md` ends with one of three literal strings: `VERDICT: PROCEED`, `VERDICT: REFRAME`, or `VERDICT: KILL`
+- [ ] If the verdict is REFRAME, a `proposal_v2.md` (or v3) addressing the reviewer's specific points exists and has been re-reviewed
+- [ ] If the verdict is KILL, the project is either downgraded to website-target or paused — it does not proceed as publication-target
+
+### The one-page proposal
+
+`proposal.md` is a single page — not a lit review, not an abstract. It captures the idea at the moment of commitment, before the literature has been read deeply enough to bias the framing. Five sections, each no more than a paragraph:
+
+1. **Question.** One sentence describing the scientific question. No methodology, no deliverable — just the question.
+2. **Proposed contribution.** One paragraph describing what the paper will claim. Concrete enough that someone reading it knows whether the claim is *new*, an *extension*, a *synthesis*, or an *application*. "We will derive X under condition Y" is specific; "we will explore Z" is not.
+3. **Why now.** One paragraph on what makes this worth doing right now. What is the motivating development — a recent paper, an unexplained observation, a gap the literature keeps dancing around?
+4. **Falsifiability.** One sentence describing the specific outcome that would kill the result. If nothing could kill it, the paper has no testable claim and the scope check will fail.
+5. **Target venue.** One line naming the primary venue and one reason it is a fit (e.g. "PRE — publishes framework papers in stochastic thermodynamics").
+
+### Running the scope-check reviewer
+
+The scope-check reviewer is invoked as a **fresh sub-agent** with no access to the researcher's conversation. It reads only `proposal.md` and the relevant scope-check sections of `program.md`, and produces `scope_check.md`. Prompt template:
+
+```
+You are a grouchy physics reviewer at a top-tier journal. You reject
+two papers out of three, and your job is to catch weak ideas before
+their authors waste six months on them.
+
+You have been given a one-page proposal for a research project. The
+project has not been done yet — no lit review, no experiments, no data.
+You are assessing whether the idea, as described, has any plausible
+path to publication in the target venue.
+
+Read the proposal. Do NOT be kind. Answer in ≤ 400 words:
+
+1. Is the proposed contribution genuinely new? Name up to three existing
+   papers the proposal would be competing with. If you find three close
+   matches and the proposal does not differentiate clearly, the novelty
+   claim is weak.
+2. Is the falsifiability claim real, or is it unfalsifiable in disguise?
+   A claim like "X tends to increase" or "the bound is consistent with
+   observation" is not falsifiable — name it if you see it.
+3. Would the target venue accept this kind of paper on its face? If the
+   target is PRL and the claim is a synthesis paper, the venue is wrong.
+4. What are the single most likely killer objections a real reviewer
+   at that venue would raise? Name them explicitly.
+5. End with exactly one of the literal strings:
+   - VERDICT: PROCEED
+   - VERDICT: REFRAME
+   - VERDICT: KILL
+
+A REFRAME verdict must list the specific proposal points to revise. A
+KILL verdict is reserved for proposals that cannot be rescued — the
+question itself has no plausible venue or no testable claim.
+```
+
+### Verdicts
+
+- **PROCEED**: The project continues to Phase 0. The verdict and the reviewer's predicted killer objections are recorded at the top of `research_queue.md` so the lit review surfaces work that addresses them.
+- **REFRAME**: The proposal is rewritten addressing the reviewer's specific points. The scope check is re-run on `proposal_v2.md`. Maximum two reframe cycles; a third non-PROCEED verdict automatically becomes KILL.
+- **KILL**: The project does not proceed as publication-target. Two options — downgrade to website-target (drop the publication framing, continue under the standard website phases) or abandon the idea entirely. The decision and reason are recorded in `scope_check.md`.
+
+### Why this gate is cheap
+
+One sub-agent invocation. The reviewer reads about 400 lines of context (the proposal plus the scope-check sections of program.md) and produces 400 words. Compared to 200+ citations of lit review plus a full HDR loop, the scope check costs roughly an hour of compute against roughly a week. The asymmetry is the point.
+
+---
+
 ## Phase 0: Literature Review
 
 ### ⚠️ MANDATORY ARTIFACTS FOR PHASE 0
@@ -167,6 +265,109 @@ The 200-citation floor is a minimum, not a target. The right question is "have w
 When all three are satisfied, the lit review is "enough". Most projects will hit this between 200 and 500 citations. A few cross-disciplinary projects (e.g. AI-for-physics, where the literature spans computer science AND a physics subfield AND multi-objective optimisation AND a specific dataset) may need 800+ citations before all three saturate.
 
 **One more rule: do not stop early just because the count crossed a threshold.** A 250-citation lit review where 80 percent of fetches still add new facts is INCOMPLETE. A 180-citation lit review where 19 of the last 20 fetches added nothing is COMPLETE. The signal is the saturation, not the count.
+
+---
+
+## Phase 0.25: Publishability Review (publication-target projects only)
+
+This phase runs between the literature review (Phase 0) and the baseline (Phase 0.5) for publication-target projects. It does NOT run for website-target projects — those go straight from Phase 0 to Phase 0.5.
+
+### Why this phase exists
+
+After the literature review, the researcher knows enough to state the contribution specifically: what is the claim, what has been done before, what is new. This is the cheapest moment at which a reviewer can catch novelty weakness, because the lit review output is fresh and no experiments have been committed to. Once Phase 0.5 runs, the project has picked a dataset or simulator and redirecting the framing costs much more.
+
+Phase −0.5 caught the obvious dead ends before anyone read a paper. Phase 0.25 catches the subtler failures — ideas that looked plausible on a one-pager but, in the light of the lit review, turn out to be re-derivations of known work, or to rest on parameters nobody has measured, or to aim at a venue that does not publish this kind of paper.
+
+### ⚠️ MANDATORY ARTIFACTS FOR PHASE 0.25
+
+**Phase 0.25 is NOT complete and the project CANNOT proceed to Phase 0.5 unless ALL of these exist:**
+
+- [ ] `publishability_review.md` written by a **different sub-agent invocation** from Phase −0.5 (a fresh Agent call with no access to any prior conversation)
+- [ ] All five checklist sections below are answered in `publishability_review.md` — none empty, none "N/A"
+- [ ] `publishability_review.md` ends with one of three literal strings: `VERDICT: PROCEED`, `VERDICT: REFRAME`, or `VERDICT: KILL`
+- [ ] If the verdict is REFRAME, a rewritten proposal (`proposal_v2.md`, v3, …) exists and a fresh publishability review has been run on it
+- [ ] If the verdict is PROCEED, the reviewer's top three predicted killer objections are added to `research_queue.md` with the flag `pre-empt-reviewer`, so Phase 2 experiments address them pro-actively
+
+**Forbidden shortcuts, each of which has been observed in practice and each of which invalidates the gate:**
+- Running Phase 0.25 on the same sub-agent that did Phase −0.5 — FORBIDDEN; must be a fresh Agent call
+- Self-reviewing ("I'll play the reviewer role") — FORBIDDEN
+- Skipping Phase 0.25 because "the lit review already showed novelty" — FORBIDDEN; the lit review is input to this gate, not its verdict
+- Skipping Phase 0.25 because "the scope check said PROCEED" — FORBIDDEN; the scope check ran on a one-pager before any literature was read
+- "Short on context budget, will skip and run later" — FORBIDDEN; pause the project
+
+### Reviewer inputs (read-only)
+
+The publishability reviewer reads:
+- `proposal.md` (or the latest `proposal_vN.md`)
+- `literature_review.md`
+- `knowledge_base.md`
+- `research_queue.md`
+- `scope_check.md` from Phase −0.5 (for context on what was already flagged)
+- The Phase 0.25 section of `program.md`
+
+Do NOT give the reviewer: `papers.csv` (raw citation list — too long, and the reviewer is supposed to form judgements from the synthesised lit review), any code, any experiment results (there are none yet).
+
+### The five-point checklist
+
+The reviewer produces `publishability_review.md` answering five sections, in order. Every section is mandatory — missing or empty sections mean the phase is not complete.
+
+**1. Novelty taxonomy.** Categorise the proposed contribution into one of:
+- *Extension* of a known result (e.g. adding a finite-time correction to a quasistatic bound)
+- *Synthesis* of multiple known results into a unified framework
+- *Application* of a known framework to a new domain
+- *Genuinely new bound, proof, or prediction* not reducible to prior work
+
+For *anything other than category four*, the reviewer names the specific prior work the contribution extends/synthesises/applies. For category four, the reviewer lists up to five papers that are the closest existing thing, forcing a specific comparison. If the reviewer cannot find any close comparisons, that is flagged as either genuine novelty or a deficient lit review — the researcher addresses which.
+
+The reviewer is encouraged to be cynical about novelty claims. If the contribution is *synthesis* dressed as *genuinely new*, the gate catches it here, not after the paper is written.
+
+**2. Falsifiability.** Name the specific measurable outcome that would kill the claim. If the claim is "X exists", the kill-outcome is "X is not detected on measurement set Y with sensitivity Z". If the claim is a bound, the kill-outcome is "dataset Y violates the bound". If no measurable outcome could kill the claim, the paper has no testable contribution and the verdict must be REFRAME or KILL.
+
+Unfalsifiable-in-disguise patterns to watch for: "tends to increase", "is consistent with observation", "accounts for", "bridges frameworks". None of those, on their own, is a falsifiable claim.
+
+**3. Load-bearing parameters.** List every numerical parameter the headline depends on. For each, give:
+- The value used in the headline
+- The literature-consensus uncertainty (range or confidence interval)
+- How the headline scales in that parameter
+
+Flag any parameter whose uncertainty is wide enough that the headline is not stable. A headline that reads "X is 1.5" when the underlying parameter is unknown over three orders of magnitude and X scales quadratically in it is actually "X is 0.015 to 146". Real reviewers catch this within the first page. The gate catches it before the paper is written.
+
+**4. Venue fit.** Name two or three candidate journals. For each, give:
+- One reason it is a fit (what class of paper does it publish?)
+- One class of objection that venue typically raises
+
+Example: "*PRE* — publishes framework papers in stochastic thermodynamics. Typical objection: demands rigorous derivation of any claimed new bound; heuristic interpolations are sent back for major revision."
+
+If none of the named venues is a strong fit, the verdict is REFRAME (pick a better target, which may mean rewriting the contribution) or KILL.
+
+**5. Killer objections.** The top three objections a human reviewer at the primary venue would raise, each scored *fatal / major / minor*. For each:
+- State the objection specifically (not "novelty is unclear" but "the *B*(*r*) formula is claimed as derived but the paper shows only an interpolation between two limits")
+- Name whether the current project plan has a way to address it
+- If not, name the experiment, derivation, or reframing that would address it
+
+**Any fatal objection without a clear mitigation plan makes the verdict REFRAME.**
+
+### Verdicts
+
+- **PROCEED**: All five checklist items are clear. No fatal objection is unaddressed. At least one named venue is a plausible fit. The reviewer's top three killer objections are added to `research_queue.md` as `pre-empt-reviewer` hypotheses — the Phase 2 experiment plan must include at least one experiment addressing each.
+- **REFRAME**: One or more fatal problems — an unfalsifiable claim, poor venue fit, a load-bearing unknown parameter, or weak novelty. The researcher writes `proposal_v2.md` addressing the specific points raised and Phase 0.25 is re-run on it with a fresh sub-agent. Maximum two reframe cycles; a third non-PROCEED verdict is automatically KILL.
+- **KILL**: The project cannot be reframed into a publishable paper. Two options — downgrade to website-target (the project still runs, the website summary is still produced, but the publication framing is dropped and Phase −0.5 and Phase 0.25 artifacts are archived) or abandon the project entirely. The decision is recorded in `publishability_review.md`.
+
+### Why this gate is blocking
+
+A fatal objection discovered at Phase 2.75 — after a month of experiments and a written draft — costs a rewrite of the paper. The same objection discovered at Phase 0.25 — before Phase 0.5 has even picked a dataset — costs a rewrite of one page of proposal. If a project cannot survive this gate, it has no business sinking the compute of Phase 0.5 through Phase 3.
+
+The blocking design is not symmetrical with Phase 2.75. The 2.75 reviewer has concrete experiments to audit and can insist on re-runs. The 0.25 reviewer works on a proposal and a lit review, so its verdict is binary: either the idea can be pursued as publication-target (PROCEED), it needs to be reframed first (REFRAME), or it cannot be pursued as publication-target (KILL / downgrade). A "minor revisions" verdict is not available; minor problems are folded into the `pre-empt-reviewer` queue as part of a PROCEED verdict.
+
+### Deliverables
+
+```
+applications/<project>/
+├── proposal.md (or proposal_v2.md, proposal_v3.md)
+├── scope_check.md                  # Phase −0.5 verdict
+├── publishability_review.md        # Phase 0.25 verdict with 5-point checklist
+└── research_queue.md               # Top three killer objections appended with flag pre-empt-reviewer
+```
 
 ---
 
