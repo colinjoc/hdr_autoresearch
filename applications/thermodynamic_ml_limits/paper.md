@@ -143,19 +143,19 @@ All numerical results are recorded in results.tsv and reproducible from source c
 
 ### 4.1 Framework Ranking
 
-At the GPT-4 cluster operating point (17.5 MW, 350 K, B=2048), frameworks rank from tightest to loosest (Table 1, Figure 1):
+At the GPT-4 cluster operating point (17.5 MW, 350 K, B=2048), frameworks rank from tightest to loosest (Table 1, Figure 1). Central values are reported at baseline parameters; uncertainty bands propagate the dominant load-bearing parameters (phi, B_noise, and I_func) through each bound:
 
-| Rank | Framework | Bound (bits/s) | Notes |
-|------|-----------|----------------|-------|
-| 1 (tightest) | F1-Full (B_geom=pi^2) | 2.20 x 10^16 | Theoretical; see caveats |
-| 2 | F1' finite-time (B_geom=pi^2) | 1.83 x 10^17 | Theoretical; see caveats |
-| 3 | F1-Measured (Horowitz) | 7.47 x 10^20 | Most physically meaningful |
-| 4 | F3 TUR (GNS-based) | 3.71 x 10^24 | No circular dependency |
-| 5 | F2 Crooks SGD | 5.22 x 10^27 | Heuristic only |
-| 6 | F1 bare Landauer | 5.22 x 10^27 | Quasistatic baseline |
-| 7 (loosest) | F4 Margolus-Levitin | 1.52 x 10^41 | Irrelevant for classical ML |
+| Rank | Framework | Central bound (bits/s) | Plausible range | Notes |
+|------|-----------|------------------------|-----------------|-------|
+| 1 (tightest) | F1-Full (B_geom=pi^2) | 2.20 x 10^16 | 10^15--10^17 | Theoretical; phi uncertainty |
+| 2 | F1' finite-time (B_geom=pi^2) | 1.83 x 10^17 | 10^16--10^18 | Theoretical; phi uncertainty |
+| 3 | F1-Measured (Horowitz) | 7.47 x 10^20 | 10^20--10^21 | Most physically meaningful |
+| 4 | F3 TUR (GNS-based) | 3.71 x 10^24 | 10^23--10^25 | B_noise extrapolated, ~1 OOM |
+| 5 | F2 Crooks SGD | 5.22 x 10^27 | 10^27--10^28 | Heuristic (§2.3) |
+| 6 | F1 bare Landauer | 5.22 x 10^27 | -- | Quasistatic baseline |
+| 7 (loosest) | F4 Margolus-Levitin | 1.52 x 10^41 | -- | Irrelevant for classical ML |
 
-The actual GPT-4 functional information gain rate is approximately 1,300 bits/s (10^10 bits over 90 days), meaning even the tightest bound exceeds the actual rate by at least 10^13.
+The actual GPT-4 functional information gain rate is approximately 10^3--10^4 bits/s (10^5--10^9 bits over 90 days, with the 3.6 OOM I_func uncertainty dominating). Even the tightest bound in this table therefore exceeds the actual rate by at least 10^12, and in plausible worst cases by 10^16. The point estimates should be read as central values within the ranges shown, not as three-significant-figure claims.
 
 ### 4.2 Correction Factor Hierarchy
 
@@ -201,7 +201,9 @@ The point estimate "3.71 x 10^24 bits/s / 1,409x tighter" quoted above and elsew
 
 This bound is less tight than the Landauer-based bounds with engineering corrections but has the advantage of being derived from a single physical principle (the TUR) with no free parameters beyond measurable quantities.
 
-### 4.5 Crooks SGD Validation
+### 4.5 Heuristic range of validity of the Crooks-for-SGD ansatz
+
+This subsection is a caveat-check on the Crooks-derived bound introduced in §2.2, not a novel result. It reports the range of learning rates over which the (1 + T_sgd/T) formula behaves like a thermodynamic bound, rather than a heuristic that happens to produce a plausible number.
 
 Testing the Jarzynski equality for SGD on a 50-dimensional quadratic landscape (RV02):
 
@@ -211,7 +213,7 @@ Testing the Jarzynski equality for SGD on a 50-dimensional quadratic landscape (
 | 1e-3 | 7.8e-6 | varies | 1.0 | moderate |
 | 1e-2 | 7.8e-4 | diverges | 1.0 | large |
 
-The Crooks-derived (1 + T_sgd/T) formula is validated for small learning rates but fails for large ones. This confirms it is a heuristic, not a rigorous bound.
+The Crooks-derived (1 + T_sgd/T) formula is validated for small learning rates but fails for large ones. This confirms it is a heuristic, not a rigorous bound, consistent with the caveat already stated in §2.2 and the limitation in §6.1. Users of the F2 bound in this paper should interpret it as physically motivated within the small-learning-rate regime and should not apply it to large-eta training runs without an independent check.
 
 ### 4.6 Temperature Distribution Effect
 
@@ -231,9 +233,11 @@ Thermodynamic efficiency (I_func * kT ln 2 / E_train) consistently degrades with
 
 Efficiency drops by 6 orders of magnitude from XGBoost to GPT-4, reflecting the diminishing returns of scaling laws: functional information scales as sqrt(N) while training energy scales superlinearly in N.
 
-### 4.8 Biology vs ML Comparison
+### 4.8 Cross-substrate comparison (illustrative)
 
-Using the same thermodynamic framework (Landauer efficiency = I_func * kT ln 2 / E) across substrates (Figure 3, RV08):
+This subsection is included for illustrative cross-substrate context and is not a headline result of the paper. As §6.2 makes explicit, no directional claim about the relative efficiency of biology and ML is supported here without specifying a metric; the numbers in the table below are useful only as a shared framework for future comparison, not as a ranking.
+
+Applying the same Landauer-efficiency expression (efficiency = I_func * kT ln 2 / E) across substrates (Figure 3, RV08):
 
 | System | Efficiency | Description |
 |--------|-----------|-------------|
@@ -244,7 +248,7 @@ Using the same thermodynamic framework (Landauer efficiency = I_func * kT ln 2 /
 | Human brain (long-term) | ~10^-21 | Using memory formation rate |
 | GPT-4 | ~10^-28 | Largest ML model |
 
-**Caveat**: The brain comparison depends critically on the chosen metric. Using long-term memory formation rate (~10 bits/s, Miller 1956), the brain and GPU have comparable efficiency (~10^-21). Using sensory processing rate (~10^9 bits/s), the brain appears ~10^8 more efficient. These quantities are not directly comparable, and no directional claim about relative efficiency is supported without specifying the metric (Section 6.2).
+The brain comparison depends critically on the chosen metric: using long-term memory formation rate (~10 bits/s, Miller 1956) the brain and a GPU have comparable efficiency (~10^-21); using sensory processing rate (~10^9 bits/s) the brain appears ~10^8 more efficient. These quantities are not directly comparable. Readers interested in a directional comparison should treat the table as raising the question, not answering it.
 
 ## 5. Discussion
 
@@ -265,13 +269,15 @@ Our sibling project applying the same thermodynamic framework to biological info
 - Kinetic proofreading achieves 11.5% thermodynamic efficiency
 - Most biological energy expenditure is housekeeping (maintaining homeostasis), analogous to data movement in GPUs
 
-The parallel is striking: both biological and artificial information processing systems devote the vast majority of their energy budget to "housekeeping" rather than information acquisition. In both cases, the thermodynamic efficiency of the information-gaining process proper is low, but the housekeeping overhead is the dominant factor.
+Analogously, both biological and artificial information processing systems devote the majority of their energy budget to "housekeeping" rather than to information acquisition proper. In both cases, the thermodynamic efficiency of the information-gaining process itself is low, with housekeeping overhead dominating the totals. We note this parallel as a shared structural feature of the two substrates, not as evidence of a common underlying mechanism; the detailed housekeeping processes (ion pumping in cells, data movement in GPUs) are unrelated.
 
 ### 5.3 Implications for ML Hardware Design
 
 The sensitivity analysis (Section 4.3) identifies sparsity and precision as the most impactful correction factors for future hardware design. Achieving 99% sparsity with 4-bit precision would tighten the bound by an additional 200x relative to current practice (FP8 at 90% sparsity). Combined with neuromorphic or near-threshold designs (Dreslinski et al. 2010) that close the CMOS-Landauer gap from 10^9 to 10^6, the total improvement potential is approximately 10^5.
 
 Reversible computing (Bennett 1973; Fredkin and Toffoli 1982; Frank 2005) offers a complementary path. Linear operations (matmuls, additions) in neural networks are logically reversible and in principle dissipate no Landauer cost. Only nonlinear activations (GELU, softmax, layernorm) require irreversible erasure. The nonlinear fraction is approximately 2 x 10^-4 of total FLOPS (accounting for softmax and layernorm), giving a theoretical savings of ~5,000x for fully reversible architectures.
+
+**A concrete falsifiable prediction.** The multi-factor framework predicts that a 4-bit-precision, 99%-sparsity training run on H100-class hardware at 350 K junction temperature should achieve a functional-information gain rate within a factor of roughly 200 of the FP8-90%-sparsity baseline studied in §4.2, with the ratio determined by the product of the precision and sparsity correction factors (p_bits/32 × (1-s)) evaluated at the two operating points. A measured ratio outside the range 100--400 under otherwise matched conditions would falsify either the multiplicative-factor assumption or one of the underlying correction models (most plausibly the precision-to-bits-erased identification), and would indicate that the correction factors interact non-trivially rather than stacking independently. This is a concrete, cheaply testable prediction; we offer it as a falsifiable anchor rather than a claimed result.
 
 ### 5.4 Projections
 
