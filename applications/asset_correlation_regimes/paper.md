@@ -62,7 +62,7 @@ No p-values or multiple-comparisons corrections are reported. We treat this as a
 
 ### 3.4 Predictive tournament (Phase 1)
 
-As an orthogonal check on whether macroeconomic features can predict the rolling-correlation series, we ran a model-family tournament: OLS linear regression, Gradient Boosted Regression (GBR), and Random Forest (RF), each with 5-fold time-series cross-validation (CV) and a 90-day embargo between train and test folds (purged CV, following López de Prado 2018). Features: FEDFUNDS level, FEDFUNDS 3-month slope, CPI YoY, DXY level, DXY 6-month change, DGS10 level, SPY 30-day realised volatility, and seasonal (sin/cos of month). Targets: 90-day rolling SPY-X correlation for each of the four X.
+As an orthogonal check on whether macroeconomic features can predict the rolling-correlation series, we ran a model-family tournament: Ordinary Least Squares (OLS) linear regression, Gradient Boosted Regression (GBR), and Random Forest (RF), each with 5-fold time-series cross-validation (CV) and a 90-day embargo between train and test folds (purged CV, following López de Prado 2018). Features: FEDFUNDS level, FEDFUNDS 3-month slope, CPI YoY, DXY level, DXY 6-month change, DGS10 level, SPY 30-day realised volatility, and seasonal (sin/cos of month). Targets: 90-day rolling SPY-X correlation for each of the four X.
 
 ## 4. Results
 
@@ -82,7 +82,7 @@ Gold is essentially uncorrelated with SPY on average over 22 years; BTC is weakl
 
 | Window     | Dates                    | Mean   | 95% CI (block)     | n   |
 |------------|--------------------------|-------:|--------------------|----:|
-| GFC        | 2007-09-01 → 2009-03-31  | +0.017 | [−0.244, +0.155]   | 397 |
+| GFC (Global Financial Crisis) | 2007-09-01 → 2009-03-31 | +0.017 | [−0.244, +0.155] | 397 |
 | COVID      | 2020-02-01 → 2020-04-30  | −0.088 | [−0.302, +0.157]   |  90 |
 | INFL2022   | 2022-01-01 → 2022-10-31  | +0.037 | [−0.251, +0.165]   | 304 |
 | TARIFF25   | 2025-03-01 → 2025-05-31  | +0.174 | [+0.116, +0.256]   |  92 |
@@ -99,11 +99,11 @@ Three observations:
 | Target | CURRENT mean | Block CI            | Long-run median | Interpretation                                             |
 |--------|-------------:|---------------------|----------------:|------------------------------------------------------------|
 | GLD    | +0.170       | [+0.156, +0.185]    | +0.049          | Elevated; comparable to other post-2022 stress windows     |
-| BTC    | +0.511       | [+0.460, +0.549]    | +0.159          | Strongly elevated; consistent with post-ETF regime shift   |
-| WTI    | −0.010       | [−0.114, +0.156]    | +0.204          | **Decoupled downward** — less correlated than usual        |
-| DBC    | +0.149       | [+0.054, +0.332]    | +0.339          | **Decoupled downward** — half the long-run commodity-equity correlation |
+| BTC    | +0.511       | [+0.460, +0.549]    | +0.159          | Strongly elevated; consistent with post-Exchange-Traded Fund (ETF) regime shift |
+| WTI    | −0.010       | [−0.114, +0.156]    | +0.204          | Weakly decoupled; block CI touches the long-run median at the upper edge |
+| DBC    | +0.149       | [+0.054, +0.332]    | +0.339          | Point estimate about half the long-run commodity-equity correlation, but the block CI reaches up to +0.332 |
 
-The headline narrative "everything moves together in 2025-26" is false: gold and BTC are more correlated with equities than usual, but WTI and DBC are less correlated. The finding is asset-specific, not a pan-cross-asset phenomenon.
+The headline narrative "everything moves together in 2025-26" is not supported by the panel: gold and BTC are more correlated with equities than usual, while WTI and DBC's current point estimates sit below their long-run medians with CIs that only weakly separate. The finding is asset-specific, not a pan-cross-asset phenomenon.
 
 ### 4.4 Window-length robustness (CURRENT window only)
 
@@ -147,7 +147,7 @@ Noteworthy descriptive patterns: SPY-GLD correlation is highest when the Fed is 
 
 All three model families produce strongly negative out-of-sample R² on all four targets, even with a 90-day embargo:
 
-| Target      | OLS R²  | GBR R²  | RF R²   | Winner (lowest MAE) |
+| Target      | OLS R²  | GBR R²  | RF R²   | Winner (lowest Mean Absolute Error, MAE) |
 |-------------|--------:|--------:|--------:|---------------------|
 | SPY-GLD     | −2.85   | −1.32   | −1.33   | GBR                 |
 | SPY-BTC     | −8.47   | −2.58   | −1.97   | RF                  |
@@ -170,9 +170,11 @@ On **prediction**, the macro feature set cannot forecast any of the four rolling
 
 ## 6. Why the naive IID bootstrap was wrong
 
-The most important methodological finding of this project is that our first pass used an IID bootstrap on the rolling-correlation means, and it produced confidence intervals that were 2–8× too tight. The Phase 2.75 adversarial review caught it. The issue is that a 90-day rolling correlation computed daily has lag-1 autocorrelation ρ₁ in the range 0.87–0.997 across our five crisis windows, giving AR(1) effective sample sizes ranging from 1 to 8 (against raw n ranging from 90 to 397). The effective information content is a tiny fraction of the raw observation count.
+The most important methodological finding of this project is that our first pass used an IID bootstrap on the rolling-correlation means, and it produced confidence intervals that were 2–8× too tight. The Phase 2.75 adversarial review caught it. The issue is that a 90-day rolling correlation computed daily has lag-1 autocorrelation ρ₁ in the range 0.87–0.997 across our five crisis windows, giving autoregressive-order-1 (AR(1)) effective sample sizes ranging from 1 to 8 (against raw n ranging from 90 to 397). The effective information content is a tiny fraction of the raw observation count.
 
 Under the IID bootstrap the "CURRENT is highest in 22 years" headline appeared confidently supported. Under the moving-block bootstrap (Künsch 1989) with block length 90, the same claim collapses: three of four prior crises have CIs that overlap CURRENT. The corrected inference is what this paper reports. The first-pass IID-bootstrap claim is retracted and the episode is recorded in `paper_review.md`.
+
+The same review also flagged a silent bug in the inflation-regime dummy: `pd.cut` on CPI YoY produces NaN for the first ~252 days of the sample, and the prior Phase 2 code stringified that NaN into a `"nan"` regime level that received a bootstrap mean. That row has been dropped from `regime_correlation_table.csv` (67 cells, not 68).
 
 ## 7. Limitations
 
