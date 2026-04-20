@@ -9,38 +9,72 @@
 
 **EVERY phase defined in this document MUST be completed on EVERY project. NO EXCEPTIONS. NO "DESCRIPTIVE SHORTCUTS". NO "SKIP BECAUSE SIMPLE". NO "COMBINED WITH PREVIOUS PHASE".**
 
-Every project is classified as either **website-target** (default — output is the HDR website summary) or **publication-target** (output is a manuscript to be submitted to a named journal). Publication-target projects have two additional mandatory phases (−0.5 and 0.25) that catch novelty and venue problems *before* the expensive Phase 0 / Phase 2 compute runs. Website-target projects skip both and go straight to Phase 0.
+Every project is classified into one of **two target types** before any work begins:
 
-For every project, the agent MUST produce ALL of the following artifacts on disk, in order, before the project can be declared complete:
+- **exploratory** — a personal-understanding or internal-analysis task. The researcher wants to understand a phenomenon or test a claim for themselves, not publish a novel finding. No novelty or publishability check runs. Phase 0 runs at compact scale. A website summary is still produced when the project completes.
+- **publication-target** — primary output is a manuscript intended for submission to a named journal. Both the novelty gates (Phase −0.5 scope check, Phase 0.25 publishability review) and the methodology gates (Phase 2.75, 3.5) are mandatory. A website summary is also produced, alongside the paper.
 
-1. `proposal.md` + `scope_check.md` (Phase −0.5) — **publication-target projects only**
-2. `papers.csv` (Phase 0)
-3. `literature_review.md` (Phase 0)
-4. `research_queue.md` (Phase 0)
-5. `knowledge_base.md` (Phase 0)
-6. `feature_candidates.md` + `design_variables.md` (Phase 0) — for Option D: `design_variables.md` lists ansatz families and their free parameters
-7. `publishability_review.md` (Phase 0.25) — **publication-target projects only**
-8. `data_sources.md` + `E00` row in `results.tsv` (Phase 0.5) — for Option D: `data_sources.md` lists CAS libraries/versions and reference results; `E00` is the baseline framework
-9. ≥4 model families in `tournament_results.csv` + `results.tsv` (Phase 1) — for Option D: ≥3 mathematical frameworks including the textbook baseline
-10. ≥20 KEEP/REVERT experiments in `results.tsv` (Phase 2)
-11. Pairwise-interaction rows in `results.tsv` (Phase 2.5)
-12. `paper_review.md` with reviewer-mandated experiments executed (Phase 2.75)
-13. `paper.md` (Phase 3)
-14. `paper_review_signoff.md` with literal `NO FURTHER BLOCKING ISSUES` (Phase 3.5)
-15. `phase_b_discovery.py` output (Phase B)
-16. Website `index.md` at `~/website/site/content/hdr/results/<slug>/` (Publish, only after artifact 14 exists)
+**Both types always produce a website summary** at `~/website/site/content/hdr/results/<slug>/` upon completion. The website is a public record of work done, not a novelty claim — its existence does not depend on whether the finding is novel.
 
-**If any artifact is missing, the project is NOT complete. Publishing the website summary before artifact 12 exists is a retraction-grade failure.**
+The target type is declared on the first line of a `README.md` file at the root of the project directory: `**Target type**: exploratory` or `**Target type**: publication-target`. If no declaration exists, the project is treated as exploratory by default. Projects can be *promoted* — an exploratory project that produces a sharp finding can be upgraded to publication-target by retroactively running Phase −0.5 and Phase 0.25, then iterating until they PROCEED.
 
-**Compact ≠ skipped.** For simple descriptive projects, the lit review can use 4 themes instead of 7 and the tournament can be minimal (logistic regression + one baseline), but the STRUCTURE of every phase must exist on disk. Running a trivial phase is mandatory; skipping it is forbidden.
+**Phase matrix:**
 
-**What counts as skipping (all forbidden):**
-- "This project is descriptive-only so skipping Phase 1 tournament" — FORBIDDEN
+| Phase | exploratory | publication-target |
+|---|---|---|
+| −0.5 (scope check, novelty gate) | skip | **required** |
+| 0 (lit review) | compact (30–80 citations, 2–4 themes, ≥ 20 hypotheses) | **full (200+ citations, 7 themes, 100+ hypotheses)** |
+| 0.25 (publishability review, novelty gate) | skip | **required** |
+| 0.5 (baseline + data smoke test) | **required** | **required** |
+| 1 (tournament) | **required** (may be compact — 2 families minimum) | **required** (≥ 4 families) |
+| 2 (HDR loop) | **required** (≥ 10 experiments) | **required** (≥ 20) |
+| 2.5 (pairwise interaction sweep) | optional | **required** |
+| 2.75 (adversarial results review, methodology gate) | **required** | **required** |
+| 3 (paper.md) | **required** (short-form acceptable; focus on "what was learned") | **required** (full academic form) |
+| 3.5 (adversarial paper review, methodology gate) | **required** | **required** |
+| B (discovery) | optional | **required** |
+| Publish (website summary) | **required** | **required** |
+
+**Key rule:** the adversarial methodology gates (Phase 2.75 and Phase 3.5) apply to *every* project regardless of type. These catch errors of reasoning, data handling, and overclaiming — they are independent of whether the work is novel. Only the novelty-facing gates (Phase −0.5 and Phase 0.25) are type-dependent.
+
+**Why exploratory projects still need methodology gates.** A personal-understanding project that gets the arithmetic wrong is not actually an understanding of anything. Phase 2.75 and 3.5 protect against reasoning errors; they're cheap and mandatory.
+
+**Why exploratory projects still get a website summary.** The website is an audit trail of work done, for the researcher and for anyone who later wonders "did we look at X?" Skipping it loses the institutional memory. The summary is shorter and less promotional than a publication-target summary, but it exists.
+
+For every project, the agent MUST produce ALL of the following artifacts on disk, in order, before the project can be declared complete. The checklist has branches by target type where applicable.
+
+1. `README.md` declaring target type on the first line (exploratory or publication-target) — **all projects**
+2. `proposal.md` + `scope_check.md` (Phase −0.5) — **publication-target only**
+3. `papers.csv` (Phase 0) — ≥ 200 citations (publication-target) or ≥ 30 citations (exploratory)
+4. `literature_review.md` (Phase 0) — 7 themes (publication-target) or 2–4 themes (exploratory)
+5. `research_queue.md` (Phase 0) — ≥ 100 hypotheses (publication-target) or ≥ 20 (exploratory)
+6. `knowledge_base.md` (Phase 0)
+7. `feature_candidates.md` + `design_variables.md` (Phase 0) — for Option D: `design_variables.md` lists ansatz families and their free parameters
+8. `publishability_review.md` (Phase 0.25) — **publication-target only**
+9. `data_sources.md` + `E00` row in `results.tsv` (Phase 0.5) — for Option D: `data_sources.md` lists CAS libraries/versions and reference results; `E00` is the baseline framework
+10. ≥ 4 model families in `tournament_results.csv` + `results.tsv` (Phase 1, publication-target) OR ≥ 2 families (exploratory) — in both cases including a linear-model sanity check. Option D: ≥ 3 mathematical frameworks including the textbook baseline
+11. ≥ 20 KEEP/REVERT experiments in `results.tsv` (Phase 2, publication-target) OR ≥ 10 (exploratory)
+12. Pairwise-interaction rows in `results.tsv` (Phase 2.5) — required for publication-target; optional for exploratory
+13. `paper_review.md` with reviewer-mandated experiments executed (Phase 2.75) — **all projects**
+14. `paper.md` (Phase 3) — **all projects** (full academic form for publication-target; short-form acceptable for exploratory)
+15. `paper_review_signoff.md` with literal `NO FURTHER BLOCKING ISSUES` (Phase 3.5) — **all projects**
+16. `phase_b_discovery.py` output (Phase B) — required for publication-target; optional for exploratory
+17. Website `index.md` at `~/website/site/content/hdr/results/<slug>/` (Publish) — **all projects**, only after artifact 15 exists
+
+**If any required artifact is missing, the project is NOT complete. Publishing the website summary before artifact 15 exists is a retraction-grade failure.**
+
+**Compact ≠ skipped.** For exploratory projects, lit review can use 2–4 themes instead of 7, the tournament can be minimal (2 families), and Phase 2 can have 10 experiments instead of 20. But the STRUCTURE of every phase that applies to the project type must exist on disk. Running a trivial phase is mandatory; skipping it is forbidden.
+
+**Type-dependent exemptions are the *only* allowed skips.** Phase −0.5, Phase 0.25, Phase 2.5, and Phase B may be skipped by exploratory projects per the phase matrix above. No other skipping is allowed for any project type.
+
+**What counts as forbidden skipping (regardless of type):**
+- "This project is descriptive-only so skipping Phase 1 tournament" — FORBIDDEN (do a compact tournament with two families)
 - "Quick methodology clone of a previous project so no lit review needed" — FORBIDDEN
-- "Reviewer would have nothing to add on this simple analysis" — FORBIDDEN
+- "Reviewer would have nothing to add on this simple analysis" — FORBIDDEN (Phase 2.75 is mandatory for all project types)
 - "Tight on context budget so skipping reviewer" — FORBIDDEN
-- "Went straight from analysis to website" — FORBIDDEN
+- "Went straight from analysis to website" — FORBIDDEN (paper.md + Phase 3.5 signoff still required for exploratory)
 - "Inlined reviewer concerns in the paper's limitations section" — FORBIDDEN
+- "This is exploratory so we don't need Phase 3.5" — FORBIDDEN; methodology gates are type-independent
 
 **If an artifact cannot be created because of a genuine external blocker (credentials, missing data, broken tool), the project is PAUSED — not published. Pause with a written reason and move to the next project.**
 
@@ -55,17 +89,18 @@ complete unless these are true.
 
 | Phase | Required artifact(s) in `applications/<project>/` | Content marker / rule |
 |---|---|---|
+| all | `README.md` | First line is either `**Target type**: exploratory` or `**Target type**: publication-target` |
 | **−0.5** (publication-target only) | `proposal.md` + `scope_check.md` | `scope_check.md` ends with literal `VERDICT: PROCEED`; written by a **different sub-agent invocation** from the HDR author |
-| 0 | `papers.csv` + `literature_review.md` + `knowledge_base.md` + `research_queue.md` + `design_variables.md` | ≥200 citations in `papers.csv`; ≥100 hypotheses in `research_queue.md` |
+| 0 | `papers.csv` + `literature_review.md` + `knowledge_base.md` + `research_queue.md` + `design_variables.md` | Publication-target: ≥ 200 citations in `papers.csv`; ≥ 100 hypotheses in `research_queue.md`. Exploratory: ≥ 30 citations; ≥ 20 hypotheses |
 | **0.25** (publication-target only) | `publishability_review.md` | All five checklist sections answered; ends with literal `VERDICT: PROCEED`; written by a **different sub-agent invocation** from Phase −0.5 |
 | 0.5 | `E00` row in `results.tsv` + `data_sources.md` | Real data only (no synthetic); seed-stable. Option D: CAS versions + textbook reproduction |
-| 1 | ≥4 model families in `results.tsv` + `tournament_results.csv` | Include a linear-model sanity check. Option D: ≥3 mathematical frameworks including textbook baseline |
-| 2 | ≥20 rows in `results.tsv` with `status` ∈ {KEEP, REVERT} | Every KEEP ties to a commit and re-runs from cache |
-| 2.5 | Pairwise-interaction rows in `results.tsv` | Top-N near-miss features actually tested |
+| 1 | `results.tsv` + `tournament_results.csv` | Publication-target: ≥ 4 model families. Exploratory: ≥ 2 families. Both include a linear-model sanity check. Option D: ≥ 3 mathematical frameworks including textbook baseline |
+| 2 | Rows in `results.tsv` with `status` ∈ {KEEP, REVERT} | Publication-target: ≥ 20 rows. Exploratory: ≥ 10 rows. Every KEEP ties to a commit and re-runs from cache |
+| 2.5 (publication-target required; exploratory optional) | Pairwise-interaction rows in `results.tsv` | Top-N near-miss features actually tested |
 | **2.75** | `paper_review.md` AND all reviewer-mandated experiments present in `results.tsv` with `status` in {RUN_RV, CONTROL, TEMPORAL, DIAG} | `paper_review.md` must be written by a **different sub-agent invocation** from the HDR author; "documented in §Limitations" is NOT a valid completion |
 | 3 | `paper.md` | References each KEEP experiment by ID |
 | **3.5** | `paper_review_signoff.md` | Must contain the literal string `NO FURTHER BLOCKING ISSUES`; written by a **different sub-agent invocation** from Phase 2.75 |
-| B | `phase_b_discovery.py` output in `results.tsv` or `discoveries/` | Actual inverse-design outputs, not more training runs |
+| B (publication-target required; exploratory optional) | `phase_b_discovery.py` output in `results.tsv` or `discoveries/` | Actual inverse-design outputs, not more training runs |
 | Publish | `~/website/site/content/hdr/results/<slug>/index.md` | **Requires `paper_review_signoff.md` to exist in the project first.** Hugo build passes. |
 
 **Anti-pattern watchlist** (explicit — these were cut corners in prior runs):
