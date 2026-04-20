@@ -4,3 +4,83 @@ E00_SPY_BTC	0.5	Unconditional 90d rolling Pearson correlation SPY vs BTC	rolling
 E00_SPY_WTI	0.5	Unconditional 90d rolling Pearson correlation SPY vs WTI	rolling_pearson	NA	median_correlation	0.2038	-0.1629	0.6175	KEEP	n=6849 observations; log returns; full window
 E00_SPY_DBC	0.5	Unconditional 90d rolling Pearson correlation SPY vs DBC	rolling_pearson	NA	median_correlation	0.3390	-0.0603	0.7002	KEEP	n=6315 observations; log returns; full window
 E00_SPY_QQQ	0.5	Unconditional 90d rolling Pearson correlation SPY vs QQQ	rolling_pearson	NA	median_correlation	0.9184	0.8161	0.9707	KEEP	n=6852 observations; log returns; full window
+T01_F1_OLS_corr_SPY_GLD	1	Phase 1 tournament: predict corr_SPY_GLD from macro features	F1_OLS	42	r2_held_out	-2.5743	-6.0638	0.9152	KEEP	MAE=0.3455±0.1091, R²_sd=1.7804
+T02_F2_GBR_corr_SPY_GLD	1	Phase 1 tournament: predict corr_SPY_GLD from macro features	F2_GBR	42	r2_held_out	-1.0253	-2.8953	0.8447	KEEP	MAE=0.2480±0.0673, R²_sd=0.9541
+T03_F3_RF_corr_SPY_GLD	1	Phase 1 tournament: predict corr_SPY_GLD from macro features	F3_RF	42	r2_held_out	-0.9800	-2.7137	0.7538	KEEP	MAE=0.2490±0.0423, R²_sd=0.8846
+T04_F1_OLS_corr_SPY_BTC	1	Phase 1 tournament: predict corr_SPY_BTC from macro features	F1_OLS	42	r2_held_out	-5.8866	-15.3279	3.5547	KEEP	MAE=0.3026±0.0883, R²_sd=4.8170
+T05_F2_GBR_corr_SPY_BTC	1	Phase 1 tournament: predict corr_SPY_BTC from macro features	F2_GBR	42	r2_held_out	-2.3756	-8.7451	3.9939	KEEP	MAE=0.1872±0.0706, R²_sd=3.2497
+T06_F3_RF_corr_SPY_BTC	1	Phase 1 tournament: predict corr_SPY_BTC from macro features	F3_RF	42	r2_held_out	-1.6206	-6.2041	2.9628	KEEP	MAE=0.1673±0.0550, R²_sd=2.3385
+T07_F1_OLS_corr_SPY_WTI	1	Phase 1 tournament: predict corr_SPY_WTI from macro features	F1_OLS	42	r2_held_out	-3.1078	-11.7671	5.5514	KEEP	MAE=0.2765±0.1628, R²_sd=4.4180
+T08_F2_GBR_corr_SPY_WTI	1	Phase 1 tournament: predict corr_SPY_WTI from macro features	F2_GBR	42	r2_held_out	-2.0414	-5.2251	1.1423	KEEP	MAE=0.2563±0.0703, R²_sd=1.6243
+T09_F3_RF_corr_SPY_WTI	1	Phase 1 tournament: predict corr_SPY_WTI from macro features	F3_RF	42	r2_held_out	-1.6239	-3.4331	0.1854	KEEP	MAE=0.2414±0.0172, R²_sd=0.9231
+T10_F1_OLS_corr_SPY_DBC	1	Phase 1 tournament: predict corr_SPY_DBC from macro features	F1_OLS	42	r2_held_out	-0.2723	-0.7944	0.2498	KEEP	MAE=0.1897±0.0256, R²_sd=0.2664
+T11_F2_GBR_corr_SPY_DBC	1	Phase 1 tournament: predict corr_SPY_DBC from macro features	F2_GBR	42	r2_held_out	-0.7012	-1.8240	0.4217	KEEP	MAE=0.2062±0.0429, R²_sd=0.5729
+T12_F3_RF_corr_SPY_DBC	1	Phase 1 tournament: predict corr_SPY_DBC from macro features	F3_RF	42	r2_held_out	-1.4722	-3.5212	0.5767	KEEP	MAE=0.2456±0.0236, R²_sd=1.0454
+E01_regime_R1_fed_cutting_GLD	2	Phase 2 regime decomposition: R1_fed=cutting, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0153	-0.0044	0.0335	KEEP	n=722; 2000-sample bootstrap 95% CI
+E02_regime_R1_fed_cutting_BTC	2	Phase 2 regime decomposition: R1_fed=cutting, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.3241	0.2997	0.3462	KEEP	n=407; 2000-sample bootstrap 95% CI
+E03_regime_R1_fed_cutting_WTI	2	Phase 2 regime decomposition: R1_fed=cutting, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.1386	0.1252	0.1520	KEEP	n=678; 2000-sample bootstrap 95% CI
+E04_regime_R1_fed_cutting_DBC	2	Phase 2 regime decomposition: R1_fed=cutting, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.2700	0.2518	0.2880	KEEP	n=722; 2000-sample bootstrap 95% CI
+E05_regime_R1_fed_hiking_GLD	2	Phase 2 regime decomposition: R1_fed=hiking, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.1282	0.1118	0.1447	KEEP	n=888; 2000-sample bootstrap 95% CI
+E06_regime_R1_fed_hiking_BTC	2	Phase 2 regime decomposition: R1_fed=hiking, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.4155	0.4003	0.4310	KEEP	n=504; 2000-sample bootstrap 95% CI
+E07_regime_R1_fed_hiking_WTI	2	Phase 2 regime decomposition: R1_fed=hiking, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.0724	0.0618	0.0827	KEEP	n=1078; 2000-sample bootstrap 95% CI
+E08_regime_R1_fed_hiking_DBC	2	Phase 2 regime decomposition: R1_fed=hiking, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.3069	0.2937	0.3201	KEEP	n=579; 2000-sample bootstrap 95% CI
+E09_regime_R1_fed_neutral_GLD	2	Phase 2 regime decomposition: R1_fed=neutral, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0375	0.0303	0.0448	KEEP	n=5015; 2000-sample bootstrap 95% CI
+E10_regime_R1_fed_neutral_BTC	2	Phase 2 regime decomposition: R1_fed=neutral, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.1368	0.1300	0.1433	KEEP	n=3233; 2000-sample bootstrap 95% CI
+E11_regime_R1_fed_neutral_WTI	2	Phase 2 regime decomposition: R1_fed=neutral, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.2648	0.2582	0.2718	KEEP	n=5004; 2000-sample bootstrap 95% CI
+E12_regime_R1_fed_neutral_DBC	2	Phase 2 regime decomposition: R1_fed=neutral, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.3447	0.3381	0.3513	KEEP	n=5014; 2000-sample bootstrap 95% CI
+E13_regime_R2_inf_high_GLD	2	Phase 2 regime decomposition: R2_inf=high, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0766	0.0608	0.0930	KEEP	n=1167; 2000-sample bootstrap 95% CI
+E14_regime_R2_inf_high_BTC	2	Phase 2 regime decomposition: R2_inf=high, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.4150	0.4029	0.4268	KEEP	n=586; 2000-sample bootstrap 95% CI
+E15_regime_R2_inf_high_WTI	2	Phase 2 regime decomposition: R2_inf=high, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.1481	0.1353	0.1611	KEEP	n=1167; 2000-sample bootstrap 95% CI
+E16_regime_R2_inf_high_DBC	2	Phase 2 regime decomposition: R2_inf=high, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.2318	0.2181	0.2470	KEEP	n=1020; 2000-sample bootstrap 95% CI
+E17_regime_R2_inf_low_GLD	2	Phase 2 regime decomposition: R2_inf=low, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	-0.0193	-0.0271	-0.0116	KEEP	n=3782; 2000-sample bootstrap 95% CI
+E18_regime_R2_inf_low_BTC	2	Phase 2 regime decomposition: R2_inf=low, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.1165	0.1088	0.1245	KEEP	n=2690; 2000-sample bootstrap 95% CI
+E19_regime_R2_inf_low_WTI	2	Phase 2 regime decomposition: R2_inf=low, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.2849	0.2780	0.2919	KEEP	n=3691; 2000-sample bootstrap 95% CI
+E20_regime_R2_inf_low_DBC	2	Phase 2 regime decomposition: R2_inf=low, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.3647	0.3578	0.3719	KEEP	n=3782; 2000-sample bootstrap 95% CI
+E21_regime_R2_inf_moderate_GLD	2	Phase 2 regime decomposition: R2_inf=moderate, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.1770	0.1652	0.1892	KEEP	n=1676; 2000-sample bootstrap 95% CI
+E22_regime_R2_inf_moderate_BTC	2	Phase 2 regime decomposition: R2_inf=moderate, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.2615	0.2513	0.2711	KEEP	n=868; 2000-sample bootstrap 95% CI
+E23_regime_R2_inf_moderate_WTI	2	Phase 2 regime decomposition: R2_inf=moderate, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.1678	0.1562	0.1791	KEEP	n=1741; 2000-sample bootstrap 95% CI
+E24_regime_R2_inf_moderate_DBC	2	Phase 2 regime decomposition: R2_inf=moderate, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.3207	0.3091	0.3323	KEEP	n=1513; 2000-sample bootstrap 95% CI
+E25_regime_R2_inf_nan_WTI	2	Phase 2 regime decomposition: R2_inf=nan, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	-0.1193	-0.1324	-0.1061	KEEP	n=161; 2000-sample bootstrap 95% CI
+E26_regime_R3_dxy_neutral_GLD	2	Phase 2 regime decomposition: R3_dxy=neutral, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0217	0.0122	0.0310	KEEP	n=3175; 2000-sample bootstrap 95% CI
+E27_regime_R3_dxy_neutral_BTC	2	Phase 2 regime decomposition: R3_dxy=neutral, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.1666	0.1582	0.1750	KEEP	n=2370; 2000-sample bootstrap 95% CI
+E28_regime_R3_dxy_neutral_WTI	2	Phase 2 regime decomposition: R3_dxy=neutral, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.2125	0.2046	0.2201	KEEP	n=3195; 2000-sample bootstrap 95% CI
+E29_regime_R3_dxy_neutral_DBC	2	Phase 2 regime decomposition: R3_dxy=neutral, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.3135	0.3059	0.3213	KEEP	n=3072; 2000-sample bootstrap 95% CI
+E30_regime_R3_dxy_strengthening_GLD	2	Phase 2 regime decomposition: R3_dxy=strengthening, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0489	0.0377	0.0599	KEEP	n=1749; 2000-sample bootstrap 95% CI
+E31_regime_R3_dxy_strengthening_BTC	2	Phase 2 regime decomposition: R3_dxy=strengthening, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.2048	0.1876	0.2218	KEEP	n=956; 2000-sample bootstrap 95% CI
+E32_regime_R3_dxy_strengthening_WTI	2	Phase 2 regime decomposition: R3_dxy=strengthening, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.2378	0.2258	0.2493	KEEP	n=1748; 2000-sample bootstrap 95% CI
+E33_regime_R3_dxy_strengthening_DBC	2	Phase 2 regime decomposition: R3_dxy=strengthening, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.3560	0.3431	0.3689	KEEP	n=1590; 2000-sample bootstrap 95% CI
+E34_regime_R3_dxy_weakening_GLD	2	Phase 2 regime decomposition: R3_dxy=weakening, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0933	0.0798	0.1066	KEEP	n=1701; 2000-sample bootstrap 95% CI
+E35_regime_R3_dxy_weakening_BTC	2	Phase 2 regime decomposition: R3_dxy=weakening, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.2359	0.2229	0.2481	KEEP	n=818; 2000-sample bootstrap 95% CI
+E36_regime_R3_dxy_weakening_WTI	2	Phase 2 regime decomposition: R3_dxy=weakening, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.2215	0.2095	0.2336	KEEP	n=1817; 2000-sample bootstrap 95% CI
+E37_regime_R3_dxy_weakening_DBC	2	Phase 2 regime decomposition: R3_dxy=weakening, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.3461	0.3342	0.3577	KEEP	n=1653; 2000-sample bootstrap 95% CI
+E38_regime_R4_shock_growth_shock_GLD	2	Phase 2 regime decomposition: R4_shock=growth_shock, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0450	0.0151	0.0739	KEEP	n=252; 2000-sample bootstrap 95% CI
+E39_regime_R4_shock_growth_shock_BTC	2	Phase 2 regime decomposition: R4_shock=growth_shock, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.4722	0.4452	0.4975	KEEP	n=108; 2000-sample bootstrap 95% CI
+E40_regime_R4_shock_growth_shock_WTI	2	Phase 2 regime decomposition: R4_shock=growth_shock, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.3292	0.3067	0.3518	KEEP	n=237; 2000-sample bootstrap 95% CI
+E41_regime_R4_shock_growth_shock_DBC	2	Phase 2 regime decomposition: R4_shock=growth_shock, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.5072	0.4826	0.5339	KEEP	n=252; 2000-sample bootstrap 95% CI
+E42_regime_R4_shock_normal_GLD	2	Phase 2 regime decomposition: R4_shock=normal, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0473	0.0409	0.0538	KEEP	n=6373; 2000-sample bootstrap 95% CI
+E43_regime_R4_shock_normal_BTC	2	Phase 2 regime decomposition: R4_shock=normal, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.1815	0.1752	0.1881	KEEP	n=4036; 2000-sample bootstrap 95% CI
+E44_regime_R4_shock_normal_WTI	2	Phase 2 regime decomposition: R4_shock=normal, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.2176	0.2118	0.2234	KEEP	n=6523; 2000-sample bootstrap 95% CI
+E45_regime_R4_shock_normal_DBC	2	Phase 2 regime decomposition: R4_shock=normal, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.3255	0.3197	0.3314	KEEP	n=6063; 2000-sample bootstrap 95% CI
+E46_regime_R5_crisis_COVID_GLD	2	Phase 2 regime decomposition: R5_crisis=COVID, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	-0.0880	-0.1468	-0.0304	KEEP	n=90; 2000-sample bootstrap 95% CI
+E47_regime_R5_crisis_COVID_BTC	2	Phase 2 regime decomposition: R5_crisis=COVID, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.2648	0.2148	0.3143	KEEP	n=90; 2000-sample bootstrap 95% CI
+E48_regime_R5_crisis_COVID_WTI	2	Phase 2 regime decomposition: R5_crisis=COVID, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.3654	0.3263	0.4029	KEEP	n=79; 2000-sample bootstrap 95% CI
+E49_regime_R5_crisis_COVID_DBC	2	Phase 2 regime decomposition: R5_crisis=COVID, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.5797	0.5426	0.6160	KEEP	n=90; 2000-sample bootstrap 95% CI
+E50_regime_R5_crisis_CURRENT_GLD	2	Phase 2 regime decomposition: R5_crisis=CURRENT, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.1697	0.1614	0.1777	KEEP	n=171; 2000-sample bootstrap 95% CI
+E51_regime_R5_crisis_CURRENT_BTC	2	Phase 2 regime decomposition: R5_crisis=CURRENT, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.5111	0.5021	0.5198	KEEP	n=171; 2000-sample bootstrap 95% CI
+E52_regime_R5_crisis_CURRENT_WTI	2	Phase 2 regime decomposition: R5_crisis=CURRENT, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	-0.0104	-0.0426	0.0207	KEEP	n=171; 2000-sample bootstrap 95% CI
+E53_regime_R5_crisis_CURRENT_DBC	2	Phase 2 regime decomposition: R5_crisis=CURRENT, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.1488	0.1140	0.1811	KEEP	n=171; 2000-sample bootstrap 95% CI
+E54_regime_R5_crisis_GFC_GLD	2	Phase 2 regime decomposition: R5_crisis=GFC, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0172	-0.0090	0.0428	KEEP	n=397; 2000-sample bootstrap 95% CI
+E55_regime_R5_crisis_GFC_WTI	2	Phase 2 regime decomposition: R5_crisis=GFC, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.0931	0.0724	0.1153	KEEP	n=397; 2000-sample bootstrap 95% CI
+E56_regime_R5_crisis_GFC_DBC	2	Phase 2 regime decomposition: R5_crisis=GFC, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.2026	0.1770	0.2300	KEEP	n=397; 2000-sample bootstrap 95% CI
+E57_regime_R5_crisis_INFL2022_GLD	2	Phase 2 regime decomposition: R5_crisis=INFL2022, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0374	0.0067	0.0700	KEEP	n=304; 2000-sample bootstrap 95% CI
+E58_regime_R5_crisis_INFL2022_BTC	2	Phase 2 regime decomposition: R5_crisis=INFL2022, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.4962	0.4875	0.5047	KEEP	n=304; 2000-sample bootstrap 95% CI
+E59_regime_R5_crisis_INFL2022_WTI	2	Phase 2 regime decomposition: R5_crisis=INFL2022, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.1154	0.0888	0.1418	KEEP	n=304; 2000-sample bootstrap 95% CI
+E60_regime_R5_crisis_INFL2022_DBC	2	Phase 2 regime decomposition: R5_crisis=INFL2022, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.1709	0.1394	0.2015	KEEP	n=304; 2000-sample bootstrap 95% CI
+E61_regime_R5_crisis_TARIFF25_GLD	2	Phase 2 regime decomposition: R5_crisis=TARIFF25, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.1737	0.1465	0.2001	KEEP	n=92; 2000-sample bootstrap 95% CI
+E62_regime_R5_crisis_TARIFF25_BTC	2	Phase 2 regime decomposition: R5_crisis=TARIFF25, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.3525	0.3430	0.3609	KEEP	n=92; 2000-sample bootstrap 95% CI
+E63_regime_R5_crisis_TARIFF25_WTI	2	Phase 2 regime decomposition: R5_crisis=TARIFF25, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.4139	0.3591	0.4659	KEEP	n=92; 2000-sample bootstrap 95% CI
+E64_regime_R5_crisis_TARIFF25_DBC	2	Phase 2 regime decomposition: R5_crisis=TARIFF25, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.5090	0.4568	0.5588	KEEP	n=92; 2000-sample bootstrap 95% CI
+E65_regime_R5_crisis_normal_GLD	2	Phase 2 regime decomposition: R5_crisis=normal, corr_SPY_GLD	regime_conditional_mean	42	correlation_mean	0.0463	0.0388	0.0535	KEEP	n=5571; 2000-sample bootstrap 95% CI
+E66_regime_R5_crisis_normal_BTC	2	Phase 2 regime decomposition: R5_crisis=normal, corr_SPY_BTC	regime_conditional_mean	42	correlation_mean	0.1402	0.1335	0.1467	KEEP	n=3487; 2000-sample bootstrap 95% CI
+E67_regime_R5_crisis_normal_WTI	2	Phase 2 regime decomposition: R5_crisis=normal, corr_SPY_WTI	regime_conditional_mean	42	correlation_mean	0.2379	0.2315	0.2443	KEEP	n=5717; 2000-sample bootstrap 95% CI
+E68_regime_R5_crisis_normal_DBC	2	Phase 2 regime decomposition: R5_crisis=normal, corr_SPY_DBC	regime_conditional_mean	42	correlation_mean	0.3506	0.3448	0.3566	KEEP	n=5261; 2000-sample bootstrap 95% CI
