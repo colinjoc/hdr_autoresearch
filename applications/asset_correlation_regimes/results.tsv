@@ -1,0 +1,6 @@
+exp_id	phase	description	model	seed	metric	value	ci_low	ci_high	status	notes
+E00_SPY_GLD	0.5	Unconditional 90d rolling Pearson correlation SPY vs GLD	rolling_pearson	NA	median_correlation	0.0487	-0.4060	0.4856	KEEP	n=6625 observations; log returns; full window
+E00_SPY_BTC	0.5	Unconditional 90d rolling Pearson correlation SPY vs BTC	rolling_pearson	NA	median_correlation	0.1586	-0.1364	0.5523	KEEP	n=4144 observations; log returns; full window
+E00_SPY_WTI	0.5	Unconditional 90d rolling Pearson correlation SPY vs WTI	rolling_pearson	NA	median_correlation	0.2038	-0.1629	0.6175	KEEP	n=6849 observations; log returns; full window
+E00_SPY_DBC	0.5	Unconditional 90d rolling Pearson correlation SPY vs DBC	rolling_pearson	NA	median_correlation	0.3390	-0.0603	0.7002	KEEP	n=6315 observations; log returns; full window
+E00_SPY_QQQ	0.5	Unconditional 90d rolling Pearson correlation SPY vs QQQ	rolling_pearson	NA	median_correlation	0.9184	0.8161	0.9707	KEEP	n=6852 observations; log returns; full window
