@@ -1,6 +1,6 @@
 # Data sources — Phase 0.5 smoke test
 
-Run date: 2026-04-20T13:58:43.938876+00:00
+Run date: 2026-04-20T15:48:26.796349+00:00
 
 ## Yahoo Finance (yfinance)
 

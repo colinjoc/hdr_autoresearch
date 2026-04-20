@@ -22,8 +22,11 @@ Features:
                            periods)
   - month_of_year         (seasonal indicator)
 
-Evaluation: 5-fold time-series cross-validation (no shuffling, training
-only on past). Report held-out MAE and R² for each (family, target) pair.
+Evaluation: 5-fold time-series cross-validation with a 90-day embargo
+between train and test folds (no shuffling, training only on past;
+purged CV per López de Prado 2018 to stop leakage from the 90-day
+rolling-correlation target). Report held-out MAE and R² for each
+(family, target) pair.
 
 Writes:
   - tournament_results.csv
@@ -82,11 +85,21 @@ def build_feature_panel():
     return df
 
 
-def evaluate(model_ctor, X, y, name, target, splits=5):
-    """5-fold time-series CV — MAE and R² on held-out folds."""
+def evaluate(model_ctor, X, y, name, target, splits=5, embargo=90):
+    """5-fold time-series CV — MAE and R² on held-out folds.
+
+    An `embargo` of 90 days is removed from the tail of each training fold
+    before the test fold starts. This prevents information leakage from
+    90-day rolling correlations, whose observations share 89 days with
+    their neighbours (purged CV, López de Prado 2018).
+    """
     tscv = TimeSeriesSplit(n_splits=splits)
     maes, r2s = [], []
     for tr_idx, te_idx in tscv.split(X):
+        if embargo > 0:
+            tr_idx = tr_idx[tr_idx < te_idx[0] - embargo]
+            if len(tr_idx) < 50:
+                continue
         model = model_ctor()
         model.fit(X.iloc[tr_idx], y.iloc[tr_idx])
         pred = model.predict(X.iloc[te_idx])

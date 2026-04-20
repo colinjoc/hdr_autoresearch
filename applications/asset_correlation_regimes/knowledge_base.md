@@ -67,3 +67,19 @@ Stylised facts from the literature, each tagged with the paper IDs (see `papers.
 26. **Rolling 90-day Pearson correlation is the industry-standard eyeball metric** but is high-variance; a 250-day window is more stable but lags regime changes. The typical robustness check is to report 30/90/250-day together [P007].
 
 27. **Pre-break data can still improve out-of-sample forecasts in the presence of structural breaks** — the Pesaran-Timmermann window-selection result. Implication: we should NOT throw out pre-2020 data, even if we believe the post-COVID regime is different [P010].
+
+## Crisis-window definitions (post-hoc, 2026-04-20)
+
+The R5 crisis windows used in `phase2_regime_decomposition.py` were defined *after* inspecting the rolling-correlation series and are therefore post-hoc labels, not a pre-registered segmentation. They are recorded here for transparency. Each corresponds to a macro episode identified independently of the correlation data:
+
+- **GFC, 2007-09-01 → 2009-03-31** — Global Financial Crisis. Start aligned with the BNP Paribas fund closure (Aug 2007) and deepening interbank stress through late 2007; end at the post-Lehman market trough (Mar 2009).
+- **COVID, 2020-02-01 → 2020-04-30** — Covid-19 market dislocation. Window spans the late-Jan Wuhan lockdown through the April policy-induced recovery. [P015] documents BTC's failure as a safe haven in this window.
+- **INFL2022, 2022-01-01 → 2022-10-31** — 2022 inflation/Fed-hiking shock. Start with the Fed's January hawkish pivot; end at the October CPI peak. [P026, P027] discuss the 2022 bond-stock correlation regime change.
+- **TARIFF25, 2025-03-01 → 2025-05-31** — Spring-2025 US tariff escalation. Window spans the announcement through the initial pricing-in period.
+- **CURRENT, 2025-11-01 → today** — period of sustained positive gold-equity correlation post-tariff-shock; chosen because the SPY-GLD rolling series entered a narrow +0.15-+0.20 band around this date. Sensitivity to start date {2025-09, 2025-10, 2025-11, 2025-12} is reported in `sensitivity_current_start.csv`.
+
+**Warning for readers**: because these windows were selected after inspecting the correlation series, any claim of the form "window X is elevated relative to normal" is partially circular. The primary use of R5 is descriptive — to attach a familiar macro-episode label to episodes of already-visible correlation behaviour — not to establish a novel statistical effect.
+
+## Regime-cutoff choices (post-hoc)
+
+Thresholds in `phase2_regime_decomposition.py` (Fed ±25 bps over 3 months, CPI 2%/3.5%, DXY ±3% over 6 months, drawdown 15%) were chosen to produce human-legible regime buckets rather than pre-registered from a specific literature cutoff. The 25 bp Fed cutoff is consistent with [P024]'s measurement of the market response to a 25 bp surprise; the CPI 3.5% bucket isolates the 2022 shock; the DXY 3% over 6 months captures the 2014-15 and 2022 moves. These are not optimally chosen — a robustness table across alternative cutoffs is left for future work.

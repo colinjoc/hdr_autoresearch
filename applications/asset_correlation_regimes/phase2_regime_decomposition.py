@@ -1,9 +1,9 @@
 """Phase 2 — Regime decomposition of rolling correlations.
 
 Phase 1 found that macro regime cannot predict rolling correlation out of
-sample (all R² negative). This motivates a different approach: partition
-the 22-year window into explicit regimes and test whether correlations
-*within* each regime are stable.
+sample (all R² negative, even with a 90-day embargo). This motivates a
+different approach: partition the 22-year window into explicit regimes
+and describe (NOT test) correlations within each regime.
 
 We define the following regime dummies (not overlapping unless noted):
 
@@ -13,18 +13,22 @@ We define the following regime dummies (not overlapping unless noted):
   R3 Dollar:           strengthening (dxy_6m_pct > +3%), weakening
                        (< -3%), neutral.
   R4 Growth shock:     SPY 90-day drawdown > 15% (proxy for risk-off).
-  R5 Identified crises (from knowledge_base.md lit review):
+  R5 Identified crises (post-hoc labels, see knowledge_base.md):
                        GFC (2007-09 to 2009-03), COVID (2020-02 to
                        2020-04), 2022 inflation shock (2022-01 to 2022-10),
                        tariff/2025 (2025-03 to 2025-05), current period
                        (2025-11 to today).
 
-Each experiment is a regime-conditional mean and 95% bootstrap CI for
-90-day rolling corr(SPY, X). The paper's physics content is the
-*difference* in correlation between the current regime and each
-historical regime with similar macro conditioning.
+Each experiment is a regime-conditional mean and 95% MOVING-BLOCK
+bootstrap CI (block length 90 ≈ rolling window) for 90-day rolling
+corr(SPY, X). Block bootstrap is required because consecutive daily
+observations share 89 of 90 days of underlying returns — an IID
+bootstrap would understate CI width by 2-8x (see paper_review.md F1).
 
-Writes ≥10 E-rows to results.tsv (Phase 2 exploratory minimum).
+This is a DESCRIPTIVE partition, not a hypothesis test. No p-values or
+multiple-comparisons corrections are reported; apparent differences
+between regimes should be read as "what the data look like within this
+window", not "statistically significant effect".
 """
 from __future__ import annotations
 import math
@@ -73,7 +77,7 @@ def build_panel():
 
     fed, inf, dxy, shock = classify(df)
     df["R1_fed"] = fed
-    df["R2_inf"] = inf.astype(str)
+    df["R2_inf"] = inf.astype("object").where(inf.notna(), other=np.nan)
     df["R3_dxy"] = dxy
     df["R4_shock"] = shock
 
@@ -92,17 +96,28 @@ def build_panel():
     return df
 
 
-def bootstrap_ci(x, n_boot=2000, seed=42):
+def bootstrap_ci(x, n_boot=2000, seed=42, block_len=90):
+    """Moving-block bootstrap (Künsch 1989) of the sample mean.
+
+    block_len defaults to 90 to match the rolling-correlation window.
+    For short windows (n < block_len), falls back to block_len = n // 3
+    so we still capture local autocorrelation structure.
+    """
     x = np.asarray(x)
     x = x[~np.isnan(x)]
     if len(x) < 10:
         return (float("nan"), float("nan"), float("nan"), len(x))
+    n = len(x)
+    b = min(block_len, max(5, n // 3))
+    max_start = max(1, n - b)
+    n_blocks = int(np.ceil(n / b))
     rng = np.random.default_rng(seed)
     means = np.empty(n_boot)
     for i in range(n_boot):
-        idx = rng.integers(0, len(x), size=len(x))
-        means[i] = x[idx].mean()
-    return float(x.mean()), float(np.percentile(means, 2.5)), float(np.percentile(means, 97.5)), int(len(x))
+        starts = rng.integers(0, max_start + 1, size=n_blocks)
+        sample = np.concatenate([x[s:s + b] for s in starts])[:n]
+        means[i] = sample.mean()
+    return float(x.mean()), float(np.percentile(means, 2.5)), float(np.percentile(means, 97.5)), int(n)
 
 
 def main():
@@ -157,7 +172,7 @@ def main():
                 f"{row['ci_lo']:.4f}",
                 f"{row['ci_hi']:.4f}",
                 "KEEP",
-                f"n={row['n']}; 2000-sample bootstrap 95% CI",
+                f"n={row['n']}; moving-block (b=90) bootstrap 95% CI, 2000 samples",
             ]) + "\n")
 
     print(f"\nAppended {exp_id} E-rows to results.tsv")
