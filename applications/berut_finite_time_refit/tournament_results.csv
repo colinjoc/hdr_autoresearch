@@ -1,0 +1,5 @@
+family,k,chi2,rmse,aic,aicc,popt,perr
+F1_Proesmans_1/tau,1,1.8673,0.0648,3.8673,4.3673,"[np.float64(8.2667)]","[np.float64(0.45)]"
+F2_VanVu-Saito_1/tau+1/tau^2,2,1.7461,0.0627,5.7461,7.4604,"[np.float64(7.7863), np.float64(2.8753)]","[np.float64(1.4516), np.float64(8.2601)]"
+F3_free_power_law,3,0.3741,0.0290,6.3741,10.3741,"[np.float64(0.3463), np.float64(6.4493), np.float64(0.7253)]","[np.float64(0.4595), np.float64(2.0941), np.float64(0.3206)]"
+F4_activated_process,3,0.5067,0.0338,6.5067,10.5067,"[np.float64(0.8283), np.float64(2.9634), np.float64(7.4426)]","[np.float64(0.0971), np.float64(0.4794), np.float64(1.7411)]"
