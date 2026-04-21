@@ -1,0 +1,37 @@
+id	timestamp	label	n	k	auto_group_s	wall_s	status	note
+E00_PER1_BB_2x3	2026-04-21T09:21:34.492694+00:00	BB_2x3	12	0	3.0231	5.561126807995606	OK	Phase0.5_PER1_GAP_automorphism_probe
+E00_PER1_BB_2x5	2026-04-21T09:21:34.492694+00:00	BB_2x5	20	0	0.0443	2.555171176965814	OK	Phase0.5_PER1_GAP_automorphism_probe
+E00_PER1_BB_3x5	2026-04-21T09:21:34.492694+00:00	BB_3x5	30	0	0.1063	2.6104052269947715	OK	Phase0.5_PER1_GAP_automorphism_probe
+E00_PER1_BB_4x5	2026-04-21T09:21:34.492694+00:00	BB_4x5	?	?	ERR	60	TIMEOUT	Phase0.5_PER1_GAP_automorphism_probe
+E00_PER1_BB_5x5	2026-04-21T09:21:34.492694+00:00	BB_5x5	?	?	ERR	60	TIMEOUT	Phase0.5_PER1_GAP_automorphism_probe
+E00_PER1_BB_3x8	2026-04-21T09:21:34.492694+00:00	BB_3x8	?	?	ERR	60	TIMEOUT	Phase0.5_PER1_GAP_automorphism_probe
+E00_PER1_BB_6x6	2026-04-21T09:21:34.492694+00:00	BB_6x6	?	?	ERR	60	TIMEOUT	Phase0.5_PER1_GAP_automorphism_probe
+E00_PER1_BB_gross	2026-04-21T09:21:34.492694+00:00	BB_gross	?	?	ERR	60	TIMEOUT	Phase0.5_PER1_GAP_automorphism_probe
+E01_nauty_BB_small_3x3	2026-04-21T09:33:38.575955+00:00	BB_small_3x3	18	8	nauty_proxy	6.577197927981615e-05	OK	Phase0.5_E01_nauty_proxy_order=2592.0
+E01_nauty_BB_small_6x3	2026-04-21T09:33:38.575955+00:00	BB_small_6x3	36	8	nauty_proxy	0.000111832981929183	OK	Phase0.5_E01_nauty_proxy_order=144.0
+E01_nauty_BB_small_6x6	2026-04-21T09:33:38.575955+00:00	BB_small_6x6	72	12	nauty_proxy	0.00031096901511773467	OK	Phase0.5_E01_nauty_proxy_order=432.0
+E01_nauty_BB_small_8x4	2026-04-21T09:33:38.575955+00:00	BB_small_8x4	64	0	nauty_proxy	0.0001443140208721161	OK	Phase0.5_E01_nauty_proxy_order=32.0
+E01_nauty_BB_small_10x5	2026-04-21T09:33:38.575955+00:00	BB_small_10x5	100	0	nauty_proxy	0.0002967289765365422	OK	Phase0.5_E01_nauty_proxy_order=50.0
+E01_nauty_BB_gross_12x6	2026-04-21T09:33:38.575955+00:00	BB_gross_12x6	144	12	nauty_proxy	0.00035456998739391565	OK	Phase0.5_E01_nauty_proxy_order=144.0
+E01_nauty_BB_gross_12x12	2026-04-21T09:33:38.575955+00:00	BB_gross_12x12	288	16	nauty_proxy	0.005925090983510017	OK	Phase0.5_E01_nauty_proxy_order=576.0
+E02_pareto_summary	2026-04-21T09:38:16.751609+00:00	BB_poly_sweep	NA	NA	nauty_proxy	3.7270965129719116	KEEP	Phase1_E02_brute_force_Pareto_48codes_8Pareto
+E02_BB_pd3qd3_n18_k12	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	12	nauty_proxy	0.00029087800066918135	KEEP	Phase1_E02_proxy_order=1.045e+14_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**3*y**2 + x**2*y**3 + x*y'
+E02_BB_pd3qd3_n18_k12	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	12	nauty_proxy	0.0002679580356925726	KEEP	Phase1_E02_proxy_order=1.045e+14_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**2*y**2 + x*y**3 + y'
+E02_BB_pd3qd3_n18_k8	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	8	nauty_proxy	0.000208308978471905	KEEP	Phase1_E02_proxy_order=2.592e+03_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**3*y**3 + y**2 + y'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.000164299039170146	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**2 + x*y**2 + y**2'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00016631896141916513	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x*y**2 + x*y + y**2'
+E02_BB_pd3qd3_n18_k8	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	8	nauty_proxy	0.00017269904492422938	KEEP	Phase1_E02_proxy_order=2.592e+03_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**3*y**3 + x**2 + x*y**3'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00017326895613223314	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**3 + x**2 + x*y**2'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00016864901408553123	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**3*y**3 + x**2*y**2 + x'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00015901902224868536	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**3*y**2 + x*y + y'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00018062902381643653	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**2*y**3 + x*y**3 + x*y'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00015795999206602573	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x*y**3 + y**3 + y'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00015569000970572233	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x*y**2 + y**3 + y'
+E02_BB_pd3qd3_n18_k8	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	8	nauty_proxy	0.00016232900088652968	KEEP	Phase1_E02_proxy_order=2.592e+03_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**2 + x*y**2 + y'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.0001539289951324463	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**3*y + x + y**2'
+E02_BB_pd3qd3_n18_k12	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	12	nauty_proxy	0.0002614390105009079	KEEP	Phase1_E02_proxy_order=1.045e+14_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**2*y**3 + x*y + y**2'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.0001552589819766581	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**2*y**2 + x**2 + x*y'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00015556899597868323	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x + y**3 + y'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00011279899626970291	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**3*y**2 + x**3*y + x'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00017400900833308697	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**3*y**2 + x**3 + x*y**2'
+E02_BB_pd3qd3_n18_k4	2026-04-21T09:38:16.751609+00:00	BB_pd3qd3	18	4	nauty_proxy	0.00015337998047471046	KEEP	Phase1_E02_proxy_order=1.080e+02_polyA='x**3*y**2 + x**2*y**3 + x*y'_polyB='x**3*y**2 + x**3*y + x*y'

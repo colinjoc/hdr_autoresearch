@@ -1,0 +1,261 @@
+id,title,authors,year,type,domain,subcategory,method,key_finding,hypothesis_generated,relevance
+1,Quantum Computation and Quantum Information (10th Anniv Ed.),"Nielsen, M.A.; Chuang, I.L.",2010,textbook,fundamentals,qec_basics,analytic,"Canonical textbook — Chapter 10 defines Knill-Laflamme conditions, CSS construction, 9-qubit Shor code","KL conditions ground every reward; CSS separation is the backbone assumption",5
+2,Quantum Error Correction (Cambridge ed. volume),"Lidar, D.A.; Brun, T.A. (eds.)",2013,textbook,fundamentals,edited_review,analytic,"Edited volume covering stabilizer codes, subsystem codes, topological codes, DFS","Use as canonical subsystem/stabilizer reference",5
+3,Stabilizer Codes and Quantum Error Correction (PhD thesis),"Gottesman, D.",1997,textbook,fundamentals,stabilizer_formalism,analytic,"Defines stabilizer formalism, Clifford hierarchy, fault-tolerance","Foundational for action-space factorisation and reward",5
+4,Modern Coding Theory,"Richardson, T.J.; Urbanke, R.L.",2008,textbook,classical_coding,ldpc,analytic,"Canonical classical LDPC textbook — BP, OSD, density evolution","Classical analogue guiding qLDPC decoder choice for final eval",4
+5,Reinforcement Learning: An Introduction (2nd ed.),"Sutton, R.S.; Barto, A.G.",2018,textbook,ml_tools,rl_foundations,learning,"Foundational RL reference — MC, TD, policy gradient","Frames our MDP formulation, value/policy separation",5
+6,Information Theory Inference and Learning Algorithms,"MacKay, D.J.C.",2003,textbook,classical_coding,information_theory,analytic,"Classic info-theory + decoding textbook","BP foundations and reasoning about decoder-optimal vs code-optimal",3
+7,Quantum Error Correction for Quantum Memories,"Terhal, B.M.",2015,review,fundamentals,memory_review,analytic,"Review of stabilizer/topological codes; threshold; FT","Review scaffold for all theme-1 content",4
+8,Simultaneous discovery of QEC codes and encoders with a noise-aware RL agent,"Olle, J.; Zen, R.; Puviani, M.; Marquardt, F.",2024,paper,ml_discovery,rl_code_discovery,learning,"RL + qdx + JAX — up to 25 qubits d=5; noise-aware meta-agent; npj QI","The direct precedent and baseline; our reward extends theirs",5
+9,Discovering highly efficient low-weight QEC codes with RL,"Authors (2502.14372)",2025,preprint,ml_discovery,rl_weight_reduction,learning,"RL + weight-aware reward; closer to qLDPC; arXiv:2502.14372","Complementary-reward baseline; our paper ablates against this",4
+10,Scaling Automated Discovery of Quantum Circuits via RL with Gadgets,"Authors (2503.11638)",2025,preprint,ml_discovery,rl_gadgets,learning,"Gadget action-space compression; n up to ~40 at d<=7; arXiv:2503.11638","Directly composable with our reward axis; plan to adopt gadgets",5
+11,Discovery of Optimal QEC Codes via RL,"Nautrup, H.P.; Friis, N.; Briegel, H.J.",2023,paper,ml_discovery,rl_early,learning,"Early RL for codes, d<=4; arXiv:2305.06378","Historical baseline; action space lineage",3
+12,Scaling Automated QEC Discovery with RL (OpenReview),"Authors (PP40WPYr3F)",2025,preprint,ml_discovery,rl_symmetry,learning,"Symmetry-prior RL scaling; VERIFY full method","Adds symmetry priors to the ablation suite",3
+13,Discovering autonomous QEC via deep RL,"Authors (2511.12482)",2025,preprint,ml_discovery,autonomous_qec_rl,learning,"RL for continuous-variable / bosonic autonomous QEC","Not a direct competitor; evidence of active RL-for-QEC community",2
+14,Reinforcement learning control of quantum error correction,"Authors (2511.08493)",2025,preprint,ml_control,rl_feedback,learning,"RL for real-time FT feedback; d=15 surface code control","Adjacent work; not code-discovery but informs control-loop cost",2
+15,Approximate Autonomous QEC with RL,"Authors (ResearchGate 366527573)",2022,preprint,ml_discovery,rl_autonomous,learning,"Early RL for approximate autonomous QEC","Historical; small scale",2
+16,Realizing a deep RL agent for real-time quantum feedback,"Sivak, V.V.; et al. (Marquardt group)",2023,paper,ml_control,rl_feedback_exp,experiment,"Experimental RL on real-time feedback; Nature Comm.","Demonstrates RL in the physical-control loop",3
+17,Stim: a fast stabilizer circuit simulator,"Gidney, C.",2021,software,simulator,stabilizer,numerical,"SIMD-vectorised Heisenberg-picture stabilizer sim; arXiv:2103.02202","Baseline simulator for final-eval LER",5
+18,qdx: Quantum Error Correction AI-discovery with JAX,"Olle, J.; et al.",2024,software,simulator,vectorised_clifford_rl,tool,"Open-source RL+Clifford-sim pipeline; 25 qubits d=5 demonstrated; dormant as of 2026-04","Our fork-or-reimplement base",5
+19,PureJaxRL,"Lu, C.; et al.",2023,software,ml_tools,jax_rl,tool,"JAX-native RL implementation — PPO, SAC, etc.","qdx integration point; PPO implementation",3
+20,PyMatching v2,"Higgott, O.; Gidney, C.",2023,software,decoder,mwpm,numerical,"MWPM decoder with sparse blossom; v2.3.1 Sep 2025; arXiv:2303.15933","Final-eval decoder baseline for 2D topological reference codes",5
+21,Sinter: Monte Carlo sampler,"Gidney, C.",2023,software,driver,sampler,numerical,"Standard MC driver for Stim+PyMatching","Standard workflow component",4
+22,CUDA-Q QEC: NVIDIA open-source QEC library,"NVIDIA",2024,software,simulator,gpu_qec,numerical,"GPU BP+OSD 29-42x CPU speedup; GPU Stim wrapper","Primary GPU-accelerated route for final-eval LER",5
+23,ldpc (python) BP+OSD / BP+LSD,"Roffe, J.; Burton, S.",2022,software,decoder,bp_osd,tool,"Canonical qLDPC decoder; BP+LSD now recommended","Final-eval decoder for qLDPC reference set",5
+24,Pymatching: Python package for decoding QEC with MWPM,"Higgott, O.",2022,software,decoder,mwpm,tool,"PyMatching v1; ACM TQC","Predecessor of v2",4
+25,qiskit-qec,"IBM Qiskit team",2023,software,simulator,qiskit_stack,tool,"IBM Python QEC toolkit","Alternative to Stim; IBM device noise ingestion",3
+26,Panqec,"Panteleev, P.",2022,software,simulator,panqec,tool,"qLDPC Python simulator","qLDPC sim reference",3
+27,cuQuantum SDK,"NVIDIA",2022,software,simulator,tensor_network,tool,"GPU TN/statevector SDK","Non-Pauli regime simulation option",3
+28,SweepContractor.jl,"Chubb, C.T.",2021,software,decoder,tensor_network,tool,"Julia TN decoder for 2D Pauli codes; arXiv:2101.04125","Reference exact decoder for 2D baselines",3
+29,qLDPCOrg/qLDPC,"qLDPCOrg contributors",2024,software,simulator,automorphism_gates,tool,"Computes logical tableaus and physical circuits for SWAP-transversal Clifford via automorphisms (arXiv:2409.18175)","Direct back-end for our transversal-gate reward",5
+30,Error Correction Zoo (online),"Albert, V.V.; et al.",2022,software,reference,zoo,reference,"Comprehensive quantum code catalogue","Source for reference-set enumeration",5
+31,High-threshold and low-overhead FT quantum memory (BB codes),"Bravyi, S.; Cross, A.; Gambetta, J.; Maslov, D.; Rall, P.; Yoder, T.",2024,paper,qldpc,bivariate_bicycle,simulation,"[[144,12,12]] gross code; ~0.8% threshold; Nature; arXiv:2308.07915","Anchor reference code; small-BB instances enumerable from ancillaries",5
+32,Logical Operators and Fold-Transversal Gates of BB Codes,"Eberhardt, J.N.; Steffan, V.",2024,paper,qldpc,bb_transversal,analytic,"Logical op basis + fold-transversal Clifford; arXiv:2407.03973","Fold-transversal gate count = reward primary quantity for BB",5
+33,Fault-Tolerant Logical Clifford Gates from Code Automorphisms,"Sayginel, H.; Koutsioumpas, S.; Webster, M.; Rajput, A.; Browne, D.E.",2024,paper,qldpc,automorphism_gates,analytic,"Rigorous automorphism-to-logical-Clifford classification with Pauli corrections; arXiv:2409.18175","Theoretical basis for our transversal-gate reward",5
+34,Fold-Transversal Clifford Gates for Quantum Codes,"Breuckmann, N.P.; Burton, S.",2024,paper,qldpc,fold_transversal,analytic,"Quantum 8, 1372 — fold-transversal framework","Fold-transversal machinery for reward",4
+35,Fault-tolerant gate sets for qLDPC codes,"Zhu, G.; Breuckmann, N.P.; et al.",2023,paper,qldpc,universality,analytic,"Automorphism-based Clifford on qLDPC","Canonical Zhu-Breuckmann reference for reward bonus",5
+36,Self-dual bivariate bicycle codes with transversal Clifford gates,"Authors (2510.05211)",2025,preprint,qldpc,self_dual_bb,construction,"Self-dual BB subfamily with transversal Clifford; arXiv:2510.05211","Add to reference set; prime competitor on transversal-gate axis",5
+37,Sequences of Bivariate Bicycle Codes from Covering Graphs,"Symons, B.C.B.; Rajput, A.; Browne, D.E.",2025,preprint,qldpc,covering_bb,construction,"[[64,14,8]] and [[144,14,14]] h-cover variants; arXiv:2511.13560","Cover-code class requires separate novelty-rubric rule",4
+38,BiBiEQ: BB Codes on Erasure Qubits,"Bhave, A.S.; Choudhury, N.; Nemec, A.; Basu, K.",2026,preprint,qldpc,erasure_bb,construction,"arXiv:2602.07578 — erasure-aware BB conversion; d=6→10 captures most LER gain","Erasure-specific reference; align with NA eval",3
+39,Multivariate bicycle codes (PRA),"Authors (APS ll5p-z88p)",2025,paper,qldpc,multivariate_bicycle,construction,"Generalisation of BB to >2 polynomial generators","Expand BB reference set",3
+40,Bivariate bicycle (BB) code zoo entry,"Albert, V.V.; et al.",2024,software,reference,zoo_bb,reference,"Error Correction Zoo entry for BB","Navigation aid for BB reference set",3
+41,Quantum Tanner codes,"Leverrier, A.; Zemor, G.",2022,paper,qldpc,quantum_tanner,construction,"Simplified good qLDPC via left-right Cayley complex; arXiv:2202.13641","Reference code family",5
+42,Explicit Instances of Quantum Tanner Codes,"Authors (2508.05095)",2025,preprint,qldpc,explicit_tanner,construction,"First explicit small-n quantum Tanner code instances","Source of small Tanner codes for reference set",4
+43,Decoding quantum Tanner codes,"Leverrier, A.; Londe, V.; Zemor, G.",2022,paper,qldpc,tanner_decoder,analytic,"Linear-time small-set-flip decoder for q-Tanner; arXiv:2208.05537","Decoder option for Tanner baseline",3
+44,Generalized quantum Tanner code,"Authors (arxiv ECZoo)",2024,paper,qldpc,generalized_tanner,construction,"Generalised q-Tanner constructions","Extended Tanner family for reference set",2
+45,Quantum expander codes,"Leverrier, A.; Tillich, J.-P.; Zemor, G.",2015,paper,qldpc,expander_codes,analytic,"Precursor to good qLDPC","Historical anchor",3
+46,Fibre-bundle codes,"Hastings, M.B.; Haah, J.; O'Donnell, R.",2021,paper,qldpc,fibre_bundle,analytic,"First to break sqrt(n) distance barrier","Historical; reference for theoretical framework",3
+47,Good Quantum Codes with Low-Weight Stabilizers (asymptotic Tanner),"Panteleev, P.; Kalachev, G.",2022,paper,qldpc,panteleev_kalachev,construction,"Asymptotically-good qLDPC via lifted product; arXiv:2111.03654","Historical theoretical result closing 25-year conjecture",5
+48,Lifted product codes and applications to qLDPC,"Panteleev, P.; Kalachev, G.",2020,paper,qldpc,lifted_product,analytic,"Lifted-product generalisation of HGP","BB is a lifted-product instance",4
+49,Hypergraph product codes,"Tillich, J.-P.; Zemor, G.",2014,paper,qldpc,hypergraph_product,analytic,"Quantum codes from classical LDPC pair; distance sqrt(n); IEEE TIT","HGP framework for reference set construction",5
+50,Computing Efficiently in QLDPC Codes (SHYPS),"Authors (2502.07150)",2025,preprint,qldpc,shyps,construction,"SHYPS codes; full Clifford transversal in O(m) rounds; arXiv:2502.07150","Prime competitor reference for transversal-gate axis",5
+51,RASCqL: Spacetime-Efficient Complex Quantum Logic Units in qLDPC,"Authors (2602.14273)",2026,preprint,qldpc,rascql,construction,"Automorphism-embedded complex Clifford units; 2-7x qubit reduction; arXiv:2602.14273","Hand-crafted automorphism-based construction; scoop-risk monitor",5
+52,Transversal Gates for Highly Asymmetric qLDPC Codes,"Authors (2506.15905)",2025,preprint,qldpc,asymmetric_hgp,construction,"Transversal phase gates with k linear in n; O(1) phase-flip distance; arXiv:2506.15905","Asymmetric-distance reference; trade-off extreme",4
+53,Transversal Dimension Jump for Product qLDPC Codes,"Authors (2510.07269)",2025,preprint,qldpc,dimension_jump,construction,"Transversal dimension-jump protocols","Reference set",3
+54,Single-Shot Universality in qLDPC via Code-Switching,"Authors (2510.08552)",2025,preprint,qldpc,code_switching_universal,construction,"HGP with transversal CCZ via code-switching","Universality reference",3
+55,Targeted Clifford Logical Gates for HGP codes,"Authors (Quantum 2025)",2025,paper,qldpc,targeted_hgp,analytic,"Targeted single-qubit Cliffords on HGP","Reference construction",3
+56,Addressing individual logical qubits in qLDPC,"Authors",2024,preprint,qldpc,addressable_logicals,analytic,"Individual logical gates on BB codes","Addressable-qubit reference",3
+57,Low-overhead magic state preparation using distilled BB codes,"Authors",2024,preprint,qldpc,bb_distillation,analytic,"BB as distillation factory","Magic-state role for BB",3
+58,qLDPC + lattice-surgery architecture,"Authors",2024,preprint,qldpc,architecture,analytic,"qLDPC coupled to surface-code patches","Architecture reference",3
+59,Architectural mechanisms of a universal FT quantum computer,"Authors (Harvard/QuEra 2506.20661)",2025,preprint,architecture,na_ftqc,analytic,"Full NA FTQC architecture; arXiv:2506.20661","Operational context for our Pareto benchmark",4
+60,A FT neutral-atom architecture for universal QC,"Authors (Nature s41586-025-09848-5)",2025,paper,architecture,na_universal,analytic,"Nature — full FT NA architecture","Architecture anchor",4
+61,Low-overhead FT QC using long-range connectivity,"Xu, Q.; Ataides, J.P.B.; Pattison, C.A.; et al.",2024,paper,qldpc,na_qldpc_long_range,architecture,"arXiv:2308.08648 — qLDPC-on-NA end-to-end","NA qLDPC architecture reference",4
+62,Architecture for fast implementation of qLDPC with Rydberg gates,"Viszlai, B.; et al.",2024,preprint,qldpc,na_rydberg_qldpc,architecture,"arXiv:2404.18809 — qLDPC implementation via Rydberg gates","NA qLDPC implementation",3
+63,Logical quantum processor based on reconfigurable atom arrays (Bluvstein 2024),"Bluvstein, D.; et al. (Harvard/QuEra/MIT)",2024,paper,experiment,bluvstein_2024,experiment,"48 logical qubits with [[7,1,3]] and [[16,6,4]] on 448 atoms; arXiv:2312.03982; Nature","Anchor noise-model paper; reference [[16,6,4]] code",5
+64,Erasure conversion for FT QC in alkaline-earth Rydberg atom arrays,"Wu, Y.; Kolkowitz, S.; Puri, S.; Thompson, J.D.",2022,paper,erasure,na_erasure_foundation,theory,"Proposes erasure conversion in Sr Rydberg arrays; Nat. Commun.","Erasure-conversion foundation for NA noise",4
+65,High-fidelity gates and mid-circuit erasure conversion in an atomic qubit,"Authors",2023,paper,erasure,atom_loss_conversion,experiment,"Nature s41586-023-06438-1 — high-fid gates + erasure conversion","Experimental erasure conversion anchor",4
+66,Erasure conversion in a high-fidelity Rydberg quantum simulator,"Authors",2023,paper,erasure,rydberg_erasure,experiment,"Nature s41586-023-06516-4 — Rydberg simulator with erasure","Rydberg erasure experimental",3
+67,Circuit-Based Leakage-to-Erasure Conversion in a Neutral-Atom Quantum Processor,"Authors (PRX Quantum 5 040343)",2024,paper,erasure,circuit_leakage_erasure,experiment,"Direct experimental circuit-based leakage-to-erasure","NA erasure experimental implementation",4
+68,Leveraging Atom Loss Errors in FT Quantum Algorithms,"Authors (2502.20558)",2025,preprint,erasure,atom_loss_ft,analytic,"Explicit atom-loss in FT algorithms","Atom-loss treatment for our eval",3
+69,Quantum Error Correction resilient against Atom Loss,"Authors (Quantum 9 1884)",2025,paper,qldpc,atom_loss_codes,simulation,"Atom-loss-tolerant codes; code-level analysis","Reference for atom-loss robust codes",3
+70,Correlated decoding of logical algorithms with transversal gates,"Authors (2403.03272)",2024,paper,decoder,correlated_transversal,simulation,"Decoder accounting for transversal-gate correlations","Relevant for transversal-gate code evaluation",4
+71,Logical computation demonstrated with a NA quantum processor,"Authors (2411.11822)",2024,preprint,experiment,na_logical_comp,experiment,"Further NA logical computation","NA FTQC ongoing",3
+72,Combining quantum processors with real-time classical communication,"Authors (PMC 11618078)",2024,paper,experiment,real_time_classical,experiment,"NA + real-time classical comms","FTQC real-time context",2
+73,Bias-preserving and error-detectable entangling operations in SC dual-rail,"Authors (2503.10935)",2025,preprint,erasure,sc_dual_rail,experiment,"SC dual-rail entangling gates","Cross-platform comparison",2
+74,Developments in superconducting erasure qubits for hardware-efficient QEC,"Authors (2601.02183)",2026,preprint,erasure,sc_erasure_review,review,"Review of SC erasure qubits","Cross-platform erasure review",3
+75,Efficient Simulation of Leakage Errors Using Tensor Networks,"Authors (2308.08186)",2023,preprint,leakage,tn_leakage,simulation,"MPS-based leakage sim — non-Pauli","Option for non-Pauli error bar",3
+76,Incoherent Approximation of Leakage in QEC (Subspace Twirling),"Authors (2312.10277)",2024,preprint,leakage,subspace_twirl,theory,"Stabilizer-compatible leakage approximation","Option for leakage into Stim pipeline",3
+77,Correcting coherent errors with surface codes,"Bravyi, S.; Englbrecht, M.; König, R.; Peard, N.",2018,paper,coherent_noise,surface_coherent,simulation,"Surface code non-Pauli vs Pauli-twirl difference","Coherent-noise sensitivity note",3
+78,Correcting coherent errors via Pauli conjugation,"Cai, Z.; et al.",2019,paper,coherent_noise,pauli_conjugation,analytic,"Pauli conjugation mitigation","Coherent-noise workaround",2
+79,Logical error rates under mixed coherent/stochastic trapped-ion noise,"Authors (2508.14227)",2025,preprint,coherent_noise,trapped_ion_lers,simulation,"Per-platform ion-trap noise","Cross-platform calibration",2
+80,"Experimental QEC below threshold via all-microwave leakage suppression","Authors (PRL rqkg-dw31)",2025,paper,experiment,microwave_leakage,experiment,"Experimental leakage suppression","Context for leakage handling",3
+81,"Quantum error correction below the surface code threshold (Willow)","Google Quantum AI",2024,paper,experiment,willow_threshold,experiment,"Distance-7 surface code; suppression factor 2.14; Nature","Benchmarking context",4
+82,Learning high-accuracy error decoding for quantum processors (AlphaQubit),"Bausch, J.; Senior, A.W.; Heras, F.J.H.; et al.",2024,paper,ml_decoder,alphaqubit,learning,"Transformer-recurrent decoder; Nature","Neural decoder SOTA for comparison",4
+83,A scalable and real-time neural decoder for topological codes (AlphaQubit 2),"Senior, A.W.; Edlich, T.; Higgott, O.; Bausch, J.; et al.",2025,preprint,ml_decoder,alphaqubit2,learning,"Real-time color+surface code decoding; arXiv:2512.07737","Streaming NN decoder",4
+84,Learning to Decode qLDPC via Belief Propagation (RL),"Authors (2603.10192)",2026,preprint,decoder,rl_bp_decoder,learning,"RL-trained BP decoder; MDP formulation","Candidate back-end; adjacent RL line",3
+85,"RL for Enhanced Advanced QEC Architecture Decoding","Authors (2601.19279)",2026,preprint,decoder,rl_decoding,learning,"RL for decoding advanced QEC","Adjacent — not code-discovery",2
+86,Neural ensemble decoding for topological codes,"Meinerz, K.; Park, C.-Y.; Trebst, S.",2022,paper,ml_decoder,ensemble,learning,"Ensemble NN beats MWPM on coherent noise","NN decoder baseline",3
+87,Scalable Neural Decoders for Practical Real-Time QEC,"Authors (2510.22724)",2025,preprint,ml_decoder,streaming_nn,learning,"6us GPU decoder via distillation+pruning","Real-time NN reference",3
+88,Mamba-based neural decoder for QEC,"Authors",2025,preprint,ml_decoder,mamba_decoder,learning,"State-space model O(d^2) decoder","NN decoder alt",2
+89,Machine learning message-passing for scalable decoding of QLDPC codes,"Authors",2025,paper,decoder,gnn_bp,learning,"GNN-based BP; npj QI","ML-BP for qLDPC",3
+90,Evolutionary BP+OSD decoding for low-latency QEC,"Authors (2512.18273)",2025,preprint,decoder,evo_bp_osd,algorithm,"Differential-evolution BP weight tuning","Decoder-tuning baseline",2
+91,Improved belief propagation is sufficient for real-time decoding,"Authors (2506.01779)",2025,preprint,decoder,improved_bp,algorithm,"Vanilla BP + fixes matches BP+OSD at streaming speed","BP-only decoder option",3
+92,Degenerate qLDPC Codes With Good Finite Length Performance,"Panteleev, P.; Kalachev, G.",2021,paper,qldpc,bp_osd_original,simulation,"Introduces BP+OSD; Quantum 5, 585; arXiv:1904.02703","BP+OSD origin; relevant for decoder choice",5
+93,Decoding across the quantum LDPC code landscape,"Roffe, J.; White, D.R.; Burton, S.; Campbell, E.T.",2020,paper,qldpc,bp_osd_benchmark,simulation,"BP+OSD across many qLDPC families","BP+OSD robustness evidence",4
+94,Linear-Time Maximum Likelihood Decoding over Quantum Erasure Channel,"Delfosse, N.; Zemor, G.",2020,paper,decoder,erasure_mlk,algorithm,"Optimal linear-time erasure decoder","Erasure-decoder baseline",3
+95,Union-find decoders for homological product codes,"Delfosse, N.; Hastings, M.B.",2021,paper,decoder,uf_hgp,algorithm,"UF beyond 2D","UF baseline for qLDPC eval",3
+96,Fair Decoder Baselines and Rigorous Finite-Size Scaling for BB on Erasure,"Pandey, T.",2026,preprint,decoder,bb_erasure_scaling,simulation,"arXiv:2603.19062 — BB on erasure; pseudo-thresholds","Methodological rigor template",3
+97,Almost-linear time decoding algorithm for topological codes (Union Find),"Delfosse, N.; Nickerson, N.H.",2021,paper,decoder,uf_topological,algorithm,"UF with near-MWPM threshold","UF baseline",4
+98,Using detector likelihood for benchmarking QEC,"Authors (2408.02082)",2024,preprint,decoder,detector_likelihood,methodology,"Likelihood-based benchmarking","Alt metric for Pareto axis",3
+99,General tensor network decoding of 2D Pauli codes,"Chubb, C.T.",2021,paper,decoder,tn_decoder,algorithm,"Near-optimal TN decoder; arXiv:2101.04125","Exact-decoder baseline for 2D",4
+100,Tensor-network simulations of the surface code under realistic noise,"Darmawan, A.S.; Poulin, D.",2018,paper,decoder,tn_realistic,simulation,"MPS sim of surface beyond Pauli","Non-Pauli decoder/sim option",3
+101,Characterizing quantum codes via coefficients in Knill-Laflamme,"Authors (npj QI 2025, s41534-025-01155-1)",2025,paper,fundamentals,kl_coefficients,analytic,"Analysis of KL coefficients for code characterization","Refinement of KL reward structure",3
+102,Knill-Laflamme error correction conditions,"Knill, E.; Laflamme, R.",1997,paper,fundamentals,kl_conditions,analytic,"Necessary+sufficient conditions for QEC","Foundational for our reward",5
+103,Stabilizer formalism in the Heisenberg representation,"Gottesman, D.",1998,paper,fundamentals,heisenberg_sim,analytic,"arXiv:quant-ph/9807006","Basis for Stim and qdx simulators",4
+104,Topological quantum memory,"Dennis, E.; Kitaev, A.; Landahl, A.; Preskill, J.",2002,paper,fundamentals,surface_threshold,analytic,"Surface code threshold 10.9%","Baseline for topological reference codes",4
+105,Fault-tolerant quantum computation by anyons,"Kitaev, A.",2003,paper,fundamentals,kitaev_anyons,analytic,"Toric/surface code; Ann. Phys. 303","Foundational",4
+106,Universal quantum computation with ideal Clifford gates and noisy ancillas,"Bravyi, S.; Kitaev, A.",2005,paper,magic_state,bravyi_kitaev_magic,analytic,"Magic-state distillation framework","Magic-state context for transversal-gate framing",4
+107,Magic State Distillation: Not as Costly as You Think,"Litinski, D.",2019,paper,magic_state,litinski_blockdistill,simulation,"Block-encoded factory; order-of-magnitude cost reduction","Magic-state context",3
+108,Magic state cultivation (Gidney-Shutty-Jones),"Gidney, C.; Shutty, N.; Jones, C.",2024,preprint,magic_state,cultivation,simulation,"Cultivation protocol; arXiv:2409.17595","Context for transversal-gate importance",3
+109,Low-overhead magic state preparation using distilled BB codes,"Authors",2024,preprint,magic_state,bb_distillation_factory,analytic,"BB as distillation factory","BB magic-state role",3
+110,"A Game of Surface Codes","Litinski, D.",2019,paper,compilation,game_surface_codes,analytic,"PBC compiler framework; Quantum 3, 128","Context for logical-algorithm cost accounting",4
+111,Pauli-based computation,"Bravyi, S.; Smith, G.; Smolin, J.A.",2016,paper,compilation,pbc,analytic,"Canonical PBC reference","PBC basis",3
+112,ZX calculus for lattice surgery,"Gidney, C.; Fowler, A.G.",2019,paper,compilation,zx_lsc,analytic,"ZX-based compilation","Compilation formalism",3
+113,Constant-overhead FTQC,"Gottesman, D.",2014,paper,fundamentals,constant_overhead,analytic,"Proves constant-overhead FTQC is possible with qLDPC","Theoretical licence for qLDPC work",4
+114,Overhead analysis of qLDPC vs surface code,"Cohen, L.; Kim, I.; Bartlett, S.; Brown, B.",2024,paper,resource_estimation,qldpc_vs_surface,analytic,"qLDPC overhead analysis","Overhead context",3
+115,PPO: Proximal Policy Optimization,"Schulman, J.; Wolski, F.; Dhariwal, P.; Radford, A.; Klimov, O.",2017,paper,ml_tools,ppo,learning,"arXiv:1707.06347 — clipped-objective policy gradient","Our primary RL algorithm",5
+116,SAC: Soft Actor-Critic,"Haarnoja, T.; Zhou, A.; Abbeel, P.; Levine, S.",2018,paper,ml_tools,sac,learning,"arXiv:1801.01290 — max-entropy RL","Ablation RL algorithm option",3
+117,SAC-discrete,"Christodoulou, P.",2019,preprint,ml_tools,sac_discrete,learning,"SAC for discrete action spaces","Discrete-SAC option",2
+118,Mastering the game of Go without human knowledge (AlphaGo Zero),"Silver, D.; et al.",2017,paper,ml_tools,alphago_zero,learning,"MCTS + self-play; Nature","MCTS foundation",4
+119,AlphaZero: mastering chess/shogi/Go without prior knowledge,"Silver, D.; et al.",2017,preprint,ml_tools,alphazero,learning,"arXiv:1712.01815","AlphaZero reference",4
+120,MuZero: Mastering Atari/Go/Chess/Shogi with learned model,"Schrittwieser, J.; et al.",2019,preprint,ml_tools,muzero,learning,"arXiv:1911.08265 — model-based RL","Model-based ablation option",3
+121,Monte-Carlo Graph Search for AlphaZero,"Authors (2012.11045)",2020,preprint,ml_tools,mcgs,learning,"MCTS for graph-structured problems","Graph-MCTS option",2
+122,A0C: Alpha Zero in Continuous Action Space,"Authors (1805.09613)",2018,preprint,ml_tools,a0c,learning,"AlphaZero in continuous actions","AlphaZero variant",2
+123,Solving a Real-World Optimization Problem Using PPO with Curriculum Learning,"Authors (2404.02577)",2024,preprint,ml_tools,ppo_curriculum,learning,"PPO + curriculum + reward engineering case study","Curriculum design reference",3
+124,Reward Shaping to Mitigate Reward Hacking in RLHF,"Authors (2502.18770)",2025,preprint,ml_tools,reward_shaping_hacking,theory,"Shaping to mitigate hacking","Reward-design reference",3
+125,Defining and Characterizing Reward Hacking,"Skalse, J.; et al.",2022,paper,ml_tools,reward_hacking_def,theory,"arXiv:2209.13085 — formal reward-hacking definition","Reward-design reference",3
+126,Comprehensive Overview of Reward Engineering and Shaping in RL,"Authors (2408.10215)",2024,review,ml_tools,reward_review,review,"Survey of reward engineering techniques","Reward-design reference",3
+127,Mitigating Reward Hacking in RLHF via Information-Theoretic Reward Shaping,"Authors (NeurIPS 2024)",2024,paper,ml_tools,info_theoretic_rewards,theory,"Info-theoretic approach","Reward-design reference",2
+128,Detecting and Mitigating Reward Hacking in RL Systems,"Authors (2507.05619)",2025,preprint,ml_tools,reward_hacking_detection,empirical,"Empirical study","Reward-design reference",2
+129,Repairing Reward Functions with Feedback to Mitigate Reward Hacking,"Authors (2510.13036)",2025,preprint,ml_tools,reward_repair,theory,"Feedback-based reward repair","Reward-design reference",2
+130,Curriculum learning (original),"Bengio, Y.; Louradour, J.; Collobert, R.; Weston, J.",2009,paper,ml_tools,curriculum_foundation,learning,"Curriculum learning foundations","Curriculum design foundation",3
+131,Curriculum Learning for RL: A Survey,"Narvekar, S.; et al.",2020,review,ml_tools,curriculum_rl_survey,review,"JMLR — RL curriculum survey","Curriculum design reference",3
+132,Graph RL for Combinatorial Optimization: A Survey,"Authors (2404.06492)",2024,review,ml_tools,graph_rl_survey,review,"GNN + RL for combinatorial opt","Graph-RL methodology",4
+133,Combinatorial Optimization and Reasoning with GNNs,"Authors (JMLR 24)",2023,review,ml_tools,gnn_opt_review,review,"GNN combinatorial opt review","GNN reference",3
+134,"Attention, Learn to Solve Routing Problems!","Kool, W.; van Hoof, H.; Welling, M.",2019,paper,ml_tools,attention_routing,learning,"Attention + RL for TSP/VRP","Attention-RL precedent",3
+135,Neural Combinatorial Optimization with Reinforcement Learning,"Bello, I.; et al.",2016,preprint,ml_tools,neural_combi_rl,learning,"Early RL for combinatorial opt","Foundational",3
+136,Solving Mixed Integer Programs Using Neural Networks,"Nair, V.; et al. (DeepMind)",2020,preprint,ml_tools,mip_nn,learning,"DeepMind ML-for-MIP","Methodological precedent",2
+137,Discovering faster matrix multiplication algorithms with RL (AlphaTensor),"Fawzi, A.; et al. (DeepMind)",2022,paper,ml_tools,alphatensor,learning,"Nature — MCTS for tensor decomposition","Direct precedent for RL on combinatorial tensor space",4
+138,Faster sorting algorithms discovered using deep RL (AlphaDev),"Mankowitz, D.J.; et al. (DeepMind)",2023,paper,ml_tools,alphadev,learning,"Nature — MCTS for CPU instruction sequence","RL discovery precedent",3
+139,Hierarchical Deep RL (Kulkarni),"Kulkarni, T.D.; et al.",2016,paper,ml_tools,hierarchical_rl,learning,"Hierarchical policy networks","Hierarchical-action-space option",2
+140,Rainbow DQN,"Hessel, M.; et al.",2017,paper,ml_tools,rainbow_dqn,learning,"DQN with modern enhancements","DQN baseline",2
+141,Provably efficient maximum entropy exploration,"Hazan, E.; Kakade, S.; Singh, K.; Van Soest, A.",2019,paper,ml_tools,maxent_exploration,theory,"Provably efficient exploration","Exploration theory reference",2
+142,Exploration by Random Network Distillation,"Burda, Y.; Edwards, H.; Storkey, A.; Klimov, O.",2018,preprint,ml_tools,rnd,learning,"RND intrinsic motivation","Exploration reference",2
+143,Diversity is All You Need,"Eysenbach, B.; Gupta, A.; Ibarz, J.; Levine, S.",2018,preprint,ml_tools,diayn,learning,"Diversity-driven exploration","Exploration reference",2
+144,Never Give Up: Learning Directed Exploration Strategies,"Badia, A.P.; et al.",2020,preprint,ml_tools,never_give_up,learning,"Episodic memory exploration","Exploration reference",2
+145,Synthesis of Logical Clifford Operators via Symplectic Matrices,"Rengaswamy, N.; Calderbank, R.; et al.",2019,paper,fundamentals,clifford_synthesis,analytic,"arXiv:1803.06987 — explicit synthesis","Transversal-gate identification method",3
+146,On Groups in the Qubit Clifford Hierarchy,"Anderson, J.T.",2024,paper,fundamentals,clifford_hierarchy,analytic,"Quantum 8, 1370","Clifford-group classification reference",3
+147,A Classification of Transversal Clifford Gates for Qubit Stabilizer Codes,"Authors (ResearchGate 393684565)",2025,preprint,qldpc,transversal_classification,analytic,"Comprehensive transversal Clifford classification","Transversal-gate reference",3
+148,Classification of topologically protected gates,"Bravyi, S.; König, R.",2013,paper,fundamentals,bravyi_konig,analytic,"2D topological codes limited to Clifford transversally","Lower bound for 2D",3
+149,Fault-tolerant logical gates in quantum error-correcting codes (dimension limits),"Pastawski, F.; Yoshida, B.",2015,paper,fundamentals,pastawski_yoshida,analytic,"Dimension-dependent transversal gate limits","Dimension-bound reference",3
+150,Quantum LDPC codes (PRX Quantum survey),"Breuckmann, N.P.; Eberhardt, J.N.",2021,review,qldpc,breuckmann_review,review,"qLDPC overview — PRX Quantum","qLDPC survey reference",4
+151,Graphical description of the action of local Clifford transformations on graph states,"van den Nest, M.; Dehaene, J.; De Moor, B.",2004,paper,fundamentals,graph_state_lc,analytic,"Local-Clifford orbits of graph states; PRA","Basis for equivalence algorithm",4
+152,Quantum error correction via codes over GF(4),"Calderbank, A.R.; Rains, E.M.; Shor, P.W.; Sloane, N.J.A.",1998,paper,fundamentals,gf4_codes,analytic,"IEEE TIT — GF(4) stabilizer code representation","Alternative equivalence framework",3
+153,Efficient algorithms for maximum likelihood decoding...,"Bravyi, S.; Suchara, M.; Vargo, A.",2014,paper,decoder,ml_decoding_small,analytic,"Small-code ML decoding bounds","Small-code benchmarking",2
+154,Graph isomorphism, colour refinement, and bounded-degree,"Babai, L.",2016,preprint,ml_tools,graph_isom_qpt,theory,"Quasi-polynomial-time graph isomorphism","Complexity context for equivalence check",2
+155,nauty and Traces graph automorphism software,"McKay, B.D.; Piperno, A.",2014,software,tool,nauty,tool,"Graph canonicalisation tool","Equivalence-check back-end",3
+156,bliss graph automorphism,"Junttila, T.; Kaski, P.",2011,software,tool,bliss,tool,"Alt graph-automorphism tool","Equivalence-check alt",3
+157,Benchmarking and Analysis of Quantum Error Correction Codes,"Authors (JSR hs path 5127)",2025,paper,methodology,qec_benchmarking,review,"8-parameter QECC benchmarking methodology","Benchmarking methodology",3
+158,"Magic Mirror on the Wall, How to Benchmark QEC Codes","Authors (2402.11105)",2024,preprint,methodology,magic_mirror_benchmark,review,"Benchmarking methodology review","Benchmarking methodology reference",4
+159,Benchmarking Machine Learning Models for QEC,"Authors (2311.11167)",2024,preprint,methodology,ml_benchmark_qec,review,"Decoder ML benchmarking methodology","Decoder benchmarking reference",3
+160,Quantum approximate multi-objective optimization,"Authors (Nat. Comp. Sci. s43588-025-00873-y)",2025,paper,ml_tools,quantum_multiobj,analytic,"QAOA multi-objective; Pareto front","Pareto-method reference",3
+161,Improving Quantum Multi-Objective Optimization with Archiving and Substitution,"Authors (2602.10952)",2026,preprint,ml_tools,pareto_archive,analytic,"Pareto archive and dominated substitution","Pareto-archive technique",3
+162,NSGA-II multi-objective evolutionary algorithm,"Deb, K.; Pratap, A.; Agarwal, S.; Meyarivan, T.",2002,paper,ml_tools,nsga2,analytic,"Non-dominated sorting GA","Standard Pareto technique",3
+163,MOEA/D: multiobjective evolutionary algorithm based on decomposition,"Zhang, Q.; Li, H.",2007,paper,ml_tools,moea_d,analytic,"Decomposition-based MOEA","Alt Pareto technique",2
+164,Attention Is All You Need (Transformer),"Vaswani, A.; et al.",2017,paper,ml_tools,transformer,learning,"Foundational transformer paper","Policy-network architecture option",3
+165,Graph neural networks overview,"Battaglia, P.W.; et al.",2018,review,ml_tools,gnn_overview,review,"GNN review","Policy-network architecture option",3
+166,A Joint Code and BP Decoder Design for qLDPC,"Authors (2401.06874)",2024,preprint,qldpc,code_decoder_codesign,analytic,"qLDPC + BP co-design avoiding short-4 cycles","Co-design precedent",3
+167,Scaling automated QEC discovery — ICML listing,"Authors (ICML 2024 36798)",2024,paper,ml_discovery,icml_scaling,learning,"ICML listing of scaling RL QEC discovery","Publication-venue precedent",3
+168,Discovering Quantum Error Correcting Codes with Deep RL (ML4PS),"Authors (NeurIPS ML4PS 2023 paper 83)",2023,paper,ml_discovery,ml4ps_early,learning,"Workshop paper — early RL QEC","Workshop-level early RL",2
+169,Noise tomography via syndrome extraction,"Authors",2024,preprint,characterization,syndrome_tomography,analysis,"Noise-model inference from syndromes","Calibration reference",2
+170,Bayesian inference of general noise-model parameters from syndrome statistics,"Authors (2406.08981)",2024,preprint,characterization,bayesian_syndrome,inference,"TN+MCMC syndrome-based noise inference","Noise-model inference context",3
+171,Adaptive Estimation of Drifting Noise in QEC,"Authors (2511.09491)",2025,preprint,characterization,drift_adaptation,analysis,"Drift estimator with spectral analysis","Drift reference",2
+172,Estimating detector error models from syndrome data,"Authors (2504.14643)",2025,preprint,characterization,dem_inference,inference,"Syndrome-based DEM estimation","DEM inference",2
+173,Fault-tolerant code switching Steane↔Reed-Muller,"Quantinuum / UC Davis",2025,preprint,experiment,code_switching_exp,experiment,"Experimental code switch; T infidelity 5e-4","Code-switching context for universality",3
+174,Experimental demonstration of logical magic state distillation,"Authors (2412.15165)",2024,preprint,experiment,magic_state_exp,experiment,"NA/ion magic-state distillation","Experimental magic-state context",2
+175,Benchmarking logical 3-qubit QFT in [[7,1,3]] on H2,"Authors (2404.08616)",2024,paper,experiment,h2_qft,experiment,"3-qubit QFT Steane on H2","Small-code experimental context",3
+176,Quantum-error-corrected computation of molecular energies,"Authors (2505.09133)",2025,preprint,experiment,logical_chemistry,experiment,"Logical chemistry on ion trap","Context for logical algorithms",2
+177,The XZZX surface code,"Bonilla Ataides, J.P.; Tuckett, D.K.; Bartlett, S.D.; Flammia, S.T.; Brown, B.J.",2021,paper,biased_noise,xzzx,simulation,">5% threshold biased noise; Nat. Commun.","Bias-tailored code reference",3
+178,Romanesco codes: Bias-tailored qLDPC from fractal codes,"Authors (2506.00130)",2025,preprint,biased_noise,romanesco,construction,"Biased-noise qLDPC fractal","Bias-tailored qLDPC reference",3
+179,Tailored XZZX codes for biased noise,"Darmawan, A.S.; Brown, B.J.; Grimsmo, A.L.; Tuckett, D.K.; Puri, S.",2021,paper,biased_noise,tailored_xzzx,simulation,"XZZX opt dephasing dominance","XZZX variant reference",3
+180,Performance of XZZX under realistic circuit noise,"Higgott, O.; Bohdanowicz, T.C.; Kubica, A.; Flammia, S.T.; Campbell, E.T.",2023,paper,biased_noise,xzzx_circuit,simulation,"XZZX circuit noise benchmarks; PRX Quantum","XZZX circuit benchmark",3
+181,Bias-preserving gates with stabilized cat qubits,"Puri, S.; et al.",2020,paper,biased_noise,cat_bias_preserving,hardware,"Bias-preserving CX; Sci. Adv.","Cat-qubit biased-noise context",3
+182,X3Z3 Floquet codes (biased noise),"Authors (npj QI 2025)",2025,paper,biased_noise,x3z3_floquet,construction,"Floquet codes tailored to biased noise","Alt Floquet bias reference",2
+183,Dynamically Generated Logical Qubits (honeycomb),"Hastings, M.B.; Haah, J.",2021,paper,floquet,honeycomb,analytic,"Honeycomb Floquet; Quantum 5, 564","Floquet code reference",3
+184,Planar Floquet Codes,"Haah, J.; Hastings, M.B.",2022,preprint,floquet,planar_floquet,analytic,"Planar Floquet boundaries","Floquet reference",2
+185,Subsystem codes and Bacon-Shor,"Bacon, D.",2006,paper,fundamentals,bacon_shor,analytic,"Subsystem codes — Bacon-Shor family","Subsystem class reference",3
+186,CSS-T codes and distillation,"Vuillot, C.; Lao, L.; Criger, B.; et al.",2019,paper,magic_state,css_t,analytic,"CSS-T subfamily transversal T","CSS-T reference",3
+187,Transversal diagonal gates from code automorphisms,"Webster, M.; Bartlett, S.D.; Brown, B.J.",2022,paper,qldpc,transversal_diagonal,analytic,"Diagonal/phase gate transversality","Diagonal gate reference (VERIFY exact title)",3
+188,Classification of Transversal Clifford Gates for Qubit Stabilizer Codes,"Grassl, M.; Roetteler, M.",2013,preprint,fundamentals,grassl_roetteler,analytic,"Earlier transversal Clifford classification","Early classification",2
+189,Quantum LDPC codes: hardware implementation challenges,"Authors",2025,review,qldpc,qldpc_hw_review,review,"Hardware constraint review for qLDPC","Hardware context",3
+190,Single-shot decoding of good qLDPC codes,"Authors (Comm. Math. Phys.)",2024,paper,decoder,single_shot_qldpc,analytic,"Single-shot decoders for good qLDPC","Single-shot decoder reference",2
+191,High-rate qLDPC for long-range NA registers,"Authors (Nat. Commun.)",2025,paper,qldpc,high_rate_qldpc_na,architecture,"qLDPC on long-range NA","NA qLDPC arch reference",3
+192,Hyperbolic surface codes (Breuckmann-Terhal),"Breuckmann, N.P.; Terhal, B.M.",2016,paper,qldpc,hyperbolic_surface,analytic,"Hyperbolic tiling qLDPC","qLDPC precursor",3
+193,Fault-tolerant hyperbolic Floquet codes,"Fahimniya, A.; Dua, A.; Magnifico, G.; Jochym-O'Connor, T.; Kubica, A.",2023,paper,floquet,hyperbolic_floquet,analytic,"Hyperbolic Floquet — [[400,52,8]]","Reference",2
+194,"A compact neutral-atom FT quantum computer based on new quantum codes","Authors (Nature Phys. s41567-024-02480-6)",2024,paper,qldpc,compact_na_codes,analytic,"Compact NA FT with new qLDPC codes","NA qLDPC reference",3
+195,Matching-vector qLDPC families,"Authors",2021,paper,qldpc,matching_vector,analytic,"Alternative qLDPC family","Code zoo expansion",2
+196,Quantum MacWilliams identities,"Shor, P.W.; Laflamme, R.",1997,paper,fundamentals,weight_enumerator,analytic,"Quantum weight enumerators","Finite-length code analysis tool",2
+197,Foliated QEC codes,"Bolt, A.; Duclos-Cianci, G.; Poulin, D.; Stace, T.M.",2016,paper,mbqc,foliated,analytic,"MBQC from stabilizer codes","MBQC bridge",2
+198,Rotated surface code planar lattice,"Bombin, H.; Martin-Delgado, M.A.",2007,paper,surface_code,rotated_surface,analytic,"Rotated surface code","Surface code variant",3
+199,Topological color codes,"Bombin, H.; Martin-Delgado, M.A.",2006,paper,color_code,color_foundation,analytic,"Color code — transversal Clifford","Color code reference",3
+200,Sparse blossom: correcting a million errors per core second,"Higgott, O.; Gidney, C.",2023,preprint,decoder,sparse_blossom,algorithm,"PyMatching v2 engine; arXiv:2303.15933","MWPM speed reference",4
+201,Quantum error correction Zoo — QLDPC list,"Albert, V.V.; et al.",2024,software,reference,qldpc_list,reference,"ECZoo QLDPC navigation","Navigation aid",3
+202,Surface code architectures with long-range couplers,"Authors",2024,preprint,architecture,long_range_surface,analytic,"Long-range SC architectures","Architecture reference",2
+203,FT quantum computation with long-range gates,"Authors",2024,preprint,architecture,ft_long_range_gates,analytic,"Long-range gates enabling qLDPC","Long-range architecture",2
+204,Scalable quantum error correction tailored for heavy-hex qubit array,"Lee, S.-H.; Kolesnikow, X.C.; et al.",2026,preprint,surface_code,heavy_hex_qec,architecture,"arXiv:2604.14296 — d=5 compass code","Heavy-hex QEC context",2
+205,Automorphism gates in bivariate bicycle codes,"Authors",2025,preprint,qldpc,bb_automorphism_gates,analytic,"Automorphism-based gates for BB","BB gate construction",4
+206,Bivariate bicycle: automorphism group and logical operators,"Authors",2025,preprint,qldpc,bb_aut_logicals,analytic,"Logical-operator construction for BB","BB logical gate implementation",4
+207,Addressable qLDPC logical operations,"Authors",2024,preprint,qldpc,addressable_ops,analytic,"Logical ops on qLDPC via lattice-surgery analogue","qLDPC gate reference",3
+208,Quantum error correction with the toric Kitaev code,"Kitaev, A.",2003,paper,fundamentals,toric_code,analytic,"Ann. Phys. 303 — toric code","Foundational",4
+209,Quantum expander codes (explicit),"Leverrier, A.; Tillich, J.-P.; Zemor, G.",2015,paper,qldpc,expander_explicit,analytic,"Early good-parameter expander-based qLDPC","qLDPC precursor",3
+210,"Understanding quantum error correction: a pedagogical review","Brun, T.A.",2019,review,fundamentals,pedagogical_review,review,"arXiv:1910.03672","Teaching-level reference",3
+211,Neural-network decoder for large-scale surface code with circuit noise,"Overwater, R.W.J.; Babaie, M.; Sebastiano, F.",2022,paper,ml_decoder,cryogenic_nn,learning,"NN decoder for cryogenic CMOS","Hardware NN decoder",2
+212,Scalable neural decoder for topological codes,"Gicev, S.; Hollenberg, L.C.L.; Usman, M.",2023,paper,ml_decoder,scalable_nn,learning,"CNN-transformer scalable","NN decoder reference",2
+213,Learning to decode surface code with recurrent transformer NN,"Bausch, J.; et al.",2023,preprint,ml_decoder,alphaqubit_preprint,learning,"AlphaQubit preprint","Early AlphaQubit reference",2
+214,Performance enhancement of surface codes via recursive MWPM,"Authors",2023,paper,decoder,recursive_mwpm,algorithm,"Recursive MWPM","Decoder enhancement",2
+215,Tilings of hyperbolic surfaces and codes,"Breuckmann, N.P.; Terhal, B.M.",2016,paper,qldpc,hyperbolic_tilings,analytic,"Hyperbolic qLDPC predecessor","qLDPC precursor",2
+216,Concatenated steane-CSS fault-tolerance,"Aliferis, P.; Gottesman, D.; Preskill, J.",2006,paper,fundamentals,concat_steane,analytic,"Concatenation thresholds","Concatenation reference",2
+217,Constant-overhead qLDPC routing,"Cross, A.; et al.",2024,preprint,qldpc,const_overhead_routing,analytic,"qLDPC constant-overhead analysis","Overhead context",3
+218,Magic state injection with erasure qubits,"Authors (2504.02935)",2025,preprint,magic_state,erasure_magic_state,analytic,"Erasure-aware magic-state injection","Magic-state erasure context",2
+219,Unfolded distillation (biased noise),"Authors",2026,paper,magic_state,unfolded_biased,simulation,"npj QI — biased-noise distillation","Magic-state biased reference",2
+220,Bias-preserving Kerr-cat benchmark,"Authors (2411.04442)",2024,paper,biased_noise,kerr_cat_bench,experiment,"PNAS Kerr-cat bench","Cat-qubit benchmark",2
+221,Noise-aware decoder improvements,"Authors (2502.21044)",2025,preprint,decoder,noise_aware_decoder,algorithm,"Noise-model-informed decoding","Adaptive decoder reference",2
+222,Surface code beyond Pauli channels,"Authors (2412.21055)",2024,preprint,coherent_noise,beyond_pauli_surface,simulation,"Error field double phenomenology","Non-Pauli context",2
+223,Iterative lattice reweighting for MWPM,"Authors (2509.06756)",2025,preprint,decoder,iterative_reweight,algorithm,"Reweighted MWPM","Decoder improvement",2
+224,FPGA-distributed union-find decoder,"Authors (2406.08491)",2024,preprint,decoder,fpga_uf,hardware,"FPGA UF","Hardware decoder",2
+225,Riverlane Local Clustering Decoder hardware paper,"Riverlane authors",2025,paper,decoder,riverlane_lcd,hardware,"FPGA local-cluster decoder; Nat. Commun.","Hardware decoder reference",3
+226,Sinter tutorial notebook,"Gidney, C.",2022,software,driver,sinter_tutorial,tool,"Sinter tutorial","Workflow reference",2
+227,CUDA-QX extensions,"NVIDIA",2025,software,simulator,cuda_qx,tool,"CUDA-QX extensions to CUDA-Q QEC","GPU QEC stack extension",3
+228,Demonstrating real-time low-latency QEC with superconducting qubits,"Authors (2410.05202)",2024,preprint,experiment,real_time_qec,experiment,"Real-time stream demo","Real-time context",2
+229,Memories: practical decoders for surface code on IBM,"Authors",2024,preprint,experiment,ibm_surface,experiment,"IBM-device decoder eval","Cross-platform decoder",2
+230,Foliated XZZX / cluster XZZX,"Authors",2023,paper,biased_noise,foliated_xzzx,simulation,"XZZX cluster states npj QI","MBQC XZZX",2
+231,Discovering Quantum Error Correcting Codes with Deep RL (ML4PS 2023),"Authors",2023,paper,ml_discovery,ml4ps_discovery,learning,"ML4PS 2023 workshop paper","Workshop early RL reference",2
+232,Tuckett biased-noise surface code threshold scaling,"Tuckett, D.K.; Bartlett, S.D.; Flammia, S.T.",2018,paper,biased_noise,tuckett_2018,simulation,"Biased-noise surface code threshold scaling","XZZX precursor",2
+233,Neural decoders for universal quantum algorithms,"Authors (2509.11370)",2025,preprint,ml_decoder,nn_universal,learning,"NN for logical algorithms","NN decoder extended",2
+234,Interpretability of neural network decoders,"Bödeker, N.; et al.",2025,paper,ml_decoder,nn_interp,learning,"Adv. Quant. Tech. — decoder interpretability","Interp reference",2
+235,Machine Learning Decoding of Circuit-Level Noise for BB Codes,"Authors (2504.13043)",2025,preprint,ml_decoder,ml_bb_decoder,learning,"NN decoder specialised to BB","BB decoder reference",3
+236,Resource-efficient decoding of color codes via NN-guided UF,"Authors (App. Sci.)",2025,paper,decoder,nn_uf_color,hybrid,"Hybrid NN+UF for color codes","Hybrid decoder example",2
+237,SAQ: Stabilizer-Aware QEC Decoder,"Authors (2512.08914)",2025,preprint,decoder,stab_aware_decoder,algorithm,"Stabilizer-aware decoder","Decoder reference",1
+238,Optimal adaptation of surface-code decoders to local noise,"Authors (2403.08706)",2024,preprint,decoder,optimal_adaptation,analysis,"Adaptive decoder gain quantification","Adaptive decoder reference",2
+239,Transient drift detection in surface code,"Authors (2603.00837)",2026,preprint,characterization,drift_detection,analysis,"ReloQate drift detection","Drift reference",2
+240,QEC Zoo — surface code entry,"Albert, V.V.; et al.",2024,software,reference,ecc_zoo_surface,reference,"Surface code variants","Navigation",2
+241,Stellarator project — unrelated [DO NOT USE],"Irrelevant",2024,preprint,irrelevant,irrelevant,irrelevant,"Placeholder — do not use","None; excluded",0
+242,Neural quantum decoder baseline MARKED VERIFY,"Authors VERIFY",2024,preprint,ml_decoder,verify_entry,learning,"VERIFY: unconfirmed baseline NN decoder","Placeholder",1
+243,Hutter Friis universal FT-code compilation VERIFY,"Hutter, A.; Friis, N. VERIFY",2023,preprint,compilation,hutter_friis_compile,analytic,"VERIFY exact citation details","Placeholder",1
+244,Gottesman-Knill theorem classical simulation of Clifford,"Gottesman, D.",1998,paper,fundamentals,gottesman_knill,analytic,"quant-ph/9807006 — Clifford-circuit classical simulation","Stabilizer-sim complexity foundation",4
+245,BPOSD algorithm for quantum LDPC,"Panteleev, P.; Kalachev, G.",2021,paper,decoder,bposd_algorithm,simulation,"BP+OSD introduction; Quantum 5","Decoder foundation",5
+246,Calderbank-Shor-Steane CSS codes,"Calderbank, A.R.; Shor, P.W.",1996,paper,fundamentals,css_original,analytic,"Original CSS construction","CSS foundation",3
+247,Steane 7-qubit code,"Steane, A.M.",1996,paper,fundamentals,steane_code,analytic,"[[7,1,3]] Steane code — transversal Clifford","Small reference code",3
+248,Shor 9-qubit code,"Shor, P.W.",1995,paper,fundamentals,shor_9_qubit,analytic,"Original 9-qubit QEC code","Historical baseline",2
+249,Reed-Muller [[15,1,3]] code,"Reed, I.S.; Muller, D.E. (classical); Steane 1998 (quantum)",1954,paper,fundamentals,reed_muller,analytic,"Transversal T via Reed-Muller","Magic-state reference code",3
+250,Perfect [[5,1,3]] code,"Laflamme, R.; Miquel, C.; Paz, J.P.; Zurek, W.H.",1996,paper,fundamentals,perfect_5qubit,analytic,"Smallest non-trivial QEC code","Historical baseline",3
+251,Quantum codes with transversal gates — ECC Zoo list,"Albert, V.V.; et al.",2024,software,reference,eczoo_transversal,reference,"List of quantum codes with transversal gates","Reference set navigation",3
+252,Qubit QLDPC code — ECC Zoo root,"Albert, V.V.; et al.",2024,software,reference,eczoo_qldpc,reference,"qLDPC ECC Zoo root","Navigation",3
+253,Logical multi-qubit entanglement with dual-rail SC,"Authors",2026,paper,experiment,dual_rail_multi,experiment,"Nat. Phys. — multi-qubit dual-rail","Dual-rail scaling",2
+254,"Reinforcement Learning for Combinatorial Optimization: Survey","Mazyavkina, N.; et al.",2021,review,ml_tools,rl_combi_survey,review,"RL for combinatorial optimization","Methodology reference",3
+255,"On the 37 Implementation Details of PPO","Huang, S.; et al.",2022,review,ml_tools,ppo_details,review,"ICLR Blog Track — PPO practical details","PPO implementation reference",3
+256,JAX: composable transformations of Python+NumPy programs,"Bradbury, J.; Frostig, R.; Hawkins, P.; Johnson, M.J.; Leary, C.; Maclaurin, D.; Necula, G.; Paszke, A.; VanderPlas, J.; Wanderman-Milne, S.; Zhang, Q.",2018,software,ml_tools,jax,tool,"JAX autograd+XLA","qdx/training implementation base",4
+257,RLlib distributed actor-learner architecture,"Liang, E.; et al.",2018,paper,ml_tools,rllib,tool,"Scalable RL infrastructure","Distributed RL reference",3
+258,ACME: a research framework for distributed RL,"Hoffman, M.W.; et al.",2020,preprint,ml_tools,acme,tool,"DeepMind ACME framework","Distributed RL alt",2
+259,Fault-tolerant quantum computation by anyons (Kitaev original 1997 preprint),"Kitaev, A.",1997,preprint,fundamentals,kitaev_1997,analytic,"Early topological FT proof; quant-ph/9705032","Historical anchor",2
+260,Threshold theorem concatenated codes,"Aharonov, D.; Ben-Or, M.",1997,paper,fundamentals,aharonov_benor,analytic,"Threshold theorem","Historical foundation",3
