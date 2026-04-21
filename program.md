@@ -41,17 +41,17 @@ A phase is **complete** only when the named artifact exists on disk AND the cont
 
 | Phase | Required artifact(s) | Content marker / rule |
 |---|---|---|
-| all | `README.md` | First line declares target type |
+| all | `README.md` + `tests/` passing | First line declares target type. Any phase that writes or revises code REQUIRES a green `pytest tests/` (see "TDD Discipline" below). |
 | **−0.5** (pub only) | `proposal.md` + `scope_check.md` | `scope_check.md` ends with `VERDICT: PROCEED`; written by a **different sub-agent** |
 | 0 | `papers.csv` + `literature_review.md` + `knowledge_base.md` + `research_queue.md` + `design_variables.md` | Pub: ≥ 200 citations, ≥ 100 hypotheses. Exploratory: ≥ 30 citations, ≥ 20 hypotheses |
 | **0.25** (pub only) | `publishability_review.md` | All five checklist sections answered; ends with `VERDICT: PROCEED`; **different sub-agent** from Phase −0.5 |
-| 0.5 | `E00` row in `results.tsv` + `data_sources.md` | Real data only; seed-stable. Option D: CAS versions + textbook reproduction |
-| 1 | `results.tsv` + `tournament_results.csv` | Pub: ≥ 4 families. Exploratory: ≥ 2. Both include linear-model sanity check. Option D: ≥ 3 frameworks incl. textbook baseline |
-| 2 | Rows in `results.tsv` with `status` ∈ {KEEP, REVERT} | Pub: ≥ 20 rows. Exploratory: ≥ 10. Every KEEP tied to a commit |
+| 0.5 | `E00` row in `results.tsv` + `data_sources.md` + `tests/` (loader + baseline) | Real data only; seed-stable. Option D: CAS versions + textbook reproduction. `pytest tests/` green BEFORE running the baseline |
+| 1 | `results.tsv` + `tournament_results.csv` + `tests/` covering each model-family helper | Pub: ≥ 4 families. Exploratory: ≥ 2. Both include linear-model sanity check. Option D: ≥ 3 frameworks incl. textbook baseline. Each family under test with a known-truth invariant |
+| 2 | Rows in `results.tsv` with `status` ∈ {KEEP, REVERT} + `tests/` covering every new helper added by each KEEP | Pub: ≥ 20 rows. Exploratory: ≥ 10. Every KEEP tied to a commit. Each KEEP's new code under a passing test |
 | 2.5 (pub required) | Pairwise-interaction rows in `results.tsv` | Top-N near-miss features tested |
-| **2.75** | `paper_review.md` + reviewer experiments in `results.tsv` | **Different sub-agent**; "documented in §Limitations" is NOT valid completion |
-| 3 | `paper.md` | References each KEEP experiment by ID |
-| **3.5** | `paper_review_signoff.md` | Contains literal `NO FURTHER BLOCKING ISSUES`; **different sub-agent** from Phase 2.75 |
+| **2.75** | `paper_review.md` + reviewer experiments in `results.tsv` | **Different sub-agent**; "documented in §Limitations" is NOT valid completion. Reviewer-flagged code issues trigger new tests |
+| 3 | `paper.md` (working draft — audit trail) + `paper_submission.md` (submission artefact) + `references.bib` | `paper.md` references each KEEP experiment by ID. `paper_submission.md` additionally (a) contains a `## References` section with ≥30 bibliography entries resolved against `papers.csv`, (b) returns **zero** matches on `grep -iE "reviewer\|sub-agent\|Phase [0-9]\|v[0-9]+ (draft\|round)\|retraction table\|HDR pipeline\|committed framing\|methodology review\|audit trail"` — see "Submission Form Gate" below |
+| **3.5** | `paper_review_signoff.md` | Contains literal `NO FURTHER BLOCKING ISSUES`; **different sub-agent** from Phase 2.75; reviewer MUST have been explicitly prompted to audit Phase 3 Writing Rules per the template in "Adversarial Review Protocol" §Phase 3.5 |
 | B (pub required) | `phase_b_discovery.py` output | Actual discovery outputs, not more training runs |
 | Publish | `~/website/site/content/hdr/results/<slug>/index.md` | Requires `paper_review_signoff.md` first. Hugo build passes. |
 
@@ -74,8 +74,89 @@ These have been observed in practice. Each is FORBIDDEN regardless of project ty
 - Running Phase 0.25 on the same sub-agent that did Phase −0.5
 - "Went straight from analysis to website" — paper.md + Phase 3.5 signoff still required
 - Combining phases or reusing artifacts from another project's phases
+- **Marking a re-entered phase "complete" without re-running it.** If a reviewer returns REFRAME / MAJOR REVISIONS / REJECT and the researcher revises the artefact, every downstream phase MUST be re-run from the point of re-entry — see "Re-entry Discipline" below.
+- **Writing experiment code without unit tests.** "This is just an experiment script" and "I ran it end-to-end and got numbers" are both unacceptable. Every non-trivial helper (data loader, decoder, likelihood function, baseline, drift generator, plotting transformation) needs a pytest test asserting a known-truth invariant, and `pytest tests/` MUST be green before the phase that produced the code is declared complete — see "TDD Discipline" below.
 
 **If an artifact cannot be created due to a genuine external blocker, the project is PAUSED — not published.**
+
+### Re-entry Discipline (post-review iteration)
+
+The HDR loop is designed to iterate. After any reviewer returns a non-PROCEED verdict, the researcher revises the upstream artefact and re-enters the pipeline at the earliest affected phase. **Every phase from the re-entry point onwards MUST be re-executed with a fresh sub-agent reviewer.** A task-tracker mark of "completed" on a downstream phase is a description of the FIRST pass; it does NOT carry over to subsequent passes.
+
+**The rule in one sentence:** *If you touched an artefact that a subsequent phase reads, you owe that phase another pass.*
+
+**Re-entry matrix:** for each revision, the minimum set of phases to re-run is:
+
+| If you revised... | Re-run from... | Fresh sub-agents required |
+|-------------------|---------------|---------------------------|
+| `proposal.md` / `proposal_vN.md` | Phase −0.5 or Phase 0.25 | scope-check or publishability reviewer |
+| `literature_review.md` / `papers.csv` / `knowledge_base.md` | Phase 0.25 | publishability reviewer |
+| Experiment scripts or `results.tsv` | Phase 2.75 | methodology reviewer |
+| `paper.md` / `paper_vN.md` (any content change) | Phase 3.5 | blind peer reviewer |
+| `data_sources.md` (new data) | Phase 0.5 → Phase 2.75 → Phase 3.5 | both reviewers |
+| A single typo in `paper.md` | Phase 3.5 skippable only if the typo is cosmetic and does not touch any numerical value, claim, or caveat. Default: re-run. |
+
+**Verification artefacts per revision.** Each loop of re-entry produces a new dated reviewer artefact, never overwrites a prior one:
+
+- `scope_check.md` → `scope_check_v2.md` → …
+- `publishability_review.md` → `publishability_review_v2.md` → …
+- `methodology_review.md` → `methodology_review_v2.md` → …
+- `paper_review.md` → `paper_review_v2.md` → …
+
+This produces a verifiable audit trail: *N versions of the paper ↔ N versions of the paper review*. If `paper_v3.md` exists but `paper_review_v3.md` does not, the project is NOT at Phase 3.5 complete — it is at Phase 3 waiting for Phase 3.5.
+
+**Two-reframe limit still applies.** Phase −0.5 and Phase 0.25 enforce max-2 reframe cycles per program.md §"Shared verdict mechanics"; a third non-PROCEED auto-KILLs the project. Phase 2.75 and Phase 3.5 do NOT have a hard reframe cap — a paper can go through arbitrarily many reviewer rounds — but each round must produce a new `*_review_vN.md` artefact. The pattern of repeated MAJOR REVISIONS with no ACCEPT is itself diagnostic and should trigger a venue-dial-down or scope-reduction discussion before further iteration.
+
+**Forbidden re-entry shortcuts:**
+
+- Marking `task #N: Phase 3.5 reviewer` completed because "the revisions addressed the previous reviewer's concerns" — the job of the reviewer is to confirm that, not the author's.
+- Reusing the previous-loop reviewer's verdict as evidence for the new artefact. Each loop requires its own fresh sub-agent.
+- Pointing at the retraction table in the paper as a substitute for running the reviewer. Retraction disclosure belongs *in* the paper; reviewer sign-off belongs in the `*_review.md` chain.
+- Declaring a project "complete" at any phase ≥ 3 without a `paper_review_signoff.md` containing `NO FURTHER BLOCKING ISSUES`. This is the Phase 4 gate.
+
+**Cost expectation.** Re-entry is cheap by design: the deep lit review is frozen, scripts are versioned, reviewers read only the updated artefacts. A Phase 3.5 re-review typically costs one fresh sub-agent invocation (2–5 minutes wall-clock). Skipping it to save ~5 minutes is not a legitimate optimisation — it breaks the audit trail.
+
+### TDD Discipline (applies to every phase that writes or revises code)
+
+Every non-trivial Python helper — data loaders, likelihood functions, decoders, baselines, particle filters, MCMC steppers, drift generators, DEM-to-matrix converters, plotting data transformations — MUST have a pytest unit test asserting a known-truth invariant BEFORE the phase that produced the code is declared complete. "This is just an experiment script" is not a valid exemption. End-to-end output of a script is not a substitute for unit tests.
+
+**The rule in one sentence:** *If the function's output lands in a paper, the function needs a test.*
+
+**Where tests live.** Each HDR project has a `tests/` directory at the project root: `applications/<project>/tests/`. Tests are discoverable by a vanilla `pytest tests/` invocation from the project root. Per-project `conftest.py` sets up any shared fixtures (e.g. a small-DEM, known-rate-vector fixture).
+
+**What to test.** A minimum test set per project:
+
+| Helper type | Known-truth invariant |
+|-------------|-----------------------|
+| Data loader | On a hand-crafted or sampled file, loader returns arrays with the metadata-declared shape, dtype, and a spot-checked value |
+| DEM / code constructor | On a known code (e.g. Bravyi `[[144,12,12]]`), `n`, `k`, and a row of `H` match the published definition |
+| Likelihood function | At a known θ and a known observation, log-likelihood equals the hand-computed value within floating-point tolerance |
+| Baseline decoder / estimator | On a synthetic stream with known ground-truth rates, recovers those rates within a documented tolerance (e.g. MSE < 10× shot-noise floor at the window size used) |
+| Particle filter / SMC | Under identity drift and informative likelihood on synthetic data, posterior mean moves toward truth (NOT toward prior) within a bounded number of steps |
+| Drift / noise generator | Output shape matches declaration; at zero drift amplitude and T=1, output equals base rate within 1e-12; at nonzero amplitude, empirical step-variance matches the OU-kernel analytic |
+| Plotting data transformation | Input-to-output mapping is deterministic and invertible on a known fixture |
+
+**Invariants that must be tested even if they seem obvious** (because these are the bugs that ship):
+
+- **Prior-initialisation fairness.** If any experiment compares method A to method B at matched prior, a test must assert that both methods receive bit-identical prior arrays.
+- **Noise-schedule matching.** If two experiments are compared under "the same" noise model, a test must assert that the two code paths produce identical detector-error-models on a fixed seed.
+- **Prior/generator independence.** If a particle filter is tested on synthetic drift, the PF's drift-kernel parameters must NOT be derived from the generator's — a test asserts the two parameter sets are distinct objects with distinct numerical values (avoids self-consistency circularity).
+- **Schema alignment on TSV writes.** Every helper that writes to `results.tsv` has a test asserting that the written row's column count equals the header column count AND that named values land in their named columns (prevents Phase 2.75 reviewer catching a column-swap after experiment data is already committed).
+- **Gaussian-surrogate-likelihood sanity.** For any approximate likelihood (e.g. a Gaussian surrogate for a low-rate Bernoulli), a test asserts the approximation remains INFORMATIVE across the operating range: log L at known-truth vs log L at wrong-truth differs by at least K standard deviations of sampling noise at the documented batch size. A surrogate that passes this test cannot be "flat in θ."
+
+**Forbidden TDD shortcuts:**
+
+- Writing a 300-line experiment script with no tests and claiming "the numbers looked reasonable."
+- Marking Phase 0.5 or Phase 1 or Phase 2 complete before `pytest tests/` passes from the project root.
+- Using a Phase 2.75 or Phase 3.5 reviewer's flagged code bug as a substitute for the test that should have caught it pre-submission. Reviewer catch is a last-line defense, not the first.
+- Removing a failing test by deleting it rather than by fixing the code. A test with `pytest.skip` that references an open `research_queue.md` item is acceptable; a deleted test is not.
+- Running `pytest` only once at phase entry, not after every code change.
+
+**Retro-testing after a re-entry.** When a reviewer flags a code bug, the revision MUST include (a) a new test that fails on the old code and passes on the fixed code, AND (b) the code fix. The order is RED → GREEN; writing the fix first is an anti-pattern because the test becomes a tautological confirmation of the fix rather than a specification of the invariant.
+
+**Cost expectation.** Writing a test for a new helper typically costs 5–15 minutes. The bug it catches would otherwise cost one Phase 2.75 or Phase 3.5 cycle (2–5 minutes of reviewer + hours-to-days of revision). The TDD ROI is 10–100× in review-cycle avoidance alone. Skipping tests is never a legitimate time-saving optimisation.
+
+**When is a test NOT required?** A helper so trivial that its body is a single expression calling a well-tested library (e.g. `def read_json(path): return json.loads(Path(path).read_text())`) may be untested; the judgement call is documented in a one-line comment. Everything with conditional logic, numerical computation, or data transformation needs a test regardless of apparent simplicity.
 
 ---
 
@@ -381,6 +462,11 @@ Max 3 rounds. If all CRITICAL and MAJOR items resolved, reviewer signs off. Unre
 4. **Missing experiments.** What follow-ups does the paper itself imply?
 5. **Overclaiming and language.** "We prove" vs "we find evidence for"; causal language for correlational results.
 6. **Literature positioning.** Fair representation of prior work? Missing citations?
+7. **Writing Rules compliance.** Does the paper violate any Phase 3 Writing Rule (reviewer/sub-agent/Phase-number references, work-effort metrics as findings, retraction tables referring to prior drafts, draft-version subtitles)? Any violation is MAJOR regardless of scientific content. A journal editor will read the paper; review-process language destroys credibility on sight.
+8. **References-section check.** Does §References exist with ≥30 entries? Do all inline citations resolve to bibliography entries?
+
+**Reviewer prompt template must include, verbatim:**
+> Audit the paper for Phase 3 Writing Rules violations: any occurrence of "reviewer", "sub-agent", "Phase [0-9]", "v[0-9]+ (draft|round)", "retraction table", "HDR pipeline", "committed framing", "methodology review", "audit trail", "adversarial (review|loop)". Any match is a MAJOR revision regardless of scientific content. Also verify that a §References section exists with ≥30 entries and that every inline citation token (e.g. `[arXiv:...]` or `(Author Year)`) resolves to a bibliography entry.
 
 **Deliverables:** `paper_review.md`, `paper_review_response.md`, `paper_review_signoff.md`
 
@@ -388,9 +474,21 @@ Max 3 rounds. If all CRITICAL and MAJOR items resolved, reviewer signs off. Unre
 
 ---
 
-## Phase 3: paper.md
+## Phase 3: paper.md (audit trail) and paper_submission.md (submission artefact)
 
-A publication-quality academic paper. Structure:
+Phase 3 produces **two distinct artefacts** from the same scientific content. Do not conflate them.
+
+### paper.md (the working chain)
+
+A publication-quality academic paper kept as audit trail. This is the file that accumulates across review loops: each revision produces `paper.md` → `paper_v2.md` → `paper_v3.md` → … per the Re-entry Discipline. Reviewer artefacts match one-to-one: `paper_review.md` → `paper_review_v2.md` → … The chain MAY contain tracking language (retraction tables of prior drafts, reviewer-action callouts, version subtitles) because its purpose is internal auditability. It is NOT the file submitted to the journal.
+
+### paper_submission.md (the submission artefact)
+
+A single standalone file with identical scientific content but ALL internal-process language stripped. Produced exactly once, immediately before Phase 4, by stripping the latest `paper_vN.md`. Treated by all downstream consumers (journal editors, arXiv, readers) as *the* paper. No draft suffix.
+
+### Shared structure
+
+Both artefacts use the same section structure:
 
 1. **Abstract** — 200-300 words
 2. **Introduction** — context, prior work, the gap
@@ -400,13 +498,58 @@ A publication-quality academic paper. Structure:
 6. **Results** — every kept experiment, tables and figures, quantitative findings
 7. **Discussion** — physical interpretation, limitations, threats to validity
 8. **Conclusion** — punchline + implications + future work
-9. **References** — 30+ citations from `papers.csv`
+9. **References** — ≥30 citations from `papers.csv`, resolved to full bibliography entries in `references.bib`
 
-### Writing Rules
+### Writing Rules (apply to paper.md; enforced on paper_submission.md)
+
 - **Expand abbreviations on first use.** Every acronym spelled out the first time.
 - **Methodology section answers two questions only:** (a) baseline + how calculated, (b) iteration approach + keep-vs-revert criterion. No citation counts, hypothesis counts, or work-effort metrics.
 - **Never reference the internal review process.** No "reviewer", "sub-agent", "Phase 2.75", "blind review". Every finding from the review cycle is reported as if part of the original analysis plan.
 - **Never report work-effort metrics as findings.** "We ran 34 experiments" belongs in logs, not the paper. The publishable fact is what was tested and what the result was.
+- **No retraction tables referring to prior drafts.** The paper_vN.md chain is not public; its drafts are internal audit trail, not retracted journal papers. If a prior-draft claim genuinely needs discussion (e.g. a widely-circulated preprint), handle it as a Limitations or Discussion point without the word "retraction" and without enumerating internal draft numbers.
+- **Every `[arXiv:...]` or `(Author Year)` token resolves to an entry in `references.bib` and appears in the §References section.** Inline arXiv IDs without a bibliography are not acceptable.
+
+### Submission Form Gate (mandatory, machine-checkable)
+
+Before Phase 4, `paper_submission.md` MUST pass all of:
+
+1. **Zero review-process language.** The exact command
+
+   ```
+   grep -iE "reviewer|sub-agent|Phase [0-9]|v[0-9]+ (draft|round)|retraction table|HDR pipeline|committed framing|methodology review|audit trail|adversarial (review|loop)" paper_submission.md
+   ```
+
+   returns no lines. A grep hit is a hard failure; the submission cannot proceed.
+
+2. **References section present.** `grep -c "^## References" paper_submission.md` returns at least 1.
+
+3. **Bibliography size.** `references.bib` contains ≥30 entries (`grep -c "^@" references.bib` ≥ 30).
+
+4. **All inline citations resolve.** Every `[arXiv:NNNN.NNNNN]` or `(Author Year)` token in `paper_submission.md` has a matching entry in `references.bib`. A citation without a bibliography entry is a hard failure.
+
+5. **No residual version subtitle.** The first 200 characters of `paper_submission.md` contain no occurrence of `draft v`, `v1`, `v2`, `v3`, `v4`, `v5`, `v6`, `Phase 3 draft`. The submission is *the* paper — not a draft.
+
+6. **No acknowledgement of internal review.** The Acknowledgements section mentions humans, organisations, or funding only. No mention of "sub-agent", "reviewer", "HDR", "pipeline", "loop".
+
+7. **Every figure pointer is embedded.** For every inline `(Figure N)` or `Figure N` pointer in the text, a corresponding image embed `![... caption ...](path/to/figN_....png)` must appear in `paper_submission.md`. The match is one-to-one: the number of distinct `Figure N` pointers equals the number of `!\[` embeds. A pointer without an embed ships a dangling reference to reviewers. Verify with:
+
+   ```
+   pointers=$(grep -oE "Figure [0-9]+" paper_submission.md | sort -u | wc -l)
+   embeds=$(grep -cE "^!\[" paper_submission.md)
+   [[ "$pointers" -eq "$embeds" ]]
+   ```
+
+   A mismatch is a hard failure.
+
+8. **No implementation-detail leakage.** A journal paper's Methods section describes *what was done*, not *which files contain the code* or *what command runs the tests*. The paper MUST NOT contain: specific source filenames with programming-language extensions (`.py`, `.R`, `.jl`, `.cpp`, `.ipynb`); specific testing-framework commands (`pytest`, `unittest`, `npm test`, `cargo test`, `go test`); or test-count statistics as claimed findings ("25 unit tests (24 passing, 1 skipped)", "we ran 34 experiments"). These belong in the repository README or a supplementary reproducibility artefact, not in the paper body. The two acceptable statements are "a reference implementation is archived at the repository" and "a regression test suite accompanies the reference implementation" — both without filenames, commands, or counts. Verify with:
+
+   ```
+   grep -nE "[a-zA-Z_]+\.(py|R|jl|cpp|ipynb|rs|go|js|ts)|\\bpytest\\b|\\bunittest\\b|\\bcargo test\\b|\\bgo test\\b|\\bnpm test\\b|\\b[0-9]+ (unit |regression )?tests?\\b|passing.*skipped|project root|repository root" paper_submission.md
+   ```
+
+   Any match is a hard failure. Inline code references to *variable names, mathematical symbols, or algorithm step labels* are allowed (e.g. `\theta`, `H`, `p_i`) — the check specifically targets filename extensions and testing-framework commands.
+
+If any of these checks fails, the correct response is to revise `paper_submission.md` — not to weaken the check. This gate exists because the Phase 3 Writing Rules are routinely violated in practice when the working `paper.md` is shipped as-is to a journal. The gate makes the violation impossible rather than relying on discipline.
 
 ### Plots (mandatory)
 

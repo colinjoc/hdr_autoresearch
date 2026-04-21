@@ -1,0 +1,269 @@
+key,authors,year,title,venue,identifier,theme,role,verify
+acharya2024willow,"Acharya R. et al. (Google Quantum AI)",2024,Quantum error correction below the surface code threshold,Nature,doi:10.1038/s41586-024-08449-y; arXiv:2408.13687,3;5;6,primary data source + drift characterisation anchor,
+zenodo13273331,"Google Quantum AI",2024,"Data for ""Quantum error correction below the surface code threshold""",Zenodo,doi:10.5281/zenodo.13273331,3;5,primary real-data syndrome stream,
+zenodo13961130,"Rigetti Computing",2024,Demonstrating real-time and low-latency quantum error correction with superconducting qubits,Zenodo,doi:10.5281/zenodo.13961130,3;5;6,secondary (cross-vendor) real-data stream,
+zenodo14238907,"Google Quantum AI",2024,"Data for ""Demonstrating dynamic surface codes""",Zenodo,doi:10.5281/zenodo.14238907,5,tertiary Willow-era dynamic-code stream,
+zenodo6804040,"Google Quantum AI",2022,"Data for ""Suppressing quantum errors by scaling a surface code logical qubit""",Zenodo,doi:10.5281/zenodo.6804040,3;5,Sycamore-era precursor data (cross-generation baseline),
+arxiv2511_09491,Adaptive Estimation of Drifting Noise in QEC authors,2025,Adaptive Estimation of Drifting Noise in Quantum Error Correction,arXiv,arXiv:2511.09491,1;5,primary baseline (sliding-window MLE),VERIFY author list
+arxiv2406_08981,"Noise-parameter Bayesian inference authors",2024,Bayesian inference of general noise-model parameters from the syndrome statistics of surface codes,arXiv,arXiv:2406.08981,1,primary baseline (static Bayesian MCMC),VERIFY author list
+arxiv2504_14643,DEM estimation authors,2025,Per-edge DEM estimation from syndrome statistics,arXiv,arXiv:2504.14643,1;5,primary baseline (per-edge DEM MLE),VERIFY
+arxiv2502_21044,Noise-informed decoding authors,2025,Noise-model-informed decoding,arXiv,arXiv:2502.21044,1;4,translation from inference to LER payoff,VERIFY
+arxiv2602_19722,Differentiable MLE authors,2026,Differentiable Maximum Likelihood Noise Estimation for Quantum Error Correction,arXiv,arXiv:2602.19722,1;4,additional static baseline,VERIFY
+arxiv2512_10814,DEM-on-Willow authors,2025,Estimating Detector Error Models on Google's Willow,arXiv,arXiv:2512.10814,1;3;5,most methodologically adjacent real-data work; Phase 0.5 deep read,VERIFY
+arxiv2603_00837,ReloQate authors,2026,ReloQate: Transient Drift Detection and In-Situ Recalibration in Surface Code QEC,arXiv,arXiv:2603.00837,3;4,scoop-scan adjacent; not a scoop (complementary),VERIFY
+arxiv2603_14687,Ch-DQN authors,2026,Adaptive Control of Stochastic Error Accumulation in Fault-Tolerant Quantum Computation,arXiv,arXiv:2603.14687,1,RL-based adjacent; not a scoop,VERIFY
+arxiv2511_08493,RL-QEC authors,2025,Reinforcement Learning Control of Quantum Error Correction,arXiv,arXiv:2511.08493,1;4,adjacent RL work,VERIFY
+arxiv2509_06756,Iterative lattice reweighting authors,2025,Enhancing Fault-Tolerant Surface Code Decoding with Iterative Lattice Reweighting,arXiv,arXiv:2509.06756,4,decoder-side robustness reference,VERIFY
+arxiv2509_13678,Rare event QEC authors,2025,Rare Event Simulation of Quantum Error-Correcting Circuits,arXiv,arXiv:2509.13678,5,syndrome-statistics rare-event reference,VERIFY
+arxiv2511_15177,Fail fast authors,2025,Fail fast: techniques to probe rare events in quantum error correction,arXiv,arXiv:2511.15177,5,rare-event technique reference,VERIFY
+arxiv2510_06257,QuBA authors,2025,Toward Uncertainty-Aware and Generalizable Neural Decoding for Quantum LDPC Codes,arXiv,arXiv:2510.06257,4,uncertainty-aware decoding reference,VERIFY
+arxiv2601_14713,QuFid authors,2026,Adaptive Fidelity Estimation for Quantum Programs with Graph-Guided Noise Awareness,arXiv,arXiv:2601.14713,3,adaptive fidelity estimation reference,VERIFY
+arxiv2601_09921,Self-Coordinating NN authors,2026,Learning to Decode in Parallel: Self-Coordinating Neural Network for Real-Time QEC,arXiv,arXiv:2601.09921,4;6,parallel neural decoder reference,VERIFY
+arxiv2509_03815,Parallel NN decoding authors,2025,Learning Neural Decoding with Parallelism and Self-Coordination for QEC,arXiv,arXiv:2509.03815,4;6,parallel neural decoder reference,VERIFY
+arxiv2508_XXXXX_azureestim,Microsoft,2022+,Azure Quantum Resource Estimator,Microsoft Docs + arXiv,learn.microsoft.com/azure/quantum/overview-resources-estimator,7,public FTQC cost tool,VERIFY exact ref
+arxiv2505_15917,Gidney et al.,2025,How to factor 2048 bit RSA integers with less than a million noisy qubits,arXiv,arXiv:2505.15917,7,PER-2 anchor FTQC estimate,
+arxiv1905_09749,Gidney & Ekerå,2019,How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits,arXiv,arXiv:1905.09749,7,historical FTQC estimate anchor,
+fowler2013correlated,Fowler,2013,Optimal complexity correction of correlated errors in the surface code,arXiv,arXiv:1310.0863,4;7,correlated matching reference; 15% anchor for 5% justification,
+arxiv2205_09828,Fowler et al.,2022,Pipelined correlated minimum weight perfect matching of the surface code,Quantum,arXiv:2205.09828,4,pipelined correlated matching reference,VERIFY
+arxiv1206_0800,Fowler,2012,Proof of finite surface code threshold for matching,arXiv,arXiv:1206.0800,4,surface-code threshold proof,
+fowler2012surface,Fowler Mariantoni Martinis Cleland,2012,Surface codes: Towards practical large-scale quantum computation,Phys. Rev. A,doi:10.1103/PhysRevA.86.032324,4,surface-code canonical reference,
+dennis2002topological,Dennis Kitaev Landahl Preskill,2002,Topological quantum memory,J. Math. Phys.,doi:10.1063/1.1499754,5,surface-code threshold and statistical mapping,
+higgott2023sparse,Higgott Gidney,2023,Sparse Blossom: correcting a million errors per core second with minimum-weight matching,Quantum,arXiv:2303.15933,4,PyMatching v2 reference; ~10^6 errors/core-sec,
+gidney2021stim,Gidney,2021,Stim: a fast stabilizer circuit simulator,Quantum,arXiv:2103.02202,5,Stim toolchain,
+bausch2024alphaqubit,Bausch et al.,2024,Learning high-accuracy error decoding for quantum processors (AlphaQubit),Nature,doi:10.1038/s41586-024-08148-8,4,neural decoder reference,VERIFY doi
+riverlane_lcd_2025,"Barnes et al. (Riverlane)",2025,A Local Clustering Decoder for surface-code quantum error correction,Nat. Commun.,VERIFY,4,PER-1 LCD anchor,VERIFY authors
+kjaergaard2020review,Kjaergaard Schwartz Braumüller Krantz Wang Gustavsson Oliver,2020,Superconducting Qubits: Current State of Play,Annual Review CMP,doi:10.1146/annurev-conmatphys-031119-050605,3,superconducting drift and TLS review,
+muller2019tls,Müller Cole Lisenfeld,2019,Towards understanding two-level-systems in amorphous solids: insights from quantum circuits,Rep. Prog. Phys.,doi:10.1088/1361-6633/ab3a7e,3,TLS physics review,
+arxiv2602_11912,Superconducting-benchmarking authors,2026,Millisecond-Scale Calibration and Benchmarking of Superconducting Qubits,arXiv,arXiv:2602.11912,3,millisecond-scale drift anchor,VERIFY
+arxiv2603_13322,TLS many-body authors,2026,A Superconducting Qubit Coupled to a Many-Body TLS,arXiv,arXiv:2603.13322,3,TLS mechanism reference,VERIFY
+prx_realtime_adaptive_t1,Real-time adaptive T1 authors,2025,Real-Time Adaptive Tracking of Fluctuating Relaxation Rates in Superconducting Qubits,Phys. Rev. X,doi (gk1b-stl3),3,drift-tracking adjacent work on T1,VERIFY
+caliqec2025,CaliQEC authors,2025,CaliQEC: In-situ Qubit Calibration for Surface Code QEC,ISCA 2025,doi:10.1145/3695053.3731042,3;6,in-situ calibration reference,VERIFY
+bluvstein2024natom,Bluvstein et al.,2024,Logical quantum processor based on reconfigurable atom arrays,Nature,arXiv:2312.03982; doi:10.1038/s41586-023-06927-3,3,neutral-atom logical qubit reference,
+atomcomputing2025,"Norcia et al. (Atom Computing)",2025,Continuous operation of a coherent 3000-qubit system,Nature,VERIFY,3,continuous-operation neutral-atom reference,VERIFY
+quantinuum_h2_toolkit,Quantinuum,2024,QEC Decoder Toolkit,Quantinuum Docs,docs.quantinuum.com/systems/trainings/h2/getting_started/qec_decoder_toolkit/,3;6,H2 QEC toolkit reference,
+quantinuum_singleshot2024,Quantinuum et al.,2024,Single-Shot Error Correction on H2,blog / arXiv,VERIFY,6,single-shot QEC on H2 reference,VERIFY
+bravyi2024bb,Bravyi et al. (IBM),2024,High-threshold and low-overhead fault-tolerant quantum memory (bivariate bicycle codes),Nature,arXiv:2308.07915,4;6,qLDPC reference; IBM production path,VERIFY
+ibm_qldpc_2025,IBM,2025,Landmark qLDPC paper on Nature cover,Nature,VERIFY,6,IBM production cadence context,VERIFY
+gidney2024cultivation,Gidney Shutty Jones,2024,Magic state cultivation,arXiv,arXiv:2409.17595,7,magic-state cost reference,VERIFY
+gidney2023yoked,Gidney Newman Brooks Jones,2023,Yoked surface codes,arXiv,arXiv:2312.04522,7,yoked-code qubit reduction,VERIFY
+chevignard2024residue,Chevignard Fouque Schrottenloher,2024,Reducing the number of qubits in quantum factoring,IACR / arXiv,VERIFY,7,residue arithmetic reference,VERIFY
+bonilla2021xzzx,"Bonilla Ataides Tuckett Bartlett Flammia Brown",2021,The XZZX surface code,Nat. Commun.,doi:10.1038/s41467-021-22274-1,4,biased-noise tailored code,
+doucet2001smc,Doucet de Freitas Gordon (eds.),2001,Sequential Monte Carlo Methods in Practice,Springer,doi:10.1007/978-1-4757-3437-9,2,canonical SMC edited volume,
+chopin2020smc,Chopin Papaspiliopoulos,2020,An Introduction to Sequential Monte Carlo,Springer,doi:10.1007/978-3-030-47845-2,2,modern SMC textbook,
+robert2004mc,Robert Casella,2004,Monte Carlo Statistical Methods (2nd ed.),Springer,doi:10.1007/978-1-4757-4145-2,2,Monte Carlo reference,
+doucet2011tutorial,Doucet Johansen,2011,A tutorial on particle filtering and smoothing: fifteen years later,"Oxford Handbook of Nonlinear Filtering",stats.ox.ac.uk/~doucet/doucet_johansen_tutorialPF2011.pdf,2,standard PF review,
+gordon1993novel,Gordon Salmond Smith,1993,Novel approach to nonlinear / non-Gaussian Bayesian state estimation,IEE Proceedings F,doi:10.1049/ip-f-2.1993.0015,2,bootstrap PF origin,
+kitagawa1996,Kitagawa,1996,Monte Carlo filter and smoother for non-Gaussian nonlinear state space models,J. Comput. Graph. Stat.,doi:10.1080/10618600.1996.10474692,2,systematic resampling,
+liu1998particle,Liu Chen,1998,Sequential Monte Carlo methods for dynamic systems,JASA,doi:10.1080/01621459.1998.10473765,2,ESS resampling threshold,
+doucet2000rbpf,Doucet de Freitas Murphy Russell,2000,Rao-Blackwellised particle filtering for dynamic Bayesian networks,UAI 2000,doi:10.5555/2073946.2073976,2,RBPF reference,
+doucet2000optimal,Doucet Godsill Andrieu,2000,On sequential Monte Carlo sampling methods for Bayesian filtering,Statistics and Computing,doi:10.1023/A:1008935410038,2,optimal proposal reference,
+pitt1999auxiliary,Pitt Shephard,1999,Filtering via simulation: auxiliary particle filters,JASA,doi:10.1080/01621459.1999.10474153,2,APF reference,
+delmoral2006smc,Del Moral Doucet Jasra,2006,Sequential Monte Carlo samplers,JRSS-B,doi:10.1111/j.1467-9868.2006.00553.x,2,SMC sampler tempering,
+beskos2016stability,Beskos Crisan Jasra,2016,On the stability of sequential Monte Carlo methods in high dimensions,Annals Appl. Probab.,doi:10.1214/14-AAP1041,2,dim-curse and tempering,
+gerber2015qmc,Gerber Chopin,2015,Sequential quasi Monte Carlo,JRSS-B,doi:10.1111/rssb.12104,2,QMC SMC reference,
+bengtsson2008dim,Bengtsson Bickel Li,2008,Curse-of-dimensionality revisited: collapse of the particle filter in very large scale systems,IMS Collections,doi:10.1214/193940307000000518,2,dim-curse reference,
+snyder2008obstacles,Snyder Bengtsson Bickel Anderson,2008,Obstacles to high-dimensional particle filtering,Monthly Weather Review,doi:10.1175/2008MWR2529.1,2,dim-curse reference,
+vanleeuwen2009pf,van Leeuwen,2009,Particle filtering in geophysical systems,Monthly Weather Review,doi:10.1175/2009MWR2835.1,2,dim-curse applied,
+li2015resampling,Li Bolic Djuric,2015,Resampling methods for particle filtering,IEEE Signal Process. Mag.,doi:10.1109/MSP.2014.2330626,2,resampling strategies review,
+robert2021rb,Robert,2021,Rao-Blackwellisation in the MCMC era,Int. Stat. Rev.,doi:10.1111/insr.12463,2,RB review,
+arxiv2312_09860,Auto RB-SMC authors,2024,Automatic Rao-Blackwellization for Sequential Monte Carlo with Belief Propagation,arXiv,arXiv:2312.09860,2,auto-RB SMC,VERIFY
+blackjax2024smc,Cabezas et al.,2024,BlackJAX SMC implementation,GitHub / arXiv,github.com/blackjax-devs/blackjax,2,JAX SMC reference implementation,VERIFY
+pymcsmc,PyMC team,-,PyMC sequential Monte Carlo samplers,PyMC docs,docs.pymc.io,2,Python SMC sampler,
+poulin2006bayesian,Poulin,2006,Optimal and efficient decoding of concatenated quantum block codes,arXiv,arXiv:quant-ph/0606126,1,historical fully-Bayesian-decoding reference,VERIFY
+duclos2010fast,Duclos-Cianci Poulin,2010,Fast decoders for topological quantum codes,arXiv,arXiv:1006.1362,1,belief-propagation decoding historical context,VERIFY
+panteleev2021posd,Panteleev Kalachev,2021,Degenerate quantum LDPC codes with good finite length performance,arXiv,arXiv:1904.02703,4,BP+OSD reference,VERIFY
+panteleev2022good,Panteleev Kalachev,2022,Asymptotically good quantum and locally testable classical LDPC codes,STOC,doi:10.1145/3519935.3520017,4,asymptotic good qLDPC reference,
+roffe2020ldpc,Roffe et al.,2020,Decoding across the quantum LDPC code landscape,Phys. Rev. Research,doi:10.1103/PhysRevResearch.2.043423,4,BP+OSD canonical reference,
+delfosse2021uf,Delfosse Nickerson,2021,Almost-linear time decoding algorithm for topological codes,Quantum,doi:10.22331/q-2021-12-02-595,4,union-find decoder reference,
+higgott2023pymatching,Higgott,2022,PyMatching v2,GitHub,github.com/oscarhiggott/PyMatching,4,PyMatching toolchain,
+chubb2021tn,Chubb,2021,General tensor network decoding of 2D Pauli codes,arXiv,arXiv:2101.04125,4,TN decoder reference,
+sahay2023colorrestriction,Sahay Brown,2023,Decoder for the triangular color code by matching on a Möbius strip,PRX Quantum,doi:10.1103/PRXQuantum.3.010310,4,color-code restriction decoder,VERIFY
+gidney2022floquet,Gidney Shutty Jones,2022,Fault-tolerant logical primitives in floquet codes,arXiv,arXiv:2202.11845,4,honeycomb/floquet reference,VERIFY
+hastings2021floquet,Hastings Haah,2021,Dynamically generated logical qubits,Quantum,doi:10.22331/q-2021-10-19-564,4,floquet code definition,
+bombin2006color,Bombin Martin-Delgado,2006,Topological quantum distillation,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.97.180501,4,color code canonical,
+litinski2019pauli,Litinski,2019,A game of surface codes: large-scale quantum computing with lattice surgery,Quantum,doi:10.22331/q-2019-03-05-128,6;7,lattice-surgery compilation,
+aasen2023fault,Aasen Bonilla Ataides Higgott et al.,2023,Fault-tolerant Hastings-Haah codes on the honeycomb lattice,arXiv,arXiv:2308.03750,4,floquet code further reference,VERIFY
+tuckett2019biased,Tuckett Bartlett Flammia,2019,Ultrahigh error threshold for surface codes with biased noise,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.120.050505,4,biased-noise threshold,
+darmawan2018,Darmawan Poulin,2018,Linear-time general decoding algorithm for the surface code,Phys. Rev. E,doi:10.1103/PhysRevE.97.051302,4,Pauli-twirling loss reference,
+bravyi2018,Bravyi Englbrecht Koenig et al.,2018,Correcting coherent errors with surface codes,npj Quantum Information,doi:10.1038/s41534-018-0106-y,4,coherent-noise loss reference,VERIFY
+nielsenchuang2010,Nielsen Chuang,2010,Quantum Computation and Quantum Information (10th anniversary ed.),Cambridge,ISBN:9781107002173,1;4,QEC textbook,
+lidar2013brun,Lidar Brun (eds.),2013,Quantum Error Correction,Cambridge,ISBN:9780521897877,1;4,QEC textbook,
+gottesman2014constant,Gottesman,2014,Fault-tolerant quantum computation with constant overhead,QIC,doi:10.26421/QIC14.15-16,6,constant-overhead FTQC reference,
+knill2005posts,Knill,2005,Quantum computing with realistically noisy devices,Nature,doi:10.1038/nature03350,6,postselection + concatenation FTQC reference,
+aliferis2008post,Aliferis Preskill,2008,Fault-tolerant quantum computation against biased noise,Phys. Rev. A,doi:10.1103/PhysRevA.78.052331,4,biased-noise FTQC,
+shor1996faulttol,Shor,1996,Fault-tolerant quantum computation,FOCS,doi:10.1109/SFCS.1996.548464,6,FTQC origin,
+steane1996,Steane,1996,Error correcting codes in quantum theory,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.77.793,4,Steane code reference,
+aharonov1997,Aharonov Ben-Or,1997,Fault-tolerant quantum computation with constant error,STOC,doi:10.1145/258533.258579,6,threshold theorem,
+kitaev2003toric,Kitaev,2003,Fault-tolerant quantum computation by anyons,Ann. Phys.,doi:10.1016/S0003-4916(02)00018-0,4,toric code origin,
+olle2024rl,"Ollé Rinaldi Tabesh Rose",2024,RL for quantum code discovery,arXiv,arXiv:2406.05992,4,RL code-discovery reference,VERIFY
+leverrier2022tanner,Leverrier Zémor,2022,Quantum Tanner codes,FOCS,doi:10.1109/FOCS54457.2022.00078,4,good qLDPC reference,
+tillich2014hgp,Tillich Zémor,2014,Quantum LDPC codes with positive rate and minimum distance proportional to √n,IEEE TIT,doi:10.1109/TIT.2013.2292061,4,hypergraph product reference,
+bluvstein2025fta,Bluvstein et al.,2025,A fault-tolerant neutral-atom architecture for universal quantum computation,Nature,doi:10.1038/s41586-025-09848-5,3,neutral-atom FT architecture,VERIFY
+xu2025compact,Xu et al.,2024,A compact neutral-atom fault-tolerant quantum computer based on new quantum codes,Nat. Phys.,doi:10.1038/s41567-024-02480-6,3,compact neutral-atom code,VERIFY
+arxiv2308_14756,"Adaptive mitigation authors",2023,Adaptive mitigation of time-varying quantum noise,arXiv,arXiv:2308.14756,1,adaptive Bayesian mitigation reference,VERIFY
+arxiv2509_12933,Data-Efficient ML noise authors,2025,Data-Efficient Quantum Noise Modeling via Machine Learning,arXiv,arXiv:2509.12933,1,ML noise modelling reference,VERIFY
+arxiv2603_20127,"QEC decoder verifier authors",2026,Analyzing Decoders for Quantum Error Correction,arXiv,arXiv:2603.20127,4,decoder-verification reference,VERIFY
+arxiv2603_18457,Beyond Pauli stochastic authors,2026,Simulating Quantum Error Correction beyond Pauli Stochastic Errors,arXiv,arXiv:2603.18457,5,non-Pauli noise simulation reference,VERIFY
+chopin2020smc_python,Chopin,-,"particles: Python library for SMC",GitHub,github.com/nchopin/particles,2,Python SMC reference implementation,
+cuda_q_qec_2024,NVIDIA,2024,CUDA-Q QEC,NVIDIA Docs,developer.nvidia.com/cuda-q-qec,4,GPU BP+OSD reference,
+stim_github,Gidney et al.,2021-,Stim repository,GitHub,github.com/quantumlib/stim,5,Stim tool,
+tesseract_github,Google Quantum AI,-,tesseract-decoder,GitHub,github.com/quantumlib/tesseract-decoder,4,correlated matching decoder reference,
+chromobius_github,Google Quantum AI,-,chromobius,GitHub,github.com/quantumlib/chromobius,4,color code decoder,
+pymatching_github,Higgott,2022,PyMatching repository,GitHub,github.com/oscarhiggott/PyMatching,4,matching decoder reference,
+sinter_github,Google Quantum AI,-,Sinter,GitHub,github.com/quantumlib/stim/tree/main/glue/sample,5,Monte Carlo driver,
+delfosse2021uf_arxiv,Delfosse Nickerson,2017,Almost-linear time decoding algorithm for topological codes,arXiv,arXiv:1709.06218,4,union-find reference,
+duclos2014kitaev,Duclos-Cianci Poulin,2014,Fault-tolerant renormalization group decoder for abelian topological codes,arXiv,arXiv:1304.6100,4,RG decoder reference,
+gidney2018magic,Gidney Fowler,2018,Efficient magic state factories with a catalyzed |CCZ⟩ to 2|T⟩ transformation,Quantum,doi:10.22331/q-2019-04-30-135,7,magic state factory reference,
+azure_estimator_docs,Microsoft,2022,Azure Quantum Resource Estimator,Microsoft Docs,learn.microsoft.com/azure/quantum/overview-resources-estimator,7,PER-2 secondary estimator,
+beverland2022assessing,Beverland et al. (Microsoft),2022,Assessing requirements to scale to practical quantum advantage,arXiv,arXiv:2211.07629,7,resource estimation methodology,VERIFY
+haah2018magic,Haah Hastings,2018,Codes and protocols for distilling T, controlled-S, and Toffoli gates,Quantum,doi:10.22331/q-2018-05-08-71,7,magic state distillation reference,
+litinski2019magic,Litinski,2019,Magic state distillation: not as costly as you think,Quantum,doi:10.22331/q-2019-12-02-205,7,magic state costing,
+zhou2025concurrent,Zhou et al.,2025,Concurrent decoding reduces logical error rate,arXiv,VERIFY,4;6,concurrent decoding reference,VERIFY
+arxiv2506_01779,Improved BP authors,2025,Improved BP decoding for qLDPC codes,arXiv,arXiv:2506.01779,4,BP without OSD reference,VERIFY
+gillman2022superposition,Gillman Place Preskill,2022,Superposition-based quantum error correction,arXiv,VERIFY,1,alternative paradigm reference,VERIFY
+aliferis2006accuracy,Aliferis Gottesman Preskill,2006,Quantum accuracy threshold for concatenated distance-3 codes,QIC,doi:10.26421/QIC6.2-2,6,threshold reference,
+chamberland2022universal,Chamberland Noh et al. (AWS),2022,Building a fault-tolerant quantum computer using concatenated cat codes,arXiv,arXiv:2012.04108,4,cat-code reference,VERIFY
+brown2016fault,Brown,2016,Fault-tolerant logical gates,review,VERIFY,4,logical gate review,VERIFY
+bombin2015gauge,Bombin,2015,Gauge color codes: optimal transversal gates and gauge fixing in topological stabilizer codes,New J. Phys.,doi:10.1088/1367-2630/17/8/083002,4,3D color code transversal reference,
+kovalev2013fault,Kovalev Pryadko,2013,Fault-tolerance of quantum low-density parity check codes,Phys. Rev. A,doi:10.1103/PhysRevA.87.020304,4,qLDPC FT reference,
+breuckmann2021quantum,Breuckmann Eberhardt,2021,Quantum low-density parity-check codes,PRX Quantum,doi:10.1103/PRXQuantum.2.040101,4,qLDPC review,
+terhal2015review,Terhal,2015,Quantum error correction for quantum memories,Rev. Mod. Phys.,doi:10.1103/RevModPhys.87.307,4,QEC review,
+preskill1997reliable,Preskill,1997,Reliable quantum computers,Proc. Royal Soc. A,doi:10.1098/rspa.1998.0167,6,early FTQC reference,
+campbell2017roads,Campbell Terhal Vuillot,2017,Roads towards fault-tolerant universal quantum computation,Nature,doi:10.1038/nature23460,6,FTQC review,
+sivak2023realtime,Sivak Eickbusch et al. (Yale),2023,Real-time quantum error correction beyond break-even,Nature,doi:10.1038/s41586-023-05782-6,6,cat-code real-time QEC reference,
+gertler2021protecting,Gertler Baker Li,2021,Protecting a bosonic qubit with autonomous quantum error correction,Nature,doi:10.1038/s41586-021-03257-0,6,bosonic QEC reference,
+fluhmann2019encoding,Flühmann et al.,2019,Encoding a qubit in a trapped-ion mechanical oscillator,Nature,doi:10.1038/s41586-019-0960-6,6,GKP reference,
+campagne2020quantum,Campagne-Ibarcq et al.,2020,Quantum error correction of a qubit encoded in a grid state,Nature,doi:10.1038/s41586-020-2603-3,6,GKP reference,
+heussen2024quasiprob,Heussen et al.,2024,Measurement-based quasi-probability error mitigation,VERIFY,VERIFY,1,error mitigation adjacent,VERIFY
+cai2023quantum,Cai et al.,2023,Quantum error mitigation,Rev. Mod. Phys.,doi:10.1103/RevModPhys.95.045005,1,QEM review,VERIFY
+temme2017error,Temme Bravyi Gambetta,2017,Error mitigation for short-depth quantum circuits,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.119.180509,1,zero-noise extrapolation,
+li2017efficient,Li Benjamin,2017,Efficient variational quantum simulator incorporating active error minimization,Phys. Rev. X,doi:10.1103/PhysRevX.7.021050,1,ZNE reference,
+koczor2021exponential,Koczor,2021,Exponential error suppression for near-term quantum devices,Phys. Rev. X,doi:10.1103/PhysRevX.11.031057,1,virtual distillation reference,VERIFY
+huggins2021virtual,Huggins et al.,2021,Virtual distillation for quantum error mitigation,Phys. Rev. X,doi:10.1103/PhysRevX.11.041036,1,virtual distillation reference,
+hashim2021randomized,Hashim et al.,2021,Randomized compiling for scalable quantum computing on a noisy superconducting quantum processor,Phys. Rev. X,doi:10.1103/PhysRevX.11.041039,5,randomised compiling (tailors noise to stochastic),
+wallman2016noise,Wallman Emerson,2016,Noise tailoring for scalable quantum computation via randomized compiling,Phys. Rev. A,doi:10.1103/PhysRevA.94.052325,5,randomised compiling origin,
+merkel2013self,Merkel Gambetta Smolin Poletto Corcoles Johnson Chow Steffen,2013,Self-consistent quantum process tomography,Phys. Rev. A,doi:10.1103/PhysRevA.87.062119,3,GST reference,
+nielsen2021gate,Nielsen Gamble Rudinger et al. (Sandia),2021,Gate Set Tomography,Quantum,doi:10.22331/q-2021-10-05-557,3,GST canonical reference,
+blume2017demonstration,Blume-Kohout Gamble Nielsen Rudinger Mizrahi Fortier Maunz,2017,Demonstration of qubit operations below a rigorous fault tolerance threshold with gate set tomography,Nat. Commun.,doi:10.1038/ncomms14485,3,GST demo reference,
+magesan2012rb,Magesan Gambetta Emerson,2012,Characterizing quantum gates via randomized benchmarking,Phys. Rev. A,doi:10.1103/PhysRevA.85.042311,3,randomised benchmarking,
+proctor2019direct,Proctor Seritan Rudinger Nielsen Blume-Kohout Young,2019,Direct randomized benchmarking for multiqubit devices,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.123.030503,3,direct RB reference,
+helsen2022general,Helsen Roth Onorati Werner Eisert,2022,General framework for randomized benchmarking,PRX Quantum,doi:10.1103/PRXQuantum.3.020357,3,RB framework,
+erhard2019character,Erhard et al.,2019,Characterizing large-scale quantum computers via cycle benchmarking,Nat. Commun.,doi:10.1038/s41467-019-13068-7,3,cycle benchmarking reference,
+flammia2020efficient,Flammia Wallman,2020,Efficient estimation of Pauli channels,ACM Trans. Quantum Comput.,doi:10.1145/3408039,3,Pauli channel estimation reference,
+harper2020efficient,Harper Flammia Wallman,2020,Efficient learning of quantum noise,Nat. Phys.,doi:10.1038/s41567-020-0992-8,3,noise learning reference,
+harper2021fast,Harper Yu Flammia,2021,Fast estimation of sparse quantum noise,PRX Quantum,doi:10.1103/PRXQuantum.2.010322,3,sparse noise estimation,
+chen2022quantum,Chen Huang,2022,Quantum advantages for Pauli channel estimation,Phys. Rev. A,doi:10.1103/PhysRevA.105.032435,3,Pauli channel estimation complexity,
+huang2020predicting,Huang Kueng Preskill,2020,Predicting many properties of a quantum system from very few measurements (classical shadows),Nat. Phys.,doi:10.1038/s41567-020-0932-7,5,classical shadows reference,
+kueng2017low,Kueng Long Gross Rauhut Gross,2017,Low rank matrix recovery from rank-one measurements,Appl. Comput. Harmon. Anal.,doi:10.1016/j.acha.2015.07.007,5,compressed sensing reference,
+onorato2023syndromestat,Onorato et al.,2023,Syndrome statistics characterisation,VERIFY,VERIFY,5,syndrome-statistics reference,VERIFY
+fletcher2008syndrome,Fletcher Shor Win,2008,Optimum quantum error recovery using semidefinite programming,Phys. Rev. A,doi:10.1103/PhysRevA.77.012320,1,optimum recovery reference,
+pastawski2015channel,Pastawski Preskill,2015,Error correction for encoded quantum annealing,Phys. Rev. A,doi:10.1103/PhysRevA.93.052325,4,encoded annealing reference,VERIFY
+iyer2015recovery,Iyer Poulin,2015,Hardness of decoding quantum stabilizer codes,IEEE TIT,doi:10.1109/TIT.2015.2422294,4,decoding hardness reference,
+hutter2014efficient,Hutter Wootton Loss,2014,Efficient Markov chain Monte Carlo algorithm for the surface code,Phys. Rev. A,doi:10.1103/PhysRevA.89.022326,4,MCMC decoder reference,
+bravyi2014efficient,Bravyi Suchara Vargo,2014,Efficient algorithms for maximum likelihood decoding in the surface code,Phys. Rev. A,doi:10.1103/PhysRevA.90.032326,4,ML decoder reference,
+meinel2022programming,Meinel et al.,2022,IBM Quantum lattice-surgery pipeline,VERIFY,VERIFY,6,IBM lattice surgery reference,VERIFY
+andersen2020repeated,"Andersen et al. (ETH)",2020,Repeated quantum error detection in a surface code,Nat. Phys.,doi:10.1038/s41567-020-0920-y,6,ETH surface-code demo,
+krinner2022realizing,Krinner et al.,2022,Realizing repeated quantum error correction in a distance-three surface code,Nature,doi:10.1038/s41586-022-04566-8,6,d=3 surface code,
+zhao2022realization,"Zhao et al. (Google/USTC?)",2022,Realization of an error-correcting surface code with superconducting qubits,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.129.030501,6,surface code demo,VERIFY
+google2023suppressing,Google Quantum AI,2023,Suppressing quantum errors by scaling a surface code logical qubit,Nature,doi:10.1038/s41586-022-05434-1,6,d=3/5 Sycamore memory,
+kelly2015state,Kelly et al.,2015,State preservation by repetitive error detection in a superconducting quantum circuit,Nature,doi:10.1038/nature14270,6,early QEC demo,
+satzinger2021realizing,Satzinger et al. (Google),2021,Realizing topologically ordered states on a quantum processor,Science,doi:10.1126/science.abi8378,6,toric state reference,
+huang2024leveraging,Huang et al.,2024,Leveraging qubit coherence in decoder design,VERIFY,VERIFY,4,coherence-aware decoder reference,VERIFY
+honciuc2024erasure,"Honciuc et al.",2024,Erasure conversion in superconducting dual-rail,VERIFY,VERIFY,4,erasure conversion reference,VERIFY
+levine2024dualrail,Levine et al.,2024,Demonstrating a long-coherence dual-rail erasure qubit,arXiv,arXiv:2307.08737,4,dual-rail qubit reference,VERIFY
+kubica2022single,Kubica et al.,2022,Single-shot error correction with measurement-noise-tolerant codes,VERIFY,VERIFY,4,single-shot QEC reference,VERIFY
+campbell2019theory,Campbell,2019,A theory of single-shot error correction for adversarial noise,Quantum Sci. Technol.,doi:10.1088/2058-9565/aafc8f,4,single-shot QEC reference,
+bombin2015single,Bombin,2015,Single-shot fault-tolerant quantum error correction,Phys. Rev. X,doi:10.1103/PhysRevX.5.031043,4,single-shot FT reference,
+brown2020parallelizing,"Brown Terhal",2020,Parallelizing quantum error correction,VERIFY,VERIFY,6,parallel QEC reference,VERIFY
+delfosse2020parallel,Delfosse et al.,2020,Hierarchical decoding of quantum error correction codes,arXiv,arXiv:2001.11427,4,hierarchical decoding reference,VERIFY
+paler2019cost,Paler Oumarou Basmadjian,2019,Cost of fault tolerance,VERIFY,VERIFY,7,FT cost reference,VERIFY
+overwater2022neural,Overwater et al.,2022,Neural-network decoders for fault-tolerant quantum codes,IEEE Trans.,doi:10.1109/TQE.2022.3174017,4,neural decoder reference,VERIFY
+torlai2017neural,Torlai Melko,2017,Neural decoder for topological codes,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.119.030501,4,neural decoder origin,
+varsamopoulos2017decoding,Varsamopoulos et al.,2017,Decoding small surface codes with feedforward neural networks,Quantum Sci. Technol.,doi:10.1088/2058-9565/aa955a,4,neural decoder reference,VERIFY
+chamberland2018deep,Chamberland Ronagh,2018,Deep neural decoders for near term fault-tolerant experiments,Quantum Sci. Technol.,doi:10.1088/2058-9565/aad1f7,4,neural decoder reference,
+huang2019dqn,"Huang et al.",2019,Deep RL for QEC,VERIFY,VERIFY,4,RL decoder origin,VERIFY
+sweke2020reinforcement,Sweke et al.,2020,Reinforcement learning decoders for fault-tolerant quantum computation,Mach. Learn.: Sci. Technol.,doi:10.1088/2632-2153/abc609,4,RL decoder reference,
+ni2020neural,Ni,2020,Neural network decoders for large-distance 2D toric codes,Quantum,doi:10.22331/q-2020-06-29-267,4,neural decoder reference,
+bhoumik2021efficient,Bhoumik Majumdar,2021,Efficient decoding of surface code with non-uniform noise,VERIFY,VERIFY,4,non-uniform decoder reference,VERIFY
+fitzek2020deep,Fitzek Eliasson Kockum Granath,2020,Deep Q-learning decoder for depolarizing noise,Phys. Rev. Research,doi:10.1103/PhysRevResearch.2.023230,4,RL decoder reference,
+meinerz2022scalable,Meinerz Park Trebst,2022,Scalable neural decoder for topological surface codes,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.128.080505,4,scalable neural decoder,VERIFY
+ueno2021qecool,Ueno et al.,2021,QECOOL: on-chip quantum error correction,IEEE IISWC,doi:10.1109/IISWC53511.2021.00020,6,on-chip decoder reference,VERIFY
+battistel2023realtime,"Battistel et al.",2023,Real-time decoding for fault-tolerant quantum computing,VERIFY,VERIFY,6,real-time decoder reference,VERIFY
+shutty2022decoding,Shutty Hann Gidney,2022,Decoding in streaming mode,VERIFY,VERIFY,4;6,streaming decoder reference,VERIFY
+higgott2022fragile,Higgott et al.,2022,Fragile boundaries of tailored surface codes,arXiv,arXiv:2203.04948,4,tailored code reference,VERIFY
+bonilla2020xzzx,"Bonilla Ataides",2020,Boundaries of the XZZX code,VERIFY,VERIFY,4,XZZX boundary reference,VERIFY
+bombin2023fault,Bombin et al. (PsiQuantum),2023,Fault tolerant quantum computing with interleaving,arXiv,arXiv:2303.04568,6,photonic FTQC reference,VERIFY
+bartolucci2023fusion,Bartolucci et al. (PsiQuantum),2023,Fusion-based quantum computation,Nat. Commun.,doi:10.1038/s41467-023-36493-1,6,FBQC reference,
+dauphinais2017fault,Dauphinais Poulin,2017,Fault-tolerant quantum error correction for non-abelian anyons,Commun. Math. Phys.,doi:10.1007/s00220-017-2923-9,4,non-abelian FTQC reference,
+heussen2023strategies,Heussen et al.,2023,Strategies for a practical advantage of fault-tolerant circuit design in noisy trapped-ion quantum computers,Phys. Rev. A,doi:10.1103/PhysRevA.107.042422,4,trapped-ion FT reference,
+ryanAnderson2021realization,Ryan-Anderson et al. (Quantinuum),2021,Realization of real-time fault-tolerant quantum error correction,Phys. Rev. X,doi:10.1103/PhysRevX.11.041058,6,trapped-ion real-time QEC,
+postler2022demonstration,Postler et al.,2022,Demonstration of fault-tolerant universal quantum gate operations,Nature,doi:10.1038/s41586-022-05471-w,6,trapped-ion FT gates,
+menendez2023ibm,"Menendez et al.",2023,IBM quantum processor noise profile,VERIFY,VERIFY,3,IBM noise profile reference,VERIFY
+google2021exponential,Google Quantum AI,2021,Exponential suppression of bit or phase errors with cyclic error correction,Nature,doi:10.1038/s41586-021-03588-y,6,repetition code d=21 reference,
+smith2023scaling,"Smith et al.",2023,Scaling superconducting processors,VERIFY,VERIFY,3,SC scaling reference,VERIFY
+neill2018blueprint,Neill et al.,2018,A blueprint for demonstrating quantum supremacy with superconducting qubits,Science,doi:10.1126/science.aao4309,3,SC blueprint reference,
+klimov2018fluctuations,Klimov et al.,2018,Fluctuations of energy-relaxation times in superconducting qubits,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.121.090502,3,T1 fluctuations reference,
+burnett2019decoherence,Burnett et al.,2019,Decoherence benchmarking of superconducting qubits,npj Quantum Inf.,doi:10.1038/s41534-019-0168-5,3,decoherence benchmarking reference,
+lisenfeld2019tls,Lisenfeld et al.,2019,Electric field spectroscopy of material defects in transmon qubits,npj Quantum Inf.,doi:10.1038/s41534-019-0127-1,3,TLS spectroscopy,
+carroll2022dynamics,Carroll Rosenblum,2022,Dynamics of superconducting qubit relaxation times,VERIFY,VERIFY,3,relaxation-time dynamics reference,VERIFY
+martinis2021saving,Martinis,2021,Saving superconducting quantum processors from decay and correlated errors generated by gamma and cosmic rays,npj Quantum Inf.,doi:10.1038/s41534-021-00431-0,3,cosmic-ray correlated errors reference,
+mcewen2022resolving,McEwen et al.,2022,Resolving catastrophic error bursts from cosmic rays in large arrays of superconducting qubits,Nat. Phys.,doi:10.1038/s41567-021-01432-8,3;5,cosmic-ray burst reference,
+miao2023overcoming,Miao et al.,2023,Overcoming leakage in quantum error correction,Nat. Phys.,doi:10.1038/s41567-023-02226-w,4;5,leakage-aware decoding reference,
+battistel2021hardware,Battistel Varbanov Terhal,2021,Hardware-aware heuristic for multi-qubit noise estimation,VERIFY,VERIFY,3,hardware-aware noise estimation reference,VERIFY
+huang2025gpu,Huang et al.,2025,GPU-accelerated BP-OSD decoding,VERIFY,VERIFY,4,GPU BP+OSD reference,VERIFY
+deltakit_riverlane,Riverlane,2025,Deltakit textbook,textbook.riverlane.com,-,4,Deltakit educational reference,
+nordiquest2024threshold,"NordIQuEst",2024,Surface Code Threshold tutorial,nordiquest.net,-,4,surface-code threshold tutorial,
+barends2014superconducting,Barends et al.,2014,Superconducting quantum circuits at the surface code threshold for fault tolerance,Nature,doi:10.1038/nature13171,6,pre-threshold SC QEC reference,
+reagor2018,Reagor et al.,2018,Demonstration of universal parametric entangling gates on a multi-qubit lattice,Sci. Adv.,doi:10.1126/sciadv.aao3603,3,SC parametric gate reference,
+ofek2016,Ofek et al.,2016,Extending the lifetime of a quantum bit with error correction in superconducting circuits,Nature,doi:10.1038/nature18949,6,bosonic QEC early reference,
+cai2021bosonic,Cai et al.,2021,Bosonic quantum error correction codes in superconducting quantum circuits,Fundamental Research,doi:10.1016/j.fmre.2020.12.006,6,bosonic QEC review,
+reinhold2020error,Reinhold et al.,2020,Error-corrected gates on an encoded qubit,Nat. Phys.,doi:10.1038/s41567-020-0931-8,6,bosonic error-correction gate reference,
+zurita2022scalable,Zurita et al.,2022,Scalable FT quantum computation,VERIFY,VERIFY,7,FT scaling reference,VERIFY
+varsamopoulos2020comparing,Varsamopoulos Bertels Almudever,2020,Comparing neural network based decoders for the surface code,IEEE Trans. Comput.,doi:10.1109/TC.2019.2948506,4,NN decoder comparison,VERIFY
+shutty2024decoder,Shutty,2024,Decoder complexity for large d,VERIFY,VERIFY,4;6,decoder complexity reference,VERIFY
+das2022afs,Das Pattabiraman Lvov,2022,AFS: Accurate fast streaming decoder for real-time QEC,IEEE HPCA,doi:10.1109/HPCA53966.2022.00022,6,streaming decoder hardware reference,VERIFY
+das2022lilliput,"Das et al.",2022,LILLIPUT: a lightweight low-latency decoder,ASPLOS,doi:10.1145/3503222.3507707,6,low-latency decoder reference,VERIFY
+ueno2022nquestql,Ueno et al.,2022,NEO-QEC,VERIFY,VERIFY,6,hardware QEC reference,VERIFY
+gregory2023decoding,Gregory et al.,2023,Decoding latency estimates for Willow,VERIFY,VERIFY,6,Willow latency reference,VERIFY
+mcewen2024reducing,"McEwen et al. (Google)",2024,Reducing leakage in surface code experiments,VERIFY,VERIFY,5,leakage reduction reference,VERIFY
+obrien2017density,O'Brien Tarasinski Terhal,2017,Density-matrix simulation of small surface codes,New J. Phys.,doi:10.1088/1367-2630/aa8416,5,density-matrix SC sim reference,
+obrien2018quantum,O'Brien et al.,2018,Quantum error correction for a surface code,VERIFY,VERIFY,4,SC theory reference,VERIFY
+andrist2016noise,Andrist,2016,Statistical mechanics of topological quantum codes,VERIFY,VERIFY,4,stat-mech mapping reference,VERIFY
+gottesman1997stabilizer,Gottesman,1997,Stabilizer codes and quantum error correction,PhD thesis,arXiv:quant-ph/9705052,4,stabilizer formalism origin,
+litinski2022active,Litinski,2022,Active volume architectures for quantum computation,arXiv,arXiv:2211.15465,6;7,active-volume architecture reference,
+bonet2018decoders,Bonet-Monroig et al.,2018,Low-cost error mitigation by symmetry verification,Phys. Rev. A,doi:10.1103/PhysRevA.98.062339,1,symmetry mitigation reference,
+beverland2021cost,Beverland et al. (Microsoft),2021,Cost of fault tolerance for quantum chemistry,VERIFY,VERIFY,7,chemistry FTQC cost reference,VERIFY
+kivlichan2020chemistry,Kivlichan et al.,2020,Improved fault-tolerant quantum simulation of chemistry,Quantum,doi:10.22331/q-2020-07-16-296,7,chemistry FTQC reference,
+babbush2018encoding,Babbush et al.,2018,Encoding electronic spectra in quantum circuits with linear T complexity,Phys. Rev. X,doi:10.1103/PhysRevX.8.041015,7,chemistry encoding reference,
+lee2021even,Lee et al.,2021,Even more efficient quantum computations of chemistry through tensor hypercontraction,PRX Quantum,doi:10.1103/PRXQuantum.2.030305,7,chemistry compute reference,
+goings2022reliable,Goings et al.,2022,Reliably assessing the electronic structure of cytochrome P450 on today's classical computers and tomorrow's quantum computers,PNAS,doi:10.1073/pnas.2203533119,7,FTQC chemistry reference,
+cleve2024quantumchem,Cleve et al.,2024,Quantum chemistry FT runtime,VERIFY,VERIFY,7,chemistry FT runtime reference,VERIFY
+das2023riverstream,"Das et al.",2023,Riverlane streaming decoder architecture,VERIFY,VERIFY,6,Riverlane streaming reference,VERIFY
+riverlane2024lcdblog,Riverlane,2024,High accuracy flexible hardware decoder blog,riverlane.com/news,-,4;6,LCD blog reference,
+google2024realtime,"Google Quantum AI",2024,Making quantum error correction work,research.google/blog,-,6,QEC blog reference,
+wallman2014robust,Wallman et al.,2014,Robust characterization of loss channels,Phys. Rev. A,doi:10.1103/PhysRevA.89.062321,3,loss channel characterisation,
+knill2000method,Knill Laflamme Viola,2000,Theory of quantum error correction for general noise,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.84.2525,4,Knill-Laflamme conditions,
+carter2025calibration,"Carter et al.",2025,Calibration feedback loops,VERIFY,VERIFY,3;6,calibration loop reference,VERIFY
+feld2022onboard,Feld et al.,2022,On-board resource estimation,VERIFY,VERIFY,7,on-board RE reference,VERIFY
+robbins2024continuous,Robbins et al.,2024,Continuous GST,VERIFY,VERIFY,3,continuous GST reference,VERIFY
+rudnicki2017gauge,Rudnicki et al.,2017,Gauge freedom in QPT,VERIFY,VERIFY,3,QPT gauge reference,VERIFY
+onorato2024syndromelearning,Onorato,2024,Learning from syndromes,VERIFY,VERIFY,1;5,syndrome learning reference,VERIFY
+arxiv2509_13678b,Rare event authors,2025,Rare Event Simulation of Quantum Error-Correcting Circuits (v2),arXiv,arXiv:2509.13678,5,rare-event sim reference,VERIFY
+arxiv2506_08331,Noisy QC using QC authors,2025,Correcting a noisy quantum computer using a quantum computer,arXiv,arXiv:2506.08331,1,alt paradigm reference,VERIFY
+cao2016quantum,Cao et al.,2016,Quantum chemistry in the age of quantum computing,Chem. Rev.,doi:10.1021/acs.chemrev.8b00803,7,quantum-chem review,
+mcardle2020qc,McArdle et al.,2020,Quantum computational chemistry,Rev. Mod. Phys.,doi:10.1103/RevModPhys.92.015003,7,quantum-chem review,
+barber2025robust,Barber et al.,2025,Robust decoding with mis-specified noise,VERIFY,VERIFY,4,robust decoder reference,VERIFY
+fowler2015minimum,Fowler,2015,Minimum weight perfect matching of fault-tolerant topological quantum error correction in average O(1) parallel time,QIC,VERIFY,4,MWPM O(1) parallel reference,
+delfosse2014decoding,Delfosse,2014,Decoding color codes by projection onto surface codes,Phys. Rev. A,doi:10.1103/PhysRevA.89.012317,4,color-code projection reference,
+martinelli2024thermal,Martinelli et al.,2024,Thermal drift in cryogenic superconducting systems,VERIFY,VERIFY,3,thermal drift reference,VERIFY
+white2025drift,White et al.,2025,Drift characterisation in NISQ systems,VERIFY,VERIFY,3,drift characterisation reference,VERIFY
+yoder2017universal,Yoder,2017,Universal gates with weight-two stabilizer measurements,VERIFY,VERIFY,4,universal-gate reference,VERIFY
+terhal2002survey,Terhal,2002,Survey of QEC,VERIFY,VERIFY,1,QEC survey,VERIFY
+dankert2009exact,Dankert et al.,2009,Exact and approximate unitary 2-designs,Phys. Rev. A,doi:10.1103/PhysRevA.80.012304,3,unitary design reference,
+mezzadri2007generating,Mezzadri,2007,How to generate random matrices from the classical compact groups,Notices AMS,VERIFY,3,random matrix reference,VERIFY
+fontana2024characterising,Fontana et al.,2024,Characterising noise by symmetry-adapted tomography,VERIFY,VERIFY,3,symmetry tomography reference,VERIFY
+flammia2011random,Flammia Liu,2011,Direct fidelity estimation from few Pauli measurements,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.106.230501,3,direct fidelity estimation,
+silva2008scalable,da Silva Landon-Cardinal Poulin,2011,Practical characterization of quantum devices without tomography,Phys. Rev. Lett.,doi:10.1103/PhysRevLett.107.210404,3,scalable characterisation reference,
+kueng2016comparing,Kueng Gross,2016,Comparing experimental data,VERIFY,VERIFY,5,experimental data comparison reference,VERIFY
+mccaskey2020quantum,McCaskey et al.,2020,Quantum chemistry as a benchmark,npj Quantum Inf.,doi:10.1038/s41534-019-0209-0,7,chem benchmark reference,
+temme2023quantum,Temme et al.,2023,Quantum error mitigation — survey,VERIFY,VERIFY,1,mitigation survey reference,VERIFY
