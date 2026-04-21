@@ -1,0 +1,261 @@
+id,title,authors,year,type,domain,subcategory,method,key_finding,hypothesis_generated,relevance
+1,Quantum Computation and Quantum Information (10th Anniv Ed.),"Nielsen, M.A.; Chuang, I.L.",2010,textbook,fundamentals,qec_basics,analytic,Canonical textbook Chapter 10 stabilizer formalism CSS 9-qubit Shor code,Reference for all stabilizer-code arguments,5
+2,Quantum Error Correction (Cambridge),"Lidar, D.A.; Brun, T.A. (eds.)",2013,textbook,fundamentals,edited_review,analytic,Edited volume covering stabilizer topological subsystem and DFS codes,Canonical reference for operator QEC,5
+3,Stabilizer Codes and Quantum Error Correction (PhD thesis),"Gottesman, D.",1997,textbook,fundamentals,stabilizer,analytic,Stabilizer formalism Clifford hierarchy fault-tolerance constructions,Core framework,5
+4,Lecture Notes on Quantum Information,"Preskill, J.",2024,textbook,fundamentals,pedagogical,analytic,Preskill online QIT lecture notes; Chapter 7 QEC,Pedagogical reference,4
+5,Computational Complexity: A Modern Approach,"Arora, S.; Barak, B.",2009,textbook,complexity,complexity_textbook,analytic,Canonical complexity textbook covering BQP P NP PSPACE,Complexity-class context for Shor,4
+6,The Design and Analysis of Computer Algorithms,"Aho, A.V.; Hopcroft, J.E.; Ullman, J.D.",1974,textbook,algorithms,algorithms_textbook,analytic,Classical algorithms textbook covering matching graph algorithms,Data structures for MWPM,4
+7,Introduction to Algorithms (CLRS),"Cormen, T.H.; Leiserson, C.E.; Rivest, R.L.; Stein, C.",2009,textbook,algorithms,algorithms_textbook,analytic,Modern algorithms textbook covering graph matching and union-find,Blossom and UF algorithm references,4
+8,Low-density parity-check codes,"Gallager, R.G.",1963,textbook,classical_coding,ldpc_foundation,analytic,Foundational LDPC codes and sum-product decoding,Classical BP origin,5
+9,Modern Coding Theory,"Richardson, T.; Urbanke, R.",2008,textbook,classical_coding,ldpc_textbook,analytic,Canonical textbook for iterative LDPC decoding,Reference for BP theory,4
+10,Information Theory Inference and Learning Algorithms,"MacKay, D.J.C.",2003,textbook,classical_coding,info_theory,analytic,MacKay textbook covering BP + LDPC,Pedagogical BP reference,3
+11,Elements of Information Theory,"Cover, T.; Thomas, J.",2006,textbook,classical_coding,info_theory,analytic,Canonical info-theory textbook,MAP/ML decoding intuition,3
+12,Quantum Error Correction (review),"Terhal, B.M.",2015,review,fundamentals,memory_review,analytic,Comprehensive review of QEC for quantum memories,Organising scaffold,5
+13,Topological quantum memory,"Dennis, E.; Kitaev, A.; Landahl, A.; Preskill, J.",2002,paper,fundamentals,topological,analytic,First analysis of surface-code thresholds via random-bond Ising model,Foundational for surface code,5
+14,Fault-tolerant quantum computation by anyons,"Kitaev, A.",2003,paper,fundamentals,topological,analytic,Toric surface code and topological protection,Foundational,5
+15,Surface codes: Towards practical large-scale quantum computation,"Fowler, A.G.; Mariantoni, M.; Martinis, J.M.; Cleland, A.N.",2012,review,surface_code,review,analytic,Canonical surface-code architecture review threshold ~1% MWPM circuit noise,Baseline surface-code architecture,5
+16,Fault-tolerant quantum computation with constant error rate,"Aharonov, D.; Ben-Or, M.",1997,paper,fundamentals,threshold,analytic,Threshold theorem via concatenated codes,Foundational,5
+17,Resilient quantum computation,"Knill, E.; Laflamme, R.; Zurek, W.",1998,paper,fundamentals,threshold,analytic,Independent threshold theorem proof,Foundational,4
+18,Quantum error correction for beginners,"Devitt, S.J.; Munro, W.J.; Nemoto, K.",2013,review,fundamentals,pedagogical,analytic,Pedagogical QEC review,Teaching entry point,3
+19,Quantum Error Correction review,"Brun, T.A.",2019,review,fundamentals,pedagogical,analytic,Pedagogical QEC review arXiv:1910.03672,Teaching-level entry,4
+20,Good Quantum Codes with Low-Weight Stabilizers,"Panteleev, P.; Kalachev, G.",2022,paper,qldpc,asymptotic,construction,First asymptotically good qLDPC codes arXiv:2111.03654,Ends 25-year open problem,5
+21,Quantum Tanner codes,"Leverrier, A.; Zemor, G.",2022,paper,qldpc,asymptotic,construction,Simplified good qLDPC via left-right Cayley complex,Simpler proof,4
+22,Decoding quantum Tanner codes,"Leverrier, A.; Zemor, G.",2022,paper,qldpc,decoder,analytic,Linear-time decoder for q-Tanner codes,Decoder for asymptotically good codes,4
+23,High-threshold and low-overhead fault-tolerant quantum memory (BB code),"Bravyi, S.; Cross, A.; Gambetta, J.; Maslov, D.; Rall, P.; Yoder, T.",2024,paper,qldpc,bivariate_bicycle,simulation,IBM [[144,12,12]] bivariate bicycle code ~0.8% threshold Nature,Anchor paper for low-overhead qLDPC,5
+24,Quantum LDPC codes with almost linear time decoders,"Leverrier, A.; Londe, V.; Zemor, G.",2022,paper,qldpc,decoder,analytic,Small-set-flip decoder for quantum expander codes,qLDPC decoder landscape,3
+25,Degenerate Quantum LDPC Codes With Good Finite Length Performance (BP+OSD),"Panteleev, P.; Kalachev, G.",2019,paper,qldpc,decoder,simulation,Introduces BP+OSD for qLDPC several-orders-of-magnitude improvement arXiv:1904.02703,BP+OSD is gold standard for qLDPC,5
+26,Decoding across the quantum LDPC code landscape,"Roffe, J.; White, D.R.; Burton, S.; Campbell, E.T.",2020,paper,qldpc,decoder,simulation,Extensive BP+OSD benchmarking across qLDPC families,BP+OSD generalises empirically,4
+27,Stim: a fast stabilizer circuit simulator,"Gidney, C.",2021,software,simulator,stabilizer,numerical,SIMD-vectorised stabilizer simulator arXiv:2103.02202,Baseline simulator for QEC,5
+28,PyMatching v2: library for decoding QEC with MWPM,"Higgott, O.; Gidney, C.",2023,software,decoder,mwpm,numerical,Sparse-blossom CPU MWPM ~1M err/core-s arXiv:2303.15933,Baseline MWPM decoder,5
+29,Sinter: Monte Carlo sampler for QEC circuits,"Gidney, C.",2023,software,decoder_sampler,driver,numerical,Driver for Stim + PyMatching Monte Carlo benchmarking,Standard workflow driver,4
+30,CUDA-Q QEC: NVIDIA open-source QEC library,"NVIDIA",2024,software,simulator,gpu_qec,numerical,GPU BP+OSD with 29-35x single-shot speedup,Primary GPU BP+OSD tool,5
+31,CUDA-Q QEC 0.6 enables real-time QEC with NVQLink,"NVIDIA",2026,blog,software,gpu_qec,release_notes,0.6 release RelayBP 19x further speedup Ising predecoder + PyMatching hybrid pipeline 2us/cycle on B300,Current GPU QEC state of the art,5
+32,Surface code break-even (Google Quantum AI),"Google Quantum AI",2023,paper,experiment,surface_code,experiment,First break-even demonstration Nature 614 676,First break-even milestone,5
+33,Quantum error correction below the surface code threshold (Willow),"Google Quantum AI",2024,paper,experiment,surface_code,experiment,Distance-7 surface on 105-qubit Willow suppression factor ~2 per two distances,Benchmark below-threshold device,5
+34,Learning high-accuracy error decoding (AlphaQubit),"Bausch, J.; Senior, A.W.; Heras, F.J.H.; et al.",2024,paper,ml_decoder,transformer,learning,Transformer+recurrent decoder 6% fewer errors than TN,Neural decoder SOTA,5
+35,Logical quantum processor based on reconfigurable atom arrays,"Bluvstein, D.; et al. (Harvard/QuEra/MIT)",2024,paper,experiment,neutral_atom,experiment,48 logical qubits with multiple codes on 448 atoms,Anchor for neutral-atom QEC,5
+36,Dynamically Generated Logical Qubits (honeycomb Floquet),"Hastings, M.B.; Haah, J.",2021,paper,floquet,construction,analytic,Honeycomb code subsystem with dynamic logicals,Opens Floquet family,5
+37,Surface code quantum computing by lattice surgery,"Horsman, D.; Fowler, A.G.; Devitt, S.; Van Meter, R.",2012,paper,lattice_surgery,universal,analytic,Lattice surgery merge/split surface patches,Basis for surface-code compilers,5
+38,A Game of Surface Codes (Litinski PBC),"Litinski, D.",2019,paper,lattice_surgery,compilation,analytic,Pauli-based computation Quantum 3 128,Primary resource-estimation framework,5
+39,Magic State Distillation: Not as Costly as You Think,"Litinski, D.",2019,paper,magic_state,distillation,simulation,~10x magic-state overhead reduction via block distillation,Canonical distillation protocol,4
+40,Magic state cultivation,"Gidney, C.; Shutty, N.; Jones, C.",2024,preprint,magic_state,cultivation,simulation,Magic-state infidelity 2e-9 at ~1 T-equivalent qubit-round arXiv:2409.17595,Changes FTQC overhead accounting,5
+41,Universal quantum computation with ideal Clifford gates and noisy ancillas,"Bravyi, S.; Kitaev, A.",2005,paper,magic_state,distillation,analytic,Canonical magic-state distillation,Foundational for T cost,5
+42,High-threshold universal quantum computation on the surface code,"Fowler, A.G.; Stephens, A.M.; Groszkowski, P.",2009,paper,surface_code,universal,analytic,Fully explicit surface-code architecture ~1.1% threshold,Historical anchor,4
+43,Using Azure Quantum Resource Estimator,"Beverland, M.E.; et al.",2023,software,resource_estimation,azure,estimate,Public Azure resource estimator,Primary tool for overhead comparison,5
+44,Assessing requirements to scale to practical quantum advantage,"Beverland, M.E.; Murali, P.; Troyer, M.; et al.",2022,preprint,resource_estimation,fault_tolerance,estimate,Microsoft RE framework arXiv:2211.07629,Detailed overhead accounting method,5
+45,How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits,"Gidney, C.; Ekerå, M.",2021,paper,resource_estimation,shor,estimate,Classic surface-code RSA estimate 20M qubits p=1e-3 Quantum 5 433,Historical anchor for RSA estimates,5
+46,How to factor 2048 bit RSA integers with less than a million noisy qubits,"Gidney, C.",2025,preprint,resource_estimation,shor,estimate,Updated RSA estimate <1M qubits arXiv:2505.15917,Pre-registered algorithm for our project,5
+47,Low-overhead fault-tolerant quantum computing using long-range connectivity,"Xu, Q.; Ataides, J.P.B.; Pattison, C.A.; Raveendran, N.; Bluvstein, D.; Wurtz, J.; Vasić, B.; Lukin, M.D.; Cong, I.",2024,paper,qldpc,connectivity,estimate,End-to-end qLDPC architecture on reconfigurable atom arrays arXiv:2308.08648,qLDPC-to-hardware bridge,5
+48,Architecture for fast implementation of qLDPC codes with optimized Rydberg gates,"Viszlai, B.; et al.",2024,preprint,qldpc,neutral_atom,architecture,qLDPC via Rydberg gates arXiv:2404.18809,Neutral-atom qLDPC,3
+49,GPU-Accelerated Belief Propagation for qLDPC codes,"Kim, S.; et al.",2025,preprint,decoder,gpu,algorithm,<63us decoding qLDPC GPU improved BP,Real-time decoder-speed milestone,4
+50,Improved BP is sufficient for real-time decoding of quantum memory,"Authors (Google/Riverlane)",2025,preprint,decoder,bp,algorithm,BP alone with improvements enough for streaming arXiv:2506.01779,Challenges BP+OSD consensus,4
+51,Machine learning message-passing for scalable decoding of qLDPC codes,"Authors",2025,paper,decoder,ml,learning,GNN-based message passing npj QI 2025,Mid-complexity ML decoder,3
+52,Pipelined correlated MWPM of the surface code,"Higgott, O.; Bohdanowicz, T.C.; Kubica, A.; et al.",2023,paper,decoder,mwpm,algorithm,Correlated matching with FPGA pipelining Quantum 7 1205,Streaming MWPM,4
+53,Riverlane Local Clustering Decoder hardware paper,"Riverlane authors",2025,paper,decoder,fpga,hardware,FPGA LCD <1us per round leakage-adaptive Nat Commun,SOTA hardware decoder,5
+54,Demonstrating real-time and low-latency QEC with superconducting qubits,"Authors",2024,preprint,experiment,superconducting,experiment,arXiv:2410.05202 real-time stream demo,Real-time demonstration,4
+55,Sparse blossom: correcting a million errors per core second,"Higgott, O.; Gidney, C.",2023,paper,decoder,mwpm,algorithm,PyMatching v2 internals 1M err/core-second arXiv:2303.15933,PyMatching v2 engine,4
+56,Almost-linear time decoding algorithm for topological codes (Union Find),"Delfosse, N.; Nickerson, N.H.",2021,paper,decoder,union_find,algorithm,UF decoder near-linear time Quantum 5 595,Fast MWPM alternative,5
+57,Union-find decoders for homological product codes,"Delfosse, N.; Hastings, M.B.",2021,paper,decoder,qldpc,algorithm,UF for homological-product codes,UF beyond 2D,3
+58,FPGA-based distributed union-find decoder,"Authors",2024,preprint,decoder,fpga,hardware,Distributed UF on FPGA arXiv:2406.08491,Streaming UF,3
+59,Fusion Blossom: Fast MWPM Decoders for QEC,"Wu, Y.; Zhong, L.",2023,preprint,decoder,mwpm,algorithm,Parallel fusion blossom arXiv:2305.08307,Parallel MWPM alternative,4
+60,Micro-blossom: hardware-accelerated MWPM for QEC,"Wu, Y.",2025,preprint,decoder,fpga,hardware,Xilinx Zynq SoC MWPM decoder,Hardware MWPM baseline,3
+61,Almost-optimal MWPM decoding algorithm,"Fowler, A.G.",2013,paper,decoder,mwpm,algorithm,O(N) serial O(1) parallel MWPM (unreleased) arXiv:1307.1740,Fowler sparse MWPM origin,4
+62,Fowler correlated matching,"Fowler, A.G.",2013,paper,decoder,correlated,algorithm,Correlated matching for surface code,Correlated MWPM baseline,4
+63,PyMatching: A Python package for decoding with MWPM (v1),"Higgott, O.",2022,software,decoder,mwpm,tool,PyMatching v1 ACM TQC,Standard MWPM package,5
+64,Real-Time Decoding for Fault-Tolerant Quantum Computing,"Terhal, B.M.; et al.",2023,review,decoder,realtime_review,review,Real-time decoding review arXiv:2303.00054,Real-time decoder review,5
+65,A real-time scalable fast highly resource-efficient decoder for quantum computer,"Riverlane authors",2023,preprint,decoder,realtime,hardware,Riverlane real-time decoder flagship arXiv:2309.05558,Riverlane flagship,4
+66,MWPM for fault-tolerant surface code in real time,"Skoric, L.; Browne, D.E.; Barnes, K.M.; Gillespie, N.I.; Campbell, E.T.",2022,preprint,decoder,mwpm,algorithm,Streaming MWPM with window decoding arXiv:2211.14216,Streaming MWPM,4
+67,Predictive Window Decoding for Fault-Tolerant Quantum Programs,"Authors",2024,preprint,decoder,window,algorithm,Predictive window decoding arXiv:2412.05115,Window alignment,3
+68,A Case for Elastic Quantum Error Correction Decoders,"Authors",2024,preprint,decoder,elastic,algorithm,Elastic decoder resources arXiv:2406.17995 10-40% reduction,Elastic scheduling,4
+69,Impacts of Decoder Latency on Utility-Scale Quantum Computer Architectures,"Bhatnagar, et al.",2025,preprint,decoder,latency,analysis,Reaction-time impact on magic-state LER arXiv:2511.10633 aligned-window 50% improvement,Nearest-neighbour prior art on reaction time,5
+70,Scalable Neural Decoders for Practical Fault-Tolerant Quantum Computation (Cascade),"Authors",2026,preprint,ml_decoder,nn_streaming,learning,Cascade NN for BB + surface codes 17x LER improvement arXiv:2604.08358,Cross-code NN decoder,4
+71,Accelerating BP-OSD Decoder for QLDPC Codes with Local Syndrome-Based Preprocessing,"Authors",2025,preprint,decoder,bposd,algorithm,Local syndrome preprocessing for BP-OSD arXiv:2509.01892 HPCA 2026,BP+OSD latency reduction,3
+72,Fully Parallelized BP Decoding for Quantum LDPC Codes Can Outperform BP-OSD,"Authors",2025,preprint,decoder,bp,algorithm,Parallel BP without OSD arXiv:2507.00254,BP-only streaming,3
+73,Ambiguity Clustering: an accurate and efficient decoder for qLDPC codes,"Authors",2024,preprint,decoder,qldpc,algorithm,OSD alternative with ambiguity clustering arXiv:2406.14527,OSD alternative,3
+74,Localized statistics decoding for quantum LDPC codes,"Authors",2024,preprint,decoder,lsd,algorithm,LSD algorithm arXiv:2406.18655 competitive with BP+OSD,Parallel OSD alternative,3
+75,Decision-tree decoders for general quantum LDPC codes,"Authors",2025,preprint,decoder,decision_tree,algorithm,Small-memory DT decoder for qLDPC arXiv:2502.16408,Alternative decoder class,2
+76,A joint code and belief propagation decoder design for qLDPC,"Authors",2024,preprint,qldpc,co_design,analytic,qLDPC codes co-designed with BP no short-4 cycles arXiv:2401.06874,Code+decoder co-design,4
+77,Machine Learning Decoding of Circuit-Level Noise for Bivariate Bicycle Codes,"Authors",2025,preprint,ml_decoder,qldpc,learning,Neural decoder for BB codes arXiv:2504.13043,NN decoder for BB,3
+78,Astra machine learning decoder for qLDPC,"Authors",2025,preprint,decoder,ml,learning,Astra NN decoder higher thresholds BB up to d=18,ML decoder BB,3
+79,Mamba-based neural decoder for QEC,"Authors",2025,preprint,ml_decoder,mamba,learning,State-space model decoder,Architecture alternative,2
+80,HyperNQ: A Hypergraph Neural Network Decoder for qLDPC,"Authors",2025,preprint,ml_decoder,gnn,learning,Hypergraph NN for qLDPC arXiv:2511.01741,GNN decoder,3
+81,AlphaQubit 2 scalable real-time NN decoder,"Senior, A.W.; Edlich, T.; Higgott, O.; Bausch, J.; et al.",2025,preprint,ml_decoder,realtime,learning,Sub-1us/cycle on color + surface arXiv:2512.07737,Streaming NN decoder SOTA,5
+82,Scalable Neural Decoders for Practical Real-Time QEC,"Authors",2025,preprint,ml_decoder,streaming,learning,Streaming NN via distillation 6us latency arXiv:2510.22724,Streaming NN target,4
+83,Neural decoders for universal quantum algorithms,"Authors",2025,preprint,ml_decoder,universal,learning,NN decoder for logical algorithms arXiv:2509.11370,NN scope extension,3
+84,Interpretability of neural network decoders,"Bödeker, N.; et al.",2025,paper,ml_decoder,interp,learning,Adv Quant Tech mechanistic interp of NN decoders,Interp research,2
+85,Constant-overhead fault-tolerant quantum computation,"Gottesman, D.",2014,paper,resource_estimation,constant,analytic,Constant-overhead FTQC for good qLDPC,Theoretical benchmark,5
+86,Overhead analysis of qLDPC vs surface code,"Cohen, L.; Kim, I.; Bartlett, S.; Brown, B.",2024,paper,resource_estimation,qldpc,analytic,Analytic qLDPC vs surface overhead comparison,Analytic prior art for our project,5
+87,Computing Efficiently in QLDPC Codes,"Authors",2025,preprint,qldpc,computation,analytic,qLDPC computation primitives survey arXiv:2502.07150,qLDPC computation,4
+88,Sequences of Bivariate Bicycle Codes from Covering Graphs,"Symons, B.C.B.; Rajput, A.; Browne, D.E.",2025,preprint,qldpc,bivariate_bicycle,construction,h-cover BB new [[64,14,8]] [[144,14,14]] arXiv:2511.13560,BB family expansion,4
+89,Fair Decoder Baselines and Rigorous Finite-Size Scaling for BB Codes on Erasure Channel,"Pandey, T.",2026,preprint,decoder,qldpc,simulation,BB pseudo-thresholds 0.370-0.471 across N arXiv:2603.19062,BB on erasure,3
+90,BiBiEQ: BB Codes on Erasure Qubits,"Bhave, A.S.; Choudhury, N.; Nemec, A.; Basu, K.",2026,preprint,qldpc,erasure,construction,BB + erasure conversion arXiv:2602.07578,BB erasure variant,3
+91,Geometry-induced correlated noise in qLDPC syndrome extraction,"Authors",2026,preprint,qldpc,correlated,analysis,Routing geometry induces correlated faults arXiv:2604.01040,qLDPC noise caveat,3
+92,In-Situ Simultaneous Magic State Injection on Arbitrary CSS qLDPC Codes,"Authors",2026,preprint,magic_state,qldpc,analytic,First in-situ magic-state injection for CSS qLDPC arXiv:2604.05126,In-situ qLDPC injection,4
+93,Architectural mechanisms of a universal fault-tolerant quantum computer (NA),"Authors (Harvard/QuEra)",2025,preprint,architecture,universal,analytic,Full NA FTQC architecture arXiv:2506.20661,NA FTQC blueprint,4
+94,Low-overhead qLDPC computing via lattice-surgery analogues,"Authors",2024,preprint,qldpc,gates,analytic,Addressable qLDPC logical ops,qLDPC logical ops,3
+95,Automorphism gates in bivariate bicycle codes,"Authors",2025,preprint,qldpc,gates,analytic,Automorphism-based gates for BB codes,BB gate construction,3
+96,Low-overhead magic state preparation using distilled BB codes,"Authors",2024,preprint,magic_state,qldpc,analytic,BB code as distillation factory,BB for distillation,3
+97,Fault-tolerant gate sets for qLDPC codes,"Zhu, G.; Breuckmann, N.P.; et al.",2023,paper,qldpc,universality,analytic,Fault-tolerant Clifford gates via automorphisms,qLDPC universality,4
+98,qLDPC + lattice surgery architecture,"Authors",2024,preprint,qldpc,architecture,analytic,qLDPC coupled to surface patches via lattice surgery,Hybrid architecture,3
+99,The Q-Spellbook: Surface Code Layouts and Magic State Protocols,"Authors",2025,preprint,compilation,surface_code,engineering,Compiler-level layout optimisation arXiv:2502.11253,Compilation layout,3
+100,Scheduling Lattice Surgery with Magic State Cultivation,"Authors",2025,preprint,compilation,lattice_surgery,engineering,Cultivation-pipeline scheduling arXiv:2512.06484,Scheduling + cultivation,3
+101,Locality-aware Pauli-based computation for local magic state preparation,"Authors",2025,preprint,compilation,pauli_based,engineering,PBC + locality arXiv:2504.12091,Compilation engineering,2
+102,Pauli-based computation (PBC foundational),"Bravyi, S.; Smith, G.; Smolin, J.A.",2016,paper,compilation,pauli_based,analytic,Canonical PBC reference,Basis for Litinski 2019,4
+103,Magic State Cultivation on the Surface Code (High Rate),"Authors",2025,preprint,magic_state,cultivation,simulation,High-rate cultivation variants arXiv:2502.01743,Extends Gidney 2024,3
+104,Unfolded distillation: low-cost magic state preparation for biased-noise qubits,"Authors",2026,paper,magic_state,biased_noise,simulation,Biased-noise distillation npj QI,Biased-noise magic states,3
+105,How to factor RSA integers (v3),"Gidney, C.; Ekerå, M.",2021,paper,resource_estimation,shor,estimate,Quantum 5 433 surface code 20M qubits 8h,Historical RSA anchor,5
+106,Efficient circuits for exact-universal computation with qudits,"Bullock, S.S.; O'Leary, D.P.; Brennen, G.K.",2005,paper,resource_estimation,qudits,analytic,Qudit circuit compilation,Qudit alternative,2
+107,Windowed arithmetic for factoring,"Gidney, C.",2019,preprint,compilation,arithmetic,analytic,Windowed modular arithmetic reducing T-count,Arithmetic optimisation for Shor,4
+108,Shor's algorithm original paper,"Shor, P.W.",1997,paper,algorithm,shor,analytic,SIAM J Comput 26 1484 Shor factoring,Shor canonical,5
+109,Factoring in polynomial time on a quantum computer,"Shor, P.W.",1994,paper,algorithm,shor,analytic,FOCS 94 Shor polynomial-time factoring,Shor origin,5
+110,Circuit for Shor factoring with 2n+3 qubits,"Beauregard, S.",2003,preprint,resource_estimation,shor,estimate,2n+3 logical qubits arXiv:quant-ph/0205095,Historical Shor layout,4
+111,Quantum resource estimates for ECDLP,"Roetteler, M.; et al.",2017,paper,resource_estimation,ecc,estimate,ECC dlog resource estimate,Crypto beyond RSA,3
+112,Quantum computing for chemistry: Lee et al.,"Lee, J.; et al.",2021,paper,resource_estimation,chemistry,estimate,Quantum chemistry resource estimates npj QI,Chemistry benchmark,3
+113,Quantum computing enhanced computational catalysis,"von Burg, V.; et al.",2021,paper,resource_estimation,chemistry,estimate,Detailed catalysis RE PRResearch,Chemistry benchmark,3
+114,Resource estimates for lattice QCD,"Shaw, A.F.; et al.",2020,preprint,resource_estimation,hep,estimate,Lattice QCD quantum simulation resources,HEP benchmark,2
+115,Resource estimation for Hubbard model ground state,"Authors",2022,paper,resource_estimation,simulation,estimate,Hubbard ground-state RE ~10^7 qubits,Condensed-matter benchmark,3
+116,NIST quantum-threat cryptography guidance,"NIST",2024,report,crypto,policy,policy,NIST PQ-crypto migration guidance,Policy context,3
+117,Q-Day approaching quantum threat timeline,"TheQuantumInsider",2026,blog,crypto,policy,policy,Q-Day timeline tightening 2026,Policy context,2
+118,The rotated surface code planar lattice,"Bombin, H.; Martin-Delgado, M.A.",2007,paper,surface_code,rotated,analytic,Rotated surface code,Rotated-code variant,3
+119,Optimal circuit-level decoding for surface codes,"Tuckett, D.K.; Bartlett, S.D.; Flammia, S.T.",2016,paper,decoder,mwpm,simulation,Optimal thresholds arXiv:1609.06373,Decoder benchmarking reference,3
+120,The XZZX surface code,"Bonilla Ataides, J.P.; Tuckett, D.K.; Bartlett, S.D.; Flammia, S.T.; Brown, B.J.",2021,paper,biased_noise,xzzx,simulation,>5% threshold biased noise Nature Comm,Biased-noise code,4
+121,Tailored XZZX codes for biased noise,"Darmawan, A.S.; Brown, B.J.; Grimsmo, A.L.; Tuckett, D.K.; Puri, S.",2021,paper,biased_noise,xzzx,simulation,XZZX optimisation for biased noise,Biased-noise tailoring,3
+122,Correcting coherent errors with surface codes,"Bravyi, S.; Englbrecht, M.; König, R.; Peard, N.",2018,paper,coherent_noise,surface_code,simulation,Surface code under coherent errors vs Pauli twirl,Coherent-noise sensitivity,4
+123,Tensor-network simulations of surface code under realistic noise,"Darmawan, A.S.; Poulin, D.",2018,paper,coherent_noise,tensor_network,simulation,MPS sim of surface code beyond Pauli,Realistic simulation,3
+124,Efficient Simulation of Leakage Errors Using Tensor Network Methods,"Authors",2023,preprint,leakage,tensor_network,simulation,MPS leakage sim arXiv:2308.08186,Leakage sim without Pauli twirl,3
+125,Incoherent Approximation of Leakage in QEC,"Authors",2024,preprint,leakage,approximation,theory,Subspace Twirling Approximation arXiv:2312.10277,Leakage approximation,3
+126,Surface code with leakage and erasure,"Suchara, M.; Cross, A.W.; Gambetta, J.M.",2015,paper,leakage,surface_code,simulation,Early leakage in surface code,Leakage baseline,3
+127,Experimental QEC below threshold via all-microwave leakage suppression,"Authors",2025,paper,experiment,leakage,experiment,PRL leakage suppression,Experimental leakage handling,3
+128,General tensor network decoding of 2D Pauli codes,"Chubb, C.T.",2021,paper,decoder,tensor_network,algorithm,Near-optimal TN decoder O(n log n + n chi^3) arXiv:2101.04125,Near-optimal decoder baseline,4
+129,Enhancing fault-tolerant surface code decoding with iterative lattice reweighting,"Authors",2025,preprint,decoder,mwpm,algorithm,Lattice reweighting arXiv:2509.06756,Decoder enhancement,2
+130,Performance enhancement of surface codes via recursive MWPM decoding,"Authors",2023,paper,decoder,mwpm,algorithm,Phys Rev A recursive MWPM,Decoder enhancement,3
+131,Noise-aware decoder improvements,"Authors",2025,preprint,decoder,adaptive,algorithm,arXiv:2502.21044 noise-aware decoding,Adaptive decoder,3
+132,Optimal adaptation of surface-code decoders to local noise,"Authors",2024,preprint,decoder,adaptive,analysis,arXiv:2403.08706 decoder adaptation gains,Adaptive decoder gains,3
+133,Bayesian inference of general noise-model parameters from syndrome stats,"Authors",2024,paper,char,bayesian,inference,MCMC SMC syndrome-based noise inference Phys Rev A arXiv:2406.08981,Noise inference,3
+134,Estimating detector error models from syndrome data,"Authors",2025,preprint,char,detector,inference,Syndrome-based DEM estimation arXiv:2504.14643,DEM inference,3
+135,Adaptive Estimation of Drifting Noise in QEC,"Authors",2025,preprint,char,drift,analysis,Sliding-window drift estimator arXiv:2511.09491,Drift adaptation,3
+136,Transient drift detection in surface code,"Authors",2026,preprint,char,drift,analysis,ReloQate drift detection arXiv:2603.00837,Drift-aware QEC,2
+137,Logical error rates for surface code under mixed coherent/stochastic ion noise,"Authors",2025,preprint,coherent_noise,trapped_ion,simulation,arXiv:2508.14227,Realistic ion noise,3
+138,The surface code beyond Pauli channels,"Authors",2024,preprint,coherent_noise,surface_code,simulation,Error-field-double under coherent noise arXiv:2412.21055,Coherent sensitivity,3
+139,Correcting coherent errors via Pauli conjugation,"Cai, Z.; et al.",2019,paper,coherent_noise,mitigation,analytic,Pauli conjugation for coherent mitigation,Workaround approach,3
+140,Performance of MWPM under correlated noise,"Authors",2024,preprint,decoder,correlated,simulation,Correlated-noise MWPM limits,Decoder analysis,3
+141,Decoder benchmarking software: BP-OSD evaluation,"Roffe, J.",2022,software,decoder,bp,tool,ldpc Python package BP-OSD,Standard BP-OSD tool,5
+142,LDPC v2 Python package,"Roffe, J.; Hillmann",2024,software,decoder,bp,tool,C++ rewrite BP + BP+OSD + BP+LSD,ldpc v2 (current baseline),5
+143,qLDPC Python package (qLDPCOrg),"qLDPCOrg",2024,software,decoder,unified,tool,Unified API over ldpc stim sinter pymatching relay-bp,Unified decoder API,5
+144,relay-bp GPU BP variant,"NVIDIA",2026,software,decoder,gpu_bp,tool,CUDA-Q QEC RelayBP GPU variant,GPU RelayBP,4
+145,NVIDIA Ising Decoding training framework,"NVIDIA",2026,software,decoder,predecoder,tool,Training framework for AI QEC decoders,GPU predecoder toolkit,4
+146,panqec simulator,"Panteleev, P.",2022,software,simulator,python,tool,Python qLDPC simulator,qLDPC simulation,3
+147,qiskit-qec library,"IBM Qiskit team",2023,software,simulator,qiskit,tool,IBM Python toolkit for QEC,Alternative to Stim,3
+148,cuQuantum SDK,"NVIDIA",2022,software,simulator,gpu,tool,GPU TN/statevector simulator,Broad GPU QC sim,4
+149,Error correction zoo,"Albert, V.V.; et al.",2022,software,resource,zoo,reference,Comprehensive code catalogue,Navigation,5
+150,Error correction zoo (BB entry),"Albert, V.V.; et al.",2024,software,resource,zoo,reference,BB code entry,Navigation,3
+151,qsharp-alice-bob-resource-estimator,"Alice&Bob",2024,software,resource_estimation,extension,tool,Extension of Microsoft RE for cat qubits,Extension precedent,5
+152,Microsoft qsharp resource estimator source,"Microsoft",2024,software,resource_estimation,source,tool,github.com/microsoft/qsharp estimation samples,Primary RE source,5
+153,microsoft/qdk quantum development kit,"Microsoft",2024,software,qsharp,sdk,tool,QDK including Q# + RE + Katas,QDK source,4
+154,Benchmarking quantum-computing trapped-ion QFT,"Quantinuum",2024,paper,experiment,trapped_ion,experiment,3-qubit QFT in Steane on H2 arXiv:2404.08616,Trapped-ion logical demo,4
+155,Fault-tolerant code switching between Steane and Reed-Muller,"Quantinuum UC Davis",2025,preprint,experiment,code_switching,experiment,Transversal T via code switch logical T infidelity 5e-4,Code-switching to universality,4
+156,Experimental demonstration of logical magic state distillation,"Authors",2024,preprint,experiment,magic_state,experiment,arXiv:2412.15165 demonstration,Experimental magic state,4
+157,Fault-tolerant neutral-atom architecture for universal quantum computation,"Authors (Harvard/QuEra)",2025,paper,experiment,neutral_atom,experiment,Full FT NA architecture Nature,Architecture-level NA QEC,5
+158,High-rate qLDPC for long-range connected NA,"Authors",2025,paper,qldpc,neutral_atom,architecture,Nat Commun qLDPC on long-range NA,NA qLDPC,4
+159,Superconducting dual-rail cavity qubit with erasure detection,"Koottandavida, A.; et al.",2024,paper,erasure,dual_rail,hardware,Erasure detection >99% logical SPAM 0.01% Nat Phys,Biased-noise erasure SC,4
+160,Quantum Error Correction resilient against Atom Loss,"Authors",2025,paper,qldpc,erasure,theory,Codes robust to atom loss Quantum,NA resilience,3
+161,Floquet codes circuit-level,"Gidney, C.; Newman, M.; Brooks, P.; Jones, C.",2022,preprint,floquet,schedule,analytic,Benchmarks honeycomb Floquet arXiv:2202.11845,Floquet threshold,3
+162,Planar Floquet Codes,"Haah, J.; Hastings, M.B.",2022,paper,floquet,construction,analytic,Planar Floquet arXiv:2110.05348,Floquet planar,3
+163,X3Z3 Floquet biased-noise code,"Authors",2025,paper,biased_noise,floquet,construction,X3Z3 3.09% biased-noise threshold npj QI,Biased-noise Floquet,3
+164,Fault-tolerant hyperbolic Floquet codes,"Fahimniya, A.; Dua, A.; Magnifico, G.; Jochym-O'Connor, T.; Kubica, A.",2023,paper,floquet,hyperbolic,analytic,Hyperbolic Floquet constant rate,Floquet rate-distance trade,3
+165,Distributed QEC based on hyperbolic Floquet codes,"Authors",2025,preprint,floquet,distributed,simulation,Distributed hyperbolic Floquet arXiv:2501.14029,Distributed Floquet,2
+166,Hypergraph product codes (Tillich-Zemor),"Tillich, J.-P.; Zemor, G.",2014,paper,qldpc,construction,analytic,qLDPC distance sqrt(n) IEEE TIT,First systematic qLDPC,5
+167,Lifted product codes,"Panteleev, P.; Kalachev, G.",2020,paper,qldpc,construction,analytic,Lifted-product generalisation,Extended family,4
+168,Quantum expander codes,"Leverrier, A.; Tillich, J.-P.; Zemor, G.",2015,paper,qldpc,construction,analytic,Expander-based good qLDPC precursor,Precursor,4
+169,Fibre-bundle codes,"Hastings, M.B.; Haah, J.; O'Donnell, R.",2021,paper,qldpc,construction,analytic,First beating sqrt(n) distance barrier,Stepping stone,4
+170,Bivariate bicycle logical operators construction,"Authors",2025,preprint,qldpc,bivariate_bicycle,analytic,Logical operator construction for BB codes,BB logical ops,3
+171,Matching vectors qLDPC,"Authors",2021,paper,qldpc,construction,analytic,Alternative qLDPC family,Code-zoo,2
+172,Stabilizer formalism Heisenberg,"Gottesman, D.",1998,paper,fundamentals,simulator,analytic,Heisenberg picture stabilizer sim quant-ph/9807006,Stim basis,4
+173,CHP simulator,"Aaronson, S.; Gottesman, D.",2004,paper,simulator,chp,analytic,Canonical polynomial-time stabilizer simulator,Stim ancestor,4
+174,Quantum MacWilliams identities,"Shor, P.W.; Laflamme, R.",1997,paper,fundamentals,weight_enumerator,analytic,Quantum weight enumerator,Foundational,2
+175,Knill-Laflamme error-correction conditions,"Knill, E.; Laflamme, R.",1997,paper,fundamentals,QEC_conditions,analytic,Necessary+sufficient QEC conditions,Foundational,5
+176,DFS and QEC,"Lidar, D.A.; Chuang, I.L.; Whaley, K.B.",1998,paper,fundamentals,dfs,analytic,DFS as QEC subspace,Subspace-based QEC,3
+177,Wang Harrington Preskill threshold,"Wang, C.; Harrington, J.; Preskill, J.",2003,paper,fundamentals,threshold,analytic,Nishimori line mapping,Threshold-stat-mech,4
+178,Aliferis Gottesman Preskill concatenated,"Aliferis, P.; Gottesman, D.; Preskill, J.",2006,paper,fundamentals,concatenation,analytic,Concatenated Steane thresholds and overheads,Concatenation family,3
+179,Subsystem codes Bacon,"Bacon, D.",2006,paper,fundamentals,subsystem,analytic,Subsystem codes Bacon-Shor,Subsystem class,3
+180,ZX calculus for lattice surgery,"Gidney, C.; Fowler, A.G.",2019,paper,compilation,zx,analytic,ZX-based compilation for surface code,ZX as compiler lingua,3
+181,ZX <-> lattice surgery correspondence,"de Beaudrap, N.; Horsman, D.",2020,paper,compilation,zx,analytic,ZX <-> lattice surgery Quantum 4 218,ZX-LSC correspondence,3
+182,Topological color codes,"Bombin, H.; Martin-Delgado, M.A.",2006,paper,color_code,foundational,analytic,Color codes with transversal Clifford,Color code canonical,5
+183,Efficient color code decoders via toric code decoders,"Sahay, K.; Brown, B.J.",2023,paper,decoder,color_code,algorithm,Restriction-decoder reduction Quantum,Practical color decoder,4
+184,Low-overhead quantum computing with the color code,"Authors",2024,preprint,color_code,compilation,estimate,arXiv:2201.07806 color-code RE,Cross-code comparison,3
+185,Magic Boundaries of 3D Color Codes,"Authors",2025,paper,color_code,3d,analytic,Quantum 3D color code boundaries for magic,3D color-code magic,3
+186,Resource-efficient decoding of color codes via NN+UF,"Authors",2025,paper,decoder,color_code,hybrid,Applied Sciences NN+UF color codes,Hybrid decoder,2
+187,Neural network decoder cryogenic CMOS,"Overwater, R.W.J.; Babaie, M.; Sebastiano, F.",2022,paper,ml_decoder,cryogenic,learning,NN decoder for cryogenic CMOS,NN hardware angle,4
+188,Diversity Methods for QEC Decoders through Hardware Emulation,"Authors",2026,paper,decoder,fpga,hardware,Quantum q-2026-04-16-2071 FPGA emulation 10^13 errors 20d,FPGA emulation energy,3
+189,Intel Horse Ridge II cryogenic CMOS,"Intel",2023,paper,hardware,cryogenic,hardware,Horse Ridge II cryo-CMOS,Cryogenic control,3
+190,Google cryo-CMOS for control,"Google Quantum AI",2024,paper,hardware,cryogenic,hardware,Google in-house cryo-CMOS ISSCC,Cryogenic control,3
+191,Quantum-error-corrected computation of molecular energies,"Authors",2025,preprint,experiment,chemistry,experiment,arXiv:2505.09133 logical chemistry on ion trap,Algorithmic logical demo,3
+192,Azure tutorial resource estimation chemistry,"Microsoft",2024,documentation,resource_estimation,tutorial,tool,Azure RE chemistry tutorial nitrogenase,Chemistry RE tutorial,3
+193,MLPerf inference benchmark,"MLPerf",2024,benchmark,ml,benchmark,numerical,MLPerf ResNet BERT inference energy benchmarks,Classical energy comparison,2
+194,NVIDIA A100 datasheet,"NVIDIA",2020,documentation,hardware,gpu,specification,A100 250-400W TDP compute capability 8.0,GPU specification,3
+195,NVIDIA H100/H200 datasheet,"NVIDIA",2023,documentation,hardware,gpu,specification,H100/H200 700W TDP compute capability 9.0,GPU specification,2
+196,NVIDIA RTX 3060 datasheet,"NVIDIA",2021,documentation,hardware,gpu,specification,RTX 3060 170W TDP 12GB 8.6 capability,Host GPU spec,3
+197,NVML API documentation,"NVIDIA",2024,documentation,software,nvml,specification,NVML power.draw query API 1Hz,Power measurement method,3
+198,NVIDIA Academic Grant Program,"NVIDIA",2026,documentation,funding,program,application,Academic compute grant program,Funding pathway,2
+199,Riverlane QEC Roadmap whitepaper,"Riverlane",2026,whitepaper,commercial,roadmap,commercial,Utility-scale 3-5 years acceleration MegaQuOp milestones,Commercial roadmap,3
+200,Riverlane local clustering decoder Nature Comm,"Riverlane",2025,paper,decoder,fpga,hardware,LCD <1us per round 4x fewer qubits for MegaQuOp,Commercial FPGA decoder,4
+201,IBM qLDPC pivot 2029 roadmap,"IBM",2024,announcement,commercial,roadmap,commercial,IBM pivots to qLDPC targeting 2029 FTQC,Commercial roadmap,3
+202,Photonic Inc SHYPS claim,"Photonic Inc.",2025,announcement,commercial,roadmap,commercial,20x qubit reduction with photonic qLDPC,Commercial roadmap,2
+203,Reinforcement learning introduction,"Sutton, R.S.; Barto, A.G.",2018,textbook,ml_tools,textbook,learning,Standard RL reference,ML background,2
+204,Transformers Attention Is All You Need,"Vaswani, A.; et al.",2017,paper,ml_tools,transformer,learning,Attention Is All You Need,Background for transformer decoders,2
+205,Graph neural networks overview,"Battaglia, P.W.; et al.",2018,review,ml_tools,gnn,review,GNN background,Background for GNN decoders,2
+206,Constant-overhead quantum error correction (Gottesman),"Gottesman, D.",2014,paper,resource_estimation,constant,analytic,Constant-rate FTQC proof,Theoretical benchmark (duplicate pointer),4
+207,Surface code architectures with long-range couplers,"Authors",2024,preprint,architecture,long_range,analytic,Long-range architectures,Architecture reference,2
+208,Fault-tolerant quantum error correction with long-range gates,"Authors",2024,preprint,architecture,long_range,analytic,Long-range gates for qLDPC,Architecture,3
+209,Heavy-hex surface code scaling (Lee et al),"Lee, S.-H.; Kolesnikow, X.C.; Zen, J.; et al.",2026,preprint,surface_code,heavy_hex,architecture,Dynamic compass code d=5 ACES arXiv:2604.14296,Heavy-hex QEC,3
+210,ZX calculus for qLDPC,"Authors",2024,preprint,compilation,zx,analytic,ZX for qLDPC compilation,qLDPC compilation,2
+211,Stabilizer simulation beyond Clifford,"Authors",2024,review,simulator,beyond_clifford,review,Simulator review beyond Clifford,Context,2
+212,NVIDIA Deep Learning Institute QEC course,"NVIDIA",2025,course,education,qec_course,tool,DLI course CUDA-Q QEC,Educational,2
+213,Azure Quantum Development Kit VS Code plugin,"Microsoft",2024,software,qsharp,vscode,tool,VS Code Q# + RE integration,Tooling,2
+214,NERSC Perlmutter allocation ERCAP,"DOE",2024,documentation,funding,program,application,NERSC 7000 A100 allocation ERCAP,Funding pathway,2
+215,NAIRR Pilot AI compute,"NSF",2024,documentation,funding,program,application,NAIRR Pilot AI compute democratisation,Funding pathway,2
+216,Lambda Labs A100 pricing,"Lambda",2026,documentation,pricing,commercial,commercial,Commercial A100 rental ~$1/hr,Rental cost,2
+217,RunPod A100 pricing,"RunPod",2026,documentation,pricing,commercial,commercial,RunPod A100 ~$1-2/hr,Rental cost,2
+218,Fowler-Martinis classical control budget,"Fowler, A.G.; Martinis, J.M.",2013,paper,architecture,classical_control,analytic,Classical control overhead in superconducting QEC,Classical control baseline,3
+219,Classical-control bandwidth for million-qubit devices,"Authors",2023,preprint,architecture,io,analysis,Tb/s classical-control I/O requirements,I/O bandwidth,3
+220,Magic state routing in surface code,"Authors",2022,paper,compilation,routing,analytic,Routing magic states through surface code,Compilation detail,2
+221,Low-overhead magic state injection via lattice surgery,"Authors",2024,preprint,magic_state,injection,analytic,Lattice-surgery magic-state injection,Injection protocol,3
+222,Catalysed magic state factory,"Authors",2024,preprint,magic_state,factory,analytic,Catalysed T-factory design,Factory alternative,2
+223,T-state distillation overview,"Bravyi, S.; Haah, J.",2012,paper,magic_state,distillation,analytic,T-state distillation canonical,Distillation reference,3
+224,Multi-level 15-to-1 distillation,"Fowler, A.G.; Devitt, S.J.; Jones, C.",2013,paper,magic_state,distillation,analytic,Multi-level 15-to-1,Distillation canonical,3
+225,CSS-T codes and distillation,"Vuillot, C.; Lao, L.; Criger, B.; et al.",2019,paper,magic_state,css_t,analytic,CSS-T subfamily enabling transversal T,CSS-T class,3
+226,Scalable Neural decoder for topological surface codes,"Gicev, S.; Hollenberg, L.C.L.; Usman, M.",2023,paper,ml_decoder,surface,learning,CNN-transformer scalable decoder,Scalability study,2
+227,Neural ensemble decoding for topological QEC,"Meinerz, K.; Park, C.-Y.; Trebst, S.",2022,paper,ml_decoder,ensemble,learning,Ensemble NN decoders vs MWPM arXiv:2110.04593,Ensemble NN decoder,2
+228,Deep neural decoders for near-term FT experiments,"Chamberland, C.; Ronagh, P.",2018,paper,ml_decoder,neural_network,learning,Early circuit-level NN decoder,Early NN decoder,2
+229,Neural network decoders for topological codes (foundational),"Torlai, G.; Melko, R.G.",2017,paper,ml_decoder,neural_network,learning,Early neural toric-code decoder,Early NN demo,2
+230,Qiskit resource estimation,"IBM",2024,software,resource_estimation,qiskit,tool,Qiskit RE prototype,Alternative RE tool,2
+231,Open Quantum Resource Estimator OpenFermion,"Google",2023,software,resource_estimation,openfermion,tool,OpenFermion RE utilities,Alt RE tool,2
+232,OpenQL quantum compiler,"Authors",2019,software,compilation,openql,tool,OpenQL compiler,Alternative compiler,2
+233,staq quantum compiler,"Authors",2020,software,compilation,staq,tool,staq compiler,Alternative compiler,2
+234,lattice-surgery-compiler,"Authors",2022,software,compilation,lattice_surgery,tool,Lattice surgery compiler,Surface-code compilation,2
+235,qsharp-runtime github,"Microsoft",2022,software,qsharp,runtime,tool,qsharp-runtime predecessor to qsharp,Legacy Microsoft repo,2
+236,bposd pip package,"Roffe, J.",2020,software,decoder,bp,tool,pypi.org/project/bposd legacy,Legacy BP-OSD,3
+237,bp_osd github,"Roffe, J.",2019,software,decoder,bp,tool,github.com/quantumgizmos/bp_osd,Legacy BP-OSD,3
+238,CUDA 12.9 release notes,"NVIDIA",2025,documentation,software,cuda,specification,CUDA 12.9 release,Toolchain reference,2
+239,cupy GPU NumPy,"Authors",2024,software,python,gpu,tool,CuPy GPU NumPy,GPU Python stack,2
+240,PyTorch 2.6 release notes,"Meta",2025,documentation,software,pytorch,specification,PyTorch 2.6 + CUDA 12.4,ML stack,2
+241,Logical multi-qubit entanglement with dual-rail SC qubits,"Authors",2026,paper,experiment,dual_rail,experiment,Nat Phys multi-qubit dual-rail,Hardware experiment,2
+242,Bias-preserving and error-detectable entangling ops in SC dual-rail,"Authors",2025,preprint,biased_noise,dual_rail,hardware,arXiv:2503.10935,Experimental dual-rail,2
+243,Quantum benchmarking of noise-biased Kerr-cat,"Authors",2025,paper,biased_noise,cat_qubit,experiment,PNAS arXiv:2411.04442,Cat-qubit benchmark,3
+244,Ultrahigh error threshold for surface codes with biased noise,"Tuckett, D.K.; Bartlett, S.D.; Flammia, S.T.",2018,paper,biased_noise,surface_code,simulation,Biased-noise threshold scaling,Biased-noise baseline,3
+245,Performance of XZZX under realistic noise,"Higgott, O.; Bohdanowicz, T.C.; Kubica, A.; Flammia, S.T.; Campbell, E.T.",2023,paper,biased_noise,xzzx,simulation,PRX Quantum XZZX circuit-level,Realistic XZZX,3
+246,Bias-preserving gates with stabilized cat qubits,"Puri, S.; et al.",2020,paper,biased_noise,cat_qubit,hardware,First bias-preserving CX for cat qubits Sci Adv,Biased-noise hardware,3
+247,Tailored cluster states biased noise,"Authors",2023,paper,biased_noise,mbqc,simulation,npj QI biased cluster states,Biased MBQC,2
+248,Erasure conversion in Rydberg arrays,"Wu, Y.; Kolkowitz, S.; Puri, S.; Thompson, J.D.",2022,paper,erasure,neutral_atom,theory,Erasure conversion in Sr Rydberg arrays Nat Commun,Erasure NA,3
+249,Surface code atom loss NA,"Authors",2024,preprint,erasure,neutral_atom,simulation,Tolerance to atom loss,NA resilience,3
+250,Developments in SC erasure qubits for hardware-efficient QEC,"Authors",2026,preprint,erasure,superconducting,review,arXiv:2601.02183 review,Erasure qubit review,3
+251,Concurrent decoder composition,"Authors",2024,preprint,decoder,pipeline,engineering,Concurrent decoding layers streaming,Streaming composition,2
+252,Scalable NN decoder hardware,"Authors",2024,preprint,ml_decoder,hardware,learning,NN decoder for cryogenic CMOS,Hardware NN decoder,2
+253,Optimal quantum error correction thresholds via stat-mech,"Wang, C.; Harrington, J.; Preskill, J.",2003,paper,fundamentals,threshold,analytic,Mapping of QEC to Nishimori,Threshold-stat-mech,3
+254,Single-shot decoding of good qLDPC codes,"Authors",2024,paper,decoder,qldpc,analytic,Comm Math Phys single-shot decoder,Single-shot theoretical,3
+255,Computer Science Challenges in Quantum Computing,"Authors",2026,preprint,review,context,review,arXiv:2601.20247 challenges review,Context review,2
+256,HPCA 2026 BP-SF decoder,"Authors",2026,paper,decoder,parallel_bp,algorithm,Parallelised BP decoder HPCA 2026 accepted,Parallel BP paper,3
+257,Pinball surface-code preprocessor,"Authors",2025,preprint,decoder,surface_code,algorithm,Pinball preprocessing for surface codes,Preprocessing,2
+258,Cultivation on surface code continuation,"Gidney, C.; Shutty, N.; Jones, C.",2024,preprint,magic_state,cultivation,simulation,Cultivation continuation extensions,Cultivation extension,3
+259,Sneakernet networks with NA qLDPC memories,"Authors",2025,preprint,resource_estimation,network,estimate,Quantum network RE with qLDPC memories arXiv:2410.01211,Quantum network benchmark,2
+260,FTQC: Implementing Hamming-Based Codes,"Authors",2026,preprint,fundamentals,hamming,analytic,arXiv:2601.07860 Hamming-based codes,Alternative code,2

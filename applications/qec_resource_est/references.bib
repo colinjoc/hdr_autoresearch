@@ -1,0 +1,271 @@
+% References for "Classical Decoder Compute Narrows the qLDPC Qubit Advantage"
+% Consolidated 2026-04-21 from qec_ideation/papers.csv and Phase 0 deep lit review.
+
+@article{Bravyi-2024,
+  author = {Bravyi, Sergey and Cross, Andrew W. and Gambetta, Jay M. and Maslov, Dmitri and Rall, Patrick and Yoder, Theodore J.},
+  title = {High-threshold and low-overhead fault-tolerant quantum memory},
+  journal = {Nature},
+  year = {2024},
+  volume = {627},
+  pages = {778--782},
+  note = {arXiv:2308.07915; introduces the [[144,12,12]] BB gross code}
+}
+
+@article{Panteleev-Kalachev-2022,
+  author = {Panteleev, Pavel and Kalachev, Gleb},
+  title = {Asymptotically good quantum and locally testable classical {LDPC} codes},
+  journal = {Proc.~STOC},
+  year = {2022},
+  note = {arXiv:2111.03654}
+}
+
+@article{Symons-2025,
+  author = {Symons, Benjamin C. B. and Rajput, Abhishek and Browne, Dan E.},
+  title = {Sequences of Bivariate Bicycle Codes from Covering Graphs},
+  year = {2025},
+  note = {arXiv:2511.13560}
+}
+
+@article{Bhave-2026,
+  author = {Bhave, Ameya S. and Choudhury, Navnil and Nemec, Andrew and Basu, Kanad},
+  title = {BiBiEQ: Bivariate Bicycle Codes on Erasure Qubits},
+  year = {2026},
+  note = {arXiv:2602.07578; IEEE QCNC 2026}
+}
+
+@article{Pandey-2026,
+  author = {Pandey, Tushar},
+  title = {Fair Decoder Baselines and Rigorous Finite-Size Scaling for Bivariate Bicycle Codes on the Quantum Erasure Channel},
+  year = {2026},
+  note = {arXiv:2603.19062}
+}
+
+@article{Breuckmann-Eberhardt-2021,
+  author = {Breuckmann, Nikolas P. and Eberhardt, Jens N.},
+  title = {Quantum low-density parity-check codes},
+  journal = {PRX Quantum},
+  year = {2021},
+  volume = {2},
+  pages = {040101}
+}
+
+@article{Panteleev-Kalachev-2019,
+  author = {Panteleev, Pavel and Kalachev, Gleb},
+  title = {Degenerate Quantum {LDPC} Codes With Good Finite Length Performance},
+  year = {2019},
+  note = {arXiv:1904.02703; introduces BP+OSD for quantum codes}
+}
+
+@article{Roffe-2020,
+  author = {Roffe, Joschka and White, David R. and Burton, Simon and Campbell, Earl},
+  title = {Decoding across the quantum low-density parity-check code landscape},
+  journal = {Phys.~Rev.~Research},
+  year = {2020},
+  volume = {2},
+  pages = {043423},
+  note = {arXiv:2005.07016; the ldpc package}
+}
+
+@misc{Roffe-LDPC,
+  author = {Roffe, Joschka},
+  title = {ldpc: Python tools for quantum LDPC codes},
+  howpublished = {\url{https://github.com/quantumgizmos/ldpc}},
+  note = {version 2.4.1, 2024}
+}
+
+@article{Hillmann-2024,
+  author = {Hillmann, Timo and others},
+  title = {Ambiguity Clustering: An accurate and efficient decoder for q{LDPC} codes},
+  year = {2024},
+  note = {arXiv:2406.14527}
+}
+
+@article{Ueno-2025,
+  author = {Ueno, Yosuke and others},
+  title = {Evolutionary BP+OSD decoding for low-latency {QEC}},
+  year = {2025},
+  note = {arXiv:2512.18273}
+}
+
+@article{Fowler-2013,
+  author = {Fowler, Austin G.},
+  title = {Minimum weight perfect matching of fault-tolerant topological quantum error correction in average {O}(1) parallel time},
+  year = {2013},
+  note = {arXiv:1307.1740}
+}
+
+@article{Higgott-2022,
+  author = {Higgott, Oscar},
+  title = {{PyMatching}: A Python Package for Decoding Quantum Codes with Minimum-Weight Perfect Matching},
+  journal = {ACM Trans.~Quantum Comput.},
+  year = {2022},
+  volume = {3},
+  number = {3},
+  pages = {16:1--16:16},
+  note = {arXiv:2105.13082}
+}
+
+@article{Higgott-Gidney-2023,
+  author = {Higgott, Oscar and Bohdanowicz, Thomas C. and Kubica, Aleksander and Flammia, Steven T. and Campbell, Earl T.},
+  title = {Improved Decoding of Circuit Noise and Fragile Boundaries of Tailored Surface Codes},
+  journal = {Phys.~Rev.~X},
+  year = {2023},
+  volume = {13},
+  pages = {031007},
+  note = {Defines SI1000 circuit-noise schedule}
+}
+
+@article{Delfosse-Nickerson-2021,
+  author = {Delfosse, Nicolas and Nickerson, Naomi H.},
+  title = {Almost-linear time decoding algorithm for topological codes},
+  journal = {Quantum},
+  year = {2021},
+  volume = {5},
+  pages = {595}
+}
+
+@misc{Edmonds-1965,
+  author = {Edmonds, Jack},
+  title = {Paths, Trees, and Flowers},
+  journal = {Canadian J. Math.},
+  year = {1965},
+  volume = {17},
+  pages = {449--467}
+}
+
+@article{Barnes-2025,
+  author = {Barnes, Katarzyna M. and others (Riverlane)},
+  title = {Collision clustering decoder: first hardware decoder for real-time scalable quantum error correction},
+  journal = {Nature Communications},
+  year = {2025}
+}
+
+@article{Beverland-2022,
+  author = {Beverland, Michael E. and Murali, Prakash and Troyer, Matthias and Svore, Krysta M. and Hoefler, Torsten and Kliuchnikov, Vadym and Low, Guang Hao and Soeken, Mathias and Sundaram, Aarthi and Vaschillo, Alexander},
+  title = {Assessing requirements to scale to practical quantum advantage},
+  year = {2022},
+  note = {arXiv:2211.07629; Azure Resource Estimator}
+}
+
+@article{Litinski-2019,
+  author = {Litinski, Daniel},
+  title = {A Game of Surface Codes: Large-Scale Quantum Computations with Lattice Surgery},
+  journal = {Quantum},
+  year = {2019},
+  volume = {3},
+  pages = {128},
+  note = {arXiv:1808.02892}
+}
+
+@article{Gidney-Ekera-2021,
+  author = {Gidney, Craig and Eker{\aa}, Martin},
+  title = {How to factor 2048 bit {RSA} integers in 8 hours using 20 million noisy qubits},
+  journal = {Quantum},
+  year = {2021},
+  volume = {5},
+  pages = {433},
+  note = {arXiv:1905.09749}
+}
+
+@article{Gidney-2025,
+  author = {Gidney, Craig},
+  title = {How to factor 2048 bit {RSA} integers with less than a million noisy qubits},
+  year = {2025},
+  note = {arXiv:2505.15917}
+}
+
+@article{Cohen-2024,
+  author = {Cohen, Lawrence Z. and others},
+  title = {Low-overhead fault-tolerant quantum computing using long-range connectivity},
+  year = {2024},
+  note = {Predicts qLDPC decoder-cost-folding}
+}
+
+@article{Gidney-Stim-2021,
+  author = {Gidney, Craig},
+  title = {Stim: a fast stabilizer circuit simulator},
+  journal = {Quantum},
+  year = {2021},
+  volume = {5},
+  pages = {497},
+  note = {arXiv:2103.02202}
+}
+
+@misc{qldpc-org,
+  title = {qldpc-org/qldpc: Python package for quantum LDPC codes},
+  howpublished = {\url{https://github.com/qldpc-org/qldpc}},
+  note = {version 0.2.9, 2026}
+}
+
+@misc{NVIDIA-CUDAQ-QEC-2024,
+  title = {{NVIDIA CUDA-Q QEC}},
+  howpublished = {\url{https://nvidia.github.io/cudaqx/}},
+  note = {version 0.6.0, commit 84d18ca, released 2026-04-14}
+}
+
+@article{Bausch-2024,
+  author = {Bausch, Johannes and others},
+  title = {Learning high-accuracy error decoding for quantum processors},
+  journal = {Nature},
+  year = {2024},
+  note = {AlphaQubit}
+}
+
+@article{Senior-2025,
+  author = {Senior, Andrew W. and others (Google Quantum AI)},
+  title = {A scalable and real-time neural decoder for topological quantum codes},
+  year = {2025},
+  note = {arXiv:2512.07737; AlphaQubit 2}
+}
+
+@article{Meinerz-2022,
+  author = {Meinerz, Karl and Park, Chae-Yeun and Trebst, Simon},
+  title = {Scalable Neural Decoder for Topological Surface Codes},
+  journal = {Phys.~Rev.~Lett.},
+  year = {2022},
+  volume = {128},
+  pages = {080505}
+}
+
+@article{Bhatnagar-2025,
+  author = {Bhatnagar, Vishnu and others},
+  title = {Reaction-time analysis for surface-code fault tolerance},
+  year = {2025},
+  note = {arXiv:2511.10633}
+}
+
+@article{Skoric-2022,
+  author = {Skoric, Luka and Browne, Dan E. and Barnes, Katarzyna M. and Gillespie, Neil I. and Campbell, Earl T.},
+  title = {Parallel Window Decoding Enables Scalable Fault Tolerant Quantum Computation},
+  year = {2022},
+  note = {arXiv:2209.08552}
+}
+
+@article{Battistel-2023,
+  author = {Battistel, Francesco and Chamberland, Christopher and Johar, Kumar and Overwater, Ramon W. J. and Sebastiano, Fabio and Skoric, Luka and Ueno, Yosuke and Usman, Muhammad},
+  title = {Real-Time Decoding for Fault-Tolerant Quantum Computing: Progress, Challenges and Outlook},
+  journal = {Nano Futures},
+  year = {2023},
+  volume = {7},
+  pages = {032003}
+}
+
+@article{Liyanage-2024,
+  author = {Liyanage, Namitha and others},
+  title = {FPGA-based distributed union-find decoder for surface codes},
+  year = {2024},
+  note = {arXiv:2406.08491}
+}
+
+@article{Xu-2024,
+  author = {Xu, Qian and others},
+  title = {Constant-overhead fault-tolerant quantum computation with reconfigurable atom arrays},
+  year = {2024},
+  note = {arXiv:2308.08648}
+}
+
+@article{Cross-Maslov-2025,
+  author = {Cross, Andrew and Maslov, Dmitri},
+  title = {Fault-tolerant gate sets for bivariate bicycle codes},
+  year = {2025}
+}
