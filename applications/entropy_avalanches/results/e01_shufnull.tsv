@@ -1,0 +1,25 @@
+model	random_init	layer	threshold	real_alpha	shuffled_alpha	distinguishable
+gpt2	False	0	2.5			False
+gpt2	False	1	2.5	2.864868164062499	2.6618408203124995	False
+gpt2	False	2	2.5	2.96337890625	2.614599609374999	False
+gpt2	False	3	2.5	2.8207031249999996	2.8976806640624995	False
+gpt2	False	4	2.5	2.9176025390625	2.988354492187499	False
+gpt2	False	5	2.5	2.8984836609533327	2.9733783529272744	False
+gpt2	False	6	2.5	2.915009886444176	2.824945491931056	False
+gpt2	False	7	2.5	2.566272663903679		True
+gpt2	False	8	2.5	2.970178596583582		True
+gpt2	False	9	2.5			False
+gpt2	False	10	2.5			False
+gpt2	False	11	2.5			False
+gpt2	True	0	2.5			False
+gpt2	True	1	2.5			False
+gpt2	True	2	2.5			False
+gpt2	True	3	2.5			False
+gpt2	True	4	2.5			False
+gpt2	True	5	2.5			False
+gpt2	True	6	2.5			False
+gpt2	True	7	2.5			False
+gpt2	True	8	2.5			False
+gpt2	True	9	2.5			False
+gpt2	True	10	2.5			False
+gpt2	True	11	2.5			False
