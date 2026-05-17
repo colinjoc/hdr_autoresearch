@@ -24,6 +24,8 @@ Key principles:
 - **Bayesian discipline**: State beliefs before looking at data
 - **Isolation**: One change per cycle -- if you change two things, you don't know which helped
 - **Cumulative knowledge**: Every cycle produces knowledge, even failures
+- **Prior-only project selection** (added 2026-05-17): Every proposal carries a Bayesian assurance value (must be ≥ 0.30) and a Drake-decomposed PriorImpact distribution (sourced from empirical conversion rates in `applications/meta_analysis.md`). See `program.md` Phase −0.5 §6/§7 and `/home/col/research_methodology/prior_only_data_ranking.md` for the methodology background. OSSE pre-flight at Phase 0.5 ensures the analysis pipeline can recover the H₁ effect on synthetic data before any real-data Phase-1 tournament.
+- **Real-options discipline** (added 2026-05-17): Paused projects carry an explicit `OPTION_EXPIRY` date. At expiry, re-justify against current queue or auto-kill (Dixit & Pindyck 1994 real-options valuation; see `program.md` "Real-Options Discipline").
 
 ## The Full Pipeline
 

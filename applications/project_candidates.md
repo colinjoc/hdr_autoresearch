@@ -4,6 +4,34 @@ Updated 2026-04-08. Reassessed through the lens of: can HDR find genuinely novel
 
 ---
 
+## Candidate template (mandatory for new additions, retrofit on update)
+
+Every candidate added or revised after 2026-05-17 MUST include the following two fields below the existing description, drawn from `program.md` Phase −0.5 §6 and §7:
+
+```
+**Bayesian assurance (proposal §6 preview):**
+- Effect-size prior (5/50/95 percentiles): d ∈ [low, mid, high]
+- Achievable N: <number, with data-source link>
+- Plausible noise: <σ_est or analogue>
+- Assurance estimate: <value>   (KILL gate: < 0.30)
+
+**Drake decomposition (proposal §7 preview):**
+| Factor | P25 | P50 | P75 |
+|---|---|---|---|
+| Pr(reach Phase 3) | | | |   ← use `meta_analysis.md` row, cluster-modifier-adjusted
+| Pr(non-null \| reach P3) | | | |   ← use `meta_analysis.md` row, cluster-modifier-adjusted
+| audience_size (log10 readers) | | | |
+| novelty_factor (1–10) | | | |
+| engineer_weeks | | | |
+| **PriorImpact** | | | |   ← multiply through; show P25/P50/P75
+```
+
+Candidates without these fields are **not yet promotable** to active queue — they require a Phase −0.5 pass first.
+
+The Tier 1/2/3 ranking in the original 2026-04-08 file is preserved for context but is **no longer the operational ranking**. The operational ranking is in `active_queue.md`, sorted by P25(PriorImpact), tie-broken by P50.
+
+---
+
 ## Tier 1 — Transformative Impact, High Novelty, GPU Feasible
 
 ### 1. Room Temperature Superconductor Discovery Pipeline

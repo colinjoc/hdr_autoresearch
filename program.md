@@ -42,10 +42,10 @@ A phase is **complete** only when the named artifact exists on disk AND the cont
 | Phase | Required artifact(s) | Content marker / rule |
 |---|---|---|
 | all | `README.md` + `tests/` passing | First line declares target type. Any phase that writes or revises code REQUIRES a green `pytest tests/` (see "TDD Discipline" below). |
-| **−0.5** (pub only) | `proposal.md` + `scope_check.md` | `scope_check.md` ends with `VERDICT: PROCEED`; written by a **different sub-agent** |
+| **−0.5** (pub only) | `proposal.md` + `scope_check.md` | `proposal.md` has all 7 sections incl. §6 Bayesian assurance ≥ 0.30 and §7 Drake decomposition with P25/P50/P75. `scope_check.md` ends with `VERDICT: PROCEED`; written by a **different sub-agent** |
 | 0 | `papers.csv` + `literature_review.md` + `knowledge_base.md` + `research_queue.md` + `design_variables.md` | Pub: ≥ 200 citations, ≥ 100 hypotheses. Exploratory: ≥ 30 citations, ≥ 20 hypotheses |
 | **0.25** (pub only) | `publishability_review.md` | All five checklist sections answered; ends with `VERDICT: PROCEED`; **different sub-agent** from Phase −0.5 |
-| 0.5 | `E00` row in `results.tsv` + `data_sources.md` + `tests/` (loader + baseline) | Real data only; seed-stable. Option D: CAS versions + textbook reproduction. `pytest tests/` green BEFORE running the baseline |
+| 0.5 | `E00` row in `results.tsv` + `data_sources.md` + `osse_pre_flight.md` + `tests/` (loader + baseline) | Real data only; seed-stable. Option D: CAS versions + textbook reproduction. `pytest tests/` green BEFORE running the baseline. `osse_pre_flight.md` documents synthetic-data recovery of injected H₁ effect at ≥ 0.5 power; Phase 1 BLOCKED if OSSE fails |
 | 1 | `results.tsv` + `tournament_results.csv` + `tests/` covering each model-family helper | Pub: ≥ 4 families. Exploratory: ≥ 2. Both include linear-model sanity check. Option D: ≥ 3 frameworks incl. textbook baseline. Each family under test with a known-truth invariant |
 | 2 | Rows in `results.tsv` with `status` ∈ {KEEP, REVERT} + `tests/` covering every new helper added by each KEEP | Pub: ≥ 20 rows. Exploratory: ≥ 10. Every KEEP tied to a commit. Each KEEP's new code under a passing test |
 | 2.5 (pub required) | Pairwise-interaction rows in `results.tsv` | Top-N near-miss features tested |
@@ -115,6 +115,27 @@ This produces a verifiable audit trail: *N versions of the paper ↔ N versions 
 - Declaring a project "complete" at any phase ≥ 3 without a `paper_review_signoff.md` containing `NO FURTHER BLOCKING ISSUES`. This is the Phase 4 gate.
 
 **Cost expectation.** Re-entry is cheap by design: the deep lit review is frozen, scripts are versioned, reviewers read only the updated artefacts. A Phase 3.5 re-review typically costs one fresh sub-agent invocation (2–5 minutes wall-clock). Skipping it to save ~5 minutes is not a legitimate optimisation — it breaks the audit trail.
+
+### Real-Options Discipline (for paused / data-blocked projects)
+
+A project that hits an external blocker (data not yet available, credentials pending, hardware queue) is conceptually a **real option** (Dixit & Pindyck 1994 — see `/home/col/research_methodology/prior_only_data_ranking.md` §3.15) — its current value is the expected payoff at the point of resumption, discounted by probability of unblocking, minus the carrying cost of keeping the option alive.
+
+**The carrying cost is real.** Paused projects clutter `active_queue.md`, accrete stale lit-reviews, consume mental overhead, and burn periodic re-justification cycles. "Indefinitely paused" is a failure mode.
+
+**Each paused project gets an explicit `OPTION_EXPIRY` line in its `README.md`:**
+
+```
+**Status:** paused
+**Blocker:** <one-line description>
+**OPTION_EXPIRY:** YYYY-MM-DD  (date by which the blocker must resolve or the project auto-kills)
+**Re-justification:** the prior `PriorImpact` must beat the *current* top-of-queue candidate at that future date, not at the original pause date
+```
+
+**Decision rule at OPTION_EXPIRY:** the project author re-runs the Drake decomposition (§7 of `proposal.md`) with current information. If `P50(PriorImpact) < P50` of the current `active_queue.md` median candidate, the project auto-KILLs (move to `ARCHIVED_paused/<slug>/`). If it survives, the OPTION_EXPIRY is extended by 90 days max, with a fresh entry in `meta_analysis.md` recording the extension.
+
+**Why this matters.** Three paused projects currently sit in `active_queue.md` (OSS-1, EU-29, the h100-blocked refit). Each has accrued >30 days of overhead with no decision-forcing date. Real-options framing says: pick a date, decide at that date, don't drift.
+
+**Forbidden:** "this is still interesting, keep it paused indefinitely." Indefinite optionality is negative-value because of carrying cost.
 
 ### TDD Discipline (applies to every phase that writes or revises code)
 
@@ -199,15 +220,21 @@ These two gates catch novelty weakness and venue mismatch before expensive compu
 
 ### Phase −0.5: Scope Check
 
-Runs before Phase 0 (no lit review yet). The researcher writes `proposal.md` — a single page with five sections, each ≤ 1 paragraph:
+Runs before Phase 0 (no lit review yet). The researcher writes `proposal.md` — a single page with **seven** sections, each ≤ 1 paragraph:
 
 1. **Question.** One sentence.
 2. **Proposed contribution.** Concrete enough to judge novelty.
 3. **Why now.** What motivating development makes this timely.
 4. **Falsifiability.** The specific outcome that would kill the result.
 5. **Target venue.** Primary venue + one reason it fits.
+6. **Bayesian assurance.** Pre-data probability that the planned falsifiable test (§4) will produce a significant result. Decompose into: (a) prior on the true effect size d (one-line range with 5/50/95 percentiles based on analogues or theory), (b) achievable sample size N given known data sources, (c) plausible noise / variance. Compute `assurance = E_{d~prior}[Power(d; N)]`. **Hard gate: assurance ≥ 0.30 to PROCEED.** Below that, the design is structurally underpowered and the project is dead-on-arrival regardless of how the rest of the proposal reads. Power-at-prior-mean is NOT a substitute for assurance (Jensen's inequality means the two diverge; see `/home/col/research_methodology/prior_only_data_ranking.md` §3.2).
+7. **Drake decomposition.** Multiplicative impact estimate:
+   `PriorImpact = Pr(reach Phase 3) × Pr(non-null | reach Phase 3) × audience_size × novelty_factor / engineer_weeks`
+   Provide 5/50/95 percentile estimate for each factor. Multiply through; report the resulting *distribution* over PriorImpact (P25 / P50 / P75). Use the meta-analytic conversion rates in `applications/meta_analysis.md` for the first two factors as the reference-class prior (do NOT estimate from scratch). Factors elicited via Cooke-calibrated self-elicitation (track your calibration on past projects in `meta_analysis.md`).
 
 The scope-check reviewer is a fresh sub-agent reading only `proposal.md`. Prompt template at `prompts/scope_check_reviewer.md`. Produces `scope_check.md` ending with a VERDICT.
+
+**Assurance + Drake additions are mandatory for both target types**, not just publication. An exploratory project with assurance < 0.30 is still exploring the wrong design — kill or redesign.
 
 ### Phase 0.25: Publishability Review
 
@@ -280,6 +307,7 @@ Three independent checks; stop when all three are satisfied:
 2. **Featurizer speed audit at 500 samples.** Cache featurization output to disk on first run.
 3. **Validation must not overlap training.** Run leave-one-condition-out CV alongside holdout. Trust the leave-one-out if they disagree.
 4. **Linear baseline first.** If tree methods are not >2× better than Ridge/Logistic, skip neural models.
+5. **OSSE pre-flight (mandatory before Phase 1).** Before any real-data Phase-1 tournament, run an Observing-System-Simulation-Experiment style check: (a) generate synthetic data under H₁ at the Phase −0.5 expected effect size, (b) run the planned Phase-0.5 baseline pipeline on the synthetic data, (c) verify the pipeline recovers the injected effect at ≥ 0.5 power. If the OSSE *fails to recover the injected effect* — i.e. the pipeline can't find the signal you put there by hand — real data won't help. The project is dead-on-arrival. Save the OSSE in `osse_pre_flight.md` documenting: synthetic ground-truth definition, planned analysis output, recovered effect size, recovery power. This is the simulation-side complement to the Phase −0.5 Bayesian assurance gate (assurance bounds *power* analytically; OSSE confirms the actual *pipeline implementation* meets that bound). See `/home/col/research_methodology/prior_only_data_ranking.md` §3.4.
 
 ### Use Published Simulators and Datasets — CRITICAL
 
